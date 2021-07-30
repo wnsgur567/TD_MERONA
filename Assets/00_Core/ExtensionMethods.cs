@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 using UnityEngine;
 
@@ -84,6 +85,56 @@ public static class Methods
         // return Quaternion.FromToRotation(vStart, vEnd).eulerAngles.z;
         Vector3 v = vEnd - vStart;
         return Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
+    }
+
+    public static T CopyComponent<T>(this Component original) where T : Component
+    {
+        Type type = original.GetType();
+        GameObject tempObj = new GameObject("temp");
+        T copy = tempObj.AddComponent<T>();
+
+        FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+        foreach (FieldInfo field in fields)
+        {
+            field.SetValue(copy, field.GetValue(original));
+        }
+
+        //PropertyInfo[] properties = type.GetProperties();
+        //foreach (PropertyInfo property in properties)
+        //{
+        //    if (property.CanWrite)
+        //    {
+        //        property.SetValue(copy, property.GetValue(original));
+        //    }
+        //}
+
+        GameObject.DestroyImmediate(tempObj);
+        return copy;
+    }
+    public static T CopyComponent<T>(this Component original, GameObject destination) where T : Component
+    {
+        Type type = original.GetType();
+        Component copy = destination.GetComponent(type);
+        if (null == copy)
+        {
+            copy = destination.AddComponent(type);
+        }
+
+        FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+        foreach (FieldInfo field in fields)
+        {
+            field.SetValue(copy, field.GetValue(original));
+        }
+
+        PropertyInfo[] properties = type.GetProperties();
+        foreach (PropertyInfo property in properties)
+        {
+            if (property.CanWrite)
+            {
+                property.SetValue(copy, property.GetValue(original));
+            }
+        }
+        return copy as T;
     }
 }
 

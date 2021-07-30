@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MainCanvas
   - MainPanel
+  - Monster
   layers:
   - Default
   - TransparentFX
@@ -13,11 +14,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - TowerAttackRange
+  - BulletAttackRange
+  - Monster
+  - Node
+  - NodeRotate
   - 
   - 
   - 

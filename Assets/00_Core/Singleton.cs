@@ -1,22 +1,5 @@
 ﻿using UnityEngine;
 
-public class SingletonBasic<T> where T : new()
-{
-    private static T instance;
-    public static T Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = new T();
-            }
-
-            return instance;
-        }
-    }
-}
-
 [DefaultExecutionOrder(-100)]
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
@@ -47,4 +30,21 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     //{
     //    DontDestroyOnLoad(gameObject);
     //}
+}
+
+public class SingletonBasic<T> where T : new()
+{
+    private static T instance;
+    public static T Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new T();
+            }
+
+            return instance;
+        }
+    }
 }
