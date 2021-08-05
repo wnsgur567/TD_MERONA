@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SkillPool : ObjectPool<SkillPool>
 {
-    public GameObject m_Origin;
-
     public override void __Initialize()
     {
         base.__Initialize();

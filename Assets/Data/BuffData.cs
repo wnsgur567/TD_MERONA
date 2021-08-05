@@ -13,11 +13,13 @@ public enum E_BuffType
     Move_spd,
     Crit_rate,
     Crit_Dmg,
+
     Stun,
     Dot_Dmg,
     Insta_Kill,
     CritDmg_less,
     CritDmg_more,
+
     Heal,
     Summon,
     Shield
@@ -32,6 +34,16 @@ public enum E_AddType
 }
 
 [System.Serializable]
+public struct S_Buff
+{
+    public E_BuffType BuffType;
+    public E_AddType AddType;
+    public float BuffAmount;
+    public float BuffRand;
+    public int Summon;
+}
+
+[System.Serializable]
 public struct S_BuffData_Excel
 {
     public int No;
@@ -39,12 +51,10 @@ public struct S_BuffData_Excel
     public string Name_EN;
     public int Code;
 
-    public E_BuffType BuffType;
-    public E_AddType AddType;
-    public float BuffAmount;
-    public float BuffRand;
+    public S_Buff Buff1;
+    public S_Buff Buff2;
+    public S_Buff Buff3;
 
-    public int Summon;
     public float Duration;
 
     public int Prefab;
@@ -74,12 +84,24 @@ public class BuffData : ScriptableObject
         data.Name_EN = strs[idx++];
         data.Code = int.Parse(strs[idx++]);
         
-        data.BuffType = (E_BuffType)int.Parse(strs[idx++]);
-        data.AddType = (E_AddType)int.Parse(strs[idx++]);
-        data.BuffAmount = float.Parse(strs[idx++]);
-        data.BuffRand = float.Parse(strs[idx++]);
+        data.Buff1.BuffType = (E_BuffType)int.Parse(strs[idx++]);
+        data.Buff1.AddType = (E_AddType)int.Parse(strs[idx++]);
+        data.Buff1.BuffAmount = float.Parse(strs[idx++]);
+        data.Buff1.BuffRand = float.Parse(strs[idx++]);
+        data.Buff1.Summon = int.Parse(strs[idx++]);
 
-        data.Summon = int.Parse(strs[idx++]);
+        data.Buff2.BuffType = (E_BuffType)int.Parse(strs[idx++]);
+        data.Buff2.AddType = (E_AddType)int.Parse(strs[idx++]);
+        data.Buff2.BuffAmount = float.Parse(strs[idx++]);
+        data.Buff2.BuffRand = float.Parse(strs[idx++]);
+        data.Buff2.Summon = int.Parse(strs[idx++]);
+
+        data.Buff3.BuffType = (E_BuffType)int.Parse(strs[idx++]);
+        data.Buff3.AddType = (E_AddType)int.Parse(strs[idx++]);
+        data.Buff3.BuffAmount = float.Parse(strs[idx++]);
+        data.Buff3.BuffRand = float.Parse(strs[idx++]);
+        data.Buff3.Summon = int.Parse(strs[idx++]);
+
         data.Duration = float.Parse(strs[idx++]);
 
         data.Prefab = int.Parse(strs[idx++]);

@@ -6,6 +6,8 @@ public abstract class ObjectPool<T> : Singleton<T> where T : MonoBehaviour
 {
     [ReadOnly(true)]
     public int m_PoolSize = 100;
+    [ReadOnly]
+    public GameObject m_Origin;
 
     protected Dictionary<string, MemoryPool> m_Pools = null;
 

@@ -73,7 +73,7 @@ public class Tower : MonoBehaviour
     public void InitializeTower(int code)
     {
         #region 엑셀 데이터 정리
-        m_TowerInfo_Excel = M_Tower.m_TowerData.GetData(code);
+        m_TowerInfo_Excel = M_Tower.GetData(code);
         #endregion
 
         #region 내부 데이터 정리
@@ -82,24 +82,12 @@ public class Tower : MonoBehaviour
         m_TowerInfo.DefaultSkillStat = Skill_Stat.GetData(m_TowerInfo_Excel.Atk_Code);
 
         // 공격
+        m_TowerInfo.AttackSpeed = m_TowerInfo_Excel.Atk_spd;
         m_TowerInfo.AttackTimer = m_TowerInfo_Excel.Atk_spd;
         m_TowerInfo.IsAttacking = true;
+
         // 시너지
-        // 공격력
-        m_TowerInfo.SynergyStat.Atk_Fix = 0f;
-        m_TowerInfo.SynergyStat.Atk_Percent = 1f;
-        // 사거리
-        m_TowerInfo.SynergyStat.Range_Fix = 0f;
-        m_TowerInfo.SynergyStat.Range_Percent = 1f;
-        // 공격 속도
-        m_TowerInfo.SynergyStat.Atk_spd_Fix = 0f;
-        m_TowerInfo.SynergyStat.Atk_spd_Percent = 1f;
-        // 치명타 확률
-        m_TowerInfo.SynergyStat.Crit_rate_Fix = 0f;
-        m_TowerInfo.SynergyStat.Crit_rate_Percent = 1f;
-        // 치명타 배율
-        m_TowerInfo.SynergyStat.Crit_Dmg_Fix = 0f;
-        m_TowerInfo.SynergyStat.Crit_Dmg_Percent = 1f;
+        m_TowerInfo.Synergy_Atk_type = E_AttackType.None;
         #endregion
     }
 
@@ -165,36 +153,199 @@ public class Tower : MonoBehaviour
     // 타워 공격
     public void AttackTarget()
     {
-        float Atk_spd = (m_TowerInfo_Excel.Atk_spd - m_TowerInfo.SynergyStat.Atk_spd_Fix) * m_TowerInfo.SynergyStat.Atk_spd_Percent;
-
-        if (m_TowerInfo.AttackTimer < Atk_spd)
+        if (m_TowerInfo.AttackTimer < m_TowerInfo.AttackSpeed)
         {
-            m_TowerInfo.AttackTimer += Time.deltaTime * 1000;
+            m_TowerInfo.AttackTimer += Time.deltaTime;
         }
         else if (null != m_Target)
         {
-            m_TowerInfo.AttackTimer -= m_TowerInfo_Excel.Atk_spd;
+            // 내부 데이터 정리
+            m_TowerInfo.AttackTimer -= m_TowerInfo.AttackSpeed;
+            m_TowerInfo.AttackSpeed = m_TowerInfo_Excel.Atk_spd;
             m_TowerInfo.IsAttacking = true;
 
+            // 스킬 생성
             Skill skill = M_SkillPool.GetPool("Skill").Spawn().GetComponent<Skill>();
             skill.transform.position = transform.position;
             skill.enabled = true;
             skill.gameObject.SetActive(true);
 
+            // 스킬 데이터 불러오기
             S_SkillConditionData_Excel conditionData = m_TowerInfo.DefaultSkillCondition;
             S_SkillStatData_Excel statData = m_TowerInfo.DefaultSkillStat;
 
-            // 시너지, 버프 관련
-            statData.Dmg += m_TowerInfo.SynergyStat.Atk_Fix;
-            statData.Dmg *= m_TowerInfo.SynergyStat.Atk_Percent;
+            #region 시너지
 
-            statData.Range += m_TowerInfo.SynergyStat.Range_Fix;
-            statData.Range *= m_TowerInfo.SynergyStat.Range_Percent;
+            #region 버프
+            // 버프 적용 확률 계산
+            float Buff1Rand = Random.Range(0f, 1f);
+            float Buff2Rand = Random.Range(0f, 1f);
+            float Buff3Rand = Random.Range(0f, 1f);
+            // 버프 적용 여부 저장
+            bool Buff1Apply = (m_TowerInfo.Buff1.BuffType == E_BuffType.None) ? false : Buff1Rand <= m_TowerInfo.Buff1.BuffRand;
+            bool Buff2Apply = (m_TowerInfo.Buff2.BuffType == E_BuffType.None) ? false : Buff2Rand <= m_TowerInfo.Buff2.BuffRand;
+            bool Buff3Apply = (m_TowerInfo.Buff3.BuffType == E_BuffType.None) ? false : Buff3Rand <= m_TowerInfo.Buff3.BuffRand;
+
+            // 버프1 체크
+            if (Buff1Apply)
+            {
+                // 버프1 합연산
+                if (m_TowerInfo.Buff1.AddType == E_AddType.Fix)
+                {
+                    switch (m_TowerInfo.Buff1.BuffType)
+                    {
+                        case E_BuffType.Atk:
+                            statData.Dmg += m_TowerInfo.Buff1.BuffAmount;
+                            break;
+                        case E_BuffType.Range:
+                            statData.Range += m_TowerInfo.Buff1.BuffAmount;
+                            break;
+                        case E_BuffType.Atk_spd:
+                            m_TowerInfo.AttackSpeed -= m_TowerInfo.Buff1.BuffAmount;
+                            break;
+                        case E_BuffType.Crit_rate:
+                            break;
+                        case E_BuffType.Crit_Dmg:
+                            break;
+                    }
+                }
+
+                // 버프2 체크
+                if (Buff2Apply)
+                {
+                    // 버프2 합연산
+                    if (m_TowerInfo.Buff2.AddType == E_AddType.Fix)
+                    {
+                        switch (m_TowerInfo.Buff2.BuffType)
+                        {
+                            case E_BuffType.Atk:
+                                statData.Dmg += m_TowerInfo.Buff2.BuffAmount;
+                                break;
+                            case E_BuffType.Range:
+                                statData.Range += m_TowerInfo.Buff2.BuffAmount;
+                                break;
+                            case E_BuffType.Atk_spd:
+                                m_TowerInfo.AttackSpeed -= m_TowerInfo.Buff2.BuffAmount;
+                                break;
+                            case E_BuffType.Crit_rate:
+                                break;
+                            case E_BuffType.Crit_Dmg:
+                                break;
+                        }
+                    }
+
+                    // 버프3 체크
+                    if (Buff3Apply)
+                    {
+                        // 버프3 합연산
+                        if (m_TowerInfo.Buff3.AddType == E_AddType.Fix)
+                        {
+                            switch (m_TowerInfo.Buff3.BuffType)
+                            {
+                                case E_BuffType.Atk:
+                                    statData.Dmg += m_TowerInfo.Buff3.BuffAmount;
+                                    break;
+                                case E_BuffType.Range:
+                                    statData.Range += m_TowerInfo.Buff3.BuffAmount;
+                                    break;
+                                case E_BuffType.Atk_spd:
+                                    m_TowerInfo.AttackSpeed -= m_TowerInfo.Buff3.BuffAmount;
+                                    break;
+                                case E_BuffType.Crit_rate:
+                                    break;
+                                case E_BuffType.Crit_Dmg:
+                                    break;
+                            }
+                        }
+                    }
+                }
+
+                // 버프1 곱연산
+                if (m_TowerInfo.Buff1.AddType == E_AddType.Percent)
+                {
+                    switch (m_TowerInfo.Buff1.BuffType)
+                    {
+                        case E_BuffType.Atk:
+                            statData.Dmg *= m_TowerInfo.Buff1.BuffAmount;
+                            break;
+                        case E_BuffType.Range:
+                            statData.Range *= m_TowerInfo.Buff1.BuffAmount;
+                            break;
+                        case E_BuffType.Atk_spd:
+                            m_TowerInfo.AttackSpeed *= m_TowerInfo.Buff1.BuffAmount;
+                            break;
+                        case E_BuffType.Crit_rate:
+                            break;
+                        case E_BuffType.Crit_Dmg:
+                            break;
+                    }
+                }
+
+                // 버프2 체크
+                if (Buff2Apply)
+                {
+                    // 버프2 곱연산
+                    if (m_TowerInfo.Buff1.AddType == E_AddType.Percent)
+                    {
+                        switch (m_TowerInfo.Buff2.BuffType)
+                        {
+                            case E_BuffType.Atk:
+                                statData.Dmg *= m_TowerInfo.Buff2.BuffAmount;
+                                break;
+                            case E_BuffType.Range:
+                                statData.Range *= m_TowerInfo.Buff2.BuffAmount;
+                                break;
+                            case E_BuffType.Atk_spd:
+                                m_TowerInfo.AttackSpeed *= m_TowerInfo.Buff2.BuffAmount;
+                                break;
+                            case E_BuffType.Crit_rate:
+                                break;
+                            case E_BuffType.Crit_Dmg:
+                                break;
+                        }
+                    }
+
+                    // 버프3 체크
+                    if (Buff3Apply)
+                    {
+                        // 버프3 곱연산
+                        if (m_TowerInfo.Buff1.AddType == E_AddType.Percent)
+                        {
+                            switch (m_TowerInfo.Buff3.BuffType)
+                            {
+                                case E_BuffType.Atk:
+                                    statData.Dmg *= m_TowerInfo.Buff3.BuffAmount;
+                                    break;
+                                case E_BuffType.Range:
+                                    statData.Range *= m_TowerInfo.Buff3.BuffAmount;
+                                    break;
+                                case E_BuffType.Atk_spd:
+                                    m_TowerInfo.AttackSpeed *= m_TowerInfo.Buff3.BuffAmount;
+                                    break;
+                                case E_BuffType.Crit_rate:
+                                    break;
+                                case E_BuffType.Crit_Dmg:
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // 사거리 업데이트
             m_AttackRange.SetRange(statData.Range);
-            //
+            #endregion
 
+            // 공격 타입 변경
+            if (m_TowerInfo.Synergy_Atk_type != E_AttackType.None)
+            {
+                conditionData.Atk_type = m_TowerInfo.Synergy_Atk_type;
+            }
+
+            #endregion
+
+            // 스킬 데이터 설정
             skill.InitializeSkill(m_Target, conditionData, statData);
-            //skill.transform.SetParent(transform);
         }
     }
 
@@ -207,6 +358,8 @@ public class Tower : MonoBehaviour
         // 초기 회전 값
         public Vector3 InitialRotation;
 
+        // 타워 공격 속도
+        public float AttackSpeed;
         // 타워 공격 타이머
         public float AttackTimer;
         // 공격 트리거
@@ -217,27 +370,56 @@ public class Tower : MonoBehaviour
         public S_SkillStatData_Excel DefaultSkillStat;
 
         #region 시너지 관련
-        public S_SynergyStat SynergyStat;
+        // 버프
+        public S_Buff Buff1;
+        public S_Buff Buff2;
+        public S_Buff Buff3;
+        // 공격 타입 변경
         public E_AttackType Synergy_Atk_type;
         #endregion
     }
-    [System.Serializable]
-    public struct S_SynergyStat
-    {
-        // 공격력
-        public float Atk_Fix;
-        public float Atk_Percent;
-        // 사거리
-        public float Range_Fix;
-        public float Range_Percent;
-        // 공격 속도
-        public float Atk_spd_Fix;
-        public float Atk_spd_Percent;
-        // 치명타 확률
-        public float Crit_rate_Fix;
-        public float Crit_rate_Percent;
-        // 치명타 배율
-        public float Crit_Dmg_Fix;
-        public float Crit_Dmg_Percent;
-    }
+    //[System.Serializable]
+    //public struct S_BuffStat
+    //{
+    //    // 적용 확률
+    //    public float BuffRand;
+
+    //    // 공격력
+    //    public float Atk_Fix;
+    //    public float Atk_Percent;
+    //    // 사거리
+    //    public float Range_Fix;
+    //    public float Range_Percent;
+    //    // 공격 속도
+    //    public float Atk_spd_Fix;
+    //    public float Atk_spd_Percent;
+    //    // 치명타 확률
+    //    public float Crit_rate_Fix;
+    //    public float Crit_rate_Percent;
+    //    // 치명타 배율
+    //    public float Crit_Dmg_Fix;
+    //    public float Crit_Dmg_Percent;
+
+    //    public void Initialize()
+    //    {
+    //        // 적용 확률
+    //        BuffRand = 1f;
+
+    //        // 공격력
+    //        Atk_Fix = 0f;
+    //        Atk_Percent = 1f;
+    //        // 사거리
+    //        Range_Fix = 0f;
+    //        Range_Percent = 1f;
+    //        // 공격 속도
+    //        Atk_spd_Fix = 0f;
+    //        Atk_spd_Percent = 1f;
+    //        // 치명타 확률
+    //        Crit_rate_Fix = 0f;
+    //        Crit_rate_Percent = 1f;
+    //        // 치명타 배율
+    //        Crit_Dmg_Fix = 0f;
+    //        Crit_Dmg_Percent = 1f;
+    //    }
+    //}
 }
