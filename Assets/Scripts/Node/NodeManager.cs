@@ -3,21 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder(-98)]
 public class NodeManager : Singleton<NodeManager>
 {
+    public delegate void NodeEventHandler();
+    public NodeEventHandler RotateEndEvent;
+
     // 회전할 각도
-    public float m_RotateAngle;
+    [SerializeField]
+    protected float m_RotateAngle;
     // 회전에 걸리는 시간
-    public float m_Duration;
+    [SerializeField]
+    protected float m_Duration;
     // 회전의 중심점
-    [ReadOnly]
-    public Transform m_Center;
+    [SerializeField, ReadOnly]
+    protected Transform m_Center;
 
     // [타입(안, 밖)][방향(북, 동, 남, 서)]
     // 회전시킬 노드 리스트
-    public List<Node>[][] m_NodeList;
+    protected List<Node>[][] m_NodeList;
     // 노드 부모 (동서남북)
-    public Transform[][] m_NodeParentList;
+    protected Transform[][] m_NodeParentList;
 
     // 선택 노드
     protected Node m_SelectedNode;
@@ -166,7 +172,7 @@ public class NodeManager : Singleton<NodeManager>
             {
                 for (int j = 0; j < nodes[i].Count; ++j)
                 {
-                    nodes[i][j].m_Outline.SetActive(active);
+                    nodes[i][j].Outline.SetActive(active);
                 }
             }
         }
@@ -224,12 +230,12 @@ public class NodeManager : Singleton<NodeManager>
                 // 시계 방향 회전
                 if ((int)to == (int)(from + 1) % (int)E_Direction.Max)
                 {
-                    StartCoroutine(RotateNode());
+                    CWRotate();
                 }
                 // 반시계 방향 회전
                 else if ((int)to == (int)(from + (int)E_Direction.Max - 1) % (int)E_Direction.Max)
                 {
-                    StartCoroutine(RotateNode(false));
+                    CCWRotate();
                 }
             }
             // 레이캐스트 실패 시
@@ -251,7 +257,7 @@ public class NodeManager : Singleton<NodeManager>
         if (Input.GetKeyDown(KeyCode.Q))
         {
             // 반시계 방향 회전
-            StartCoroutine(RotateNode(false));
+            CCWRotate();
         }
 
         // 예외 처리 (이미 회전 중인 경우)
@@ -262,7 +268,7 @@ public class NodeManager : Singleton<NodeManager>
         if (Input.GetKeyDown(KeyCode.E))
         {
             // 시계 방향 회전
-            StartCoroutine(RotateNode());
+            CWRotate();
         }
     }
 
@@ -348,6 +354,19 @@ public class NodeManager : Singleton<NodeManager>
         UpdateParent(StandardNodeType, clockwise);
         // 회전 여부 설정
         m_IsRotating = false;
+
+        RotateEndEvent?.Invoke();
+    }
+
+    // 시계 방향 회전
+    protected void CWRotate()
+    {
+        StartCoroutine(RotateNode());
+    }
+    // 반시계 방향 회전
+    protected void CCWRotate()
+    {
+        StartCoroutine(RotateNode(false));
     }
 
     // 부모 업데이트

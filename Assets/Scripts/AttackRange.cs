@@ -3,17 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
 public class AttackRange : MonoBehaviour
 {
-    [SerializeField]
     protected SphereCollider m_RangeCollider;
-    [SerializeField]
     protected List<GameObject> m_TargetList;
-
-    private void Awake()
-    {
-        Initialize();
-    }
 
     public void Initialize()
     {

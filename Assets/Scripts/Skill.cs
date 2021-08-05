@@ -119,7 +119,7 @@ public class Skill : MonoBehaviour
     }
     private void Despawn()
     {
-        M_SkillPool.GetPool("Skill").DeSpawn(this.gameObject);
+        M_SkillPool.GetPool("Skill").DeSpawn(this);
 
         m_SkillInfo.AttackRange.Clear();
         m_SkillInfo.BounceTargetList.Clear();

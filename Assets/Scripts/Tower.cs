@@ -65,6 +65,7 @@ public class Tower : MonoBehaviour
 
         #region 내부 컴포넌트
         m_AttackRange = transform.Find("AttackRange").GetComponent<AttackRange>();
+        m_AttackRange.Initialize();
         m_AttackRange.SetRange(m_TowerInfo.DefaultSkillStat.Range);
         #endregion
     }
@@ -120,7 +121,7 @@ public class Tower : MonoBehaviour
         // 회전
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), RotateSpeed);
     }
-    // 타겟 변경 기준에 따른 타겟 업데이트
+    // 타겟 업데이트
     public void UpdateTarget()
     {
         // 타겟 변경 기준에 따라

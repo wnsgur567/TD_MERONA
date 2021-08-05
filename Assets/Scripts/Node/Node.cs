@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class Node : MonoBehaviour
 {
-    [ReadOnly]
-    public GameObject m_Outline;
+    [SerializeField, ReadOnly]
+    protected GameObject m_Outline;
+    public GameObject Outline => m_Outline;
 
     #region 내부 프로퍼티
-    protected NodeManager M_Node
-    {
-        get
-        {
-            return NodeManager.Instance;
-        }
-    }
+    protected NodeManager M_Node => NodeManager.Instance;
     #endregion
 
     private void Awake()

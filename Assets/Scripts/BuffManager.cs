@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder(-98)]
 public class BuffManager : Singleton<BuffManager>
 {
     #region 내부 프로퍼티
