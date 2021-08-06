@@ -4,61 +4,72 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-class DummyTowerClass
-{
-
-}
 
 [System.Serializable]
-public struct InvetorySlotInfo
+public struct InventorySlotInfo
 {
-    public int index;    
-
-    public string name;
-    public int rank;
-    public string type;
-    public int price;
-
-    DummyTowerClass tower;
+    public bool isOccupied;
+    public int index;
+  
+    public Tower tower;
 }
 
 public class InventorySlot : MonoBehaviour
 {
-    delegate void OnInfoChangedHandler();
-    OnInfoChangedHandler OnInfoChangedCallback;
-    [SerializeField] bool isOccupied;
-    [SerializeField] InvetorySlotInfo m_info;
+    public delegate void InfoChangedHandler();
+    public event InfoChangedHandler OnInfoChangedEvent;
+    public delegate void PositionChangedHandler(Vector3 pos);
+    public event PositionChangedHandler OnPositionChangedEvent;
 
-    [SerializeField] TextMeshProUGUI m_nameText;
-    [SerializeField] TextMeshProUGUI m_typeText;
-    [SerializeField] TextMeshProUGUI m_goldText;
-    [SerializeField] Image m_towerImage;
+    [SerializeField] InventorySlotInfo m_info;
+    public bool IsOccupied { get { return m_info.isOccupied; } }
+
+    private void Start()
+    {
+        OnInfoChangedEvent += OnInfoChanged;
+    }
 
     public void __Indexing(int index)
     {
         m_info.index = index;
     }
 
-    public void SetInfo(string name, int rank, string type, int price)
+    public void UpdateTowerPosOnThisSlot()
     {
-        m_info.name = name;
-        m_info.rank = rank;
-        m_info.type = type;
-        m_info.price = price;
-
-        OnInfoChangedCallback();
-    }
-    public InvetorySlotInfo GetInfo()
-    {
-        return m_info;
+        // TODO : this.transform.position 을 기준으로 셋팅하기 ...
     }
 
+    public void SetTowerPos(Vector3 mousePos)
+    {
+        // TODO : mouse -> world 변환 후 적용
+    }
+
+    public void SetTower(Tower tower)
+    {
+        if (tower == null)
+            m_info.isOccupied = false;
+        else
+            m_info.isOccupied = true;
+
+        m_info.tower = tower;
+
+        OnInfoChangedEvent?.Invoke();
+    }
+   
+    public Tower GetTower()
+    {        
+        return m_info.tower;
+    }
+    
     void OnInfoChanged()
     {
-        m_nameText.text = m_info.name;
-        m_typeText.text = m_info.type;
-        m_goldText.text = m_info.price.ToString();
+        if(IsOccupied)
+        {   // 현재 슬롯에 타워가 있으면...
 
-        // 랭크에 따라 색 변경
+        }
+        else
+        {   // 현재 슬롯에 타워가 없으면...
+
+        }        
     }
 }

@@ -3,12 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Root Panel 에 origin slot을 동적으로 생성
+// Root Panel 에는 CellSizeFitter 가 존재해야함
 public class ShopManager : Singleton<ShopManager>
 {
+    [SerializeField] Tower_TableExcelLoader m_excel_towerdata_so;
+    [SerializeField] Shop_TableExcelLoader m_excel_shopdata_so;
+    private Shop_TableExcel m_cur_data;         // 가장 최근에 UserInfoManger 로부터 불러온 데이터 값
+    private List<float> m_rates = null;         // 위의 data 에서 확률만 뽑아논 리스트
+    private List<int> m_costs = null;           // 위의 data 에서 cost만 뽑아논 리스트
+
+    // SetActive On Off 용
+    [SerializeField] Image m_shop_panel;
+    // root panel 의 하위로 slot 을 생성
     [SerializeField] Image m_root_panel;
+    // root panel 의 size fitter
+    // fitter 에서 정의한 slot 개수만큼 생성
+    private CellSizeFitter m_fitter;
+
+    // 좌측 하단 레벨과 확률을 조절
+    [SerializeField] ShopStatusUIController m_status_controller;
 
     [SerializeField] ShopSlot m_origin;
-    [SerializeField] int m_slotCount;
     [SerializeField] List<ShopSlot> m_slot_list;
 
     private void Awake()
@@ -18,32 +34,153 @@ public class ShopManager : Singleton<ShopManager>
 
     private void Start()
     {
+        // 최초 Status 리셋        
+        OnLevelChanged(UserInfoManager.Instance.Level);
+        // 최초 상점 리셋
         ShopReset();
+        // lock button release
+        ShopUnLock();
     }
 
     public void __Initialize()
     {
-        for (int i = 0; i < m_slotCount; i++)
+        // this memeber alloc
+        m_cur_data = new Shop_TableExcel();
+        m_rates = new List<float>();
+        m_costs = new List<int>();
+
+        // setting
+        m_origin.gameObject.SetActive(false);
+
+        m_fitter = m_root_panel.GetComponent<CellSizeFitter>();
+        int total_alloc_count = m_fitter.CellCount.x * m_fitter.CellCount.y;
+
+        // new slots Instantiate
+        for (int i = 0; i < total_alloc_count; i++)
         {
             ShopSlot newSlot = GameObject.Instantiate<ShopSlot>(m_origin);
-            newSlot.__Indexing(i);
             m_slot_list.Add(newSlot);
-
+            newSlot.__Indexing(i);
             newSlot.transform.SetParent(m_root_panel.transform);
-        }        
-    }
-    public void ShopReset()
-    {
-        
-        
-        
-    }
-    public void ShopLock()
-    {
+            newSlot.gameObject.SetActive(true);
+        }
 
+        // link callback
+        UserInfoManager.Instance.OnLevelChanged += OnLevelChanged;
     }
-    public void ShopUnLock()
-    {
 
+
+    /*************************** UI Control ******************************/
+
+    // 레벨 변경시 좌측 하단 패널의 text 변경
+    public void OnLevelChanged(int level)
+    {
+        // user info 를 가져오고 레벨에 따라 확률을 셋팅함
+        int cur_user_level = UserInfoManager.Instance.Level;
+
+        var data_list = m_excel_shopdata_so.DataList;
+
+        m_cur_data = data_list.Find((item) => { return cur_user_level == item.User_Level; });
+
+        m_rates.Clear();
+        m_rates.Add(m_cur_data.Tower_Rand1);
+        m_rates.Add(m_cur_data.Tower_Rand2);
+        m_rates.Add(m_cur_data.Tower_Rand3);
+        m_rates.Add(m_cur_data.Tower_Rand4);
+        m_rates.Add(m_cur_data.Tower_Rand5);
+
+        m_costs.Clear();
+        m_costs.Add(m_cur_data.Tower_Gold1);
+        m_costs.Add(m_cur_data.Tower_Gold2);
+        m_costs.Add(m_cur_data.Tower_Gold3);
+        m_costs.Add(m_cur_data.Tower_Gold4);
+        m_costs.Add(m_cur_data.Tower_Gold5);
+
+        m_status_controller.SetRates(m_rates.ToArray());
+        m_status_controller.SetLevel(cur_user_level);
+    }
+
+    /*************************** Mouse callback ******************************/
+    // TODO : 타워 매니저를 통해 타워 생성
+    // TODO : Inventory 에 추가
+    /*************************** button Process ******************************/
+
+    [Space(30)]
+    [SerializeField] bool m_isLocked = false;
+    [SerializeField] Image m_LockButtonImage;
+    [SerializeField] Sprite m_LockSprite;
+    [SerializeField] Sprite m_UnLockSprite;
+
+    private void ShopReset()
+    {
+        // rank 지정 확률
+        float rand_val = 0.0f;
+
+        // tower data 개수
+        int total_towerType_count = m_excel_towerdata_so.DataList.Count; ;
+        // tower type 지정 확률        
+        int rand_val_tower = 0;
+
+        // slot 개수만큼 반복
+        for (int i = 0; i < m_slot_list.Count; i++)
+        {
+            rand_val = Random.Range(0.0f, 1.0f);
+            rand_val_tower = Random.Range(0, total_towerType_count);    // index 기준(No - 1)
+
+            int rank_forCreate = 1;
+            int cost = 0;
+            // 낮은 랭크의 확률부터 계산
+            for (int j = 0; j < m_rates.Count; j++)
+            {
+                if (rand_val < m_rates[j])
+                {
+                    rank_forCreate = j + 1;
+                    cost = m_costs[j];
+                    break;
+                }
+            }
+
+            // 위에서 생성된 데이터로 Shop Slot의 정보 업데이트            
+            var tower_data = m_excel_towerdata_so.DataList[rand_val_tower];
+            m_slot_list[i].SetInfo(rank_forCreate, cost, tower_data);
+        }
+    }
+
+
+
+    private void ShopLock()
+    {
+        m_LockButtonImage.sprite = m_LockSprite;
+    }
+    private void ShopUnLock()
+    {
+        m_LockButtonImage.sprite = m_UnLockSprite;
+    }
+
+    /*************************** button callback ******************************/
+
+    public void __OnResetButtonClicked()
+    {
+        if (false == m_isLocked)
+            ShopReset();
+    }
+
+    // Lock 된 경우 true
+    // UnLock 된 경우 false
+    public void __OnLockButtonClicked()
+    {
+        m_isLocked = !m_isLocked;
+        if (m_isLocked)
+            ShopLock();
+        else
+            ShopUnLock();
+    }
+    public void __OnOpenButtonClicked()
+    {
+        m_shop_panel.gameObject.SetActive(true);
+    }
+    public void __OnCloseButtonClicked()
+    {
+        m_shop_panel.gameObject.SetActive(false);
     }
 }

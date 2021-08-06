@@ -7,6 +7,8 @@ TagManager:
   - MainCanvas
   - MainPanel
   - Monster
+  - ShopSlot
+  - InvenSlot
   layers:
   - Default
   - TransparentFX

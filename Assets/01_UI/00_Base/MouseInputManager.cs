@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -18,34 +18,116 @@ public struct MouseArgs
 //Also make sure you have an EventSystem in your hierarchy.
 public class MouseInputManager : Singleton<MouseInputManager>
 {
+
     [SerializeField] Canvas m_canvas;
     GraphicRaycaster m_Raycaster;
     PointerEventData m_PointerEventData;
     EventSystem m_EventSystem;
 
-    public delegate void MouseEventHandler(GameObject _selected, List<RaycastResult> results, MouseArgs args);
-    public event MouseEventHandler MouseLeftDownEvent;
-    public event MouseEventHandler MouseLeftDoubleDownEvent;
-    public event MouseEventHandler MouseRightDownEvent;
-    public event MouseEventHandler MouseLeftUpEvent;
-    public event MouseEventHandler MouseRightUpEvent;
-    public event MouseEventHandler MouseLeftHoldEvent;
-    public event MouseEventHandler MouseRightHoldEvent;
+    public delegate void MouseEventHandler(GameObject _selected, MouseArgs args);
+    Dictionary<string, MouseEventHandler> MouseLeftDownEvent;
+    Dictionary<string, MouseEventHandler> MouseLeftDoubleDownEvent;
+    Dictionary<string, MouseEventHandler> MouseLeftUpEvent;
+    Dictionary<string, MouseEventHandler> MouseLeftHoldEvent;
+
+    Dictionary<string, MouseEventHandler> MouseRightDownEvent;
+    Dictionary<string, MouseEventHandler> MouseRightDoubleDownEvent;
+    Dictionary<string, MouseEventHandler> MouseRightUpEvent;
+    Dictionary<string, MouseEventHandler> MouseRightHoldEvent;
+    
+    List<string> left_up_taglist;
+    List<string> left_down_taglist;
+    List<string> left_double_down_taglist;
+    List<string> left_Hold_taglist;
+
+    List<string> right_up_taglist;
+    List<string> right_down_taglist;
+    List<string> right_double_down_taglist;
+    List<string> right_Hold_taglist;
 
     [SerializeField] GameObject current_gameObj;
     [SerializeField] MouseArgs current_args;
 
-    [SerializeField] float current_mousedown_time;  // double click Ã¼Å©¿ë, Ã¹ down °ú  µÎ¹øÂ° downÀÇ Â÷ÀÌ·Î ÆÇº°ÇÔ
-    [SerializeField] float tolerance;       // double click À¸·Î ÆÇ´ÜÇÏ´Â ½Ã°£ Â÷
-        
+    [SerializeField] float current_mousedown_time;  // double click Ã¼Å©ï¿½ï¿½, Ã¹ down ï¿½ï¿½  ï¿½Î¹ï¿½Â° downï¿½ï¿½ ï¿½ï¿½ï¿½Ì·ï¿½ ï¿½Çºï¿½ï¿½ï¿½
+    [SerializeField] float tolerance;       // double click ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ï¿½Ï´ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½
+    
+    string temptag;
+    bool findtag;
 
+    public void __Initialize()
+    {
+        MouseLeftDownEvent = new Dictionary<string, MouseEventHandler>();
+        MouseLeftUpEvent = new Dictionary<string, MouseEventHandler>();
+        MouseLeftDoubleDownEvent = new Dictionary<string, MouseEventHandler>();
+        MouseLeftHoldEvent = new Dictionary<string, MouseEventHandler>();
+
+        MouseRightDownEvent = new Dictionary<string, MouseEventHandler>();
+        MouseRightUpEvent = new Dictionary<string, MouseEventHandler>();
+        MouseRightHoldEvent = new Dictionary<string, MouseEventHandler>();
+        MouseRightDoubleDownEvent = new Dictionary<string, MouseEventHandler>();
+
+        left_up_taglist = new List<string>();
+        left_down_taglist = new List<string>();
+        left_double_down_taglist = new List<string>();
+        left_Hold_taglist = new List<string>();
+
+        right_up_taglist = new List<string>();
+        right_down_taglist = new List<string>();
+        right_double_down_taglist = new List<string>();
+        right_Hold_taglist = new List<string>();
+
+        temptag = null;
+        findtag = false;
+        if(tolerance <= 0.5f)
+            tolerance = 0.5f;
+    }
+    public void RightDown_Regist(string _tag, MouseEventHandler _handler)
+    {
+        right_down_taglist.Add(_tag);
+        MouseRightDownEvent.Add(_tag, _handler);
+    }
+    public void RightUp_Regist(string _tag, MouseEventHandler _handler)
+    {
+        right_up_taglist.Add(_tag);
+        MouseRightUpEvent.Add(_tag, _handler);
+    }
+    public void RightDoubleDown_Regist(string _tag, MouseEventHandler _handler)
+    {
+        right_double_down_taglist.Add(_tag);
+        MouseRightDownEvent.Add(_tag, _handler);
+    }
+    public void RightHold_Regist(string _tag, MouseEventHandler _handler)
+    {
+        right_Hold_taglist.Add(_tag);
+        MouseRightHoldEvent.Add(_tag, _handler);
+    }
+    public void LeftUp_Regist(string _tag, MouseEventHandler _hendler)
+    {
+        left_up_taglist.Add(_tag);
+        MouseLeftUpEvent.Add(_tag, _hendler);
+    }
+    public void LeftDown_Regist(string _tag, MouseEventHandler _hendler)
+    {
+        left_down_taglist.Add(_tag);
+        MouseLeftDownEvent.Add(_tag, _hendler);
+    }
+    public void LeftDoubleDown_Regist(string _tag, MouseEventHandler _hendler)
+    {
+        left_double_down_taglist.Add(_tag);
+        MouseLeftDoubleDownEvent.Add(_tag, _hendler);
+    }
+    public void LeftHold_Regist(string _tag, MouseEventHandler _hendler)
+    {
+        left_Hold_taglist.Add(_tag);
+        MouseLeftHoldEvent.Add(_tag, _hendler);
+    }
     private void Awake()
     {
+        __Initialize();
         m_canvas = GameObject.FindWithTag("MainCanvas").GetComponent<Canvas>();
         current_args = new MouseArgs();
         current_mousedown_time = Time.time;
     }
-
     void Start()
     {
         //Fetch the Raycaster from the GameObject (the Canvas)
@@ -62,7 +144,6 @@ public class MouseInputManager : Singleton<MouseInputManager>
         //Check if the left Mouse button is clicked
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            
 
             current_args.isLeftDown = true;
             //Set up the new Pointer Event
@@ -75,22 +156,50 @@ public class MouseInputManager : Singleton<MouseInputManager>
 
             //Raycast using the Graphics Raycaster and mouse click position
             m_Raycaster.Raycast(m_PointerEventData, results);
-                        
+
 
             if (results.Count > 0)
             {
-                // ÀÌÀü Å¬¸®°úÀÇ ½Ã°£ Â÷
-                float delta = Time.time - current_mousedown_time;
-                if (delta < tolerance)
-                {   // call double click event
-                    MouseLeftDoubleDownEvent?.Invoke(results[0].gameObject, results, current_args);
-                    current_mousedown_time = Time.time;
-                    return;
+
+                for (int i = 0; i < results.Count; i++)
+                {
+                    if (left_down_taglist.Contains(results[i].gameObject.tag))
+                    {
+                        temptag = results[i].gameObject.tag;
+                        findtag = true;
+                        break;
+                    }
+                    else findtag = false;
                 }
 
-                current_gameObj = results[0].gameObject;
-                MouseLeftDownEvent?.Invoke(current_gameObj, results, current_args);
+                // ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½
+
+                float delta = Time.time - current_mousedown_time;
+
+                if (delta < tolerance)
+                {   // call double click event
+                    for (int i = 0; i < results.Count; i++)
+                    {
+                        if (left_double_down_taglist.Contains(results[i].gameObject.tag))
+                        {
+                            temptag = results[i].gameObject.tag;
+                            findtag = true;
+                            break;
+                        }
+                        else findtag = false;
+                    }
+                    current_mousedown_time = Time.time;
+                    if (!findtag) return;
+                    MouseLeftDoubleDownEvent[temptag]?.Invoke(results[0].gameObject, current_args);
+
+                    return;
+                }
                 current_mousedown_time = Time.time;
+                if (!findtag) return;
+                current_gameObj = results[0].gameObject;
+
+                MouseLeftDownEvent[temptag]?.Invoke(current_gameObj, current_args);
+
             }
         }
 
@@ -112,20 +221,176 @@ public class MouseInputManager : Singleton<MouseInputManager>
 
             if (results.Count > 0)
             {
-                MouseLeftUpEvent?.Invoke(results[0].gameObject, results, current_args);
+                for (int i = 0; i < results.Count; i++)
+                {
+                    if (left_up_taglist.Contains(results[i].gameObject.tag))
+                    {
+                        temptag = results[i].gameObject.tag;
+                        findtag = true;
+                        break;
+                    }
+                    else findtag = false;
+                }
+                if (!findtag)
+                    return;
+                MouseLeftUpEvent[temptag]?.Invoke(results[0].gameObject, current_args);
             }
 
             current_gameObj = null;
         }
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
 
+            current_args.isRightDown = true;
+            //Set up the new Pointer Event
+            m_PointerEventData = new PointerEventData(m_EventSystem);
+            //Set the Pointer Event Position to that of the mouse position
+            m_PointerEventData.position = Input.mousePosition;
+
+            //Create a list of Raycast Results
+            List<RaycastResult> results = new List<RaycastResult>();
+
+            //Raycast using the Graphics Raycaster and mouse click position
+            m_Raycaster.Raycast(m_PointerEventData, results);
+
+
+            if (results.Count > 0)
+            {
+
+                for (int i = 0; i < results.Count; i++)
+                {
+                    if (right_down_taglist.Contains(results[i].gameObject.tag))
+                    {
+                        temptag = results[i].gameObject.tag;
+                        findtag = true;
+                        break;
+                    }
+                    else findtag = false;
+                }
+
+                // ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½
+
+                float delta = Time.time - current_mousedown_time;
+
+                if (delta < tolerance)
+                {   // call double click event
+                    for (int i = 0; i < results.Count; i++)
+                    {
+                        if (right_double_down_taglist.Contains(results[i].gameObject.tag))
+                        {
+                            temptag = results[i].gameObject.tag;
+                            findtag = true;
+                            break;
+                        }
+                        else findtag = false;
+                    }
+                    current_mousedown_time = Time.time;
+                    if (!findtag) return;
+                    MouseRightDoubleDownEvent[temptag]?.Invoke(results[0].gameObject,  current_args);
+
+                    return;
+                }
+                current_mousedown_time = Time.time;
+                if (!findtag) return;
+                current_gameObj = results[0].gameObject;
+
+                MouseRightDownEvent[temptag]?.Invoke(current_gameObj, current_args);
+
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.Mouse1))
+        {
+            current_args.isRightDown = false;
+
+
+            //Set up the new Pointer Event
+            m_PointerEventData = new PointerEventData(m_EventSystem);
+            //Set the Pointer Event Position to that of the mouse position
+            m_PointerEventData.position = Input.mousePosition;
+
+            //Create a list of Raycast Results
+            List<RaycastResult> results = new List<RaycastResult>();
+
+            //Raycast using the Graphics Raycaster and mouse click position
+            m_Raycaster.Raycast(m_PointerEventData, results);
+
+            if (results.Count > 0)
+            {
+                for (int i = 0; i < results.Count; i++)
+                {
+                    if (right_up_taglist.Contains(results[i].gameObject.tag))
+                    {
+                        temptag = results[i].gameObject.tag;
+                        findtag = true;
+                        break;
+                    }
+                    else findtag = false;
+                }
+                if (!findtag)
+                    return;
+                MouseRightUpEvent[temptag]?.Invoke(results[0].gameObject, current_args);
+            }
+
+            current_gameObj = null;
+        }
         //Debug.Log(current_args.isLeftDown);
         if (current_args.isLeftDown)
         {
-            MouseLeftHoldEvent?.Invoke(current_gameObj, null, current_args);
+            m_PointerEventData = new PointerEventData(m_EventSystem);
+            //Set the Pointer Event Position to that of the mouse position
+            m_PointerEventData.position = Input.mousePosition;
+
+            //Create a list of Raycast Results
+            List<RaycastResult> results = new List<RaycastResult>();
+
+            //Raycast using the Graphics Raycaster and mouse click position
+            m_Raycaster.Raycast(m_PointerEventData, results);
+
+            if (results.Count > 0)
+            {
+                for (int i = 0; i < results.Count; i++)
+                {
+                    if (left_Hold_taglist.Contains(results[i].gameObject.tag))
+                    {
+                        temptag = results[i].gameObject.tag;
+                        findtag = true;
+                        break;
+                    }
+                    else findtag = false;
+                }
+                if (!findtag)
+                    return;
+                MouseLeftHoldEvent[temptag]?.Invoke(current_gameObj, current_args);
+            }
         }
         if (current_args.isRightDown)
         {
-            MouseRightHoldEvent?.Invoke(current_gameObj, null, current_args);
+            m_PointerEventData = new PointerEventData(m_EventSystem);
+            //Set the Pointer Event Position to that of the mouse position
+            m_PointerEventData.position = Input.mousePosition;
+
+            //Create a list of Raycast Results
+            List<RaycastResult> results = new List<RaycastResult>();
+
+            //Raycast using the Graphics Raycaster and mouse click position
+            m_Raycaster.Raycast(m_PointerEventData, results);
+            if (results.Count > 0)
+            {
+                for (int i = 0; i < results.Count; i++)
+                {
+                    if (right_Hold_taglist.Contains(results[i].gameObject.tag))
+                    {
+                        temptag = results[i].gameObject.tag;
+                        findtag = true;
+                        break;
+                    }
+                    else findtag = false;
+                }
+                if (!findtag)
+                    return;
+                MouseRightHoldEvent[temptag]?.Invoke(current_gameObj,current_args);
+            }
         }
     }
 }
+
