@@ -13,11 +13,20 @@ public enum E_SynergyEffectType
     AddGold
 }
 
+public enum E_SynergyEffectAmount
+{
+    None,
+
+    Tower,
+    Monster,
+    King
+}
+
 [System.Serializable]
 public struct S_SynergyEffect
 {
     public E_SynergyEffectType EffectType;
-    public int EffectAmount;
+    public E_SynergyEffectAmount EffectAmount;
     public int EffectCode;
     public E_AttackType EffectChange;
     public int EffectReq;
@@ -71,14 +80,14 @@ public class SynergyData : ScriptableObject
         data.TargetMem = int.Parse(strs[idx++]);
 
         data.Effect1.EffectType = (E_SynergyEffectType)int.Parse(strs[idx++]);
-        data.Effect1.EffectAmount = int.Parse(strs[idx++]);
+        data.Effect1.EffectAmount = (E_SynergyEffectAmount)int.Parse(strs[idx++]);
         data.Effect1.EffectCode = int.Parse(strs[idx++]);
         data.Effect1.EffectChange = (E_AttackType)int.Parse(strs[idx++]);
         data.Effect1.EffectReq = int.Parse(strs[idx++]);
         data.Effect1.BuffRand = float.Parse(strs[idx++]);
 
         data.Effect2.EffectType = (E_SynergyEffectType)int.Parse(strs[idx++]);
-        data.Effect2.EffectAmount = int.Parse(strs[idx++]);
+        data.Effect2.EffectAmount = (E_SynergyEffectAmount)int.Parse(strs[idx++]);
         data.Effect2.EffectCode = int.Parse(strs[idx++]);
         data.Effect2.EffectChange = (E_AttackType)int.Parse(strs[idx++]);
         data.Effect2.EffectReq = int.Parse(strs[idx++]);
@@ -110,14 +119,14 @@ public class SynergyData : ScriptableObject
             DataList.Add(data);
         }
     }
-    public S_SynergyData_Excel GetData(int code)
+    public S_SynergyData_Excel? GetData(int code, int rank)
     {
         foreach (var item in DataList)
         {
-            if (item.Code == code)
+            if (item.Code == code && item.Rank == rank)
                 return item;
         }
 
-        return default(S_SynergyData_Excel);
+        return null;
     }
 }

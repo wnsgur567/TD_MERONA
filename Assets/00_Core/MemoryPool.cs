@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 최종 수정 09-26
-public class MemoryPool : System.IDisposable
+public class MemoryPool<T> : System.IDisposable where T : MonoBehaviour
 {
-    // 오브젝트들을 담을 실제 풀
-    private Queue<GameObject> queue = new Queue<GameObject>();
-    // 생성한 오브젝트를 기억하고 있다가 디스폰 시 확인할 리스트
-    private List<GameObject> despawnList = new List<GameObject>();
     // 풀에 담을 원본
-    private GameObject original;
+    private T original;
+    // 오브젝트들을 담을 실제 풀
+    private Queue<T> queue = new Queue<T>();
+    // 생성한 오브젝트를 기억하고 있다가 디스폰 시 확인할 리스트
+    private List<T> despawnList = new List<T>();
     // 초기 풀 사이즈
     private int poolSize;
     // 하이어라키 창에서 관리하기 쉽도록 parent 지정
@@ -18,8 +18,22 @@ public class MemoryPool : System.IDisposable
 
     public int preLoadedPoolSize = 1000;
 
+    // 부모 지정 안하고 생성하는 경우
+    public MemoryPool(T _original, int _poolsize)
+    {
+        original = _original;
+        poolSize = _poolsize;
+
+        for (int i = 0; i < poolSize; i++)
+        {
+            T newItem = GameObject.Instantiate<T>(original);
+            newItem.gameObject.SetActive(false);
+            queue.Enqueue(newItem);
+            despawnList.Add(newItem);
+        }
+    }
     // 부모 지정하여 생성하는 경우
-    public MemoryPool(GameObject _original, int _poolSize, Transform parent)
+    public MemoryPool(T _original, int _poolSize, Transform parent)
     {
         original = _original;
         poolSize = _poolSize;
@@ -27,11 +41,11 @@ public class MemoryPool : System.IDisposable
 
         for (int i = 0; i < Mathf.Min(poolSize, preLoadedPoolSize); i++)
         {
-            GameObject newItem = GameObject.Instantiate(original);  //new
+            T newItem = GameObject.Instantiate<T>(original);  //new
             string[] strs = newItem.name.Split('(');
             newItem.name = strs[0];
-            newItem.SetActive(false);
             newItem.transform.SetParent(parent);
+            newItem.gameObject.SetActive(false);
             queue.Enqueue(newItem);
             despawnList.Add(newItem);
         }
@@ -43,25 +57,25 @@ public class MemoryPool : System.IDisposable
         //}
     }
 
-    //IEnumerator MakePool()
-    //{
-    //    for (int i = preLoadedPoolSize; i < poolSize; ++i)
-    //    {
-    //        GameObject newItem = GameObject.Instantiate(original);  //new
-    //        string[] strs = newItem.name.Split('(');
-    //        newItem.name = strs[0];
-    //        newItem.SetActive(false);
-    //        newItem.transform.SetParent(parent);
-    //        queue.Enqueue(newItem);
-    //    }
+    IEnumerator MakePool()
+    {
+        for (int i = preLoadedPoolSize; i < poolSize; ++i)
+        {
+            T newItem = GameObject.Instantiate<T>(original);
+            string[] strs = newItem.name.Split('(');
+            newItem.name = strs[0];
+            newItem.gameObject.SetActive(false);
+            newItem.transform.SetParent(parent);
+            queue.Enqueue(newItem);
+        }
 
-    //    yield return new WaitForSeconds(0.1f);
-    //}
+        yield return new WaitForSeconds(0.1f);
+    }
 
     // foreach 문을 위한 반복자
     public IEnumerator GetEnumerator()
     {
-        foreach (GameObject item in queue)
+        foreach (T item in queue)
             yield return item;
     }
 
@@ -69,11 +83,11 @@ public class MemoryPool : System.IDisposable
     // 절반만큼 증가
     void ExpandPoolSize()
     {
-        int newSize = poolSize + poolSize / 2;
+        int newSize = poolSize + (int)(poolSize * 0.5f);
         for (int i = poolSize; i < newSize; i++)
         {
-            GameObject newItem = GameObject.Instantiate(original);
-            newItem.SetActive(false);
+            T newItem = GameObject.Instantiate<T>(original);
+            newItem.gameObject.SetActive(false);
             if (parent != null)
                 newItem.transform.SetParent(parent);
             queue.Enqueue(newItem);
@@ -84,7 +98,7 @@ public class MemoryPool : System.IDisposable
 
     // 모든 오브젝트 사용시 추가로 생성할 경우 
     // expand 를 true 로 설정
-    public GameObject Spawn(bool expand = true)
+    public T Spawn(bool expand = true)
     {
         if (expand && queue.Count <= 0)
         {
@@ -93,8 +107,8 @@ public class MemoryPool : System.IDisposable
 
         if (queue.Count > 0)
         {
-            GameObject item = queue.Dequeue();
-            return item.gameObject;
+            T item = queue.Dequeue();
+            return item;
         }
 
         Debug.LogWarning("Pool Size Over");
@@ -102,23 +116,25 @@ public class MemoryPool : System.IDisposable
     }
 
     // 회수 작업
-    public void DeSpawn(GameObject gameObject)
+    public void DeSpawn(T obj)
     {
-        if (gameObject == null ||
-            !despawnList.Contains(gameObject))
+        if (obj == null ||
+            !despawnList.Contains(obj))
             return;
 
-        gameObject.SetActive(false);
-        gameObject.transform.SetParent(parent);
-        gameObject.transform.localPosition = Vector3.zero;
-        queue.Enqueue(gameObject);
+        obj.gameObject.SetActive(false);
+        obj.transform.SetParent(parent);
+        obj.transform.localPosition = Vector3.zero;
+        queue.Enqueue(obj);
     }
 
     // 메모리 해제
     public void Dispose()
     {
-        foreach (GameObject item in queue)
+        foreach (T item in queue)
+        {
             GameObject.DestroyImmediate(item);
+        }
         queue.Clear();
         queue = null;
         despawnList.Clear();

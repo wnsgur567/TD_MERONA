@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-[DefaultExecutionOrder(-101)]
+[DefaultExecutionOrder(-99)]
 public class ResourcesManager : Singleton<ResourcesManager>
 {
     [SerializeField]
@@ -126,6 +126,16 @@ public class ResourcesManager : Singleton<ResourcesManager>
         {
             if (item.Value.ContainsKey(name))
                 return item.Value[name];
+        }
+
+        return null;
+    }
+    public T GetGameObject<T>(string type, string name) where T : MonoBehaviour
+    {
+        foreach (var item in m_GameObjects[type])
+        {
+            if (item.Value.ContainsKey(name))
+                return item.Value[name].GetComponent<T>();
         }
 
         return null;

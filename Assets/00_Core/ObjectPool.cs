@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ObjectPool<T> : Singleton<T> where T : MonoBehaviour
+[DefaultExecutionOrder(-98)]
+public abstract class ObjectPool<Pool, Origin> : Singleton<Pool> where Pool : MonoBehaviour where Origin : MonoBehaviour
 {
     [ReadOnly(true)]
     public int m_PoolSize = 100;
 
-    protected Dictionary<string, MemoryPool> m_Pools = null;
+    public Dictionary<string, Origin> m_Origins = null;
+    protected Dictionary<string, MemoryPool<Origin>> m_Pools = null;
+
+#if UNITY_EDITOR
+    [ReadOnly]
+    public DebugDictionary<string, Origin> m_DebugOrigin = null;
+#endif
 
     protected ResourcesManager M_Resources => ResourcesManager.Instance;
 
@@ -22,7 +29,12 @@ public abstract class ObjectPool<T> : Singleton<T> where T : MonoBehaviour
 
     public virtual void __Initialize()
     {
-        m_Pools = new Dictionary<string, MemoryPool>();
+        m_Origins = new Dictionary<string, Origin>();
+        m_Pools = new Dictionary<string, MemoryPool<Origin>>();
+
+#if UNITY_EDITOR
+        m_DebugOrigin = new DebugDictionary<string, Origin>();
+#endif
 
         //for (int i = 0; i < m_Origins.Count; ++i)
         //{
@@ -33,7 +45,6 @@ public abstract class ObjectPool<T> : Singleton<T> where T : MonoBehaviour
         //    m_Pools.Add(m_Origins[i].name, new MemoryPool(m_Origins[i], m_PoolSize, parent.transform));
         //}
     }
-
     public virtual void __Finalize()
     {
         foreach (var item in m_Pools)
@@ -45,7 +56,21 @@ public abstract class ObjectPool<T> : Singleton<T> where T : MonoBehaviour
         m_Pools = null;
     }
 
-    public virtual MemoryPool GetPool(string key)
+    protected void AddPool(string key, Origin origin, Transform parent)
+    {
+        m_Origins.Add(key, origin);
+
+        GameObject Parent = new GameObject();
+        Parent.name = origin.name;
+        Parent.transform.SetParent(parent);
+
+        m_Pools.Add(key, new MemoryPool<Origin>(origin, m_PoolSize, Parent.transform));
+
+#if UNITY_EDITOR
+        m_DebugOrigin.Add(key, origin);
+#endif
+    }
+    public virtual MemoryPool<Origin> GetPool(string key)
     {
         return m_Pools[key];
     }
