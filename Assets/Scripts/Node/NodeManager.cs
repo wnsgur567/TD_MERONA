@@ -7,7 +7,8 @@ using UnityEngine;
 public class NodeManager : Singleton<NodeManager>
 {
     public delegate void NodeEventHandler();
-    public NodeEventHandler RotateEndEvent;
+    // 노드 회전 종료시 호출되는 이벤트
+    public event NodeEventHandler m_RotateEndEvent;
 
     // 회전할 각도
     [SerializeField]
@@ -157,8 +158,8 @@ public class NodeManager : Singleton<NodeManager>
             }
         }
     }
-
-    // 아웃라인 설정
+    #region MouseProcess
+    // 아웃라인 업데이트
     protected void UpdateOutline(bool active)
     {
         // 예외 처리 (null 체크)
@@ -189,6 +190,7 @@ public class NodeManager : Singleton<NodeManager>
         // 선택 노드 아웃라인 생성
         UpdateOutline(true);
     }
+    #endregion
 
     // 회전
     protected void RotateProcess()
@@ -202,7 +204,7 @@ public class NodeManager : Singleton<NodeManager>
             Rotate_Keyboard();
         }
     }
-
+    #region RotateProcess
     // 마우스 회전
     protected void Rotate_Mouse()
     {
@@ -271,7 +273,6 @@ public class NodeManager : Singleton<NodeManager>
             CWRotate();
         }
     }
-
     // 매 프레임 회전
     protected IEnumerator RotateNode(bool clockwise = true)
     {
@@ -355,20 +356,9 @@ public class NodeManager : Singleton<NodeManager>
         // 회전 여부 설정
         m_IsRotating = false;
 
-        RotateEndEvent?.Invoke();
+        // 회전 종료 이벤트 호출
+        m_RotateEndEvent?.Invoke();
     }
-
-    // 시계 방향 회전
-    protected void CWRotate()
-    {
-        StartCoroutine(RotateNode());
-    }
-    // 반시계 방향 회전
-    protected void CCWRotate()
-    {
-        StartCoroutine(RotateNode(false));
-    }
-
     // 부모 업데이트
     protected void UpdateParent(E_NodeType? type, bool clockwise = true)
     {
@@ -412,6 +402,18 @@ public class NodeManager : Singleton<NodeManager>
         {
             TempList[i].SetParent(Second_T);
         }
+    }
+    #endregion
+
+    // 시계 방향 회전
+    protected void CWRotate()
+    {
+        StartCoroutine(RotateNode());
+    }
+    // 반시계 방향 회전
+    protected void CCWRotate()
+    {
+        StartCoroutine(RotateNode(false));
     }
 
     public enum E_NodeType

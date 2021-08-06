@@ -8,9 +8,14 @@ public class SynergyManager : Singleton<SynergyManager>
     public delegate void SynergyEventHandler();
     public event SynergyEventHandler UpdateSynergyEndEvent;
 
+    // 시너지 최대 랭크
     [SerializeField]
     protected int m_MaxRank = 3;
-
+    // 골드 추가 시너지에 사용될 추가 골드
+    protected int m_BonusGold;
+    public int BonusGold => m_BonusGold;
+    
+    // 방향별 시너지 리스트
     protected Dictionary<E_Direction, List<S_SynergyData_Excel>> m_Synergys = null;
 
     #region 내부 프로퍼티
@@ -36,7 +41,7 @@ public class SynergyManager : Singleton<SynergyManager>
             m_Synergys.Add(i, new List<S_SynergyData_Excel>());
         }
 
-        M_Node.RotateEndEvent += UpdateSynergy;
+        M_Node.m_RotateEndEvent += UpdateSynergy;
     }
 
     public S_SynergyData_Excel? GetData(int code, int rank = 1)
@@ -66,18 +71,28 @@ public class SynergyManager : Singleton<SynergyManager>
         if (towers.Count <= 0)
             return;
 
-        // 기존 시너지 초기화
+        // 시너지 관리 리스트 초기화
         for (E_Direction i = 0; i < E_Direction.Max; ++i)
         {
             m_Synergys[i].Clear();
         }
+        // 시너지 초기화
         for (int i = 0; i < towers.Count; ++i)
         {
-            towers[i].m_TowerInfo.Buff1 = new S_Buff();
-            towers[i].m_TowerInfo.Buff2 = new S_Buff();
-            towers[i].m_TowerInfo.Buff3 = new S_Buff();
+            // 버프
+            towers[i].m_TowerInfo.BuffList.Clear();
 
+            // 공격 타입 변경
             towers[i].m_TowerInfo.Synergy_Atk_type = E_AttackType.None;
+
+            // 버서커
+            towers[i].m_TowerInfo.Berserker = false;
+            towers[i].m_TowerInfo.BerserkerStack = 0;
+            towers[i].m_TowerInfo.BerserkerMaxStack = 0;
+            towers[i].m_TowerInfo.BerserkerBuffList.Clear();
+
+            // 골드 추가
+            m_BonusGold = 0;
         }
 
         // 시너지 코드, 시너지 적용될 타워들
@@ -157,72 +172,226 @@ public class SynergyManager : Singleton<SynergyManager>
                     switch (effect.EffectType)
                     {
                         case E_SynergyEffectType.Buff:
-                            // 타워 버프
-                            if (effect.EffectAmount == E_SynergyEffectAmount.Tower)
                             {
-                                // 시너지 적용할 타워 리스트
-                                List<Tower> towerList = null;
-
-                                // 같은 시너지 타워들만
-                                if (synergyData.TargetMem == 1)
+                                // 타워 버프
+                                if (effect.EffectAmount == E_SynergyEffectAmount.Tower)
                                 {
-                                    towerList = item.Value;
+                                    // 시너지 적용할 타워 리스트
+                                    List<Tower> towerList = null;
+
+                                    // 같은 시너지 타워들만
+                                    if (synergyData.TargetMem == 1)
+                                    {
+                                        towerList = item.Value;
+                                    }
+                                    // 현재 라인 타워 전부
+                                    else if (synergyData.TargetMem == 2)
+                                    {
+                                        towerList = towers;
+                                    }
+
+                                    // 시너지 적용
+                                    for (int i = 0; i < towerList.Count; ++i)
+                                    {
+                                        towerList[i].m_TowerInfo.BuffList.Add(buffData);
+                                    }
                                 }
-                                // 현재 라인 타워 전부
-                                else if (synergyData.TargetMem == 2)
+                                // 몬스터 디버프
+                                else if (effect.EffectAmount == E_SynergyEffectAmount.Monster)
                                 {
-                                    towerList = towers;
-                                }
 
-                                // 시너지 적용
-                                for (int i = 0; i < towerList.Count; ++i)
+                                }
+                                // 마왕 버프
+                                else if (effect.EffectAmount == E_SynergyEffectAmount.King)
                                 {
-                                    towerList[i].m_TowerInfo.Buff1 = buffData.Buff1;
-                                    towerList[i].m_TowerInfo.Buff2 = buffData.Buff2;
-                                    towerList[i].m_TowerInfo.Buff3 = buffData.Buff3;
+
                                 }
-                            }
-                            // 몬스터 디버프
-                            else if (effect.EffectAmount == E_SynergyEffectAmount.Monster)
-                            {
-
-                            }
-                            // 마왕 버프
-                            else if (effect.EffectAmount == E_SynergyEffectAmount.King)
-                            {
-
                             }
                             break;
                         case E_SynergyEffectType.ChangeAtkType:
-                            // 타워
-                            if (effect.EffectAmount == E_SynergyEffectAmount.Tower)
                             {
-                                // 시너지 적용할 타워 리스트
-                                List<Tower> towerList = null;
+                                // 타워
+                                if (effect.EffectAmount == E_SynergyEffectAmount.Tower)
+                                {
+                                    // 시너지 적용할 타워 리스트
+                                    List<Tower> towerList = null;
 
-                                // 같은 시너지 타워들만
-                                if (synergyData.TargetMem == 1)
-                                {
-                                    towerList = item.Value;
-                                }
-                                // 현재 라인 타워 전부
-                                else if (synergyData.TargetMem == 2)
-                                {
-                                    towerList = towers;
-                                }
+                                    // 같은 시너지 타워들만
+                                    if (synergyData.TargetMem == 1)
+                                    {
+                                        towerList = item.Value;
+                                    }
+                                    // 현재 라인 타워 전부
+                                    else if (synergyData.TargetMem == 2)
+                                    {
+                                        towerList = towers;
+                                    }
 
-                                // 시너지 적용
-                                for (int i = 0; i < towerList.Count; ++i)
-                                {
-                                    towerList[i].m_TowerInfo.Synergy_Atk_type = effect.EffectChange;
+                                    // 시너지 적용
+                                    for (int i = 0; i < towerList.Count; ++i)
+                                    {
+                                        towerList[i].m_TowerInfo.Synergy_Atk_type = effect.EffectChange;
+                                    }
                                 }
                             }
                             break;
                         case E_SynergyEffectType.ReduceCooldown:
+                            {
+                                // 마왕
+                                if (effect.EffectAmount == E_SynergyEffectAmount.King)
+                                {
+
+                                }
+                            }
                             break;
                         case E_SynergyEffectType.Berserker:
+                            {
+                                // 타워
+                                if (effect.EffectAmount == E_SynergyEffectAmount.Tower)
+                                {
+                                    // 시너지 적용할 타워 리스트
+                                    List<Tower> towerList = null;
+
+                                    // 같은 시너지 타워들만
+                                    if (synergyData.TargetMem == 1)
+                                    {
+                                        towerList = item.Value;
+                                    }
+                                    // 현재 라인 타워 전부
+                                    else if (synergyData.TargetMem == 2)
+                                    {
+                                        towerList = towers;
+                                    }
+
+                                    // 시너지 적용
+                                    for (int i = 0; i < towerList.Count; ++i)
+                                    {
+                                        towerList[i].m_TowerInfo.Berserker = true;
+                                        towerList[i].m_TowerInfo.BerserkerMaxStack = effect.EffectReq;
+                                        towerList[i].m_TowerInfo.BerserkerBuffList.Add(buffData);
+                                    }
+                                }
+                            }
                             break;
                         case E_SynergyEffectType.AddGold:
+                            {
+                                m_BonusGold += effect.EffectReq;
+                            }
+                            break;
+                    }
+
+                    effect = synergyData.Effect2;
+                    buffData = M_Buff.GetData(effect.EffectCode);
+
+                    // 시너지2 적용
+                    switch (effect.EffectType)
+                    {
+                        case E_SynergyEffectType.Buff:
+                            {
+                                // 타워 버프
+                                if (effect.EffectAmount == E_SynergyEffectAmount.Tower)
+                                {
+                                    // 시너지 적용할 타워 리스트
+                                    List<Tower> towerList = null;
+
+                                    // 같은 시너지 타워들만
+                                    if (synergyData.TargetMem == 1)
+                                    {
+                                        towerList = item.Value;
+                                    }
+                                    // 현재 라인 타워 전부
+                                    else if (synergyData.TargetMem == 2)
+                                    {
+                                        towerList = towers;
+                                    }
+
+                                    // 시너지 적용
+                                    for (int i = 0; i < towerList.Count; ++i)
+                                    {
+                                        towerList[i].m_TowerInfo.BuffList.Add(buffData);
+                                    }
+                                }
+                                // 몬스터 디버프
+                                else if (effect.EffectAmount == E_SynergyEffectAmount.Monster)
+                                {
+
+                                }
+                                // 마왕 버프
+                                else if (effect.EffectAmount == E_SynergyEffectAmount.King)
+                                {
+
+                                }
+                            }
+                            break;
+                        case E_SynergyEffectType.ChangeAtkType:
+                            {
+                                // 타워
+                                if (effect.EffectAmount == E_SynergyEffectAmount.Tower)
+                                {
+                                    // 시너지 적용할 타워 리스트
+                                    List<Tower> towerList = null;
+
+                                    // 같은 시너지 타워들만
+                                    if (synergyData.TargetMem == 1)
+                                    {
+                                        towerList = item.Value;
+                                    }
+                                    // 현재 라인 타워 전부
+                                    else if (synergyData.TargetMem == 2)
+                                    {
+                                        towerList = towers;
+                                    }
+
+                                    // 시너지 적용
+                                    for (int i = 0; i < towerList.Count; ++i)
+                                    {
+                                        towerList[i].m_TowerInfo.Synergy_Atk_type = effect.EffectChange;
+                                    }
+                                }
+                            }
+                            break;
+                        case E_SynergyEffectType.ReduceCooldown:
+                            {
+                                // 마왕
+                                if (effect.EffectAmount == E_SynergyEffectAmount.King)
+                                {
+
+                                }
+                            }
+                            break;
+                        case E_SynergyEffectType.Berserker:
+                            {
+                                // 타워
+                                if (effect.EffectAmount == E_SynergyEffectAmount.Tower)
+                                {
+                                    // 시너지 적용할 타워 리스트
+                                    List<Tower> towerList = null;
+
+                                    // 같은 시너지 타워들만
+                                    if (synergyData.TargetMem == 1)
+                                    {
+                                        towerList = item.Value;
+                                    }
+                                    // 현재 라인 타워 전부
+                                    else if (synergyData.TargetMem == 2)
+                                    {
+                                        towerList = towers;
+                                    }
+
+                                    // 시너지 적용
+                                    for (int i = 0; i < towerList.Count; ++i)
+                                    {
+                                        towerList[i].m_TowerInfo.Berserker = true;
+                                        towerList[i].m_TowerInfo.BerserkerMaxStack = effect.EffectReq;
+                                        towerList[i].m_TowerInfo.BerserkerBuffList.Add(buffData);
+                                    }
+                                }
+                            }
+                            break;
+                        case E_SynergyEffectType.AddGold:
+                            {
+                                m_BonusGold += effect.EffectReq;
+                            }
                             break;
                     }
 
