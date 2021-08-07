@@ -15,6 +15,11 @@ public class SynergyUIManager : Singleton<SynergyUIManager>
         m_fitter = m_root_panel.GetComponent<CellSizeFitter>();
     }
 
+    private void Start()
+    {
+        __Initialize();
+    }
+
     void __Initialize()
     {
         int cellcount = m_fitter.CellCount.y;
@@ -30,8 +35,4 @@ public class SynergyUIManager : Singleton<SynergyUIManager>
         }
     }
 
-    void OnInfoChange()
-    {
-
-    }
 }

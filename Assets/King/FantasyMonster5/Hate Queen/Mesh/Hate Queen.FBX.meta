@@ -1,0 +1,201 @@
+fileFormatVersion: 2
+guid: 0b480c6183b1ce64eb8e729ccce4b301
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Take 001
+  - first:
+      74: -2215746854211226816
+    second: ActiveSkill01
+  - first:
+      74: 2199260915300172492
+    second: ActiveSkill01_Casting
+  - first:
+      74: 7023975074078752682
+    second: ActiveSkill02
+  - first:
+      74: 4397059466156116884
+    second: Airborne
+  - first:
+      74: 2424066962992199138
+    second: Attach
+  - first:
+      74: 8794709332170161599
+    second: BattleReady
+  - first:
+      74: -5328894918516266462
+    second: Chase
+  - first:
+      74: 3651350446308603674
+    second: Damage
+  - first:
+      74: -4630339522487117836
+    second: Die
+  - first:
+      74: 1624593205714598167
+    second: Down
+  - first:
+      74: -4184644389974794022
+    second: Down_GetUp
+  - first:
+      74: 496334690011779414
+    second: Down_Loop
+  - first:
+      74: -7638150011853824929
+    second: ActiveSkill03
+  - first:
+      74: 2087235426071832641
+    second: NormalSkill
+  - first:
+      74: 6166871881905765853
+    second: NormalSkill_Critical
+  - first:
+      74: -3260646018562980696
+    second: Guard
+  - first:
+      74: -1001155892322358731
+    second: ActiveSkill04
+  - first:
+      74: -5838661189054354279
+    second: ActiveSKill04_Chase
+  - first:
+      74: 2866770862992046740
+    second: ActiveSkill04_ChaseReady
+  - first:
+      74: -3100369314251171874
+    second: Idle
+  - first:
+      74: 3914754774357040851
+    second: Interaction01
+  - first:
+      74: 1173319592914357406
+    second: Retreat
+  - first:
+      74: 1645369593413600241
+    second: SectionShift
+  - first:
+      74: 747752623111948898
+    second: Social_Idle
+  - first:
+      74: -6674314128092771181
+    second: Social_Pain
+  - first:
+      74: 8742189117626270576
+    second: Social_Rage
+  - first:
+      74: -6183422259963839448
+    second: Social_Smile
+  - first:
+      74: -2146268649859292731
+    second: Social_Talk
+  - first:
+      74: 1871406227984168697
+    second: Struggle
+  - first:
+      74: 7666019288946695810
+    second: Stun
+  - first:
+      74: 9119857402185407879
+    second: WinPose
+  - first:
+      74: 4965271010167369237
+    second: WinPose_Loop
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
