@@ -2,10 +2,107 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum E_Tower
+{
+    None,
+
+    // ¸¶¿Õ
+    HateQueen = 1,
+    HellLord,
+    FrostLich,
+
+    // Å¸¿ö
+    OrkGunner01 = 4,
+    OrkWarrior01,
+    Cyclops01,
+    Goblin01,
+    NolWarrior01,
+    TrollShamen01,
+    Sparkmon01,
+    Salamander01,
+    LavaGolem01,
+    Cerberos01,
+    Balrog01,
+    Minotaurus01,
+    Satyr01,
+    GrimReaper01,
+    DeathKnight01,
+    DarkSoul01,
+    StoneGolem01,
+    FireDemon01,
+    Bat01,
+    Wolf01,
+    FightBear01,
+    Clown01,
+    FallenAngel01,
+    Ipris01,
+    Dragon01,
+    Witch01,
+    DarkElf01,
+
+    OrkGunner02,
+    OrkWarrior02,
+    Cyclops02,
+    Goblin02,
+    NolWarrior02,
+    TrollShamen02,
+    Sparkmon02,
+    Salamander02,
+    LavaGolem02,
+    Cerberos02,
+    Balrog02,
+    Minotaurus02,
+    Satyr02,
+    GrimReaper02,
+    DeathKnight02,
+    DarkSoul02,
+    StoneGolem02,
+    FireDemon02,
+    Bat02,
+    Wolf02,
+    FightBear02,
+    Clown02,
+    FallenAngel02,
+    Ipris02,
+    Dragon02,
+    Witch02,
+    DarkElf02,
+
+    OrkGunner03,
+    OrkWarrior03,
+    Cyclops03,
+    Goblin03,
+    NolWarrior03,
+    TrollShamen03,
+    Sparkmon03,
+    Salamander03,
+    LavaGolem03,
+    Cerberos03,
+    Balrog03,
+    Minotaurus03,
+    Satyr03,
+    GrimReaper03,
+    DeathKnight03,
+    DarkSoul03,
+    StoneGolem03,
+    FireDemon03,
+    Bat03,
+    Wolf03,
+    FightBear03,
+    Clown03,
+    FallenAngel03,
+    Ipris03,
+    Dragon03,
+    Witch03,
+    DarkElf03,
+
+    Max
+}
+
 [System.Serializable]
 public struct S_TowerData_Excel
 {
-    public int No;
+    public E_Tower No;
     public string Name_KR;
     public string Name_EN;
     public int Code;
@@ -26,7 +123,10 @@ public struct S_TowerData_Excel
     public int Type1;
     public int Type2;
 
+    public float Price;
     public int Prefeb;
+
+    public string Component;
 }
 
 
@@ -38,7 +138,7 @@ public struct S_TowerData_Excel
 public class TowerData : ScriptableObject
 {
     [SerializeField] string filepath;
-    [SerializeField] List<S_TowerData_Excel> DataList;
+    public List<S_TowerData_Excel> DataList;
 
     private S_TowerData_Excel Read(string line)
     {
@@ -47,7 +147,7 @@ public class TowerData : ScriptableObject
 
         string[] strs = line.Split(',');
 
-        data.No = int.Parse(strs[idx++]);
+        data.No = (E_Tower)int.Parse(strs[idx++]);
         data.Name_KR = strs[idx++];
         data.Name_EN = strs[idx++];
         data.Code = int.Parse(strs[idx++]);
@@ -68,6 +168,7 @@ public class TowerData : ScriptableObject
         data.Type1 = int.Parse(strs[idx++]);
         data.Type2 = int.Parse(strs[idx++]);
 
+        data.Price = float.Parse(strs[idx++]);
         data.Prefeb = int.Parse(strs[idx++]);
 
         return data;
@@ -92,15 +193,5 @@ public class TowerData : ScriptableObject
             S_TowerData_Excel data = Read(item);
             DataList.Add(data);
         }
-    }
-    public S_TowerData_Excel GetData(int code)
-    {
-        foreach (var item in DataList)
-        {
-            if (item.Code == code)
-                return item;
-        }
-
-        return default(S_TowerData_Excel);
     }
 }

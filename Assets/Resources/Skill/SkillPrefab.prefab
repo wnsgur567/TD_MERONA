@@ -54,10 +54,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 92250376420401815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d55b041185ba1847b3e15630cdd5fe0, type: 3}
+  m_Script: {fileID: 11500000, guid: 34565420b82467249b1437b94d044325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TargetList: []
 --- !u!1 &1805340274863585538
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,20 +195,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1805340275972821824}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99b4fadba79a76c47ba92040bb261b62, type: 3}
+  m_Script: {fileID: 11500000, guid: ebba0468e1363624d81c251d1904ff7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_ConditionInfo_Excel:
     No: 0
     Name_KR: 
     Name_EN: 
-    Code: 
+    Code: 0
     Ally: 0
     Air_Attack: 0
-    Atk_type: 1
-    Atk_pick: 1
-    Target_type: 1
-    Move_type: 1
+    Atk_type: 0
+    Atk_pick: 0
+    Target_type: 0
+    Move_type: 0
     PassiveCode: 0
     Atk_prefab: 0
     projectile_prefab: 0
@@ -219,12 +218,12 @@ MonoBehaviour:
     No: 0
     Name_KR: 
     Name_EN: 
-    Code: 
+    Code: 0
     Max_Charge: 0
     CoolTime: 0
     Dmg: 0
     Range: 0
-    Speed: 1
+    Speed: 0
     Target_num: 0
     Size: 0
     Life_Time: 0

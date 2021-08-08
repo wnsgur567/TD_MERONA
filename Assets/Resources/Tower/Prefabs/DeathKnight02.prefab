@@ -491,7 +491,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300002, guid: 71807e22a293e674db9795fe30b3c70a, type: 3}
+  m_Mesh: {fileID: 1570282468167612875, guid: 40d006bd820b8f44cbda211def4a8d1b, type: 3}
   m_Bones:
   - {fileID: 4644418999144874}
   - {fileID: 4165178123038922}
@@ -1174,7 +1174,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300006, guid: 71807e22a293e674db9795fe30b3c70a, type: 3}
+  m_Mesh: {fileID: 7922524472538757487, guid: 40d006bd820b8f44cbda211def4a8d1b, type: 3}
   m_Bones:
   - {fileID: 4279993035842018}
   - {fileID: 4971254565136694}
@@ -1414,7 +1414,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300004, guid: 71807e22a293e674db9795fe30b3c70a, type: 3}
+  m_Mesh: {fileID: 2282155787888568480, guid: 40d006bd820b8f44cbda211def4a8d1b, type: 3}
   m_Bones:
   - {fileID: 4182114785769486}
   m_BlendShapeWeights: []
@@ -1743,7 +1743,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4528867200941746}
-  - component: {fileID: 7275915466572844997}
+  - component: {fileID: 764132005206019929}
   m_Layer: 0
   m_Name: DeathKnight02
   m_TagString: Untagged
@@ -1767,7 +1767,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7275915466572844997
+--- !u!114 &764132005206019929
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1776,10 +1776,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1524829065056442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 713633fd013030741859cce0333b4352, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ba4fdbad0dd8884c8e256156f53d49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TempCode: 0
+  m_TempCode: 100045
   m_TowerInfo_Excel:
     No: 0
     Name_KR: 
@@ -1798,7 +1798,9 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 0
     Type2: 0
+    Price: 0
     Prefeb: 0
+    Component: 
   m_TowerInfo:
     RotateSpeed: 0
     InitialRotation: {x: 0, y: 0, z: 0}
@@ -1836,25 +1838,12 @@ MonoBehaviour:
       Life_Time: 0
       LoadCode: 0
       LoadBuff: 0
-    Buff1:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff2:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff3:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
+    BuffList: []
     Synergy_Atk_type: 0
+    Berserker: 0
+    BerserkerStack: 0
+    BerserkerMaxStack: 0
+    BerserkerBuffList: []
   m_Target: {fileID: 0}
   m_AttackRange: {fileID: 0}
 --- !u!1 &1550179778537600
@@ -2450,7 +2439,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 71807e22a293e674db9795fe30b3c70a, type: 3}
+  m_Mesh: {fileID: -7924106640546352687, guid: 40d006bd820b8f44cbda211def4a8d1b, type: 3}
   m_Bones:
   - {fileID: 4330109830970424}
   m_BlendShapeWeights: []
@@ -2999,8 +2988,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4829356624605935117}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 71807e22a293e674db9795fe30b3c70a, type: 3}
-  m_Controller: {fileID: 9100000, guid: f15617150a18eac4fb1dfc0a3a8c5ec6, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 40d006bd820b8f44cbda211def4a8d1b, type: 3}
+  m_Controller: {fileID: 9100000, guid: 84aa286471dd9924f8521ad0ce04edba, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3019,7 +3008,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8816235441244367436}
   - component: {fileID: 5358636830698814414}
-  - component: {fileID: 5815407747951406297}
+  - component: {fileID: 713172609}
   m_Layer: 6
   m_Name: AttackRange
   m_TagString: Untagged
@@ -3054,7 +3043,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5815407747951406297
+--- !u!114 &713172609
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3063,6 +3052,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 9046215721206782091}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d55b041185ba1847b3e15630cdd5fe0, type: 3}
+  m_Script: {fileID: 11500000, guid: 34565420b82467249b1437b94d044325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

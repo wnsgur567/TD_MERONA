@@ -726,7 +726,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300002, guid: 1d87742b2882a9b41a0c55f349a60df9, type: 3}
+  m_Mesh: {fileID: -174904019653607140, guid: 556ee044ced415d4daad06ec77607e26, type: 3}
   m_Bones:
   - {fileID: 4311401452280484}
   - {fileID: 4328928137472350}
@@ -967,7 +967,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 1d87742b2882a9b41a0c55f349a60df9, type: 3}
+  m_Mesh: {fileID: -3745629657738471576, guid: 556ee044ced415d4daad06ec77607e26, type: 3}
   m_Bones:
   - {fileID: 4154693143474208}
   - {fileID: 4633000236149544}
@@ -1041,7 +1041,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4468680837147488}
-  - component: {fileID: 3951447144617522198}
+  - component: {fileID: -6109204174067661567}
   m_Layer: 0
   m_Name: OrkGunner03
   m_TagString: Untagged
@@ -1065,7 +1065,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3951447144617522198
+--- !u!114 &-6109204174067661567
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1074,10 +1074,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1558244208904854}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 713633fd013030741859cce0333b4352, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ba4fdbad0dd8884c8e256156f53d49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TempCode: 0
+  m_TempCode: 100058
   m_TowerInfo_Excel:
     No: 0
     Name_KR: 
@@ -1096,7 +1096,9 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 0
     Type2: 0
+    Price: 0
     Prefeb: 0
+    Component: 
   m_TowerInfo:
     RotateSpeed: 0
     InitialRotation: {x: 0, y: 0, z: 0}
@@ -1134,25 +1136,12 @@ MonoBehaviour:
       Life_Time: 0
       LoadCode: 0
       LoadBuff: 0
-    Buff1:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff2:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff3:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
+    BuffList: []
     Synergy_Atk_type: 0
+    Berserker: 0
+    BerserkerStack: 0
+    BerserkerMaxStack: 0
+    BerserkerBuffList: []
   m_Target: {fileID: 0}
   m_AttackRange: {fileID: 0}
 --- !u!1 &1559057030532094
@@ -1661,7 +1650,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6504383226140999420}
   - component: {fileID: 8856912413767372840}
-  - component: {fileID: 7986421491413481584}
+  - component: {fileID: 359457946}
   m_Layer: 6
   m_Name: AttackRange
   m_TagString: Untagged
@@ -1696,7 +1685,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7986421491413481584
+--- !u!114 &359457946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1705,7 +1694,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2744985980381014749}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d55b041185ba1847b3e15630cdd5fe0, type: 3}
+  m_Script: {fileID: 11500000, guid: 34565420b82467249b1437b94d044325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8479347991016516056
@@ -1751,8 +1740,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8479347991016516056}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 1d87742b2882a9b41a0c55f349a60df9, type: 3}
-  m_Controller: {fileID: 9100000, guid: efbbfd2a76404854294ecfdcf837beea, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 556ee044ced415d4daad06ec77607e26, type: 3}
+  m_Controller: {fileID: 9100000, guid: 61b420f2e6586d7428b29aa692be8012, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

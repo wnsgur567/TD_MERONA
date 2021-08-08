@@ -223,7 +223,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3259421828499636032}
-  m_Mesh: {fileID: 6049924864982155103, guid: 89fd0ac34306cc1428ea2f0a4a838dd8, type: 3}
+  m_Mesh: {fileID: 6049924864982155103, guid: 587449908546aa0469f75f7397fca27e, type: 3}
 --- !u!23 &4865246338759137997
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -243,7 +243,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3b32aaa1c458d104e8f68beec1dba7ff, type: 2}
+  - {fileID: 2100000, guid: abed2cf2e5889054da4a1cb32fa53f73, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -306,7 +306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4454233533333929581}
   - component: {fileID: 8956262415008020297}
-  - component: {fileID: 7510858830503609907}
+  - component: {fileID: 1397973930}
   m_Layer: 6
   m_Name: AttackRange
   m_TagString: Untagged
@@ -341,7 +341,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7510858830503609907
+--- !u!114 &1397973930
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -350,7 +350,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3358528805861229469}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d55b041185ba1847b3e15630cdd5fe0, type: 3}
+  m_Script: {fileID: 11500000, guid: 34565420b82467249b1437b94d044325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4030997995659826908
@@ -579,8 +579,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5788794420767432271}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 89fd0ac34306cc1428ea2f0a4a838dd8, type: 3}
-  m_Controller: {fileID: 9100000, guid: fbeb7212cf0c0934a8e08b22b06e9396, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 587449908546aa0469f75f7397fca27e, type: 3}
+  m_Controller: {fileID: 9100000, guid: 026d704b40f39fb40a036896b07c3724, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2270,7 +2270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8774020719352230447}
-  - component: {fileID: 1084249862404928228}
+  - component: {fileID: -2676888227558621936}
   m_Layer: 0
   m_Name: FallenAngel01
   m_TagString: Untagged
@@ -2294,7 +2294,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1084249862404928228
+--- !u!114 &-2676888227558621936
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2303,10 +2303,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8774020719352721359}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 713633fd013030741859cce0333b4352, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ba4fdbad0dd8884c8e256156f53d49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TempCode: 0
+  m_TempCode: 100026
   m_TowerInfo_Excel:
     No: 0
     Name_KR: 
@@ -2325,7 +2325,9 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 0
     Type2: 0
+    Price: 0
     Prefeb: 0
+    Component: 
   m_TowerInfo:
     RotateSpeed: 0
     InitialRotation: {x: 0, y: 0, z: 0}
@@ -2363,25 +2365,12 @@ MonoBehaviour:
       Life_Time: 0
       LoadCode: 0
       LoadBuff: 0
-    Buff1:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff2:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff3:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
+    BuffList: []
     Synergy_Atk_type: 0
+    Berserker: 0
+    BerserkerStack: 0
+    BerserkerMaxStack: 0
+    BerserkerBuffList: []
   m_Target: {fileID: 0}
   m_AttackRange: {fileID: 0}
 --- !u!1 &8774020719352721361
@@ -2713,7 +2702,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300004, guid: 89fd0ac34306cc1428ea2f0a4a838dd8, type: 3}
+  m_Mesh: {fileID: -5601364253910132901, guid: 587449908546aa0469f75f7397fca27e, type: 3}
   m_Bones:
   - {fileID: 8774020719352230495}
   - {fileID: 8774020719352230455}

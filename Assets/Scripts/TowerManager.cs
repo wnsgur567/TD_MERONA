@@ -30,21 +30,37 @@ public class TowerManager : Singleton<TowerManager>
         }
     }
 
-    public Tower SpawnTower(TowerPool.E_Tower tower)
+    public Tower SpawnTower(E_Tower tower)
     {
         Tower spawn = M_TowerPool.GetPool(tower.ToString()).Spawn();
         m_TowerList.Add(spawn);
         return spawn;
     }
-    public Tower SpawnTower(TowerPool.E_Tower tower, E_Direction dir)
+    public Tower SpawnTower(E_Tower tower, E_Direction dir)
     {
         Tower spawn = SpawnTower(tower);
         m_DirTowerList[dir].Add(spawn);
         return spawn;
     }
+    public S_TowerData_Excel GetData(E_Tower no)
+    {
+        foreach (var item in TowerData.DataList)
+        {
+            if (item.No == no)
+                return item;
+        }
+
+        return default(S_TowerData_Excel);
+    }
     public S_TowerData_Excel GetData(int code)
     {
-        return TowerData.GetData(code);
+        foreach (var item in TowerData.DataList)
+        {
+            if (item.Code == code)
+                return item;
+        }
+
+        return default(S_TowerData_Excel);
     }
     public List<Tower> GetTowerList(E_Direction dir)
     {

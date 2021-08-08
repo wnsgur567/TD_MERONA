@@ -879,7 +879,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300002, guid: 22f1a875d49894544bc151f94ab293c1, type: 3}
+  m_Mesh: {fileID: 7564727970332983864, guid: a5fcb971e49e567479c57aad76c2eefb, type: 3}
   m_Bones:
   - {fileID: 4956643102543464}
   m_BlendShapeWeights: []
@@ -1364,7 +1364,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300004, guid: 22f1a875d49894544bc151f94ab293c1, type: 3}
+  m_Mesh: {fileID: -1973028822311376859, guid: a5fcb971e49e567479c57aad76c2eefb, type: 3}
   m_Bones:
   - {fileID: 4298388905245908}
   m_BlendShapeWeights: []
@@ -1476,7 +1476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4781383208732892}
-  - component: {fileID: -8958149987805151730}
+  - component: {fileID: 9129740978223225312}
   m_Layer: 0
   m_Name: Darksoul04
   m_TagString: Untagged
@@ -1500,7 +1500,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8958149987805151730
+--- !u!114 &9129740978223225312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1509,7 +1509,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1843931050178562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 713633fd013030741859cce0333b4352, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ba4fdbad0dd8884c8e256156f53d49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_TempCode: 0
@@ -1531,7 +1531,9 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 0
     Type2: 0
+    Price: 0
     Prefeb: 0
+    Component: 
   m_TowerInfo:
     RotateSpeed: 0
     InitialRotation: {x: 0, y: 0, z: 0}
@@ -1569,25 +1571,12 @@ MonoBehaviour:
       Life_Time: 0
       LoadCode: 0
       LoadBuff: 0
-    Buff1:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff2:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff3:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
+    BuffList: []
     Synergy_Atk_type: 0
+    Berserker: 0
+    BerserkerStack: 0
+    BerserkerMaxStack: 0
+    BerserkerBuffList: []
   m_Target: {fileID: 0}
   m_AttackRange: {fileID: 0}
 --- !u!1 &1879426523673038
@@ -1788,7 +1777,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 22f1a875d49894544bc151f94ab293c1, type: 3}
+  m_Mesh: {fileID: -6014896615478871940, guid: a5fcb971e49e567479c57aad76c2eefb, type: 3}
   m_Bones:
   - {fileID: 4969486195702982}
   - {fileID: 4306383718699350}
@@ -1993,8 +1982,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5103991219067461863}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 22f1a875d49894544bc151f94ab293c1, type: 3}
-  m_Controller: {fileID: 9100000, guid: 45a132709a015604bb85fb9ec9c74e69, type: 2}
+  m_Avatar: {fileID: 9000000, guid: a5fcb971e49e567479c57aad76c2eefb, type: 3}
+  m_Controller: {fileID: 9100000, guid: 313441a4e9992534694d402b92ec6886, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2013,7 +2002,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8487624515438615190}
   - component: {fileID: 7462083488182434525}
-  - component: {fileID: 2902795180441123427}
+  - component: {fileID: 9975686}
   m_Layer: 6
   m_Name: AttackRange
   m_TagString: Untagged
@@ -2048,7 +2037,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2902795180441123427
+--- !u!114 &9975686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2057,6 +2046,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5694166821874951301}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d55b041185ba1847b3e15630cdd5fe0, type: 3}
+  m_Script: {fileID: 11500000, guid: 34565420b82467249b1437b94d044325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2289eb0bab87e642881eea0d9fddcde, type: 3}
+  m_Script: {fileID: 11500000, guid: df3d13077d8ca184187ac9d200d73fc3, type: 3}
   m_Name: SynergyData
   m_EditorClassIdentifier: 
   filepath: 

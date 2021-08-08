@@ -196,7 +196,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: d2599e7d042c4064a8fe47fbc5abe742, type: 3}
+  m_Mesh: {fileID: -4092817052088380681, guid: 562e06c8029135b4d992b74aaec81db3, type: 3}
   m_Bones:
   - {fileID: 4160061946807364}
   - {fileID: 4577551047567484}
@@ -652,7 +652,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4967254613107342}
-  - component: {fileID: 4839565710753642330}
+  - component: {fileID: -6729373801556565927}
   m_Layer: 0
   m_Name: Sparkmon03
   m_TagString: Untagged
@@ -676,7 +676,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4839565710753642330
+--- !u!114 &-6729373801556565927
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -685,10 +685,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1295189659871040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 713633fd013030741859cce0333b4352, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ba4fdbad0dd8884c8e256156f53d49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TempCode: 0
+  m_TempCode: 100064
   m_TowerInfo_Excel:
     No: 0
     Name_KR: 
@@ -707,7 +707,9 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 0
     Type2: 0
+    Price: 0
     Prefeb: 0
+    Component: 
   m_TowerInfo:
     RotateSpeed: 0
     InitialRotation: {x: 0, y: 0, z: 0}
@@ -745,25 +747,12 @@ MonoBehaviour:
       Life_Time: 0
       LoadCode: 0
       LoadBuff: 0
-    Buff1:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff2:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff3:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
+    BuffList: []
     Synergy_Atk_type: 0
+    Berserker: 0
+    BerserkerStack: 0
+    BerserkerMaxStack: 0
+    BerserkerBuffList: []
   m_Target: {fileID: 0}
   m_AttackRange: {fileID: 0}
 --- !u!1 &1306746331384616
@@ -1739,8 +1728,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4385745749805554599}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: d2599e7d042c4064a8fe47fbc5abe742, type: 3}
-  m_Controller: {fileID: 9100000, guid: 532fb5216c8637f419598de2c0a7429d, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 562e06c8029135b4d992b74aaec81db3, type: 3}
+  m_Controller: {fileID: 9100000, guid: 1874338c2126a4b4aa1590731089742b, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1759,7 +1748,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7682961194079573135}
   - component: {fileID: 6572576992690438085}
-  - component: {fileID: 4385154290766873760}
+  - component: {fileID: 2012265887}
   m_Layer: 6
   m_Name: AttackRange
   m_TagString: Untagged
@@ -1794,7 +1783,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4385154290766873760
+--- !u!114 &2012265887
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1803,6 +1792,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8911357450615992617}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d55b041185ba1847b3e15630cdd5fe0, type: 3}
+  m_Script: {fileID: 11500000, guid: 34565420b82467249b1437b94d044325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -382,7 +382,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4033034156652548}
-  - component: {fileID: 7887176467155513278}
+  - component: {fileID: 964470331243515884}
   m_Layer: 0
   m_Name: OrkWarrior03
   m_TagString: Untagged
@@ -406,7 +406,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7887176467155513278
+--- !u!114 &964470331243515884
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -415,10 +415,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1216111656869300}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 713633fd013030741859cce0333b4352, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ba4fdbad0dd8884c8e256156f53d49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TempCode: 0
+  m_TempCode: 100059
   m_TowerInfo_Excel:
     No: 0
     Name_KR: 
@@ -437,7 +437,9 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 0
     Type2: 0
+    Price: 0
     Prefeb: 0
+    Component: 
   m_TowerInfo:
     RotateSpeed: 0
     InitialRotation: {x: 0, y: 0, z: 0}
@@ -475,25 +477,12 @@ MonoBehaviour:
       Life_Time: 0
       LoadCode: 0
       LoadBuff: 0
-    Buff1:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff2:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff3:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
+    BuffList: []
     Synergy_Atk_type: 0
+    Berserker: 0
+    BerserkerStack: 0
+    BerserkerMaxStack: 0
+    BerserkerBuffList: []
   m_Target: {fileID: 0}
   m_AttackRange: {fileID: 0}
 --- !u!1 &1220520727775126
@@ -910,7 +899,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300004, guid: 1566f8b96ca7a8c4bbe48797533d76ce, type: 3}
+  m_Mesh: {fileID: -923930571717204736, guid: c7fac53b3a875984c976dacae3401add, type: 3}
   m_Bones:
   - {fileID: 4738379808869760}
   m_BlendShapeWeights: []
@@ -1152,7 +1141,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300006, guid: 1566f8b96ca7a8c4bbe48797533d76ce, type: 3}
+  m_Mesh: {fileID: -2883374159534375030, guid: c7fac53b3a875984c976dacae3401add, type: 3}
   m_Bones:
   - {fileID: 4642675844665204}
   m_BlendShapeWeights: []
@@ -1329,7 +1318,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300008, guid: 1566f8b96ca7a8c4bbe48797533d76ce, type: 3}
+  m_Mesh: {fileID: -6474449729702495982, guid: c7fac53b3a875984c976dacae3401add, type: 3}
   m_Bones:
   - {fileID: 4033272855249372}
   m_BlendShapeWeights: []
@@ -1690,7 +1679,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300002, guid: 1566f8b96ca7a8c4bbe48797533d76ce, type: 3}
+  m_Mesh: {fileID: 139945403700731696, guid: c7fac53b3a875984c976dacae3401add, type: 3}
   m_Bones:
   - {fileID: 4878487952240802}
   m_BlendShapeWeights: []
@@ -1869,7 +1858,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 1566f8b96ca7a8c4bbe48797533d76ce, type: 3}
+  m_Mesh: {fileID: -3746880744786220080, guid: c7fac53b3a875984c976dacae3401add, type: 3}
   m_Bones:
   - {fileID: 4636968721703624}
   - {fileID: 4905851617428704}
@@ -2074,8 +2063,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125341424109466927}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 1566f8b96ca7a8c4bbe48797533d76ce, type: 3}
-  m_Controller: {fileID: 9100000, guid: 31779afcf6ec3534fa673c3d8781751a, type: 2}
+  m_Avatar: {fileID: 9000000, guid: c7fac53b3a875984c976dacae3401add, type: 3}
+  m_Controller: {fileID: 9100000, guid: bae7dccd312f88240a8cba2b9542ccac, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2094,7 +2083,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4534853348334186530}
   - component: {fileID: 3601992565364736329}
-  - component: {fileID: 2902809837091200289}
+  - component: {fileID: 464595535}
   m_Layer: 6
   m_Name: AttackRange
   m_TagString: Untagged
@@ -2129,7 +2118,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2902809837091200289
+--- !u!114 &464595535
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2138,6 +2127,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4503343188738358469}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d55b041185ba1847b3e15630cdd5fe0, type: 3}
+  m_Script: {fileID: 11500000, guid: 34565420b82467249b1437b94d044325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

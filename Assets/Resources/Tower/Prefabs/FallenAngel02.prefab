@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8292781641248332497}
   - component: {fileID: 1965914253943782625}
-  - component: {fileID: 4718776151303423300}
+  - component: {fileID: 782270439}
   m_Layer: 6
   m_Name: AttackRange
   m_TagString: Untagged
@@ -45,7 +45,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4718776151303423300
+--- !u!114 &782270439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 42117439416186774}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d55b041185ba1847b3e15630cdd5fe0, type: 3}
+  m_Script: {fileID: 11500000, guid: 34565420b82467249b1437b94d044325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1014342782496337291
@@ -66,6 +66,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2557386263287344815}
+  - component: {fileID: 53606471}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -89,6 +90,25 @@ Transform:
   m_Father: {fileID: 1247483152915264476}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &53606471
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014342782496337291}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 04993e33d43fd2346a9fe00044fdb011, type: 3}
+  m_Controller: {fileID: 9100000, guid: 026d704b40f39fb40a036896b07c3724, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1020593687646936331
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,7 +2167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1247483152915264476}
-  - component: {fileID: -7975271499772366444}
+  - component: {fileID: -8201926128799053152}
   m_Layer: 0
   m_Name: FallenAngel02
   m_TagString: Untagged
@@ -2171,7 +2191,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-7975271499772366444
+--- !u!114 &-8201926128799053152
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2180,10 +2200,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1247483152915230714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 713633fd013030741859cce0333b4352, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ba4fdbad0dd8884c8e256156f53d49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TempCode: 0
+  m_TempCode: 100053
   m_TowerInfo_Excel:
     No: 0
     Name_KR: 
@@ -2202,7 +2222,9 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 0
     Type2: 0
+    Price: 0
     Prefeb: 0
+    Component: 
   m_TowerInfo:
     RotateSpeed: 0
     InitialRotation: {x: 0, y: 0, z: 0}
@@ -2240,25 +2262,12 @@ MonoBehaviour:
       Life_Time: 0
       LoadCode: 0
       LoadBuff: 0
-    Buff1:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff2:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff3:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
+    BuffList: []
     Synergy_Atk_type: 0
+    Berserker: 0
+    BerserkerStack: 0
+    BerserkerMaxStack: 0
+    BerserkerBuffList: []
   m_Target: {fileID: 0}
   m_AttackRange: {fileID: 0}
 --- !u!1 &1247483152915230716
@@ -2336,7 +2345,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300002, guid: c0e333ea80d76b443a5dc527b4bfc194, type: 3}
+  m_Mesh: {fileID: -7859550895408999418, guid: 04993e33d43fd2346a9fe00044fdb011, type: 3}
   m_Bones:
   - {fileID: 1247483152915264036}
   - {fileID: 1247483152915264450}
@@ -2714,7 +2723,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8598205219847566820}
-  m_Mesh: {fileID: -3366248978408970672, guid: c0e333ea80d76b443a5dc527b4bfc194, type: 3}
+  m_Mesh: {fileID: -3366248978408970672, guid: 04993e33d43fd2346a9fe00044fdb011, type: 3}
 --- !u!23 &6685533119742135013
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2734,7 +2743,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7ba1133b791d7c24cb18b09f3e6bc6cc, type: 2}
+  - {fileID: 2100000, guid: 879352a6cbab9914b9de02b93bee4aa3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

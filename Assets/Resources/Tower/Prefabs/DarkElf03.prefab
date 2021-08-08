@@ -39,7 +39,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000019697348880}
-  m_Mesh: {fileID: 4300002, guid: 3f32c331cb4464a4f8f52beb6832ce86, type: 3}
+  m_Mesh: {fileID: -8923013906911886416, guid: 54a6c839d957e8d48a0267973870714a, type: 3}
 --- !u!23 &23170611302154586
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -370,7 +370,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4990156448437732}
-  - component: {fileID: 8975238875750142148}
+  - component: {fileID: -8145818532495591157}
   m_Layer: 0
   m_Name: DarkElf03
   m_TagString: Untagged
@@ -394,7 +394,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8975238875750142148
+--- !u!114 &-8145818532495591157
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -403,10 +403,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1152550880603586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 713633fd013030741859cce0333b4352, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ba4fdbad0dd8884c8e256156f53d49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TempCode: 0
+  m_TempCode: 100084
   m_TowerInfo_Excel:
     No: 0
     Name_KR: 
@@ -425,7 +425,9 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 0
     Type2: 0
+    Price: 0
     Prefeb: 0
+    Component: 
   m_TowerInfo:
     RotateSpeed: 0
     InitialRotation: {x: 0, y: 0, z: 0}
@@ -463,25 +465,12 @@ MonoBehaviour:
       Life_Time: 0
       LoadCode: 0
       LoadBuff: 0
-    Buff1:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff2:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff3:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
+    BuffList: []
     Synergy_Atk_type: 0
+    Berserker: 0
+    BerserkerStack: 0
+    BerserkerMaxStack: 0
+    BerserkerBuffList: []
   m_Target: {fileID: 0}
   m_AttackRange: {fileID: 0}
 --- !u!1 &1160159579178720
@@ -930,7 +919,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300004, guid: 3f32c331cb4464a4f8f52beb6832ce86, type: 3}
+  m_Mesh: {fileID: -869678308676693378, guid: 54a6c839d957e8d48a0267973870714a, type: 3}
   m_Bones:
   - {fileID: 4699896929899346}
   - {fileID: 4071500477661802}
@@ -2093,8 +2082,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2580809551654535583}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 3f32c331cb4464a4f8f52beb6832ce86, type: 3}
-  m_Controller: {fileID: 9100000, guid: 0aea8b0c9e08a9b49830a68fa1420871, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 54a6c839d957e8d48a0267973870714a, type: 3}
+  m_Controller: {fileID: 9100000, guid: b5c5156a83511b842bb06e443573399a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2113,7 +2102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6943299872831958089}
   - component: {fileID: 3608635158322227323}
-  - component: {fileID: 2547926805392778856}
+  - component: {fileID: 1020115080}
   m_Layer: 6
   m_Name: AttackRange
   m_TagString: Untagged
@@ -2148,7 +2137,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2547926805392778856
+--- !u!114 &1020115080
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2157,6 +2146,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4399681507486989722}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d55b041185ba1847b3e15630cdd5fe0, type: 3}
+  m_Script: {fileID: 11500000, guid: 34565420b82467249b1437b94d044325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -75,7 +75,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300004, guid: 37dccdba0b1b84648a200eabcfe6de19, type: 3}
+  m_Mesh: {fileID: 7623917269479792522, guid: 9a3b442652dbdb24eade59396d6b9218, type: 3}
   m_Bones:
   - {fileID: 4687798413005566}
   m_BlendShapeWeights: []
@@ -900,7 +900,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300002, guid: 37dccdba0b1b84648a200eabcfe6de19, type: 3}
+  m_Mesh: {fileID: 6157888616883883565, guid: 9a3b442652dbdb24eade59396d6b9218, type: 3}
   m_Bones:
   - {fileID: 4616511646030174}
   - {fileID: 4960755682981742}
@@ -1542,7 +1542,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4398331088877852}
-  - component: {fileID: -3015644528076305549}
+  - component: {fileID: 8001472264672458703}
   m_Layer: 0
   m_Name: Goblin01
   m_TagString: Untagged
@@ -1566,7 +1566,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-3015644528076305549
+--- !u!114 &8001472264672458703
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1575,10 +1575,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1871609340708586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 713633fd013030741859cce0333b4352, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ba4fdbad0dd8884c8e256156f53d49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TempCode: 0
+  m_TempCode: 100007
   m_TowerInfo_Excel:
     No: 0
     Name_KR: 
@@ -1597,7 +1597,9 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 0
     Type2: 0
+    Price: 0
     Prefeb: 0
+    Component: 
   m_TowerInfo:
     RotateSpeed: 0
     InitialRotation: {x: 0, y: 0, z: 0}
@@ -1635,25 +1637,12 @@ MonoBehaviour:
       Life_Time: 0
       LoadCode: 0
       LoadBuff: 0
-    Buff1:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff2:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff3:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
+    BuffList: []
     Synergy_Atk_type: 0
+    Berserker: 0
+    BerserkerStack: 0
+    BerserkerMaxStack: 0
+    BerserkerBuffList: []
   m_Target: {fileID: 0}
   m_AttackRange: {fileID: 0}
 --- !u!1 &1896026012480628
@@ -1885,7 +1874,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 37dccdba0b1b84648a200eabcfe6de19, type: 3}
+  m_Mesh: {fileID: 4953418996320711521, guid: 9a3b442652dbdb24eade59396d6b9218, type: 3}
   m_Bones:
   - {fileID: 4184359220444434}
   - {fileID: 4115885834082924}
@@ -1935,7 +1924,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3004578828625386208}
   - component: {fileID: 3068394509401077619}
-  - component: {fileID: 2436600087488799518}
+  - component: {fileID: 1235215137}
   m_Layer: 6
   m_Name: AttackRange
   m_TagString: Untagged
@@ -1970,7 +1959,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2436600087488799518
+--- !u!114 &1235215137
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1979,7 +1968,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5147548903031997079}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d55b041185ba1847b3e15630cdd5fe0, type: 3}
+  m_Script: {fileID: 11500000, guid: 34565420b82467249b1437b94d044325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6078865749201653787
@@ -2026,8 +2015,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6078865749201653787}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 37dccdba0b1b84648a200eabcfe6de19, type: 3}
-  m_Controller: {fileID: 9100000, guid: 10b49d6e1afce224882c8fbb84b80563, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 9a3b442652dbdb24eade59396d6b9218, type: 3}
+  m_Controller: {fileID: 9100000, guid: 206f7086aca7cd64c9ca9852f244995c, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

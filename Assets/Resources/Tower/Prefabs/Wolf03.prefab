@@ -225,7 +225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4012638924599252}
-  - component: {fileID: -23987174324417288}
+  - component: {fileID: -2910480423759618322}
   m_Layer: 0
   m_Name: Wolf03
   m_TagString: Untagged
@@ -249,7 +249,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-23987174324417288
+--- !u!114 &-2910480423759618322
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -258,10 +258,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1147686244864946}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 713633fd013030741859cce0333b4352, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ba4fdbad0dd8884c8e256156f53d49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TempCode: 0
+  m_TempCode: 100077
   m_TowerInfo_Excel:
     No: 0
     Name_KR: 
@@ -280,7 +280,9 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 0
     Type2: 0
+    Price: 0
     Prefeb: 0
+    Component: 
   m_TowerInfo:
     RotateSpeed: 0
     InitialRotation: {x: 0, y: 0, z: 0}
@@ -318,25 +320,12 @@ MonoBehaviour:
       Life_Time: 0
       LoadCode: 0
       LoadBuff: 0
-    Buff1:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff2:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff3:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
+    BuffList: []
     Synergy_Atk_type: 0
+    Berserker: 0
+    BerserkerStack: 0
+    BerserkerMaxStack: 0
+    BerserkerBuffList: []
   m_Target: {fileID: 0}
   m_AttackRange: {fileID: 0}
 --- !u!1 &1150202813017682
@@ -1156,7 +1145,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: d5609f6a194859648806ffcfa1a99335, type: 3}
+  m_Mesh: {fileID: 8839871022679535818, guid: 0265258e222f89147a000bba0b65c490, type: 3}
   m_Bones:
   - {fileID: 4669637692242740}
   - {fileID: 4615608598036350}
@@ -1421,7 +1410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4063346047569117502}
   - component: {fileID: 41515200845914009}
-  - component: {fileID: 5245043968512444965}
+  - component: {fileID: 2073028931}
   m_Layer: 6
   m_Name: AttackRange
   m_TagString: Untagged
@@ -1456,7 +1445,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5245043968512444965
+--- !u!114 &2073028931
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1465,7 +1454,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1177277028955643372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d55b041185ba1847b3e15630cdd5fe0, type: 3}
+  m_Script: {fileID: 11500000, guid: 34565420b82467249b1437b94d044325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4185351543045170144
@@ -1510,8 +1499,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4185351543045170144}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: d5609f6a194859648806ffcfa1a99335, type: 3}
-  m_Controller: {fileID: 9100000, guid: 4c2502beecd78ff488ab35f0ce7fc06c, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 0265258e222f89147a000bba0b65c490, type: 3}
+  m_Controller: {fileID: 9100000, guid: 3e02909f40d786e42a080ffdafc8013e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

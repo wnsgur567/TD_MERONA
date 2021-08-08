@@ -1112,7 +1112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400072}
-  - component: {fileID: 2557976906686706766}
+  - component: {fileID: 1911187351258376495}
   m_Layer: 0
   m_Name: FireDemon03
   m_TagString: Untagged
@@ -1136,7 +1136,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2557976906686706766
+--- !u!114 &1911187351258376495
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1145,10 +1145,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 713633fd013030741859cce0333b4352, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ba4fdbad0dd8884c8e256156f53d49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TempCode: 0
+  m_TempCode: 100075
   m_TowerInfo_Excel:
     No: 0
     Name_KR: 
@@ -1167,7 +1167,9 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 0
     Type2: 0
+    Price: 0
     Prefeb: 0
+    Component: 
   m_TowerInfo:
     RotateSpeed: 0
     InitialRotation: {x: 0, y: 0, z: 0}
@@ -1205,25 +1207,12 @@ MonoBehaviour:
       Life_Time: 0
       LoadCode: 0
       LoadBuff: 0
-    Buff1:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff2:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff3:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
+    BuffList: []
     Synergy_Atk_type: 0
+    Berserker: 0
+    BerserkerStack: 0
+    BerserkerMaxStack: 0
+    BerserkerBuffList: []
   m_Target: {fileID: 0}
   m_AttackRange: {fileID: 0}
 --- !u!1 &100074
@@ -2108,7 +2097,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9b3f259d2f9936f4e90965efc94bb80a, type: 2}
+  - {fileID: 2100000, guid: 6045e7b6916850242b390a210bc80276, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2133,7 +2122,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 787bf97a858eb704585a3362afbc56e5, type: 3}
+  m_Mesh: {fileID: 1334217467463318620, guid: dd40f67ce05d7a04795eb01ea8d54442, type: 3}
   m_Bones:
   - {fileID: 400136}
   - {fileID: 400114}
@@ -7345,8 +7334,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94960937773582121}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 787bf97a858eb704585a3362afbc56e5, type: 3}
-  m_Controller: {fileID: 9100000, guid: cce0a997a438aec4ab95f9973643819a, type: 2}
+  m_Avatar: {fileID: 9000000, guid: dd40f67ce05d7a04795eb01ea8d54442, type: 3}
+  m_Controller: {fileID: 9100000, guid: 9550b6459d70f614398f6abbd39ed02e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -7365,7 +7354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6768740883632958558}
   - component: {fileID: 8278732289240467679}
-  - component: {fileID: 3232032938410597580}
+  - component: {fileID: 349699930}
   m_Layer: 6
   m_Name: AttackRange
   m_TagString: Untagged
@@ -7400,7 +7389,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3232032938410597580
+--- !u!114 &349699930
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7409,6 +7398,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 651426724223960818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d55b041185ba1847b3e15630cdd5fe0, type: 3}
+  m_Script: {fileID: 11500000, guid: 34565420b82467249b1437b94d044325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

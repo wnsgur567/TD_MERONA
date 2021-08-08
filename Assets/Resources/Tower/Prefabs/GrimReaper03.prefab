@@ -203,7 +203,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300002, guid: 234607cb45e41354b9c9b8bf399ea87d, type: 3}
+  m_Mesh: {fileID: 4295056148888676738, guid: 29e82bbdb6c7f694bb17c7c3348df546, type: 3}
   m_Bones:
   - {fileID: 4443898383714202}
   - {fileID: 4080348420201338}
@@ -535,7 +535,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300004, guid: 234607cb45e41354b9c9b8bf399ea87d, type: 3}
+  m_Mesh: {fileID: -2419587451537945253, guid: 29e82bbdb6c7f694bb17c7c3348df546, type: 3}
   m_Bones:
   - {fileID: 4565911014260526}
   - {fileID: 4080348420201338}
@@ -1403,7 +1403,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4741126861579878}
-  - component: {fileID: -3882367046608877534}
+  - component: {fileID: 3898052204795294861}
   m_Layer: 0
   m_Name: GrimReaper03
   m_TagString: Untagged
@@ -1427,7 +1427,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-3882367046608877534
+--- !u!114 &3898052204795294861
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1436,10 +1436,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1449620620830000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 713633fd013030741859cce0333b4352, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ba4fdbad0dd8884c8e256156f53d49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TempCode: 0
+  m_TempCode: 100071
   m_TowerInfo_Excel:
     No: 0
     Name_KR: 
@@ -1458,7 +1458,9 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 0
     Type2: 0
+    Price: 0
     Prefeb: 0
+    Component: 
   m_TowerInfo:
     RotateSpeed: 0
     InitialRotation: {x: 0, y: 0, z: 0}
@@ -1496,25 +1498,12 @@ MonoBehaviour:
       Life_Time: 0
       LoadCode: 0
       LoadBuff: 0
-    Buff1:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff2:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
-    Buff3:
-      BuffType: 0
-      AddType: 0
-      BuffAmount: 0
-      BuffRand: 0
-      Summon: 0
+    BuffList: []
     Synergy_Atk_type: 0
+    Berserker: 0
+    BerserkerStack: 0
+    BerserkerMaxStack: 0
+    BerserkerBuffList: []
   m_Target: {fileID: 0}
   m_AttackRange: {fileID: 0}
 --- !u!1 &1450600917402306
@@ -2024,7 +2013,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 234607cb45e41354b9c9b8bf399ea87d, type: 3}
+  m_Mesh: {fileID: 6641997451500517160, guid: 29e82bbdb6c7f694bb17c7c3348df546, type: 3}
   m_Bones:
   - {fileID: 4820812211761674}
   m_BlendShapeWeights: []
@@ -2694,7 +2683,7 @@ GameObject:
   m_Component:
   - component: {fileID: 614875216368119211}
   - component: {fileID: 8290875051343344969}
-  - component: {fileID: 7168288039031147343}
+  - component: {fileID: 931315545}
   m_Layer: 6
   m_Name: AttackRange
   m_TagString: Untagged
@@ -2729,7 +2718,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7168288039031147343
+--- !u!114 &931315545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2738,7 +2727,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1968516330948092548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d55b041185ba1847b3e15630cdd5fe0, type: 3}
+  m_Script: {fileID: 11500000, guid: 34565420b82467249b1437b94d044325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3439906224107335981
@@ -2785,8 +2774,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3439906224107335981}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 234607cb45e41354b9c9b8bf399ea87d, type: 3}
-  m_Controller: {fileID: 9100000, guid: d193ba5d32de6eb47bb8cf456dc32248, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 29e82bbdb6c7f694bb17c7c3348df546, type: 3}
+  m_Controller: {fileID: 9100000, guid: 8b6f179a2aa2a59419555067c956bfb0, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
