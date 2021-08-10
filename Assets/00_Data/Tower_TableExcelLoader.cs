@@ -77,6 +77,5 @@ public class  Tower_TableExcelLoader : ScriptableObject
 			Tower_TableExcel data = Read(item);
 			DataList.Add(data);
 		}
-	}
-	
+	}		
 }

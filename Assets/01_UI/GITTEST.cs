@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class GITTEST : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Prefab_TableExcelLoader loader;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        GameObject origin = loader.GetPrefab(100000);
+
+        Debug.Log(origin.name);
     }
 }
