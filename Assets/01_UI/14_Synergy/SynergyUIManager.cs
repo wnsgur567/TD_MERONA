@@ -9,6 +9,7 @@ public class SynergyUIManager : Singleton<SynergyUIManager>
     CellSizeFitter m_fitter;
 
     [SerializeField] SynergyLineSlot m_origin;
+    [SerializeField] List<SynergyLineSlot> m_lineSlots;
 
     private void Awake()
     {
@@ -32,6 +33,8 @@ public class SynergyUIManager : Singleton<SynergyUIManager>
 
             // TODO : ...
             newSlot.gameObject.SetActive(true);
+            newSlot.transform.SetParent(m_root_panel.transform);
+            m_lineSlots.Add(newSlot);
         }
     }
 
