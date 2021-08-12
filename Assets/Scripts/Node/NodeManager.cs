@@ -22,15 +22,18 @@ public class NodeManager : Singleton<NodeManager>
 
     // [타입(안, 밖)][방향(북, 동, 남, 서)]
     // 회전시킬 노드 리스트
-    protected List<Node>[][] m_NodeList;
+    protected Dictionary<E_NodeType, Dictionary<E_Direction, List<Node>>> m_NodeList;
+    //protected List<Node>[][] m_NodeList;
     // 노드 부모 (동서남북)
-    protected Transform[][] m_NodeParentList;
+    protected Dictionary<E_NodeType, Dictionary<E_Direction, Transform>> m_NodeParentList;
+    //protected Transform[][] m_NodeParentList;
 
     // 선택 노드
     protected Node m_SelectedNode;
     // 회전 기준 노드 (회전을 시작할 때 선택한 노드)
     protected Node m_StandardNode_Rotation;
     // 회전 여부
+    [SerializeField]
     protected bool m_IsRotating;
 
     #region 내부 프로퍼티
@@ -46,7 +49,7 @@ public class NodeManager : Singleton<NodeManager>
             {
                 for (E_Direction j = 0; j < E_Direction.Max; ++j)
                 {
-                    if (m_NodeList[(int)i][(int)j].Contains(m_SelectedNode))
+                    if (m_NodeList[i][j].Contains(m_SelectedNode))
                     {
                         return i;
                     }
@@ -79,7 +82,7 @@ public class NodeManager : Singleton<NodeManager>
             {
                 for (E_Direction j = 0; j < E_Direction.Max; ++j)
                 {
-                    if (m_NodeList[(int)i][(int)j].Contains(m_StandardNode_Rotation))
+                    if (m_NodeList[i][j].Contains(m_StandardNode_Rotation))
                     {
                         return i;
                     }
@@ -104,20 +107,20 @@ public class NodeManager : Singleton<NodeManager>
         }
 
         // 초기화
-        m_NodeList = new List<Node>[(int)E_NodeType.Max][];
-        m_NodeParentList = new Transform[(int)E_NodeType.Max][];
+        m_NodeList = new Dictionary<E_NodeType, Dictionary<E_Direction, List<Node>>>();//new List<Node>[(int)E_NodeType.Max][];
+        m_NodeParentList = new Dictionary<E_NodeType, Dictionary<E_Direction, Transform>>();//new Transform[(int)E_NodeType.Max][];
 
         for (E_NodeType i = 0; i < E_NodeType.Max; ++i)
         {
-            m_NodeList[(int)i] = new List<Node>[(int)E_Direction.Max];
-            m_NodeParentList[(int)i] = new Transform[(int)E_Direction.Max];
+            m_NodeList[i] = new Dictionary<E_Direction, List<Node>>();//new List<Node>[(int)E_Direction.Max];
+            m_NodeParentList[i] = new Dictionary<E_Direction, Transform>();//new Transform[(int)E_Direction.Max];
 
             for (E_Direction j = 0; j < E_Direction.Max; ++j)
             {
-                m_NodeList[(int)i][(int)j] = new List<Node>();
-                m_NodeParentList[(int)i][(int)j] = transform.Find(i.ToString()).Find(j.ToString());
+                m_NodeList[i][j] = new List<Node>();
+                m_NodeParentList[i][j] = transform.Find(i.ToString()).Find(j.ToString());
 
-                m_NodeParentList[(int)i][(int)j].GetComponentsInChildren<Node>(m_NodeList[(int)i][(int)j]);
+                m_NodeParentList[i][j].GetComponentsInChildren<Node>(m_NodeList[i][j]);
             }
         }
     }
@@ -163,13 +166,14 @@ public class NodeManager : Singleton<NodeManager>
     protected void UpdateOutline(bool active)
     {
         // 예외 처리 (null 체크)
-        if (SelectedNodeType != null)
+        if (SelectedNodeType.HasValue)
         {
+            E_NodeType SelectedType = SelectedNodeType.Value;
             // 아웃라인 설정할 노드 리스트
-            List<Node>[] nodes = m_NodeList[(int)SelectedNodeType];
+            Dictionary<E_Direction, List<Node>> nodes = m_NodeList[SelectedType];
 
             // 아웃라인 on, off 설정
-            for (int i = 0; i < nodes.Length; ++i)
+            for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
             {
                 for (int j = 0; j < nodes[i].Count; ++j)
                 {
@@ -281,8 +285,9 @@ public class NodeManager : Singleton<NodeManager>
         // 회전 기준 노드 설정
         m_StandardNode_Rotation = m_SelectedNode;
 
+        E_NodeType StandardType = StandardNodeType.Value;
         // 방향별 노드 부모
-        Transform[] node_parent_by_dir = m_NodeParentList[(int)StandardNodeType];
+        Dictionary<E_Direction, Transform> node_parent_by_dir = m_NodeParentList[StandardType];
 
         // 총 경과한 시간
         float time = 0f;
@@ -293,7 +298,7 @@ public class NodeManager : Singleton<NodeManager>
         if (m_Duration <= 0f)
         {
             // 회전할 각도만큼 즉시 회전
-            for (int i = 0; i < node_parent_by_dir.Length; ++i)
+            for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
             {
                 for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
                 {
@@ -301,15 +306,32 @@ public class NodeManager : Singleton<NodeManager>
                 }
             }
 
+            // 노드 부모 업데이트
+            UpdateParent(StandardNodeType, clockwise);
+            // 회전 여부 설정
+            m_IsRotating = false;
+
+            // 회전 종료 이벤트 호출
+            m_RotateEndEvent?.Invoke();
+
             // 회전 종료
             yield break;
+        }
+
+        // 현재 프레임까지 걸린 시간만큼 비례하여 회전
+        for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
+        {
+            for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
+            {
+                node_parent_by_dir[i].GetChild(j).Translate(Vector3.up * 3f);
+            }
         }
 
         // 정해진 시간동안 회전
         while (time < m_Duration)
         {
             // 현재 프레임까지 걸린 시간만큼 비례하여 회전
-            for (int i = 0; i < node_parent_by_dir.Length; ++i)
+            for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
             {
                 for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
                 {
@@ -325,7 +347,7 @@ public class NodeManager : Singleton<NodeManager>
         }
 
         // 오차 범위 수정 (원하는 시간 보다 +된 만큼 반대방향으로 회전)
-        for (int i = 0; i < node_parent_by_dir.Length; ++i)
+        for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
         {
             for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
             {
@@ -333,9 +355,18 @@ public class NodeManager : Singleton<NodeManager>
             }
         }
 
+        // 현재 프레임까지 걸린 시간만큼 비례하여 회전
+        for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
+        {
+            for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
+            {
+                node_parent_by_dir[i].GetChild(j).Translate(Vector3.down * 3f);
+            }
+        }
+
         #region 인스펙터 정리용
 #if UNITY_EDITOR
-        for (int i = 0; i < node_parent_by_dir.Length; ++i)
+        for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
         {
             for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
             {
@@ -380,8 +411,9 @@ public class NodeManager : Singleton<NodeManager>
     // 부모 교환
     protected void SwapParent(E_NodeType? type, E_Direction first, E_Direction second)
     {
-        Transform First_T = m_NodeParentList[(int)type][(int)first];
-        Transform Second_T = m_NodeParentList[(int)type][(int)second];
+        E_NodeType nodeType = type.Value;
+        Transform First_T = m_NodeParentList[nodeType][first];
+        Transform Second_T = m_NodeParentList[nodeType][second];
         List<Transform> TempList = new List<Transform>();
 
         int FirstCount = First_T.childCount;

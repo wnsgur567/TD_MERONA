@@ -101,8 +101,8 @@ public class SynergyManager : Singleton<SynergyManager>
         for (int i = 0; i < towers.Count; ++i)
         {
             // 시너지 코드 가져오기
-            int code1 = towers[i].m_TowerInfo_Excel.Type1;
-            int code2 = towers[i].m_TowerInfo_Excel.Type2;
+            int code1 = towers[i].SynergyCode1;
+            int code2 = towers[i].SynergyCode2;
             bool flag = false;
 
             #region 시너지1
@@ -231,6 +231,7 @@ public class SynergyManager : Singleton<SynergyManager>
                                     for (int i = 0; i < towerList.Count; ++i)
                                     {
                                         towerList[i].m_TowerInfo.Synergy_Atk_type = effect.EffectChange;
+                                        towerList[i].m_TowerInfo.BounceCount = effect.EffectReq;
                                     }
                                 }
                             }
