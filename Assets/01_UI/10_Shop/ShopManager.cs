@@ -147,7 +147,6 @@ public class ShopManager : Singleton<ShopManager>
     }
 
 
-
     private void ShopLock()
     {
         m_LockButtonImage.sprite = m_LockSprite;
@@ -157,12 +156,34 @@ public class ShopManager : Singleton<ShopManager>
         m_LockButtonImage.sprite = m_UnLockSprite;
     }
 
+    public bool PurchaseProcess(int slotIndex)
+    {
+        ShopSlot slot = m_slot_list[slotIndex];
+        if (slot.IsOccupied)
+        {   // 존재하는 경우에만 진행
+            // TODO : UserInfoManager.Instance.Gold 보다 price 가 작으면            
+            if (false == InventoryManager.Instance.IsAllOccupied())
+            {   // 인벤에 빈 공간이 있으면
+                var info = slot.GetInfo();
+                InventoryManager.Instance.AddNewTower(info.excel_data.Value);
+
+                Debug.Log("Puchase!!");
+                return true;
+            }
+        }
+        return false;
+    }
+
     /*************************** button callback ******************************/
 
     public void __OnResetButtonClicked()
     {
+        Debug.Log("ShopReset");
+
         if (false == m_isLocked)
-            ShopReset();
+        {
+            ShopReset();           
+        }
     }
 
     // Lock 된 경우 true
@@ -171,9 +192,15 @@ public class ShopManager : Singleton<ShopManager>
     {
         m_isLocked = !m_isLocked;
         if (m_isLocked)
+        {
             ShopLock();
+            Debug.Log("ShopLock");
+        }
         else
+        {
             ShopUnLock();
+            Debug.Log("ShopUnLock");
+        }
     }
     public void __OnOpenButtonClicked()
     {

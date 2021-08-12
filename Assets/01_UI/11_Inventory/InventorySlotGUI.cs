@@ -8,90 +8,204 @@ using UnityEngine.UI;
 public struct InventorySlotGUIInfo
 {
     public int index;
-    public InventorySlot slot;
+    public bool isOccupied;
+    public Tower_TableExcel tower_data;
+}
+
+[System.Serializable]
+public class CKeyValue : System.IEquatable<CKeyValue>
+{
+    public int Code;
+    public GameObject obj;
+
+    public bool Equals(CKeyValue other)
+    {
+        if (Code == other.Code)
+            return true;
+        return false;
+    }
 }
 
 public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
-    [SerializeField] bool Show;
-    [SerializeField] InventorySlotGUIInfo m_info;
+    public delegate void InfoChangeHandler();
+    public event InfoChangeHandler OnInfoChangedEvent;
 
-    Image m_panel;
+    [SerializeField] InventorySlotGUIInfo m_info;
+    [SerializeField] TMPro.TextMeshProUGUI m_textPro;
+
+    [Space(10)]
+    [SerializeField] Prefab_TableExcelLoader m_loader;
+    [SerializeField] Vector3 camera_distance;           // 오브젝트로부터의 거리
+    [SerializeField] Vector3 camera_rotation;           // 카메라 회전 값
+    [SerializeField] Vector3 m_obj_position;            // 간섭 없는 곳으로 셋팅할것
+    [SerializeField] List<CKeyValue> m_showObj_list;    // 아래에 들어갈수 있는 오브젝트 리스트
+    GameObject m_showObj;   // 현재 보여주고 있는 오브젝트
+
+    [Space(10)]
+    [SerializeField] RawImage m_rawImage;
+    RenderTexture m_renderTexture;
+    Camera m_renderCamera;
+
     RectTransform m_rt;
+
+    public bool IsOccupied { get { return m_info.isOccupied; } }
 
     private void Awake()
     {
-        m_panel = this.GetComponent<Image>();
+        OnInfoChangedEvent += OnInfoChanged;
         m_rt = this.GetComponent<RectTransform>();
+        SetRenderTexture();
     }
 
     private void Start()
     {
+
     }
 
+    public void SetRenderTexture()
+    {
+        m_renderTexture = new RenderTexture(256, 256, 16);
+        m_renderTexture.Create();
+
+        Camera inven_cam_origin = Resources.Load<Camera>("InventoryCamera");
+        m_renderCamera = GameObject.Instantiate<Camera>(inven_cam_origin);
+
+        m_renderCamera.targetTexture = m_renderTexture;
+        m_renderCamera.transform.position = m_obj_position + camera_distance;
+        m_renderCamera.transform.eulerAngles = camera_rotation;
+
+        GameObject origin_obj = m_loader.GetPrefab(m_loader.DataList[0].Code);
+        GameObject new_obj = GameObject.Instantiate(origin_obj);
+
+        CKeyValue val = new CKeyValue 
+            { Code = m_loader.DataList[0].Code, obj = new_obj };
+        m_showObj_list.Add(val);
+
+        foreach (var item in m_showObj_list)
+        {   // 전부 꺼논 상태로 같은 위치에 놓기            
+            item.obj.transform.position = m_obj_position;
+            item.obj.gameObject.SetActive(false);
+        }
+
+        m_rawImage.texture = m_renderTexture;
+    }
+
+    public void MoveRenderPosition(Vector3 delta)
+    {
+        m_renderCamera.transform.position += delta;
+        foreach (var item in m_showObj_list)
+        {
+            item.obj.transform.position += delta;
+        }
+    }
+
+
+    private void Update()
+    {
+
+    }
 
     // InvenSlot 간의 교환
     private void SwapInfo(InventorySlotGUI slotGUI)
     {
         // tower swap
-        InventorySlot thisSlot = m_info.slot;
-        var this_tower = thisSlot.GetTower();
+        var this_tower_data = m_info.tower_data;
+        bool this_occupied = m_info.isOccupied;
 
-        InventorySlot otherSlot = slotGUI.m_info.slot;
-        thisSlot.SetTower(otherSlot.GetTower());
+        m_info.tower_data = slotGUI.m_info.tower_data;
+        m_info.isOccupied = slotGUI.m_info.isOccupied;
 
-        otherSlot.SetTower(this_tower);
+        slotGUI.m_info.tower_data = this_tower_data;
+        slotGUI.m_info.isOccupied = this_occupied;
 
-        // 두 인벤토리에 있는 tower의 position을 갱신
-        thisSlot.UpdateTowerPosOnThisSlot();
-        otherSlot.UpdateTowerPosOnThisSlot();
+        slotGUI.OnInfoChangedEvent?.Invoke();
+        OnInfoChangedEvent?.Invoke();
     }
 
-    public void __Indexing(int index, InventorySlot slot)
+    public void __Indexing(int index)
     {
         m_info.index = index;
-        m_info.slot = slot;
-    }
-    public void SetSize(float width, float height)
-    {
-        m_rt.sizeDelta = new Vector2(width, height);
     }
 
+    public void SetTower(Tower_TableExcel data)
+    {
+        m_info.tower_data = data;
+        m_info.isOccupied = true;
+
+        OnInfoChangedEvent?.Invoke();
+    }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    private void OnInfoChanged()
+    {
+        if(IsOccupied == false)
+        {   // 비어있는 경우
+            m_showObj?.gameObject.SetActive(false);
+            m_showObj = null;
+            m_textPro.text = "비어있음";
+            return;
+        }
+
+        // 있는 경우
+        int code = m_info.tower_data.Code;
+        CKeyValue find = m_showObj_list.Find((item) => { return item.Code == code; });
+        if(null != find)
+        {
+            m_showObj = find.obj;
+            m_showObj.gameObject.SetActive(true);
+            m_textPro.text = m_info.tower_data.Name_EN;
+        }
+
+        // TODO : fix ... 테스트로 1번거 그냥 넣자...
+        m_showObj = m_showObj_list[0].obj;
+        m_showObj.gameObject.SetActive(true);
+        m_textPro.text = m_info.tower_data.Name_EN;
+    }
+
+   
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    Vector3 m_drag_startPos;
+
     public void OnDrag(PointerEventData eventData)
-    {   
-        if(eventData.IsPointerMoving() && m_info.slot.IsOccupied)
-        {   // 마우스가 움직이고 있는 상태이고
-            // &&
-            // 해당 슬롯에 타워가 있는 경우에
-            // => 해당 타워를 mouse position 에 맞게 이동시키기
-            m_info.slot.SetTowerPos(eventData.position);
+    {
+        if (eventData.IsPointerMoving() && m_info.isOccupied)
+        {
+            Debug.Log("tower image moving");
+            m_rawImage.transform.position = eventData.position;
         }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if(Show)
-        {   // for debugging
-            m_panel.color = Color.blue;
+        if (m_info.isOccupied)
+        {
+            Debug.Log("tower image move start");
+            m_drag_startPos = m_rawImage.transform.position;
         }
+
+            
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if(Show)
-        {   // for debugging
-            m_panel.color = Color.white;
-        }
 
         RaycastResult target = eventData.pointerCurrentRaycast;
         if (target.gameObject != null && target.gameObject.tag.Equals("InvenSlot"))
-        {   
+        {
             // 투 인벤토리간 타워 정보 교체
             SwapInfo(target.gameObject.GetComponent<InventorySlotGUI>());
         }
-        else if(m_info.slot.IsOccupied)
+        else if (m_info.isOccupied)
         {
-            m_info.slot.UpdateTowerPosOnThisSlot();
+
         }
+
+        Debug.Log("tower image move end");
+        m_rawImage.transform.position = m_drag_startPos;
     }
 }

@@ -15,7 +15,7 @@ public class UserInfoManager : Singleton<UserInfoManager>
     public delegate void LevelChangeHandler(int current_level);
     public event LevelChangeHandler OnLevelChanged;
     public delegate void GoldChangeHandler(int current_gold);
-    public event GoldChangeHandler OnGoldChanged;
+    public event GoldChangeHandler OnGoldChangedEvent;
 
     [SerializeField] UserInfo m_info;
 
@@ -41,7 +41,7 @@ public class UserInfoManager : Singleton<UserInfoManager>
     public void ResetGold()
     {
         m_info.gold = 0;
-        OnGoldChanged?.Invoke(m_info.gold);
+        OnGoldChangedEvent?.Invoke(m_info.gold);
     }
 
     public void AddLevel(int val)
@@ -53,7 +53,7 @@ public class UserInfoManager : Singleton<UserInfoManager>
     public void AddGold(int val)
     {
         m_info.gold += val;
-        OnGoldChanged?.Invoke(m_info.gold);
+        OnGoldChangedEvent?.Invoke(m_info.gold);
     }
     public bool UseGold(int val)
     {
@@ -61,7 +61,7 @@ public class UserInfoManager : Singleton<UserInfoManager>
             return false;
 
         m_info.gold -= val;
-        OnGoldChanged?.Invoke(m_info.gold);
+        OnGoldChangedEvent?.Invoke(m_info.gold);
 
         return true;
     }

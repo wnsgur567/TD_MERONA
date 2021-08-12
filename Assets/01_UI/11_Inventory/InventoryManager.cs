@@ -7,10 +7,6 @@ using UnityEngine.UI;
 // 실제 몬스터를 위치시킬 slot 인 object 를 사용
 public class InventoryManager : Singleton<InventoryManager>
 {
-    // objects
-    [SerializeField] GameObject m_root_object;
-    [SerializeField] InventorySlot m_origin;
-
     // gui
     [Space(10)]
     [SerializeField] Image m_root_panel;    // 이 Panel 의 좌측을 기준으로
@@ -19,7 +15,6 @@ public class InventoryManager : Singleton<InventoryManager>
 
     // 관리 list
     [Space(10)]
-    [SerializeField] List<InventorySlot> m_slot_list;
     [SerializeField] List<InventorySlotGUI> m_slotGUI_list;      // 클릭
 
     private void Awake()
@@ -37,21 +32,13 @@ public class InventoryManager : Singleton<InventoryManager>
         Vector2Int _cellsize = m_root_sizeFitter.CellCount;
         
         // origin 끄기
-        m_origin.gameObject.SetActive(false);
         m_originGUI.gameObject.SetActive(false);
 
         for (int i = 0; i < _cellsize.x; i++)
         {
-            // object instatiate
-            InventorySlot newSlot = GameObject.Instantiate<InventorySlot>(m_origin);
-            newSlot.__Indexing(i);
-            m_slot_list.Add(newSlot);
-            newSlot.gameObject.SetActive(true);
-            newSlot.transform.SetParent(m_root_object.transform);
-
             // gui instantiate
             InventorySlotGUI newSlotGUI = GameObject.Instantiate<InventorySlotGUI>(m_originGUI);
-            newSlotGUI.__Indexing(i, newSlot);
+            newSlotGUI.__Indexing(i);
             m_slotGUI_list.Add(newSlotGUI);
             newSlotGUI.gameObject.SetActive(true);
             newSlotGUI.transform.SetParent(m_root_panel.transform);
@@ -61,9 +48,9 @@ public class InventoryManager : Singleton<InventoryManager>
 
 
     // 가장 비어있는 좌측 슬롯
-    InventorySlot GetAvailableSlot()
+    InventorySlotGUI GetAvailableSlot()
     {
-        foreach (var item in m_slot_list)
+        foreach (var item in m_slotGUI_list)
         {
             if (false == item.IsOccupied)
                 return item;
@@ -73,19 +60,19 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public bool IsAllOccupied()
     {
-        InventorySlot slot = GetAvailableSlot();
+        InventorySlotGUI slot = GetAvailableSlot();
         if (null == slot)
             return true;
         return false;
     }
 
-    public void AddNewTower(Tower tower)
+    public void AddNewTower(Tower_TableExcel data)
     {
-        InventorySlot slot = GetAvailableSlot();
+        InventorySlotGUI slot = GetAvailableSlot();
         if (null == slot)
             return;
-
-        slot.SetTower(tower);
+                
+        slot.SetTower(data);
     }
     
 }

@@ -9,12 +9,17 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
 public class CellSizeFitter : MonoBehaviour
 {
+    public delegate void OnSettingChangeHandler();
+    public event OnSettingChangeHandler OnSettingChanged;
     GridLayoutGroup m_layoutGroup = null;
 
     [SerializeField] RectOffset m_padding;
     [SerializeField] Vector2Int m_cellcount;
     [SerializeField] Vector2 m_cellsize;    // space 와 padding 으로 자동 조절됨
     [SerializeField] Vector2 m_spacing;
+
+    float width_scale;
+    float height_scale;
 
     public Vector2Int CellCount
     {
@@ -28,7 +33,7 @@ public class CellSizeFitter : MonoBehaviour
     {
         m_layoutGroup = this.GetComponent<GridLayoutGroup>();
         if (m_padding == null)
-            m_padding = new RectOffset(1,1,1,1);
+            m_padding = new RectOffset(1, 1, 1, 1);  
     }
 
 #if UNITY_EDITOR
@@ -66,6 +71,14 @@ public class CellSizeFitter : MonoBehaviour
         m_cellsize.y = (panel_size.y - total_height_space) / m_cellcount.y;
 
         UpdateGridLayoutGroup();
+
+        RectTransform[] children_rt = panel_rt.GetComponentsInChildren<RectTransform>();
+        foreach (var item in children_rt)
+        {
+            item.localScale = new Vector3(1, 1 , 1);
+        }
+
+        OnSettingChanged?.Invoke();
     }
 
     private void UpdateGridLayoutGroup()
@@ -73,5 +86,7 @@ public class CellSizeFitter : MonoBehaviour
         m_layoutGroup.cellSize = m_cellsize;
         m_layoutGroup.spacing = m_spacing;
         m_layoutGroup.padding = m_padding;
+
+        Canvas.ForceUpdateCanvases();
     }
 }
