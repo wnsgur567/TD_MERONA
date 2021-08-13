@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bddbf8f54bcbbc49b3c9ca6264f4b14, type: 3}
   m_Name: Prefab_TableLoader
   m_EditorClassIdentifier: 
-  filepath: Assets\00_Data\Prefab_Table.txt
+  filepath: Assets\00_Data\Txt\Prefab_Table.txt
   DataList:
   - Code: 100000
     Size: 1
     Unity_address: Test
   PrefabList:
   - Code: 100000
-    obj: {fileID: 3195580951481529789, guid: 3617b22c94671d04eb38d95d764372ca, type: 3}
+    obj: {fileID: 1555670612945888, guid: de16f18473fed50419df0b8adb08caee, type: 3}

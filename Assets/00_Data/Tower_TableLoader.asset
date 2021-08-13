@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88037332c0f123648bd8d8cfb6c2b782, type: 3}
   m_Name: Tower_TableLoader
   m_EditorClassIdentifier: 
-  filepath: Assets\00_Data\Tower_Table.txt
+  filepath: Assets\00_Data\Txt\Tower_Table.txt
   DataList:
   - No: 1
     Name_KR: "\uC99D\uC624\uC758 \uC5EC\uC655"
@@ -21,7 +21,7 @@ MonoBehaviour:
     Rank: 10
     Star: 10
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 500
     Def: 10
     Crit_rate: 0.2
@@ -31,7 +31,8 @@ MonoBehaviour:
     Skill2Code: 300026
     Type1: 0
     Type2: 0
-    Prefeb: 10000
+    Price: 0
+    Prefeb: 900136
   - No: 2
     Name_KR: "\uC9C0\uC625\uC758 \uAD70\uC8FC"
     Name_EN: Hell Lord
@@ -39,7 +40,7 @@ MonoBehaviour:
     Rank: 10
     Star: 10
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 500
     Def: 10
     Crit_rate: 0.2
@@ -49,7 +50,8 @@ MonoBehaviour:
     Skill2Code: 300029
     Type1: 0
     Type2: 0
-    Prefeb: 10000
+    Price: 0
+    Prefeb: 900137
   - No: 3
     Name_KR: "\uD504\uB85C\uC2A4\uD2B8 \uB9AC\uCE58"
     Name_EN: Frost Lich
@@ -57,7 +59,7 @@ MonoBehaviour:
     Rank: 10
     Star: 10
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 500
     Def: 10
     Crit_rate: 0.2
@@ -67,7 +69,8 @@ MonoBehaviour:
     Skill2Code: 300032
     Type1: 0
     Type2: 0
-    Prefeb: 10000
+    Price: 0
+    Prefeb: 900138
   - No: 4
     Name_KR: "\uC624\uD06C\uAC70\uB108"
     Name_EN: OrkGunner
@@ -75,7 +78,7 @@ MonoBehaviour:
     Rank: 2
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -84,8 +87,9 @@ MonoBehaviour:
     Skill1Code: 300034
     Skill2Code: 0
     Type1: 330001
-    Type2: 330018
-    Prefeb: 10000
+    Type2: 330011
+    Price: 3
+    Prefeb: 900139
   - No: 5
     Name_KR: "\uC624\uD06C\uC804\uC0AC"
     Name_EN: OrkWarrior
@@ -93,17 +97,18 @@ MonoBehaviour:
     Rank: 2
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300019
-    Skill1Code: 300036
+    Skill1Code: 300040
     Skill2Code: 0
     Type1: 330001
-    Type2: 330022
-    Prefeb: 10000
+    Type2: 330013
+    Price: 3
+    Prefeb: 900140
   - No: 6
     Name_KR: "\uC0AC\uC774\uD074\uB86D\uC2A4"
     Name_EN: Cyclops
@@ -111,17 +116,18 @@ MonoBehaviour:
     Rank: 4
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300004
-    Skill1Code: 300037
+    Skill1Code: 300043
     Skill2Code: 0
     Type1: 330001
-    Type2: 330022
-    Prefeb: 10000
+    Type2: 330013
+    Price: 7
+    Prefeb: 900141
   - No: 7
     Name_KR: "\uACE0\uBE14\uB9B0"
     Name_EN: Goblin
@@ -129,17 +135,18 @@ MonoBehaviour:
     Rank: 1
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300015
-    Skill1Code: 300038
+    Skill1Code: 300046
     Skill2Code: 0
-    Type1: 330003
-    Type2: 330018
-    Prefeb: 10000
+    Type1: 330002
+    Type2: 330011
+    Price: 1
+    Prefeb: 900142
   - No: 8
     Name_KR: "\uB180\uC804\uC0AC"
     Name_EN: NolWarrior
@@ -147,17 +154,18 @@ MonoBehaviour:
     Rank: 1
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300004
-    Skill1Code: 300039
+    Skill1Code: 300049
     Skill2Code: 0
-    Type1: 330003
-    Type2: 330022
-    Prefeb: 10000
+    Type1: 330002
+    Type2: 330013
+    Price: 1
+    Prefeb: 900143
   - No: 9
     Name_KR: "\uD2B8\uB864\uC8FC\uC220\uC0AC"
     Name_EN: TrollShamen
@@ -165,17 +173,18 @@ MonoBehaviour:
     Rank: 4
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300016
-    Skill1Code: 300040
+    Skill1Code: 300052
     Skill2Code: 0
-    Type1: 330003
-    Type2: 330026
-    Prefeb: 10000
+    Type1: 330002
+    Type2: 330015
+    Price: 7
+    Prefeb: 900144
   - No: 10
     Name_KR: "\uC2A4\uD30C\uD06C\uBAAC"
     Name_EN: Sparkmon
@@ -183,17 +192,18 @@ MonoBehaviour:
     Rank: 1
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300012
-    Skill1Code: 300041
+    Skill1Code: 300055
     Skill2Code: 0
-    Type1: 330005
-    Type2: 330026
-    Prefeb: 10000
+    Type1: 330003
+    Type2: 330015
+    Price: 1
+    Prefeb: 900145
   - No: 11
     Name_KR: "\uC0B4\uB77C\uB9E8\uB354"
     Name_EN: Salamander
@@ -201,17 +211,18 @@ MonoBehaviour:
     Rank: 3
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300005
-    Skill1Code: 300042
+    Skill1Code: 300058
     Skill2Code: 0
-    Type1: 330005
-    Type2: 330018
-    Prefeb: 10000
+    Type1: 330003
+    Type2: 330011
+    Price: 5
+    Prefeb: 900146
   - No: 12
     Name_KR: "\uB77C\uBC14\uACE8\uB818"
     Name_EN: LavaGolem
@@ -219,17 +230,18 @@ MonoBehaviour:
     Rank: 3
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300008
-    Skill1Code: 300043
+    Skill1Code: 300061
     Skill2Code: 0
-    Type1: 330005
-    Type2: 330028
-    Prefeb: 10000
+    Type1: 330003
+    Type2: 330016
+    Price: 5
+    Prefeb: 900147
   - No: 13
     Name_KR: "\uCF00\uB974\uBCA0\uB85C\uC2A4"
     Name_EN: Cerberos
@@ -237,17 +249,18 @@ MonoBehaviour:
     Rank: 1
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300006
-    Skill1Code: 300044
+    Skill1Code: 300064
     Skill2Code: 0
-    Type1: 330007
-    Type2: 330018
-    Prefeb: 10000
+    Type1: 330004
+    Type2: 330011
+    Price: 1
+    Prefeb: 900148
   - No: 14
     Name_KR: "\uBC1C\uB85D"
     Name_EN: Balrog
@@ -255,17 +268,18 @@ MonoBehaviour:
     Rank: 4
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300014
-    Skill1Code: 300045
+    Skill1Code: 300067
     Skill2Code: 0
-    Type1: 330007
-    Type2: 330028
-    Prefeb: 10000
+    Type1: 330004
+    Type2: 330016
+    Price: 7
+    Prefeb: 900149
   - No: 15
     Name_KR: "\uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A4"
     Name_EN: Minotaurus
@@ -273,17 +287,18 @@ MonoBehaviour:
     Rank: 2
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300004
-    Skill1Code: 300046
+    Skill1Code: 300070
     Skill2Code: 0
-    Type1: 330007
-    Type2: 330022
-    Prefeb: 10000
+    Type1: 330004
+    Type2: 330013
+    Price: 3
+    Prefeb: 900150
   - No: 16
     Name_KR: "\uC0AC\uD2F0\uB85C\uC2A4"
     Name_EN: Satyr
@@ -291,17 +306,18 @@ MonoBehaviour:
     Rank: 2
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300017
-    Skill1Code: 300048
+    Skill1Code: 300076
     Skill2Code: 0
-    Type1: 330007
-    Type2: 330020
-    Prefeb: 10000
+    Type1: 330004
+    Type2: 330012
+    Price: 3
+    Prefeb: 900151
   - No: 17
     Name_KR: "\uADF8\uB9BC\uB9AC\uD37C"
     Name_EN: GrimReaper
@@ -309,35 +325,37 @@ MonoBehaviour:
     Rank: 1
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300007
-    Skill1Code: 300050
+    Skill1Code: 300080
     Skill2Code: 0
-    Type1: 330009
-    Type2: 330024
-    Prefeb: 10000
+    Type1: 330005
+    Type2: 330014
+    Price: 1
+    Prefeb: 900152
   - No: 18
     Name_KR: "\uB370\uC2A4\uB098\uC774\uD2B8"
-    Name_EN: DarkNight
+    Name_EN: DeathKnight
     Code: 100018
     Rank: 5
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300009
-    Skill1Code: 300051
+    Skill1Code: 300083
     Skill2Code: 0
-    Type1: 330009
-    Type2: 330030
-    Prefeb: 10000
+    Type1: 330005
+    Type2: 330017
+    Price: 10
+    Prefeb: 900153
   - No: 19
     Name_KR: "\uB2E4\uD06C\uC18C\uC6B8"
     Name_EN: DarkSoul
@@ -345,17 +363,18 @@ MonoBehaviour:
     Rank: 3
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300007
-    Skill1Code: 300055
+    Skill1Code: 300095
     Skill2Code: 0
-    Type1: 330009
-    Type2: 330024
-    Prefeb: 10000
+    Type1: 330005
+    Type2: 330014
+    Price: 5
+    Prefeb: 900154
   - No: 20
     Name_KR: "\uC2A4\uD1A4\uACE8\uB818"
     Name_EN: StoneGolem
@@ -363,17 +382,18 @@ MonoBehaviour:
     Rank: 2
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300008
-    Skill1Code: 300056
+    Skill1Code: 300098
     Skill2Code: 0
-    Type1: 330011
-    Type2: 330028
-    Prefeb: 10000
+    Type1: 330006
+    Type2: 330016
+    Price: 3
+    Prefeb: 900155
   - No: 21
     Name_KR: "\uD30C\uC774\uC5B4\uB370\uBAAC"
     Name_EN: FireDemon
@@ -381,17 +401,18 @@ MonoBehaviour:
     Rank: 3
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300006
-    Skill1Code: 300057
+    Skill1Code: 300101
     Skill2Code: 0
-    Type1: 330011
-    Type2: 330026
-    Prefeb: 10000
+    Type1: 330006
+    Type2: 330015
+    Price: 5
+    Prefeb: 900156
   - No: 22
     Name_KR: "\uBC15\uC950"
     Name_EN: Bat
@@ -399,17 +420,18 @@ MonoBehaviour:
     Rank: 1
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300006
-    Skill1Code: 300058
+    Skill1Code: 300104
     Skill2Code: 0
-    Type1: 330012
-    Type2: 330024
-    Prefeb: 10000
+    Type1: 330007
+    Type2: 330014
+    Price: 1
+    Prefeb: 900157
   - No: 23
     Name_KR: "\uB291\uB300"
     Name_EN: Wolf
@@ -417,17 +439,18 @@ MonoBehaviour:
     Rank: 2
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300006
-    Skill1Code: 300059
+    Skill1Code: 300107
     Skill2Code: 0
-    Type1: 330012
-    Type2: 330018
-    Prefeb: 10000
+    Type1: 330007
+    Type2: 330011
+    Price: 3
+    Prefeb: 900158
   - No: 24
     Name_KR: "\uD30C\uC774\uD2B8\uBCA0\uC5B4"
     Name_EN: FightBear
@@ -435,17 +458,18 @@ MonoBehaviour:
     Rank: 3
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300006
-    Skill1Code: 300060
+    Skill1Code: 300110
     Skill2Code: 0
-    Type1: 330012
-    Type2: 330022
-    Prefeb: 10000
+    Type1: 330007
+    Type2: 330013
+    Price: 5
+    Prefeb: 900159
   - No: 25
     Name_KR: "\uAD11\uB300"
     Name_EN: Clown
@@ -453,17 +477,18 @@ MonoBehaviour:
     Rank: 2
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300017
-    Skill1Code: 300061
+    Skill1Code: 300113
     Skill2Code: 0
-    Type1: 330014
-    Type2: 330026
-    Prefeb: 10000
+    Type1: 330008
+    Type2: 330015
+    Price: 3
+    Prefeb: 900160
   - No: 26
     Name_KR: "\uD0C0\uB77D\uCC9C\uC0AC"
     Name_EN: FallenAngel
@@ -471,17 +496,18 @@ MonoBehaviour:
     Rank: 3
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300021
-    Skill1Code: 300070
+    Skill1Code: 300140
     Skill2Code: 0
-    Type1: 330014
-    Type2: 330020
-    Prefeb: 10000
+    Type1: 330008
+    Type2: 330012
+    Price: 5
+    Prefeb: 900161
   - No: 27
     Name_KR: "\uC774\uD504\uB9AC\uC2A4"
     Name_EN: Ipris
@@ -489,17 +515,18 @@ MonoBehaviour:
     Rank: 4
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300021
-    Skill1Code: 300062
+    Skill1Code: 300116
     Skill2Code: 0
-    Type1: 330014
-    Type2: 330020
-    Prefeb: 10000
+    Type1: 330008
+    Type2: 330012
+    Price: 7
+    Prefeb: 900162
   - No: 28
     Name_KR: "\uB4DC\uB798\uACE4"
     Name_EN: Dragon
@@ -507,17 +534,18 @@ MonoBehaviour:
     Rank: 5
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300023
-    Skill1Code: 300063
+    Skill1Code: 300119
     Skill2Code: 0
-    Type1: 330016
-    Type2: 330030
-    Prefeb: 10000
+    Type1: 330009
+    Type2: 330017
+    Price: 10
+    Prefeb: 900163
   - No: 29
     Name_KR: "\uB9C8\uB140"
     Name_EN: Witch
@@ -525,17 +553,18 @@ MonoBehaviour:
     Rank: 1
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300013
-    Skill1Code: 300064
+    Skill1Code: 300122
     Skill2Code: 0
-    Type1: 330017
-    Type2: 330020
-    Prefeb: 10000
+    Type1: 330010
+    Type2: 330012
+    Price: 1
+    Prefeb: 900164
   - No: 30
     Name_KR: "\uB2E4\uD06C\uC5D8\uD504"
     Name_EN: DarkElf
@@ -543,17 +572,18 @@ MonoBehaviour:
     Rank: 4
     Star: 1
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300021
-    Skill1Code: 300065
+    Skill1Code: 300125
     Skill2Code: 0
-    Type1: 330017
-    Type2: 330025
-    Prefeb: 10000
+    Type1: 330010
+    Type2: 330014
+    Price: 7
+    Prefeb: 900165
   - No: 31
     Name_KR: "\uC624\uD06C\uAC70\uB108"
     Name_EN: OrkGunner
@@ -561,17 +591,18 @@ MonoBehaviour:
     Rank: 2
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300011
-    Skill1Code: 300034
+    Skill1Code: 300036
     Skill2Code: 0
     Type1: 330001
-    Type2: 330018
-    Prefeb: 10000
+    Type2: 330011
+    Price: 6
+    Prefeb: 900166
   - No: 32
     Name_KR: "\uC624\uD06C\uC804\uC0AC"
     Name_EN: OrkWarrior
@@ -579,17 +610,18 @@ MonoBehaviour:
     Rank: 2
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300019
-    Skill1Code: 300036
+    Skill1Code: 300041
     Skill2Code: 0
     Type1: 330001
-    Type2: 330022
-    Prefeb: 10000
+    Type2: 330013
+    Price: 6
+    Prefeb: 900167
   - No: 33
     Name_KR: "\uC0AC\uC774\uD074\uB86D\uC2A4"
     Name_EN: Cyclops
@@ -597,17 +629,18 @@ MonoBehaviour:
     Rank: 4
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300004
-    Skill1Code: 300037
+    Skill1Code: 300044
     Skill2Code: 0
     Type1: 330001
-    Type2: 330022
-    Prefeb: 10000
+    Type2: 330013
+    Price: 14
+    Prefeb: 900168
   - No: 34
     Name_KR: "\uACE0\uBE14\uB9B0"
     Name_EN: Goblin
@@ -615,17 +648,18 @@ MonoBehaviour:
     Rank: 1
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300015
-    Skill1Code: 300038
+    Skill1Code: 300047
     Skill2Code: 0
-    Type1: 330003
-    Type2: 330018
-    Prefeb: 10000
+    Type1: 330002
+    Type2: 330011
+    Price: 2
+    Prefeb: 900169
   - No: 35
     Name_KR: "\uB180\uC804\uC0AC"
     Name_EN: NolWarrior
@@ -633,17 +667,18 @@ MonoBehaviour:
     Rank: 1
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300004
-    Skill1Code: 300039
+    Skill1Code: 300050
     Skill2Code: 0
-    Type1: 330003
-    Type2: 330022
-    Prefeb: 10000
+    Type1: 330002
+    Type2: 330013
+    Price: 2
+    Prefeb: 900170
   - No: 36
     Name_KR: "\uD2B8\uB864\uC8FC\uC220\uC0AC"
     Name_EN: TrollShamen
@@ -651,17 +686,18 @@ MonoBehaviour:
     Rank: 4
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300016
-    Skill1Code: 300040
+    Skill1Code: 300053
     Skill2Code: 0
-    Type1: 330003
-    Type2: 330026
-    Prefeb: 10000
+    Type1: 330002
+    Type2: 330015
+    Price: 14
+    Prefeb: 900171
   - No: 37
     Name_KR: "\uC2A4\uD30C\uD06C\uBAAC"
     Name_EN: Sparkmon
@@ -669,17 +705,18 @@ MonoBehaviour:
     Rank: 1
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300012
-    Skill1Code: 300041
+    Skill1Code: 300056
     Skill2Code: 0
-    Type1: 330005
-    Type2: 330026
-    Prefeb: 10000
+    Type1: 330003
+    Type2: 330015
+    Price: 2
+    Prefeb: 900172
   - No: 38
     Name_KR: "\uC0B4\uB77C\uB9E8\uB354"
     Name_EN: Salamander
@@ -687,17 +724,18 @@ MonoBehaviour:
     Rank: 3
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300005
-    Skill1Code: 300042
+    Skill1Code: 300059
     Skill2Code: 0
-    Type1: 330005
-    Type2: 330018
-    Prefeb: 10000
+    Type1: 330003
+    Type2: 330011
+    Price: 10
+    Prefeb: 900173
   - No: 39
     Name_KR: "\uB77C\uBC14\uACE8\uB818"
     Name_EN: LavaGolem
@@ -705,17 +743,18 @@ MonoBehaviour:
     Rank: 3
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300008
-    Skill1Code: 300043
+    Skill1Code: 300062
     Skill2Code: 0
-    Type1: 330005
-    Type2: 330028
-    Prefeb: 10000
+    Type1: 330003
+    Type2: 330016
+    Price: 10
+    Prefeb: 900174
   - No: 40
     Name_KR: "\uCF00\uB974\uBCA0\uB85C\uC2A4"
     Name_EN: Cerberos
@@ -723,17 +762,18 @@ MonoBehaviour:
     Rank: 1
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300006
-    Skill1Code: 300044
+    Skill1Code: 300065
     Skill2Code: 0
-    Type1: 330007
-    Type2: 330018
-    Prefeb: 10000
+    Type1: 330004
+    Type2: 330011
+    Price: 2
+    Prefeb: 900175
   - No: 41
     Name_KR: "\uBC1C\uB85D"
     Name_EN: Balrog
@@ -741,17 +781,18 @@ MonoBehaviour:
     Rank: 4
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300014
-    Skill1Code: 300045
+    Skill1Code: 300068
     Skill2Code: 0
-    Type1: 330007
-    Type2: 330028
-    Prefeb: 10000
+    Type1: 330004
+    Type2: 330016
+    Price: 14
+    Prefeb: 900176
   - No: 42
     Name_KR: "\uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A4"
     Name_EN: Minotaurus
@@ -759,17 +800,18 @@ MonoBehaviour:
     Rank: 2
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300004
-    Skill1Code: 300046
+    Skill1Code: 300072
     Skill2Code: 0
-    Type1: 330007
-    Type2: 330022
-    Prefeb: 10000
+    Type1: 330004
+    Type2: 330013
+    Price: 6
+    Prefeb: 900177
   - No: 43
     Name_KR: "\uC0AC\uD2F0\uB85C\uC2A4"
     Name_EN: Satyr
@@ -777,17 +819,18 @@ MonoBehaviour:
     Rank: 2
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300017
-    Skill1Code: 300048
+    Skill1Code: 300077
     Skill2Code: 0
-    Type1: 330007
-    Type2: 330020
-    Prefeb: 10000
+    Type1: 330004
+    Type2: 330012
+    Price: 6
+    Prefeb: 900178
   - No: 44
     Name_KR: "\uADF8\uB9BC\uB9AC\uD37C"
     Name_EN: GrimReaper
@@ -795,35 +838,37 @@ MonoBehaviour:
     Rank: 1
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300007
-    Skill1Code: 300050
+    Skill1Code: 300081
     Skill2Code: 0
-    Type1: 330009
-    Type2: 330024
-    Prefeb: 10000
+    Type1: 330005
+    Type2: 330014
+    Price: 2
+    Prefeb: 900179
   - No: 45
     Name_KR: "\uB370\uC2A4\uB098\uC774\uD2B8"
-    Name_EN: DarkNight
+    Name_EN: DeathKnight
     Code: 100045
     Rank: 5
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300009
-    Skill1Code: 300051
+    Skill1Code: 300087
     Skill2Code: 0
-    Type1: 330009
-    Type2: 330030
-    Prefeb: 10000
+    Type1: 330005
+    Type2: 330017
+    Price: 20
+    Prefeb: 900180
   - No: 46
     Name_KR: "\uB2E4\uD06C\uC18C\uC6B8"
     Name_EN: DarkSoul
@@ -831,17 +876,18 @@ MonoBehaviour:
     Rank: 3
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300007
-    Skill1Code: 300055
+    Skill1Code: 300096
     Skill2Code: 0
-    Type1: 330009
-    Type2: 330024
-    Prefeb: 10000
+    Type1: 330005
+    Type2: 330014
+    Price: 10
+    Prefeb: 900181
   - No: 47
     Name_KR: "\uC2A4\uD1A4\uACE8\uB818"
     Name_EN: StoneGolem
@@ -849,17 +895,18 @@ MonoBehaviour:
     Rank: 2
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300008
-    Skill1Code: 300056
+    Skill1Code: 300099
     Skill2Code: 0
-    Type1: 330011
-    Type2: 330028
-    Prefeb: 10000
+    Type1: 330006
+    Type2: 330016
+    Price: 6
+    Prefeb: 900182
   - No: 48
     Name_KR: "\uD30C\uC774\uC5B4\uB370\uBAAC"
     Name_EN: FireDemon
@@ -867,17 +914,18 @@ MonoBehaviour:
     Rank: 3
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300006
-    Skill1Code: 300057
+    Skill1Code: 300102
     Skill2Code: 0
-    Type1: 330011
-    Type2: 330026
-    Prefeb: 10000
+    Type1: 330006
+    Type2: 330015
+    Price: 10
+    Prefeb: 900183
   - No: 49
     Name_KR: "\uBC15\uC950"
     Name_EN: Bat
@@ -885,17 +933,18 @@ MonoBehaviour:
     Rank: 1
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300006
-    Skill1Code: 300058
+    Skill1Code: 300105
     Skill2Code: 0
-    Type1: 330012
-    Type2: 330024
-    Prefeb: 10000
+    Type1: 330007
+    Type2: 330014
+    Price: 2
+    Prefeb: 900184
   - No: 50
     Name_KR: "\uB291\uB300"
     Name_EN: Wolf
@@ -903,17 +952,18 @@ MonoBehaviour:
     Rank: 2
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300006
-    Skill1Code: 300059
+    Skill1Code: 300108
     Skill2Code: 0
-    Type1: 330012
-    Type2: 330018
-    Prefeb: 10000
+    Type1: 330007
+    Type2: 330011
+    Price: 6
+    Prefeb: 900185
   - No: 51
     Name_KR: "\uD30C\uC774\uD2B8\uBCA0\uC5B4"
     Name_EN: FightBear
@@ -921,17 +971,18 @@ MonoBehaviour:
     Rank: 3
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300006
-    Skill1Code: 300060
+    Skill1Code: 300111
     Skill2Code: 0
-    Type1: 330012
-    Type2: 330022
-    Prefeb: 10000
+    Type1: 330007
+    Type2: 330013
+    Price: 10
+    Prefeb: 900186
   - No: 52
     Name_KR: "\uAD11\uB300"
     Name_EN: Clown
@@ -939,17 +990,18 @@ MonoBehaviour:
     Rank: 2
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300017
-    Skill1Code: 300061
+    Skill1Code: 300114
     Skill2Code: 0
-    Type1: 330014
-    Type2: 330026
-    Prefeb: 10000
+    Type1: 330008
+    Type2: 330015
+    Price: 6
+    Prefeb: 900187
   - No: 53
     Name_KR: "\uD0C0\uB77D\uCC9C\uC0AC"
     Name_EN: FallenAngel
@@ -957,17 +1009,18 @@ MonoBehaviour:
     Rank: 3
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300021
-    Skill1Code: 300070
+    Skill1Code: 300143
     Skill2Code: 0
-    Type1: 330014
-    Type2: 330020
-    Prefeb: 10000
+    Type1: 330008
+    Type2: 330012
+    Price: 10
+    Prefeb: 900188
   - No: 54
     Name_KR: "\uC774\uD504\uB9AC\uC2A4"
     Name_EN: Ipris
@@ -975,17 +1028,18 @@ MonoBehaviour:
     Rank: 4
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300021
-    Skill1Code: 300062
+    Skill1Code: 300117
     Skill2Code: 0
-    Type1: 330014
-    Type2: 330020
-    Prefeb: 10000
+    Type1: 330008
+    Type2: 330012
+    Price: 14
+    Prefeb: 900189
   - No: 55
     Name_KR: "\uB4DC\uB798\uACE4"
     Name_EN: Dragon
@@ -993,17 +1047,18 @@ MonoBehaviour:
     Rank: 5
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300023
-    Skill1Code: 300063
+    Skill1Code: 300120
     Skill2Code: 0
-    Type1: 330016
-    Type2: 330030
-    Prefeb: 10000
+    Type1: 330009
+    Type2: 330017
+    Price: 20
+    Prefeb: 900190
   - No: 56
     Name_KR: "\uB9C8\uB140"
     Name_EN: Witch
@@ -1011,17 +1066,18 @@ MonoBehaviour:
     Rank: 1
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300013
-    Skill1Code: 300064
+    Skill1Code: 300123
     Skill2Code: 0
-    Type1: 330017
-    Type2: 330020
-    Prefeb: 10000
+    Type1: 330010
+    Type2: 330012
+    Price: 2
+    Prefeb: 900191
   - No: 57
     Name_KR: "\uB2E4\uD06C\uC5D8\uD504"
     Name_EN: DarkElf
@@ -1029,17 +1085,18 @@ MonoBehaviour:
     Rank: 4
     Star: 2
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300021
-    Skill1Code: 300065
+    Skill1Code: 300130
     Skill2Code: 0
-    Type1: 330017
-    Type2: 330025
-    Prefeb: 10000
+    Type1: 330010
+    Type2: 330014
+    Price: 14
+    Prefeb: 900192
   - No: 58
     Name_KR: "\uC624\uD06C\uAC70\uB108"
     Name_EN: OrkGunner
@@ -1047,17 +1104,18 @@ MonoBehaviour:
     Rank: 2
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300011
-    Skill1Code: 300034
+    Skill1Code: 300038
     Skill2Code: 0
     Type1: 330001
-    Type2: 330018
-    Prefeb: 10000
+    Type2: 330011
+    Price: 18
+    Prefeb: 900193
   - No: 59
     Name_KR: "\uC624\uD06C\uC804\uC0AC"
     Name_EN: OrkWarrior
@@ -1065,17 +1123,18 @@ MonoBehaviour:
     Rank: 2
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300019
-    Skill1Code: 300036
+    Skill1Code: 300042
     Skill2Code: 0
     Type1: 330001
-    Type2: 330022
-    Prefeb: 10000
+    Type2: 330013
+    Price: 18
+    Prefeb: 900194
   - No: 60
     Name_KR: "\uC0AC\uC774\uD074\uB86D\uC2A4"
     Name_EN: Cyclops
@@ -1083,17 +1142,18 @@ MonoBehaviour:
     Rank: 4
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300004
-    Skill1Code: 300037
+    Skill1Code: 300045
     Skill2Code: 0
     Type1: 330001
-    Type2: 330022
-    Prefeb: 10000
+    Type2: 330013
+    Price: 42
+    Prefeb: 900195
   - No: 61
     Name_KR: "\uACE0\uBE14\uB9B0"
     Name_EN: Goblin
@@ -1101,17 +1161,18 @@ MonoBehaviour:
     Rank: 1
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300015
-    Skill1Code: 300038
+    Skill1Code: 300048
     Skill2Code: 0
-    Type1: 330003
-    Type2: 330018
-    Prefeb: 10000
+    Type1: 330002
+    Type2: 330011
+    Price: 6
+    Prefeb: 900196
   - No: 62
     Name_KR: "\uB180\uC804\uC0AC"
     Name_EN: NolWarrior
@@ -1119,17 +1180,18 @@ MonoBehaviour:
     Rank: 1
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300004
-    Skill1Code: 300039
+    Skill1Code: 300051
     Skill2Code: 0
-    Type1: 330003
-    Type2: 330022
-    Prefeb: 10000
+    Type1: 330002
+    Type2: 330013
+    Price: 6
+    Prefeb: 900197
   - No: 63
     Name_KR: "\uD2B8\uB864\uC8FC\uC220\uC0AC"
     Name_EN: TrollShamen
@@ -1137,17 +1199,18 @@ MonoBehaviour:
     Rank: 4
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300016
-    Skill1Code: 300040
+    Skill1Code: 300054
     Skill2Code: 0
-    Type1: 330003
-    Type2: 330026
-    Prefeb: 10000
+    Type1: 330002
+    Type2: 330015
+    Price: 42
+    Prefeb: 900198
   - No: 64
     Name_KR: "\uC2A4\uD30C\uD06C\uBAAC"
     Name_EN: Sparkmon
@@ -1155,17 +1218,18 @@ MonoBehaviour:
     Rank: 1
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300012
-    Skill1Code: 300041
+    Skill1Code: 300057
     Skill2Code: 0
-    Type1: 330005
-    Type2: 330026
-    Prefeb: 10000
+    Type1: 330003
+    Type2: 330015
+    Price: 6
+    Prefeb: 900199
   - No: 65
     Name_KR: "\uC0B4\uB77C\uB9E8\uB354"
     Name_EN: Salamander
@@ -1173,17 +1237,18 @@ MonoBehaviour:
     Rank: 3
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300005
-    Skill1Code: 300042
+    Skill1Code: 300060
     Skill2Code: 0
-    Type1: 330005
-    Type2: 330018
-    Prefeb: 10000
+    Type1: 330003
+    Type2: 330011
+    Price: 30
+    Prefeb: 900200
   - No: 66
     Name_KR: "\uB77C\uBC14\uACE8\uB818"
     Name_EN: LavaGolem
@@ -1191,17 +1256,18 @@ MonoBehaviour:
     Rank: 3
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300008
-    Skill1Code: 300043
+    Skill1Code: 300063
     Skill2Code: 0
-    Type1: 330005
-    Type2: 330028
-    Prefeb: 10000
+    Type1: 330003
+    Type2: 330016
+    Price: 30
+    Prefeb: 900201
   - No: 67
     Name_KR: "\uCF00\uB974\uBCA0\uB85C\uC2A4"
     Name_EN: Cerberos
@@ -1209,17 +1275,18 @@ MonoBehaviour:
     Rank: 1
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300006
-    Skill1Code: 300044
+    Skill1Code: 300066
     Skill2Code: 0
-    Type1: 330007
-    Type2: 330018
-    Prefeb: 10000
+    Type1: 330004
+    Type2: 330011
+    Price: 6
+    Prefeb: 900202
   - No: 68
     Name_KR: "\uBC1C\uB85D"
     Name_EN: Balrog
@@ -1227,17 +1294,18 @@ MonoBehaviour:
     Rank: 4
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300014
-    Skill1Code: 300045
+    Skill1Code: 300069
     Skill2Code: 0
-    Type1: 330007
-    Type2: 330028
-    Prefeb: 10000
+    Type1: 330004
+    Type2: 330016
+    Price: 42
+    Prefeb: 900203
   - No: 69
     Name_KR: "\uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A4"
     Name_EN: Minotaurus
@@ -1245,17 +1313,18 @@ MonoBehaviour:
     Rank: 2
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300004
-    Skill1Code: 300046
+    Skill1Code: 300074
     Skill2Code: 0
-    Type1: 330007
-    Type2: 330022
-    Prefeb: 10000
+    Type1: 330004
+    Type2: 330013
+    Price: 18
+    Prefeb: 900204
   - No: 70
     Name_KR: "\uC0AC\uD2F0\uB85C\uC2A4"
     Name_EN: Satyr
@@ -1263,17 +1332,18 @@ MonoBehaviour:
     Rank: 2
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300017
-    Skill1Code: 300048
+    Skill1Code: 300078
     Skill2Code: 0
-    Type1: 330007
-    Type2: 330020
-    Prefeb: 10000
+    Type1: 330004
+    Type2: 330012
+    Price: 18
+    Prefeb: 900205
   - No: 71
     Name_KR: "\uADF8\uB9BC\uB9AC\uD37C"
     Name_EN: GrimReaper
@@ -1281,35 +1351,37 @@ MonoBehaviour:
     Rank: 1
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300007
-    Skill1Code: 300050
+    Skill1Code: 300082
     Skill2Code: 0
-    Type1: 330009
-    Type2: 330024
-    Prefeb: 10000
+    Type1: 330005
+    Type2: 330014
+    Price: 6
+    Prefeb: 900206
   - No: 72
     Name_KR: "\uB370\uC2A4\uB098\uC774\uD2B8"
-    Name_EN: DarkNight
+    Name_EN: DeathKnight
     Code: 100072
     Rank: 5
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300009
-    Skill1Code: 300051
+    Skill1Code: 300091
     Skill2Code: 0
-    Type1: 330009
-    Type2: 330030
-    Prefeb: 10000
+    Type1: 330005
+    Type2: 330017
+    Price: 60
+    Prefeb: 900207
   - No: 73
     Name_KR: "\uB2E4\uD06C\uC18C\uC6B8"
     Name_EN: DarkSoul
@@ -1317,17 +1389,18 @@ MonoBehaviour:
     Rank: 3
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300007
-    Skill1Code: 300055
+    Skill1Code: 300097
     Skill2Code: 0
-    Type1: 330009
-    Type2: 330024
-    Prefeb: 10000
+    Type1: 330005
+    Type2: 330014
+    Price: 30
+    Prefeb: 900208
   - No: 74
     Name_KR: "\uC2A4\uD1A4\uACE8\uB818"
     Name_EN: StoneGolem
@@ -1335,17 +1408,18 @@ MonoBehaviour:
     Rank: 2
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300008
-    Skill1Code: 300056
+    Skill1Code: 300100
     Skill2Code: 0
-    Type1: 330011
-    Type2: 330028
-    Prefeb: 10000
+    Type1: 330006
+    Type2: 330016
+    Price: 18
+    Prefeb: 900209
   - No: 75
     Name_KR: "\uD30C\uC774\uC5B4\uB370\uBAAC"
     Name_EN: FireDemon
@@ -1353,17 +1427,18 @@ MonoBehaviour:
     Rank: 3
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300006
-    Skill1Code: 300057
+    Skill1Code: 300103
     Skill2Code: 0
-    Type1: 330011
-    Type2: 330026
-    Prefeb: 10000
+    Type1: 330006
+    Type2: 330015
+    Price: 30
+    Prefeb: 900210
   - No: 76
     Name_KR: "\uBC15\uC950"
     Name_EN: Bat
@@ -1371,17 +1446,18 @@ MonoBehaviour:
     Rank: 1
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300006
-    Skill1Code: 300058
+    Skill1Code: 300106
     Skill2Code: 0
-    Type1: 330012
-    Type2: 330024
-    Prefeb: 10000
+    Type1: 330007
+    Type2: 330014
+    Price: 6
+    Prefeb: 900211
   - No: 77
     Name_KR: "\uB291\uB300"
     Name_EN: Wolf
@@ -1389,17 +1465,18 @@ MonoBehaviour:
     Rank: 2
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300006
-    Skill1Code: 300059
+    Skill1Code: 300109
     Skill2Code: 0
-    Type1: 330012
-    Type2: 330018
-    Prefeb: 10000
+    Type1: 330007
+    Type2: 330011
+    Price: 18
+    Prefeb: 900212
   - No: 78
     Name_KR: "\uD30C\uC774\uD2B8\uBCA0\uC5B4"
     Name_EN: FightBear
@@ -1407,17 +1484,18 @@ MonoBehaviour:
     Rank: 3
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300006
-    Skill1Code: 300060
+    Skill1Code: 300112
     Skill2Code: 0
-    Type1: 330012
-    Type2: 330022
-    Prefeb: 10000
+    Type1: 330007
+    Type2: 330013
+    Price: 30
+    Prefeb: 900213
   - No: 79
     Name_KR: "\uAD11\uB300"
     Name_EN: Clown
@@ -1425,17 +1503,18 @@ MonoBehaviour:
     Rank: 2
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300017
-    Skill1Code: 300061
+    Skill1Code: 300115
     Skill2Code: 0
-    Type1: 330014
-    Type2: 330026
-    Prefeb: 10000
+    Type1: 330008
+    Type2: 330015
+    Price: 18
+    Prefeb: 900214
   - No: 80
     Name_KR: "\uD0C0\uB77D\uCC9C\uC0AC"
     Name_EN: FallenAngel
@@ -1443,17 +1522,18 @@ MonoBehaviour:
     Rank: 3
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300021
-    Skill1Code: 300070
+    Skill1Code: 300146
     Skill2Code: 0
-    Type1: 330014
-    Type2: 330020
-    Prefeb: 10000
+    Type1: 330008
+    Type2: 330012
+    Price: 30
+    Prefeb: 900215
   - No: 81
     Name_KR: "\uC774\uD504\uB9AC\uC2A4"
     Name_EN: Ipris
@@ -1461,17 +1541,18 @@ MonoBehaviour:
     Rank: 4
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300021
-    Skill1Code: 300062
+    Skill1Code: 300118
     Skill2Code: 0
-    Type1: 330014
-    Type2: 330020
-    Prefeb: 10000
+    Type1: 330008
+    Type2: 330012
+    Price: 42
+    Prefeb: 900216
   - No: 82
     Name_KR: "\uB4DC\uB798\uACE4"
     Name_EN: Dragon
@@ -1479,17 +1560,18 @@ MonoBehaviour:
     Rank: 5
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300023
-    Skill1Code: 300063
+    Skill1Code: 300121
     Skill2Code: 0
-    Type1: 330016
-    Type2: 330030
-    Prefeb: 10000
+    Type1: 330009
+    Type2: 330017
+    Price: 60
+    Prefeb: 900217
   - No: 83
     Name_KR: "\uB9C8\uB140"
     Name_EN: Witch
@@ -1497,17 +1579,18 @@ MonoBehaviour:
     Rank: 1
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300013
-    Skill1Code: 300064
+    Skill1Code: 300124
     Skill2Code: 0
-    Type1: 330017
-    Type2: 330020
-    Prefeb: 10000
+    Type1: 330010
+    Type2: 330012
+    Price: 6
+    Prefeb: 900218
   - No: 84
     Name_KR: "\uB2E4\uD06C\uC5D8\uD504"
     Name_EN: DarkElf
@@ -1515,14 +1598,15 @@ MonoBehaviour:
     Rank: 4
     Star: 3
     Atk: 1
-    Atk_spd: 1000
+    Atk_spd: 1
     HP: 0
     Def: 0
     Crit_rate: 0.2
     Crit_Dmg: 1.5
     Atk_Code: 300021
-    Skill1Code: 300065
+    Skill1Code: 300135
     Skill2Code: 0
-    Type1: 330017
-    Type2: 330025
-    Prefeb: 10000
+    Type1: 330010
+    Type2: 330014
+    Price: 42
+    Prefeb: 900219
