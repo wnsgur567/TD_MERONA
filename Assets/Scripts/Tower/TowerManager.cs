@@ -1,27 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-[DefaultExecutionOrder(-98)]
 public class TowerManager : Singleton<TowerManager>
 {
+    protected Tower_TableExcelLoader m_TowerData;
+
     protected List<Tower> m_TowerList;
     protected Dictionary<E_Direction, List<Tower>> m_DirTowerList;
 
     #region 내부 프로퍼티
-    protected ResourcesManager M_Resources => ResourcesManager.Instance;
     protected TowerPool M_TowerPool => TowerPool.Instance;
-    protected TowerData TowerData
-    {
-        get
-        {
-            return M_Resources.GetScriptableObject<TowerData>("Tower", "TowerData");
-        }
-    }
+    protected DataTableManager M_DataTable => DataTableManager.Instance;
     #endregion
 
     private void Awake()
     {
+        m_TowerData = M_DataTable.GetDataTable<Tower_TableExcelLoader>();
+
         m_TowerList = new List<Tower>();
         m_DirTowerList = new Dictionary<E_Direction, List<Tower>>();
         for (E_Direction i = 0; i < E_Direction.Max; ++i)
@@ -44,23 +41,17 @@ public class TowerManager : Singleton<TowerManager>
     }
     public S_TowerData_Excel GetData(E_Tower no)
     {
-        foreach (var item in TowerData.DataList)
-        {
-            if (item.No == no)
-                return item;
-        }
+        Tower_TableExcel origin = m_TowerData.DataList.Where(item => item.No == (int)no).SingleOrDefault();
+        S_TowerData_Excel result = new S_TowerData_Excel(origin);
 
-        return default(S_TowerData_Excel);
+        return result;
     }
     public S_TowerData_Excel GetData(int code)
     {
-        foreach (var item in TowerData.DataList)
-        {
-            if (item.Code == code)
-                return item;
-        }
+        Tower_TableExcel origin = m_TowerData.DataList.Where(item => item.Code == code).SingleOrDefault();
+        S_TowerData_Excel result = new S_TowerData_Excel(origin);
 
-        return default(S_TowerData_Excel);
+        return result;
     }
     public List<Tower> GetTowerList(E_Direction dir)
     {

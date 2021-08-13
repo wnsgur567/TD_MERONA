@@ -23,14 +23,12 @@ public class Devil : MonoBehaviour
     #endregion
 
     #region 내부 프로퍼티
-    // 리소스 매니져
-    protected ResourcesManager M_Resources => ResourcesManager.Instance;
     // 타워 매니져
     protected TowerManager M_Tower => TowerManager.Instance;
     // 버프 매니져
     protected BuffManager M_Buff => BuffManager.Instance;
-    // 스킬 메모리풀
-    protected SkillPool M_SkillPool => SkillPool.Instance;
+    // 스킬 매니져
+    protected SkillManager M_Skill => SkillManager.Instance;
 
     // 타워 회전 속도
     protected float RotateSpeed
@@ -46,22 +44,6 @@ public class Devil : MonoBehaviour
         get
         {
             return Vector3.Distance(transform.position, m_Target.transform.position);
-        }
-    }
-    // 스킬 컨디션 정보
-    protected SkillConditionData Skill_Condition
-    {
-        get
-        {
-            return M_Resources.GetScriptableObject<SkillConditionData>("Skill", "SkillConditionData");
-        }
-    }
-    // 스킬 스탯 정보
-    protected SkillStatData Skill_Stat
-    {
-        get
-        {
-            return M_Resources.GetScriptableObject<SkillStatData>("Skill", "SkillStatData");
         }
     }
     #endregion
@@ -95,8 +77,8 @@ public class Devil : MonoBehaviour
 
         #region 내부 데이터 정리
         // 평타
-        m_DevilInfo.DefaultSkillCondition = Skill_Condition.GetData(m_DevilInfo_Excel.Atk_Code);
-        m_DevilInfo.DefaultSkillStat = Skill_Stat.GetData(m_DevilInfo_Excel.Atk_Code);
+        m_DevilInfo.DefaultSkillCondition = M_Skill.GetConditionData(m_DevilInfo_Excel.Atk_Code);
+        m_DevilInfo.DefaultSkillStat = M_Skill.GetStatData(m_DevilInfo_Excel.Atk_Code);
 
         // 공격
         m_DevilInfo.AttackTimer = m_DevilInfo_Excel.Atk_spd;
@@ -174,18 +156,19 @@ public class Devil : MonoBehaviour
             m_DevilInfo.AttackTimer -= m_DevilInfo_Excel.Atk_spd;
             m_DevilInfo.ShouldFindTarget = true;
 
-            // 스킬 생성
-            Skill skill = M_SkillPool.GetPool("Skill").Spawn();
-            skill.transform.position = transform.position;
-            skill.enabled = true;
-            skill.gameObject.SetActive(true);
-
             // 스킬 데이터 불러오기
             S_SkillConditionData_Excel conditionData = m_DevilInfo.DefaultSkillCondition;
             S_SkillStatData_Excel statData = m_DevilInfo.DefaultSkillStat;
 
+            // 기본 스킬 투사체 생성
+            int DefaultSkillCode = conditionData.projectile_prefab;
+            Skill DefaultSkill = M_Skill.SpawnProjectileSkill(DefaultSkillCode);
+            DefaultSkill.transform.position = transform.position;
+            DefaultSkill.enabled = true;
+            DefaultSkill.gameObject.SetActive(true);
+
             // 스킬 데이터 설정
-            skill.InitializeSkill(m_Target, conditionData, statData);
+            DefaultSkill.InitializeSkill(m_Target, conditionData, statData);
         }
     }
 

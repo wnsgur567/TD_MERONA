@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#region enum
 public enum E_SynergyEffectType
 {
     None,
@@ -21,6 +22,7 @@ public enum E_SynergyEffectAmount
     Monster,
     King
 }
+#endregion
 
 [System.Serializable]
 public struct S_SynergyEffect
@@ -30,7 +32,7 @@ public struct S_SynergyEffect
     public int EffectCode;
     public E_AttackType EffectChange;
     public int EffectReq;
-    public float BuffRand;
+    public float EffectRand;
 }
 
 [System.Serializable]
@@ -41,92 +43,33 @@ public struct S_SynergyData_Excel
     public string Name_EN;
     public int Code;
     public int Rank;
-
     public int MemReq;
     public int TargetMem;
-
     public S_SynergyEffect Effect1;
     public S_SynergyEffect Effect2;
-
     public int Prefab;
-    public string Component;
-}
 
-
-/// //////////////////////////
-
-
-
-[CreateAssetMenu(fileName = "SynergyData", menuName = "Scriptable Object/Synergy Data")]
-public class SynergyData : ScriptableObject
-{
-    [SerializeField] string filepath;
-    [SerializeField] List<S_SynergyData_Excel> DataList;
-
-    private S_SynergyData_Excel Read(string line)
+    public S_SynergyData_Excel(Synergy_TableExcel origin)
     {
-        S_SynergyData_Excel data = new S_SynergyData_Excel();
-        int idx = 0;
-
-        string[] strs = line.Split(',');
-
-        data.No = int.Parse(strs[idx++]);
-        data.Name_KR = strs[idx++];
-        data.Name_EN = strs[idx++];
-        data.Code = int.Parse(strs[idx++]);
-        data.Rank = int.Parse(strs[idx++]);
-
-        data.MemReq = int.Parse(strs[idx++]);
-        data.TargetMem = int.Parse(strs[idx++]);
-
-        data.Effect1.EffectType = (E_SynergyEffectType)int.Parse(strs[idx++]);
-        data.Effect1.EffectAmount = (E_SynergyEffectAmount)int.Parse(strs[idx++]);
-        data.Effect1.EffectCode = int.Parse(strs[idx++]);
-        data.Effect1.EffectChange = (E_AttackType)int.Parse(strs[idx++]);
-        data.Effect1.EffectReq = int.Parse(strs[idx++]);
-        data.Effect1.BuffRand = float.Parse(strs[idx++]);
-
-        data.Effect2.EffectType = (E_SynergyEffectType)int.Parse(strs[idx++]);
-        data.Effect2.EffectAmount = (E_SynergyEffectAmount)int.Parse(strs[idx++]);
-        data.Effect2.EffectCode = int.Parse(strs[idx++]);
-        data.Effect2.EffectChange = (E_AttackType)int.Parse(strs[idx++]);
-        data.Effect2.EffectReq = int.Parse(strs[idx++]);
-        data.Effect2.BuffRand = float.Parse(strs[idx++]);
-
-        data.Prefab = int.Parse(strs[idx++]);
-        data.Component = strs[idx++];
-
-        return data;
-    }
-
-    [ContextMenu("파일 읽기")]
-    public void ReadAllFromFile()
-    {
-        DataList = new List<S_SynergyData_Excel>();
-
-        string currentpath = System.IO.Directory.GetCurrentDirectory();
-        Debug.Log(currentpath);
-        Debug.Log(System.IO.Path.Combine(currentpath, filepath));
-
-        string allText = System.IO.File.ReadAllText(System.IO.Path.Combine(currentpath, filepath));
-        string[] strs = allText.Split('\n');
-
-        foreach (var item in strs)
-        {
-            if (item.Length < 2)
-                continue;
-            S_SynergyData_Excel data = Read(item);
-            DataList.Add(data);
-        }
-    }
-    public S_SynergyData_Excel? GetData(int code, int rank)
-    {
-        foreach (var item in DataList)
-        {
-            if (item.Code == code && item.Rank == rank)
-                return item;
-        }
-
-        return null;
+        No = origin.No;
+        Name_KR = origin.Name_KR;
+        Name_EN = origin.Name_EN;
+        Code = origin.Code;
+        Rank = origin.Rank;
+        MemReq = origin.MemReq;
+        TargetMem = origin.TargetMem;
+        Effect1.EffectType = (E_SynergyEffectType)origin.EffectType1;
+        Effect1.EffectAmount = (E_SynergyEffectAmount)origin.EffectAmount1;
+        Effect1.EffectCode = origin.EffectCode1;
+        Effect1.EffectChange = (E_AttackType)origin.EffectChange1;
+        Effect1.EffectReq = origin.EffectReq1;
+        Effect1.EffectRand = origin.EffectRand1;
+        Effect2.EffectType = (E_SynergyEffectType)origin.EffectType2;
+        Effect2.EffectAmount = (E_SynergyEffectAmount)origin.EffectAmount2;
+        Effect2.EffectCode = origin.EffectCode2;
+        Effect2.EffectChange = (E_AttackType)origin.EffectChange2;
+        Effect2.EffectReq = origin.EffectReq2;
+        Effect2.EffectRand = origin.EffectRand2;
+        Prefab = origin.Prefeb;
     }
 }

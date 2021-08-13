@@ -1,23 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-[DefaultExecutionOrder(-98)]
 public class BuffManager : Singleton<BuffManager>
 {
-    #region ���� ������Ƽ
-    protected ResourcesManager M_Resources => ResourcesManager.Instance;
-    protected BuffData BuffData
+    protected BuffCC_TableExcelLoader m_BuffCCData;
+
+    #region 내부 컴포넌트
+    #endregion
+
+    #region 내부 프로퍼티
+    protected DataTableManager M_DataTable => DataTableManager.Instance;
+    #endregion
+
+    #region 외부 프로퍼티
+    #endregion
+
+    #region 내부 함수
+    #endregion
+
+    #region 외부 함수
+    public S_BuffData_Excel GetData(int code)
     {
-        get
-        {
-            return M_Resources.GetScriptableObject<BuffData>("Synergy", "BuffData");
-        }
+        BuffCC_TableExcel origin = m_BuffCCData.DataList.Where(item => item.Code == code).Single();
+        S_BuffData_Excel result = new S_BuffData_Excel(origin);
+        return result;
     }
     #endregion
 
-    public S_BuffData_Excel GetData(int code)
+    #region 유니티 콜백 함수
+    void Awake()
     {
-        return BuffData.GetData(code);
+        m_BuffCCData = M_DataTable.GetDataTable<BuffCC_TableExcelLoader>();
     }
+    #endregion
 }

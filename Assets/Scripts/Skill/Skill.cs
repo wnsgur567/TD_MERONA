@@ -14,6 +14,9 @@ public class Skill : MonoBehaviour
     public GameObject m_Target;
 
     #region 내부 프로퍼티
+    // 스킬 매니져
+    protected SkillManager M_Skill => SkillManager.Instance;
+
     // 스킬 이동 속도
     protected float MoveSpeed
     {
@@ -70,10 +73,6 @@ public class Skill : MonoBehaviour
             return m_SkillInfo.BounceCount <= 0;
         }
     }
-    // 스킬 메모리풀
-    protected SkillPool M_SkillPool => SkillPool.Instance;
-    // 리소스 매니져
-    protected ResourcesManager M_Resources => ResourcesManager.Instance;
     #endregion
 
     private void Awake()
@@ -119,7 +118,7 @@ public class Skill : MonoBehaviour
     }
     private void Despawn()
     {
-        M_SkillPool.GetPool("Skill").DeSpawn(this);
+        M_Skill.DespawnProjectileSkill(this);
 
         m_SkillInfo.AttackRange.Clear();
         m_SkillInfo.BounceTargetList.Clear();

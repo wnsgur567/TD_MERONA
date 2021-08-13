@@ -47,7 +47,7 @@ public class HateQueen : Devil
 
     protected IEnumerator SK001(DevilSkillArg arg)
     {
-        S_BuffData_Excel buffData = M_Buff.GetData(arg.skillData.m_StatData.LoadBuff);
+        S_BuffData_Excel buffData = M_Buff.GetData(arg.skillData.m_StatData.Buff_CC);
         List<Tower> towerList = M_Tower.GetTowerList(arg.dir);
 
         foreach (var item in towerList)
@@ -65,7 +65,7 @@ public class HateQueen : Devil
     }
     protected IEnumerator SK002(DevilSkillArg arg)
     {
-        S_BuffData_Excel buffData = M_Buff.GetData(arg.skillData.m_StatData.LoadBuff);
+        S_BuffData_Excel buffData = M_Buff.GetData(arg.skillData.m_StatData.Buff_CC);
 
         for (E_Direction i = 0; i < E_Direction.Max; ++i)
         {

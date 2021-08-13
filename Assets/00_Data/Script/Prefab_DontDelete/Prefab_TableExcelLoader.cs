@@ -27,9 +27,11 @@ public class Prefab_TableExcelLoader : ScriptableObject
 
     private Prefab_TableExcel Read(string line)
     {
+        line = line.TrimStart('\n');
+
         Prefab_TableExcel data = new Prefab_TableExcel();
         int idx = 0;
-        string[] strs = line.Split(',');
+        string[] strs = line.Split('`');
 
         data.Code = int.Parse(strs[idx++]);
         data.Size = float.Parse(strs[idx++]);
@@ -45,7 +47,7 @@ public class Prefab_TableExcelLoader : ScriptableObject
 
         string currentpath = System.IO.Directory.GetCurrentDirectory();
         string allText = System.IO.File.ReadAllText(System.IO.Path.Combine(currentpath, filepath));
-        string[] strs = allText.Split('\n');
+        string[] strs = allText.Split(';');
 
         foreach (var item in strs)
         {
@@ -63,8 +65,8 @@ public class Prefab_TableExcelLoader : ScriptableObject
 
     public GameObject GetPrefab(int prefabCode)
     {
+        Debug.Log(prefabCode);
         var info = PrefabList.Find((item) => { return item.Code == prefabCode; });
-
         return info.obj;
     }
 }

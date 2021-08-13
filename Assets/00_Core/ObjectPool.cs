@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[DefaultExecutionOrder(-98)]
+[DefaultExecutionOrder(-97)]
 public abstract class ObjectPool<Pool, Origin> : Singleton<Pool> where Pool : MonoBehaviour where Origin : MonoBehaviour
 {
     [ReadOnly(true)]

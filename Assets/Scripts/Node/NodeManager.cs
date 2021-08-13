@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[DefaultExecutionOrder(-98)]
 public class NodeManager : Singleton<NodeManager>
 {
     public delegate void NodeEventHandler();

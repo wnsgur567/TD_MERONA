@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-[DefaultExecutionOrder(-98)]
 public class SynergyManager : Singleton<SynergyManager>
 {
     public delegate void SynergyEventHandler();
     public event SynergyEventHandler UpdateSynergyEndEvent;
+
+    protected Synergy_TableExcelLoader m_SynergyData;
 
     // 시너지 최대 랭크
     [SerializeField]
@@ -19,21 +21,16 @@ public class SynergyManager : Singleton<SynergyManager>
     protected Dictionary<E_Direction, List<S_SynergyData_Excel>> m_Synergys = null;
 
     #region 내부 프로퍼티
-    protected ResourcesManager M_Resources => ResourcesManager.Instance;
     protected TowerManager M_Tower => TowerManager.Instance;
     protected BuffManager M_Buff => BuffManager.Instance;
     protected NodeManager M_Node => NodeManager.Instance;
-    protected SynergyData SynergyData
-    {
-        get
-        {
-            return M_Resources.GetScriptableObject<SynergyData>("Synergy", "SynergyData");
-        }
-    }
+    protected DataTableManager M_DataTable => DataTableManager.Instance;
     #endregion
 
     private void Awake()
     {
+        m_SynergyData = M_DataTable.GetDataTable<Synergy_TableExcelLoader>();
+
         m_Synergys = new Dictionary<E_Direction, List<S_SynergyData_Excel>>();
 
         for (E_Direction i = 0; i < E_Direction.Max; ++i)
@@ -44,9 +41,13 @@ public class SynergyManager : Singleton<SynergyManager>
         M_Node.m_RotateEndEvent += UpdateSynergy;
     }
 
-    public S_SynergyData_Excel? GetData(int code, int rank = 1)
+    public S_SynergyData_Excel GetData(int code, int rank = 1)
     {
-        return SynergyData.GetData(code, rank);
+        var datas = m_SynergyData.DataList.Where(item => item.Code == code).ToList();
+        Synergy_TableExcel origin = datas.Where(item => item.Rank == rank).SingleOrDefault();
+        S_SynergyData_Excel result = new S_SynergyData_Excel(origin);
+
+        return result;
     }
 
     public List<S_SynergyData_Excel> GetSynergy(E_Direction dir)
@@ -145,27 +146,23 @@ public class SynergyManager : Singleton<SynergyManager>
         {
             int Rank = m_MaxRank;
             int TowerCount = item.Value.Count;
-            S_SynergyData_Excel? data = null;
+            S_SynergyData_Excel data = new S_SynergyData_Excel();
 
             while (true)
             {
-                do
+                while (Rank >= 0)
                 {
-                    data = SynergyData.GetData(item.Key, Rank--);
-                    if (Rank <= 0)
-                        break;
-                } while (!data.HasValue);
+                    data = GetData(item.Key, Rank--);
+                }
 
-                if (Rank <= 0)
+                if (Rank < 0)
                     break;
 
-                S_SynergyData_Excel synergyData = data.Value;
-
-                if (synergyData.MemReq <= TowerCount)
+                if (data.MemReq <= TowerCount)
                 {
-                    m_Synergys[dir].Add(synergyData);
+                    m_Synergys[dir].Add(data);
 
-                    S_SynergyEffect effect = synergyData.Effect1;
+                    S_SynergyEffect effect = data.Effect1;
                     S_BuffData_Excel buffData = M_Buff.GetData(effect.EffectCode);
 
                     // 시너지1 적용
@@ -180,12 +177,12 @@ public class SynergyManager : Singleton<SynergyManager>
                                     List<Tower> towerList = null;
 
                                     // 같은 시너지 타워들만
-                                    if (synergyData.TargetMem == 1)
+                                    if (data.TargetMem == 1)
                                     {
                                         towerList = item.Value;
                                     }
                                     // 현재 라인 타워 전부
-                                    else if (synergyData.TargetMem == 2)
+                                    else if (data.TargetMem == 2)
                                     {
                                         towerList = towers;
                                     }
@@ -217,12 +214,12 @@ public class SynergyManager : Singleton<SynergyManager>
                                     List<Tower> towerList = null;
 
                                     // 같은 시너지 타워들만
-                                    if (synergyData.TargetMem == 1)
+                                    if (data.TargetMem == 1)
                                     {
                                         towerList = item.Value;
                                     }
                                     // 현재 라인 타워 전부
-                                    else if (synergyData.TargetMem == 2)
+                                    else if (data.TargetMem == 2)
                                     {
                                         towerList = towers;
                                     }
@@ -254,12 +251,12 @@ public class SynergyManager : Singleton<SynergyManager>
                                     List<Tower> towerList = null;
 
                                     // 같은 시너지 타워들만
-                                    if (synergyData.TargetMem == 1)
+                                    if (data.TargetMem == 1)
                                     {
                                         towerList = item.Value;
                                     }
                                     // 현재 라인 타워 전부
-                                    else if (synergyData.TargetMem == 2)
+                                    else if (data.TargetMem == 2)
                                     {
                                         towerList = towers;
                                     }
@@ -281,7 +278,7 @@ public class SynergyManager : Singleton<SynergyManager>
                             break;
                     }
 
-                    effect = synergyData.Effect2;
+                    effect = data.Effect2;
                     buffData = M_Buff.GetData(effect.EffectCode);
 
                     // 시너지2 적용
@@ -296,12 +293,12 @@ public class SynergyManager : Singleton<SynergyManager>
                                     List<Tower> towerList = null;
 
                                     // 같은 시너지 타워들만
-                                    if (synergyData.TargetMem == 1)
+                                    if (data.TargetMem == 1)
                                     {
                                         towerList = item.Value;
                                     }
                                     // 현재 라인 타워 전부
-                                    else if (synergyData.TargetMem == 2)
+                                    else if (data.TargetMem == 2)
                                     {
                                         towerList = towers;
                                     }
@@ -333,12 +330,12 @@ public class SynergyManager : Singleton<SynergyManager>
                                     List<Tower> towerList = null;
 
                                     // 같은 시너지 타워들만
-                                    if (synergyData.TargetMem == 1)
+                                    if (data.TargetMem == 1)
                                     {
                                         towerList = item.Value;
                                     }
                                     // 현재 라인 타워 전부
-                                    else if (synergyData.TargetMem == 2)
+                                    else if (data.TargetMem == 2)
                                     {
                                         towerList = towers;
                                     }
@@ -369,12 +366,12 @@ public class SynergyManager : Singleton<SynergyManager>
                                     List<Tower> towerList = null;
 
                                     // 같은 시너지 타워들만
-                                    if (synergyData.TargetMem == 1)
+                                    if (data.TargetMem == 1)
                                     {
                                         towerList = item.Value;
                                     }
                                     // 현재 라인 타워 전부
-                                    else if (synergyData.TargetMem == 2)
+                                    else if (data.TargetMem == 2)
                                     {
                                         towerList = towers;
                                     }
