@@ -118,12 +118,17 @@ public class Skill : MonoBehaviour
     }
     private void Despawn()
     {
-        M_Skill.DespawnProjectileSkill(this);
+        Skill skill = M_Skill.SpawnProjectileSkill(m_StatInfo_Excel.LoadCode);
+        S_SkillConditionData_Excel condition = M_Skill.GetConditionData(m_StatInfo_Excel.LoadCode);
+        S_SkillStatData_Excel stat = M_Skill.GetStatData(condition.PassiveCode);
+        skill?.InitializeSkill(m_Target, condition, stat);
+
+        m_Target = null;
 
         m_SkillInfo.AttackRange.Clear();
         m_SkillInfo.BounceTargetList.Clear();
 
-        m_Target = null;
+        M_Skill.DespawnProjectileSkill(this);
     }
 
     private bool CheckToUpdateTarget()
@@ -226,8 +231,10 @@ public class Skill : MonoBehaviour
         Vector3 EndPos = m_Target.transform.position;
         Vector3 Pos = transform.position;
 
-        float MaxHeight = Mathf.Max(StartPos.y, EndPos.y) + 2.5f; // 최대 높이
-        float MaxTime = m_StatInfo_Excel.Speed;
+        // 최대 높이
+        float MaxHeight = Mathf.Max(StartPos.y, EndPos.y) + 2.5f;
+        // 최대 높이까지 가는 시간
+        float MaxTime = (MaxHeight - StartPos.y) / m_StatInfo_Excel.Speed;
 
         float EndHeight = EndPos.y - StartPos.y;
         float Height = MaxHeight - StartPos.y;

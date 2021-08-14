@@ -62,14 +62,30 @@ public class Tower : MonoBehaviour
         #endregion
 
         #region 내부 데이터 정리
-        // 평타
+        m_TowerInfo.RotateSpeed = 5f;
+        m_TowerInfo.InitialRotation = transform.eulerAngles;
+        m_TowerInfo.ShouldFindTarget = true;
+
+        // 기본 스킬 데이터
         m_TowerInfo.DefaultSkillCondition = M_Skill.GetConditionData(m_TowerInfo_Excel.Atk_Code);
         m_TowerInfo.DefaultSkillStat = M_Skill.GetStatData(m_TowerInfo.DefaultSkillCondition.PassiveCode);
+        // 기본 스킬
+        m_TowerInfo.DefaultSkillAttackSpeed = m_TowerInfo_Excel.Atk_spd;
+        m_TowerInfo.DefaultSkillTimer = m_TowerInfo_Excel.Atk_spd;
 
-        // 공격
-        m_TowerInfo.AttackSpeed = m_TowerInfo_Excel.Atk_spd;
-        m_TowerInfo.AttackTimer = m_TowerInfo_Excel.Atk_spd;
-        m_TowerInfo.ShouldFindTarget = true;
+        // 스킬1 데이터
+        m_TowerInfo.Skill01Condition = M_Skill.GetConditionData(m_TowerInfo_Excel.Skill1Code);
+        m_TowerInfo.Skill01Stat = M_Skill.GetStatData(m_TowerInfo.Skill01Condition.PassiveCode);
+        // 스킬1
+        m_TowerInfo.Skill01AttackSpeed = m_TowerInfo.Skill01Stat.CoolTime;
+        m_TowerInfo.Skill01Timer = 0f;
+
+        // 스킬2 데이터
+        m_TowerInfo.Skill02Condition = M_Skill.GetConditionData(m_TowerInfo_Excel.Skill2Code);
+        m_TowerInfo.Skill02Stat = M_Skill.GetStatData(m_TowerInfo.Skill02Condition.PassiveCode);
+        // 스킬2
+        m_TowerInfo.Skill02AttackSpeed = m_TowerInfo.Skill02Stat.CoolTime;
+        m_TowerInfo.Skill02Timer = 0f;
 
         // 시너지
         m_TowerInfo.Synergy_Atk_type = E_AttackType.None;
@@ -159,15 +175,15 @@ public class Tower : MonoBehaviour
     // 타워 공격
     public void AttackTarget()
     {
-        if (m_TowerInfo.AttackTimer < m_TowerInfo.AttackSpeed)
+        if (m_TowerInfo.DefaultSkillTimer < m_TowerInfo.DefaultSkillAttackSpeed)
         {
-            m_TowerInfo.AttackTimer += Time.deltaTime;
+            m_TowerInfo.DefaultSkillTimer += Time.deltaTime;
         }
         else if (null != m_Target)
         {
             // 내부 데이터 정리
-            m_TowerInfo.AttackTimer -= m_TowerInfo.AttackSpeed;
-            m_TowerInfo.AttackSpeed = m_TowerInfo_Excel.Atk_spd;
+            m_TowerInfo.DefaultSkillTimer -= m_TowerInfo.DefaultSkillAttackSpeed;
+            m_TowerInfo.DefaultSkillAttackSpeed = m_TowerInfo_Excel.Atk_spd;
             m_TowerInfo.ShouldFindTarget = true;
 
             // 기본 스킬 데이터 불러오기
@@ -251,7 +267,7 @@ public class Tower : MonoBehaviour
                                 statData.Range += BuffAmount;
                                 break;
                             case E_BuffType.Atk_spd:
-                                m_TowerInfo.AttackSpeed -= BuffAmount;
+                                m_TowerInfo.DefaultSkillAttackSpeed -= BuffAmount;
                                 break;
                             case E_BuffType.Crit_rate:
                                 break;
@@ -278,7 +294,7 @@ public class Tower : MonoBehaviour
                                     statData.Range += BuffAmount;
                                     break;
                                 case E_BuffType.Atk_spd:
-                                    m_TowerInfo.AttackSpeed -= BuffAmount;
+                                    m_TowerInfo.DefaultSkillAttackSpeed -= BuffAmount;
                                     break;
                                 case E_BuffType.Crit_rate:
                                     break;
@@ -305,7 +321,7 @@ public class Tower : MonoBehaviour
                                         statData.Range += BuffAmount;
                                         break;
                                     case E_BuffType.Atk_spd:
-                                        m_TowerInfo.AttackSpeed -= BuffAmount;
+                                        m_TowerInfo.DefaultSkillAttackSpeed -= BuffAmount;
                                         break;
                                     case E_BuffType.Crit_rate:
                                         break;
@@ -343,7 +359,7 @@ public class Tower : MonoBehaviour
                                     statData.Range += BuffAmount;
                                     break;
                                 case E_BuffType.Atk_spd:
-                                    m_TowerInfo.AttackSpeed -= BuffAmount;
+                                    m_TowerInfo.DefaultSkillAttackSpeed -= BuffAmount;
                                     break;
                                 case E_BuffType.Crit_rate:
                                     break;
@@ -370,7 +386,7 @@ public class Tower : MonoBehaviour
                                         statData.Range += BuffAmount;
                                         break;
                                     case E_BuffType.Atk_spd:
-                                        m_TowerInfo.AttackSpeed -= BuffAmount;
+                                        m_TowerInfo.DefaultSkillAttackSpeed -= BuffAmount;
                                         break;
                                     case E_BuffType.Crit_rate:
                                         break;
@@ -397,7 +413,7 @@ public class Tower : MonoBehaviour
                                             statData.Range += BuffAmount;
                                             break;
                                         case E_BuffType.Atk_spd:
-                                            m_TowerInfo.AttackSpeed -= BuffAmount;
+                                            m_TowerInfo.DefaultSkillAttackSpeed -= BuffAmount;
                                             break;
                                         case E_BuffType.Crit_rate:
                                             break;
@@ -434,7 +450,7 @@ public class Tower : MonoBehaviour
                                 statData.Range *= BuffAmount;
                                 break;
                             case E_BuffType.Atk_spd:
-                                m_TowerInfo.AttackSpeed *= BuffAmount;
+                                m_TowerInfo.DefaultSkillAttackSpeed *= BuffAmount;
                                 break;
                             case E_BuffType.Crit_rate:
                                 break;
@@ -461,7 +477,7 @@ public class Tower : MonoBehaviour
                                     statData.Range *= BuffAmount;
                                     break;
                                 case E_BuffType.Atk_spd:
-                                    m_TowerInfo.AttackSpeed *= BuffAmount;
+                                    m_TowerInfo.DefaultSkillAttackSpeed *= BuffAmount;
                                     break;
                                 case E_BuffType.Crit_rate:
                                     break;
@@ -488,7 +504,7 @@ public class Tower : MonoBehaviour
                                         statData.Range *= BuffAmount;
                                         break;
                                     case E_BuffType.Atk_spd:
-                                        m_TowerInfo.AttackSpeed *= BuffAmount;
+                                        m_TowerInfo.DefaultSkillAttackSpeed *= BuffAmount;
                                         break;
                                     case E_BuffType.Crit_rate:
                                         break;
@@ -526,7 +542,7 @@ public class Tower : MonoBehaviour
                                     statData.Range *= BuffAmount;
                                     break;
                                 case E_BuffType.Atk_spd:
-                                    m_TowerInfo.AttackSpeed *= BuffAmount;
+                                    m_TowerInfo.DefaultSkillAttackSpeed *= BuffAmount;
                                     break;
                                 case E_BuffType.Crit_rate:
                                     break;
@@ -553,7 +569,7 @@ public class Tower : MonoBehaviour
                                         statData.Range *= BuffAmount;
                                         break;
                                     case E_BuffType.Atk_spd:
-                                        m_TowerInfo.AttackSpeed *= BuffAmount;
+                                        m_TowerInfo.DefaultSkillAttackSpeed *= BuffAmount;
                                         break;
                                     case E_BuffType.Crit_rate:
                                         break;
@@ -580,7 +596,7 @@ public class Tower : MonoBehaviour
                                             statData.Range *= BuffAmount;
                                             break;
                                         case E_BuffType.Atk_spd:
-                                            m_TowerInfo.AttackSpeed *= BuffAmount;
+                                            m_TowerInfo.DefaultSkillAttackSpeed *= BuffAmount;
                                             break;
                                         case E_BuffType.Crit_rate:
                                             break;
@@ -617,7 +633,7 @@ public class Tower : MonoBehaviour
                                 statData.Range *= BuffAmount;
                                 break;
                             case E_BuffType.Atk_spd:
-                                m_TowerInfo.AttackSpeed *= BuffAmount;
+                                m_TowerInfo.DefaultSkillAttackSpeed *= BuffAmount;
                                 break;
                             case E_BuffType.Crit_rate:
                                 break;
@@ -644,7 +660,7 @@ public class Tower : MonoBehaviour
                                     statData.Range *= BuffAmount;
                                     break;
                                 case E_BuffType.Atk_spd:
-                                    m_TowerInfo.AttackSpeed *= BuffAmount;
+                                    m_TowerInfo.DefaultSkillAttackSpeed *= BuffAmount;
                                     break;
                                 case E_BuffType.Crit_rate:
                                     break;
@@ -671,7 +687,7 @@ public class Tower : MonoBehaviour
                                         statData.Range *= BuffAmount;
                                         break;
                                     case E_BuffType.Atk_spd:
-                                        m_TowerInfo.AttackSpeed *= BuffAmount;
+                                        m_TowerInfo.DefaultSkillAttackSpeed *= BuffAmount;
                                         break;
                                     case E_BuffType.Crit_rate:
                                         break;
@@ -729,17 +745,32 @@ public class Tower : MonoBehaviour
         public float RotateSpeed;
         // 초기 회전 값
         public Vector3 InitialRotation;
-
-        // 타워 공격 속도
-        public float AttackSpeed;
-        // 타워 공격 타이머
-        public float AttackTimer;
         // 적 감지 여부
         public bool ShouldFindTarget;
 
-        // 일반 공격
+        // 기본 스킬 데이터
         public S_SkillConditionData_Excel DefaultSkillCondition;
         public S_SkillStatData_Excel DefaultSkillStat;
+        // 기본 스킬 공격 속도
+        public float DefaultSkillAttackSpeed;
+        // 기본 스킬 타이머
+        public float DefaultSkillTimer;
+
+        // 스킬1 데이터
+        public S_SkillConditionData_Excel Skill01Condition;
+        public S_SkillStatData_Excel Skill01Stat;
+        // 스킬1 공격 속도
+        public float Skill01AttackSpeed;
+        // 스킬1 타이머
+        public float Skill01Timer;
+
+        // 스킬2 데이터
+        public S_SkillConditionData_Excel Skill02Condition;
+        public S_SkillStatData_Excel Skill02Stat;
+        // 스킬2 공격 속도
+        public float Skill02AttackSpeed;
+        // 스킬2 타이머
+        public float Skill02Timer;
 
         #region 시너지 관련
         // 버프
