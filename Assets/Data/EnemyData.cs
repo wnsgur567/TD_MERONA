@@ -11,7 +11,6 @@ public struct S_EnemyData_Excel
     public int Code;
     public int Move_Type;
     public float Atk;
-    public float Atk_spd;
     public float HP;
     public float Def;
     public int Shild;
@@ -33,7 +32,6 @@ public struct S_EnemyData_Excel
         Code = origin.Code;
         Move_Type = origin.Move_Type;
         Atk = origin.Atk;
-        Atk_spd = origin.Atk_spd;
         HP = origin.HP;
         Def = origin.Def;
         Shild = origin.Shild;

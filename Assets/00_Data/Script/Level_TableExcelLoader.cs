@@ -54,4 +54,4 @@ public class  Level_TableExcelLoader : ScriptableObject
 			DataList.Add(data);
 		}
 	}
-	}
+}

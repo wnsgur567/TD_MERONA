@@ -16,9 +16,9 @@ public class SynergyManager : Singleton<SynergyManager>
     // 골드 추가 시너지에 사용될 추가 골드
     protected int m_BonusGold;
     public int BonusGold => m_BonusGold;
-    
+
     // 방향별 시너지 리스트
-    protected Dictionary<E_Direction, List<S_SynergyData_Excel>> m_Synergys = null;
+    protected Dictionary<E_Direction, List<Synergy_TableExcel>> m_Synergys = null;
 
     #region 내부 프로퍼티
     protected TowerManager M_Tower => TowerManager.Instance;
@@ -32,26 +32,25 @@ public class SynergyManager : Singleton<SynergyManager>
     {
         m_SynergyData = M_DataTable.GetDataTable<Synergy_TableExcelLoader>();
 
-        m_Synergys = new Dictionary<E_Direction, List<S_SynergyData_Excel>>();
+        m_Synergys = new Dictionary<E_Direction, List<Synergy_TableExcel>>();
 
         for (E_Direction i = 0; i < E_Direction.Max; ++i)
         {
-            m_Synergys.Add(i, new List<S_SynergyData_Excel>());
+            m_Synergys.Add(i, new List<Synergy_TableExcel>());
         }
 
         M_Node.m_RotateEndEvent += UpdateSynergy;
     }
 
-    public S_SynergyData_Excel GetData(int code, int rank = 1)
+    public Synergy_TableExcel GetData(int code, int rank = 1)
     {
         var datas = m_SynergyData.DataList.Where(item => item.Code == code).ToList();
-        Synergy_TableExcel origin = datas.Where(item => item.Rank == rank).SingleOrDefault();
-        S_SynergyData_Excel result = new S_SynergyData_Excel(origin);
+        Synergy_TableExcel synergy = datas.Where(item => item.Rank == rank).SingleOrDefault();
 
-        return result;
+        return synergy;
     }
 
-    public List<S_SynergyData_Excel> GetSynergy(E_Direction dir)
+    public List<Synergy_TableExcel> GetSynergy(E_Direction dir)
     {
         return m_Synergys[dir];
     }
@@ -148,7 +147,9 @@ public class SynergyManager : Singleton<SynergyManager>
         {
             int Rank = m_MaxRank;
             int TowerCount = item.Value.Count;
-            S_SynergyData_Excel data = new S_SynergyData_Excel();
+            Synergy_TableExcel data = new Synergy_TableExcel();
+            S_SynergyEffect effect;
+            BuffCC_TableExcel buffData;
 
             while (true)
             {
@@ -164,8 +165,15 @@ public class SynergyManager : Singleton<SynergyManager>
                 {
                     m_Synergys[dir].Add(data);
 
-                    S_SynergyEffect effect = data.Effect1;
-                    S_BuffData_Excel buffData = M_Buff.GetData(effect.EffectCode);
+                    effect = new S_SynergyEffect(
+                        data.EffectType1,
+                        data.EffectAmount1,
+                        data.EffectCode1,
+                        data.EffectChange1,
+                        data.EffectReq1,
+                        data.EffectRand1
+                        );
+                    buffData = M_Buff.GetData(effect.EffectCode);
 
                     // 시너지1 적용
                     switch (effect.EffectType)
@@ -201,12 +209,12 @@ public class SynergyManager : Singleton<SynergyManager>
                                     // 시너지 적용할 적 리스트
                                     List<Enemy> enemyList = null;
 
-                                    //// 같은 시너지 타워들만
-                                    //if (data.TargetMem == 1)
-                                    //{
-                                    //    enemyList = item.Value;
-                                    //}
-                                    //// 현재 라인 적 전부
+                                    // 같은 라인 적
+                                    if (data.TargetMem == 1)
+                                    {
+                                        enemyList = enemies;
+                                    }
+                                    // 전체 라인 적
                                     if (data.TargetMem == 2)
                                     {
                                         enemyList = enemies;
@@ -298,7 +306,14 @@ public class SynergyManager : Singleton<SynergyManager>
                             break;
                     }
 
-                    effect = data.Effect2;
+                    effect = new S_SynergyEffect(
+                        data.EffectType2,
+                        data.EffectAmount2,
+                        data.EffectCode2,
+                        data.EffectChange2,
+                        data.EffectReq2,
+                        data.EffectRand2
+                        );
                     buffData = M_Buff.GetData(effect.EffectCode);
 
                     // 시너지2 적용

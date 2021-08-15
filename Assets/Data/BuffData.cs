@@ -34,6 +34,7 @@ public enum E_AddType
     Percent
 }
 #endregion
+
 [System.Serializable]
 public struct S_Buff
 {
@@ -42,43 +43,52 @@ public struct S_Buff
     public float BuffAmount;
     public float BuffRand;
     public int Summon;
-}
 
-[System.Serializable]
-public struct S_BuffData_Excel
-{
-    public int No;
-    public string Name_KR;
-    public string Name_EN;
-    public int Code;
-    public S_Buff Buff1;
-    public S_Buff Buff2;
-    public S_Buff Buff3;
-    public float Duration;
-    public int Prefab;
-
-    public S_BuffData_Excel(BuffCC_TableExcel origin)
+    public S_Buff(int buffType, int addType, float buffAmount, float buffRand, int summon)
     {
-        No = origin.No;
-        Name_KR = origin.Name_KR;
-        Name_EN = origin.Name_EN;
-        Code = origin.Code;
-        Buff1.BuffType = (E_BuffType)origin.BuffType1;
-        Buff1.AddType = (E_AddType)origin.AddType1;
-        Buff1.BuffAmount = origin.BuffAmount1;
-        Buff1.BuffRand = origin.BuffRand1;
-        Buff1.Summon = origin.Summon1;
-        Buff2.BuffType = (E_BuffType)origin.BuffType2;
-        Buff2.AddType = (E_AddType)origin.AddType2;
-        Buff2.BuffAmount = origin.BuffAmount2;
-        Buff2.BuffRand = origin.BuffRand2;
-        Buff2.Summon = origin.Summon2;
-        Buff3.BuffType = (E_BuffType)origin.BuffType3;
-        Buff3.AddType = (E_AddType)origin.AddType3;
-        Buff3.BuffAmount = origin.BuffAmount3;
-        Buff3.BuffRand = origin.BuffRand3;
-        Buff3.Summon = origin.Summon3;
-        Duration = origin.Duration;
-        Prefab = origin.Prefeb;
+        BuffType = (E_BuffType)buffType;
+        AddType = (E_AddType)addType;
+        BuffAmount = buffAmount;
+        BuffRand = buffRand;
+        Summon = summon;
     }
 }
+
+//[System.Serializable]
+//public struct S_BuffData_Excel
+//{
+//    public int No;
+//    public string Name_KR;
+//    public string Name_EN;
+//    public int Code;
+//    public S_Buff Buff1;
+//    public S_Buff Buff2;
+//    public S_Buff Buff3;
+//    public float Duration;
+//    public int Prefab;
+
+//    public S_BuffData_Excel(BuffCC_TableExcel origin)
+//    {
+//        No = origin.No;
+//        Name_KR = origin.Name_KR;
+//        Name_EN = origin.Name_EN;
+//        Code = origin.Code;
+//        Buff1.BuffType = (E_BuffType)origin.BuffType1;
+//        Buff1.AddType = (E_AddType)origin.AddType1;
+//        Buff1.BuffAmount = origin.BuffAmount1;
+//        Buff1.BuffRand = origin.BuffRand1;
+//        Buff1.Summon = origin.Summon1;
+//        Buff2.BuffType = (E_BuffType)origin.BuffType2;
+//        Buff2.AddType = (E_AddType)origin.AddType2;
+//        Buff2.BuffAmount = origin.BuffAmount2;
+//        Buff2.BuffRand = origin.BuffRand2;
+//        Buff2.Summon = origin.Summon2;
+//        Buff3.BuffType = (E_BuffType)origin.BuffType3;
+//        Buff3.AddType = (E_AddType)origin.AddType3;
+//        Buff3.BuffAmount = origin.BuffAmount3;
+//        Buff3.BuffRand = origin.BuffRand3;
+//        Buff3.Summon = origin.Summon3;
+//        Duration = origin.Duration;
+//        Prefab = origin.Prefeb;
+//    }
+//}
