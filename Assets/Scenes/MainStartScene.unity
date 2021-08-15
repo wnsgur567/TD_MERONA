@@ -2134,7 +2134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4477,7 +4477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_prefab_loader: {fileID: 11400000, guid: 25d43685a638f894187cd0a61b20a7a7, type: 2}
-  m_tower_loader: {fileID: 11400000, guid: 4edb6d12b4722f04798cca6c74efe479, type: 2}
+  m_tower_loader: {fileID: 11400000, guid: a5d2bdae4a804964e85d62cfb808d590, type: 2}
   m_skill_loader: {fileID: 11400000, guid: 4d38259d177bc4847bb3f47994fb0e84, type: 2}
   m_character_image: {fileID: 274805340}
   camera_distance: {x: 0, y: 1, z: 5}
