@@ -45,7 +45,7 @@ Animator:
   m_GameObject: {fileID: 2985122397149105537}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a086b8924aaf46644b1f20b3bab543b7, type: 3}
-  m_Controller: {fileID: 9100000, guid: e73f2bd9efe431d42b0606cbf892d72b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9dac146edd7780f42b65f09d50cceee0, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -652,22 +652,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c473e31b976c8549bb5b00412909bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  speed: 10
-  direc: 4
   ty: 12
-  data:
-    HP: 0
-    Defense: 0
-    Name: 
-    Atk: 0
-    Range: 0
-    Def: 0
-    Atk_spd: 0
-    Move_spd: 0
-    Crit_rate: 0
-    Crit_Dmg: 0
   image: {fileID: 1831727299877745039}
+  BuffList: []
 --- !u!65 &7895858533096010180
 BoxCollider:
   m_ObjectHideFlags: 0
