@@ -13,7 +13,7 @@ public struct Sprite_TableExcel
 public class SpriteInfo
 {
     public int Code;
-    public GameObject obj;
+    public Sprite obj;
 }
 
 //////////////////////////
@@ -57,16 +57,16 @@ public class Sprite_TableExcelLoader : ScriptableObject
             Prefab_TableExcel data = Read(item);
             DataList.Add(data);
 
-            GameObject prefab_obj = Resources.Load<GameObject>(data.Unity_address);
+            Sprite sprite = Resources.Load<Sprite>(data.Unity_address);
             SpriteList.Add(new SpriteInfo()
-            { Code = data.Code, obj = prefab_obj });
+            { Code = data.Code, obj = sprite });
         }
     }
 
-    public GameObject GetPrefab(int prefabCode)
+    public Sprite GetSprite(int spriteCode)
     {
-        Debug.Log(prefabCode);
-        var info = SpriteList.Find((item) => { return item.Code == prefabCode; });
+        Debug.Log(spriteCode);
+        var info = SpriteList.Find((item) => { return item.Code == spriteCode; });
         return info.obj;
     }
 }
