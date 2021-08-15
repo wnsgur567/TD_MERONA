@@ -32,7 +32,7 @@ public class SpawnManager : Singleton<SpawnManager>
 
     private int Round = 0;
 
-    private StageMonster_TableExcel data;
+    private StageEnemy_TableExcel data;
 
     private SpawnData spawndata;
 

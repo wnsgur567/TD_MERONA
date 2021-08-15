@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public struct StageMonster_TableExcel
+public struct StageEnemy_TableExcel
 {
 	public int No;
 	public string Name_KR;
@@ -19,17 +19,17 @@ public struct StageMonster_TableExcel
 
 //////////////////////////
 
-[CreateAssetMenu(fileName = "StageMonster_TableLoader", menuName = "Scriptable Object/StageMonster_TableLoader")]
-public class  StageMonster_TableExcelLoader : ScriptableObject
+[CreateAssetMenu(fileName = "StageEnemy_TableLoader", menuName = "Scriptable Object/StageEnemy_TableLoader")]
+public class  StageEnemy_TableExcelLoader : ScriptableObject
 {
 	[SerializeField] string filepath;
-	public List<StageMonster_TableExcel> DataList;
+	public List<StageEnemy_TableExcel> DataList;
 
-	private StageMonster_TableExcel Read(string line)
+	private StageEnemy_TableExcel Read(string line)
 	{
 		line = line.TrimStart('\n');
 
-		StageMonster_TableExcel data = new StageMonster_TableExcel();
+		StageEnemy_TableExcel data = new StageEnemy_TableExcel();
 		int idx = 0;
 		string[] strs = line.Split('`');
 
@@ -48,7 +48,7 @@ public class  StageMonster_TableExcelLoader : ScriptableObject
 	[ContextMenu("파일 읽기")]
 	public void ReadAllFromFile()
 	{
-		DataList = new List<StageMonster_TableExcel>();
+		DataList = new List<StageEnemy_TableExcel>();
 
 		string currentpath = System.IO.Directory.GetCurrentDirectory();
 		string allText = System.IO.File.ReadAllText(System.IO.Path.Combine(currentpath, filepath));
@@ -58,7 +58,7 @@ public class  StageMonster_TableExcelLoader : ScriptableObject
 		{
 			if (item.Length < 2)
 				continue;
-			StageMonster_TableExcel data = Read(item);
+			StageEnemy_TableExcel data = Read(item);
 			DataList.Add(data);
 		}
 	}

@@ -24,7 +24,7 @@ public struct BuffCC_TableExcel
 	public float BuffRand3;
 	public int Summon3;
 	public float Duration;
-	public int Prefeb;
+	public int Prefab;
 }
 
 
@@ -65,7 +65,7 @@ public class  BuffCC_TableExcelLoader : ScriptableObject
 		data.BuffRand3 = float.Parse(strs[idx++]);
 		data.Summon3 = int.Parse(strs[idx++]);
 		data.Duration = float.Parse(strs[idx++]);
-		data.Prefeb = int.Parse(strs[idx++]);
+		data.Prefab = int.Parse(strs[idx++]);
 
 		return data;
 	}

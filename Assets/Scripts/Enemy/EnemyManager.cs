@@ -18,7 +18,7 @@ interface Finalize
 
 public class EnemyManager : Singleton<EnemyManager>
 {
-    protected Monster_TableExcelLoader m_EnemyData;
+    protected Enemy_TableExcelLoader m_EnemyData;
 
     protected DataTableManager M_DataTable => DataTableManager.Instance;
 
@@ -34,7 +34,7 @@ public class EnemyManager : Singleton<EnemyManager>
 
     private void Awake()
     {
-        m_EnemyData = M_DataTable.GetDataTable<Monster_TableExcelLoader>();
+        m_EnemyData = M_DataTable.GetDataTable<Enemy_TableExcelLoader>();
 
         All_Enemy = new List<Enemy>();
 
@@ -50,9 +50,9 @@ public class EnemyManager : Singleton<EnemyManager>
         }
     }
 
-    public Monster_TableExcel GetData(int code)
+    public Enemy_TableExcel GetData(int code)
     {
-        Monster_TableExcel origin = m_EnemyData.DataList.Where(item => item.Code == code).Single();
+        Enemy_TableExcel origin = m_EnemyData.DataList.Where(item => item.Code == code).Single();
         return origin;
     }
 

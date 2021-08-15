@@ -21,7 +21,7 @@ public struct Tower_TableExcel
 	public int Type1;
 	public int Type2;
 	public float Price;
-	public int Prefeb;
+	public int Prefab;
 }
 
 
@@ -59,7 +59,7 @@ public class  Tower_TableExcelLoader : ScriptableObject
 		data.Type1 = int.Parse(strs[idx++]);
 		data.Type2 = int.Parse(strs[idx++]);
 		data.Price = float.Parse(strs[idx++]);
-		data.Prefeb = int.Parse(strs[idx++]);
+		data.Prefab = int.Parse(strs[idx++]);
 
 		return data;
 	}
