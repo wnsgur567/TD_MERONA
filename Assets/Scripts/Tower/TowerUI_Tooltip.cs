@@ -14,23 +14,24 @@ public struct Tower_Data
     public float crit_rate;
     public float crit_dmg;
 
-    //스킬정보
-    public string skillname;
-    public string skilltext;
-    public string skillavility1;
-    public string skillavility_text1;
-    public bool isskillavility;
-    public string skillavility2;
-    public string skillavility_text2;
-    public float skilldmg;
-    
-
+  
     //시너지 정보
     public string synergyname;
    
 
     public int price;
 };
+public struct Skill_Date
+{
+    public string skillname;
+    public string skilltext; 
+    public float skilldmg;
+    public string skillavility1;
+    public string skillavility_text1;
+    public bool isskillavility;
+    public string skillavility2;
+    public string skillavility_text2;
+}
 public class TowerUI_Tooltip : Singleton<TowerUI_Tooltip>, IPointerClickHandler
 {
 
@@ -52,7 +53,9 @@ public class TowerUI_Tooltip : Singleton<TowerUI_Tooltip>, IPointerClickHandler
     private Image Skill_Icon1;
     private Image Skill_Icon2;
     private RectTransform Tower_TT_pos;
+
     Tower_Data towerdata;
+    Skill_Date skilldata1,skilldata2;
 
     SkillManager skill;
     S_SkillStatData_Excel skillstate_excel;
@@ -70,7 +73,7 @@ public class TowerUI_Tooltip : Singleton<TowerUI_Tooltip>, IPointerClickHandler
     PointerEventData pos;
     SkillTooltip skilltooltip;
     bool towertooltip_active;
-
+   
     private void Awake()
     {
         skill = SkillManager.Instance;
@@ -104,12 +107,21 @@ public class TowerUI_Tooltip : Singleton<TowerUI_Tooltip>, IPointerClickHandler
         raycast = maincanvas.GetComponent<GraphicRaycaster>();
         pos = new PointerEventData(null);
         towertooltip_active = false;
-        towerdata.isskillavility = false;
+        skilldata1.isskillavility = false;
+        skilldata2.isskillavility = false;
     }
     // Start is called before the first frame update
     void Start()
     {
         this.gameObject.SetActive(false);
+       
+    }
+    public void OnMouse(Tower_TableExcel m_info)
+    {
+        
+            Vector2 mousepos = Input.mousePosition;
+            this.Set_TowerTT_Pos(mousepos);
+            this.Set_TowerTT(m_info);
        
     }
     public void Set_TowerTT(Tower_TableExcel info)
@@ -162,47 +174,60 @@ public class TowerUI_Tooltip : Singleton<TowerUI_Tooltip>, IPointerClickHandler
             Stats_Number.text = String.Format("{0}\n{1}\n{2}\n{3}",
             towerdata.atk, towerdata.cooltime, towerdata.crit_rate, towerdata.crit_dmg);
         }
-       
         #endregion
 
-        #region 스킬정보
+        #region 스킬
         //스킬 1정보
 
         skillcondition_excel = skill.GetConditionData(info.Skill1Code);
         skillstate_excel = skill.GetStatData(skillcondition_excel.PassiveCode);
         Skill_Name1.text = skillstate_excel.Name_KR;
-        towerdata.skillname= skillstate_excel.Name_KR;
-        towerdata.skilltext = skillcondition_excel.Skill_text;
-
-        //towerdata.skillavility=skillcondition_excel.SkillAvility_Name1;
-        //towerdata.skillavility_text=skillcondition_excel.SkillAvility_Text1;
-        //towerdata.skillavility=skillcondition_excel.SkillAvility_Name2;
-        //towerdata.skillavility_text=skillcondition_excel.SkillAvility_Text1;
-        //if(towerdata.skillavility=="-")
+        skilldata1.skillname= skillstate_excel.Name_KR;
+        skilldata1.skilltext = skillcondition_excel.Skill_text;
+        skilldata1.skilldmg = skillstate_excel.Dmg;
+        #region 스킬1의 어빌리티 데이터 저장.
+       
+        //skilldata1.skillavility1=skillcondition_excel.SkillAvility_Name1;
+        //skilldata1.skillavility_text1=skillcondition_excel.SkillAvility_Text1;
+        //skilldata1.skillavility2=skillcondition_excel.SkillAvility_Name2;
+        //skilldata1.skillavility_text2=skillcondition_excel.SkillAvility_Text2;
+        //if(skilldata1.skillavility=="-")
         //{
-        //towerdata.isskillavility = true;
+        //skilldata1.isskillavility = true;
         //}
-        //else toweredata.isskillavility=false;
-        //towerdata.skilldmg1 = skillstate_excel.Dmg;
-        //towerdata.skilltext1 = skillcondition_excel.Skill_text;
-        //skillcondition_excel.Skill_icon;//<<아이콘코드로 아이콘매니저에서 getdata해오기.
-        //towerdata.skillicon1.sprite = //그러고 여기다가 sprite.
+        //else skilldata1.isskillavility=false;
+        #endregion
+
+
 
         //스킬 2 정보
         skillcondition_excel = skill.GetConditionData(info.Skill2Code);
         skillstate_excel = skill.GetStatData(skillcondition_excel.PassiveCode);
         Skill_Name2.text = skillstate_excel.Name_KR;
-        //towerdata.skillavility=skillcondition_excel.SkillAvility_Name;
-        //towerdata.skillavility_text=skillcondition_excel.SkillAvility_Text1;
-        //towerdata.skilldmg2 = skillstate_excel.Dmg;
-        //towerdata.skillname2 = skillstate_excel.Name_KR;
-        //towerdata.skilltext2 = skillcondition_excel.Skill_text;
+
+        skilldata2.skillname = skillstate_excel.Name_KR;
+        skilldata2.skilltext = skillcondition_excel.Skill_text;
+        skilldata2.skilldmg = skillstate_excel.Dmg;
+
+        #region 스킬2의 어빌리티 데이터 저장
+        //skilldata2.skillavility1=skillcondition_excel.SkillAvility_Name1;
+        //skilldata2.skillavility_text1=skillcondition_excel.SkillAvility_Text1;
+        //skilldata2.skillavility2=skillcondition_excel.SkillAvility_Name2;
+        //skilldata2.skillavility_text2=skillcondition_excel.SkillAvility_Text2;
+        //if(skilldata2.skillavility=="-")
+        //{
+        //skilldata2.isskillavility = true;
+        //}
+        //else skilldata2.isskillavility=false;
         #endregion
+
+        #endregion
+
         #region 시너지정보
         //시너지 1
         synergy_excel = synergy.GetData(info.Type1);
         Synergy_name1.text = synergy_excel.Name_KR;
-        //synergy_excel.Synergy_icon; //스킬아이콘과 동일.
+       
 
         //시너지 2
         synergy_excel = synergy.GetData(info.Type2);
@@ -242,7 +267,10 @@ public class TowerUI_Tooltip : Singleton<TowerUI_Tooltip>, IPointerClickHandler
             {
                 if (results[i].gameObject.CompareTag("Skill_Icon"))
                 {
-                    skilltooltip.Set_Skill_TT(towerdata);
+                    if (results[i].gameObject.name == "Skill_Icon1")
+                        skilltooltip.Set_Skill_TT(skilldata1);
+                    else
+                        skilltooltip.Set_Skill_TT(skilldata2);
 
                     skilltooltip.Set_Skill_TT_pos(pos.position);
                     skilltooltip.gameObject.SetActive(true);
