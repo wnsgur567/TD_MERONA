@@ -185,7 +185,7 @@ MonoBehaviour:
     Code: 310012
     Max_Charge: 1
     CoolTime: 45
-    Dmg: 0
+    Dmg: 0.3
     Dmg_plus: 0
     Range: 100
     Speed: 0
@@ -770,7 +770,7 @@ MonoBehaviour:
     Code: 310051
     Max_Charge: 1
     CoolTime: 30
-    Dmg: 1
+    Dmg: 3
     Dmg_plus: 0
     Range: 2
     Speed: 5
@@ -785,7 +785,7 @@ MonoBehaviour:
     Code: 310052
     Max_Charge: 1
     CoolTime: 0
-    Dmg: 1
+    Dmg: 3
     Dmg_plus: 0
     Range: 2
     Speed: 0
@@ -800,7 +800,7 @@ MonoBehaviour:
     Code: 310053
     Max_Charge: 1
     CoolTime: 30
-    Dmg: 1
+    Dmg: 5
     Dmg_plus: 0
     Range: 2
     Speed: 5
@@ -815,7 +815,7 @@ MonoBehaviour:
     Code: 310054
     Max_Charge: 1
     CoolTime: 0
-    Dmg: 1
+    Dmg: 5
     Dmg_plus: 0
     Range: 2
     Speed: 0
@@ -2008,4 +2008,34 @@ MonoBehaviour:
     Size: 0
     Life_Time: 1
     Buff_CC: 320085
+    LoadCode: 0
+  - No: 134
+    Name_KR: "\uCCB4\uB825\uBE44\uB840\uB2A5\uB825(\uBC29\uC5B4\uB825)"
+    Name_EN: SkillStat134
+    Code: 310134
+    Max_Charge: 1
+    CoolTime: 0
+    Dmg: 0
+    Dmg_plus: 0
+    Range: 1
+    Speed: 5
+    Target_num: 1
+    Size: 0
+    Life_Time: 1
+    Buff_CC: 320086
+    LoadCode: 0
+  - No: 135
+    Name_KR: "\uCCB4\uB825\uBE44\uB840\uB2A5\uB825(\uCCB4\uB825\uD68C\uBCF5)"
+    Name_EN: SkillStat135
+    Code: 310135
+    Max_Charge: 1
+    CoolTime: 0
+    Dmg: 0
+    Dmg_plus: 0
+    Range: 1
+    Speed: 5
+    Target_num: 1
+    Size: 0
+    Life_Time: 1
+    Buff_CC: 320087
     LoadCode: 0

@@ -74,9 +74,9 @@ MonoBehaviour:
     Name_EN: 1-Stage006
     Code: 400001
     Stage_Num: 6
-    StageType: 1
+    StageType: 2
     StageTime: 50
-    StageMonsterTable: 0
+    StageMonsterTable: 410003
     Exp: 0
     Gold: 0
     Prefab: 0
@@ -85,7 +85,7 @@ MonoBehaviour:
     Name_EN: 1-Stage007
     Code: 400001
     Stage_Num: 7
-    StageType: 2
+    StageType: 1
     StageTime: 10
     StageMonsterTable: 0
     Exp: 2
@@ -96,7 +96,7 @@ MonoBehaviour:
     Name_EN: 1-Stage008
     Code: 400001
     Stage_Num: 8
-    StageType: 1
+    StageType: 2
     StageTime: 50
     StageMonsterTable: 0
     Exp: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
     Name_EN: 1-Stage009
     Code: 400001
     Stage_Num: 9
-    StageType: 2
+    StageType: 1
     StageTime: 10
     StageMonsterTable: 0
     Exp: 2
@@ -118,7 +118,7 @@ MonoBehaviour:
     Name_EN: 1-Stage010
     Code: 400001
     Stage_Num: 10
-    StageType: 1
+    StageType: 2
     StageTime: 50
     StageMonsterTable: 0
     Exp: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
     Name_EN: 1-Stage016
     Code: 400001
     Stage_Num: 16
-    StageType: 1
+    StageType: 2
     StageTime: 50
     StageMonsterTable: 0
     Exp: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
     Name_EN: 1-Stage017
     Code: 400001
     Stage_Num: 17
-    StageType: 2
+    StageType: 1
     StageTime: 10
     StageMonsterTable: 0
     Exp: 2
@@ -206,7 +206,7 @@ MonoBehaviour:
     Name_EN: 1-Stage018
     Code: 400001
     Stage_Num: 18
-    StageType: 1
+    StageType: 2
     StageTime: 50
     StageMonsterTable: 0
     Exp: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
     Name_EN: 1-Stage019
     Code: 400001
     Stage_Num: 19
-    StageType: 2
+    StageType: 1
     StageTime: 10
     StageMonsterTable: 0
     Exp: 2
@@ -228,7 +228,7 @@ MonoBehaviour:
     Name_EN: 1-Stage020
     Code: 400001
     Stage_Num: 20
-    StageType: 1
+    StageType: 2
     StageTime: 50
     StageMonsterTable: 0
     Exp: 0
@@ -294,7 +294,7 @@ MonoBehaviour:
     Name_EN: 1-Stage026
     Code: 400001
     Stage_Num: 26
-    StageType: 1
+    StageType: 2
     StageTime: 50
     StageMonsterTable: 0
     Exp: 0
@@ -305,7 +305,7 @@ MonoBehaviour:
     Name_EN: 1-Stage027
     Code: 400001
     Stage_Num: 27
-    StageType: 2
+    StageType: 1
     StageTime: 10
     StageMonsterTable: 0
     Exp: 2
@@ -316,7 +316,7 @@ MonoBehaviour:
     Name_EN: 1-Stage028
     Code: 400001
     Stage_Num: 28
-    StageType: 1
+    StageType: 2
     StageTime: 50
     StageMonsterTable: 0
     Exp: 0
@@ -327,7 +327,7 @@ MonoBehaviour:
     Name_EN: 1-Stage029
     Code: 400001
     Stage_Num: 29
-    StageType: 2
+    StageType: 1
     StageTime: 10
     StageMonsterTable: 0
     Exp: 2
@@ -338,7 +338,7 @@ MonoBehaviour:
     Name_EN: 1-Stage030
     Code: 400001
     Stage_Num: 30
-    StageType: 1
+    StageType: 2
     StageTime: 50
     StageMonsterTable: 0
     Exp: 0
@@ -404,7 +404,7 @@ MonoBehaviour:
     Name_EN: 1-Stage036
     Code: 400001
     Stage_Num: 36
-    StageType: 1
+    StageType: 2
     StageTime: 50
     StageMonsterTable: 0
     Exp: 0
@@ -415,7 +415,7 @@ MonoBehaviour:
     Name_EN: 1-Stage037
     Code: 400001
     Stage_Num: 37
-    StageType: 2
+    StageType: 1
     StageTime: 10
     StageMonsterTable: 0
     Exp: 2
@@ -426,7 +426,7 @@ MonoBehaviour:
     Name_EN: 1-Stage038
     Code: 400001
     Stage_Num: 38
-    StageType: 1
+    StageType: 2
     StageTime: 50
     StageMonsterTable: 0
     Exp: 0
@@ -437,7 +437,7 @@ MonoBehaviour:
     Name_EN: 1-Stage039
     Code: 400001
     Stage_Num: 39
-    StageType: 2
+    StageType: 1
     StageTime: 10
     StageMonsterTable: 0
     Exp: 2
@@ -450,7 +450,7 @@ MonoBehaviour:
     Stage_Num: 40
     StageType: 3
     StageTime: 1000
-    StageMonsterTable: 410003
+    StageMonsterTable: 0
     Exp: 0
     Gold: 0
     Prefab: 0

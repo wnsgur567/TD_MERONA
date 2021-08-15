@@ -181,7 +181,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900211
   - No: 9
     Name_KR: "\uB3C4\uD2B8\uD53C\uD574(\uD654\uC0C1) 02(\uBD88\uC815\uB839)"
     Name_EN: Buff009
@@ -202,7 +202,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 8
-    Prefab: 0
+    Prefab: 900211
   - No: 10
     Name_KR: "\uB3C4\uD2B8\uD53C\uD574(\uB3C5) 03(\uC8FC\uC220\uC0AC)"
     Name_EN: Buff010
@@ -223,7 +223,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900210
   - No: 11
     Name_KR: "\uB3C4\uD2B8\uD53C\uD574(\uB3C5) 04(\uC8FC\uC220\uC0AC)"
     Name_EN: Buff011
@@ -244,7 +244,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 7
-    Prefab: 0
+    Prefab: 900210
   - No: 12
     Name_KR: "\uB3C4\uD2B8\uD53C\uD574(\uCD9C\uD608) 05(\uC57C\uC218)"
     Name_EN: Buff012
@@ -265,7 +265,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900212
   - No: 13
     Name_KR: "\uB3C4\uD2B8\uD53C\uD574(\uCD9C\uD608) 06(\uC57C\uC218)"
     Name_EN: Buff013
@@ -286,7 +286,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900212
   - No: 14
     Name_KR: "\uC2AC\uB85C\uC6B0 01(\uD751\uB9C8)"
     Name_EN: Buff014
@@ -307,7 +307,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 6
-    Prefab: 0
+    Prefab: 900214
   - No: 15
     Name_KR: "\uC2AC\uB85C\uC6B0 02(\uD751\uB9C8)"
     Name_EN: Buff015
@@ -328,7 +328,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 8
-    Prefab: 0
+    Prefab: 900214
   - No: 16
     Name_KR: "\uBC29\uC5B4\uB825\uAC10\uC18C 01(\uC720\uB839)"
     Name_EN: Buff016
@@ -433,7 +433,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 3
-    Prefab: 0
+    Prefab: 900213
   - No: 21
     Name_KR: "\uC989\uC0AC 01(\uD751\uC694\uC815)"
     Name_EN: Buff021
@@ -579,7 +579,7 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 8
+    Duration: 5
     Prefab: 0
   - No: 28
     Name_KR: "\uC2A4\uD0AC \uD504\uB85C\uC2A4\uD2B8\uB9AC\uCE5801.0"
@@ -600,15 +600,15 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 1
-    Prefab: 0
+    Duration: 10
+    Prefab: 900214
   - No: 29
     Name_KR: "\uC2A4\uD0AC \uD504\uB85C\uC2A4\uD2B8\uB9AC\uCE5802.0"
     Name_EN: Buff029
     Code: 320029
     BuffType1: 5
     AddType1: 2
-    BuffAmount1: 0
+    BuffAmount1: 0.4
     BuffRand1: 1
     Summon1: 0
     BuffType2: 0
@@ -621,8 +621,8 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 1
-    Prefab: 0
+    Duration: 5
+    Prefab: 900214
   - No: 30
     Name_KR: "\uC2A4\uD0AC \uC624\uD06C\uC804\uC0AC 1\uC131"
     Name_EN: Buff030
@@ -685,7 +685,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900214
   - No: 33
     Name_KR: "\uC2A4\uD0AC \uC0B4\uB77C\uB9E8\uB354 1\uC131"
     Name_EN: Buff033
@@ -705,8 +705,8 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 2
-    Prefab: 0
+    Duration: 3
+    Prefab: 900213
   - No: 34
     Name_KR: "\uC2A4\uD0AC \uD30C\uC774\uC5B4\uB370\uBAAC 1\uC131"
     Name_EN: Buff034
@@ -727,7 +727,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900211
   - No: 35
     Name_KR: "\uC2A4\uD0AC \uCF00\uB974\uBCA0\uB85C\uC2A4 1\uC131"
     Name_EN: Buff035
@@ -768,7 +768,7 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 5
+    Duration: 10
     Prefab: 0
   - No: 37
     Name_KR: "\uC2A4\uD0AC \uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A4 1\uC131"
@@ -789,8 +789,8 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 3
-    Prefab: 0
+    Duration: 5
+    Prefab: 900213
   - No: 38
     Name_KR: "\uC2A4\uD0AC \uC0AC\uD2F0\uB85C\uC2A4 1\uC131"
     Name_EN: Buff038
@@ -811,7 +811,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900214
   - No: 39
     Name_KR: "\uC2A4\uD0AC \uC2A4\uD1A4\uACE8\uB818 1\uC131"
     Name_EN: Buff039
@@ -831,8 +831,8 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 4
-    Prefab: 0
+    Duration: 5
+    Prefab: 900213
   - No: 40
     Name_KR: "\uC2A4\uD0AC \uB77C\uBC14\uACE8\uB818 1\uC131"
     Name_EN: Buff040
@@ -853,7 +853,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900211
   - No: 41
     Name_KR: "\uC2A4\uD0AC \uBC15\uC950 1\uC131"
     Name_EN: Buff041
@@ -894,8 +894,8 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 3
-    Prefab: 0
+    Duration: 5
+    Prefab: 900214
   - No: 43
     Name_KR: "\uC2A4\uD0AC \uC774\uD504\uB9AC\uC2A4 1\uC131"
     Name_EN: Buff043
@@ -915,8 +915,8 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 3
-    Prefab: 0
+    Duration: 5
+    Prefab: 900213
   - No: 44
     Name_KR: "\uC2A4\uD0AC \uB4DC\uB798\uACE4 1\uC131"
     Name_EN: Buff044
@@ -937,7 +937,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900214
   - No: 45
     Name_KR: "\uC2A4\uD0AC \uB9C8\uB140 1\uC131"
     Name_EN: Buff045
@@ -999,7 +999,7 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 6
+    Duration: 5
     Prefab: 0
   - No: 48
     Name_KR: "\uC2A4\uD0AC \uD2B8\uB864\uC8FC\uC220\uC0AC 2\uC131"
@@ -1020,7 +1020,7 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 7
+    Duration: 5
     Prefab: 0
   - No: 49
     Name_KR: "\uC2A4\uD0AC \uC2A4\uD30C\uD06C\uBAAC 2\uC131"
@@ -1042,7 +1042,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900214
   - No: 50
     Name_KR: "\uC2A4\uD0AC \uC0B4\uB77C\uB9E8\uB354 2\uC131"
     Name_EN: Buff050
@@ -1063,7 +1063,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 3
-    Prefab: 0
+    Prefab: 900213
   - No: 51
     Name_KR: "\uC2A4\uD0AC \uD30C\uC774\uC5B4\uB370\uBAAC 2\uC131"
     Name_EN: Buff051
@@ -1084,7 +1084,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900211
   - No: 52
     Name_KR: "\uC2A4\uD0AC \uCF00\uB974\uBCA0\uB85C\uC2A4 2\uC131"
     Name_EN: Buff052
@@ -1104,7 +1104,7 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 6
+    Duration: 5
     Prefab: 0
   - No: 53
     Name_KR: "\uC2A4\uD0AC \uBC1C\uB85D 2\uC131"
@@ -1125,7 +1125,7 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 6
+    Duration: 10
     Prefab: 0
   - No: 54
     Name_KR: "\uC2A4\uD0AC \uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A4 2\uC131"
@@ -1146,8 +1146,8 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 4
-    Prefab: 0
+    Duration: 5
+    Prefab: 900213
   - No: 55
     Name_KR: "\uC2A4\uD0AC \uC0AC\uD2F0\uB85C\uC2A4 2\uC131"
     Name_EN: Buff055
@@ -1168,7 +1168,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900214
   - No: 56
     Name_KR: "\uC2A4\uD0AC \uC2A4\uD1A4\uACE8\uB818 2\uC131"
     Name_EN: Buff056
@@ -1189,7 +1189,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900213
   - No: 57
     Name_KR: "\uC2A4\uD0AC \uB77C\uBC14\uACE8\uB818 2\uC131"
     Name_EN: Buff057
@@ -1210,7 +1210,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900211
   - No: 58
     Name_KR: "\uC2A4\uD0AC \uBC15\uC950 2\uC131"
     Name_EN: Buff058
@@ -1251,8 +1251,8 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 3
-    Prefab: 0
+    Duration: 5
+    Prefab: 900214
   - No: 60
     Name_KR: "\uC2A4\uD0AC \uC774\uD504\uB9AC\uC2A4 2\uC131"
     Name_EN: Buff060
@@ -1272,8 +1272,8 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 4
-    Prefab: 0
+    Duration: 5
+    Prefab: 900213
   - No: 61
     Name_KR: "\uC2A4\uD0AC \uB4DC\uB798\uACE4 2\uC131"
     Name_EN: Buff061
@@ -1294,7 +1294,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900214
   - No: 62
     Name_KR: "\uC2A4\uD0AC \uB9C8\uB140 2\uC131"
     Name_EN: Buff062
@@ -1356,7 +1356,7 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 7
+    Duration: 5
     Prefab: 0
   - No: 65
     Name_KR: "\uC2A4\uD0AC \uD2B8\uB864\uC8FC\uC220\uC0AC 3\uC131"
@@ -1377,7 +1377,7 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 9
+    Duration: 5
     Prefab: 0
   - No: 66
     Name_KR: "\uC2A4\uD0AC \uC2A4\uD30C\uD06C\uBAAC 3\uC131"
@@ -1399,7 +1399,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900214
   - No: 67
     Name_KR: "\uC2A4\uD0AC \uC0B4\uB77C\uB9E8\uB354 3\uC131"
     Name_EN: Buff067
@@ -1419,8 +1419,8 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 4
-    Prefab: 0
+    Duration: 3
+    Prefab: 900213
   - No: 68
     Name_KR: "\uC2A4\uD0AC \uD30C\uC774\uC5B4\uB370\uBAAC 3\uC131"
     Name_EN: Buff068
@@ -1441,7 +1441,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900211
   - No: 69
     Name_KR: "\uC2A4\uD0AC \uCF00\uB974\uBCA0\uB85C\uC2A4 3\uC131"
     Name_EN: Buff069
@@ -1461,7 +1461,7 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 7
+    Duration: 5
     Prefab: 0
   - No: 70
     Name_KR: "\uC2A4\uD0AC \uBC1C\uB85D 3\uC131"
@@ -1482,7 +1482,7 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 8
+    Duration: 10
     Prefab: 0
   - No: 71
     Name_KR: "\uC2A4\uD0AC \uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A4 3\uC131"
@@ -1504,7 +1504,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900213
   - No: 72
     Name_KR: "\uC2A4\uD0AC \uC0AC\uD2F0\uB85C\uC2A4 3\uC131"
     Name_EN: Buff072
@@ -1525,7 +1525,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900214
   - No: 73
     Name_KR: "\uC2A4\uD0AC \uC2A4\uD1A4\uACE8\uB818 3\uC131"
     Name_EN: Buff073
@@ -1545,8 +1545,8 @@ MonoBehaviour:
     BuffAmount3: 0
     BuffRand3: 0
     Summon3: 0
-    Duration: 6
-    Prefab: 0
+    Duration: 5
+    Prefab: 900213
   - No: 74
     Name_KR: "\uC2A4\uD0AC \uB77C\uBC14\uACE8\uB818 3\uC131"
     Name_EN: Buff074
@@ -1567,7 +1567,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900211
   - No: 75
     Name_KR: "\uC2A4\uD0AC \uBC15\uC950 3\uC131"
     Name_EN: Buff075
@@ -1609,7 +1609,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 3
-    Prefab: 0
+    Prefab: 900214
   - No: 77
     Name_KR: "\uC2A4\uD0AC \uC774\uD504\uB9AC\uC2A4 3\uC131"
     Name_EN: Buff077
@@ -1630,7 +1630,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900213
   - No: 78
     Name_KR: "\uC2A4\uD0AC \uB4DC\uB798\uACE4 3\uC131"
     Name_EN: Buff078
@@ -1651,7 +1651,7 @@ MonoBehaviour:
     BuffRand3: 0
     Summon3: 0
     Duration: 5
-    Prefab: 0
+    Prefab: 900214
   - No: 79
     Name_KR: "\uC2A4\uD0AC \uB9C8\uB140 3\uC131"
     Name_EN: Buff079
@@ -1721,7 +1721,7 @@ MonoBehaviour:
     Code: 320082
     BuffType1: 3
     AddType1: 2
-    BuffAmount1: 0.2
+    BuffAmount1: 1.2
     BuffRand1: 1
     Summon1: 0
     BuffType2: 0
@@ -1805,7 +1805,7 @@ MonoBehaviour:
     Code: 320086
     BuffType1: 3
     AddType1: 2
-    BuffAmount1: 0.1
+    BuffAmount1: 1.1
     BuffRand1: 1
     Summon1: 0
     BuffType2: 0

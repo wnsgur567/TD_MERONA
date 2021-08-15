@@ -26,21 +26,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310002
-    Atk_prefab: 0
+    Atk_prefab: 900100
     projectile_prefab: 900101
-    damage_prefab: 0
+    damage_prefab: 900102
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 2
     Name_KR: "\uC77C\uBC18 \uB9C8\uC65502"
     Name_EN: Skill002
@@ -55,19 +55,19 @@ MonoBehaviour:
     PassiveCode: 310001
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900107
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 3
     Name_KR: "\uC77C\uBC18 \uB9C8\uC65503"
     Name_EN: Skill003
@@ -82,19 +82,19 @@ MonoBehaviour:
     PassiveCode: 310001
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900111
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 4
     Name_KR: "\uC77C\uBC18 \uADFC 01"
     Name_EN: Skill004
@@ -109,19 +109,19 @@ MonoBehaviour:
     PassiveCode: 310001
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900132
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 5
     Name_KR: "\uC77C\uBC18 \uADFC 02"
     Name_EN: Skill005
@@ -136,19 +136,19 @@ MonoBehaviour:
     PassiveCode: 310001
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900143
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 6
     Name_KR: "\uC77C\uBC18 \uADFC 03"
     Name_EN: Skill006
@@ -163,19 +163,19 @@ MonoBehaviour:
     PassiveCode: 310001
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900128
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 7
     Name_KR: "\uC77C\uBC18 \uADFC 04"
     Name_EN: Skill007
@@ -190,19 +190,19 @@ MonoBehaviour:
     PassiveCode: 310001
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900158
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 8
     Name_KR: "\uC77C\uBC18 \uADFC 05"
     Name_EN: Skill008
@@ -217,19 +217,19 @@ MonoBehaviour:
     PassiveCode: 310001
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900145
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 9
     Name_KR: "\uC77C\uBC18 \uADFC 06"
     Name_EN: Skill009
@@ -242,21 +242,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310001
-    Atk_prefab: 0
+    Atk_prefab: 900160
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 10
     Name_KR: "\uC77C\uBC18 \uADFC 07"
     Name_EN: Skill010
@@ -271,19 +271,19 @@ MonoBehaviour:
     PassiveCode: 310001
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900204
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 11
     Name_KR: "\uC77C\uBC18 \uC6D0 01"
     Name_EN: Skill011
@@ -296,21 +296,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310002
-    Atk_prefab: 0
+    Atk_prefab: 900119
     projectile_prefab: 900117
-    damage_prefab: 0
+    damage_prefab: 900187
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 12
     Name_KR: "\uC77C\uBC18 \uC6D0 02"
     Name_EN: Skill012
@@ -323,21 +323,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310002
-    Atk_prefab: 0
+    Atk_prefab: 900139
     projectile_prefab: 900140
-    damage_prefab: 0
+    damage_prefab: 900141
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 13
     Name_KR: "\uC77C\uBC18 \uC6D0 03"
     Name_EN: Skill013
@@ -350,21 +350,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310002
-    Atk_prefab: 0
+    Atk_prefab: 900189
     projectile_prefab: 900190
-    damage_prefab: 0
+    damage_prefab: 900191
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 14
     Name_KR: "\uC77C\uBC18 \uC6D0 04"
     Name_EN: Skill014
@@ -379,19 +379,19 @@ MonoBehaviour:
     PassiveCode: 310002
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900132
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 15
     Name_KR: "\uC77C\uBC18 \uC6D0 05"
     Name_EN: Skill015
@@ -404,21 +404,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310002
-    Atk_prefab: 0
+    Atk_prefab: 900129
     projectile_prefab: 900127
-    damage_prefab: 0
+    damage_prefab: 900128
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 16
     Name_KR: "\uC77C\uBC18 \uC6D0 06"
     Name_EN: Skill016
@@ -431,21 +431,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310002
-    Atk_prefab: 0
+    Atk_prefab: 900134
     projectile_prefab: 900190
-    damage_prefab: 0
+    damage_prefab: 900136
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 17
     Name_KR: "\uC77C\uBC18 \uC6D0 07"
     Name_EN: Skill017
@@ -458,21 +458,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310002
-    Atk_prefab: 0
+    Atk_prefab: 900178
     projectile_prefab: 900176
-    damage_prefab: 0
+    damage_prefab: 900180
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 18
     Name_KR: "\uC77C\uBC18 \uC6D0 08"
     Name_EN: Skill018
@@ -487,19 +487,19 @@ MonoBehaviour:
     PassiveCode: 310002
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900206
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 19
     Name_KR: "\uB354\uBE14 \uADFC 01"
     Name_EN: Skill019
@@ -514,19 +514,19 @@ MonoBehaviour:
     PassiveCode: 310003
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900132
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 20
     Name_KR: "\uB354\uBE14 \uADFC 02"
     Name_EN: Skill020
@@ -541,19 +541,19 @@ MonoBehaviour:
     PassiveCode: 310005
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900132
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 21
     Name_KR: "\uB354\uBE14 \uADFC 03"
     Name_EN: Skill021
@@ -568,19 +568,19 @@ MonoBehaviour:
     PassiveCode: 310004
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900195
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 22
     Name_KR: "\uB354\uBE14 \uADFC 04"
     Name_EN: Skill022
@@ -595,19 +595,19 @@ MonoBehaviour:
     PassiveCode: 310005
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900195
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 23
     Name_KR: "\uAD11\uC5ED \uC6D0 01"
     Name_EN: Skill023
@@ -620,21 +620,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310006
-    Atk_prefab: 0
+    Atk_prefab: 900185
     projectile_prefab: 900186
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 24
     Name_KR: "\uAD11\uC5ED \uC6D0 02"
     Name_EN: Skill024
@@ -647,21 +647,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310007
-    Atk_prefab: 0
+    Atk_prefab: 900121
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 25
     Name_KR: "\uC99D\uC624\uC758 \uC528\uC557"
     Name_EN: Skill025
@@ -674,24 +674,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310008
-    Atk_prefab: 0
+    Atk_prefab: 900103
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900104
     Skill_icon: 910028
     Skill_text: "\uC99D\uC624\uC758 \uC5EC\uC655\uC774 \uC99D\uC624\uC758 \uC528\uC557\uC744
       \uBFCC\uB824 \uC120\uD0DD\uD55C \uAD6C\uC5ED\uC758 \uBAA8\uB4E0 \uD0C0\uC6CC
-      \uACF5\uACA9\uB825\uC744 (BuffCC_Duration)\uCD08 \uB3D9\uC548 (BuffCC_BuffAmount)\uB9CC\uD07C
-      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uACF5\uACA9\uB825\uC744 5\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uACF5\uACA9\uB825 \uC99D\uAC00"
+    SkillAvility1_Text: '[<b>{0}</b]'
+    SkillAvility1_Star1: 0.5
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 26
     Name_KR: "\uC99D\uC624\uC758 \uAD8C\uB2A5"
     Name_EN: Skill026
@@ -704,23 +703,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310009
-    Atk_prefab: 0
+    Atk_prefab: 900105
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900106
     Skill_icon: 910029
     Skill_text: "\uC99D\uC624\uC758 \uC5EC\uC655\uC774 \uC99D\uC624\uC758 \uAD8C\uB2A5\uC744
       \uBD80\uC5EC\uD574 \uBAA8\uB4E0 \uAD6C\uC5ED\uC758 \uD0C0\uC6CC \uACF5\uACA9\uC18D\uB3C4\uB97C
-      (BuffCC_Duration)\uCD08 \uB3D9\uC548 (BuffCC_BuffAmount)\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      5\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
+    SkillAvility1_Text: '[<b>{0}</b]'
+    SkillAvility1_Star1: 1
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 27
     Name_KR: "\uBD88\uAD6C\uB369\uC774"
     Name_EN: Skill027
@@ -733,24 +732,24 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310010
-    Atk_prefab: 0
+    Atk_prefab: 900108
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900110
     Skill_icon: 910030
     Skill_text: "\uC9C0\uC625\uC758\uAD70\uC8FC\uAC00 \uBD88\uAD6C\uB369\uC774\uB97C
       \uB9CC\uB4E4\uC5B4 \uBC94\uC704 \uB0B4\uC758 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C
       \uC90D\uB2C8\uB2E4. \uB9C8\uC655\uC758 \uCCB4\uB825\uC774 50%\uC774\uD558\uB77C\uBA74
-      \uC804\uCCB4\uD53C\uD574\uB7C9\uC758 N%\uB9CC\uD07C \uCCB4\uB825\uC744 \uD68C\uBCF5\uD569\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uC804\uCCB4\uD53C\uD574\uB7C9\uC758 10%\uB9CC\uD07C \uCCB4\uB825\uC744 \uD68C\uBCF5\uD569\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b]'
+    SkillAvility1_Star1: 2000
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 28
     Name_KR: "\uC2A4\uD0AC\uC9C0\uC625\uC758\uAD70\uC8FC01.2"
     Name_EN: Skill028
@@ -763,21 +762,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 0
-    Atk_prefab: 0
+    Atk_prefab: 900109
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 29
     Name_KR: "\uD53C\uC758 \uAD8C\uB2A5"
     Name_EN: Skill029
@@ -795,18 +794,18 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 910031
     Skill_text: "\uC9C0\uC625\uC758 \uAD70\uC8FC \uCCB4\uB825\uC774 50%\uC774\uD558\uB77C\uBA74
-      \uAE30\uBCF8 \uACF5\uACA9 \uC2DC \uD53C\uD574\uB7C9\uC758 N%\uB9CC\uD07C \uCCB4\uB825\uC744
+      \uAE30\uBCF8 \uACF5\uACA9 \uC2DC \uD53C\uD574\uB7C9\uC758 10%\uB9CC\uD07C \uCCB4\uB825\uC744
       \uD68C\uBCF5\uD569\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 30
     Name_KR: "\uC601\uAD6C\uB3D9\uD1A0"
     Name_EN: Skill030
@@ -819,23 +818,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310011
-    Atk_prefab: 0
+    Atk_prefab: 900112
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910032
     Skill_text: "\uD504\uB85C\uC2A4\uD2B8\uB9AC\uCE58\uAC00 \uC601\uAD6C\uB3D9\uD1A0\uB97C
-      \uC0DD\uC131\uD574 \uCD08 \uB2F9 \uD53C\uD574\uB97C \uC785\uD788\uBA70 \uC774\uB3D9\uC18D\uB3C4\uB97C
+      10\uCD08\uAC04 \uC0DD\uC131\uD574 \uD53C\uD574\uB97C \uC785\uD788\uBA70 \uC774\uB3D9\uC18D\uB3C4\uB97C
       \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uCD08\uB2F9 \uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b]'
+    SkillAvility1_Star1: 200
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
+    SkillAvility2_Text: '[<b>{0}</b]'
+    SkillAvility2_Star1: 0.6
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 31
     Name_KR: "\uC2A4\uD0AC \uD504\uB85C\uC2A4\uD2B8\uB9AC\uCE5801.2"
     Name_EN: Skill031
@@ -848,21 +847,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 0
-    Atk_prefab: 0
+    Atk_prefab: 900113
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 32
     Name_KR: "\uC5BC\uC74C\uC655\uC758 \uAC80"
     Name_EN: Skill032
@@ -875,23 +874,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310012
-    Atk_prefab: 0
+    Atk_prefab: 900114
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910033
-    Skill_text: "\uD504\uB85C\uC2A4\uD2B8\uB9AC\uCE58\uAC00 \uB9AC\uCE58\uC655\uC758
-      \uAC80\uC744 \uC18C\uD658\uD574 \uD53C\uD574\uB97C \uC785\uD788\uBA70 \uC774\uB3D9\uC18D\uB3C4\uB97C
-      \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    Skill_text: "\uD504\uB85C\uC2A4\uD2B8\uB9AC\uCE58\uAC00 \uC5BC\uC74C\uD68C\uC624\uB9AC\uB97C
+      \uC0DD\uC131\uD574 \uD53C\uD574\uB97C \uC785\uD788\uBA70 \uC774\uB3D9\uC18D\uB3C4\uB97C
+      5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b]'
+    SkillAvility1_Star1: 150
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
+    SkillAvility2_Text: '[<b>{0}</b]'
+    SkillAvility2_Star1: 0.6
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 33
     Name_KR: "\uC2A4\uD0AC \uD504\uB85C\uC2A4\uD2B8\uB9AC\uCE5802.2"
     Name_EN: Skill033
@@ -904,21 +903,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 0
-    Atk_prefab: 0
+    Atk_prefab: 900115
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 34
     Name_KR: "\uD3EC\uACA9 1"
     Name_EN: Skill034
@@ -931,23 +930,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310013
-    Atk_prefab: 0
+    Atk_prefab: 900119
     projectile_prefab: 900120
     damage_prefab: 0
     Skill_icon: 910001
     Skill_text: "\uC624\uD06C\uAC70\uB108\uAC00 \uCEE4\uB2E4\uB780 \uB300\uD3EC\uC54C\uC744
       \uBC1C\uC0AC\uD574 \uB099\uD558\uC9C0\uC810\uC758 \uC801\uB4E4\uC5D0\uAC8C
       \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 35
     Name_KR: "\uC2A4\uD0AC \uC624\uD06C\uAC70\uB10801.2 1"
     Name_EN: Skill035
@@ -960,21 +959,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310014
-    Atk_prefab: 0
+    Atk_prefab: 900121
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 36
     Name_KR: "\uD3EC\uACA9 2"
     Name_EN: Skill036
@@ -987,23 +986,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310015
-    Atk_prefab: 0
+    Atk_prefab: 900119
     projectile_prefab: 900120
     damage_prefab: 0
     Skill_icon: 910001
     Skill_text: "\uC624\uD06C\uAC70\uB108\uAC00 \uCEE4\uB2E4\uB780 \uB300\uD3EC\uC54C\uC744
       \uBC1C\uC0AC\uD574 \uB099\uD558\uC9C0\uC810\uC758 \uC801\uB4E4\uC5D0\uAC8C
       \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 37
     Name_KR: "\uC2A4\uD0AC \uC624\uD06C\uAC70\uB10801.2 2"
     Name_EN: Skill037
@@ -1016,21 +1015,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310016
-    Atk_prefab: 0
+    Atk_prefab: 900121
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 38
     Name_KR: "\uD3EC\uACA9 3"
     Name_EN: Skill038
@@ -1043,23 +1042,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310017
-    Atk_prefab: 0
+    Atk_prefab: 900119
     projectile_prefab: 900120
     damage_prefab: 0
     Skill_icon: 910001
     Skill_text: "\uC624\uD06C\uAC70\uB108\uAC00 \uCEE4\uB2E4\uB780 \uB300\uD3EC\uC54C\uC744
       \uBC1C\uC0AC\uD574 \uB099\uD558\uC9C0\uC810\uC758 \uC801\uB4E4\uC5D0\uAC8C
       \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 39
     Name_KR: "\uC2A4\uD0AC \uC624\uD06C\uAC70\uB10801.2 3"
     Name_EN: Skill039
@@ -1072,21 +1071,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310018
-    Atk_prefab: 0
+    Atk_prefab: 900121
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 40
     Name_KR: "\uC804\uD22C\uC758 \uD568\uC131 1"
     Name_EN: Skill040
@@ -1099,22 +1098,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310019
-    Atk_prefab: 0
+    Atk_prefab: 900123
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910002
     Skill_text: "\uC624\uD06C\uC804\uC0AC\uC758 \uD568\uC131\uC5D0 \uC544\uAD70\uC758
-      \uACF5\uACA9\uC18D\uB3C4\uAC00 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uACF5\uACA9\uC18D\uB3C4\uAC00 5\uCD08\uAC04 \uC99D\uAC00\uD569\uB2C8\uB2E4. "
+    SkillAvility1_Name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 0.05263157894736836
+    SkillAvility1_Star2: 0.11111111111111116
+    SkillAvility1_Star3: 0.17647058823529416
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 41
     Name_KR: "\uC804\uD22C\uC758 \uD568\uC131 2"
     Name_EN: Skill041
@@ -1127,22 +1126,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310020
-    Atk_prefab: 0
+    Atk_prefab: 900123
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910002
     Skill_text: "\uC624\uD06C\uC804\uC0AC\uC758 \uD568\uC131\uC5D0 \uC544\uAD70\uC758
-      \uACF5\uACA9\uC18D\uB3C4\uAC00 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uACF5\uACA9\uC18D\uB3C4\uAC00 5\uCD08\uAC04 \uC99D\uAC00\uD569\uB2C8\uB2E4. "
+    SkillAvility1_Name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 0.05263157894736836
+    SkillAvility1_Star2: 0.11111111111111116
+    SkillAvility1_Star3: 0.17647058823529416
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 42
     Name_KR: "\uC804\uD22C\uC758 \uD568\uC131 3"
     Name_EN: Skill042
@@ -1155,22 +1154,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310021
-    Atk_prefab: 0
+    Atk_prefab: 900123
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910002
     Skill_text: "\uC624\uD06C\uC804\uC0AC\uC758 \uD568\uC131\uC5D0 \uC544\uAD70\uC758
-      \uACF5\uACA9\uC18D\uB3C4\uAC00 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uACF5\uACA9\uC18D\uB3C4\uAC00 5\uCD08\uAC04 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 0.05263157894736836
+    SkillAvility1_Star2: 0.11111111111111116
+    SkillAvility1_Star3: 0.17647058823529416
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 43
     Name_KR: "\uD06C\uAC8C \uD55C \uBC29 1"
     Name_EN: Skill043
@@ -1183,23 +1182,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310022
-    Atk_prefab: 0
+    Atk_prefab: 900125
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910003
     Skill_text: "\uC0AC\uC774\uD074\uB86D\uC2A4\uAC00 \uBABD\uB465\uC774\uB85C \uB545\uC744
-      \uAC15\uD558\uAC8C \uB0B4\uB9AC\uCCD0 \uD53C\uD574\uB97C \uC785\uD788\uACE0
-      \uC801\uC758 \uC774\uB3D9\uC18D\uB3C4\uB97C \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uAC15\uD558\uAC8C \uB0B4\uB9AC\uCCD0 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 100
+    SkillAvility1_Star2: 200
+    SkillAvility1_Star3: 300
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 44
     Name_KR: "\uD06C\uAC8C \uD55C \uBC29 2"
     Name_EN: Skill044
@@ -1212,23 +1210,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310023
-    Atk_prefab: 0
+    Atk_prefab: 900125
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910003
     Skill_text: "\uC0AC\uC774\uD074\uB86D\uC2A4\uAC00 \uBABD\uB465\uC774\uB85C \uB545\uC744
-      \uAC15\uD558\uAC8C \uB0B4\uB9AC\uCCD0 \uD53C\uD574\uB97C \uC785\uD788\uACE0
-      \uC801\uC758 \uC774\uB3D9\uC18D\uB3C4\uB97C \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uAC15\uD558\uAC8C \uB0B4\uB9AC\uCCD0 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 100
+    SkillAvility1_Star2: 200
+    SkillAvility1_Star3: 300
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 45
     Name_KR: "\uD06C\uAC8C \uD55C \uBC29 3"
     Name_EN: Skill045
@@ -1241,23 +1238,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310024
-    Atk_prefab: 0
+    Atk_prefab: 900125
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910003
     Skill_text: "\uC0AC\uC774\uD074\uB86D\uC2A4\uAC00 \uBABD\uB465\uC774\uB85C \uB545\uC744
-      \uAC15\uD558\uAC8C \uB0B4\uB9AC\uCCD0 \uD53C\uD574\uB97C \uC785\uD788\uACE0
-      \uC801\uC758 \uC774\uB3D9\uC18D\uB3C4\uB97C \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uAC15\uD558\uAC8C \uB0B4\uB9AC\uCCD0 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 100
+    SkillAvility1_Star2: 200
+    SkillAvility1_Star3: 300
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 46
     Name_KR: "\uAC15\uD654\uD0C4 \uBC1C\uC0AC 1"
     Name_EN: Skill046
@@ -1270,22 +1266,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310025
-    Atk_prefab: 0
+    Atk_prefab: 900129
     projectile_prefab: 900130
-    damage_prefab: 0
+    damage_prefab: 900131
     Skill_icon: 910004
     Skill_text: "\uACE0\uBE14\uB9B0\uC774 \uD2B9\uC218\uD55C \uD0C4\uC744 \uBC1C\uC0AC\uD574
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 20
+    SkillAvility1_Star2: 40
+    SkillAvility1_Star3: 60
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 47
     Name_KR: "\uAC15\uD654\uD0C4 \uBC1C\uC0AC 2"
     Name_EN: Skill047
@@ -1298,22 +1294,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310026
-    Atk_prefab: 0
+    Atk_prefab: 900129
     projectile_prefab: 900130
-    damage_prefab: 0
+    damage_prefab: 900131
     Skill_icon: 910004
     Skill_text: "\uACE0\uBE14\uB9B0\uC774 \uD2B9\uC218\uD55C \uD0C4\uC744 \uBC1C\uC0AC\uD574
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 20
+    SkillAvility1_Star2: 40
+    SkillAvility1_Star3: 60
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 48
     Name_KR: "\uAC15\uD654\uD0C4 \uBC1C\uC0AC 3"
     Name_EN: Skill048
@@ -1326,22 +1322,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310027
-    Atk_prefab: 0
+    Atk_prefab: 900129
     projectile_prefab: 900130
-    damage_prefab: 0
+    damage_prefab: 900131
     Skill_icon: 910004
     Skill_text: "\uACE0\uBE14\uB9B0\uC774 \uD2B9\uC218\uD55C \uD0C4\uC744 \uBC1C\uC0AC\uD574
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 20
+    SkillAvility1_Star2: 40
+    SkillAvility1_Star3: 60
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 49
     Name_KR: "\uD68C\uC624\uB9AC\uCE58\uAE30 1"
     Name_EN: Skill049
@@ -1354,22 +1350,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310028
-    Atk_prefab: 0
+    Atk_prefab: 900133
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910005
     Skill_text: "\uB180\uC804\uC0AC\uAC00 \uD55C\uBC14\uD034 \uD68C\uC804\uD558\uBA74\uC11C
       \uC8FC\uBCC0\uC758 \uC801\uB4E4\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 50
     Name_KR: "\uD68C\uC624\uB9AC\uCE58\uAE30 2"
     Name_EN: Skill050
@@ -1382,22 +1378,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310029
-    Atk_prefab: 0
+    Atk_prefab: 900133
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910005
     Skill_text: "\uB180\uC804\uC0AC\uAC00 \uD55C\uBC14\uD034 \uD68C\uC804\uD558\uBA74\uC11C
       \uC8FC\uBCC0\uC758 \uC801\uB4E4\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 51
     Name_KR: "\uD68C\uC624\uB9AC\uCE58\uAE30 3"
     Name_EN: Skill051
@@ -1410,22 +1406,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310030
-    Atk_prefab: 0
+    Atk_prefab: 900133
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910005
     Skill_text: "\uB180\uC804\uC0AC\uAC00 \uD55C\uBC14\uD034 \uD68C\uC804\uD558\uBA74\uC11C
       \uC8FC\uBCC0\uC758 \uC801\uB4E4\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 52
     Name_KR: "\uAC15\uB839\uC220 1"
     Name_EN: Skill052
@@ -1438,22 +1434,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310031
-    Atk_prefab: 0
+    Atk_prefab: 900137
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900138
     Skill_icon: 910006
     Skill_text: "\uD2B8\uB864\uC8FC\uC220\uC0AC\uAC00 \uC601\uD63C\uC744 \uBD88\uB7EC\uC640
-      \uC544\uAD70\uC758 \uACF5\uACA9\uC18D\uB3C4\uB97C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uC544\uAD70\uC758 \uACF5\uACA9\uC18D\uB3C4\uB97C 5\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 0.05263157894736836
+    SkillAvility1_Star2: 0.17647058823529416
+    SkillAvility1_Star3: 0.33333333333333326
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 53
     Name_KR: "\uAC15\uB839\uC220 2"
     Name_EN: Skill053
@@ -1466,22 +1462,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310032
-    Atk_prefab: 0
+    Atk_prefab: 900137
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900138
     Skill_icon: 910006
     Skill_text: "\uD2B8\uB864\uC8FC\uC220\uC0AC\uAC00 \uC601\uD63C\uC744 \uBD88\uB7EC\uC640
-      \uC544\uAD70\uC758 \uACF5\uACA9\uC18D\uB3C4\uB97C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uC544\uAD70\uC758 \uACF5\uACA9\uC18D\uB3C4\uB97C 5\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 0.05263157894736836
+    SkillAvility1_Star2: 0.17647058823529416
+    SkillAvility1_Star3: 0.33333333333333326
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 54
     Name_KR: "\uAC15\uB839\uC220 3"
     Name_EN: Skill054
@@ -1494,22 +1490,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310033
-    Atk_prefab: 0
+    Atk_prefab: 900137
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900138
     Skill_icon: 910006
     Skill_text: "\uD2B8\uB864\uC8FC\uC220\uC0AC\uAC00 \uC601\uD63C\uC744 \uBD88\uB7EC\uC640
-      \uC544\uAD70\uC758 \uACF5\uACA9\uC18D\uB3C4\uB97C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uC544\uAD70\uC758 \uACF5\uACA9\uC18D\uB3C4\uB97C 5\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 0.05263157894736836
+    SkillAvility1_Star2: 0.17647058823529416
+    SkillAvility1_Star3: 0.33333333333333326
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 55
     Name_KR: "\uBE5B \uD3ED\uD30C 1"
     Name_EN: Skill055
@@ -1522,23 +1518,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310034
-    Atk_prefab: 0
+    Atk_prefab: 900142
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910007
     Skill_text: "\uC2A4\uD30C\uD06C\uBAAC\uC774 \uB0B4\uBD80\uC758 \uBE5B\uC744 \uD3ED\uBC1C\uC2DC\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
-      \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
+    SkillAvility2_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility2_Star1: 0.15000000000000002
+    SkillAvility2_Star2: 0.25
+    SkillAvility2_Star3: 0.4
   - No: 56
     Name_KR: "\uBE5B \uD3ED\uD30C 2"
     Name_EN: Skill056
@@ -1551,23 +1547,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310035
-    Atk_prefab: 0
+    Atk_prefab: 900142
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910007
     Skill_text: "\uC2A4\uD30C\uD06C\uBAAC\uC774 \uB0B4\uBD80\uC758 \uBE5B\uC744 \uD3ED\uBC1C\uC2DC\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
-      \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
+    SkillAvility2_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility2_Star1: 0.15000000000000002
+    SkillAvility2_Star2: 0.25
+    SkillAvility2_Star3: 0.4
   - No: 57
     Name_KR: "\uBE5B \uD3ED\uD30C 3"
     Name_EN: Skill057
@@ -1580,23 +1576,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310036
-    Atk_prefab: 0
+    Atk_prefab: 900142
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910007
     Skill_text: "\uC2A4\uD30C\uD06C\uBAAC\uC774 \uB0B4\uBD80\uC758 \uBE5B\uC744 \uD3ED\uBC1C\uC2DC\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
-      \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
+    SkillAvility2_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility2_Star1: 0.15000000000000002
+    SkillAvility2_Star2: 0.25
+    SkillAvility2_Star3: 0.4
   - No: 58
     Name_KR: "\uC57D\uC810 \uACF5\uACA9 1"
     Name_EN: Skill058
@@ -1611,20 +1607,20 @@ MonoBehaviour:
     PassiveCode: 310037
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900144
     Skill_icon: 910008
     Skill_text: "\uC0B4\uB77C\uB9E8\uB354\uAC00 \uC801\uC758 \uC57D\uC810\uC744 \uACF5\uACA9\uD574
-      \uD53C\uD574\uB97C \uC8FC\uACE0 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uD53C\uD574\uB97C \uC8FC\uACE0 3\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 15
+    SkillAvility1_Star2: 30
+    SkillAvility1_Star3: 45
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 59
     Name_KR: "\uC57D\uC810 \uACF5\uACA9 2"
     Name_EN: Skill059
@@ -1639,20 +1635,20 @@ MonoBehaviour:
     PassiveCode: 310038
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900144
     Skill_icon: 910008
     Skill_text: "\uC0B4\uB77C\uB9E8\uB354\uAC00 \uC801\uC758 \uC57D\uC810\uC744 \uACF5\uACA9\uD574
-      \uD53C\uD574\uB97C \uC8FC\uACE0 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uD53C\uD574\uB97C \uC8FC\uACE0 3\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 15
+    SkillAvility1_Star2: 30
+    SkillAvility1_Star3: 45
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 60
     Name_KR: "\uC57D\uC810 \uACF5\uACA9 3"
     Name_EN: Skill060
@@ -1667,20 +1663,20 @@ MonoBehaviour:
     PassiveCode: 310039
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900144
     Skill_icon: 910008
     Skill_text: "\uC0B4\uB77C\uB9E8\uB354\uAC00 \uC801\uC758 \uC57D\uC810\uC744 \uACF5\uACA9\uD574
-      \uD53C\uD574\uB97C \uC8FC\uACE0 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uD53C\uD574\uB97C \uC8FC\uACE0 3\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 15
+    SkillAvility1_Star2: 30
+    SkillAvility1_Star3: 45
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 61
     Name_KR: "\uD654\uC5FC\uD3EC 1"
     Name_EN: Skill061
@@ -1693,22 +1689,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310040
-    Atk_prefab: 0
+    Atk_prefab: 900146
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910009
     Skill_text: "\uD30C\uC774\uC5B4\uB370\uBAAC\uC774 \uD654\uC5FC\uD3EC\uB97C \uBC1C\uC0AC\uD574
-      \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD654\uC0C1 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uD654\uC0C1
+      \uD6A8\uACFC\uB97C 5\uCD08\uAC04 \uBD80\uC5EC\uD569\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 5
+    SkillAvility1_Star2: 10
+    SkillAvility1_Star3: 15
+    SkillAvility2_Name: "\uD654\uC0C1 \uD6A8\uACFC"
+    SkillAvility2_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility2_Star1: 0.1
+    SkillAvility2_Star2: 0.15
+    SkillAvility2_Star3: 0.25
   - No: 62
     Name_KR: "\uD654\uC5FC\uD3EC 2"
     Name_EN: Skill062
@@ -1721,22 +1718,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310041
-    Atk_prefab: 0
+    Atk_prefab: 900146
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910009
     Skill_text: "\uD30C\uC774\uC5B4\uB370\uBAAC\uC774 \uD654\uC5FC\uD3EC\uB97C \uBC1C\uC0AC\uD574
-      \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD654\uC0C1 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uD654\uC0C1
+      \uD6A8\uACFC\uB97C 5\uCD08\uAC04 \uBD80\uC5EC\uD569\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 5
+    SkillAvility1_Star2: 10
+    SkillAvility1_Star3: 15
+    SkillAvility2_Name: "\uD654\uC0C1 \uD6A8\uACFC"
+    SkillAvility2_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility2_Star1: 0.1
+    SkillAvility2_Star2: 0.15
+    SkillAvility2_Star3: 0.25
   - No: 63
     Name_KR: "\uD654\uC5FC\uD3EC 3"
     Name_EN: Skill063
@@ -1749,22 +1747,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310042
-    Atk_prefab: 0
+    Atk_prefab: 900146
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910009
     Skill_text: "\uD30C\uC774\uC5B4\uB370\uBAAC\uC774 \uD654\uC5FC\uD3EC\uB97C \uBC1C\uC0AC\uD574
-      \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD654\uC0C1 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uD654\uC0C1
+      \uD6A8\uACFC\uB97C 5\uCD08\uAC04 \uBD80\uC5EC\uD569\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 5
+    SkillAvility1_Star2: 10
+    SkillAvility1_Star3: 15
+    SkillAvility2_Name: "\uD654\uC0C1 \uD6A8\uACFC"
+    SkillAvility2_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility2_Star1: 0.1
+    SkillAvility2_Star2: 0.15
+    SkillAvility2_Star3: 0.25
   - No: 64
     Name_KR: "\uC0AC\uC790\uD6C4 1"
     Name_EN: Skill064
@@ -1777,22 +1776,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310043
-    Atk_prefab: 0
+    Atk_prefab: 900148
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910010
     Skill_text: "\uCF00\uB974\uBCA0\uB85C\uC2A4\uAC00 \uC804\uBC29\uC5D0 \uACE0\uD568\uC744
-      \uC9C8\uB7EC \uC8FC\uBCC0 \uC801\uC758 \uBC29\uC5B4\uB825\uC744 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uC9C8\uB7EC \uC8FC\uBCC0 \uC801\uC758 \uBC29\uC5B4\uB825\uC744 5\uCD08\uAC04
+      \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uBC29\uC5B4\uB825 \uAC10\uC18C"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 0.15000000000000002
+    SkillAvility1_Star2: 0.19999999999999996
+    SkillAvility1_Star3: 0.30000000000000004
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 65
     Name_KR: "\uC0AC\uC790\uD6C4 2"
     Name_EN: Skill065
@@ -1805,22 +1805,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310044
-    Atk_prefab: 0
+    Atk_prefab: 900148
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910010
     Skill_text: "\uCF00\uB974\uBCA0\uB85C\uC2A4\uAC00 \uC804\uBC29\uC5D0 \uACE0\uD568\uC744
-      \uC9C8\uB7EC \uC8FC\uBCC0 \uC801\uC758 \uBC29\uC5B4\uB825\uC744 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uC9C8\uB7EC \uC8FC\uBCC0 \uC801\uC758 \uBC29\uC5B4\uB825\uC744 5\uCD08\uAC04
+      \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uBC29\uC5B4\uB825 \uAC10\uC18C"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 0.15000000000000002
+    SkillAvility1_Star2: 0.19999999999999996
+    SkillAvility1_Star3: 0.30000000000000004
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 66
     Name_KR: "\uC0AC\uC790\uD6C4 3"
     Name_EN: Skill066
@@ -1833,22 +1834,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310045
-    Atk_prefab: 0
+    Atk_prefab: 900148
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910010
     Skill_text: "\uCF00\uB974\uBCA0\uB85C\uC2A4\uAC00 \uC804\uBC29\uC5D0 \uACE0\uD568\uC744
-      \uC9C8\uB7EC \uC8FC\uBCC0 \uC801\uC758 \uBC29\uC5B4\uB825\uC744 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uC9C8\uB7EC \uC8FC\uBCC0 \uC801\uC758 \uBC29\uC5B4\uB825\uC744 5\uCD08\uAC04
+      \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uBC29\uC5B4\uB825 \uAC10\uC18C"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 0.15000000000000002
+    SkillAvility1_Star2: 0.19999999999999996
+    SkillAvility1_Star3: 0.30000000000000004
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 67
     Name_KR: "\uC804\uC7A5\uC758 \uC9C0\uD718\uC790 1"
     Name_EN: Skill067
@@ -1861,23 +1863,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310046
-    Atk_prefab: 0
+    Atk_prefab: 900150
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910011
     Skill_text: "\uBC1C\uB85D\uC774 \uC9C1\uC811 \uC804\uC7A5\uC744 \uC9C0\uD718\uD574
       \uC544\uAD70\uC758 \uACF5\uACA9\uB825\uACFC \uACF5\uACA9\uC18D\uB3C4\uB97C
-      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      10\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uACF5\uACA9\uB825 \uC99D\uAC00"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 0.1499999999999999
+    SkillAvility1_Star2: 0.30000000000000004
+    SkillAvility1_Star3: 0.3999999999999999
+    SkillAvility2_Name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
+    SkillAvility2_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility2_Star1: 0.11111111111111116
+    SkillAvility2_Star2: 0.17647058823529416
+    SkillAvility2_Star3: 0.25
   - No: 68
     Name_KR: "\uC804\uC7A5\uC758 \uC9C0\uD718\uC790 2"
     Name_EN: Skill068
@@ -1890,23 +1892,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310047
-    Atk_prefab: 0
+    Atk_prefab: 900150
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910011
     Skill_text: "\uBC1C\uB85D\uC774 \uC9C1\uC811 \uC804\uC7A5\uC744 \uC9C0\uD718\uD574
       \uC544\uAD70\uC758 \uACF5\uACA9\uB825\uACFC \uACF5\uACA9\uC18D\uB3C4\uB97C
-      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      10\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uACF5\uACA9\uB825 \uC99D\uAC00"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 0.1499999999999999
+    SkillAvility1_Star2: 0.30000000000000004
+    SkillAvility1_Star3: 0.3999999999999999
+    SkillAvility2_Name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
+    SkillAvility2_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility2_Star1: 0.11111111111111116
+    SkillAvility2_Star2: 0.17647058823529416
+    SkillAvility2_Star3: 0.25
   - No: 69
     Name_KR: "\uC804\uC7A5\uC758 \uC9C0\uD718\uC790 3"
     Name_EN: Skill069
@@ -1919,23 +1921,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310048
-    Atk_prefab: 0
+    Atk_prefab: 900150
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910011
     Skill_text: "\uBC1C\uB85D\uC774 \uC9C1\uC811 \uC804\uC7A5\uC744 \uC9C0\uD718\uD574
       \uC544\uAD70\uC758 \uACF5\uACA9\uB825\uACFC \uACF5\uACA9\uC18D\uB3C4\uB97C
-      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      10\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uACF5\uACA9\uB825 \uC99D\uAC00"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 0.1499999999999999
+    SkillAvility1_Star2: 0.30000000000000004
+    SkillAvility1_Star3: 0.3999999999999999
+    SkillAvility2_Name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
+    SkillAvility2_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility2_Star1: 0.11111111111111116
+    SkillAvility2_Star2: 0.17647058823529416
+    SkillAvility2_Star3: 0.25
   - No: 70
     Name_KR: "\uACF5\uD3EC\uC758 \uB9DD\uCE58 1"
     Name_EN: Skill070
@@ -1953,17 +1955,18 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 910012
     Skill_text: "\uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A4\uAC00 \uB9DD\uCE58\uB97C \uB0B4\uB9AC\uCC0D\uC5B4
-      \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uC801\uC744 5\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0A4\uACE0 \uC8FC\uBCC0 \uC801\uC5D0\uAC8C
+      \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 60
+    SkillAvility1_Star3: 150
+    SkillAvility2_Name: "\uC8FC\uBCC0 \uD53C\uD574\uB7C9"
+    SkillAvility2_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility2_Star1: 10
+    SkillAvility2_Star2: 60
+    SkillAvility2_Star3: 150
   - No: 71
     Name_KR: "\uC2A4\uD0AC \uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A401.2 1"
     Name_EN: Skill071
@@ -1976,21 +1979,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310050
-    Atk_prefab: 0
+    Atk_prefab: 900152
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 72
     Name_KR: "\uACF5\uD3EC\uC758 \uB9DD\uCE58 2"
     Name_EN: Skill072
@@ -2008,17 +2011,18 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 910012
     Skill_text: "\uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A4\uAC00 \uB9DD\uCE58\uB97C \uB0B4\uB9AC\uCC0D\uC5B4
-      \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uC801\uC744 5\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0A4\uACE0 \uC8FC\uBCC0 \uC801\uC5D0\uAC8C
+      \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 60
+    SkillAvility1_Star3: 150
+    SkillAvility2_Name: "\uC8FC\uBCC0 \uD53C\uD574\uB7C9"
+    SkillAvility2_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility2_Star1: 10
+    SkillAvility2_Star2: 60
+    SkillAvility2_Star3: 150
   - No: 73
     Name_KR: "\uC2A4\uD0AC \uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A401.2 2"
     Name_EN: Skill073
@@ -2031,21 +2035,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310052
-    Atk_prefab: 0
+    Atk_prefab: 900152
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 74
     Name_KR: "\uACF5\uD3EC\uC758 \uB9DD\uCE58 3"
     Name_EN: Skill074
@@ -2063,17 +2067,18 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 910012
     Skill_text: "\uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A4\uAC00 \uB9DD\uCE58\uB97C \uB0B4\uB9AC\uCC0D\uC5B4
-      \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uC801\uC744 5\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0A4\uACE0 \uC8FC\uBCC0 \uC801\uC5D0\uAC8C
+      \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 60
+    SkillAvility1_Star3: 150
+    SkillAvility2_Name: "\uC8FC\uBCC0 \uD53C\uD574\uB7C9"
+    SkillAvility2_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility2_Star1: 10
+    SkillAvility2_Star2: 60
+    SkillAvility2_Star3: 150
   - No: 75
     Name_KR: "\uC2A4\uD0AC \uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A401.2 3"
     Name_EN: Skill075
@@ -2086,21 +2091,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310054
-    Atk_prefab: 0
+    Atk_prefab: 900152
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 76
     Name_KR: "\uBC88\uAC1C \uD3ED\uD48D 1"
     Name_EN: Skill076
@@ -2113,23 +2118,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310055
-    Atk_prefab: 0
+    Atk_prefab: 900156
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910013
     Skill_text: "\uC0AC\uD2F0\uB85C\uC2A4\uAC00 \uBC88\uAC1C\uB97C \uB0B4\uB9AC\uCCD0
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
-      \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
+    SkillAvility2_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility2_Star1: 0.19999999999999996
+    SkillAvility2_Star2: 0.30000000000000004
+    SkillAvility2_Star3: 0.35
   - No: 77
     Name_KR: "\uBC88\uAC1C \uD3ED\uD48D 2"
     Name_EN: Skill077
@@ -2142,23 +2147,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310056
-    Atk_prefab: 0
+    Atk_prefab: 900156
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910013
     Skill_text: "\uC0AC\uD2F0\uB85C\uC2A4\uAC00 \uBC88\uAC1C\uB97C \uB0B4\uB9AC\uCCD0
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
-      \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
+    SkillAvility2_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility2_Star1: 0.19999999999999996
+    SkillAvility2_Star2: 0.30000000000000004
+    SkillAvility2_Star3: 0.35
   - No: 78
     Name_KR: "\uBC88\uAC1C \uD3ED\uD48D 3"
     Name_EN: Skill078
@@ -2171,23 +2176,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310057
-    Atk_prefab: 0
+    Atk_prefab: 900156
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910013
     Skill_text: "\uC0AC\uD2F0\uB85C\uC2A4\uAC00 \uBC88\uAC1C\uB97C \uB0B4\uB9AC\uCCD0
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
-      \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
+    SkillAvility2_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility2_Star1: 0.19999999999999996
+    SkillAvility2_Star2: 0.30000000000000004
+    SkillAvility2_Star3: 0.35
   - No: 79
     Name_KR: "\uC2A4\uD0AC \uC0AC\uD2F0\uB85C\uC2A401.2"
     Name_EN: Skill079
@@ -2200,21 +2205,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 0
-    Atk_prefab: 0
+    Atk_prefab: 900157
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 80
     Name_KR: "\uC2EC\uD310 1"
     Name_EN: Skill080
@@ -2227,22 +2232,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310058
-    Atk_prefab: 0
+    Atk_prefab: 900159
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910014
     Skill_text: "\uADF8\uB9BC\uB9AC\uD37C\uAC00 \uB0AB\uC744 \uB465\uAE00\uAC8C \uD718\uB458\uB7EC
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4"
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 81
     Name_KR: "\uC2EC\uD310 2"
     Name_EN: Skill081
@@ -2255,22 +2260,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310059
-    Atk_prefab: 0
+    Atk_prefab: 900159
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910014
     Skill_text: "\uADF8\uB9BC\uB9AC\uD37C\uAC00 \uB0AB\uC744 \uB465\uAE00\uAC8C \uD718\uB458\uB7EC
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4"
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 82
     Name_KR: "\uC2EC\uD310 3"
     Name_EN: Skill082
@@ -2283,22 +2288,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310060
-    Atk_prefab: 0
+    Atk_prefab: 900159
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910014
     Skill_text: "\uADF8\uB9BC\uB9AC\uD37C\uAC00 \uB0AB\uC744 \uB465\uAE00\uAC8C \uD718\uB458\uB7EC
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4"
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 83
     Name_KR: "\uC5F0\uC18D\uBCA0\uAE30 1"
     Name_EN: Skill083
@@ -2311,22 +2316,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310061
-    Atk_prefab: 0
+    Atk_prefab: 900161
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910015
     Skill_text: "\uB370\uC2A4\uB098\uC774\uD2B8\uAC00 \uAC80\uC744 \uBE60\uB974\uAC8C
       4\uBC88 \uD718\uB458\uB7EC \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 80
+    SkillAvility1_Star2: 160
+    SkillAvility1_Star3: 240
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 84
     Name_KR: "\uC2A4\uD0AC \uB370\uC2A4\uB098\uC774\uD2B801.2 1"
     Name_EN: Skill084
@@ -2344,16 +2349,16 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 85
     Name_KR: "\uC2A4\uD0AC \uB370\uC2A4\uB098\uC774\uD2B801.3 1"
     Name_EN: Skill085
@@ -2371,16 +2376,16 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 86
     Name_KR: "\uC2A4\uD0AC \uB370\uC2A4\uB098\uC774\uD2B801.4 1"
     Name_EN: Skill086
@@ -2398,16 +2403,16 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 87
     Name_KR: "\uC5F0\uC18D\uBCA0\uAE30 2"
     Name_EN: Skill087
@@ -2420,22 +2425,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310065
-    Atk_prefab: 0
+    Atk_prefab: 900161
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910015
     Skill_text: "\uB370\uC2A4\uB098\uC774\uD2B8\uAC00 \uAC80\uC744 \uBE60\uB974\uAC8C
       4\uBC88 \uD718\uB458\uB7EC \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 80
+    SkillAvility1_Star2: 160
+    SkillAvility1_Star3: 240
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 88
     Name_KR: "\uC2A4\uD0AC \uB370\uC2A4\uB098\uC774\uD2B801.2 2"
     Name_EN: Skill088
@@ -2453,16 +2458,16 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 89
     Name_KR: "\uC2A4\uD0AC \uB370\uC2A4\uB098\uC774\uD2B801.3 2"
     Name_EN: Skill089
@@ -2480,16 +2485,16 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 90
     Name_KR: "\uC2A4\uD0AC \uB370\uC2A4\uB098\uC774\uD2B801.4 2"
     Name_EN: Skill090
@@ -2507,16 +2512,16 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 91
     Name_KR: "\uC5F0\uC18D\uBCA0\uAE30 3"
     Name_EN: Skill091
@@ -2529,22 +2534,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310069
-    Atk_prefab: 0
+    Atk_prefab: 900161
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910015
     Skill_text: "\uB370\uC2A4\uB098\uC774\uD2B8\uAC00 \uAC80\uC744 \uBE60\uB974\uAC8C
       4\uBC88 \uD718\uB458\uB7EC \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 80
+    SkillAvility1_Star2: 160
+    SkillAvility1_Star3: 240
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 92
     Name_KR: "\uC2A4\uD0AC \uB370\uC2A4\uB098\uC774\uD2B801.2 3"
     Name_EN: Skill092
@@ -2562,16 +2567,16 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 93
     Name_KR: "\uC2A4\uD0AC \uB370\uC2A4\uB098\uC774\uD2B801.3 3"
     Name_EN: Skill093
@@ -2589,16 +2594,16 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 94
     Name_KR: "\uC2A4\uD0AC \uB370\uC2A4\uB098\uC774\uD2B801.4 3"
     Name_EN: Skill094
@@ -2616,16 +2621,16 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 95
     Name_KR: "\uADF8\uB9BC\uC790\uAD00\uD1B5 1"
     Name_EN: Skill095
@@ -2638,22 +2643,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310073
-    Atk_prefab: 0
+    Atk_prefab: 900163
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910016
     Skill_text: "\uB2E4\uD06C\uC18C\uC6B8\uC774 \uB450 \uC190\uC744 \uCC14\uB7EC
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 96
     Name_KR: "\uADF8\uB9BC\uC790\uAD00\uD1B5 2"
     Name_EN: Skill096
@@ -2666,22 +2671,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310074
-    Atk_prefab: 0
+    Atk_prefab: 900163
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910016
     Skill_text: "\uB2E4\uD06C\uC18C\uC6B8\uC774 \uB450 \uC190\uC744 \uCC14\uB7EC
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 97
     Name_KR: "\uADF8\uB9BC\uC790\uAD00\uD1B5 3"
     Name_EN: Skill097
@@ -2694,22 +2699,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310075
-    Atk_prefab: 0
+    Atk_prefab: 900163
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910016
     Skill_text: "\uB2E4\uD06C\uC18C\uC6B8\uC774 \uB450 \uC190\uC744 \uCC14\uB7EC
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 98
     Name_KR: "\uC9C0\uC9C4 1"
     Name_EN: Skill098
@@ -2722,22 +2727,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310076
-    Atk_prefab: 0
+    Atk_prefab: 900165
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910017
     Skill_text: "\uC2A4\uD1A4\uACE8\uB818\uC774 \uC9C0\uC9C4\uC744 \uC77C\uC73C\uCF1C
-      \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 5\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 99
     Name_KR: "\uC9C0\uC9C4 2"
     Name_EN: Skill099
@@ -2750,22 +2755,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310077
-    Atk_prefab: 0
+    Atk_prefab: 900165
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910017
     Skill_text: "\uC2A4\uD1A4\uACE8\uB818\uC774 \uC9C0\uC9C4\uC744 \uC77C\uC73C\uCF1C
-      \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 5\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 100
     Name_KR: "\uC9C0\uC9C4 3"
     Name_EN: Skill100
@@ -2778,22 +2783,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310078
-    Atk_prefab: 0
+    Atk_prefab: 900165
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910017
     Skill_text: "\uC2A4\uD1A4\uACE8\uB818\uC774 \uC9C0\uC9C4\uC744 \uC77C\uC73C\uCF1C
-      \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 5\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 101
     Name_KR: "\uD654\uC0B0\uD3ED\uBC1C 1"
     Name_EN: Skill101
@@ -2806,23 +2811,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310079
-    Atk_prefab: 0
+    Atk_prefab: 900167
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910018
-    Skill_text: "\uB77C\uBC14\uACE8\uB818\uC774 \uC544\uAD70\uC758 \uACF5\uACA9\uB825\uC744
-      \uC99D\uAC00\uC2DC\uD0A4\uACE0 \uC801\uC5D0\uAC8C \uD654\uC0C1 \uD53C\uD574\uB97C
-      \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    Skill_text: "\uB77C\uBC14\uACE8\uB818\uC774 \uC801\uC5D0\uAC8C \uD654\uC0C1 \uD6A8\uACFC\uB97C
+      5\uCD08\uAC04 \uBD80\uC5EC\uD569\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD654\uC0C1 \uD6A8\uACFC"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 0.15
+    SkillAvility1_Star2: 0.2
+    SkillAvility1_Star3: 0.25
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 102
     Name_KR: "\uD654\uC0B0\uD3ED\uBC1C 2"
     Name_EN: Skill102
@@ -2835,23 +2839,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310080
-    Atk_prefab: 0
+    Atk_prefab: 900167
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910018
-    Skill_text: "\uB77C\uBC14\uACE8\uB818\uC774 \uC544\uAD70\uC758 \uACF5\uACA9\uB825\uC744
-      \uC99D\uAC00\uC2DC\uD0A4\uACE0 \uC801\uC5D0\uAC8C \uD654\uC0C1 \uD53C\uD574\uB97C
-      \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    Skill_text: "\uB77C\uBC14\uACE8\uB818\uC774 \uC801\uC5D0\uAC8C \uD654\uC0C1 \uD6A8\uACFC\uB97C
+      5\uCD08\uAC04 \uBD80\uC5EC\uD569\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD654\uC0C1 \uD6A8\uACFC"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 0.15
+    SkillAvility1_Star2: 0.2
+    SkillAvility1_Star3: 0.25
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 103
     Name_KR: "\uD654\uC0B0\uD3ED\uBC1C 3"
     Name_EN: Skill103
@@ -2864,23 +2867,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310081
-    Atk_prefab: 0
+    Atk_prefab: 900167
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910018
-    Skill_text: "\uB77C\uBC14\uACE8\uB818\uC774 \uC544\uAD70\uC758 \uACF5\uACA9\uB825\uC744
-      \uC99D\uAC00\uC2DC\uD0A4\uACE0 \uC801\uC5D0\uAC8C \uD654\uC0C1 \uD53C\uD574\uB97C
-      \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    Skill_text: "\uB77C\uBC14\uACE8\uB818\uC774  \uC801\uC5D0\uAC8C \uD654\uC0C1
+      \uD6A8\uACFC\uB97C 5\uCD08\uAC04 \uBD80\uC5EC\uD569\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD654\uC0C1 \uD6A8\uACFC"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 0.15
+    SkillAvility1_Star2: 0.2
+    SkillAvility1_Star3: 0.25
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 104
     Name_KR: "\uCD08\uC74C\uD30C 1"
     Name_EN: Skill104
@@ -2893,22 +2895,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310082
-    Atk_prefab: 0
+    Atk_prefab: 900169
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910019
     Skill_text: "\uBC15\uC950\uAC00 \uC801\uC5D0\uAC8C \uCD08\uC74C\uD30C\uB97C \uBCF4\uB0B4
-      \uBC29\uC5B4\uB825\uC744 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uBC29\uC5B4\uB825\uC744 5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uBC29\uC5B4\uB825 \uAC10\uC18C"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 0.09999999999999998
+    SkillAvility1_Star2: 0.15000000000000002
+    SkillAvility1_Star3: 0.30000000000000004
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 105
     Name_KR: "\uCD08\uC74C\uD30C 2"
     Name_EN: Skill105
@@ -2921,22 +2923,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310083
-    Atk_prefab: 0
+    Atk_prefab: 900169
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910019
     Skill_text: "\uBC15\uC950\uAC00 \uC801\uC5D0\uAC8C \uCD08\uC74C\uD30C\uB97C \uBCF4\uB0B4
-      \uBC29\uC5B4\uB825\uC744 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uBC29\uC5B4\uB825\uC744 5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uBC29\uC5B4\uB825 \uAC10\uC18C"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 0.09999999999999998
+    SkillAvility1_Star2: 0.15000000000000002
+    SkillAvility1_Star3: 0.30000000000000004
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 106
     Name_KR: "\uCD08\uC74C\uD30C 3"
     Name_EN: Skill106
@@ -2949,22 +2951,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310084
-    Atk_prefab: 0
+    Atk_prefab: 900169
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910019
     Skill_text: "\uBC15\uC950\uAC00 \uC801\uC5D0\uAC8C \uCD08\uC74C\uD30C\uB97C \uBCF4\uB0B4
-      \uBC29\uC5B4\uB825\uC744 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uBC29\uC5B4\uB825\uC744 5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uBC29\uC5B4\uB825 \uAC10\uC18C"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 0.09999999999999998
+    SkillAvility1_Star2: 0.15000000000000002
+    SkillAvility1_Star3: 0.30000000000000004
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 107
     Name_KR: "\uBAB8\uD1B5\uBC15\uCE58\uAE30 1"
     Name_EN: Skill107
@@ -2977,22 +2979,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310085
-    Atk_prefab: 0
+    Atk_prefab: 900171
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900172
     Skill_icon: 910020
     Skill_text: "\uB291\uB300\uAC00 \uC801\uC5D0\uAC8C \uB3CC\uC9C4\uD574 \uD53C\uD574\uB97C
-      \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C 5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 15
+    SkillAvility1_Star2: 30
+    SkillAvility1_Star3: 45
+    SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
+    SkillAvility2_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility2_Star1: 0.15000000000000002
+    SkillAvility2_Star2: 0.25
+    SkillAvility2_Star3: 0.30000000000000004
   - No: 108
     Name_KR: "\uBAB8\uD1B5\uBC15\uCE58\uAE30 2"
     Name_EN: Skill108
@@ -3005,22 +3007,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310086
-    Atk_prefab: 0
+    Atk_prefab: 900171
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900172
     Skill_icon: 910020
     Skill_text: "\uB291\uB300\uAC00 \uC801\uC5D0\uAC8C \uB3CC\uC9C4\uD574 \uD53C\uD574\uB97C
-      \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C 5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 15
+    SkillAvility1_Star2: 30
+    SkillAvility1_Star3: 45
+    SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
+    SkillAvility2_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility2_Star1: 0.15000000000000002
+    SkillAvility2_Star2: 0.25
+    SkillAvility2_Star3: 0.30000000000000004
   - No: 109
     Name_KR: "\uBAB8\uD1B5\uBC15\uCE58\uAE30 3"
     Name_EN: Skill109
@@ -3033,22 +3035,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310087
-    Atk_prefab: 0
+    Atk_prefab: 900171
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900172
     Skill_icon: 910020
     Skill_text: "\uB291\uB300\uAC00 \uC801\uC5D0\uAC8C \uB3CC\uC9C4\uD574 \uD53C\uD574\uB97C
-      \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C 5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 15
+    SkillAvility1_Star2: 30
+    SkillAvility1_Star3: 45
+    SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
+    SkillAvility2_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility2_Star1: 0.15000000000000002
+    SkillAvility2_Star2: 0.25
+    SkillAvility2_Star3: 0.30000000000000004
   - No: 110
     Name_KR: "\uC2B9\uB8E1\uAD8C 1"
     Name_EN: Skill110
@@ -3061,22 +3063,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310088
-    Atk_prefab: 0
+    Atk_prefab: 900174
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910021
     Skill_text: "\uD30C\uC774\uD2B8\uBCA0\uC5B4\uAC00 \uC8FC\uBA39\uC744 \uC704\uB85C
       \uC62C\uB824\uCCD0 \uC801\uC5D0\uAC8C \uD070 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 15
+    SkillAvility1_Star2: 30
+    SkillAvility1_Star3: 45
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 111
     Name_KR: "\uC2B9\uB8E1\uAD8C 2"
     Name_EN: Skill111
@@ -3089,22 +3091,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310089
-    Atk_prefab: 0
+    Atk_prefab: 900174
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910021
     Skill_text: "\uD30C\uC774\uD2B8\uBCA0\uC5B4\uAC00 \uC8FC\uBA39\uC744 \uC704\uB85C
       \uC62C\uB824\uCCD0 \uC801\uC5D0\uAC8C \uD070 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 15
+    SkillAvility1_Star2: 30
+    SkillAvility1_Star3: 45
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 112
     Name_KR: "\uC2B9\uB8E1\uAD8C 3"
     Name_EN: Skill112
@@ -3117,22 +3119,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310090
-    Atk_prefab: 0
+    Atk_prefab: 900174
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910021
     Skill_text: "\uD30C\uC774\uD2B8\uBCA0\uC5B4\uAC00 \uC8FC\uBA39\uC744 \uC704\uB85C
       \uC62C\uB824\uCCD0 \uC801\uC5D0\uAC8C \uD070 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 15
+    SkillAvility1_Star2: 30
+    SkillAvility1_Star3: 45
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 113
     Name_KR: "\uC554\uD751 \uC804\uC774 1"
     Name_EN: Skill113
@@ -3145,22 +3147,22 @@ MonoBehaviour:
     Move_type: 2
     Move_Height: 1.8
     PassiveCode: 310091
-    Atk_prefab: 0
+    Atk_prefab: 900178
     projectile_prefab: 900179
-    damage_prefab: 0
+    damage_prefab: 900180
     Skill_icon: 910022
     Skill_text: "\uAD11\uB300\uAC00 \uC554\uD751\uC5D0\uB108\uC9C0\uB97C \uC77C\uC73C\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 114
     Name_KR: "\uC554\uD751 \uC804\uC774 2"
     Name_EN: Skill114
@@ -3173,22 +3175,22 @@ MonoBehaviour:
     Move_type: 2
     Move_Height: 1.8
     PassiveCode: 310092
-    Atk_prefab: 0
+    Atk_prefab: 900178
     projectile_prefab: 900179
-    damage_prefab: 0
+    damage_prefab: 900180
     Skill_icon: 910022
     Skill_text: "\uAD11\uB300\uAC00 \uC554\uD751\uC5D0\uB108\uC9C0\uB97C \uC77C\uC73C\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 115
     Name_KR: "\uC554\uD751 \uC804\uC774 3"
     Name_EN: Skill115
@@ -3201,22 +3203,22 @@ MonoBehaviour:
     Move_type: 2
     Move_Height: 1.8
     PassiveCode: 310093
-    Atk_prefab: 0
+    Atk_prefab: 900178
     projectile_prefab: 900179
-    damage_prefab: 0
+    damage_prefab: 900180
     Skill_icon: 910022
     Skill_text: "\uAD11\uB300\uAC00 \uC554\uD751\uC5D0\uB108\uC9C0\uB97C \uC77C\uC73C\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 116
     Name_KR: "\uC5D0\uB108\uC9C0 \uBC29\uCD9C 1"
     Name_EN: Skill116
@@ -3229,23 +3231,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310094
-    Atk_prefab: 0
+    Atk_prefab: 900184
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910024
     Skill_text: "\uC774\uD504\uB9AC\uC2A4\uAC00 \uC790\uC2E0 \uC8FC\uC704\uC5D0 \uC5D0\uB108\uC9C0\uB97C
       \uBC29\uCD9C\uC2DC\uCF1C \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0
-      \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      5\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 100
+    SkillAvility1_Star2: 200
+    SkillAvility1_Star3: 300
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 117
     Name_KR: "\uC5D0\uB108\uC9C0 \uBC29\uCD9C 2"
     Name_EN: Skill117
@@ -3258,23 +3260,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310095
-    Atk_prefab: 0
+    Atk_prefab: 900184
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910024
     Skill_text: "\uC774\uD504\uB9AC\uC2A4\uAC00 \uC790\uC2E0 \uC8FC\uC704\uC5D0 \uC5D0\uB108\uC9C0\uB97C
       \uBC29\uCD9C\uC2DC\uCF1C \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0
-      \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      5\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 100
+    SkillAvility1_Star2: 200
+    SkillAvility1_Star3: 300
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 118
     Name_KR: "\uC5D0\uB108\uC9C0 \uBC29\uCD9C 3"
     Name_EN: Skill118
@@ -3287,23 +3289,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310096
-    Atk_prefab: 0
+    Atk_prefab: 900184
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910024
     Skill_text: "\uC774\uD504\uB9AC\uC2A4\uAC00 \uC790\uC2E0 \uC8FC\uC704\uC5D0 \uC5D0\uB108\uC9C0\uB97C
       \uBC29\uCD9C\uC2DC\uCF1C \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0
-      \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      5\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 100
+    SkillAvility1_Star2: 200
+    SkillAvility1_Star3: 300
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 119
     Name_KR: "\uB4DC\uB798\uACE4 \uBE0C\uB808\uC2A4 1"
     Name_EN: Skill119
@@ -3316,23 +3318,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310097
-    Atk_prefab: 0
+    Atk_prefab: 900188
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910025
     Skill_text: "\uB4DC\uB798\uACE4\uC774 \uC804\uBC29\uC5D0 \uBE0C\uB808\uC2A4\uB97C
       \uC3D8\uC544 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
-      \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 1000
+    SkillAvility1_Star2: 2000
+    SkillAvility1_Star3: 3000
+    SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
+    SkillAvility2_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility2_Star1: 0.15000000000000002
+    SkillAvility2_Star2: 0.30000000000000004
+    SkillAvility2_Star3: 0.4
   - No: 120
     Name_KR: "\uB4DC\uB798\uACE4 \uBE0C\uB808\uC2A4 2"
     Name_EN: Skill120
@@ -3345,23 +3347,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310098
-    Atk_prefab: 0
+    Atk_prefab: 900188
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910025
     Skill_text: "\uB4DC\uB798\uACE4\uC774 \uC804\uBC29\uC5D0 \uBE0C\uB808\uC2A4\uB97C
       \uC3D8\uC544 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
-      \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 1000
+    SkillAvility1_Star2: 2000
+    SkillAvility1_Star3: 3000
+    SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
+    SkillAvility2_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility2_Star1: 0.15000000000000002
+    SkillAvility2_Star2: 0.30000000000000004
+    SkillAvility2_Star3: 0.4
   - No: 121
     Name_KR: "\uB4DC\uB798\uACE4 \uBE0C\uB808\uC2A4 3"
     Name_EN: Skill121
@@ -3374,23 +3376,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310099
-    Atk_prefab: 0
+    Atk_prefab: 900188
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910025
     Skill_text: "\uB4DC\uB798\uACE4\uC774 \uC804\uBC29\uC5D0 \uBE0C\uB808\uC2A4\uB97C
       \uC3D8\uC544 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
-      \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 1000
+    SkillAvility1_Star2: 2000
+    SkillAvility1_Star3: 3000
+    SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
+    SkillAvility2_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility2_Star1: 0.15000000000000002
+    SkillAvility2_Star2: 0.30000000000000004
+    SkillAvility2_Star3: 0.4
   - No: 122
     Name_KR: "\uAC15\uD654 \uC8FC\uBB38 1"
     Name_EN: Skill122
@@ -3403,22 +3405,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310100
-    Atk_prefab: 0
+    Atk_prefab: 900192
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910026
     Skill_text: "\uB9C8\uB140\uAC00 \uC8FC\uBB38\uC744 \uAC78\uC5B4 \uC544\uAD70\uC758
-      \uACF5\uACA9\uB825\uC744 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uACF5\uACA9\uB825\uC744 5\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uACF5\uACA9\uB825 \uC99D\uAC00"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 0.10000000000000009
+    SkillAvility1_Star2: 0.19999999999999996
+    SkillAvility1_Star3: 0.25
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 123
     Name_KR: "\uAC15\uD654 \uC8FC\uBB38 2"
     Name_EN: Skill123
@@ -3431,22 +3433,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310101
-    Atk_prefab: 0
+    Atk_prefab: 900192
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910026
     Skill_text: "\uB9C8\uB140\uAC00 \uC8FC\uBB38\uC744 \uAC78\uC5B4 \uC544\uAD70\uC758
-      \uACF5\uACA9\uB825\uC744 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uACF5\uACA9\uB825\uC744 5\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uACF5\uACA9\uB825 \uC99D\uAC00"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 0.10000000000000009
+    SkillAvility1_Star2: 0.19999999999999996
+    SkillAvility1_Star3: 0.25
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 124
     Name_KR: "\uAC15\uD654 \uC8FC\uBB38 3"
     Name_EN: Skill124
@@ -3459,22 +3461,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310102
-    Atk_prefab: 0
+    Atk_prefab: 900192
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910026
     Skill_text: "\uB9C8\uB140\uAC00 \uC8FC\uBB38\uC744 \uAC78\uC5B4 \uC544\uAD70\uC758
-      \uACF5\uACA9\uB825\uC744 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      \uACF5\uACA9\uB825\uC744 5\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uACF5\uACA9\uB825 \uC99D\uAC00"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 0.10000000000000009
+    SkillAvility1_Star2: 0.19999999999999996
+    SkillAvility1_Star3: 0.25
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 125
     Name_KR: "\uCE7C\uB0A0 \uB3CC\uD48D 1"
     Name_EN: Skill125
@@ -3487,23 +3489,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310103
-    Atk_prefab: 0
+    Atk_prefab: 900194
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900195
     Skill_icon: 910027
     Skill_text: "\uB2E4\uD06C\uC5D8\uD504\uAC00 \uBE60\uB974\uAC8C \uD68C\uC804\uD574
       \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uBC29\uC5B4\uB825\uC744
-      \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: "\uBC29\uC5B4\uB825 \uAC10\uC18C"
+    SkillAvility2_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility2_Star1: 0.19999999999999996
+    SkillAvility2_Star2: 0.30000000000000004
+    SkillAvility2_Star3: 0.4
   - No: 126
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.2 1"
     Name_EN: Skill126
@@ -3518,19 +3520,19 @@ MonoBehaviour:
     PassiveCode: 310104
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900195
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 127
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.3 1"
     Name_EN: Skill127
@@ -3545,19 +3547,19 @@ MonoBehaviour:
     PassiveCode: 310105
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900195
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 128
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.4 1"
     Name_EN: Skill128
@@ -3572,19 +3574,19 @@ MonoBehaviour:
     PassiveCode: 310106
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900195
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 129
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.5 1"
     Name_EN: Skill129
@@ -3599,19 +3601,19 @@ MonoBehaviour:
     PassiveCode: 310107
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900195
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 130
     Name_KR: "\uCE7C\uB0A0 \uB3CC\uD48D 2"
     Name_EN: Skill130
@@ -3624,23 +3626,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310108
-    Atk_prefab: 0
+    Atk_prefab: 900194
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900195
     Skill_icon: 910027
     Skill_text: "\uB2E4\uD06C\uC5D8\uD504\uAC00 \uBE60\uB974\uAC8C \uD68C\uC804\uD574
       \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uBC29\uC5B4\uB825\uC744
-      \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: "\uBC29\uC5B4\uB825 \uAC10\uC18C"
+    SkillAvility2_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility2_Star1: 0.19999999999999996
+    SkillAvility2_Star2: 0.30000000000000004
+    SkillAvility2_Star3: 0.4
   - No: 131
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.2 2"
     Name_EN: Skill131
@@ -3655,19 +3657,19 @@ MonoBehaviour:
     PassiveCode: 310109
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900195
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 132
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.3 2"
     Name_EN: Skill132
@@ -3682,19 +3684,19 @@ MonoBehaviour:
     PassiveCode: 310110
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900195
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 133
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.4 2"
     Name_EN: Skill133
@@ -3709,19 +3711,19 @@ MonoBehaviour:
     PassiveCode: 310111
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900195
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 134
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.5 2"
     Name_EN: Skill134
@@ -3736,19 +3738,19 @@ MonoBehaviour:
     PassiveCode: 310112
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900195
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 135
     Name_KR: "\uCE7C\uB0A0 \uB3CC\uD48D 3"
     Name_EN: Skill135
@@ -3761,23 +3763,23 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310113
-    Atk_prefab: 0
+    Atk_prefab: 900194
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900195
     Skill_icon: 910027
     Skill_text: "\uB2E4\uD06C\uC5D8\uD504\uAC00 \uBE60\uB974\uAC8C \uD68C\uC804\uD574
       \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uBC29\uC5B4\uB825\uC744
-      \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+      5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 10
+    SkillAvility1_Star2: 20
+    SkillAvility1_Star3: 30
+    SkillAvility2_Name: "\uBC29\uC5B4\uB825 \uAC10\uC18C"
+    SkillAvility2_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility2_Star1: 0.19999999999999996
+    SkillAvility2_Star2: 0.30000000000000004
+    SkillAvility2_Star3: 0.4
   - No: 136
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.2 3"
     Name_EN: Skill136
@@ -3792,19 +3794,19 @@ MonoBehaviour:
     PassiveCode: 310114
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900195
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 137
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.3 3"
     Name_EN: Skill137
@@ -3819,19 +3821,19 @@ MonoBehaviour:
     PassiveCode: 310115
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900195
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 138
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.4 3"
     Name_EN: Skill138
@@ -3846,19 +3848,19 @@ MonoBehaviour:
     PassiveCode: 310116
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900195
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 139
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.5 3"
     Name_EN: Skill139
@@ -3873,19 +3875,19 @@ MonoBehaviour:
     PassiveCode: 310117
     Atk_prefab: 0
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900195
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 140
     Name_KR: "\uC18C\uB4DC\uB808\uC778 1"
     Name_EN: Skill140
@@ -3898,22 +3900,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310118
-    Atk_prefab: 0
+    Atk_prefab: 900182
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910023
     Skill_text: "\uD0C0\uB77D\uCC9C\uC0AC\uAC00 \uCE7C\uC744 \uBE44\uCC98\uB7FC \uB5A8\uC5B4\uB728\uB824
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
+    SkillAvility1_Star1: 120
+    SkillAvility1_Star2: 240
+    SkillAvility1_Star3: 360
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 141
     Name_KR: "\uC2A4\uD0AC \uD0C0\uB77D\uCC9C\uC0AC01.2 1"
     Name_EN: Skill141
@@ -3931,16 +3933,16 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 142
     Name_KR: "\uC2A4\uD0AC \uD0C0\uB77D\uCC9C\uC0AC01.3 1"
     Name_EN: Skill142
@@ -3958,16 +3960,16 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 143
     Name_KR: "\uC18C\uB4DC\uB808\uC778 2"
     Name_EN: Skill143
@@ -3980,22 +3982,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310121
-    Atk_prefab: 0
+    Atk_prefab: 900182
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910023
     Skill_text: "\uD0C0\uB77D\uCC9C\uC0AC\uAC00 \uCE7C\uC744 \uBE44\uCC98\uB7FC \uB5A8\uC5B4\uB728\uB824
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
+    SkillAvility1_Star1: 120
+    SkillAvility1_Star2: 240
+    SkillAvility1_Star3: 360
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 144
     Name_KR: "\uC2A4\uD0AC \uD0C0\uB77D\uCC9C\uC0AC01.2 2"
     Name_EN: Skill144
@@ -4013,16 +4015,16 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 145
     Name_KR: "\uC2A4\uD0AC \uD0C0\uB77D\uCC9C\uC0AC01.3 2"
     Name_EN: Skill145
@@ -4040,16 +4042,16 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 146
     Name_KR: "\uC18C\uB4DC\uB808\uC778 3"
     Name_EN: Skill146
@@ -4062,22 +4064,22 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310124
-    Atk_prefab: 0
+    Atk_prefab: 900182
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 910023
     Skill_text: "\uD0C0\uB77D\uCC9C\uC0AC\uAC00 \uCE7C\uC744 \uBE44\uCC98\uB7FC \uB5A8\uC5B4\uB728\uB824
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: "\uD53C\uD574\uB7C9"
+    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
+    SkillAvility1_Star1: 120
+    SkillAvility1_Star2: 240
+    SkillAvility1_Star3: 360
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 147
     Name_KR: "\uC2A4\uD0AC \uD0C0\uB77D\uCC9C\uC0AC01.2 3"
     Name_EN: Skill147
@@ -4095,16 +4097,16 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 148
     Name_KR: "\uC2A4\uD0AC \uD0C0\uB77D\uCC9C\uC0AC01.3 3"
     Name_EN: Skill148
@@ -4122,16 +4124,16 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 149
     Name_KR: "\uB514\uD39C\uB354 \uC2A4\uD0AC"
     Name_EN: Skill149
@@ -4144,21 +4146,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310127
-    Atk_prefab: 0
+    Atk_prefab: 900197
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900198
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 150
     Name_KR: "\uB4DC\uC6CC\uD504\uC804\uC0AC \uC2A4\uD0AC"
     Name_EN: Skill150
@@ -4171,21 +4173,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310128
-    Atk_prefab: 0
+    Atk_prefab: 900200
     projectile_prefab: 0
-    damage_prefab: 0
+    damage_prefab: 900201
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 151
     Name_KR: "\uADF8\uB9AC\uD540(\uD558\uB298) \uC2A4\uD0AC"
     Name_EN: Skill151
@@ -4198,21 +4200,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310129
-    Atk_prefab: 0
+    Atk_prefab: 900203
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 152
     Name_KR: "\uC790\uD3ED\uC2A4\uD0AC1(\uC790\uAE30\uD53C\uD574)"
     Name_EN: Skill152
@@ -4230,16 +4232,16 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 153
     Name_KR: "\uC790\uD3ED\uC2A4\uD0AC2(\uC8FC\uBCC0\uD53C\uD574)"
     Name_EN: Skill153
@@ -4252,21 +4254,21 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310131
-    Atk_prefab: 0
+    Atk_prefab: 900216
     projectile_prefab: 0
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 154
     Name_KR: "\uC18C\uD658"
     Name_EN: Skill154
@@ -4284,16 +4286,16 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 155
     Name_KR: "\uCCB4\uB825\uBE44\uB840\uB2A5\uB825(\uC774\uB3D9\uC18D\uB3C4)"
     Name_EN: Skill155
@@ -4311,16 +4313,16 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 156
     Name_KR: "\uCCB4\uB825\uBE44\uB840\uB2A5\uB825(\uBC29\uC5B4\uB825)"
     Name_EN: Skill156
@@ -4338,16 +4340,16 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
   - No: 157
     Name_KR: "\uCCB4\uB825\uBE44\uB840\uB2A5\uB825(\uCCB4\uB825\uD68C\uBCF5)"
     Name_EN: Skill157
@@ -4365,13 +4367,13 @@ MonoBehaviour:
     damage_prefab: 0
     Skill_icon: 0
     Skill_text: '-'
-    SkillAvility1_Name: 
-    SkillAvility1_Text: 
-    SkillAvility1_Star1: 
-    SkillAvility1_Star2: 
-    SkillAvility1_Star3: 
-    SkillAvility2_Name: 
-    SkillAvility2_Text: 
-    SkillAvility2_Star1: 
-    SkillAvility2_Star2: 
-    SkillAvility2_Star3: 
+    SkillAvility1_Name: '-'
+    SkillAvility1_Text: '-'
+    SkillAvility1_Star1: '-'
+    SkillAvility1_Star2: '-'
+    SkillAvility1_Star3: '-'
+    SkillAvility2_Name: '-'
+    SkillAvility2_Text: '-'
+    SkillAvility2_Star1: '-'
+    SkillAvility2_Star2: '-'
+    SkillAvility2_Star3: '-'
