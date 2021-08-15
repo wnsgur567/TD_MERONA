@@ -24,4 +24,4 @@ MonoBehaviour:
   - Code: 100000
     obj: {fileID: 1555670612945888, guid: de16f18473fed50419df0b8adb08caee, type: 3}
   - Code: 900139
-    obj: {fileID: 1444838685708718, guid: cfb27972687244046b42735201c98961, type: 3}
+    obj: {fileID: 0}
