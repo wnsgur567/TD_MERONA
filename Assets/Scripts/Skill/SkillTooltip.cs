@@ -34,13 +34,14 @@ public class SkillTooltip : Singleton<SkillTooltip>
     {
         this.gameObject.SetActive(false);
     }
-    public void Set_Skill_TT(Tower_Data tower)
+    public void Set_Skill_TT(Skill_Date skill)
     {
         
-        Skill_name.text = tower.skillname;
-        Skill_text.text = tower.skilltext;
+        Skill_name.text = skill.skillname;
+        Skill_text.text = skill.skilltext;
+        
         //어빌리티 2 없는경우 비활성화.
-        //if(tower.isskillavility)
+        //if(skill.isskillavility)
         //{
         //    Avilityname.gameObject.SetActive(false);
         //    Avilitytext.gameObject.SetActive(false);
@@ -50,9 +51,10 @@ public class SkillTooltip : Singleton<SkillTooltip>
         //    Avilityname.gameObject.SetActive(true);
         //    Avilitytext.gameObject.SetActive(true);
         //}
-        //Skill_avility_name1=tower.skillavility1;
+        //Skill_avility_name1=skill.skillavility1;
         //Skill_avility_text1=tower.skillavility_text1;
-
+        //Skill_avility_name1=skill.skillavility2;
+        //Skill_avility_text1=tower.skillavility_text2;
     }
     public void Set_Skill_TT_pos(Vector2 pos)
     {
