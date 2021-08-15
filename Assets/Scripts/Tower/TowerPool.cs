@@ -17,7 +17,9 @@ public class TowerPool : ObjectPool<TowerPool, Tower>
         {
             int PrefabCode = M_TowerData.DataList[i].Prefeb;
             string key = PrefabCode.ToString();
-            Tower origin = M_PrefabData.GetPrefab(PrefabCode).GetComponent<Tower>();
+            GameObject originObj = GameObject.Instantiate(M_PrefabData.GetPrefab(PrefabCode));
+            originObj.name = M_PrefabData.GetPrefab(PrefabCode).name;
+            Tower origin = originObj.AddComponent<Tower>();
             AddPool(key, origin, transform);
         }
 

@@ -106,8 +106,8 @@ public class Skill : MonoBehaviour
         switch ((E_AttackType)m_ConditionInfo_Excel.Atk_type)
         {
             case E_AttackType.NormalFire:
-            case E_AttackType.FixedFire:
                 return ArrivedToTarget || LostTarget;
+            case E_AttackType.FixedFire:
             case E_AttackType.PenetrateFire:
                 return DepletedLifeTime;
             case E_AttackType.BounceFire:
@@ -161,6 +161,9 @@ public class Skill : MonoBehaviour
                         case E_TargetType.FixTarget:
                             m_Target = m_SkillInfo.AttackRange.GetNearTarget(true);
                             break;
+                        case E_TargetType.TileTarget:
+                            m_Target = m_SkillInfo.AttackRange.GetNearTarget(true);
+                            break;
                     }
                 }
                 else
@@ -178,6 +181,9 @@ public class Skill : MonoBehaviour
                                 m_Target = m_SkillInfo.AttackRange.GetRandomTarget();
                                 break;
                             case E_TargetType.FixTarget:
+                                m_Target = m_SkillInfo.AttackRange.GetNearTarget();
+                                break;
+                            case E_TargetType.TileTarget:
                                 m_Target = m_SkillInfo.AttackRange.GetNearTarget();
                                 break;
                         }
@@ -279,9 +285,9 @@ public class Skill : MonoBehaviour
         switch ((E_AttackType)m_ConditionInfo_Excel.Atk_type)
         {
             case E_AttackType.NormalFire:
-            case E_AttackType.FixedFire:
             case E_AttackType.BounceFire:
                 break;
+            case E_AttackType.FixedFire:
             case E_AttackType.PenetrateFire:
                 m_SkillInfo.LifeTime -= Time.deltaTime;
                 break;

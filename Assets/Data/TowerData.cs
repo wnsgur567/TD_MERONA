@@ -6,11 +6,6 @@ public enum E_Tower
 {
     None,
 
-    // ¸¶¿Õ
-    HateQueen = 1,
-    HellLord,
-    FrostLich,
-
     // Å¸¿ö
     OrkGunner01 = 4,
     OrkWarrior01,

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    // 타워 코드(임시)
-    public int m_TempCode;
     // 타겟
     public GameObject m_Target;
 
@@ -26,6 +24,8 @@ public class Tower : MonoBehaviour
     protected TowerManager M_Tower => TowerManager.Instance;
     // 스킬 매니져
     protected SkillManager M_Skill => SkillManager.Instance;
+    // 적 매니져
+    protected EnemyManager M_Enemy => EnemyManager.Instance;
 
     // 타워 회전 속도
     protected float RotateSpeed
@@ -51,67 +51,7 @@ public class Tower : MonoBehaviour
     public int SynergyCode2 => m_TowerInfo_Excel.Type2;
     #endregion
 
-    private void Awake()
-    {
-        InitializeTower(m_TempCode);
-    }
-
-    // 타워 초기화
-    public void InitializeTower(int code)
-    {
-        #region 엑셀 데이터 정리
-        m_TowerInfo_Excel = M_Tower.GetData(code);
-        #endregion
-
-        #region 내부 데이터 정리
-        m_TowerInfo.RotateSpeed = 5f;
-        m_TowerInfo.InitialRotation = transform.eulerAngles;
-        m_TowerInfo.ShouldFindTarget = true;
-
-        // 기본 스킬 데이터
-        m_TowerInfo.Condition_Default = M_Skill.GetConditionData(m_TowerInfo_Excel.Atk_Code);
-        m_TowerInfo.Stat_Default = M_Skill.GetStatData(m_TowerInfo.Condition_Default.PassiveCode);
-        // 기본 스킬
-        m_TowerInfo.AttackSpeed_Default = m_TowerInfo.Stat_Default.CoolTime;
-        m_TowerInfo.AttackTimer_Default = m_TowerInfo.Stat_Default.CoolTime;
-
-        // 스킬1 데이터
-        m_TowerInfo.Condition_Skill01 = M_Skill.GetConditionData(m_TowerInfo_Excel.Skill1Code);
-        m_TowerInfo.Stat_Skill01 = M_Skill.GetStatData(m_TowerInfo.Condition_Skill01.PassiveCode);
-        // 스킬1
-        m_TowerInfo.AttackSpeed_Skill01 = m_TowerInfo.Stat_Skill01.CoolTime;
-        m_TowerInfo.AttackTimer_Skill01 = 0f;
-
-        // 스킬2 데이터
-        m_TowerInfo.Condition_Skill02 = M_Skill.GetConditionData(m_TowerInfo_Excel.Skill2Code);
-        m_TowerInfo.Stat_Skill02 = M_Skill.GetStatData(m_TowerInfo.Condition_Skill02.PassiveCode);
-        // 스킬2
-        m_TowerInfo.AttackSpeed_Skill02 = m_TowerInfo.Stat_Skill02.CoolTime;
-        m_TowerInfo.AttackTimer_Skill02 = 0f;
-
-        // 시너지
-        m_TowerInfo.Synergy_Atk_type = E_AttackType.None;
-        m_TowerInfo.BuffList = new List<BuffCC_TableExcel>();
-        m_TowerInfo.BerserkerBuffList = new List<BuffCC_TableExcel>();
-
-        // 마왕 스킬
-        m_TowerInfo.DevilSkillBuffList = new List<BuffCC_TableExcel>();
-        #endregion
-
-        #region 내부 컴포넌트
-        m_AttackRange_Default = transform.Find("AttackRange").GetComponent<AttackRange>();
-        m_AttackRange_Default.Initialize();
-        m_AttackRange_Default.SetRange(m_TowerInfo.Stat_Default.Range);
-        #endregion
-    }
-
-    private void Update()
-    {
-        RotateToTarget();
-        UpdateTarget();
-        AttackTarget();
-    }
-
+    #region 내부 함수
     // 타워 회전
     protected void RotateToTarget()
     {
@@ -170,6 +110,13 @@ public class Tower : MonoBehaviour
                     DistanceToTarget > m_TowerInfo.Stat_Default.Range) // 타겟이 사거리를 벗어난 경우
                 {
                     m_Target = m_AttackRange_Default.GetNearTarget();
+                }
+                break;
+            case E_TargetType.TileTarget:
+                if (m_TowerInfo.ShouldFindTarget)
+                {
+                    m_Target = m_AttackRange_Default.GetNearTarget();
+                    m_TowerInfo.ShouldFindTarget = false;
                 }
                 break;
         }
@@ -818,17 +765,46 @@ public class Tower : MonoBehaviour
                 statData.Target_num = m_TowerInfo.BounceCount;
             }
 
+            // 마왕 쿨타임 감소
+            if (m_TowerInfo.ReduceCooldown)
+            {
+                float ReduceCooldownRand = Random.Range(0f, 1f);
+                bool ReduceCooldownApply = (ReduceCooldownRand <= m_TowerInfo.ReduceCooldownRand);
+
+                if (ReduceCooldownApply)
+                {
+                    // Do Something
+                }
+            }
             #endregion
 
             // 기본 스킬 투사체 생성
             int DefaultSkillCode = conditionData.projectile_prefab;
-            Skill DefaultSkill = M_Skill.SpawnProjectileSkill(DefaultSkillCode);
-            DefaultSkill.transform.position = transform.position;
-            DefaultSkill.enabled = true;
-            DefaultSkill.gameObject.SetActive(true);
+            if ((E_TargetType)m_TowerInfo.Condition_Default.Target_type == E_TargetType.TileTarget)
+            {
+                List<Enemy> EnemyList = M_Enemy.GetEnemyList(m_TowerInfo.Direction);
 
-            // 기본 스킬 데이터 설정
-            DefaultSkill.InitializeSkill(m_Target, conditionData, statData);
+                for (int i = 0; i < EnemyList.Count; ++i)
+                {
+                    Skill DefaultSkill = M_Skill.SpawnProjectileSkill(DefaultSkillCode);
+                    DefaultSkill.transform.position = transform.position;
+                    DefaultSkill.enabled = true;
+                    DefaultSkill.gameObject.SetActive(true);
+
+                    // 기본 스킬 데이터 설정
+                    DefaultSkill.InitializeSkill(EnemyList[i].gameObject, conditionData, statData);
+                }
+            }
+            else
+            {
+                Skill DefaultSkill = M_Skill.SpawnProjectileSkill(DefaultSkillCode);
+                DefaultSkill.transform.position = transform.position;
+                DefaultSkill.enabled = true;
+                DefaultSkill.gameObject.SetActive(true);
+
+                // 기본 스킬 데이터 설정
+                DefaultSkill.InitializeSkill(m_Target, conditionData, statData);
+            }
         }
         #endregion
 
@@ -1441,13 +1417,32 @@ public class Tower : MonoBehaviour
 
             // 스킬01 투사체 생성
             int Skill01Code = conditionData.projectile_prefab;
-            Skill Skill01 = M_Skill.SpawnProjectileSkill(Skill01Code);
-            Skill01.transform.position = transform.position;
-            Skill01.enabled = true;
-            Skill01.gameObject.SetActive(true);
 
-            // 스킬01 데이터 설정
-            Skill01.InitializeSkill(m_Target, conditionData, statData);
+            if ((E_TargetType)m_TowerInfo.Condition_Skill01.Target_type == E_TargetType.TileTarget)
+            {
+                List<Enemy> EnemyList = M_Enemy.GetEnemyList(m_TowerInfo.Direction);
+
+                for (int i = 0; i < EnemyList.Count; ++i)
+                {
+                    Skill Skill01 = M_Skill.SpawnProjectileSkill(Skill01Code);
+                    Skill01.transform.position = transform.position;
+                    Skill01.enabled = true;
+                    Skill01.gameObject.SetActive(true);
+
+                    // 스킬01 데이터 설정
+                    Skill01.InitializeSkill(EnemyList[i].gameObject, conditionData, statData);
+                }
+            }
+            else
+            {
+                Skill Skill01 = M_Skill.SpawnProjectileSkill(Skill01Code);
+                Skill01.transform.position = transform.position;
+                Skill01.enabled = true;
+                Skill01.gameObject.SetActive(true);
+
+                // 스킬01 데이터 설정
+                Skill01.InitializeSkill(m_Target, conditionData, statData);
+            }
         }
         #endregion
 
@@ -2060,21 +2055,103 @@ public class Tower : MonoBehaviour
 
             // 스킬02 투사체 생성
             int Skill02Code = conditionData.projectile_prefab;
-            Skill Skill02 = M_Skill.SpawnProjectileSkill(Skill02Code);
-            Skill02.transform.position = transform.position;
-            Skill02.enabled = true;
-            Skill02.gameObject.SetActive(true);
 
-            // 스킬02 데이터 설정
-            Skill02.InitializeSkill(m_Target, conditionData, statData);
+            if ((E_TargetType)m_TowerInfo.Condition_Skill02.Target_type == E_TargetType.TileTarget)
+            {
+                List<Enemy> EnemyList = M_Enemy.GetEnemyList(m_TowerInfo.Direction);
+
+                for (int i = 0; i < EnemyList.Count; ++i)
+                {
+                    Skill Skill02 = M_Skill.SpawnProjectileSkill(Skill02Code);
+                    Skill02.transform.position = transform.position;
+                    Skill02.enabled = true;
+                    Skill02.gameObject.SetActive(true);
+
+                    // 스킬02 데이터 설정
+                    Skill02.InitializeSkill(EnemyList[i].gameObject, conditionData, statData);
+                }
+            }
+            else
+            {
+                Skill Skill02 = M_Skill.SpawnProjectileSkill(Skill02Code);
+                Skill02.transform.position = transform.position;
+                Skill02.enabled = true;
+                Skill02.gameObject.SetActive(true);
+
+                // 스킬02 데이터 설정
+                Skill02.InitializeSkill(m_Target, conditionData, statData);
+            }
         }
         #endregion
     }
+    #endregion
+
+    #region 외부 함수
+    // 타워 초기화
+    public void InitializeTower(int code)
+    {
+        #region 엑셀 데이터 정리
+        m_TowerInfo_Excel = M_Tower.GetData(code);
+        #endregion
+
+        #region 내부 데이터 정리
+        m_TowerInfo.RotateSpeed = 5f;
+        m_TowerInfo.InitialRotation = transform.eulerAngles;
+        m_TowerInfo.ShouldFindTarget = true;
+
+        // 기본 스킬 데이터
+        m_TowerInfo.Condition_Default = M_Skill.GetConditionData(m_TowerInfo_Excel.Atk_Code);
+        m_TowerInfo.Stat_Default = M_Skill.GetStatData(m_TowerInfo.Condition_Default.PassiveCode);
+        // 기본 스킬
+        m_TowerInfo.AttackSpeed_Default = m_TowerInfo.Stat_Default.CoolTime;
+        m_TowerInfo.AttackTimer_Default = m_TowerInfo.Stat_Default.CoolTime;
+
+        // 스킬1 데이터
+        m_TowerInfo.Condition_Skill01 = M_Skill.GetConditionData(m_TowerInfo_Excel.Skill1Code);
+        m_TowerInfo.Stat_Skill01 = M_Skill.GetStatData(m_TowerInfo.Condition_Skill01.PassiveCode);
+        // 스킬1
+        m_TowerInfo.AttackSpeed_Skill01 = m_TowerInfo.Stat_Skill01.CoolTime;
+        m_TowerInfo.AttackTimer_Skill01 = 0f;
+
+        // 스킬2 데이터
+        m_TowerInfo.Condition_Skill02 = M_Skill.GetConditionData(m_TowerInfo_Excel.Skill2Code);
+        m_TowerInfo.Stat_Skill02 = M_Skill.GetStatData(m_TowerInfo.Condition_Skill02.PassiveCode);
+        // 스킬2
+        m_TowerInfo.AttackSpeed_Skill02 = m_TowerInfo.Stat_Skill02.CoolTime;
+        m_TowerInfo.AttackTimer_Skill02 = 0f;
+
+        // 시너지
+        m_TowerInfo.Synergy_Atk_type = E_AttackType.None;
+        m_TowerInfo.BuffList = new List<BuffCC_TableExcel>();
+        m_TowerInfo.BerserkerBuffList = new List<BuffCC_TableExcel>();
+
+        // 마왕 스킬
+        m_TowerInfo.DevilSkillBuffList = new List<BuffCC_TableExcel>();
+        #endregion
+
+        #region 내부 컴포넌트
+        m_AttackRange_Default = transform.Find("AttackRange").GetComponent<AttackRange>();
+        m_AttackRange_Default.Initialize();
+        m_AttackRange_Default.SetRange(m_TowerInfo.Stat_Default.Range);
+        #endregion
+    }
+    #endregion
+
+    #region 유니티 콜백 함수
+    private void Update()
+    {
+        RotateToTarget();
+        UpdateTarget();
+        AttackTarget();
+    }
+    #endregion
 
     // 타워 정보
     [System.Serializable]
     public struct S_TowerData
     {
+        // 타워 방향
+        public E_Direction Direction;
         // 회전 속도
         public float RotateSpeed;
         // 초기 회전 값
@@ -2120,6 +2197,9 @@ public class Tower : MonoBehaviour
         public int BerserkerMaxStack;
         public List<BuffCC_TableExcel> BerserkerBuffList;
 
+        // 마왕 쿨타임 감소
+        public bool ReduceCooldown;
+        public float ReduceCooldownRand;
         #endregion
 
         // 마왕 스킬 버프

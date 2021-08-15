@@ -20,7 +20,7 @@ public enum E_SynergyEffectAmount
 
     Tower,
     Enemy,
-    King
+    Devil
 }
 #endregion
 

@@ -51,6 +51,10 @@ public class TowerManager : Singleton<TowerManager>
 
         return result;
     }
+    public List<Tower> GetTowerList()
+    {
+        return m_TowerList;
+    }
     public List<Tower> GetTowerList(E_Direction dir)
     {
         return m_DirTowerList[dir];
