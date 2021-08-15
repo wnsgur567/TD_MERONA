@@ -10,7 +10,6 @@ public struct Monster_TableExcel
 	public int Code;
 	public int Move_Type;
 	public float Atk;
-	public float Atk_spd ;
 	public float HP;
 	public float Def;
 	public int Shild;
@@ -49,7 +48,6 @@ public class  Monster_TableExcelLoader : ScriptableObject
 		data.Code = int.Parse(strs[idx++]);
 		data.Move_Type = int.Parse(strs[idx++]);
 		data.Atk = float.Parse(strs[idx++]);
-		data.Atk_spd  = float.Parse(strs[idx++]);
 		data.HP = float.Parse(strs[idx++]);
 		data.Def = float.Parse(strs[idx++]);
 		data.Shild = int.Parse(strs[idx++]);

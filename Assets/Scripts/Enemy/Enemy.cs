@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public enum E_Enemy
 {
@@ -38,7 +39,6 @@ public class Enemy : MonoBehaviour
         public float Atk;
         public float Range;
         public float Def;
-        public float Atk_spd;
         public float Move_spd;
         public float Crit_rate;
         public float Crit_Dmg;
@@ -65,6 +65,39 @@ public class Enemy : MonoBehaviour
 
     //체력바
     public Image image;
+
+    #region 시너지 관련
+    // 버프
+    public List<BuffCC_TableExcel> BuffList;
+
+    // 공격 타입 변경
+    public E_AttackType Synergy_Atk_type;
+    public int BounceCount;
+
+    // 버서커
+    public bool Berserker;
+    public int BerserkerStack;
+    public int BerserkerMaxStack;
+    public List<BuffCC_TableExcel> BerserkerBuffList;
+
+    #endregion
+
+    private void Awake()
+    {
+        List<float> BuffRand = new List<float>();
+        // 버프 적용 여부
+        List<bool> BuffApply = new List<bool>();
+        // 버프 적용 계산
+        for (int i = 0; i < BuffList.Count; ++i)
+        {
+            BuffRand.Add(UnityEngine.Random.Range(0f, 1f));
+            BuffApply.Add((E_BuffType)BuffList[i].BuffType1 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand1);
+            BuffRand.Add(Random.Range(0f, 1f));
+            BuffApply.Add((E_BuffType)BuffList[i].BuffType2 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand2);
+            BuffRand.Add(Random.Range(0f, 1f));
+            BuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand3);
+        }
+    }
 
     private void Start()
     {
@@ -163,11 +196,6 @@ public class Enemy : MonoBehaviour
     public float Get_Enemy_Def()
     {
         return data.Def;
-    }
-
-    public float Get_Enemy_Atk_spd()
-    {
-        return data.Atk_spd;
     }
 
     public float Get_Enemy_Move_spd()

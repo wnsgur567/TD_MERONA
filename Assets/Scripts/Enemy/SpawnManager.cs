@@ -27,40 +27,14 @@ public class SpawnManager : Singleton<SpawnManager>
 
     public EnemyPool enemyPool => EnemyPool.Instance;
 
-    //방향별 나온 몬스터 저장하는 리스트
-    public Dictionary<E_Direction, List<Enemy>> Enemy_Direction;
-    //몬스터 나오는 숫자
-    public Dictionary<E_Direction, List<int>> EnemyIndex_Direction;
-    //몬스터 이름 리스트
-    public Dictionary<E_Direction, List<string>> EnemyName_Direction;
-
-    //전체 몬스터
-    public List<Enemy> All_Enemy;
-
     //몬스터 소환 시간 간격
     public float Summon_Time = 0.5f;
 
     private int Round = 0;
 
-    private S_Stage_EnemyData_Excel data;
+    private StageMonster_TableExcel data;
 
     private SpawnData spawndata;
-
-    private void Awake()
-    {
-        All_Enemy = new List<Enemy>();
-
-        Enemy_Direction = new Dictionary<E_Direction, List<Enemy>>();
-        EnemyIndex_Direction = new Dictionary<E_Direction, List<int>>();
-        EnemyName_Direction = new Dictionary<E_Direction, List<string>>();
-
-        for (E_Direction i = 0; i < E_Direction.Max; ++i)
-        {
-            Enemy_Direction[i] = new List<Enemy>();
-            EnemyIndex_Direction[i] = new List<int>();
-            EnemyName_Direction[i] = new List<string>();
-        }
-    }
 
     #region 외부 함수
     //스테이지 시작
@@ -68,7 +42,7 @@ public class SpawnManager : Singleton<SpawnManager>
     {
         for (E_Direction i = 0; i < E_Direction.Max; ++i)
         {
-            if (EnemyIndex_Direction[i][Round] != 0)
+            if (EnemyManager.Instance.EnemyIndex_Direction[i][Round] != 0)
             {
                 StartCoroutine(Spawn(i, Round));
             }
@@ -80,7 +54,7 @@ public class SpawnManager : Singleton<SpawnManager>
     // 몬스터 사망 함수
     public void Despawn(Enemy enemy)
     {
-        Enemy_Direction[enemy.Get_Direction()].Remove(enemy);
+        EnemyManager.Instance.Enemy_Direction[enemy.Get_Direction()].Remove(enemy);
         enemyPool.GetPool(enemy.Get_Enemy_Name()).DeSpawn(enemy);
     }
     #endregion
@@ -93,11 +67,11 @@ public class SpawnManager : Singleton<SpawnManager>
         {
             for (E_Direction i = 0; i < E_Direction.Max; ++i)
             {
-                if (EnemyIndex_Direction[i][round - 1] != 0)
+                if (EnemyManager.Instance.EnemyIndex_Direction[i][round - 1] != 0)
                 {
-                    for (int j = 0; j < Enemy_Direction[i].Count; ++j)
+                    for (int j = 0; j < EnemyManager.Instance.Enemy_Direction[i].Count; ++j)
                     {
-                        Despawn(Enemy_Direction[i][0]);
+                        Despawn(EnemyManager.Instance.Enemy_Direction[i][0]);
                     }
                 }
             }
@@ -108,7 +82,7 @@ public class SpawnManager : Singleton<SpawnManager>
 
     IEnumerator Spawn(E_Direction dir, int round)
     {
-        for (int i = 0; i < EnemyIndex_Direction[dir][round] - 1; ++i)
+        for (int i = 0; i < EnemyManager.Instance.EnemyIndex_Direction[dir][round] - 1; ++i)
         {
             SpawnEnemy(dir);
             yield return new WaitForSeconds(Summon_Time);
@@ -127,7 +101,7 @@ public class SpawnManager : Singleton<SpawnManager>
 
         enemy.gameObject.SetActive(true);
 
-        Enemy_Direction[dir].Add(enemy);
+        EnemyManager.Instance.Enemy_Direction[dir].Add(enemy);
     }
 
     public void SpawnEnemy(E_Direction dir, Vector3 pos, Transform target, int waypointindex, string enemy_name = "defender1")
@@ -138,7 +112,8 @@ public class SpawnManager : Singleton<SpawnManager>
 
         enemy.gameObject.SetActive(true);
 
-        Enemy_Direction[dir].Add(enemy);
+        EnemyManager.Instance.Enemy_Direction[dir].Add(enemy);
     }
     #endregion
+
 }
