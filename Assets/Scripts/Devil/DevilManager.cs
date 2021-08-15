@@ -28,19 +28,6 @@ public class DevilManager : Singleton<DevilManager>
     #endregion
 
     #region 외부 함수
-    public void SelectDevil(E_Devil devil)
-    {
-        switch (devil)
-        {
-            case E_Devil.HateQueen:
-                m_Devil = new HateQueen();
-                break;
-            case E_Devil.HellLord:
-                break;
-            case E_Devil.FrostLich:
-                break;
-        }
-    }
     #endregion
 
     #region 유니티 콜백 함수

@@ -26,6 +26,8 @@ public class Tower : MonoBehaviour
     protected SkillManager M_Skill => SkillManager.Instance;
     // 적 매니져
     protected EnemyManager M_Enemy => EnemyManager.Instance;
+    // 마왕 매니져
+    protected DevilManager M_Devil => DevilManager.Instance;
 
     // 타워 회전 속도
     protected float RotateSpeed
@@ -141,6 +143,10 @@ public class Tower : MonoBehaviour
             // 기본 스킬 데이터 불러오기
             SkillCondition_TableExcel conditionData = m_TowerInfo.Condition_Default;
             SkillStat_TableExcel statData = m_TowerInfo.Stat_Default;
+
+            // 기본 대미지 설정
+            statData.Dmg *= m_TowerInfo_Excel.Atk;
+            statData.Dmg += statData.Dmg_plus;
 
             #region 버프
             // 적용할 버프 리스트
@@ -769,7 +775,10 @@ public class Tower : MonoBehaviour
             if (m_TowerInfo.ReduceCooldown)
             {
                 float ReduceCooldownRand = Random.Range(0f, 1f);
-                bool ReduceCooldownApply = (ReduceCooldownRand <= m_TowerInfo.ReduceCooldownRand);
+
+
+                bool ReduceCooldownApply = (
+                    ReduceCooldownRand <= m_TowerInfo.ReduceCooldownRand);
 
                 if (ReduceCooldownApply)
                 {
@@ -787,7 +796,7 @@ public class Tower : MonoBehaviour
                 for (int i = 0; i < EnemyList.Count; ++i)
                 {
                     Skill DefaultSkill = M_Skill.SpawnProjectileSkill(DefaultSkillCode);
-                    DefaultSkill.transform.position = transform.position;
+                    DefaultSkill.transform.position = m_TowerInfo.AttackPivot.position;
                     DefaultSkill.enabled = true;
                     DefaultSkill.gameObject.SetActive(true);
 
@@ -798,7 +807,7 @@ public class Tower : MonoBehaviour
             else
             {
                 Skill DefaultSkill = M_Skill.SpawnProjectileSkill(DefaultSkillCode);
-                DefaultSkill.transform.position = transform.position;
+                DefaultSkill.transform.position = m_TowerInfo.AttackPivot.position;
                 DefaultSkill.enabled = true;
                 DefaultSkill.gameObject.SetActive(true);
 
@@ -824,6 +833,10 @@ public class Tower : MonoBehaviour
             // 스킬01 데이터 불러오기
             SkillCondition_TableExcel conditionData = m_TowerInfo.Condition_Skill01;
             SkillStat_TableExcel statData = m_TowerInfo.Stat_Skill01;
+
+            // 기본 대미지 설정
+            statData.Dmg *= m_TowerInfo_Excel.Atk;
+            statData.Dmg += statData.Dmg_plus;
 
             #region 버프
             // 적용할 버프 리스트
@@ -1425,7 +1438,7 @@ public class Tower : MonoBehaviour
                 for (int i = 0; i < EnemyList.Count; ++i)
                 {
                     Skill Skill01 = M_Skill.SpawnProjectileSkill(Skill01Code);
-                    Skill01.transform.position = transform.position;
+                    Skill01.transform.position = m_TowerInfo.AttackPivot.position;
                     Skill01.enabled = true;
                     Skill01.gameObject.SetActive(true);
 
@@ -1436,7 +1449,7 @@ public class Tower : MonoBehaviour
             else
             {
                 Skill Skill01 = M_Skill.SpawnProjectileSkill(Skill01Code);
-                Skill01.transform.position = transform.position;
+                Skill01.transform.position = m_TowerInfo.AttackPivot.position;
                 Skill01.enabled = true;
                 Skill01.gameObject.SetActive(true);
 
@@ -1462,6 +1475,10 @@ public class Tower : MonoBehaviour
             // 스킬02 데이터 불러오기
             SkillCondition_TableExcel conditionData = m_TowerInfo.Condition_Skill02;
             SkillStat_TableExcel statData = m_TowerInfo.Stat_Skill02;
+
+            // 기본 대미지 설정
+            statData.Dmg *= m_TowerInfo_Excel.Atk;
+            statData.Dmg += statData.Dmg_plus;
 
             #region 버프
             // 적용할 버프 리스트
@@ -2063,7 +2080,7 @@ public class Tower : MonoBehaviour
                 for (int i = 0; i < EnemyList.Count; ++i)
                 {
                     Skill Skill02 = M_Skill.SpawnProjectileSkill(Skill02Code);
-                    Skill02.transform.position = transform.position;
+                    Skill02.transform.position = m_TowerInfo.AttackPivot.position;
                     Skill02.enabled = true;
                     Skill02.gameObject.SetActive(true);
 
@@ -2074,7 +2091,7 @@ public class Tower : MonoBehaviour
             else
             {
                 Skill Skill02 = M_Skill.SpawnProjectileSkill(Skill02Code);
-                Skill02.transform.position = transform.position;
+                Skill02.transform.position = m_TowerInfo.AttackPivot.position;
                 Skill02.enabled = true;
                 Skill02.gameObject.SetActive(true);
 
@@ -2158,6 +2175,8 @@ public class Tower : MonoBehaviour
         public Vector3 InitialRotation;
         // 적 감지 여부
         public bool ShouldFindTarget;
+        // 공격 피벗
+        public Transform AttackPivot;
 
         // 기본 스킬 데이터
         public SkillCondition_TableExcel Condition_Default;

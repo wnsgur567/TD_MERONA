@@ -16,7 +16,7 @@ public class HateQueen : Devil
     #region 유니티 콜백
     private void Awake()
     {
-        InitializeTower(m_TempCode);
+        InitializeDevil(m_TempCode);
     }
 
     private void Update()
@@ -26,9 +26,9 @@ public class HateQueen : Devil
     #endregion
 
     #region 내부 함수
-    protected override void InitializeTower(int code)
+    protected override void InitializeDevil(int code)
     {
-        base.InitializeTower(code);
+        base.InitializeDevil(code);
 
         #region 마왕 스킬 정리
         Skill01Event += Skill01;
