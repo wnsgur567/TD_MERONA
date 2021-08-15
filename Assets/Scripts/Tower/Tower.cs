@@ -62,14 +62,30 @@ public class Tower : MonoBehaviour
         #endregion
 
         #region 내부 데이터 정리
-        // 평타
+        m_TowerInfo.RotateSpeed = 5f;
+        m_TowerInfo.InitialRotation = transform.eulerAngles;
+        m_TowerInfo.ShouldFindTarget = true;
+
+        // 기본 스킬 데이터
         m_TowerInfo.DefaultSkillCondition = M_Skill.GetConditionData(m_TowerInfo_Excel.Atk_Code);
         m_TowerInfo.DefaultSkillStat = M_Skill.GetStatData(m_TowerInfo.DefaultSkillCondition.PassiveCode);
+        // 기본 스킬
+        m_TowerInfo.DefaultSkillAttackSpeed = m_TowerInfo_Excel.Atk_spd;
+        m_TowerInfo.DefaultSkillTimer = m_TowerInfo_Excel.Atk_spd;
 
-        // 공격
-        m_TowerInfo.AttackSpeed = m_TowerInfo_Excel.Atk_spd;
-        m_TowerInfo.AttackTimer = m_TowerInfo_Excel.Atk_spd;
-        m_TowerInfo.ShouldFindTarget = true;
+        // 스킬1 데이터
+        m_TowerInfo.Skill01Condition = M_Skill.GetConditionData(m_TowerInfo_Excel.Skill1Code);
+        m_TowerInfo.Skill01Stat = M_Skill.GetStatData(m_TowerInfo.Skill01Condition.PassiveCode);
+        // 스킬1
+        m_TowerInfo.Skill01AttackSpeed = m_TowerInfo.Skill01Stat.CoolTime;
+        m_TowerInfo.Skill01Timer = 0f;
+
+        // 스킬2 데이터
+        m_TowerInfo.Skill02Condition = M_Skill.GetConditionData(m_TowerInfo_Excel.Skill2Code);
+        m_TowerInfo.Skill02Stat = M_Skill.GetStatData(m_TowerInfo.Skill02Condition.PassiveCode);
+        // 스킬2
+        m_TowerInfo.Skill02AttackSpeed = m_TowerInfo.Skill02Stat.CoolTime;
+        m_TowerInfo.Skill02Timer = 0f;
 
         // 시너지
         m_TowerInfo.Synergy_Atk_type = E_AttackType.None;
@@ -94,8 +110,379 @@ public class Tower : MonoBehaviour
         AttackTarget();
     }
 
+    public void SetAttackRange()
+    {
+        // 기본 스킬 데이터 불러오기
+        S_SkillConditionData_Excel conditionData = m_TowerInfo.Skill01Condition;
+        S_SkillStatData_Excel statData = m_TowerInfo.Skill01Stat;
+
+        #region 버프
+        // 적용할 버프 리스트
+        List<S_BuffData_Excel> BuffList = null;
+
+        // 시너지 버프
+        BuffList = m_TowerInfo.BuffList;
+        // 버프 적용 확률
+        List<float> BuffRand = new List<float>();
+        // 버프 적용 여부
+        List<bool> BuffApply = new List<bool>();
+        // 버프 적용 계산
+        for (int i = 0; i < BuffList.Count; ++i)
+        {
+            BuffRand.Add(Random.Range(0f, 1f));
+            BuffApply.Add(BuffList[i].Buff1.BuffType == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].Buff1.BuffRand);
+            BuffRand.Add(Random.Range(0f, 1f));
+            BuffApply.Add(BuffList[i].Buff2.BuffType == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].Buff2.BuffRand);
+            BuffRand.Add(Random.Range(0f, 1f));
+            BuffApply.Add(BuffList[i].Buff3.BuffType == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].Buff3.BuffRand);
+        }
+
+        // 버서커 버프
+        BuffList = m_TowerInfo.BerserkerBuffList;
+        // 버서커 버프 적용 확률
+        List<float> BerserkerBuffRand = new List<float>();
+        // 버서커 버프 적용 여부
+        List<bool> BerserkerBuffApply = new List<bool>();
+        // 버서커 버프 적용 계산
+        for (int i = 0; i < BuffList.Count; ++i)
+        {
+            BuffRand.Add(Random.Range(0f, 1f));
+            BuffApply.Add(BuffList[i].Buff1.BuffType == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].Buff1.BuffRand);
+            BuffRand.Add(Random.Range(0f, 1f));
+            BuffApply.Add(BuffList[i].Buff2.BuffType == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].Buff2.BuffRand);
+            BuffRand.Add(Random.Range(0f, 1f));
+            BuffApply.Add(BuffList[i].Buff3.BuffType == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].Buff3.BuffRand);
+        }
+
+        // 마왕 스킬 버프
+        BuffList = m_TowerInfo.DevilSkillBuffList;
+        // 마왕 스킬 버프 적용 확률
+        List<float> DevilSkillBuffRand = new List<float>();
+        // 마왕 스킬 버프 적용 여부
+        List<bool> DevilSkillBuffApply = new List<bool>();
+        // 마왕 스킬 버프 적용 계산
+        for (int i = 0; i < BuffList.Count; ++i)
+        {
+            BuffRand.Add(Random.Range(0f, 1f));
+            BuffApply.Add(BuffList[i].Buff1.BuffType == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].Buff1.BuffRand);
+            BuffRand.Add(Random.Range(0f, 1f));
+            BuffApply.Add(BuffList[i].Buff2.BuffType == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].Buff2.BuffRand);
+            BuffRand.Add(Random.Range(0f, 1f));
+            BuffApply.Add(BuffList[i].Buff3.BuffType == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].Buff3.BuffRand);
+        }
+
+        #region 버프 합연산
+        BuffList = m_TowerInfo.BuffList;
+        for (int i = 0; i < BuffList.Count; ++i)
+        {
+            // 버프1 체크
+            if (BuffApply[i * 3])
+            {
+                S_Buff buff = BuffList[i].Buff1;
+                float BuffAmount = buff.BuffAmount;
+
+                // 버프1 합연산
+                if (buff.AddType == E_AddType.Fix)
+                {
+                    switch (buff.BuffType)
+                    {
+                        case E_BuffType.Range:
+                            statData.Range += BuffAmount;
+                            break;
+                    }
+                }
+
+                // 버프2 체크
+                if (BuffApply[i * 3 + 1])
+                {
+                    buff = BuffList[i].Buff2;
+                    BuffAmount = buff.BuffAmount;
+
+                    // 버프2 합연산
+                    if (buff.AddType == E_AddType.Fix)
+                    {
+                        switch (buff.BuffType)
+                        {
+                            case E_BuffType.Range:
+                                statData.Range += BuffAmount;
+                                break;
+                        }
+                    }
+
+                    // 버프3 체크
+                    if (BuffApply[i * 3 + 2])
+                    {
+                        buff = BuffList[i].Buff3;
+                        BuffAmount = buff.BuffAmount;
+
+                        // 버프3 합연산
+                        if (buff.AddType == E_AddType.Fix)
+                        {
+                            switch (buff.BuffType)
+                            {
+                                case E_BuffType.Range:
+                                    statData.Range += BuffAmount;
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #endregion
+
+        #region 버서커 버프 합연산
+        BuffList = m_TowerInfo.BerserkerBuffList;
+        if (m_TowerInfo.Berserker)
+        {
+            for (int i = 0; i < BuffList.Count; ++i)
+            {
+                // 버서커 버프1 체크
+                if (BerserkerBuffApply[i * 3])
+                {
+                    S_Buff buff = BuffList[i].Buff1;
+                    float BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
+
+                    // 버서커 버프1 합연산
+                    if (buff.AddType == E_AddType.Fix)
+                    {
+                        switch (buff.BuffType)
+                        {
+                            case E_BuffType.Range:
+                                statData.Range += BuffAmount;
+                                break;
+                        }
+                    }
+
+                    // 버서커 버프2 체크
+                    if (BerserkerBuffApply[i * 3 + 1])
+                    {
+                        buff = BuffList[i].Buff2;
+                        BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
+
+                        // 버서커 버프2 합연산
+                        if (buff.AddType == E_AddType.Fix)
+                        {
+                            switch (buff.BuffType)
+                            {
+                                case E_BuffType.Range:
+                                    statData.Range += BuffAmount;
+                                    break;
+                            }
+                        }
+
+                        // 버서커 버프3 체크
+                        if (BerserkerBuffApply[i * 3 + 2])
+                        {
+                            buff = BuffList[i].Buff3;
+                            BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
+
+                            // 버서커 버프3 합연산
+                            if (buff.AddType == E_AddType.Fix)
+                            {
+                                switch (buff.BuffType)
+                                {
+                                    case E_BuffType.Range:
+                                        statData.Range += BuffAmount;
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #endregion
+
+        #region 버프 곱연산
+        BuffList = m_TowerInfo.BuffList;
+        for (int i = 0; i < BuffList.Count; ++i)
+        {
+            // 버프1 체크
+            if (BuffApply[i * 3])
+            {
+                S_Buff buff = BuffList[i].Buff1;
+                float BuffAmount = buff.BuffAmount;
+
+                // 버프1 곱연산
+                if (buff.AddType == E_AddType.Percent)
+                {
+                    switch (buff.BuffType)
+                    {
+                        case E_BuffType.Range:
+                            statData.Range *= BuffAmount;
+                            break;
+                    }
+                }
+
+                // 버프2 체크
+                if (BuffApply[i * 3 + 1])
+                {
+                    buff = BuffList[i].Buff2;
+                    BuffAmount = buff.BuffAmount;
+
+                    // 버프2 곱연산
+                    if (buff.AddType == E_AddType.Percent)
+                    {
+                        switch (buff.BuffType)
+                        {
+                            case E_BuffType.Range:
+                                statData.Range *= BuffAmount;
+                                break;
+                        }
+                    }
+
+                    // 버프3 체크
+                    if (BuffApply[i * 3 + 2])
+                    {
+                        buff = BuffList[i].Buff3;
+                        BuffAmount = buff.BuffAmount;
+
+                        // 버프3 곱연산
+                        if (buff.AddType == E_AddType.Percent)
+                        {
+                            switch (buff.BuffType)
+                            {
+                                case E_BuffType.Range:
+                                    statData.Range *= BuffAmount;
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #endregion
+
+        #region 버서커 버프 곱연산
+        BuffList = m_TowerInfo.BerserkerBuffList;
+        if (m_TowerInfo.Berserker)
+        {
+            for (int i = 0; i < BuffList.Count; ++i)
+            {
+                // 버서커 버프1 체크
+                if (BerserkerBuffApply[i * 3])
+                {
+                    S_Buff buff = BuffList[i].Buff1;
+                    float BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
+
+                    // 버서커 버프1 곱연산
+                    if (buff.AddType == E_AddType.Percent)
+                    {
+                        switch (buff.BuffType)
+                        {
+                            case E_BuffType.Range:
+                                statData.Range *= BuffAmount;
+                                break;
+                        }
+                    }
+
+                    // 버서커 버프2 체크
+                    if (BerserkerBuffApply[i * 3 + 1])
+                    {
+                        buff = BuffList[i].Buff2;
+                        BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
+
+                        // 버서커 버프2 곱연산
+                        if (buff.AddType == E_AddType.Percent)
+                        {
+                            switch (buff.BuffType)
+                            {
+                                case E_BuffType.Range:
+                                    statData.Range *= BuffAmount;
+                                    break;
+                            }
+                        }
+
+                        // 버서커 버프3 체크
+                        if (BerserkerBuffApply[i * 3 + 2])
+                        {
+                            buff = BuffList[i].Buff3;
+                            BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
+
+                            // 버서커 버프3 곱연산
+                            if (buff.AddType == E_AddType.Percent)
+                            {
+                                switch (buff.BuffType)
+                                {
+                                    case E_BuffType.Range:
+                                        statData.Range *= BuffAmount;
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #endregion
+
+        #region 마왕 스킬 버프 곱연산
+        BuffList = m_TowerInfo.DevilSkillBuffList;
+        for (int i = 0; i < BuffList.Count; ++i)
+        {
+            // 마왕 스킬 버프1 체크
+            if (DevilSkillBuffApply[i * 3])
+            {
+                S_Buff buff = BuffList[i].Buff1;
+                float BuffAmount = buff.BuffAmount;
+
+                // 마왕 스킬 버프1 곱연산
+                if (buff.AddType == E_AddType.Percent)
+                {
+                    switch (buff.BuffType)
+                    {
+                        case E_BuffType.Range:
+                            statData.Range *= BuffAmount;
+                            break;
+                    }
+                }
+
+                // 마왕 스킬 버프2 체크
+                if (DevilSkillBuffApply[i * 3 + 1])
+                {
+                    buff = BuffList[i].Buff2;
+                    BuffAmount = buff.BuffAmount;
+
+                    // 마왕 스킬 버프2 곱연산
+                    if (buff.AddType == E_AddType.Percent)
+                    {
+                        switch (buff.BuffType)
+                        {
+                            case E_BuffType.Range:
+                                statData.Range *= BuffAmount;
+                                break;
+                        }
+                    }
+
+                    // 마왕 스킬 버프3 체크
+                    if (DevilSkillBuffApply[i * 3 + 2])
+                    {
+                        buff = BuffList[i].Buff3;
+                        BuffAmount = buff.BuffAmount;
+
+                        // 마왕 스킬 버프3 곱연산
+                        if (buff.AddType == E_AddType.Percent)
+                        {
+                            switch (buff.BuffType)
+                            {
+                                case E_BuffType.Range:
+                                    statData.Range *= BuffAmount;
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #endregion
+
+        // 사거리 업데이트
+        m_AttackRange.SetRange(statData.Range);
+        #endregion
+    }
     // 타워 회전
-    public void RotateToTarget()
+    protected void RotateToTarget()
     {
         // 회전할 방향
         Vector3 dir;
@@ -117,7 +504,7 @@ public class Tower : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), RotateSpeed);
     }
     // 타겟 업데이트
-    public void UpdateTarget()
+    protected void UpdateTarget()
     {
         // 타겟 변경 기준에 따라
         switch (m_TowerInfo.DefaultSkillCondition.Target_type)
@@ -157,17 +544,19 @@ public class Tower : MonoBehaviour
         }
     }
     // 타워 공격
-    public void AttackTarget()
+    protected void AttackTarget()
     {
-        if (m_TowerInfo.AttackTimer < m_TowerInfo.AttackSpeed)
+        // 기본 스킬 타이머
+        if (m_TowerInfo.DefaultSkillTimer < m_TowerInfo.DefaultSkillAttackSpeed)
         {
-            m_TowerInfo.AttackTimer += Time.deltaTime;
+            m_TowerInfo.DefaultSkillTimer += Time.deltaTime;
         }
+        // 기본 스킬 공격
         else if (null != m_Target)
         {
             // 내부 데이터 정리
-            m_TowerInfo.AttackTimer -= m_TowerInfo.AttackSpeed;
-            m_TowerInfo.AttackSpeed = m_TowerInfo_Excel.Atk_spd;
+            m_TowerInfo.DefaultSkillTimer -= m_TowerInfo.DefaultSkillAttackSpeed;
+            m_TowerInfo.DefaultSkillAttackSpeed = m_TowerInfo_Excel.Atk_spd;
             m_TowerInfo.ShouldFindTarget = true;
 
             // 기본 스킬 데이터 불러오기
@@ -251,7 +640,7 @@ public class Tower : MonoBehaviour
                                 statData.Range += BuffAmount;
                                 break;
                             case E_BuffType.Atk_spd:
-                                m_TowerInfo.AttackSpeed -= BuffAmount;
+                                m_TowerInfo.DefaultSkillAttackSpeed -= BuffAmount;
                                 break;
                             case E_BuffType.Crit_rate:
                                 break;
@@ -278,7 +667,7 @@ public class Tower : MonoBehaviour
                                     statData.Range += BuffAmount;
                                     break;
                                 case E_BuffType.Atk_spd:
-                                    m_TowerInfo.AttackSpeed -= BuffAmount;
+                                    m_TowerInfo.DefaultSkillAttackSpeed -= BuffAmount;
                                     break;
                                 case E_BuffType.Crit_rate:
                                     break;
@@ -305,7 +694,7 @@ public class Tower : MonoBehaviour
                                         statData.Range += BuffAmount;
                                         break;
                                     case E_BuffType.Atk_spd:
-                                        m_TowerInfo.AttackSpeed -= BuffAmount;
+                                        m_TowerInfo.DefaultSkillAttackSpeed -= BuffAmount;
                                         break;
                                     case E_BuffType.Crit_rate:
                                         break;
@@ -343,7 +732,7 @@ public class Tower : MonoBehaviour
                                     statData.Range += BuffAmount;
                                     break;
                                 case E_BuffType.Atk_spd:
-                                    m_TowerInfo.AttackSpeed -= BuffAmount;
+                                    m_TowerInfo.DefaultSkillAttackSpeed -= BuffAmount;
                                     break;
                                 case E_BuffType.Crit_rate:
                                     break;
@@ -370,7 +759,7 @@ public class Tower : MonoBehaviour
                                         statData.Range += BuffAmount;
                                         break;
                                     case E_BuffType.Atk_spd:
-                                        m_TowerInfo.AttackSpeed -= BuffAmount;
+                                        m_TowerInfo.DefaultSkillAttackSpeed -= BuffAmount;
                                         break;
                                     case E_BuffType.Crit_rate:
                                         break;
@@ -397,7 +786,7 @@ public class Tower : MonoBehaviour
                                             statData.Range += BuffAmount;
                                             break;
                                         case E_BuffType.Atk_spd:
-                                            m_TowerInfo.AttackSpeed -= BuffAmount;
+                                            m_TowerInfo.DefaultSkillAttackSpeed -= BuffAmount;
                                             break;
                                         case E_BuffType.Crit_rate:
                                             break;
@@ -434,7 +823,7 @@ public class Tower : MonoBehaviour
                                 statData.Range *= BuffAmount;
                                 break;
                             case E_BuffType.Atk_spd:
-                                m_TowerInfo.AttackSpeed *= BuffAmount;
+                                m_TowerInfo.DefaultSkillAttackSpeed *= BuffAmount;
                                 break;
                             case E_BuffType.Crit_rate:
                                 break;
@@ -461,7 +850,7 @@ public class Tower : MonoBehaviour
                                     statData.Range *= BuffAmount;
                                     break;
                                 case E_BuffType.Atk_spd:
-                                    m_TowerInfo.AttackSpeed *= BuffAmount;
+                                    m_TowerInfo.DefaultSkillAttackSpeed *= BuffAmount;
                                     break;
                                 case E_BuffType.Crit_rate:
                                     break;
@@ -488,7 +877,7 @@ public class Tower : MonoBehaviour
                                         statData.Range *= BuffAmount;
                                         break;
                                     case E_BuffType.Atk_spd:
-                                        m_TowerInfo.AttackSpeed *= BuffAmount;
+                                        m_TowerInfo.DefaultSkillAttackSpeed *= BuffAmount;
                                         break;
                                     case E_BuffType.Crit_rate:
                                         break;
@@ -526,7 +915,7 @@ public class Tower : MonoBehaviour
                                     statData.Range *= BuffAmount;
                                     break;
                                 case E_BuffType.Atk_spd:
-                                    m_TowerInfo.AttackSpeed *= BuffAmount;
+                                    m_TowerInfo.DefaultSkillAttackSpeed *= BuffAmount;
                                     break;
                                 case E_BuffType.Crit_rate:
                                     break;
@@ -553,7 +942,7 @@ public class Tower : MonoBehaviour
                                         statData.Range *= BuffAmount;
                                         break;
                                     case E_BuffType.Atk_spd:
-                                        m_TowerInfo.AttackSpeed *= BuffAmount;
+                                        m_TowerInfo.DefaultSkillAttackSpeed *= BuffAmount;
                                         break;
                                     case E_BuffType.Crit_rate:
                                         break;
@@ -580,7 +969,7 @@ public class Tower : MonoBehaviour
                                             statData.Range *= BuffAmount;
                                             break;
                                         case E_BuffType.Atk_spd:
-                                            m_TowerInfo.AttackSpeed *= BuffAmount;
+                                            m_TowerInfo.DefaultSkillAttackSpeed *= BuffAmount;
                                             break;
                                         case E_BuffType.Crit_rate:
                                             break;
@@ -617,7 +1006,7 @@ public class Tower : MonoBehaviour
                                 statData.Range *= BuffAmount;
                                 break;
                             case E_BuffType.Atk_spd:
-                                m_TowerInfo.AttackSpeed *= BuffAmount;
+                                m_TowerInfo.DefaultSkillAttackSpeed *= BuffAmount;
                                 break;
                             case E_BuffType.Crit_rate:
                                 break;
@@ -644,7 +1033,7 @@ public class Tower : MonoBehaviour
                                     statData.Range *= BuffAmount;
                                     break;
                                 case E_BuffType.Atk_spd:
-                                    m_TowerInfo.AttackSpeed *= BuffAmount;
+                                    m_TowerInfo.DefaultSkillAttackSpeed *= BuffAmount;
                                     break;
                                 case E_BuffType.Crit_rate:
                                     break;
@@ -671,7 +1060,7 @@ public class Tower : MonoBehaviour
                                         statData.Range *= BuffAmount;
                                         break;
                                     case E_BuffType.Atk_spd:
-                                        m_TowerInfo.AttackSpeed *= BuffAmount;
+                                        m_TowerInfo.DefaultSkillAttackSpeed *= BuffAmount;
                                         break;
                                     case E_BuffType.Crit_rate:
                                         break;
@@ -719,6 +1108,533 @@ public class Tower : MonoBehaviour
             // 기본 스킬 데이터 설정
             DefaultSkill.InitializeSkill(m_Target, conditionData, statData);
         }
+
+        // 스킬1
+        if (m_TowerInfo.Skill01Timer < m_TowerInfo.Skill01AttackSpeed)
+        {
+            m_TowerInfo.Skill01Timer += Time.deltaTime;
+        }
+        else if (null != m_Target)
+        {
+            // 내부 데이터 정리
+            m_TowerInfo.Skill01Timer -= m_TowerInfo.Skill01AttackSpeed;
+            m_TowerInfo.Skill01AttackSpeed = m_TowerInfo.Skill01Stat.CoolTime;
+            m_TowerInfo.ShouldFindTarget = true;
+
+            // 스킬01 데이터 불러오기
+            S_SkillConditionData_Excel conditionData = m_TowerInfo.Skill01Condition;
+            S_SkillStatData_Excel statData = m_TowerInfo.Skill01Stat;
+
+            #region 버프
+            // 적용할 버프 리스트
+            List<S_BuffData_Excel> BuffList = null;
+
+            // 시너지 버프
+            BuffList = m_TowerInfo.BuffList;
+            // 버프 적용 확률
+            List<float> BuffRand = new List<float>();
+            // 버프 적용 여부
+            List<bool> BuffApply = new List<bool>();
+            // 버프 적용 계산
+            for (int i = 0; i < BuffList.Count; ++i)
+            {
+                BuffRand.Add(Random.Range(0f, 1f));
+                BuffApply.Add(BuffList[i].Buff1.BuffType == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].Buff1.BuffRand);
+                BuffRand.Add(Random.Range(0f, 1f));
+                BuffApply.Add(BuffList[i].Buff2.BuffType == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].Buff2.BuffRand);
+                BuffRand.Add(Random.Range(0f, 1f));
+                BuffApply.Add(BuffList[i].Buff3.BuffType == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].Buff3.BuffRand);
+            }
+
+            // 버서커 버프
+            BuffList = m_TowerInfo.BerserkerBuffList;
+            // 버서커 버프 적용 확률
+            List<float> BerserkerBuffRand = new List<float>();
+            // 버서커 버프 적용 여부
+            List<bool> BerserkerBuffApply = new List<bool>();
+            // 버서커 버프 적용 계산
+            for (int i = 0; i < BuffList.Count; ++i)
+            {
+                BuffRand.Add(Random.Range(0f, 1f));
+                BuffApply.Add(BuffList[i].Buff1.BuffType == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].Buff1.BuffRand);
+                BuffRand.Add(Random.Range(0f, 1f));
+                BuffApply.Add(BuffList[i].Buff2.BuffType == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].Buff2.BuffRand);
+                BuffRand.Add(Random.Range(0f, 1f));
+                BuffApply.Add(BuffList[i].Buff3.BuffType == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].Buff3.BuffRand);
+            }
+
+            // 마왕 스킬 버프
+            BuffList = m_TowerInfo.DevilSkillBuffList;
+            // 마왕 스킬 버프 적용 확률
+            List<float> DevilSkillBuffRand = new List<float>();
+            // 마왕 스킬 버프 적용 여부
+            List<bool> DevilSkillBuffApply = new List<bool>();
+            // 마왕 스킬 버프 적용 계산
+            for (int i = 0; i < BuffList.Count; ++i)
+            {
+                BuffRand.Add(Random.Range(0f, 1f));
+                BuffApply.Add(BuffList[i].Buff1.BuffType == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].Buff1.BuffRand);
+                BuffRand.Add(Random.Range(0f, 1f));
+                BuffApply.Add(BuffList[i].Buff2.BuffType == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].Buff2.BuffRand);
+                BuffRand.Add(Random.Range(0f, 1f));
+                BuffApply.Add(BuffList[i].Buff3.BuffType == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].Buff3.BuffRand);
+            }
+
+            #region 버프 합연산
+            BuffList = m_TowerInfo.BuffList;
+            for (int i = 0; i < BuffList.Count; ++i)
+            {
+                // 버프1 체크
+                if (BuffApply[i * 3])
+                {
+                    S_Buff buff = BuffList[i].Buff1;
+                    float BuffAmount = buff.BuffAmount;
+
+                    // 버프1 합연산
+                    if (buff.AddType == E_AddType.Fix)
+                    {
+                        switch (buff.BuffType)
+                        {
+                            case E_BuffType.Atk:
+                                statData.Dmg += BuffAmount;
+                                break;
+                            case E_BuffType.Range:
+                                statData.Range += BuffAmount;
+                                break;
+                            case E_BuffType.Atk_spd:
+                                break;
+                            case E_BuffType.Crit_rate:
+                                break;
+                            case E_BuffType.Crit_Dmg:
+                                break;
+                        }
+                    }
+
+                    // 버프2 체크
+                    if (BuffApply[i * 3 + 1])
+                    {
+                        buff = BuffList[i].Buff2;
+                        BuffAmount = buff.BuffAmount;
+
+                        // 버프2 합연산
+                        if (buff.AddType == E_AddType.Fix)
+                        {
+                            switch (buff.BuffType)
+                            {
+                                case E_BuffType.Atk:
+                                    statData.Dmg += BuffAmount;
+                                    break;
+                                case E_BuffType.Range:
+                                    statData.Range += BuffAmount;
+                                    break;
+                                case E_BuffType.Atk_spd:
+                                    break;
+                                case E_BuffType.Crit_rate:
+                                    break;
+                                case E_BuffType.Crit_Dmg:
+                                    break;
+                            }
+                        }
+
+                        // 버프3 체크
+                        if (BuffApply[i * 3 + 2])
+                        {
+                            buff = BuffList[i].Buff3;
+                            BuffAmount = buff.BuffAmount;
+
+                            // 버프3 합연산
+                            if (buff.AddType == E_AddType.Fix)
+                            {
+                                switch (buff.BuffType)
+                                {
+                                    case E_BuffType.Atk:
+                                        statData.Dmg += BuffAmount;
+                                        break;
+                                    case E_BuffType.Range:
+                                        statData.Range += BuffAmount;
+                                        break;
+                                    case E_BuffType.Atk_spd:
+                                        break;
+                                    case E_BuffType.Crit_rate:
+                                        break;
+                                    case E_BuffType.Crit_Dmg:
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #endregion
+
+            #region 버서커 버프 합연산
+            BuffList = m_TowerInfo.BerserkerBuffList;
+            if (m_TowerInfo.Berserker)
+            {
+                for (int i = 0; i < BuffList.Count; ++i)
+                {
+                    // 버서커 버프1 체크
+                    if (BerserkerBuffApply[i * 3])
+                    {
+                        S_Buff buff = BuffList[i].Buff1;
+                        float BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
+
+                        // 버서커 버프1 합연산
+                        if (buff.AddType == E_AddType.Fix)
+                        {
+                            switch (buff.BuffType)
+                            {
+                                case E_BuffType.Atk:
+                                    statData.Dmg += BuffAmount;
+                                    break;
+                                case E_BuffType.Range:
+                                    statData.Range += BuffAmount;
+                                    break;
+                                case E_BuffType.Atk_spd:
+                                    break;
+                                case E_BuffType.Crit_rate:
+                                    break;
+                                case E_BuffType.Crit_Dmg:
+                                    break;
+                            }
+                        }
+
+                        // 버서커 버프2 체크
+                        if (BerserkerBuffApply[i * 3 + 1])
+                        {
+                            buff = BuffList[i].Buff2;
+                            BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
+
+                            // 버서커 버프2 합연산
+                            if (buff.AddType == E_AddType.Fix)
+                            {
+                                switch (buff.BuffType)
+                                {
+                                    case E_BuffType.Atk:
+                                        statData.Dmg += BuffAmount;
+                                        break;
+                                    case E_BuffType.Range:
+                                        statData.Range += BuffAmount;
+                                        break;
+                                    case E_BuffType.Atk_spd:
+                                        break;
+                                    case E_BuffType.Crit_rate:
+                                        break;
+                                    case E_BuffType.Crit_Dmg:
+                                        break;
+                                }
+                            }
+
+                            // 버서커 버프3 체크
+                            if (BerserkerBuffApply[i * 3 + 2])
+                            {
+                                buff = BuffList[i].Buff3;
+                                BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
+
+                                // 버서커 버프3 합연산
+                                if (buff.AddType == E_AddType.Fix)
+                                {
+                                    switch (buff.BuffType)
+                                    {
+                                        case E_BuffType.Atk:
+                                            statData.Dmg += BuffAmount;
+                                            break;
+                                        case E_BuffType.Range:
+                                            statData.Range += BuffAmount;
+                                            break;
+                                        case E_BuffType.Atk_spd:
+                                            break;
+                                        case E_BuffType.Crit_rate:
+                                            break;
+                                        case E_BuffType.Crit_Dmg:
+                                            break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #endregion
+
+            #region 버프 곱연산
+            BuffList = m_TowerInfo.BuffList;
+            for (int i = 0; i < BuffList.Count; ++i)
+            {
+                // 버프1 체크
+                if (BuffApply[i * 3])
+                {
+                    S_Buff buff = BuffList[i].Buff1;
+                    float BuffAmount = buff.BuffAmount;
+
+                    // 버프1 곱연산
+                    if (buff.AddType == E_AddType.Percent)
+                    {
+                        switch (buff.BuffType)
+                        {
+                            case E_BuffType.Atk:
+                                statData.Dmg *= BuffAmount;
+                                break;
+                            case E_BuffType.Range:
+                                statData.Range *= BuffAmount;
+                                break;
+                            case E_BuffType.Atk_spd:
+                                break;
+                            case E_BuffType.Crit_rate:
+                                break;
+                            case E_BuffType.Crit_Dmg:
+                                break;
+                        }
+                    }
+
+                    // 버프2 체크
+                    if (BuffApply[i * 3 + 1])
+                    {
+                        buff = BuffList[i].Buff2;
+                        BuffAmount = buff.BuffAmount;
+
+                        // 버프2 곱연산
+                        if (buff.AddType == E_AddType.Percent)
+                        {
+                            switch (buff.BuffType)
+                            {
+                                case E_BuffType.Atk:
+                                    statData.Dmg *= BuffAmount;
+                                    break;
+                                case E_BuffType.Range:
+                                    statData.Range *= BuffAmount;
+                                    break;
+                                case E_BuffType.Atk_spd:
+                                    break;
+                                case E_BuffType.Crit_rate:
+                                    break;
+                                case E_BuffType.Crit_Dmg:
+                                    break;
+                            }
+                        }
+
+                        // 버프3 체크
+                        if (BuffApply[i * 3 + 2])
+                        {
+                            buff = BuffList[i].Buff3;
+                            BuffAmount = buff.BuffAmount;
+
+                            // 버프3 곱연산
+                            if (buff.AddType == E_AddType.Percent)
+                            {
+                                switch (buff.BuffType)
+                                {
+                                    case E_BuffType.Atk:
+                                        statData.Dmg *= BuffAmount;
+                                        break;
+                                    case E_BuffType.Range:
+                                        statData.Range *= BuffAmount;
+                                        break;
+                                    case E_BuffType.Atk_spd:
+                                        break;
+                                    case E_BuffType.Crit_rate:
+                                        break;
+                                    case E_BuffType.Crit_Dmg:
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #endregion
+
+            #region 버서커 버프 곱연산
+            BuffList = m_TowerInfo.BerserkerBuffList;
+            if (m_TowerInfo.Berserker)
+            {
+                for (int i = 0; i < BuffList.Count; ++i)
+                {
+                    // 버서커 버프1 체크
+                    if (BerserkerBuffApply[i * 3])
+                    {
+                        S_Buff buff = BuffList[i].Buff1;
+                        float BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
+
+                        // 버서커 버프1 곱연산
+                        if (buff.AddType == E_AddType.Percent)
+                        {
+                            switch (buff.BuffType)
+                            {
+                                case E_BuffType.Atk:
+                                    statData.Dmg *= BuffAmount;
+                                    break;
+                                case E_BuffType.Range:
+                                    statData.Range *= BuffAmount;
+                                    break;
+                                case E_BuffType.Atk_spd:
+                                    break;
+                                case E_BuffType.Crit_rate:
+                                    break;
+                                case E_BuffType.Crit_Dmg:
+                                    break;
+                            }
+                        }
+
+                        // 버서커 버프2 체크
+                        if (BerserkerBuffApply[i * 3 + 1])
+                        {
+                            buff = BuffList[i].Buff2;
+                            BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
+
+                            // 버서커 버프2 곱연산
+                            if (buff.AddType == E_AddType.Percent)
+                            {
+                                switch (buff.BuffType)
+                                {
+                                    case E_BuffType.Atk:
+                                        statData.Dmg *= BuffAmount;
+                                        break;
+                                    case E_BuffType.Range:
+                                        statData.Range *= BuffAmount;
+                                        break;
+                                    case E_BuffType.Atk_spd:
+                                        break;
+                                    case E_BuffType.Crit_rate:
+                                        break;
+                                    case E_BuffType.Crit_Dmg:
+                                        break;
+                                }
+                            }
+
+                            // 버서커 버프3 체크
+                            if (BerserkerBuffApply[i * 3 + 2])
+                            {
+                                buff = BuffList[i].Buff3;
+                                BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
+
+                                // 버서커 버프3 곱연산
+                                if (buff.AddType == E_AddType.Percent)
+                                {
+                                    switch (buff.BuffType)
+                                    {
+                                        case E_BuffType.Atk:
+                                            statData.Dmg *= BuffAmount;
+                                            break;
+                                        case E_BuffType.Range:
+                                            statData.Range *= BuffAmount;
+                                            break;
+                                        case E_BuffType.Atk_spd:
+                                            break;
+                                        case E_BuffType.Crit_rate:
+                                            break;
+                                        case E_BuffType.Crit_Dmg:
+                                            break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #endregion
+
+            #region 마왕 스킬 버프 곱연산
+            BuffList = m_TowerInfo.DevilSkillBuffList;
+            for (int i = 0; i < BuffList.Count; ++i)
+            {
+                // 마왕 스킬 버프1 체크
+                if (DevilSkillBuffApply[i * 3])
+                {
+                    S_Buff buff = BuffList[i].Buff1;
+                    float BuffAmount = buff.BuffAmount;
+
+                    // 마왕 스킬 버프1 곱연산
+                    if (buff.AddType == E_AddType.Percent)
+                    {
+                        switch (buff.BuffType)
+                        {
+                            case E_BuffType.Atk:
+                                statData.Dmg *= BuffAmount;
+                                break;
+                            case E_BuffType.Range:
+                                statData.Range *= BuffAmount;
+                                break;
+                            case E_BuffType.Atk_spd:
+                                break;
+                            case E_BuffType.Crit_rate:
+                                break;
+                            case E_BuffType.Crit_Dmg:
+                                break;
+                        }
+                    }
+
+                    // 마왕 스킬 버프2 체크
+                    if (DevilSkillBuffApply[i * 3 + 1])
+                    {
+                        buff = BuffList[i].Buff2;
+                        BuffAmount = buff.BuffAmount;
+
+                        // 마왕 스킬 버프2 곱연산
+                        if (buff.AddType == E_AddType.Percent)
+                        {
+                            switch (buff.BuffType)
+                            {
+                                case E_BuffType.Atk:
+                                    statData.Dmg *= BuffAmount;
+                                    break;
+                                case E_BuffType.Range:
+                                    statData.Range *= BuffAmount;
+                                    break;
+                                case E_BuffType.Atk_spd:
+                                    break;
+                                case E_BuffType.Crit_rate:
+                                    break;
+                                case E_BuffType.Crit_Dmg:
+                                    break;
+                            }
+                        }
+
+                        // 마왕 스킬 버프3 체크
+                        if (DevilSkillBuffApply[i * 3 + 2])
+                        {
+                            buff = BuffList[i].Buff3;
+                            BuffAmount = buff.BuffAmount;
+
+                            // 마왕 스킬 버프3 곱연산
+                            if (buff.AddType == E_AddType.Percent)
+                            {
+                                switch (buff.BuffType)
+                                {
+                                    case E_BuffType.Atk:
+                                        statData.Dmg *= BuffAmount;
+                                        break;
+                                    case E_BuffType.Range:
+                                        statData.Range *= BuffAmount;
+                                        break;
+                                    case E_BuffType.Atk_spd:
+                                        break;
+                                    case E_BuffType.Crit_rate:
+                                        break;
+                                    case E_BuffType.Crit_Dmg:
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #endregion
+
+            // 사거리 업데이트
+            m_AttackRange.SetRange(statData.Range);
+            #endregion
+
+            // 기본 스킬 투사체 생성
+            int Skill01Code = conditionData.projectile_prefab;
+            Skill Skill01 = M_Skill.SpawnProjectileSkill(Skill01Code);
+            Skill01.transform.position = transform.position;
+            Skill01.enabled = true;
+            Skill01.gameObject.SetActive(true);
+
+            // 기본 스킬 데이터 설정
+            Skill01.InitializeSkill(m_Target, conditionData, statData);
+        }
     }
 
     // 타워 정보
@@ -729,17 +1645,32 @@ public class Tower : MonoBehaviour
         public float RotateSpeed;
         // 초기 회전 값
         public Vector3 InitialRotation;
-
-        // 타워 공격 속도
-        public float AttackSpeed;
-        // 타워 공격 타이머
-        public float AttackTimer;
         // 적 감지 여부
         public bool ShouldFindTarget;
 
-        // 일반 공격
+        // 기본 스킬 데이터
         public S_SkillConditionData_Excel DefaultSkillCondition;
         public S_SkillStatData_Excel DefaultSkillStat;
+        // 기본 스킬 공격 속도
+        public float DefaultSkillAttackSpeed;
+        // 기본 스킬 타이머
+        public float DefaultSkillTimer;
+
+        // 스킬1 데이터
+        public S_SkillConditionData_Excel Skill01Condition;
+        public S_SkillStatData_Excel Skill01Stat;
+        // 스킬1 공격 속도
+        public float Skill01AttackSpeed;
+        // 스킬1 타이머
+        public float Skill01Timer;
+
+        // 스킬2 데이터
+        public S_SkillConditionData_Excel Skill02Condition;
+        public S_SkillStatData_Excel Skill02Stat;
+        // 스킬2 공격 속도
+        public float Skill02AttackSpeed;
+        // 스킬2 타이머
+        public float Skill02Timer;
 
         #region 시너지 관련
         // 버프

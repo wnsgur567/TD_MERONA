@@ -19,7 +19,7 @@ public enum E_SynergyEffectAmount
     None,
 
     Tower,
-    Monster,
+    Enemy,
     King
 }
 #endregion
