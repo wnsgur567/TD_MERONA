@@ -23,6 +23,7 @@ public enum E_DataTableType
     Max
 }
 
+[DefaultExecutionOrder(-99)]
 public class DataTableManager : Singleton<DataTableManager>
 {
     [SerializeField]

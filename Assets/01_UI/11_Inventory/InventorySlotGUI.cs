@@ -26,7 +26,7 @@ public class CKeyValue : System.IEquatable<CKeyValue>
     }
 }
 
-public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler,IPointerClickHandler//IPointerEnterHandler,IPointerExitHandler
 {
     public delegate void InfoChangeHandler();
     public event InfoChangeHandler OnInfoChangedEvent;
@@ -49,18 +49,23 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
     RectTransform m_rt;
 
+    TowerUI_Tooltip tower_tooltip;
+   
+
     public bool IsOccupied { get { return m_info.isOccupied; } }
 
     private void Awake()
     {
+        tower_tooltip = TowerUI_Tooltip.Instance;
         OnInfoChangedEvent += OnInfoChanged;
+       
         m_rt = this.GetComponent<RectTransform>();
         SetRenderTexture();
     }
 
     private void Start()
     {
-
+        
     }
 
     public void SetRenderTexture()
@@ -208,4 +213,15 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         Debug.Log("tower image move end");
         m_rawImage.transform.position = m_drag_startPos;
     }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {       
+            Vector2 mousepos = Input.mousePosition;
+            tower_tooltip.Set_TowerTT_Pos(mousepos);
+            tower_tooltip.Set_TowerTT(m_info.tower_data);
+        }
+    }
+    //추가해야할것: 툴팁부분 이외의 공간 클릭시 툴팁 꺼지게하기.
 }

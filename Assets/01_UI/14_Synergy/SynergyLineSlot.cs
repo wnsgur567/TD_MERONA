@@ -19,9 +19,12 @@ public class SynergyLineSlot : MonoBehaviour
 
     [SerializeField] int m_showCount;           // m_panel 보여줄 슬롯 개수 (나머지는 추가 버튼으로 확인)
     [SerializeField] bool IsShowExtendPanel;
+    SynergyManager a;
 
-
-
+    private void Awake()
+    {
+        a = SynergyManager.Instance;
+    }
     void Start()
     {
         // 확장 창을 닫기
@@ -56,13 +59,17 @@ public class SynergyLineSlot : MonoBehaviour
     public void OnSynergyUpdate()
     {
         // list 정보를 가져오고
-
+       
         // sorting 하고
 
         // ui 를 업데이트 하기
         foreach (var item in m_slots)
         {
-            item.SetInfo(new SynergySlotInfo());
+            
+            SynergySlotInfo data = new SynergySlotInfo();
+          
+            //S_SynergyData_Excel data2 = a.GetData(data.Code,data.Rank);
+            item.SetInfo(data);
         }
     }
 
