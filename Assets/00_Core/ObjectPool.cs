@@ -72,7 +72,10 @@ public abstract class ObjectPool<Pool, Origin> : Singleton<Pool> where Pool : Mo
     }
     public virtual MemoryPool<Origin> GetPool(string key)
     {
-        return m_Pools[key];
+        if (m_Pools.ContainsKey(key))
+            return m_Pools[key];
+
+        return null;
     }
 
     //public abstract GameObject Spawn();

@@ -26,25 +26,16 @@ public enum E_DataTableType
 [DefaultExecutionOrder(-99)]
 public class DataTableManager : Singleton<DataTableManager>
 {
+    // 인스펙터 추가용 리스트
     [SerializeField]
     protected List<ScriptableObject> m_DataTableList;
+    // 타입별 딕셔너리
     protected Dictionary<E_DataTableType, ScriptableObject> m_DataTables;
 #if UNITY_EDITOR
+    // 디버깅용 딕셔너리
     [SerializeField, ReadOnly]
     protected DebugDictionary<E_DataTableType, ScriptableObject> m_Debug;
 #endif
-
-    #region 내부 컴포넌트
-    #endregion
-
-    #region 내부 프로퍼티
-    #endregion
-
-    #region 외부 프로퍼티
-    #endregion
-
-    #region 내부 함수
-    #endregion
 
     #region 외부 함수
     public ScriptableObject GetDataTable(E_DataTableType type)
@@ -65,13 +56,16 @@ public class DataTableManager : Singleton<DataTableManager>
     #region 유니티 콜백 함수
     void Awake()
     {
+        // 딕셔너리 초기화
         m_DataTables = new Dictionary<E_DataTableType, ScriptableObject>();
 #if UNITY_EDITOR
         m_Debug = new DebugDictionary<E_DataTableType, ScriptableObject>();
 #endif
 
+        // 테이블 타입별 초기화
         for (E_DataTableType i = E_DataTableType.None + 1; i < E_DataTableType.Max; ++i)
         {
+            // 타입과 이름이 일치하는 스크립터블 오브젝트가 있으면 딕셔너리에 추가
             m_DataTables.Add(i,
                 m_DataTableList.
                 Where(item => i.ToString() + "_TableLoader" == item.name).

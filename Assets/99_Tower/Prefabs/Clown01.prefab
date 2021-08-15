@@ -115,7 +115,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 236439613067574930}
-  - component: {fileID: 2725828936292799308}
   m_Layer: 0
   m_Name: Clown01
   m_TagString: Untagged
@@ -139,83 +138,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2725828936292799308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577534149742126120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba4fdbad0dd8884c8e256156f53d49c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TempCode: 0
-  m_TowerInfo_Excel:
-    No: 0
-    Name_KR: 
-    Name_EN: 
-    Code: 0
-    Rank: 0
-    Level: 0
-    Atk: 0
-    Atk_spd: 0
-    HP: 0
-    Def: 0
-    Crit_rate: 0
-    Crit_Dmg: 0
-    Atk_Code: 0
-    Skill1Code: 0
-    Skill2Code: 0
-    Type1: 0
-    Type2: 0
-    Prefeb: 0
-  m_TowerInfo:
-    RotateSpeed: 0
-    InitialRotation: {x: 0, y: 0, z: 0}
-    AttackSpeed: 0
-    AttackTimer: 0
-    IsAttacking: 0
-    DefaultSkillCondition:
-      No: 0
-      Name_KR: 
-      Name_EN: 
-      Code: 0
-      Ally: 0
-      Air_Attack: 0
-      Atk_type: 0
-      Atk_pick: 0
-      Target_type: 0
-      Move_type: 0
-      PassiveCode: 0
-      Atk_prefab: 0
-      projectile_prefab: 0
-      damage_prefab: 0
-      Component: 
-    DefaultSkillStat:
-      No: 0
-      Name_KR: 
-      Name_EN: 
-      Code: 0
-      Max_Charge: 0
-      CoolTime: 0
-      Dmg: 0
-      Range: 0
-      Speed: 0
-      Target_num: 0
-      Size: 0
-      Life_Time: 0
-      LoadCode: 0
-      LoadBuff: 0
-    BuffList: []
-    Synergy_Atk_type: 0
-    Berserker: 0
-    BerserkerStack: 0
-    BerserkerMaxStack: 0
-    BerserkerBuffList: []
-  m_Target: {fileID: 0}
-  m_AttackRange: {fileID: 0}
 --- !u!1 &828564095343767059
 GameObject:
   m_ObjectHideFlags: 0

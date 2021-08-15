@@ -22,6 +22,7 @@ public class SynergyManager : Singleton<SynergyManager>
 
     #region 내부 프로퍼티
     protected TowerManager M_Tower => TowerManager.Instance;
+    protected EnemyManager M_Enemy => EnemyManager.Instance;
     protected BuffManager M_Buff => BuffManager.Instance;
     protected NodeManager M_Node => NodeManager.Instance;
     protected DataTableManager M_DataTable => DataTableManager.Instance;
@@ -68,6 +69,7 @@ public class SynergyManager : Singleton<SynergyManager>
     public void UpdateSynergy(E_Direction dir)
     {
         List<Tower> towers = M_Tower.GetTowerList(dir);
+        List<Enemy> enemies = new List<Enemy>();// M_Enemy.GetEnemyList(dir);
 
         if (towers.Count <= 0)
             return;
@@ -194,9 +196,27 @@ public class SynergyManager : Singleton<SynergyManager>
                                     }
                                 }
                                 // 몬스터 디버프
-                                else if (effect.EffectAmount == E_SynergyEffectAmount.Monster)
+                                else if (effect.EffectAmount == E_SynergyEffectAmount.Enemy)
                                 {
+                                    // 시너지 적용할 적 리스트
+                                    List<Enemy> enemyList = null;
 
+                                    //// 같은 시너지 타워들만
+                                    //if (data.TargetMem == 1)
+                                    //{
+                                    //    enemyList = item.Value;
+                                    //}
+                                    //// 현재 라인 적 전부
+                                    if (data.TargetMem == 2)
+                                    {
+                                        enemyList = enemies;
+                                    }
+
+                                    // 시너지 적용
+                                    for (int i = 0; i < enemyList.Count; ++i)
+                                    {
+                                        //enemyList[i].BuffList.Add(buffData);
+                                    }
                                 }
                                 // 마왕 버프
                                 else if (effect.EffectAmount == E_SynergyEffectAmount.King)
@@ -310,7 +330,7 @@ public class SynergyManager : Singleton<SynergyManager>
                                     }
                                 }
                                 // 몬스터 디버프
-                                else if (effect.EffectAmount == E_SynergyEffectAmount.Monster)
+                                else if (effect.EffectAmount == E_SynergyEffectAmount.Enemy)
                                 {
 
                                 }

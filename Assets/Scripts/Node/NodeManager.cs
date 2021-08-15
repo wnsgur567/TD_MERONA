@@ -277,6 +277,7 @@ public class NodeManager : Singleton<NodeManager>
         }
     }
     // 매 프레임 회전
+    // 참조: http://devkorea.co.kr/bbs/board.php?bo_table=m03_qna&wr_id=95809
     protected IEnumerator RotateNode(bool clockwise = true)
     {
         // 회전 여부 설정
@@ -317,7 +318,7 @@ public class NodeManager : Singleton<NodeManager>
             yield break;
         }
 
-        // 현재 프레임까지 걸린 시간만큼 비례하여 회전
+        // 위로 이동
         for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
         {
             for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
@@ -354,7 +355,7 @@ public class NodeManager : Singleton<NodeManager>
             }
         }
 
-        // 현재 프레임까지 걸린 시간만큼 비례하여 회전
+        // 아래로 이동
         for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
         {
             for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
