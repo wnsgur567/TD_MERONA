@@ -86,4 +86,4 @@ public class  BuffCC_TableExcelLoader : ScriptableObject
 			DataList.Add(data);
 		}
 	}
-	}
+}

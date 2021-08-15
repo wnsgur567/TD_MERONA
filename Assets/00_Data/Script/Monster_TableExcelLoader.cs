@@ -80,4 +80,4 @@ public class  Monster_TableExcelLoader : ScriptableObject
 			DataList.Add(data);
 		}
 	}
-	}
+}

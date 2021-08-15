@@ -80,4 +80,4 @@ public class  Shop_TableExcelLoader : ScriptableObject
 			DataList.Add(data);
 		}
 	}
-	}
+}

@@ -26,17 +26,15 @@ public class SkillManager : Singleton<SkillManager>
     #endregion
 
     #region 외부 함수
-    public S_SkillConditionData_Excel GetConditionData(int code)
+    public SkillCondition_TableExcel GetConditionData(int code)
     {
-        SkillCondition_TableExcel origin = m_SkillConditionData.DataList.Where(item => item.Code == code).SingleOrDefault();
-        S_SkillConditionData_Excel skillConditionData = new S_SkillConditionData_Excel(origin);
+        SkillCondition_TableExcel skillConditionData = m_SkillConditionData.DataList.Where(item => item.Code == code).SingleOrDefault();
 
         return skillConditionData;
     }
-    public S_SkillStatData_Excel GetStatData(int code)
+    public SkillStat_TableExcel GetStatData(int code)
     {
-        SkillStat_TableExcel origin = m_SkillStatData.DataList.Where(item => item.Code == code).Single();
-        S_SkillStatData_Excel skillStatData = new S_SkillStatData_Excel(origin);
+        SkillStat_TableExcel skillStatData = m_SkillStatData.DataList.Where(item => item.Code == code).Single();
 
         return skillStatData;
     }
@@ -53,14 +51,15 @@ public class SkillManager : Singleton<SkillManager>
     {
         int projectPrefabCode = GetConditionData(code).projectile_prefab;
         string key = projectPrefabCode.ToString();
-        Skill skill = M_SkillPool.GetPool(key).Spawn();
+
+        Skill skill = M_SkillPool.GetPool(key)?.Spawn();
         return skill;
     }
     public void DespawnProjectileSkill(Skill skill)
     {
         int projectPrefabCode = GetConditionData(skill.m_ConditionInfo_Excel.Code).projectile_prefab;
         string key = projectPrefabCode.ToString();
-        M_SkillPool.GetPool(key).DeSpawn(skill);
+        M_SkillPool.GetPool(key)?.DeSpawn(skill);
     }
     public int Condition_NoToCode(int no)
     {

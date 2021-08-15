@@ -62,4 +62,4 @@ public class  StageMonster_TableExcelLoader : ScriptableObject
 			DataList.Add(data);
 		}
 	}
-	}
+}

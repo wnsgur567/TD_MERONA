@@ -10,7 +10,7 @@ public class Devil : MonoBehaviour
     public GameObject m_Target;
 
     // 마왕 정보(엑셀)
-    protected S_TowerData_Excel m_DevilInfo_Excel;
+    protected Tower_TableExcel m_DevilInfo_Excel;
     // 마왕 정보
     protected S_DevilData m_DevilInfo;
 
@@ -76,19 +76,22 @@ public class Devil : MonoBehaviour
         #endregion
 
         #region 내부 데이터 정리
-        // 평타
-        m_DevilInfo.DefaultSkillCondition = M_Skill.GetConditionData(m_DevilInfo_Excel.Atk_Code);
-        m_DevilInfo.DefaultSkillStat = M_Skill.GetStatData(m_DevilInfo_Excel.Atk_Code);
-
-        // 공격
-        m_DevilInfo.AttackTimer = m_DevilInfo_Excel.Atk_spd;
+        m_DevilInfo.RotateSpeed = 5f;
+        m_DevilInfo.InitialRotation = transform.eulerAngles;
         m_DevilInfo.ShouldFindTarget = true;
+
+        // 기본 스킬 데이터
+        m_DevilInfo.Condition_Default = M_Skill.GetConditionData(m_DevilInfo_Excel.Atk_Code);
+        m_DevilInfo.Stat_Default = M_Skill.GetStatData(m_DevilInfo_Excel.Atk_Code);
+        // 기본 스킬
+        m_DevilInfo.AttackSpeed_Default = m_DevilInfo.Stat_Default.CoolTime;
+        m_DevilInfo.AttackTimer_Default = m_DevilInfo.Stat_Default.CoolTime;
         #endregion
 
         #region 내부 컴포넌트
         m_AttackRange = transform.Find("AttackRange").GetComponent<AttackRange>();
         m_AttackRange.Initialize();
-        m_AttackRange.SetRange(m_DevilInfo.DefaultSkillStat.Range);
+        m_AttackRange.SetRange(m_DevilInfo.Stat_Default.Range);
         #endregion
     }
     // 타워 회전
@@ -117,7 +120,7 @@ public class Devil : MonoBehaviour
     protected void UpdateTarget()
     {
         // 타겟 변경 기준에 따라
-        switch (m_DevilInfo.DefaultSkillCondition.Target_type)
+        switch ((E_TargetType)m_DevilInfo.Condition_Default.Target_type)
         {
             case E_TargetType.CloseTarget:
                 if (m_DevilInfo.ShouldFindTarget)
@@ -136,7 +139,7 @@ public class Devil : MonoBehaviour
             // FixTarget (타겟이 사거리를 벗어나거나 죽은 경우 변경)
             case E_TargetType.FixTarget:
                 if (null == m_Target || // 예외처리
-                    DistanceToTarget > m_DevilInfo.DefaultSkillStat.Range) // 타겟이 사거리를 벗어난 경우
+                    DistanceToTarget > m_DevilInfo.Stat_Default.Range) // 타겟이 사거리를 벗어난 경우
                 {
                     m_Target = m_AttackRange.GetNearTarget();
                 }
@@ -146,29 +149,30 @@ public class Devil : MonoBehaviour
     // 타워 공격
     protected void AttackTarget()
     {
-        if (m_DevilInfo.AttackTimer < m_DevilInfo_Excel.Atk_spd)
+        if (m_DevilInfo.AttackTimer_Default < m_DevilInfo.AttackSpeed_Default)
         {
-            m_DevilInfo.AttackTimer += Time.deltaTime;
+            m_DevilInfo.AttackTimer_Default += Time.deltaTime;
         }
         else if (null != m_Target)
         {
             // 내부 데이터 정리
-            m_DevilInfo.AttackTimer -= m_DevilInfo_Excel.Atk_spd;
+            m_DevilInfo.AttackTimer_Default -= m_DevilInfo.AttackSpeed_Default;
+            m_DevilInfo.AttackSpeed_Default = m_DevilInfo.Stat_Default.CoolTime;
             m_DevilInfo.ShouldFindTarget = true;
 
             // 스킬 데이터 불러오기
-            S_SkillConditionData_Excel conditionData = m_DevilInfo.DefaultSkillCondition;
-            S_SkillStatData_Excel statData = m_DevilInfo.DefaultSkillStat;
+            SkillCondition_TableExcel conditionData = m_DevilInfo.Condition_Default;
+            SkillStat_TableExcel statData = m_DevilInfo.Stat_Default;
 
             // 기본 스킬 투사체 생성
-            int DefaultSkillCode = conditionData.projectile_prefab;
-            Skill DefaultSkill = M_Skill.SpawnProjectileSkill(DefaultSkillCode);
-            DefaultSkill.transform.position = transform.position;
-            DefaultSkill.enabled = true;
-            DefaultSkill.gameObject.SetActive(true);
+            int SkillCode = conditionData.projectile_prefab;
+            Skill Skill = M_Skill.SpawnProjectileSkill(SkillCode);
+            Skill.transform.position = transform.position;
+            Skill.enabled = true;
+            Skill.gameObject.SetActive(true);
 
             // 스킬 데이터 설정
-            DefaultSkill.InitializeSkill(m_Target, conditionData, statData);
+            Skill.InitializeSkill(m_Target, conditionData, statData);
         }
     }
 
@@ -216,15 +220,16 @@ public class Devil : MonoBehaviour
         public float RotateSpeed;
         // 초기 회전 값
         public Vector3 InitialRotation;
-
-        // 타워 공격 타이머
-        public float AttackTimer;
         // 적 감지 여부
         public bool ShouldFindTarget;
-
-        // 평타
-        public S_SkillConditionData_Excel DefaultSkillCondition;
-        public S_SkillStatData_Excel DefaultSkillStat;
+        
+        // 기본 스킬 데이터
+        public SkillCondition_TableExcel Condition_Default;
+        public SkillStat_TableExcel Stat_Default;
+        // 기본 스킬 공격 속도
+        public float AttackSpeed_Default;
+        // 기본 스킬 타이머
+        public float AttackTimer_Default;
 
         // 스킬
         public S_DevilSkillData m_Skill01;
@@ -237,8 +242,8 @@ public class Devil : MonoBehaviour
     [System.Serializable]
     public struct S_DevilSkillData
     {
-        public S_SkillConditionData_Excel m_ConditionData;
-        public S_SkillStatData_Excel m_StatData;
+        public SkillCondition_TableExcel m_ConditionData;
+        public SkillStat_TableExcel m_StatData;
 
         public E_SkillType m_SkillType;
         public E_SkillRangeType m_SkillRangeType;

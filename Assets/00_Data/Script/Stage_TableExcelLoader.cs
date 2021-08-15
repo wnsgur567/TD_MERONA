@@ -66,4 +66,4 @@ public class  Stage_TableExcelLoader : ScriptableObject
 			DataList.Add(data);
 		}
 	}
-	}
+}

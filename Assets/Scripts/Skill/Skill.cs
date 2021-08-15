@@ -5,8 +5,8 @@ using UnityEngine;
 public class Skill : MonoBehaviour
 {
     // 스킬 정보 (엑셀)
-    public S_SkillConditionData_Excel m_ConditionInfo_Excel;
-    public S_SkillStatData_Excel m_StatInfo_Excel;
+    public SkillCondition_TableExcel m_ConditionInfo_Excel;
+    public SkillStat_TableExcel m_StatInfo_Excel;
     // 스킬 정보
     public S_SkillData m_SkillInfo;
 
@@ -103,7 +103,7 @@ public class Skill : MonoBehaviour
 
     private bool CheckToDespawn()
     {
-        switch (m_ConditionInfo_Excel.Atk_type)
+        switch ((E_AttackType)m_ConditionInfo_Excel.Atk_type)
         {
             case E_AttackType.NormalFire:
             case E_AttackType.FixedFire:
@@ -118,17 +118,22 @@ public class Skill : MonoBehaviour
     }
     private void Despawn()
     {
-        M_Skill.DespawnProjectileSkill(this);
+        Skill skill = M_Skill.SpawnProjectileSkill(m_StatInfo_Excel.LoadCode);
+        SkillCondition_TableExcel condition = M_Skill.GetConditionData(m_StatInfo_Excel.LoadCode);
+        SkillStat_TableExcel stat = M_Skill.GetStatData(condition.PassiveCode);
+        skill?.InitializeSkill(m_Target, condition, stat);
+
+        m_Target = null;
 
         m_SkillInfo.AttackRange.Clear();
         m_SkillInfo.BounceTargetList.Clear();
 
-        m_Target = null;
+        M_Skill.DespawnProjectileSkill(this);
     }
 
     private bool CheckToUpdateTarget()
     {
-        switch (m_ConditionInfo_Excel.Atk_type)
+        switch ((E_AttackType)m_ConditionInfo_Excel.Atk_type)
         {
             case E_AttackType.BounceFire:
                 return ArrivedToTarget;
@@ -138,14 +143,14 @@ public class Skill : MonoBehaviour
     }
     private void UpdateTarget()
     {
-        switch (m_ConditionInfo_Excel.Atk_type)
+        switch ((E_AttackType)m_ConditionInfo_Excel.Atk_type)
         {
             case E_AttackType.BounceFire:
                 m_SkillInfo.InitPos = m_Target.transform.position;
 
                 if (m_SkillInfo.CanOverlapBounce)
                 {
-                    switch (m_ConditionInfo_Excel.Target_type)
+                    switch ((E_TargetType)m_ConditionInfo_Excel.Target_type)
                     {
                         case E_TargetType.CloseTarget:
                             m_Target = m_SkillInfo.AttackRange.GetNearTarget(true);
@@ -164,7 +169,7 @@ public class Skill : MonoBehaviour
                     {
                         m_SkillInfo.AttackRange.RemoveTarget(m_Target);
 
-                        switch (m_ConditionInfo_Excel.Target_type)
+                        switch ((E_TargetType)m_ConditionInfo_Excel.Target_type)
                         {
                             case E_TargetType.CloseTarget:
                                 m_Target = m_SkillInfo.AttackRange.GetNearTarget();
@@ -192,7 +197,7 @@ public class Skill : MonoBehaviour
 
     private void RotateBullet()
     {
-        switch (m_ConditionInfo_Excel.Move_type)
+        switch ((E_MoveType)m_ConditionInfo_Excel.Move_type)
         {
             case E_MoveType.Straight:
                 transform.LookAt(transform.position + TargetDir);
@@ -205,7 +210,7 @@ public class Skill : MonoBehaviour
 
     private void MoveBullet()
     {
-        switch (m_ConditionInfo_Excel.Move_type)
+        switch ((E_MoveType)m_ConditionInfo_Excel.Move_type)
         {
             case E_MoveType.Straight:
                 StraightMove();
@@ -221,13 +226,16 @@ public class Skill : MonoBehaviour
     }
     private Vector3 GetCurveDir()
     {
+        // 포물선 이동 제작
         // 출처: https://robatokim.tistory.com/entry/%EA%B2%8C%EC%9E%84%EC%88%98%ED%95%99-%EC%97%AD%ED%83%84%EB%8F%84%EA%B3%84%EC%82%B0%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%91%90%EC%A0%90-%EC%82%AC%EC%9D%98-%ED%8F%AC%EB%AC%BC%EC%84%A0-%EA%B5%AC%ED%95%98%EA%B8%B0
         Vector3 StartPos = m_SkillInfo.InitPos;
         Vector3 EndPos = m_Target.transform.position;
         Vector3 Pos = transform.position;
 
-        float MaxHeight = Mathf.Max(StartPos.y, EndPos.y) + 2.5f; // 최대 높이
-        float MaxTime = m_StatInfo_Excel.Speed;
+        // 최대 높이
+        float MaxHeight = Mathf.Max(StartPos.y, EndPos.y) + 2.5f;
+        // 최대 높이까지 가는 시간
+        float MaxTime = (MaxHeight - StartPos.y) / m_StatInfo_Excel.Speed;
 
         float EndHeight = EndPos.y - StartPos.y;
         float Height = MaxHeight - StartPos.y;
@@ -268,7 +276,7 @@ public class Skill : MonoBehaviour
 
     private void UpdateInfo()
     {
-        switch (m_ConditionInfo_Excel.Atk_type)
+        switch ((E_AttackType)m_ConditionInfo_Excel.Atk_type)
         {
             case E_AttackType.NormalFire:
             case E_AttackType.FixedFire:
@@ -280,14 +288,14 @@ public class Skill : MonoBehaviour
         }
     }
 
-    public void InitializeSkill(GameObject target, S_SkillConditionData_Excel conditionData, S_SkillStatData_Excel statData)
+    public void InitializeSkill(GameObject target, SkillCondition_TableExcel conditionData, SkillStat_TableExcel statData)
     {
         m_Target = target;
 
         m_ConditionInfo_Excel = conditionData;
         m_StatInfo_Excel = statData;
 
-        if (m_ConditionInfo_Excel.Atk_type == E_AttackType.BounceFire)
+        if ((E_AttackType)m_ConditionInfo_Excel.Atk_type == E_AttackType.BounceFire)
         {
             // 다음 타겟 찾는 사거리 = 타워 사거리의 1 / 4
             m_SkillInfo.AttackRange.SetRange(m_StatInfo_Excel.Range * 0.25f);

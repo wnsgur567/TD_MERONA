@@ -39,17 +39,15 @@ public class TowerManager : Singleton<TowerManager>
         m_DirTowerList[dir].Add(spawn);
         return spawn;
     }
-    public S_TowerData_Excel GetData(E_Tower no)
+    public Tower_TableExcel GetData(E_Tower no)
     {
-        Tower_TableExcel origin = m_TowerData.DataList.Where(item => item.No == (int)no).SingleOrDefault();
-        S_TowerData_Excel result = new S_TowerData_Excel(origin);
+        Tower_TableExcel result = m_TowerData.DataList.Where(item => item.No == (int)no).SingleOrDefault();
 
         return result;
     }
-    public S_TowerData_Excel GetData(int code)
+    public Tower_TableExcel GetData(int code)
     {
-        Tower_TableExcel origin = m_TowerData.DataList.Where(item => item.Code == code).SingleOrDefault();
-        S_TowerData_Excel result = new S_TowerData_Excel(origin);
+        Tower_TableExcel result = m_TowerData.DataList.Where(item => item.Code == code).SingleOrDefault();
 
         return result;
     }
