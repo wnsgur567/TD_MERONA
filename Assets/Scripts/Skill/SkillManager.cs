@@ -34,7 +34,7 @@ public class SkillManager : Singleton<SkillManager>
     }
     public SkillStat_TableExcel GetStatData(int code)
     {
-        SkillStat_TableExcel skillStatData = m_SkillStatData.DataList.Where(item => item.Code == code).Single();
+        SkillStat_TableExcel skillStatData = m_SkillStatData.DataList.Where(item => item.Code == code).SingleOrDefault();
 
         return skillStatData;
     }

@@ -16,11 +16,18 @@ public class TowerPool : ObjectPool<TowerPool, Tower>
         for (int i = 3; i < M_TowerData.DataList.Count; ++i)
         {
             int PrefabCode = M_TowerData.DataList[i].Prefeb;
+            Debug.Log(PrefabCode);
             string key = PrefabCode.ToString();
+
             GameObject originObj = GameObject.Instantiate(M_PrefabData.GetPrefab(PrefabCode));
             originObj.name = M_PrefabData.GetPrefab(PrefabCode).name;
+
             Tower origin = originObj.AddComponent<Tower>();
+            origin.InitializeTower(M_TowerData.DataList[i].Code);
+
             AddPool(key, origin, transform);
+
+            GameObject.Destroy(originObj);
         }
 
         //for (E_Tower i = E_Tower.OrkGunner01; i < E_Tower.Max; ++i)

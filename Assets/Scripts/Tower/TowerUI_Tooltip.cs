@@ -58,11 +58,11 @@ public class TowerUI_Tooltip : Singleton<TowerUI_Tooltip>, IPointerClickHandler
     Skill_Date skilldata1,skilldata2;
 
     SkillManager skill;
-    S_SkillStatData_Excel skillstate_excel;
-    S_SkillConditionData_Excel skillcondition_excel;
+    SkillCondition_TableExcel skillcondition_excel;
+    SkillStat_TableExcel skillstate_excel;
 
     SynergyManager synergy;
-    S_SynergyData_Excel synergy_excel;
+    Synergy_TableExcel synergy_excel;
 
     Transform saleobj;
     float screen_maxy;
