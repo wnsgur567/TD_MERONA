@@ -87,6 +87,10 @@ public static class Methods
         return Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
     }
 
+    public static T AddComponent<T>(this Transform transform) where T : Component
+    {
+        return transform.gameObject.AddComponent<T>();
+    }
     public static T CopyComponent<T>(this Component original) where T : Component
     {
         Type type = original.GetType();

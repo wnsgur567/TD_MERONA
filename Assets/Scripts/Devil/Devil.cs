@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Devil : MonoBehaviour
 {
-    // 마왕 코드(임시)
-    public int m_TempCode;
     // 타겟
     public GameObject m_Target;
 
@@ -59,25 +57,21 @@ public class Devil : MonoBehaviour
     #endregion
 
     #region 유니티 콜백 함수
-    private void Awake()
-    {
-        InitializeDevil(m_TempCode);
-    }
-
     private void Update()
     {
         RotateToTarget();
         UpdateTarget();
         AttackTarget();
+        ReduceSkillCooldown();
     }
     #endregion
 
     #region 내부 함수
     // 마왕 초기화
-    protected virtual void InitializeDevil(int code)
+    protected virtual void InitializeDevil(E_Devil no)
     {
         #region 엑셀 데이터 정리
-        m_DevilInfo_Excel = M_Tower.GetData(code);
+        m_DevilInfo_Excel = M_Tower.GetData(no);
         #endregion
 
         #region 내부 데이터 정리
@@ -210,16 +204,10 @@ public class Devil : MonoBehaviour
         #endregion
     }
     // 마왕 스킬 쿨타임 감소
-    protected void DecreaseSkillCooldown()
+    protected void ReduceSkillCooldown()
     {
-        // 스킬01 쿨타임 감소
-        if (m_DevilInfo.m_Skill01.m_CurrentCharge < m_DevilInfo.m_Skill01.m_MaxCharge)
-        {
-
-        }
-        
-        // 스킬02 쿨타임 감소
-
+        ReduceSkill01Cooldown(Time.deltaTime);
+        ReduceSkill02Cooldown(Time.deltaTime);
     }
 
     protected IEnumerator SK003()
@@ -249,13 +237,53 @@ public class Devil : MonoBehaviour
     #endregion
 
     #region 외부 함수
+    // 스킬01 쿨타임 감소
+    public void ReduceSkill01Cooldown(float time)
+    {
+        if (m_DevilInfo.m_Skill01.m_CurrentCharge < m_DevilInfo.m_Skill01.m_MaxCharge)
+        {
+            m_DevilInfo.m_Skill01.m_CooltimeTimer -= time;
+
+            if (m_DevilInfo.m_Skill01.m_CooltimeTimer <= 0f)
+            {
+                m_DevilInfo.m_Skill01.m_CooltimeTimer += m_DevilInfo.m_Skill01.m_Cooltime;
+
+                ++m_DevilInfo.m_Skill01.m_CurrentCharge;
+            }
+        }
+    }
+    // 스킬02 쿨타임 감소
+    public void ReduceSkill02Cooldown(float time)
+    {
+        if (m_DevilInfo.m_Skill02.m_CurrentCharge < m_DevilInfo.m_Skill02.m_MaxCharge)
+        {
+            m_DevilInfo.m_Skill02.m_CooltimeTimer -= time;
+
+            if (m_DevilInfo.m_Skill02.m_CooltimeTimer <= 0f)
+            {
+                m_DevilInfo.m_Skill02.m_CooltimeTimer += m_DevilInfo.m_Skill02.m_Cooltime;
+
+                ++m_DevilInfo.m_Skill02.m_CurrentCharge;
+            }
+        }
+    }
     public void OnSkill01(DevilSkillArg arg)
     {
-        Skill01Event?.Invoke(arg);
+        if (m_DevilInfo.m_Skill01.m_CurrentCharge > 0)
+        {
+            --m_DevilInfo.m_Skill01.m_CurrentCharge;
+
+            Skill01Event?.Invoke(arg);
+        }
     }
     public void OnSkill02(DevilSkillArg arg)
     {
-        Skill02Event?.Invoke(arg);
+        if (m_DevilInfo.m_Skill02.m_CurrentCharge > 0)
+        {
+            --m_DevilInfo.m_Skill02.m_CurrentCharge;
+
+            Skill02Event?.Invoke(arg);
+        }
     }
     public void GetDamage(float damage)
     {

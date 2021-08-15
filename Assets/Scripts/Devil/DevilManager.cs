@@ -14,7 +14,7 @@ public enum E_Devil
 public class DevilManager : Singleton<DevilManager>
 {
     protected Devil m_Devil;
-    
+
     #region 내부 컴포넌트
     #endregion
 
@@ -22,6 +22,7 @@ public class DevilManager : Singleton<DevilManager>
     #endregion
 
     #region 외부 프로퍼티
+    public Devil Devil => m_Devil;
     #endregion
 
     #region 내부 함수

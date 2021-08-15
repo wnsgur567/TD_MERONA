@@ -161,11 +161,11 @@ public class Tower : MonoBehaviour
             // 버프 적용 계산
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                BuffRand.Add(Random.Range(0f, 1f));
+                BuffRand.Add(Random.Range(0.00001f, 1f));
                 BuffApply.Add((E_BuffType)BuffList[i].BuffType1 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand1);
-                BuffRand.Add(Random.Range(0f, 1f));
+                BuffRand.Add(Random.Range(0.00001f, 1f));
                 BuffApply.Add((E_BuffType)BuffList[i].BuffType2 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand2);
-                BuffRand.Add(Random.Range(0f, 1f));
+                BuffRand.Add(Random.Range(0.00001f, 1f));
                 BuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand3);
             }
 
@@ -178,11 +178,11 @@ public class Tower : MonoBehaviour
             // 버서커 버프 적용 계산
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                BerserkerBuffRand.Add(Random.Range(0f, 1f));
+                BerserkerBuffRand.Add(Random.Range(0.00001f, 1f));
                 BerserkerBuffApply.Add((E_BuffType)BuffList[i].BuffType1 == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].BuffRand1);
-                BerserkerBuffRand.Add(Random.Range(0f, 1f));
+                BerserkerBuffRand.Add(Random.Range(0.00001f, 1f));
                 BerserkerBuffApply.Add((E_BuffType)BuffList[i].BuffType2 == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].BuffRand2);
-                BerserkerBuffRand.Add(Random.Range(0f, 1f));
+                BerserkerBuffRand.Add(Random.Range(0.00001f, 1f));
                 BerserkerBuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].BuffRand3);
             }
 
@@ -195,11 +195,11 @@ public class Tower : MonoBehaviour
             // 마왕 스킬 버프 적용 계산
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                DevilSkillBuffRand.Add(Random.Range(0f, 1f));
+                DevilSkillBuffRand.Add(Random.Range(0.00001f, 1f));
                 DevilSkillBuffApply.Add((E_BuffType)BuffList[i].BuffType1 == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].BuffRand1);
-                DevilSkillBuffRand.Add(Random.Range(0f, 1f));
+                DevilSkillBuffRand.Add(Random.Range(0.00001f, 1f));
                 DevilSkillBuffApply.Add((E_BuffType)BuffList[i].BuffType2 == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].BuffRand2);
-                DevilSkillBuffRand.Add(Random.Range(0f, 1f));
+                DevilSkillBuffRand.Add(Random.Range(0.00001f, 1f));
                 DevilSkillBuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].BuffRand3);
             }
 
@@ -774,15 +774,13 @@ public class Tower : MonoBehaviour
             // 마왕 쿨타임 감소
             if (m_TowerInfo.ReduceCooldown)
             {
-                float ReduceCooldownRand = Random.Range(0f, 1f);
-
-
-                bool ReduceCooldownApply = (
-                    ReduceCooldownRand <= m_TowerInfo.ReduceCooldownRand);
+                float ReduceCooldownRand = Random.Range(0.00001f, 1f);
+                bool ReduceCooldownApply = (ReduceCooldownRand <= m_TowerInfo.ReduceCooldownRand);
 
                 if (ReduceCooldownApply)
                 {
-                    // Do Something
+                    M_Devil.Devil.ReduceSkill01Cooldown(1f);
+                    M_Devil.Devil.ReduceSkill02Cooldown(1f);
                 }
             }
             #endregion
@@ -851,11 +849,11 @@ public class Tower : MonoBehaviour
             // 버프 적용 계산
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                BuffRand.Add(Random.Range(0f, 1f));
+                BuffRand.Add(Random.Range(0.00001f, 1f));
                 BuffApply.Add((E_BuffType)BuffList[i].BuffType1 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand1);
-                BuffRand.Add(Random.Range(0f, 1f));
+                BuffRand.Add(Random.Range(0.00001f, 1f));
                 BuffApply.Add((E_BuffType)BuffList[i].BuffType2 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand2);
-                BuffRand.Add(Random.Range(0f, 1f));
+                BuffRand.Add(Random.Range(0.00001f, 1f));
                 BuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand3);
             }
 
@@ -868,11 +866,11 @@ public class Tower : MonoBehaviour
             // 버서커 버프 적용 계산
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                BerserkerBuffRand.Add(Random.Range(0f, 1f));
+                BerserkerBuffRand.Add(Random.Range(0.00001f, 1f));
                 BerserkerBuffApply.Add((E_BuffType)BuffList[i].BuffType1 == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].BuffRand1);
-                BerserkerBuffRand.Add(Random.Range(0f, 1f));
+                BerserkerBuffRand.Add(Random.Range(0.00001f, 1f));
                 BerserkerBuffApply.Add((E_BuffType)BuffList[i].BuffType2 == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].BuffRand2);
-                BerserkerBuffRand.Add(Random.Range(0f, 1f));
+                BerserkerBuffRand.Add(Random.Range(0.00001f, 1f));
                 BerserkerBuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].BuffRand3);
             }
 
@@ -885,11 +883,11 @@ public class Tower : MonoBehaviour
             // 마왕 스킬 버프 적용 계산
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                DevilSkillBuffRand.Add(Random.Range(0f, 1f));
+                DevilSkillBuffRand.Add(Random.Range(0.00001f, 1f));
                 DevilSkillBuffApply.Add((E_BuffType)BuffList[i].BuffType1 == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].BuffRand1);
-                DevilSkillBuffRand.Add(Random.Range(0f, 1f));
+                DevilSkillBuffRand.Add(Random.Range(0.00001f, 1f));
                 DevilSkillBuffApply.Add((E_BuffType)BuffList[i].BuffType2 == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].BuffRand2);
-                DevilSkillBuffRand.Add(Random.Range(0f, 1f));
+                DevilSkillBuffRand.Add(Random.Range(0.00001f, 1f));
                 DevilSkillBuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].BuffRand3);
             }
 
@@ -1493,11 +1491,11 @@ public class Tower : MonoBehaviour
             // 버프 적용 계산
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                BuffRand.Add(Random.Range(0f, 1f));
+                BuffRand.Add(Random.Range(0.00001f, 1f));
                 BuffApply.Add((E_BuffType)BuffList[i].BuffType1 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand1);
-                BuffRand.Add(Random.Range(0f, 1f));
+                BuffRand.Add(Random.Range(0.00001f, 1f));
                 BuffApply.Add((E_BuffType)BuffList[i].BuffType2 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand2);
-                BuffRand.Add(Random.Range(0f, 1f));
+                BuffRand.Add(Random.Range(0.00001f, 1f));
                 BuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand3);
             }
 
@@ -1510,11 +1508,11 @@ public class Tower : MonoBehaviour
             // 버서커 버프 적용 계산
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                BerserkerBuffRand.Add(Random.Range(0f, 1f));
+                BerserkerBuffRand.Add(Random.Range(0.00001f, 1f));
                 BerserkerBuffApply.Add((E_BuffType)BuffList[i].BuffType1 == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].BuffRand1);
-                BerserkerBuffRand.Add(Random.Range(0f, 1f));
+                BerserkerBuffRand.Add(Random.Range(0.00001f, 1f));
                 BerserkerBuffApply.Add((E_BuffType)BuffList[i].BuffType2 == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].BuffRand2);
-                BerserkerBuffRand.Add(Random.Range(0f, 1f));
+                BerserkerBuffRand.Add(Random.Range(0.00001f, 1f));
                 BerserkerBuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].BuffRand3);
             }
 
@@ -1527,11 +1525,11 @@ public class Tower : MonoBehaviour
             // 마왕 스킬 버프 적용 계산
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                DevilSkillBuffRand.Add(Random.Range(0f, 1f));
+                DevilSkillBuffRand.Add(Random.Range(0.00001f, 1f));
                 DevilSkillBuffApply.Add((E_BuffType)BuffList[i].BuffType1 == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].BuffRand1);
-                DevilSkillBuffRand.Add(Random.Range(0f, 1f));
+                DevilSkillBuffRand.Add(Random.Range(0.00001f, 1f));
                 DevilSkillBuffApply.Add((E_BuffType)BuffList[i].BuffType2 == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].BuffRand2);
-                DevilSkillBuffRand.Add(Random.Range(0f, 1f));
+                DevilSkillBuffRand.Add(Random.Range(0.00001f, 1f));
                 DevilSkillBuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].BuffRand3);
             }
 
@@ -2147,9 +2145,17 @@ public class Tower : MonoBehaviour
         #endregion
 
         #region 내부 컴포넌트
-        m_AttackRange_Default = transform.Find("AttackRange").GetComponent<AttackRange>();
+        m_AttackRange_Default = transform.Find("AttackRange_Default").AddComponent<AttackRange>();
         m_AttackRange_Default.Initialize();
         m_AttackRange_Default.SetRange(m_TowerInfo.Stat_Default.Range);
+
+        m_AttackRange_Skill01 = transform.Find("AttackRange_Skill01").AddComponent<AttackRange>();
+        m_AttackRange_Skill01.Initialize();
+        m_AttackRange_Skill01.SetRange(m_TowerInfo.Stat_Skill01.Range);
+
+        m_AttackRange_Skill02 = transform.Find("AttackRange_Skill02").AddComponent<AttackRange>();
+        m_AttackRange_Skill02.Initialize();
+        m_AttackRange_Skill02.SetRange(m_TowerInfo.Stat_Skill02.Range);
         #endregion
     }
     #endregion
