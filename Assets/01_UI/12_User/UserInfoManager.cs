@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public struct UserInfo
 {
+    public int SelectedDevilCode;
     public int level;
     public int gold;
 }
@@ -19,18 +20,26 @@ public class UserInfoManager : Singleton<UserInfoManager>
 
     [SerializeField] UserInfo m_info;
 
+    public int DevilCode { get { return m_info.SelectedDevilCode; } }
     public int Level { get { return m_info.level; } }
     public int Gold { get { return m_info.gold; } }
 
 
     private void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
+
         if (Level == 0)
             m_info.level = 1;
     }
     private void Start()
     {
         
+    }
+
+    public void SetDevilCode(int code)
+    {
+        m_info.SelectedDevilCode = code;
     }
 
     public void ResetLevel()

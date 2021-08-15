@@ -20,29 +20,35 @@ public class CharacterSelectManager : Singleton<CharacterSelectManager>
     Camera m_renderCamera;
 
     [Space(10)]
-    [SerializeField] List<Tower_TableExcel> m_character_dataList;
-    [SerializeField] int SelectedCharacterCode;
+    [SerializeField] List<Tower_TableExcel> m_character_dataList;    
     Tower_TableExcel m_current_data;
 
     [Space(10)]
     [SerializeField] SkillInfoSlotController m_skillslot_controll;
     [SerializeField] CharacterInfoController m_charslot_controll;
+
     private void Start()
     {
         for (int i = 0; i < 3; i++)
         {
             m_character_dataList.Add(m_tower_loader.DataList[i]);
         }
-        SelectedCharacterCode = m_character_dataList[0].Code;
 
+        // 첫번째 마왕으로 기본 설정 해둠
+        UserInfoManager.Instance.SetDevilCode(m_character_dataList[0].Code);
+        m_current_data = m_character_dataList[0];
+
+        // 렌더 텍스쳐 관련 리소스 할당하기
         InitializeRenderTexture();
+        // 첫번째 마왕 오브젝트 활성화 (렌더 텍스쳐 용)
         m_showObj_list[0].obj.gameObject.SetActive(true);
 
-        // test for debbug
-        m_current_data = m_character_dataList[0];
-        SelectedCharacterCode = m_current_data.Code;
         OnCharacterChanged();
-       
+    }
+
+    public void OnStart()
+    {
+        OnCharacterChanged();
     }
 
     public void OnCharacterChanged()
@@ -98,18 +104,15 @@ public class CharacterSelectManager : Singleton<CharacterSelectManager>
     }
     public void SetNameInfo()
     {
-        m_charslot_controll.Set(m_current_data.Name_EN, "Information");         
+        m_charslot_controll.Set(m_current_data.Name_KR, "Information");         
     }
 
     public void __OnSelectButton(int index)
     {
         SetRenderTexture(index);
         m_current_data = m_character_dataList[index];
-        SelectedCharacterCode = m_current_data.Code;
+        UserInfoManager.Instance.SetDevilCode(m_current_data.Code);
         OnCharacterChanged();
     }
-    public void __OnSelectCompleteButton()
-    {
-
-    }
+    
 }

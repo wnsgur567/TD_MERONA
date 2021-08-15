@@ -93,6 +93,7 @@ public class GatePanelController : MonoBehaviour
         right_rt.anchoredPosition3D = Vector3.LerpUnclamped(right_rt.anchoredPosition3D, new Vector3(0, 0, 0), Time.deltaTime * m_speed);        
     }
 
+    // event
     public void __OnSceneLoadCompleted()
     {
         closeProcessFlag = true;
