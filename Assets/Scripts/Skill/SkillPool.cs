@@ -15,16 +15,17 @@ public class SkillPool : ObjectPool<SkillPool, Skill>
         for (int i = 0; i < M_SkillConditionData.DataList.Count; ++i)
         {
             int PrefabCode = M_SkillConditionData.DataList[i].projectile_prefab;
+            Debug.Log("Skill_" + PrefabCode);
 
             GameObject originObj = M_PrefabData.GetPrefab(PrefabCode);
             if (originObj != null)
             {
                 GameObject originClone = GameObject.Instantiate(originObj);
-                originClone.name = originObj.name;
+                string key = originClone.name = originObj.name;
 
                 Skill origin = originClone.AddComponent<Skill>();
 
-                AddPool(originClone.name, origin, transform);
+                AddPool(key, origin, transform);
 
                 GameObject.Destroy(originClone);
             }

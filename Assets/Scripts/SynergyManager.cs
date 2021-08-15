@@ -468,3 +468,43 @@ public class SynergyManager : Singleton<SynergyManager>
         }
     }
 }
+
+public enum E_SynergyEffectType
+{
+    None,
+
+    Buff,
+    ChangeAtkType,
+    ReduceCooldown,
+    Berserker,
+    AddGold
+}
+public enum E_SynergyEffectAmount
+{
+    None,
+
+    Tower,
+    Enemy,
+    Devil
+}
+
+[System.Serializable]
+public struct S_SynergyEffect
+{
+    public E_SynergyEffectType EffectType;
+    public E_SynergyEffectAmount EffectAmount;
+    public int EffectCode;
+    public E_AttackType EffectChange;
+    public int EffectReq;
+    public float EffectRand;
+
+    public S_SynergyEffect(int effectType, int effectAmount, int effectCode, int effectChange, int effectReq, float effectRand)
+    {
+        EffectType = (E_SynergyEffectType)effectType;
+        EffectAmount = (E_SynergyEffectAmount)effectAmount;
+        EffectCode = effectCode;
+        EffectChange = (E_AttackType)effectChange;
+        EffectReq = effectReq;
+        EffectRand = effectRand;
+    }
+}

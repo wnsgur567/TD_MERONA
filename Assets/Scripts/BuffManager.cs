@@ -36,3 +36,53 @@ public class BuffManager : Singleton<BuffManager>
     }
     #endregion
 }
+
+public enum E_BuffType
+{
+    None,
+
+    Atk,
+    Range,
+    Def,
+    Atk_spd,
+    Move_spd,
+    Crit_rate,
+    Crit_Dmg,
+
+    Stun,
+    Dot_Dmg,
+    Insta_Kill,
+    CritDmg_less,
+    CritDmg_more,
+
+    Heal,
+    Summon,
+    Shield
+}
+
+public enum E_AddType
+{
+    None,
+
+    Fix,
+    Percent
+}
+
+[System.Serializable]
+public struct S_Buff
+{
+    public E_BuffType BuffType;
+    public E_AddType AddType;
+    public float BuffAmount;
+    public float BuffRand;
+    public int Summon;
+
+    public S_Buff(int buffType, int addType, float buffAmount, float buffRand, int summon)
+    {
+        BuffType = (E_BuffType)buffType;
+        AddType = (E_AddType)addType;
+        BuffAmount = buffAmount;
+        BuffRand = buffRand;
+        Summon = summon;
+    }
+}

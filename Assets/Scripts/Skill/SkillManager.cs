@@ -88,3 +88,42 @@ public class SkillManager : Singleton<SkillManager>
     }
     #endregion
 }
+
+// 스킬 이동 타입
+public enum E_MoveType
+{
+    None,
+
+    Straight, // 직선 이동
+    Curve // 곡선 이동
+}
+
+// 스킬 공격 타입
+public enum E_AttackType
+{
+    None,
+
+    NormalFire, // 일반 공격
+    FixedFire, // 지점 공격
+    PenetrateFire, // 관통 공격
+    BounceFire // 튕기는 공격
+}
+// 스킬 발사 타입
+public enum E_FireType
+{
+    None,
+
+    Select_point,
+    Select_self,
+    Select_enemy
+}
+// 타겟 선정 타입
+public enum E_TargetType
+{
+    None,
+
+    CloseTarget,
+    RandTarget,
+    FixTarget,
+    TileTarget
+}
