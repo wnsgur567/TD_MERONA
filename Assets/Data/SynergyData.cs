@@ -47,8 +47,10 @@ public struct S_SynergyData_Excel
     public int TargetMem;
     public S_SynergyEffect Effect1;
     public S_SynergyEffect Effect2;
+    public int Synergy_icon;
     public int Prefab;
-
+    public string Synergy_text;
+    public string Synergy_Avility;
     public S_SynergyData_Excel(Synergy_TableExcel origin)
     {
         No = origin.No;
@@ -70,6 +72,9 @@ public struct S_SynergyData_Excel
         Effect2.EffectChange = (E_AttackType)origin.EffectChange2;
         Effect2.EffectReq = origin.EffectReq2;
         Effect2.EffectRand = origin.EffectRand2;
+        Synergy_icon = origin.Synergy_icon;
         Prefab = origin.Prefeb;
+        Synergy_text = origin.Synergy_text;
+        Synergy_Avility = origin.Synergy_Avility;
     }
 }
