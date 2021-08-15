@@ -27,10 +27,6 @@ public class CharacterSelectManager : Singleton<CharacterSelectManager>
     [SerializeField] SkillInfoSlotController m_skillslot_controll;
     [SerializeField] CharacterInfoController m_charslot_controll;
 
-
-
-
-
     private void Start()
     {
         for (int i = 0; i < 3; i++)
@@ -46,8 +42,13 @@ public class CharacterSelectManager : Singleton<CharacterSelectManager>
         InitializeRenderTexture();
         // 첫번째 마왕 오브젝트 활성화 (렌더 텍스쳐 용)
         m_showObj_list[0].obj.gameObject.SetActive(true);
-       
-        OnCharacterChanged();       
+
+        OnCharacterChanged();
+    }
+
+    public void OnStart()
+    {
+        OnCharacterChanged();
     }
 
     public void OnCharacterChanged()

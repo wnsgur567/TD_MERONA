@@ -12,14 +12,14 @@ using UnityEngine.SceneManagement;
 // SceneLoader의 멤버함수 LoadSecen 을 호출하기 (param 으로 B , C 의 이름)
 // 진행이 완료되면
 // A 와 Loader의 씬을 닫고 끝
-public class SceneLoader : MonoBehaviour
+public class SceneLoader : Singleton<SceneLoader>
 {
     [SerializeField] UnityEvent m_startEvent; 
     [SerializeField] UnityEvent m_loadCompleteEvent; 
     
     private List<string> m_load_scenes;
     private List<string> m_unload_scenes;
-    [SerializeField] Slider m_progressBar;
+    //[SerializeField] Slider m_progressBar;
         
     public bool IsCompleted { get; private set; }
     
@@ -53,15 +53,14 @@ public class SceneLoader : MonoBehaviour
             float beforeProgress = 0.0f;
             while (!op.isDone)
             {
-                yield return null;
+                yield return new WaitForSeconds(0.5f);
 
-                m_progressBar.value -= beforeProgress;
-                m_progressBar.value += op.progress;
+                //m_progressBar.value -= beforeProgress;
+                //m_progressBar.value += op.progress;
                 beforeProgress = op.progress;
 
                 if (op.progress >= 0.9f)
-                {
-                    Debug.Log("op.progress >= 1.0f");
+                {                    
                     break;
                 }
             }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainScene_CharacterPanelButtonController : MonoBehaviour
@@ -20,5 +21,14 @@ public class MainScene_CharacterPanelButtonController : MonoBehaviour
         // 다음 씬으로 이동 할 것 (로딩 씬 부르기)
         List<string> loadScenes = new List<string>();
         List<string> unloadScenes = new List<string>();
+
+        loadScenes.Add("Map");
+        loadScenes.Add("UIScene");
+
+        unloadScenes.Add("MainStartScene");
+
+        SceneManager.LoadScene("LoaderScene",LoadSceneMode.Additive);
+
+        SceneLoader.Instance.LoadScene(loadScenes, unloadScenes);
     }
 }

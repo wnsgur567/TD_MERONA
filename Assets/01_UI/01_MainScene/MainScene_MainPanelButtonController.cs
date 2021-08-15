@@ -13,6 +13,7 @@ public class MainScene_MainPanelButtonController : MonoBehaviour
     {
         m_character_panel.gameObject.SetActive(true);
         this.gameObject.SetActive(false);
+        CharacterSelectManager.Instance.OnStart();
     }
     public void __OnExitButton()
     {

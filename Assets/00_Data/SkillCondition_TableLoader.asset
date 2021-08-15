@@ -26,9 +26,9 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310002
-    Atk_prefeb: 900020
-    projectile_prefeb: 900033
-    damage_prefeb: 900026
+    Atk_prefeb: 900100
+    projectile_prefeb: 900101
+    damage_prefeb: 900102
     Skill_icon: 0
     Skill_text: '-'
   - No: 2
@@ -45,7 +45,7 @@ MonoBehaviour:
     PassiveCode: 310001
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900029
+    damage_prefeb: 900107
     Skill_icon: 0
     Skill_text: '-'
   - No: 3
@@ -62,7 +62,7 @@ MonoBehaviour:
     PassiveCode: 310001
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900078
+    damage_prefeb: 900111
     Skill_icon: 0
     Skill_text: '-'
   - No: 4
@@ -79,7 +79,7 @@ MonoBehaviour:
     PassiveCode: 310001
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900102
+    damage_prefeb: 900132
     Skill_icon: 0
     Skill_text: '-'
   - No: 5
@@ -96,7 +96,7 @@ MonoBehaviour:
     PassiveCode: 310001
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900077
+    damage_prefeb: 900143
     Skill_icon: 0
     Skill_text: '-'
   - No: 6
@@ -113,7 +113,7 @@ MonoBehaviour:
     PassiveCode: 310001
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900079
+    damage_prefeb: 900128
     Skill_icon: 0
     Skill_text: '-'
   - No: 7
@@ -130,7 +130,7 @@ MonoBehaviour:
     PassiveCode: 310001
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900087
+    damage_prefeb: 900158
     Skill_icon: 0
     Skill_text: '-'
   - No: 8
@@ -147,7 +147,7 @@ MonoBehaviour:
     PassiveCode: 310001
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900100
+    damage_prefeb: 900145
     Skill_icon: 0
     Skill_text: '-'
   - No: 9
@@ -162,7 +162,7 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310001
-    Atk_prefeb: 900134
+    Atk_prefeb: 900160
     projectile_prefeb: 0
     damage_prefeb: 0
     Skill_icon: 0
@@ -181,7 +181,7 @@ MonoBehaviour:
     PassiveCode: 310001
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900064
+    damage_prefeb: 900204
     Skill_icon: 0
     Skill_text: '-'
   - No: 11
@@ -196,9 +196,9 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310002
-    Atk_prefeb: 900057
-    projectile_prefeb: 900124
-    damage_prefeb: 900043
+    Atk_prefeb: 900119
+    projectile_prefeb: 900117
+    damage_prefeb: 900187
     Skill_icon: 0
     Skill_text: '-'
   - No: 12
@@ -213,9 +213,9 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310002
-    Atk_prefeb: 900054
-    projectile_prefeb: 900116
-    damage_prefeb: 900073
+    Atk_prefeb: 900139
+    projectile_prefeb: 900140
+    damage_prefeb: 900141
     Skill_icon: 0
     Skill_text: '-'
   - No: 13
@@ -230,9 +230,9 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310002
-    Atk_prefeb: 900059
-    projectile_prefeb: 900117
-    damage_prefeb: 900074
+    Atk_prefeb: 900189
+    projectile_prefeb: 900190
+    damage_prefeb: 900191
     Skill_icon: 0
     Skill_text: '-'
   - No: 14
@@ -249,7 +249,7 @@ MonoBehaviour:
     PassiveCode: 310002
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900079
+    damage_prefeb: 900132
     Skill_icon: 0
     Skill_text: '-'
   - No: 15
@@ -264,9 +264,9 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310002
-    Atk_prefeb: 900055
-    projectile_prefeb: 900115
-    damage_prefeb: 900079
+    Atk_prefeb: 900129
+    projectile_prefeb: 900127
+    damage_prefeb: 900128
     Skill_icon: 0
     Skill_text: '-'
   - No: 16
@@ -281,9 +281,9 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310002
-    Atk_prefeb: 900060
-    projectile_prefeb: 900117
-    damage_prefeb: 900097
+    Atk_prefeb: 900134
+    projectile_prefeb: 900190
+    damage_prefeb: 900136
     Skill_icon: 0
     Skill_text: '-'
   - No: 17
@@ -298,9 +298,9 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310002
-    Atk_prefeb: 900050
-    projectile_prefeb: 900121
-    damage_prefeb: 900106
+    Atk_prefeb: 900178
+    projectile_prefeb: 900176
+    damage_prefeb: 900180
     Skill_icon: 0
     Skill_text: '-'
   - No: 18
@@ -317,7 +317,7 @@ MonoBehaviour:
     PassiveCode: 310002
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900064
+    damage_prefeb: 900206
     Skill_icon: 0
     Skill_text: '-'
   - No: 19
@@ -334,7 +334,7 @@ MonoBehaviour:
     PassiveCode: 310003
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900102
+    damage_prefeb: 900132
     Skill_icon: 0
     Skill_text: '-'
   - No: 20
@@ -351,7 +351,7 @@ MonoBehaviour:
     PassiveCode: 310005
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900102
+    damage_prefeb: 900132
     Skill_icon: 0
     Skill_text: '-'
   - No: 21
@@ -368,7 +368,7 @@ MonoBehaviour:
     PassiveCode: 310004
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900091
+    damage_prefeb: 900195
     Skill_icon: 0
     Skill_text: '-'
   - No: 22
@@ -385,7 +385,7 @@ MonoBehaviour:
     PassiveCode: 310005
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900091
+    damage_prefeb: 900195
     Skill_icon: 0
     Skill_text: '-'
   - No: 23
@@ -400,8 +400,8 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310006
-    Atk_prefeb: 900048
-    projectile_prefeb: 900119
+    Atk_prefeb: 900185
+    projectile_prefeb: 900186
     damage_prefeb: 0
     Skill_icon: 0
     Skill_text: '-'
@@ -417,7 +417,7 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310007
-    Atk_prefeb: 900045
+    Atk_prefeb: 900121
     projectile_prefeb: 0
     damage_prefeb: 0
     Skill_icon: 0
@@ -434,10 +434,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310008
-    Atk_prefeb: 900021
+    Atk_prefeb: 900103
     projectile_prefeb: 0
-    damage_prefeb: 900027
-    Skill_icon: 0
+    damage_prefeb: 900104
+    Skill_icon: 910028
     Skill_text: "\uC99D\uC624\uC758 \uC5EC\uC655\uC774 \uC99D\uC624\uC758 \uC528\uC557\uC744
       \uBFCC\uB824 \uC120\uD0DD\uD55C \uAD6C\uC5ED\uC758 \uBAA8\uB4E0 \uD0C0\uC6CC
       \uACF5\uACA9\uB825\uC744 (BuffCC_Duration)\uCD08 \uB3D9\uC548 (BuffCC_BuffAmount)\uB9CC\uD07C
@@ -454,10 +454,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310009
-    Atk_prefeb: 900022
+    Atk_prefeb: 900105
     projectile_prefeb: 0
-    damage_prefeb: 900028
-    Skill_icon: 0
+    damage_prefeb: 900106
+    Skill_icon: 910029
     Skill_text: "\uC99D\uC624\uC758 \uC5EC\uC655\uC774 \uC99D\uC624\uC758 \uAD8C\uB2A5\uC744
       \uBD80\uC5EC\uD574 \uBAA8\uB4E0 \uAD6C\uC5ED\uC758 \uD0C0\uC6CC \uACF5\uACA9\uC18D\uB3C4\uB97C
       (BuffCC_Duration)\uCD08 \uB3D9\uC548 (BuffCC_BuffAmount)\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -473,10 +473,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310010
-    Atk_prefeb: 900030
+    Atk_prefeb: 900108
     projectile_prefeb: 0
-    damage_prefeb: 900096
-    Skill_icon: 0
+    damage_prefeb: 900110
+    Skill_icon: 910030
     Skill_text: "\uC9C0\uC625\uC758\uAD70\uC8FC\uAC00 \uBD88\uAD6C\uB369\uC774\uB97C
       \uB9CC\uB4E4\uC5B4 \uBC94\uC704 \uB0B4\uC758 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C
       \uC90D\uB2C8\uB2E4. \uB9C8\uC655\uC758 \uCCB4\uB825\uC774 50%\uC774\uD558\uB77C\uBA74
@@ -493,7 +493,7 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 0
-    Atk_prefeb: 900023
+    Atk_prefeb: 900109
     projectile_prefeb: 0
     damage_prefeb: 0
     Skill_icon: 0
@@ -513,7 +513,7 @@ MonoBehaviour:
     Atk_prefeb: 0
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 0
+    Skill_icon: 910031
     Skill_text: "\uC9C0\uC625\uC758 \uAD70\uC8FC \uCCB4\uB825\uC774 50%\uC774\uD558\uB77C\uBA74
       \uAE30\uBCF8 \uACF5\uACA9 \uC2DC \uD53C\uD574\uB7C9\uC758 N%\uB9CC\uD07C \uCCB4\uB825\uC744
       \uD68C\uBCF5\uD569\uB2C8\uB2E4."
@@ -529,10 +529,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310011
-    Atk_prefeb: 900031
+    Atk_prefeb: 900112
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 0
+    Skill_icon: 910032
     Skill_text: "\uD504\uB85C\uC2A4\uD2B8\uB9AC\uCE58\uAC00 \uC601\uAD6C\uB3D9\uD1A0\uB97C
       \uC0DD\uC131\uD574 \uCD08 \uB2F9 \uD53C\uD574\uB97C \uC785\uD788\uBA70 \uC774\uB3D9\uC18D\uB3C4\uB97C
       \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -548,13 +548,13 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 0
-    Atk_prefeb: 900024
+    Atk_prefeb: 900113
     projectile_prefeb: 0
     damage_prefeb: 0
     Skill_icon: 0
     Skill_text: '-'
   - No: 32
-    Name_KR: "\uC5BC\uC74C \uD68C\uC624\uB9AC"
+    Name_KR: "\uC5BC\uC74C\uC655\uC758 \uAC80"
     Name_EN: Skill032
     Code: 300032
     Ally: 2
@@ -565,12 +565,12 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310012
-    Atk_prefeb: 900032
+    Atk_prefeb: 900114
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 0
-    Skill_text: "\uD504\uB85C\uC2A4\uD2B8\uB9AC\uCE58\uAC00 \uC5BC\uC74C\uD68C\uC624\uB9AC\uB97C
-      \uC0DD\uC131\uD574 \uD53C\uD574\uB97C \uC785\uD788\uBA70 \uC774\uB3D9\uC18D\uB3C4\uB97C
+    Skill_icon: 910033
+    Skill_text: "\uD504\uB85C\uC2A4\uD2B8\uB9AC\uCE58\uAC00 \uB9AC\uCE58\uC655\uC758
+      \uAC80\uC744 \uC18C\uD658\uD574 \uD53C\uD574\uB97C \uC785\uD788\uBA70 \uC774\uB3D9\uC18D\uB3C4\uB97C
       \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 33
     Name_KR: "\uC2A4\uD0AC \uD504\uB85C\uC2A4\uD2B8\uB9AC\uCE5802.2"
@@ -584,7 +584,7 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 0
-    Atk_prefeb: 900025
+    Atk_prefeb: 900115
     projectile_prefeb: 0
     damage_prefeb: 0
     Skill_icon: 0
@@ -601,10 +601,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310013
-    Atk_prefeb: 900057
-    projectile_prefeb: 900123
+    Atk_prefeb: 900119
+    projectile_prefeb: 900120
     damage_prefeb: 0
-    Skill_icon: 900220
+    Skill_icon: 910001
     Skill_text: "\uC624\uD06C\uAC70\uB108\uAC00 \uCEE4\uB2E4\uB780 \uB300\uD3EC\uC54C\uC744
       \uBC1C\uC0AC\uD574 \uB099\uD558\uC9C0\uC810\uC758 \uC801\uB4E4\uC5D0\uAC8C
       \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
@@ -620,7 +620,7 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310014
-    Atk_prefeb: 900045
+    Atk_prefeb: 900121
     projectile_prefeb: 0
     damage_prefeb: 0
     Skill_icon: 0
@@ -637,10 +637,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310015
-    Atk_prefeb: 900057
-    projectile_prefeb: 900123
+    Atk_prefeb: 900119
+    projectile_prefeb: 900120
     damage_prefeb: 0
-    Skill_icon: 900220
+    Skill_icon: 910001
     Skill_text: "\uC624\uD06C\uAC70\uB108\uAC00 \uCEE4\uB2E4\uB780 \uB300\uD3EC\uC54C\uC744
       \uBC1C\uC0AC\uD574 \uB099\uD558\uC9C0\uC810\uC758 \uC801\uB4E4\uC5D0\uAC8C
       \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
@@ -656,7 +656,7 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310016
-    Atk_prefeb: 900045
+    Atk_prefeb: 900121
     projectile_prefeb: 0
     damage_prefeb: 0
     Skill_icon: 0
@@ -673,10 +673,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310017
-    Atk_prefeb: 900057
-    projectile_prefeb: 900123
+    Atk_prefeb: 900119
+    projectile_prefeb: 900120
     damage_prefeb: 0
-    Skill_icon: 900220
+    Skill_icon: 910001
     Skill_text: "\uC624\uD06C\uAC70\uB108\uAC00 \uCEE4\uB2E4\uB780 \uB300\uD3EC\uC54C\uC744
       \uBC1C\uC0AC\uD574 \uB099\uD558\uC9C0\uC810\uC758 \uC801\uB4E4\uC5D0\uAC8C
       \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
@@ -692,7 +692,7 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310018
-    Atk_prefeb: 900045
+    Atk_prefeb: 900121
     projectile_prefeb: 0
     damage_prefeb: 0
     Skill_icon: 0
@@ -709,10 +709,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310019
-    Atk_prefeb: 900018
+    Atk_prefeb: 900123
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900221
+    Skill_icon: 910002
     Skill_text: "\uC624\uD06C\uC804\uC0AC\uC758 \uD568\uC131\uC5D0 \uC544\uAD70\uC758
       \uACF5\uACA9\uC18D\uB3C4\uAC00 \uC99D\uAC00\uD569\uB2C8\uB2E4."
   - No: 41
@@ -727,10 +727,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310020
-    Atk_prefeb: 900018
+    Atk_prefeb: 900123
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900221
+    Skill_icon: 910002
     Skill_text: "\uC624\uD06C\uC804\uC0AC\uC758 \uD568\uC131\uC5D0 \uC544\uAD70\uC758
       \uACF5\uACA9\uC18D\uB3C4\uAC00 \uC99D\uAC00\uD569\uB2C8\uB2E4."
   - No: 42
@@ -745,10 +745,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310021
-    Atk_prefeb: 900018
+    Atk_prefeb: 900123
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900221
+    Skill_icon: 910002
     Skill_text: "\uC624\uD06C\uC804\uC0AC\uC758 \uD568\uC131\uC5D0 \uC544\uAD70\uC758
       \uACF5\uACA9\uC18D\uB3C4\uAC00 \uC99D\uAC00\uD569\uB2C8\uB2E4."
   - No: 43
@@ -763,10 +763,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310022
-    Atk_prefeb: 900037
+    Atk_prefeb: 900125
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900222
+    Skill_icon: 910003
     Skill_text: "\uC0AC\uC774\uD074\uB86D\uC2A4\uAC00 \uBABD\uB465\uC774\uB85C \uB545\uC744
       \uAC15\uD558\uAC8C \uB0B4\uB9AC\uCCD0 \uD53C\uD574\uB97C \uC785\uD788\uACE0
       \uC801\uC758 \uC774\uB3D9\uC18D\uB3C4\uB97C \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -782,10 +782,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310023
-    Atk_prefeb: 900037
+    Atk_prefeb: 900125
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900222
+    Skill_icon: 910003
     Skill_text: "\uC0AC\uC774\uD074\uB86D\uC2A4\uAC00 \uBABD\uB465\uC774\uB85C \uB545\uC744
       \uAC15\uD558\uAC8C \uB0B4\uB9AC\uCCD0 \uD53C\uD574\uB97C \uC785\uD788\uACE0
       \uC801\uC758 \uC774\uB3D9\uC18D\uB3C4\uB97C \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -801,10 +801,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310024
-    Atk_prefeb: 900037
+    Atk_prefeb: 900125
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900222
+    Skill_icon: 910003
     Skill_text: "\uC0AC\uC774\uD074\uB86D\uC2A4\uAC00 \uBABD\uB465\uC774\uB85C \uB545\uC744
       \uAC15\uD558\uAC8C \uB0B4\uB9AC\uCCD0 \uD53C\uD574\uB97C \uC785\uD788\uACE0
       \uC801\uC758 \uC774\uB3D9\uC18D\uB3C4\uB97C \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -820,10 +820,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310025
-    Atk_prefeb: 900055
-    projectile_prefeb: 900114
-    damage_prefeb: 900079
-    Skill_icon: 900223
+    Atk_prefeb: 900129
+    projectile_prefeb: 900130
+    damage_prefeb: 900131
+    Skill_icon: 910004
     Skill_text: "\uACE0\uBE14\uB9B0\uC774 \uD2B9\uC218\uD55C \uD0C4\uC744 \uBC1C\uC0AC\uD574
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 47
@@ -838,10 +838,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310026
-    Atk_prefeb: 900055
-    projectile_prefeb: 900114
-    damage_prefeb: 900079
-    Skill_icon: 900223
+    Atk_prefeb: 900129
+    projectile_prefeb: 900130
+    damage_prefeb: 900131
+    Skill_icon: 910004
     Skill_text: "\uACE0\uBE14\uB9B0\uC774 \uD2B9\uC218\uD55C \uD0C4\uC744 \uBC1C\uC0AC\uD574
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 48
@@ -856,10 +856,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310027
-    Atk_prefeb: 900055
-    projectile_prefeb: 900114
-    damage_prefeb: 900079
-    Skill_icon: 900223
+    Atk_prefeb: 900129
+    projectile_prefeb: 900130
+    damage_prefeb: 900131
+    Skill_icon: 910004
     Skill_text: "\uACE0\uBE14\uB9B0\uC774 \uD2B9\uC218\uD55C \uD0C4\uC744 \uBC1C\uC0AC\uD574
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 49
@@ -874,10 +874,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310028
-    Atk_prefeb: 900135
+    Atk_prefeb: 900133
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900224
+    Skill_icon: 910005
     Skill_text: "\uB180\uC804\uC0AC\uAC00 \uD55C\uBC14\uD034 \uD68C\uC804\uD558\uBA74\uC11C
       \uC8FC\uBCC0\uC758 \uC801\uB4E4\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 50
@@ -892,10 +892,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310029
-    Atk_prefeb: 900135
+    Atk_prefeb: 900133
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900224
+    Skill_icon: 910005
     Skill_text: "\uB180\uC804\uC0AC\uAC00 \uD55C\uBC14\uD034 \uD68C\uC804\uD558\uBA74\uC11C
       \uC8FC\uBCC0\uC758 \uC801\uB4E4\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 51
@@ -910,10 +910,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310030
-    Atk_prefeb: 900135
+    Atk_prefeb: 900133
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900224
+    Skill_icon: 910005
     Skill_text: "\uB180\uC804\uC0AC\uAC00 \uD55C\uBC14\uD034 \uD68C\uC804\uD558\uBA74\uC11C
       \uC8FC\uBCC0\uC758 \uC801\uB4E4\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 52
@@ -928,10 +928,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310031
-    Atk_prefeb: 900113
+    Atk_prefeb: 900137
     projectile_prefeb: 0
-    damage_prefeb: 900034
-    Skill_icon: 900225
+    damage_prefeb: 900138
+    Skill_icon: 910006
     Skill_text: "\uD2B8\uB864\uC8FC\uC220\uC0AC\uAC00 \uC601\uD63C\uC744 \uBD88\uB7EC\uC640
       \uC544\uAD70\uC758 \uACF5\uACA9\uC18D\uB3C4\uB97C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 53
@@ -946,10 +946,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310032
-    Atk_prefeb: 900113
+    Atk_prefeb: 900137
     projectile_prefeb: 0
-    damage_prefeb: 900034
-    Skill_icon: 900225
+    damage_prefeb: 900138
+    Skill_icon: 910006
     Skill_text: "\uD2B8\uB864\uC8FC\uC220\uC0AC\uAC00 \uC601\uD63C\uC744 \uBD88\uB7EC\uC640
       \uC544\uAD70\uC758 \uACF5\uACA9\uC18D\uB3C4\uB97C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 54
@@ -964,10 +964,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310033
-    Atk_prefeb: 900113
+    Atk_prefeb: 900137
     projectile_prefeb: 0
-    damage_prefeb: 900034
-    Skill_icon: 900225
+    damage_prefeb: 900138
+    Skill_icon: 910006
     Skill_text: "\uD2B8\uB864\uC8FC\uC220\uC0AC\uAC00 \uC601\uD63C\uC744 \uBD88\uB7EC\uC640
       \uC544\uAD70\uC758 \uACF5\uACA9\uC18D\uB3C4\uB97C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 55
@@ -982,10 +982,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310034
-    Atk_prefeb: 900110
+    Atk_prefeb: 900142
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900226
+    Skill_icon: 910007
     Skill_text: "\uC2A4\uD30C\uD06C\uBAAC\uC774 \uB0B4\uBD80\uC758 \uBE5B\uC744 \uD3ED\uBC1C\uC2DC\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
       \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -1001,10 +1001,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310035
-    Atk_prefeb: 900110
+    Atk_prefeb: 900142
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900226
+    Skill_icon: 910007
     Skill_text: "\uC2A4\uD30C\uD06C\uBAAC\uC774 \uB0B4\uBD80\uC758 \uBE5B\uC744 \uD3ED\uBC1C\uC2DC\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
       \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -1020,10 +1020,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310036
-    Atk_prefeb: 900110
+    Atk_prefeb: 900142
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900226
+    Skill_icon: 910007
     Skill_text: "\uC2A4\uD30C\uD06C\uBAAC\uC774 \uB0B4\uBD80\uC758 \uBE5B\uC744 \uD3ED\uBC1C\uC2DC\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
       \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -1041,8 +1041,8 @@ MonoBehaviour:
     PassiveCode: 310037
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900087
-    Skill_icon: 900227
+    damage_prefeb: 900144
+    Skill_icon: 910008
     Skill_text: "\uC0B4\uB77C\uB9E8\uB354\uAC00 \uC801\uC758 \uC57D\uC810\uC744 \uACF5\uACA9\uD574
       \uD53C\uD574\uB97C \uC8FC\uACE0 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 59
@@ -1059,8 +1059,8 @@ MonoBehaviour:
     PassiveCode: 310038
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900087
-    Skill_icon: 900227
+    damage_prefeb: 900144
+    Skill_icon: 910008
     Skill_text: "\uC0B4\uB77C\uB9E8\uB354\uAC00 \uC801\uC758 \uC57D\uC810\uC744 \uACF5\uACA9\uD574
       \uD53C\uD574\uB97C \uC8FC\uACE0 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 60
@@ -1077,8 +1077,8 @@ MonoBehaviour:
     PassiveCode: 310039
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900087
-    Skill_icon: 900227
+    damage_prefeb: 900144
+    Skill_icon: 910008
     Skill_text: "\uC0B4\uB77C\uB9E8\uB354\uAC00 \uC801\uC758 \uC57D\uC810\uC744 \uACF5\uACA9\uD574
       \uD53C\uD574\uB97C \uC8FC\uACE0 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 61
@@ -1093,10 +1093,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310040
-    Atk_prefeb: 900049
+    Atk_prefeb: 900146
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900228
+    Skill_icon: 910009
     Skill_text: "\uD30C\uC774\uC5B4\uB370\uBAAC\uC774 \uD654\uC5FC\uD3EC\uB97C \uBC1C\uC0AC\uD574
       \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD654\uC0C1 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 62
@@ -1111,10 +1111,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310041
-    Atk_prefeb: 900049
+    Atk_prefeb: 900146
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900228
+    Skill_icon: 910009
     Skill_text: "\uD30C\uC774\uC5B4\uB370\uBAAC\uC774 \uD654\uC5FC\uD3EC\uB97C \uBC1C\uC0AC\uD574
       \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD654\uC0C1 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 63
@@ -1129,10 +1129,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310042
-    Atk_prefeb: 900049
+    Atk_prefeb: 900146
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900228
+    Skill_icon: 910009
     Skill_text: "\uD30C\uC774\uC5B4\uB370\uBAAC\uC774 \uD654\uC5FC\uD3EC\uB97C \uBC1C\uC0AC\uD574
       \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD654\uC0C1 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 64
@@ -1147,10 +1147,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310043
-    Atk_prefeb: 900061
+    Atk_prefeb: 900148
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900229
+    Skill_icon: 910010
     Skill_text: "\uCF00\uB974\uBCA0\uB85C\uC2A4\uAC00 \uC804\uBC29\uC5D0 \uACE0\uD568\uC744
       \uC9C8\uB7EC \uC8FC\uBCC0 \uC801\uC758 \uBC29\uC5B4\uB825\uC744 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 65
@@ -1165,10 +1165,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310044
-    Atk_prefeb: 900061
+    Atk_prefeb: 900148
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900229
+    Skill_icon: 910010
     Skill_text: "\uCF00\uB974\uBCA0\uB85C\uC2A4\uAC00 \uC804\uBC29\uC5D0 \uACE0\uD568\uC744
       \uC9C8\uB7EC \uC8FC\uBCC0 \uC801\uC758 \uBC29\uC5B4\uB825\uC744 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 66
@@ -1183,10 +1183,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310045
-    Atk_prefeb: 900061
+    Atk_prefeb: 900148
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900229
+    Skill_icon: 910010
     Skill_text: "\uCF00\uB974\uBCA0\uB85C\uC2A4\uAC00 \uC804\uBC29\uC5D0 \uACE0\uD568\uC744
       \uC9C8\uB7EC \uC8FC\uBCC0 \uC801\uC758 \uBC29\uC5B4\uB825\uC744 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 67
@@ -1201,10 +1201,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310046
-    Atk_prefeb: 900112
+    Atk_prefeb: 900150
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900230
+    Skill_icon: 910011
     Skill_text: "\uBC1C\uB85D\uC774 \uC9C1\uC811 \uC804\uC7A5\uC744 \uC9C0\uD718\uD574
       \uC544\uAD70\uC758 \uACF5\uACA9\uB825\uACFC \uACF5\uACA9\uC18D\uB3C4\uB97C
       \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -1220,10 +1220,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310047
-    Atk_prefeb: 900112
+    Atk_prefeb: 900150
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900230
+    Skill_icon: 910011
     Skill_text: "\uBC1C\uB85D\uC774 \uC9C1\uC811 \uC804\uC7A5\uC744 \uC9C0\uD718\uD574
       \uC544\uAD70\uC758 \uACF5\uACA9\uB825\uACFC \uACF5\uACA9\uC18D\uB3C4\uB97C
       \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -1239,10 +1239,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310048
-    Atk_prefeb: 900112
+    Atk_prefeb: 900150
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900230
+    Skill_icon: 910011
     Skill_text: "\uBC1C\uB85D\uC774 \uC9C1\uC811 \uC804\uC7A5\uC744 \uC9C0\uD718\uD574
       \uC544\uAD70\uC758 \uACF5\uACA9\uB825\uACFC \uACF5\uACA9\uC18D\uB3C4\uB97C
       \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -1261,7 +1261,7 @@ MonoBehaviour:
     Atk_prefeb: 0
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900231
+    Skill_icon: 910012
     Skill_text: "\uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A4\uAC00 \uB9DD\uCE58\uB97C \uB0B4\uB9AC\uCC0D\uC5B4
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 71
@@ -1276,7 +1276,7 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310050
-    Atk_prefeb: 900035
+    Atk_prefeb: 900152
     projectile_prefeb: 0
     damage_prefeb: 0
     Skill_icon: 0
@@ -1296,7 +1296,7 @@ MonoBehaviour:
     Atk_prefeb: 0
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900231
+    Skill_icon: 910012
     Skill_text: "\uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A4\uAC00 \uB9DD\uCE58\uB97C \uB0B4\uB9AC\uCC0D\uC5B4
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 73
@@ -1311,7 +1311,7 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310052
-    Atk_prefeb: 900035
+    Atk_prefeb: 900152
     projectile_prefeb: 0
     damage_prefeb: 0
     Skill_icon: 0
@@ -1331,7 +1331,7 @@ MonoBehaviour:
     Atk_prefeb: 0
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900231
+    Skill_icon: 910012
     Skill_text: "\uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A4\uAC00 \uB9DD\uCE58\uB97C \uB0B4\uB9AC\uCC0D\uC5B4
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 75
@@ -1346,7 +1346,7 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310054
-    Atk_prefeb: 900035
+    Atk_prefeb: 900152
     projectile_prefeb: 0
     damage_prefeb: 0
     Skill_icon: 0
@@ -1363,10 +1363,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310055
-    Atk_prefeb: 900111
+    Atk_prefeb: 900156
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900232
+    Skill_icon: 910013
     Skill_text: "\uC0AC\uD2F0\uB85C\uC2A4\uAC00 \uBC88\uAC1C\uB97C \uB0B4\uB9AC\uCCD0
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
       \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -1382,10 +1382,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310056
-    Atk_prefeb: 900111
+    Atk_prefeb: 900156
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900232
+    Skill_icon: 910013
     Skill_text: "\uC0AC\uD2F0\uB85C\uC2A4\uAC00 \uBC88\uAC1C\uB97C \uB0B4\uB9AC\uCCD0
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
       \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -1401,10 +1401,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310057
-    Atk_prefeb: 900111
+    Atk_prefeb: 900156
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900232
+    Skill_icon: 910013
     Skill_text: "\uC0AC\uD2F0\uB85C\uC2A4\uAC00 \uBC88\uAC1C\uB97C \uB0B4\uB9AC\uCCD0
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
       \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -1420,7 +1420,7 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 0
-    Atk_prefeb: 900050
+    Atk_prefeb: 900157
     projectile_prefeb: 0
     damage_prefeb: 0
     Skill_icon: 0
@@ -1437,10 +1437,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310058
-    Atk_prefeb: 900086
+    Atk_prefeb: 900159
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900233
+    Skill_icon: 910014
     Skill_text: "\uADF8\uB9BC\uB9AC\uD37C\uAC00 \uB0AB\uC744 \uB465\uAE00\uAC8C \uD718\uB458\uB7EC
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4"
   - No: 81
@@ -1455,10 +1455,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310059
-    Atk_prefeb: 900086
+    Atk_prefeb: 900159
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900233
+    Skill_icon: 910014
     Skill_text: "\uADF8\uB9BC\uB9AC\uD37C\uAC00 \uB0AB\uC744 \uB465\uAE00\uAC8C \uD718\uB458\uB7EC
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4"
   - No: 82
@@ -1473,10 +1473,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310060
-    Atk_prefeb: 900086
+    Atk_prefeb: 900159
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900233
+    Skill_icon: 910014
     Skill_text: "\uADF8\uB9BC\uB9AC\uD37C\uAC00 \uB0AB\uC744 \uB465\uAE00\uAC8C \uD718\uB458\uB7EC
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4"
   - No: 83
@@ -1491,10 +1491,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310061
-    Atk_prefeb: 900095
+    Atk_prefeb: 900161
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900234
+    Skill_icon: 910015
     Skill_text: "\uB370\uC2A4\uB098\uC774\uD2B8\uAC00 \uAC80\uC744 \uBE60\uB974\uAC8C
       4\uBC88 \uD718\uB458\uB7EC \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 84
@@ -1560,10 +1560,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310065
-    Atk_prefeb: 900095
+    Atk_prefeb: 900161
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900234
+    Skill_icon: 910015
     Skill_text: "\uB370\uC2A4\uB098\uC774\uD2B8\uAC00 \uAC80\uC744 \uBE60\uB974\uAC8C
       4\uBC88 \uD718\uB458\uB7EC \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 88
@@ -1629,10 +1629,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310069
-    Atk_prefeb: 900095
+    Atk_prefeb: 900161
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900234
+    Skill_icon: 910015
     Skill_text: "\uB370\uC2A4\uB098\uC774\uD2B8\uAC00 \uAC80\uC744 \uBE60\uB974\uAC8C
       4\uBC88 \uD718\uB458\uB7EC \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 92
@@ -1698,10 +1698,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310073
-    Atk_prefeb: 900090
+    Atk_prefeb: 900163
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900235
+    Skill_icon: 910016
     Skill_text: "\uB2E4\uD06C\uC18C\uC6B8\uC774 \uB450 \uC190\uC744 \uCC14\uB7EC
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 96
@@ -1716,10 +1716,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310074
-    Atk_prefeb: 900090
+    Atk_prefeb: 900163
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900235
+    Skill_icon: 910016
     Skill_text: "\uB2E4\uD06C\uC18C\uC6B8\uC774 \uB450 \uC190\uC744 \uCC14\uB7EC
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 97
@@ -1734,10 +1734,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310075
-    Atk_prefeb: 900090
+    Atk_prefeb: 900163
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900235
+    Skill_icon: 910016
     Skill_text: "\uB2E4\uD06C\uC18C\uC6B8\uC774 \uB450 \uC190\uC744 \uCC14\uB7EC
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 98
@@ -1752,10 +1752,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310076
-    Atk_prefeb: 900035
+    Atk_prefeb: 900165
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900236
+    Skill_icon: 910017
     Skill_text: "\uC2A4\uD1A4\uACE8\uB818\uC774 \uC9C0\uC9C4\uC744 \uC77C\uC73C\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 99
@@ -1770,10 +1770,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310077
-    Atk_prefeb: 900035
+    Atk_prefeb: 900165
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900236
+    Skill_icon: 910017
     Skill_text: "\uC2A4\uD1A4\uACE8\uB818\uC774 \uC9C0\uC9C4\uC744 \uC77C\uC73C\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 100
@@ -1788,10 +1788,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310078
-    Atk_prefeb: 900035
+    Atk_prefeb: 900165
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900236
+    Skill_icon: 910017
     Skill_text: "\uC2A4\uD1A4\uACE8\uB818\uC774 \uC9C0\uC9C4\uC744 \uC77C\uC73C\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 101
@@ -1806,10 +1806,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310079
-    Atk_prefeb: 900047
+    Atk_prefeb: 900167
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900237
+    Skill_icon: 910018
     Skill_text: "\uB77C\uBC14\uACE8\uB818\uC774 \uC544\uAD70\uC758 \uACF5\uACA9\uB825\uC744
       \uC99D\uAC00\uC2DC\uD0A4\uACE0 \uC801\uC5D0\uAC8C \uD654\uC0C1 \uD53C\uD574\uB97C
       \uC90D\uB2C8\uB2E4."
@@ -1825,10 +1825,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310080
-    Atk_prefeb: 900047
+    Atk_prefeb: 900167
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900237
+    Skill_icon: 910018
     Skill_text: "\uB77C\uBC14\uACE8\uB818\uC774 \uC544\uAD70\uC758 \uACF5\uACA9\uB825\uC744
       \uC99D\uAC00\uC2DC\uD0A4\uACE0 \uC801\uC5D0\uAC8C \uD654\uC0C1 \uD53C\uD574\uB97C
       \uC90D\uB2C8\uB2E4."
@@ -1844,10 +1844,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310081
-    Atk_prefeb: 900047
+    Atk_prefeb: 900167
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900237
+    Skill_icon: 910018
     Skill_text: "\uB77C\uBC14\uACE8\uB818\uC774 \uC544\uAD70\uC758 \uACF5\uACA9\uB825\uC744
       \uC99D\uAC00\uC2DC\uD0A4\uACE0 \uC801\uC5D0\uAC8C \uD654\uC0C1 \uD53C\uD574\uB97C
       \uC90D\uB2C8\uB2E4."
@@ -1863,10 +1863,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310082
-    Atk_prefeb: 900038
+    Atk_prefeb: 900169
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900238
+    Skill_icon: 910019
     Skill_text: "\uBC15\uC950\uAC00 \uC801\uC5D0\uAC8C \uCD08\uC74C\uD30C\uB97C \uBCF4\uB0B4
       \uBC29\uC5B4\uB825\uC744 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 105
@@ -1881,10 +1881,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310083
-    Atk_prefeb: 900038
+    Atk_prefeb: 900169
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900238
+    Skill_icon: 910019
     Skill_text: "\uBC15\uC950\uAC00 \uC801\uC5D0\uAC8C \uCD08\uC74C\uD30C\uB97C \uBCF4\uB0B4
       \uBC29\uC5B4\uB825\uC744 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 106
@@ -1899,10 +1899,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310084
-    Atk_prefeb: 900038
+    Atk_prefeb: 900169
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900238
+    Skill_icon: 910019
     Skill_text: "\uBC15\uC950\uAC00 \uC801\uC5D0\uAC8C \uCD08\uC74C\uD30C\uB97C \uBCF4\uB0B4
       \uBC29\uC5B4\uB825\uC744 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 107
@@ -1917,10 +1917,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310085
-    Atk_prefeb: 900069
+    Atk_prefeb: 900171
     projectile_prefeb: 0
-    damage_prefeb: 900075
-    Skill_icon: 900239
+    damage_prefeb: 900172
+    Skill_icon: 910020
     Skill_text: "\uB291\uB300\uAC00 \uC801\uC5D0\uAC8C \uB3CC\uC9C4\uD574 \uD53C\uD574\uB97C
       \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 108
@@ -1935,10 +1935,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310086
-    Atk_prefeb: 900069
+    Atk_prefeb: 900171
     projectile_prefeb: 0
-    damage_prefeb: 900075
-    Skill_icon: 900239
+    damage_prefeb: 900172
+    Skill_icon: 910020
     Skill_text: "\uB291\uB300\uAC00 \uC801\uC5D0\uAC8C \uB3CC\uC9C4\uD574 \uD53C\uD574\uB97C
       \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 109
@@ -1953,10 +1953,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310087
-    Atk_prefeb: 900069
+    Atk_prefeb: 900171
     projectile_prefeb: 0
-    damage_prefeb: 900075
-    Skill_icon: 900239
+    damage_prefeb: 900172
+    Skill_icon: 910020
     Skill_text: "\uB291\uB300\uAC00 \uC801\uC5D0\uAC8C \uB3CC\uC9C4\uD574 \uD53C\uD574\uB97C
       \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 110
@@ -1971,10 +1971,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310088
-    Atk_prefeb: 900125
+    Atk_prefeb: 900174
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900240
+    Skill_icon: 910021
     Skill_text: "\uD30C\uC774\uD2B8\uBCA0\uC5B4\uAC00 \uC8FC\uBA39\uC744 \uC704\uB85C
       \uC62C\uB824\uCCD0 \uC801\uC5D0\uAC8C \uD070 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 111
@@ -1989,10 +1989,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310089
-    Atk_prefeb: 900125
+    Atk_prefeb: 900174
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900240
+    Skill_icon: 910021
     Skill_text: "\uD30C\uC774\uD2B8\uBCA0\uC5B4\uAC00 \uC8FC\uBA39\uC744 \uC704\uB85C
       \uC62C\uB824\uCCD0 \uC801\uC5D0\uAC8C \uD070 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 112
@@ -2007,10 +2007,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310090
-    Atk_prefeb: 900125
+    Atk_prefeb: 900174
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900240
+    Skill_icon: 910021
     Skill_text: "\uD30C\uC774\uD2B8\uBCA0\uC5B4\uAC00 \uC8FC\uBA39\uC744 \uC704\uB85C
       \uC62C\uB824\uCCD0 \uC801\uC5D0\uAC8C \uD070 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 113
@@ -2025,10 +2025,10 @@ MonoBehaviour:
     Move_type: 2
     Move_Height: 1.8
     PassiveCode: 310091
-    Atk_prefeb: 900050
-    projectile_prefeb: 900120
-    damage_prefeb: 900106
-    Skill_icon: 900241
+    Atk_prefeb: 900178
+    projectile_prefeb: 900179
+    damage_prefeb: 900180
+    Skill_icon: 910022
     Skill_text: "\uAD11\uB300\uAC00 \uC554\uD751\uC5D0\uB108\uC9C0\uB97C \uC77C\uC73C\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 114
@@ -2043,10 +2043,10 @@ MonoBehaviour:
     Move_type: 2
     Move_Height: 1.8
     PassiveCode: 310092
-    Atk_prefeb: 900050
-    projectile_prefeb: 900120
-    damage_prefeb: 900106
-    Skill_icon: 900241
+    Atk_prefeb: 900178
+    projectile_prefeb: 900179
+    damage_prefeb: 900180
+    Skill_icon: 910022
     Skill_text: "\uAD11\uB300\uAC00 \uC554\uD751\uC5D0\uB108\uC9C0\uB97C \uC77C\uC73C\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 115
@@ -2061,10 +2061,10 @@ MonoBehaviour:
     Move_type: 2
     Move_Height: 1.8
     PassiveCode: 310093
-    Atk_prefeb: 900050
-    projectile_prefeb: 900120
-    damage_prefeb: 900106
-    Skill_icon: 900241
+    Atk_prefeb: 900178
+    projectile_prefeb: 900179
+    damage_prefeb: 900180
+    Skill_icon: 910022
     Skill_text: "\uAD11\uB300\uAC00 \uC554\uD751\uC5D0\uB108\uC9C0\uB97C \uC77C\uC73C\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 116
@@ -2079,10 +2079,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310094
-    Atk_prefeb: 900019
+    Atk_prefeb: 900184
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900242
+    Skill_icon: 910024
     Skill_text: "\uC774\uD504\uB9AC\uC2A4\uAC00 \uC790\uC2E0 \uC8FC\uC704\uC5D0 \uC5D0\uB108\uC9C0\uB97C
       \uBC29\uCD9C\uC2DC\uCF1C \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0
       \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -2098,10 +2098,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310095
-    Atk_prefeb: 900019
+    Atk_prefeb: 900184
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900242
+    Skill_icon: 910024
     Skill_text: "\uC774\uD504\uB9AC\uC2A4\uAC00 \uC790\uC2E0 \uC8FC\uC704\uC5D0 \uC5D0\uB108\uC9C0\uB97C
       \uBC29\uCD9C\uC2DC\uCF1C \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0
       \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -2117,10 +2117,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310096
-    Atk_prefeb: 900019
+    Atk_prefeb: 900184
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900242
+    Skill_icon: 910024
     Skill_text: "\uC774\uD504\uB9AC\uC2A4\uAC00 \uC790\uC2E0 \uC8FC\uC704\uC5D0 \uC5D0\uB108\uC9C0\uB97C
       \uBC29\uCD9C\uC2DC\uCF1C \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0
       \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -2136,10 +2136,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310097
-    Atk_prefeb: 900109
+    Atk_prefeb: 900188
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900243
+    Skill_icon: 910025
     Skill_text: "\uB4DC\uB798\uACE4\uC774 \uC804\uBC29\uC5D0 \uBE0C\uB808\uC2A4\uB97C
       \uC3D8\uC544 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
       \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -2155,10 +2155,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310098
-    Atk_prefeb: 900109
+    Atk_prefeb: 900188
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900243
+    Skill_icon: 910025
     Skill_text: "\uB4DC\uB798\uACE4\uC774 \uC804\uBC29\uC5D0 \uBE0C\uB808\uC2A4\uB97C
       \uC3D8\uC544 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
       \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -2174,10 +2174,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310099
-    Atk_prefeb: 900109
+    Atk_prefeb: 900188
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900243
+    Skill_icon: 910025
     Skill_text: "\uB4DC\uB798\uACE4\uC774 \uC804\uBC29\uC5D0 \uBE0C\uB808\uC2A4\uB97C
       \uC3D8\uC544 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
       \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -2193,10 +2193,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310100
-    Atk_prefeb: 900130
+    Atk_prefeb: 900192
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900244
+    Skill_icon: 910026
     Skill_text: "\uB9C8\uB140\uAC00 \uC8FC\uBB38\uC744 \uAC78\uC5B4 \uC544\uAD70\uC758
       \uACF5\uACA9\uB825\uC744 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 123
@@ -2211,10 +2211,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310101
-    Atk_prefeb: 900130
+    Atk_prefeb: 900192
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900244
+    Skill_icon: 910026
     Skill_text: "\uB9C8\uB140\uAC00 \uC8FC\uBB38\uC744 \uAC78\uC5B4 \uC544\uAD70\uC758
       \uACF5\uACA9\uB825\uC744 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 124
@@ -2229,10 +2229,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310102
-    Atk_prefeb: 900130
+    Atk_prefeb: 900192
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900244
+    Skill_icon: 910026
     Skill_text: "\uB9C8\uB140\uAC00 \uC8FC\uBB38\uC744 \uAC78\uC5B4 \uC544\uAD70\uC758
       \uACF5\uACA9\uB825\uC744 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
   - No: 125
@@ -2247,10 +2247,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310103
-    Atk_prefeb: 900131
+    Atk_prefeb: 900194
     projectile_prefeb: 0
-    damage_prefeb: 900091
-    Skill_icon: 900245
+    damage_prefeb: 900195
+    Skill_icon: 910027
     Skill_text: "\uB2E4\uD06C\uC5D8\uD504\uAC00 \uBE60\uB974\uAC8C \uD68C\uC804\uD574
       \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uBC29\uC5B4\uB825\uC744
       \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -2268,7 +2268,7 @@ MonoBehaviour:
     PassiveCode: 310104
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900091
+    damage_prefeb: 900195
     Skill_icon: 0
     Skill_text: '-'
   - No: 127
@@ -2285,7 +2285,7 @@ MonoBehaviour:
     PassiveCode: 310105
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900091
+    damage_prefeb: 900195
     Skill_icon: 0
     Skill_text: '-'
   - No: 128
@@ -2302,7 +2302,7 @@ MonoBehaviour:
     PassiveCode: 310106
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900091
+    damage_prefeb: 900195
     Skill_icon: 0
     Skill_text: '-'
   - No: 129
@@ -2319,7 +2319,7 @@ MonoBehaviour:
     PassiveCode: 310107
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900091
+    damage_prefeb: 900195
     Skill_icon: 0
     Skill_text: '-'
   - No: 130
@@ -2334,10 +2334,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310108
-    Atk_prefeb: 900131
+    Atk_prefeb: 900194
     projectile_prefeb: 0
-    damage_prefeb: 900091
-    Skill_icon: 900245
+    damage_prefeb: 900195
+    Skill_icon: 910027
     Skill_text: "\uB2E4\uD06C\uC5D8\uD504\uAC00 \uBE60\uB974\uAC8C \uD68C\uC804\uD574
       \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uBC29\uC5B4\uB825\uC744
       \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -2355,7 +2355,7 @@ MonoBehaviour:
     PassiveCode: 310109
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900091
+    damage_prefeb: 900195
     Skill_icon: 0
     Skill_text: '-'
   - No: 132
@@ -2372,7 +2372,7 @@ MonoBehaviour:
     PassiveCode: 310110
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900091
+    damage_prefeb: 900195
     Skill_icon: 0
     Skill_text: '-'
   - No: 133
@@ -2389,7 +2389,7 @@ MonoBehaviour:
     PassiveCode: 310111
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900091
+    damage_prefeb: 900195
     Skill_icon: 0
     Skill_text: '-'
   - No: 134
@@ -2406,7 +2406,7 @@ MonoBehaviour:
     PassiveCode: 310112
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900091
+    damage_prefeb: 900195
     Skill_icon: 0
     Skill_text: '-'
   - No: 135
@@ -2421,10 +2421,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310113
-    Atk_prefeb: 900131
+    Atk_prefeb: 900194
     projectile_prefeb: 0
-    damage_prefeb: 900091
-    Skill_icon: 900245
+    damage_prefeb: 900195
+    Skill_icon: 910027
     Skill_text: "\uB2E4\uD06C\uC5D8\uD504\uAC00 \uBE60\uB974\uAC8C \uD68C\uC804\uD574
       \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uBC29\uC5B4\uB825\uC744
       \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
@@ -2442,7 +2442,7 @@ MonoBehaviour:
     PassiveCode: 310114
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900091
+    damage_prefeb: 900195
     Skill_icon: 0
     Skill_text: '-'
   - No: 137
@@ -2459,7 +2459,7 @@ MonoBehaviour:
     PassiveCode: 310115
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900091
+    damage_prefeb: 900195
     Skill_icon: 0
     Skill_text: '-'
   - No: 138
@@ -2476,7 +2476,7 @@ MonoBehaviour:
     PassiveCode: 310116
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900091
+    damage_prefeb: 900195
     Skill_icon: 0
     Skill_text: '-'
   - No: 139
@@ -2493,7 +2493,7 @@ MonoBehaviour:
     PassiveCode: 310117
     Atk_prefeb: 0
     projectile_prefeb: 0
-    damage_prefeb: 900091
+    damage_prefeb: 900195
     Skill_icon: 0
     Skill_text: '-'
   - No: 140
@@ -2508,10 +2508,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310118
-    Atk_prefeb: 900126
+    Atk_prefeb: 900182
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900246
+    Skill_icon: 910023
     Skill_text: "\uD0C0\uB77D\uCC9C\uC0AC\uAC00 \uCE7C\uC744 \uBE44\uCC98\uB7FC \uB5A8\uC5B4\uB728\uB824
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 141
@@ -2560,10 +2560,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310121
-    Atk_prefeb: 900126
+    Atk_prefeb: 900182
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900246
+    Skill_icon: 910023
     Skill_text: "\uD0C0\uB77D\uCC9C\uC0AC\uAC00 \uCE7C\uC744 \uBE44\uCC98\uB7FC \uB5A8\uC5B4\uB728\uB824
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 144
@@ -2612,10 +2612,10 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310124
-    Atk_prefeb: 900126
+    Atk_prefeb: 900182
     projectile_prefeb: 0
     damage_prefeb: 0
-    Skill_icon: 900246
+    Skill_icon: 910023
     Skill_text: "\uD0C0\uB77D\uCC9C\uC0AC\uAC00 \uCE7C\uC744 \uBE44\uCC98\uB7FC \uB5A8\uC5B4\uB728\uB824
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   - No: 147
@@ -2664,9 +2664,9 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310127
-    Atk_prefeb: 900070
+    Atk_prefeb: 900197
     projectile_prefeb: 0
-    damage_prefeb: 900071
+    damage_prefeb: 900198
     Skill_icon: 0
     Skill_text: '-'
   - No: 150
@@ -2681,9 +2681,9 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310128
-    Atk_prefeb: 900127
+    Atk_prefeb: 900200
     projectile_prefeb: 0
-    damage_prefeb: 900128
+    damage_prefeb: 900201
     Skill_icon: 0
     Skill_text: '-'
   - No: 151
@@ -2698,7 +2698,7 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310129
-    Atk_prefeb: 900072
+    Atk_prefeb: 900203
     projectile_prefeb: 0
     damage_prefeb: 0
     Skill_icon: 0
@@ -2732,7 +2732,7 @@ MonoBehaviour:
     Move_type: 1
     Move_Height: 0
     PassiveCode: 310131
-    Atk_prefeb: 900046
+    Atk_prefeb: 900216
     projectile_prefeb: 0
     damage_prefeb: 0
     Skill_icon: 0
