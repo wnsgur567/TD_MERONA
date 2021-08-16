@@ -16,7 +16,7 @@ public class Synergy_Tooltip : Singleton<Synergy_Tooltip>
         //Synergy_Icon = this.gameObject.GetComponent<Image>();
         Transform temp = this.transform.Find("Synergy_name/Synergyicon"); //.Find("Synergyicon");
         Synergy_Icon = temp.gameObject.GetComponent<Image>();
-       
+
     }
     private void Start()
     {
@@ -29,15 +29,15 @@ public class Synergy_Tooltip : Singleton<Synergy_Tooltip>
     }
     public void Set_Tooltip(string name, string explane, string avility, Image icon)
     {
-        Synergy_name.text = name; 
+        Synergy_name.text = name;
         Synergy_Explane.text = explane;
         Synergy_Avility.text = avility;
         Synergy_Icon.sprite = icon.sprite;
-       
+
     }
-        // Update is called once per frame
-        void Update()
+    // Update is called once per frame
+    void Update()
     {
-        
+
     }
 }
