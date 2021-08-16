@@ -77,11 +77,7 @@ public class Skill : MonoBehaviour
 
     private void Awake()
     {
-        GameObject AttackRange = new GameObject("AttackRange");
-        AttackRange.transform.SetParent(transform);
-        m_SkillInfo.AttackRange = AttackRange.AddComponent<AttackRange>();
-        m_SkillInfo.CanOverlapBounce = true;
-        m_SkillInfo.BounceTargetList = new List<GameObject>();
+
     }
 
     private void Update()
@@ -312,6 +308,9 @@ public class Skill : MonoBehaviour
         m_SkillInfo.BounceCount = m_StatInfo_Excel.Target_num;
         m_SkillInfo.LifeTime = m_StatInfo_Excel.Life_Time;
         m_SkillInfo.InitPos = transform.position;
+        // ?? : 왼쪽부터 피연산자가 null이 아닌 경우에 피연산자 리턴 (왼쪽 피연산자가 null이 아닌 경우 오른쪽 피연산자는 무시)
+        // ??= : 왼쪽 피연산자가 null인 경우에만 오른쪽 피연산자를 대입
+        m_SkillInfo.BounceTargetList ??= new List<GameObject>();
 
         if (!m_SkillInfo.CanOverlapBounce &&
             null != m_Target)

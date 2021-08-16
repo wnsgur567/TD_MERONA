@@ -16,7 +16,6 @@ public class TowerPool : ObjectPool<TowerPool, Tower>
         for (int i = 3; i < M_TowerData.DataList.Count; ++i)
         {
             int PrefabCode = M_TowerData.DataList[i].Prefab;
-            Debug.Log("Tower_" + PrefabCode);
 
             GameObject originObj = M_PrefabData.GetPrefab(PrefabCode);
 
@@ -24,6 +23,7 @@ public class TowerPool : ObjectPool<TowerPool, Tower>
             {
                 GameObject originClone = GameObject.Instantiate(originObj);
                 string key = originClone.name = originObj.name;
+                Debug.Log("Tower_" + PrefabCode + ": " + key);
 
                 Tower origin = originClone.AddComponent<Tower>();
                 origin.InitializeTower(M_TowerData.DataList[i].Code, M_PrefabData.DataList[i].Size);

@@ -38,10 +38,10 @@ Shader "AppsTools/FastShader/Effect/Blend_TwoSides"
 		{
 			float3 worldPos;
 			float3 worldNormal;
-			float3 viewDir;
 			float4 vertexColor : COLOR;
 			float2 uv_texcoord;
 			float4 uv_tex4coord;
+			float3 viewDir;
 		};
 
 		uniform float _SeparateFresnel;

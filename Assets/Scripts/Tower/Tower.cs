@@ -14,6 +14,8 @@ public class Tower : MonoBehaviour
     public S_TowerData m_TowerInfo;
 
     #region 내부 컴포넌트
+    protected Animator m_Animator;
+
     protected AttackRange m_AttackRange_Default;
     protected AttackRange m_AttackRange_Skill01;
     protected AttackRange m_AttackRange_Skill02;
@@ -2114,6 +2116,9 @@ public class Tower : MonoBehaviour
         m_TowerInfo.InitialRotation = transform.eulerAngles;
         m_TowerInfo.ShouldFindTarget = true;
 
+        // 공격 피벗
+        m_TowerInfo.AttackPivot = transform.GetChild("AttackPivot");
+
         // 기본 스킬 데이터
         m_TowerInfo.Condition_Default = M_Skill.GetConditionData(m_TowerInfo_Excel.Atk_Code);
         m_TowerInfo.Stat_Default = M_Skill.GetStatData(m_TowerInfo.Condition_Default.PassiveCode);
@@ -2145,7 +2150,8 @@ public class Tower : MonoBehaviour
         #endregion
 
         #region 내부 컴포넌트
-        transform.Find("Mesh").localScale = Vector3.one * size;
+        m_Animator = transform.Find("Mesh").GetComponent<Animator>();
+        m_Animator.transform.localScale = Vector3.one * size;
 
         m_AttackRange_Default = transform.Find("AttackRange_Default").AddComponent<AttackRange>();
         m_AttackRange_Default.Initialize();
@@ -2159,6 +2165,19 @@ public class Tower : MonoBehaviour
         m_AttackRange_Skill02.Initialize();
         m_AttackRange_Skill02.SetRange(m_TowerInfo.Stat_Skill02.Range);
         #endregion
+    }
+
+    public void Attack()
+    {
+        m_Animator.SetTrigger("Attack");
+    }
+    public void Skill01()
+    {
+        m_Animator.SetTrigger("Skill01");
+    }
+    public void Skill02()
+    {
+        m_Animator.SetTrigger("Skill02");
     }
     #endregion
 

@@ -15,15 +15,18 @@ public class SkillPool : ObjectPool<SkillPool, Skill>
         for (int i = 0; i < M_SkillConditionData.DataList.Count; ++i)
         {
             int PrefabCode = M_SkillConditionData.DataList[i].projectile_prefab;
-            Debug.Log("Skill_" + PrefabCode);
 
             GameObject originObj = M_PrefabData.GetPrefab(PrefabCode);
             if (originObj != null)
             {
                 GameObject originClone = GameObject.Instantiate(originObj);
                 string key = originClone.name = originObj.name;
+                Debug.Log("Skill_" + PrefabCode + ": " + key);
 
                 Skill origin = originClone.AddComponent<Skill>();
+
+                GameObject attackRange = origin.transform.Find("AttackRange").gameObject;
+                (origin.m_SkillInfo.AttackRange = attackRange.AddComponent<AttackRange>()).Initialize();
 
                 AddPool(key, origin, transform);
 
