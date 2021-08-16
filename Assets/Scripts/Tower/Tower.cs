@@ -2103,7 +2103,7 @@ public class Tower : MonoBehaviour
 
     #region 외부 함수
     // 타워 초기화
-    public void InitializeTower(int code)
+    public void InitializeTower(int code, float size = 1.0f)
     {
         #region 엑셀 데이터 정리
         m_TowerInfo_Excel = M_Tower.GetData(code);
@@ -2145,6 +2145,8 @@ public class Tower : MonoBehaviour
         #endregion
 
         #region 내부 컴포넌트
+        transform.Find("Mesh").localScale = Vector3.one * size;
+
         m_AttackRange_Default = transform.Find("AttackRange_Default").AddComponent<AttackRange>();
         m_AttackRange_Default.Initialize();
         m_AttackRange_Default.SetRange(m_TowerInfo.Stat_Default.Range);

@@ -26,7 +26,7 @@ public class TowerPool : ObjectPool<TowerPool, Tower>
                 string key = originClone.name = originObj.name;
 
                 Tower origin = originClone.AddComponent<Tower>();
-                origin.InitializeTower(M_TowerData.DataList[i].Code);
+                origin.InitializeTower(M_TowerData.DataList[i].Code, M_PrefabData.DataList[i].Size);
 
                 AddPool(key, origin, transform);
 
