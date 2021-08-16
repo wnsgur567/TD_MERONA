@@ -1,4 +1,4 @@
-900001`3`Devil/Prefabs/Hate Queen;
+900001`3`Devil/Prefabs/HateQueen;
 900002`3`Devil/Prefabs/HellLord;
 900003`3`Devil/Prefabs/FrostSkeleton;
 900004`1`Tower/Prefabs/OrkGunner01;
