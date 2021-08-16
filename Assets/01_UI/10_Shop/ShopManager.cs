@@ -63,6 +63,7 @@ public class ShopManager : Singleton<ShopManager>
             newSlot.__Indexing(i);
             newSlot.transform.SetParent(m_root_panel.transform);
             newSlot.gameObject.SetActive(true);
+            newSlot.MoveRenderPosition(new Vector3(100 * i, 100 * i, 0));   // 렌더링 위치가 달라지도록
         }
 
         // link callback
@@ -117,7 +118,7 @@ public class ShopManager : Singleton<ShopManager>
         float rand_val = 0.0f;
 
         // tower data 개수
-        int total_towerType_count = m_excel_towerdata_so.DataList.Count; ;
+        int total_towerType_count = m_excel_towerdata_so.DataList.Count - 3; // 3 : devil count
         // tower type 지정 확률        
         int rand_val_tower = 0;
 
@@ -141,7 +142,7 @@ public class ShopManager : Singleton<ShopManager>
             }
 
             // 위에서 생성된 데이터로 Shop Slot의 정보 업데이트            
-            var tower_data = m_excel_towerdata_so.DataList[rand_val_tower];
+            var tower_data = m_excel_towerdata_so.DataList[rand_val_tower + 3]; // 3 : devil count
             m_slot_list[i].SetInfo(rank_forCreate, cost, tower_data);
         }
     }
@@ -159,18 +160,17 @@ public class ShopManager : Singleton<ShopManager>
     public bool PurchaseProcess(int slotIndex)
     {
         ShopSlot slot = m_slot_list[slotIndex];
-        if (slot.IsOccupied)
-        {   // 존재하는 경우에만 진행
-            // TODO : UserInfoManager.Instance.Gold 보다 price 가 작으면            
-            if (false == InventoryManager.Instance.IsAllOccupied())
-            {   // 인벤에 빈 공간이 있으면
-                var info = slot.GetInfo();
-                InventoryManager.Instance.AddNewTower(info.excel_data.Value);
 
-                Debug.Log("Puchase!!");
-                return true;
-            }
+        // TODO : UserInfoManager.Instance.Gold 보다 price 가 작으면            
+        if (false == InventoryManager.Instance.IsAllOccupied())
+        {   // 인벤에 빈 공간이 있으면
+            var info = slot.GetInfo();
+            InventoryManager.Instance.AddNewTower(info.excel_data.Value);
+
+            Debug.Log("Puchase!!");
+            return true;
         }
+
         return false;
     }
 
@@ -182,7 +182,7 @@ public class ShopManager : Singleton<ShopManager>
 
         if (false == m_isLocked)
         {
-            ShopReset();           
+            ShopReset();
         }
     }
 

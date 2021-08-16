@@ -718,7 +718,7 @@ MonoBehaviour:
     Unity_address: Synergy/Effect/2synergy_07
   PrefabList:
   - Code: 900001
-    obj: {fileID: 1294451033927112, guid: f9edcc26f4698364a854ca5981ad021d, type: 3}
+    obj: {fileID: 1294451033927112, guid: 608fa76a2e195a34ba7399f2349cbc9d, type: 3}
   - Code: 900002
     obj: {fileID: 7111650268161034755, guid: 5a2ac0221ee8dc84c94044d9af5e165b, type: 3}
   - Code: 900003
