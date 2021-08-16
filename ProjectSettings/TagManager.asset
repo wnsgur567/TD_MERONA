@@ -10,6 +10,8 @@ TagManager:
   - ShopSlot
   - InvenSlot
   - SceneStart
+  - Skill_Icon
+  - SceneLoader
   layers:
   - Default
   - TransparentFX
