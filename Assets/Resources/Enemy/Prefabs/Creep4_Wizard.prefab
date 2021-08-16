@@ -3471,7 +3471,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9099528298823969642}
-  - component: {fileID: 8080372163776584234}
   - component: {fileID: 5143945284038018224}
   m_Layer: 0
   m_Name: Creep4_Wizard
@@ -3495,21 +3494,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8080372163776584234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9106094078980245266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c473e31b976c8549bb5b00412909bea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ty: 3
-  image: {fileID: 8738057122668701880}
-  BuffList: []
 --- !u!65 &5143945284038018224
 BoxCollider:
   m_ObjectHideFlags: 0
