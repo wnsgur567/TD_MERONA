@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
+    public int m_CodeTemp;
+    public float m_SizeTemp;
+
     // 타겟
     public GameObject m_Target;
 
@@ -16,8 +19,11 @@ public class Tower : MonoBehaviour
     #region 내부 컴포넌트
     protected Animator m_Animator;
 
+    [SerializeField]
     protected AttackRange m_AttackRange_Default;
+    [SerializeField]
     protected AttackRange m_AttackRange_Skill01;
+    [SerializeField]
     protected AttackRange m_AttackRange_Skill02;
     #endregion
 
@@ -2179,14 +2185,28 @@ public class Tower : MonoBehaviour
     {
         m_Animator.SetTrigger("Skill02");
     }
+    public void CallAttack()
+    {
+        Debug.Log("Attack");
+    }
     #endregion
 
     #region 유니티 콜백 함수
+    private void Awake()
+    {
+        InitializeTower(m_CodeTemp, m_SizeTemp);
+    }
+
     private void Update()
     {
         RotateToTarget();
         UpdateTarget();
         AttackTarget();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Attack();
+        }
     }
     #endregion
 
