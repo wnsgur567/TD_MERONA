@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class ShopManager : Singleton<ShopManager>
 {
     [SerializeField] Tower_TableExcelLoader m_excel_towerdata_so;
+    List<Tower_TableExcel> m_tower_data_list;
     [SerializeField] Shop_TableExcelLoader m_excel_shopdata_so;
     private Shop_TableExcel m_cur_data;         // 가장 최근에 UserInfoManger 로부터 불러온 데이터 값
     private List<float> m_rates = null;         // 위의 data 에서 확률만 뽑아논 리스트
@@ -66,6 +67,11 @@ public class ShopManager : Singleton<ShopManager>
             newSlot.MoveRenderPosition(new Vector3(100 * i, 100 * i, 0));   // 렌더링 위치가 달라지도록
         }
 
+        // sub 3 item form front ( except devil )
+        m_tower_data_list = m_excel_towerdata_so.DataList.GetRange(
+            3,
+            m_excel_towerdata_so.DataList.Count - 3);
+
         // link callback
         UserInfoManager.Instance.OnLevelChanged += OnLevelChanged;
     }
@@ -83,7 +89,8 @@ public class ShopManager : Singleton<ShopManager>
 
         m_cur_data = data_list.Find((item) => { return cur_user_level == item.User_Level; });
 
-        m_rates.Clear();
+        
+        m_rates.Clear();      
         m_rates.Add(m_cur_data.Tower_Rand1);
         m_rates.Add(m_cur_data.Tower_Rand2);
         m_rates.Add(m_cur_data.Tower_Rand3);
@@ -118,7 +125,7 @@ public class ShopManager : Singleton<ShopManager>
         float rand_val = 0.0f;
 
         // tower data 개수
-        int total_towerType_count = m_excel_towerdata_so.DataList.Count - 3; // 3 : devil count
+        int total_towerType_count = m_tower_data_list.Count; 
         // tower type 지정 확률        
         int rand_val_tower = 0;
 
@@ -130,10 +137,12 @@ public class ShopManager : Singleton<ShopManager>
 
             int rank_forCreate = 1;
             int cost = 0;
+            float acc = 0.0f;
             // 낮은 랭크의 확률부터 계산
             for (int j = 0; j < m_rates.Count; j++)
             {
-                if (rand_val < m_rates[j])
+                acc += m_rates[j];
+                if (rand_val <= acc)
                 {
                     rank_forCreate = j + 1;
                     cost = m_costs[j];
@@ -141,9 +150,17 @@ public class ShopManager : Singleton<ShopManager>
                 }
             }
 
+            Debug.Log($"rank : {rank_forCreate}");
+
+            // rank 에 부합하는 데이터 뽑기
+            var tower_data_list = m_tower_data_list.FindAll((item) => { return item.Rank == rank_forCreate; });
+
+            // tower_data_list 중에 하나
+            int selected_index = Random.Range(0, tower_data_list.Count);
+
             // 위에서 생성된 데이터로 Shop Slot의 정보 업데이트            
-            var tower_data = m_excel_towerdata_so.DataList[rand_val_tower + 3]; // 3 : devil count
-            m_slot_list[i].SetInfo(rank_forCreate, cost, tower_data);
+            var tower_data = tower_data_list[selected_index]; 
+            m_slot_list[i].SetInfo(cost, tower_data);
         }
     }
 

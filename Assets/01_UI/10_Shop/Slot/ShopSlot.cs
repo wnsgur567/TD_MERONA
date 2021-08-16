@@ -11,7 +11,6 @@ public struct ShopSlotInfo
     public bool isOccupied;
     public int index;
 
-    public int rank;
     public int cost;
     public Tower_TableExcel? excel_data;
 }
@@ -50,10 +49,21 @@ public class ShopSlot : MonoBehaviour , IPointerClickHandler
     RenderTexture m_renderTexture;
     Camera m_renderCamera;
 
+    Dictionary<int, Color> m_rankToColor_dic;
+
     public bool IsOccupied { get { return m_info.isOccupied; } }
 
     private void Awake()
     {
+        m_rankToColor_dic = new Dictionary<int, Color>();
+        m_rankToColor_dic.Add(1, Color.gray);
+        m_rankToColor_dic.Add(2, Color.green);
+        m_rankToColor_dic.Add(3, Color.blue);
+        m_rankToColor_dic.Add(4, new Color(0.7f,0f,1f));
+        m_rankToColor_dic.Add(5, Color.yellow);
+
+
+
         OnInfoChangedCallback += OnInfoChanged;
         SetRenderTexture();
     }
@@ -121,7 +131,6 @@ public class ShopSlot : MonoBehaviour , IPointerClickHandler
     {
         m_info.isOccupied = false;
 
-        m_info.rank = 0;
         m_info.cost = 0;
         m_info.excel_data = null;
 
@@ -129,11 +138,10 @@ public class ShopSlot : MonoBehaviour , IPointerClickHandler
     }
 
     // slot 을 비워야 할 경우는 ClearInfo를 사용할 것    
-    public void SetInfo(int rank, int cost, Tower_TableExcel excel)
+    public void SetInfo(int cost, Tower_TableExcel excel)
     {
         m_info.isOccupied = true;
-
-        m_info.rank = rank;
+        
         m_info.cost = cost;
         m_info.excel_data = excel;     
 
@@ -182,13 +190,14 @@ public class ShopSlot : MonoBehaviour , IPointerClickHandler
             Sprite synergy2_sprite = m_spriteLoader.GetSprite(synergy2_data.Synergy_icon);
             m_synergy2Image.sprite = synergy2_sprite;             
 
+
             // set text
             m_nameTextPro.text = data.Name_KR;
+            m_nameTextPro.color = m_rankToColor_dic[data.Rank];
             m_synergy1TextPro.text = synergy1_data.Name_KR;
             m_synergy2TextPro.text = synergy2_data.Name_KR;
             m_goldTextPro.text = ((int)data.Price).ToString();
-            /// synergy icon & text end
-            
+            /// synergy icon & text end           
 
 
             SetActivateAllChildren();
