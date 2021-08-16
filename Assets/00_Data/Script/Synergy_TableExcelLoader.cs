@@ -24,7 +24,7 @@ public struct Synergy_TableExcel
 	public int EffectReq2;
 	public float EffectRand2;
 	public int Synergy_icon;
-	public int Prefeb;
+	public int Prefab;
 	public string Synergy_text;
 	public string Synergy_Avility;
 }
@@ -67,7 +67,7 @@ public class  Synergy_TableExcelLoader : ScriptableObject
 		data.EffectReq2 = int.Parse(strs[idx++]);
 		data.EffectRand2 = float.Parse(strs[idx++]);
 		data.Synergy_icon = int.Parse(strs[idx++]);
-		data.Prefeb = int.Parse(strs[idx++]);
+		data.Prefab = int.Parse(strs[idx++]);
 		data.Synergy_text = strs[idx++];
 		data.Synergy_Avility = strs[idx++];
 

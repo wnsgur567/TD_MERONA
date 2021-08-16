@@ -77,7 +77,9 @@ public class Skill : MonoBehaviour
 
     private void Awake()
     {
-        m_SkillInfo.AttackRange = transform.Find("AttackRange").GetComponent<AttackRange>();
+        GameObject AttackRange = new GameObject("AttackRange");
+        AttackRange.transform.SetParent(transform);
+        m_SkillInfo.AttackRange = AttackRange.AddComponent<AttackRange>();
         m_SkillInfo.CanOverlapBounce = true;
         m_SkillInfo.BounceTargetList = new List<GameObject>();
     }

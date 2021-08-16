@@ -39,7 +39,7 @@ public class SkillTooltip : Singleton<SkillTooltip>
         
     //    Skill_name.text = tower.skillname;
     //    Skill_text.text = tower.skilltext;
-    //    //¾îºô¸®Æ¼ 2 ¾ø´Â°æ¿ì ºñÈ°¼ºÈ­.
+    //    //ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ 2 ï¿½ï¿½ï¿½Â°ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­.
     //    //if(tower.isskillavility)
     //    //{
     //    //    Avilityname.gameObject.SetActive(false);

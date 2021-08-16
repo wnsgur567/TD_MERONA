@@ -58,11 +58,15 @@ public abstract class ObjectPool<Pool, Origin> : Singleton<Pool> where Pool : Mo
 
     protected void AddPool(string key, Origin origin, Transform parent)
     {
+        if (m_Origins.ContainsKey(key))
+            return;
+
         m_Origins.Add(key, origin);
 
         GameObject Parent = new GameObject();
         Parent.name = origin.name;
         Parent.transform.SetParent(parent);
+        Parent.SetActive(false);
 
         m_Pools.Add(key, new MemoryPool<Origin>(origin, m_PoolSize, Parent.transform));
 

@@ -5,18 +5,18 @@ using UnityEngine;
 
 public class Stage_EnemyManager : Singleton<Stage_EnemyManager>
 {
-    protected StageMonster_TableExcelLoader m_StageEnemyData;
+    protected StageEnemy_TableExcelLoader m_StageEnemyData;
 
     protected DataTableManager M_DataTable => DataTableManager.Instance;
 
     private void Awake()
     {
-        m_StageEnemyData = M_DataTable.GetDataTable<StageMonster_TableExcelLoader>();
+        m_StageEnemyData = M_DataTable.GetDataTable<StageEnemy_TableExcelLoader>();
     }
 
-    public StageMonster_TableExcel GetData(int code)
+    public StageEnemy_TableExcel GetData(int code)
     {
-        StageMonster_TableExcel origin = m_StageEnemyData.DataList.Where(item => item.Code == code).Single();
+        StageEnemy_TableExcel origin = m_StageEnemyData.DataList.Where(item => item.Code == code).Single();
         return origin;
     }
 }

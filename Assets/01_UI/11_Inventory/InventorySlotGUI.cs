@@ -36,11 +36,11 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
     [Space(10)]
     [SerializeField] Prefab_TableExcelLoader m_loader;
-    [SerializeField] Vector3 camera_distance;           // ¿ÀºêÁ§Æ®·ÎºÎÅÍÀÇ °Å¸®
-    [SerializeField] Vector3 camera_rotation;           // Ä«¸Þ¶ó È¸Àü °ª
-    [SerializeField] Vector3 m_obj_position;            // °£¼· ¾ø´Â °÷À¸·Î ¼ÂÆÃÇÒ°Í
-    [SerializeField] List<CKeyValue> m_showObj_list;    // ¾Æ·¡¿¡ µé¾î°¥¼ö ÀÖ´Â ¿ÀºêÁ§Æ® ¸®½ºÆ®
-    GameObject m_showObj;   // ÇöÀç º¸¿©ÁÖ°í ÀÖ´Â ¿ÀºêÁ§Æ®
+    [SerializeField] Vector3 camera_distance;           // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½
+    [SerializeField] Vector3 camera_rotation;           // Ä«ï¿½Þ¶ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½
+    [SerializeField] Vector3 m_obj_position;            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½
+    [SerializeField] List<CKeyValue> m_showObj_list;    // ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½î°¥ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ®
+    GameObject m_showObj;   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö°ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 
     [Space(10)]
     [SerializeField] RawImage m_rawImage;
@@ -88,7 +88,7 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         m_showObj_list.Add(val);
 
         foreach (var item in m_showObj_list)
-        {   // ÀüºÎ ²¨³í »óÅÂ·Î °°Àº À§Ä¡¿¡ ³õ±â            
+        {   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½            
             item.obj.transform.position = m_obj_position;
             item.obj.gameObject.SetActive(false);
         }
@@ -111,7 +111,7 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
     }
 
-    // InvenSlot °£ÀÇ ±³È¯
+    // InvenSlot ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
     private void SwapInfo(InventorySlotGUI slotGUI)
     {
         // tower swap
@@ -147,14 +147,14 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     private void OnInfoChanged()
     {
         if(IsOccupied == false)
-        {   // ºñ¾îÀÖ´Â °æ¿ì
+        {   // ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
             m_showObj?.gameObject.SetActive(false);
             m_showObj = null;
-            m_textPro.text = "ºñ¾îÀÖÀ½";
+            m_textPro.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
             return;
         }
 
-        // ÀÖ´Â °æ¿ì
+        // ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
         int code = m_info.tower_data.Code;
         CKeyValue find = m_showObj_list.Find((item) => { return item.Code == code; });
         if(null != find)
@@ -164,7 +164,7 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
             m_textPro.text = m_info.tower_data.Name_EN;
         }
 
-        // TODO : fix ... Å×½ºÆ®·Î 1¹ø°Å ±×³É ³ÖÀÚ...
+        // TODO : fix ... ï¿½×½ï¿½Æ®ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ ï¿½×³ï¿½ ï¿½ï¿½ï¿½ï¿½...
         m_showObj = m_showObj_list[0].obj;
         m_showObj.gameObject.SetActive(true);
         m_textPro.text = m_info.tower_data.Name_EN;
@@ -202,7 +202,7 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         RaycastResult target = eventData.pointerCurrentRaycast;
         if (target.gameObject != null && target.gameObject.tag.Equals("InvenSlot"))
         {
-            // Åõ ÀÎº¥Åä¸®°£ Å¸¿ö Á¤º¸ ±³Ã¼
+            // ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
             SwapInfo(target.gameObject.GetComponent<InventorySlotGUI>());
         }
         else if (m_info.isOccupied)
@@ -223,5 +223,5 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
             //tower_tooltip.Set_TowerTT(m_info.tower_data);
         }
     }
-    //Ãß°¡ÇØ¾ßÇÒ°Í: ÅøÆÁºÎºÐ ÀÌ¿ÜÀÇ °ø°£ Å¬¸¯½Ã ÅøÆÁ ²¨Áö°ÔÇÏ±â.
+    //ï¿½ß°ï¿½ï¿½Ø¾ï¿½ï¿½Ò°ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½.
 }

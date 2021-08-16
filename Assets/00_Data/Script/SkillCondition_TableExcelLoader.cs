@@ -16,11 +16,21 @@ public struct SkillCondition_TableExcel
 	public int Move_type;
 	public float Move_Height;
 	public int PassiveCode;
-	public int Atk_prefeb;
+	public int Atk_prefab;
 	public int projectile_prefab;
-	public int damage_prefeb;
+	public int damage_prefab;
 	public int Skill_icon;
 	public string Skill_text;
+	public string SkillAvility1_Name;
+	public string SkillAvility1_Text;
+	public string SkillAvility1_Star1;
+	public string SkillAvility1_Star2;
+	public string SkillAvility1_Star3;
+	public string SkillAvility2_Name;
+	public string SkillAvility2_Text;
+	public string SkillAvility2_Star1;
+	public string SkillAvility2_Star2;
+	public string SkillAvility2_Star3;
 }
 
 
@@ -53,11 +63,21 @@ public class  SkillCondition_TableExcelLoader : ScriptableObject
 		data.Move_type = int.Parse(strs[idx++]);
 		data.Move_Height = float.Parse(strs[idx++]);
 		data.PassiveCode = int.Parse(strs[idx++]);
-		data.Atk_prefeb = int.Parse(strs[idx++]);
+		data.Atk_prefab = int.Parse(strs[idx++]);
 		data.projectile_prefab = int.Parse(strs[idx++]);
-		data.damage_prefeb = int.Parse(strs[idx++]);
+		data.damage_prefab = int.Parse(strs[idx++]);
 		data.Skill_icon = int.Parse(strs[idx++]);
 		data.Skill_text = strs[idx++];
+		data.SkillAvility1_Name = strs[idx++];
+		data.SkillAvility1_Text = strs[idx++];
+		data.SkillAvility1_Star1 = strs[idx++];
+		data.SkillAvility1_Star2 = strs[idx++];
+		data.SkillAvility1_Star3 = strs[idx++];
+		data.SkillAvility2_Name = strs[idx++];
+		data.SkillAvility2_Text = strs[idx++];
+		data.SkillAvility2_Star1 = strs[idx++];
+		data.SkillAvility2_Star2 = strs[idx++];
+		data.SkillAvility2_Star3 = strs[idx++];
 
 		return data;
 	}

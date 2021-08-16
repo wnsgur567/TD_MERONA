@@ -65,8 +65,7 @@ public class Prefab_TableExcelLoader : ScriptableObject
 
     public GameObject GetPrefab(int prefabCode)
     {
-        Debug.Log(prefabCode);
         var info = PrefabList.Find((item) => { return item.Code == prefabCode; });
-        return info.obj;
+        return info?.obj;
     }
 }

@@ -10,11 +10,11 @@
 //    public float atk;
 //    public float hp;
 //    public float def;
-//    public float cooltime;//°ø°Ý¼Óµµ »©¿À±â.
+//    public float cooltime;//ï¿½ï¿½ï¿½Ý¼Óµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 //    public float crit_rate;
 //    public float crit_dmg;
 
-//    //½ºÅ³Á¤º¸
+//    //ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½
 //    public string skillname;
 //    public string skilltext;
 //    public string skillavility1;
@@ -25,7 +25,7 @@
 //    public float skilldmg;
     
 
-//    //½Ã³ÊÁö Á¤º¸
+//    //ï¿½Ã³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //    public string synergyname;
    
 
@@ -64,7 +64,7 @@
 //    Transform saleobj;
 //    float screen_maxy;
 //    float screen_maxx;
-//    //½ºÅ³¾ÆÀÌÄÜ raycast
+//    //ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ raycast
 //    public Canvas maincanvas;
 //    GraphicRaycaster raycast;
 //    PointerEventData pos;
@@ -118,14 +118,14 @@
 //        Sale_Price.text = info.Price.ToString();
        
        
-//        #region Å¸¿ö½ºÅÈ
+//        #region Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //        towerdata.atk = info.Atk;
 //        towerdata.hp = info.HP;
 //        towerdata.def = info.Def;
 //        towerdata.crit_rate = info.Crit_rate;
 //        towerdata.crit_dmg = info.Crit_Dmg;
 
-//        //ÀÏ¹Ý ÄðÅ¸ÀÓ.
+//        //ï¿½Ï¹ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½.
 //        skillcondition_excel = skill.GetConditionData(info.Atk_Code);
 //        skillstate_excel = skill.GetStatData(skillcondition_excel.PassiveCode);
 //        towerdata.cooltime = skillstate_excel.CoolTime;
@@ -165,8 +165,8 @@
        
 //        #endregion
 
-//        #region ½ºÅ³Á¤º¸
-//        //½ºÅ³ 1Á¤º¸
+//        #region ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½
+//        //ï¿½ï¿½Å³ 1ï¿½ï¿½ï¿½ï¿½
 
 //        skillcondition_excel = skill.GetConditionData(info.Skill1Code);
 //        skillstate_excel = skill.GetStatData(skillcondition_excel.PassiveCode);
@@ -185,10 +185,10 @@
 //        //else toweredata.isskillavility=false;
 //        //towerdata.skilldmg1 = skillstate_excel.Dmg;
 //        //towerdata.skilltext1 = skillcondition_excel.Skill_text;
-//        //skillcondition_excel.Skill_icon;//<<¾ÆÀÌÄÜÄÚµå·Î ¾ÆÀÌÄÜ¸Å´ÏÀú¿¡¼­ getdataÇØ¿À±â.
-//        //towerdata.skillicon1.sprite = //±×·¯°í ¿©±â´Ù°¡ sprite.
+//        //skillcondition_excel.Skill_icon;//<<ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ü¸Å´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ getdataï¿½Ø¿ï¿½ï¿½ï¿½.
+//        //towerdata.skillicon1.sprite = //ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ù°ï¿½ sprite.
 
-//        //½ºÅ³ 2 Á¤º¸
+//        //ï¿½ï¿½Å³ 2 ï¿½ï¿½ï¿½ï¿½
 //        skillcondition_excel = skill.GetConditionData(info.Skill2Code);
 //        skillstate_excel = skill.GetStatData(skillcondition_excel.PassiveCode);
 //        Skill_Name2.text = skillstate_excel.Name_KR;
@@ -198,13 +198,13 @@
 //        //towerdata.skillname2 = skillstate_excel.Name_KR;
 //        //towerdata.skilltext2 = skillcondition_excel.Skill_text;
 //        #endregion
-//        #region ½Ã³ÊÁöÁ¤º¸
-//        //½Ã³ÊÁö 1
+//        #region ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//        //ï¿½Ã³ï¿½ï¿½ï¿½ 1
 //        synergy_excel = synergy.GetData(info.Type1);
 //        Synergy_name1.text = synergy_excel.Name_KR;
-//        //synergy_excel.Synergy_icon; //½ºÅ³¾ÆÀÌÄÜ°ú µ¿ÀÏ.
+//        //synergy_excel.Synergy_icon; //ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½ï¿½Ü°ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-//        //½Ã³ÊÁö 2
+//        //ï¿½Ã³ï¿½ï¿½ï¿½ 2
 //        synergy_excel = synergy.GetData(info.Type2);
 //        Synergy_name2.text = synergy_excel.Name_KR;
 //        #endregion
@@ -233,7 +233,7 @@
 //    // Update is called once per frame
 //    void Update()
 //    {
-//        #region ½ºÅ³¾ÆÀÌÄÜ¿¡ ¸¶¿ì½º¿Ã¸®¸é
+//        #region ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½ï¿½Ü¿ï¿½ ï¿½ï¿½ï¿½ì½ºï¿½Ã¸ï¿½ï¿½ï¿½
 //        if (towertooltip_active)
 //        {   pos.position = Input.mousePosition;
 //            List<RaycastResult> results = new List<RaycastResult>();

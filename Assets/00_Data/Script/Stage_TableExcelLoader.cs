@@ -14,7 +14,7 @@ public struct Stage_TableExcel
 	public int StageMonsterTable;
 	public int Exp;
 	public int Gold;
-	public int Prefeb;
+	public int Prefab;
 }
 
 
@@ -45,7 +45,7 @@ public class  Stage_TableExcelLoader : ScriptableObject
 		data.StageMonsterTable = int.Parse(strs[idx++]);
 		data.Exp = int.Parse(strs[idx++]);
 		data.Gold = int.Parse(strs[idx++]);
-		data.Prefeb = int.Parse(strs[idx++]);
+		data.Prefab = int.Parse(strs[idx++]);
 
 		return data;
 	}
