@@ -14,10 +14,9 @@ public class Stage_EnemyManager : Singleton<Stage_EnemyManager>
         m_StageEnemyData = M_DataTable.GetDataTable<StageMonster_TableExcelLoader>();
     }
 
-    public S_Stage_EnemyData_Excel GetData(int code)
+    public StageMonster_TableExcel GetData(int code)
     {
         StageMonster_TableExcel origin = m_StageEnemyData.DataList.Where(item => item.Code == code).Single();
-        S_Stage_EnemyData_Excel result = new S_Stage_EnemyData_Excel(origin);
-        return result;
+        return origin;
     }
 }

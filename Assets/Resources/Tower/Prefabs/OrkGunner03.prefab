@@ -797,6 +797,7 @@ Transform:
   m_Children:
   - {fileID: 4947384385302262}
   - {fileID: 4328928137472350}
+  - {fileID: 6123704858551355115}
   m_Father: {fileID: 4293815679988602}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1041,7 +1042,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4468680837147488}
-  - component: {fileID: -6109204174067661567}
   m_Layer: 0
   m_Name: OrkGunner03
   m_TagString: Untagged
@@ -1061,89 +1061,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 881862910745543511}
-  - {fileID: 6504383226140999420}
+  - {fileID: 1421264198429589876}
+  - {fileID: 1848849607343015448}
+  - {fileID: 596000269368499206}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-6109204174067661567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1558244208904854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba4fdbad0dd8884c8e256156f53d49c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TempCode: 100058
-  m_TowerInfo_Excel:
-    No: 0
-    Name_KR: 
-    Name_EN: 
-    Code: 0
-    Rank: 0
-    Level: 0
-    Atk: 0
-    Atk_spd: 0
-    HP: 0
-    Def: 0
-    Crit_rate: 0
-    Crit_Dmg: 0
-    Atk_Code: 0
-    Skill1Code: 0
-    Skill2Code: 0
-    Type1: 0
-    Type2: 0
-    Price: 0
-    Prefeb: 0
-    Component: 
-  m_TowerInfo:
-    RotateSpeed: 0
-    InitialRotation: {x: 0, y: 0, z: 0}
-    AttackSpeed: 0
-    AttackTimer: 0
-    IsAttacking: 0
-    DefaultSkillCondition:
-      No: 0
-      Name_KR: 
-      Name_EN: 
-      Code: 0
-      Ally: 0
-      Air_Attack: 0
-      Atk_type: 0
-      Atk_pick: 0
-      Target_type: 0
-      Move_type: 0
-      PassiveCode: 0
-      Atk_prefab: 0
-      projectile_prefab: 0
-      damage_prefab: 0
-      Component: 
-    DefaultSkillStat:
-      No: 0
-      Name_KR: 
-      Name_EN: 
-      Code: 0
-      Max_Charge: 0
-      CoolTime: 0
-      Dmg: 0
-      Range: 0
-      Speed: 0
-      Target_num: 0
-      Size: 0
-      Life_Time: 0
-      LoadCode: 0
-      LoadBuff: 0
-    BuffList: []
-    Synergy_Atk_type: 0
-    Berserker: 0
-    BerserkerStack: 0
-    BerserkerMaxStack: 0
-    BerserkerBuffList: []
-  m_Target: {fileID: 0}
-  m_AttackRange: {fileID: 0}
 --- !u!1 &1559057030532094
 GameObject:
   m_ObjectHideFlags: 0
@@ -1640,7 +1563,7 @@ Transform:
   m_Father: {fileID: 4348383264805044}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2744985980381014749
+--- !u!1 &3151484030190018021
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1648,23 +1571,66 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6504383226140999420}
-  - component: {fileID: 8856912413767372840}
-  - component: {fileID: 359457946}
+  - component: {fileID: 1848849607343015448}
+  - component: {fileID: 5847998250252863833}
   m_Layer: 6
-  m_Name: AttackRange
+  m_Name: AttackRange_Skill01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6504383226140999420
+--- !u!4 &1848849607343015448
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2744985980381014749}
+  m_GameObject: {fileID: 3151484030190018021}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4468680837147488}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &5847998250252863833
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3151484030190018021}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &5352382831874668663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1421264198429589876}
+  - component: {fileID: 7928649440114405214}
+  m_Layer: 6
+  m_Name: AttackRange_Default
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1421264198429589876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5352382831874668663}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -1672,31 +1638,93 @@ Transform:
   m_Father: {fileID: 4468680837147488}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &8856912413767372840
+--- !u!135 &7928649440114405214
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2744985980381014749}
+  m_GameObject: {fileID: 5352382831874668663}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &359457946
-MonoBehaviour:
+--- !u!1 &5578906214969811021
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2744985980381014749}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6123704858551355115}
+  m_Layer: 0
+  m_Name: AttackPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6123704858551355115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5578906214969811021}
+  m_LocalRotation: {x: -0.000000029802312, y: -0, z: -0.00000014901156, w: 1}
+  m_LocalPosition: {x: -0, y: -1.163001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4311401452280484}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7739522366256281637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 596000269368499206}
+  - component: {fileID: 8974254421619674941}
+  m_Layer: 6
+  m_Name: AttackRange_Skill02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &596000269368499206
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7739522366256281637}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4468680837147488}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &8974254421619674941
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7739522366256281637}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34565420b82467249b1437b94d044325, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8479347991016516056
 GameObject:
   m_ObjectHideFlags: 0

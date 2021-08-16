@@ -21,10 +21,10 @@ public class BuffManager : Singleton<BuffManager>
     #endregion
 
     #region 외부 함수
-    public S_BuffData_Excel GetData(int code)
+    public BuffCC_TableExcel GetData(int code)
     {
-        BuffCC_TableExcel origin = m_BuffCCData.DataList.Where(item => item.Code == code).Single();
-        S_BuffData_Excel result = new S_BuffData_Excel(origin);
+        BuffCC_TableExcel result = m_BuffCCData.DataList.Where(item => item.Code == code).Single();
+
         return result;
     }
     #endregion

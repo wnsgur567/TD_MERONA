@@ -17,7 +17,7 @@ public struct SkillCondition_TableExcel
 	public float Move_Height;
 	public int PassiveCode;
 	public int Atk_prefeb;
-	public int projectile_prefeb;
+	public int projectile_prefab;
 	public int damage_prefeb;
 	public int Skill_icon;
 	public string Skill_text;
@@ -54,7 +54,7 @@ public class  SkillCondition_TableExcelLoader : ScriptableObject
 		data.Move_Height = float.Parse(strs[idx++]);
 		data.PassiveCode = int.Parse(strs[idx++]);
 		data.Atk_prefeb = int.Parse(strs[idx++]);
-		data.projectile_prefeb = int.Parse(strs[idx++]);
+		data.projectile_prefab = int.Parse(strs[idx++]);
 		data.damage_prefeb = int.Parse(strs[idx++]);
 		data.Skill_icon = int.Parse(strs[idx++]);
 		data.Skill_text = strs[idx++];
@@ -78,4 +78,4 @@ public class  SkillCondition_TableExcelLoader : ScriptableObject
 			DataList.Add(data);
 		}
 	}
-	}
+}

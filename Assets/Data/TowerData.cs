@@ -6,11 +6,6 @@ public enum E_Tower
 {
     None,
 
-    // ¸¶¿Õ
-    HateQueen = 1,
-    HellLord,
-    FrostLich,
-
     // Å¸¿ö
     OrkGunner01 = 4,
     OrkWarrior01,
@@ -99,49 +94,49 @@ public enum E_Tower
     Max
 }
 
-[System.Serializable]
-public struct S_TowerData_Excel
-{
-    public E_Tower No;
-    public string Name_KR;
-    public string Name_EN;
-    public int Code;
-    public int Rank;
-    public int Star;
-    public float Atk;
-    public float Atk_spd;
-    public float HP;
-    public float Def;
-    public float Crit_rate;
-    public float Crit_Dmg;
-    public int Atk_Code;
-    public int Skill1Code;
-    public int Skill2Code;
-    public int Type1;
-    public int Type2;
-    public float Price;
-    public int Prefeb;
+//[System.Serializable]
+//public struct S_TowerData_Excel
+//{
+//    public E_Tower No;
+//    public string Name_KR;
+//    public string Name_EN;
+//    public int Code;
+//    public int Rank;
+//    public int Star;
+//    public float Atk;
+//    public float Atk_spd;
+//    public float HP;
+//    public float Def;
+//    public float Crit_rate;
+//    public float Crit_Dmg;
+//    public int Atk_Code;
+//    public int Skill1Code;
+//    public int Skill2Code;
+//    public int Type1;
+//    public int Type2;
+//    public float Price;
+//    public int Prefeb;
 
-    public S_TowerData_Excel(Tower_TableExcel origin)
-    {
-        No = (E_Tower)origin.No;
-        Name_KR = origin.Name_KR;
-        Name_EN = origin.Name_EN;
-        Code = origin.Code;
-        Rank = origin.Rank;
-        Star = origin.Star;
-        Atk = origin.Atk;
-        Atk_spd = origin.Atk_spd;
-        HP = origin.HP;
-        Def = origin.Def;
-        Crit_rate = origin.Crit_rate;
-        Crit_Dmg = origin.Crit_Dmg;
-        Atk_Code = origin.Atk_Code;
-        Skill1Code = origin.Skill1Code;
-        Skill2Code = origin.Skill2Code;
-        Type1 = origin.Type1;
-        Type2 = origin.Type2;
-        Price = origin.Price;
-        Prefeb = origin.Prefeb;
-    }
-}
+//    public S_TowerData_Excel(Tower_TableExcel origin)
+//    {
+//        No = (E_Tower)origin.No;
+//        Name_KR = origin.Name_KR;
+//        Name_EN = origin.Name_EN;
+//        Code = origin.Code;
+//        Rank = origin.Rank;
+//        Star = origin.Star;
+//        Atk = origin.Atk;
+//        Atk_spd = origin.Atk_spd;
+//        HP = origin.HP;
+//        Def = origin.Def;
+//        Crit_rate = origin.Crit_rate;
+//        Crit_Dmg = origin.Crit_Dmg;
+//        Atk_Code = origin.Atk_Code;
+//        Skill1Code = origin.Skill1Code;
+//        Skill2Code = origin.Skill2Code;
+//        Type1 = origin.Type1;
+//        Type2 = origin.Type2;
+//        Price = origin.Price;
+//        Prefeb = origin.Prefeb;
+//    }
+//}

@@ -90,4 +90,4 @@ public class  Synergy_TableExcelLoader : ScriptableObject
 			DataList.Add(data);
 		}
 	}
-	}
+}

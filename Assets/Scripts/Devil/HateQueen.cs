@@ -16,7 +16,7 @@ public class HateQueen : Devil
     #region 유니티 콜백
     private void Awake()
     {
-        InitializeTower(m_TempCode);
+        InitializeDevil(E_Devil.HateQueen);
     }
 
     private void Update()
@@ -26,9 +26,9 @@ public class HateQueen : Devil
     #endregion
 
     #region 내부 함수
-    protected override void InitializeTower(int code)
+    protected override void InitializeDevil(E_Devil no)
     {
-        base.InitializeTower(code);
+        base.InitializeDevil(no);
 
         #region 마왕 스킬 정리
         Skill01Event += Skill01;
@@ -47,7 +47,7 @@ public class HateQueen : Devil
 
     protected IEnumerator SK001(DevilSkillArg arg)
     {
-        S_BuffData_Excel buffData = M_Buff.GetData(arg.skillData.m_StatData.Buff_CC);
+        BuffCC_TableExcel buffData = M_Buff.GetData(arg.skillData.m_StatData.Buff_CC);
         List<Tower> towerList = M_Tower.GetTowerList(arg.dir);
 
         foreach (var item in towerList)
@@ -65,7 +65,7 @@ public class HateQueen : Devil
     }
     protected IEnumerator SK002(DevilSkillArg arg)
     {
-        S_BuffData_Excel buffData = M_Buff.GetData(arg.skillData.m_StatData.Buff_CC);
+        BuffCC_TableExcel buffData = M_Buff.GetData(arg.skillData.m_StatData.Buff_CC);
 
         for (E_Direction i = 0; i < E_Direction.Max; ++i)
         {

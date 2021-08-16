@@ -14,7 +14,7 @@ public class SkillPool : ObjectPool<SkillPool, Skill>
 
         for (int i = 0; i < M_SkillConditionData.DataList.Count; ++i)
         {
-            int PrefabCode = M_SkillConditionData.DataList[i].projectile_prefeb;
+            int PrefabCode = M_SkillConditionData.DataList[i].projectile_prefab;
             string key = PrefabCode.ToString();
             Skill origin = M_PrefabData.GetPrefab(PrefabCode).GetComponent<Skill>();
             AddPool(key, origin, transform);
