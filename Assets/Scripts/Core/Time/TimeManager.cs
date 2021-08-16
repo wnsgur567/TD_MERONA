@@ -109,6 +109,12 @@ public class TimeManager : Singleton<TimeManager>
         TotalExp += m_StageInfo_Excel.Exp;
         TotalGold += m_StageInfo_Excel.Gold;
 
+        if (TotalExp >= 10)
+        {
+            TotalExp -= 10;
+            //레벨업 함수 불러와야됨
+        }
+
         #endregion
     }
 }

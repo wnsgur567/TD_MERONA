@@ -6,13 +6,6 @@ using System;
 public class SpawnManager : Singleton<SpawnManager>
 {
     [Serializable]
-    public struct EnemyPrefebData
-    {
-        public int code;
-        public string Name_EN;
-    }
-
-    [Serializable]
     public struct SpawnData
     {
         public int SponPosition;
@@ -21,7 +14,6 @@ public class SpawnManager : Singleton<SpawnManager>
         public float AppearSpeed;
         public float CreateSpeed;
     }
-    private int enemynum = 0;
 
     //웨이 포인트 시작 위치
     public Transform[] spawnPoint;
@@ -35,8 +27,6 @@ public class SpawnManager : Singleton<SpawnManager>
 
     private EnemyManager enemymanager => EnemyManager.Instance;
 
-    private string codename = "410000";
-
     private int countnum = 0;
 
     private Enemy_TableExcel m_Enemyinfo_Excel;
@@ -46,8 +36,6 @@ public class SpawnManager : Singleton<SpawnManager>
     {
         m_StageEnemyInfo_Excel = new List<StageEnemy_TableExcel>();
     }
-
-    
 
     #region 외부 함수
     //스테이지 시작
@@ -67,43 +55,7 @@ public class SpawnManager : Singleton<SpawnManager>
         EnemyManager.Instance.Enemy_Direction[enemy.Get_Direction].Remove(enemy);
         enemyPool.GetPool(enemy.Get_EnemyName_EN).DeSpawn(enemy);
     }
-    #endregion
 
-    #region 코루틴
-    //혹시 모를 라운드 끝나면 없어지는 몬스터
-    //IEnumerator EndStage(int round)
-    //{
-    //    if (round != 0)
-    //    {
-    //        for (E_Direction i = 0; i < E_Direction.Max; ++i)
-    //        {
-    //            if (enemymanager.EnemyIndex_Direction[i][round - 1] != 0)
-    //            {
-    //                for (int j = 0; j < enemymanager.Enemy_Direction[i].Count; ++j)
-    //                {
-    //                    Despawn(enemymanager.Enemy_Direction[i][0]);
-    //                }
-    //            }
-    //        }
-    //        //yield return new WaitForSeconds(WaitStageTime);
-    //    }
-    //    yield return null;
-    //}
-
-    IEnumerator Spawn(E_Direction dir, int num)
-    {
-        //처음 등장 속도
-        yield return new WaitForSeconds(m_StageEnemyInfo[num].AppearSpeed);
-
-        for (int i = 0; i < m_StageEnemyInfo[num].Create_num; ++i)
-        {
-            SpawnEnemy(dir, num);
-            //생성 속도
-            yield return new WaitForSeconds(m_StageEnemyInfo[num].CreateSpeed);
-        }
-
-        SpawnEnemy(dir, num);
-    }
     #endregion
 
     #region 내부 함수
@@ -167,4 +119,40 @@ public class SpawnManager : Singleton<SpawnManager>
     }
     #endregion
 
+    #region 코루틴
+    //혹시 모를 라운드 끝나면 없어지는 몬스터
+    //IEnumerator EndStage(int round)
+    //{
+    //    if (round != 0)
+    //    {
+    //        for (E_Direction i = 0; i < E_Direction.Max; ++i)
+    //        {
+    //            if (enemymanager.EnemyIndex_Direction[i][round - 1] != 0)
+    //            {
+    //                for (int j = 0; j < enemymanager.Enemy_Direction[i].Count; ++j)
+    //                {
+    //                    Despawn(enemymanager.Enemy_Direction[i][0]);
+    //                }
+    //            }
+    //        }
+    //        //yield return new WaitForSeconds(WaitStageTime);
+    //    }
+    //    yield return null;
+    //}
+
+    IEnumerator Spawn(E_Direction dir, int num)
+    {
+        //처음 등장 속도
+        yield return new WaitForSeconds(m_StageEnemyInfo[num].AppearSpeed);
+
+        for (int i = 0; i < m_StageEnemyInfo[num].Create_num; ++i)
+        {
+            SpawnEnemy(dir, num);
+            //생성 속도
+            yield return new WaitForSeconds(m_StageEnemyInfo[num].CreateSpeed);
+        }
+
+        SpawnEnemy(dir, num);
+    }
+    #endregion
 }
