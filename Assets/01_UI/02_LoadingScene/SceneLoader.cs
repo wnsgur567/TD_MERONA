@@ -120,11 +120,11 @@ public class SceneLoader : Singleton<SceneLoader>
 
     public void StartEventStart()
     {
-        //var objs = GameObject.FindGameObjectsWithTag("SceneStart");
-        //foreach (var item in objs)
-        //{
-        //    m_startEvent.AddListener(item.GetComponent<SceneStartEventReciever>().__Start);
-        //}
-        //m_startEvent?.Invoke();
+        var objs = GameObject.FindGameObjectsWithTag("SceneStart");
+        foreach (var item in objs)
+        {
+            var reciever = item.GetComponent<SceneStartEventReciever>();
+            reciever.__Start();
+        }
     }
 }

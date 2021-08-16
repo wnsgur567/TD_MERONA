@@ -7,6 +7,7 @@ public struct UserInfo
 {
     public int SelectedDevilCode;
     public int level;
+    public int exp;
     public int gold;
 }
 
@@ -19,10 +20,13 @@ public class UserInfoManager : Singleton<UserInfoManager>
     public event GoldChangeHandler OnGoldChangedEvent;
 
     [SerializeField] UserInfo m_info;
+    [SerializeField] Level_TableExcelLoader m_levelLadoer;
+    [SerializeField] Stage_TableExcelLoader m_stageLoader;
 
     public int DevilCode { get { return m_info.SelectedDevilCode; } }
     public int Level { get { return m_info.level; } }
     public int Gold { get { return m_info.gold; } }
+    public int EXP { get { return m_info.exp; } }
 
 
     private void Awake()
@@ -35,6 +39,12 @@ public class UserInfoManager : Singleton<UserInfoManager>
     private void Start()
     {
         
+    }
+
+    public void UpdateAllInfo()
+    {
+        OnLevelChanged?.Invoke(m_info.level);
+        OnGoldChangedEvent?.Invoke(m_info.gold);
     }
 
     public void SetDevilCode(int code)
@@ -73,5 +83,20 @@ public class UserInfoManager : Singleton<UserInfoManager>
         OnGoldChangedEvent?.Invoke(m_info.gold);
 
         return true;
+    }
+
+    public void AddExp(int val)
+    {
+        var cur_level_data = m_levelLadoer.DataList[m_info.level - 1];
+
+        // 현재 요구 경험치
+        int require_exp_to_next_level = cur_level_data.LvUP_Exp;
+        int cur_exp = m_info.exp + val;
+        if(cur_exp >= require_exp_to_next_level)
+        {   // 요구 경험치를 초과하면
+            // level up
+            m_info.exp = cur_exp - require_exp_to_next_level;
+            AddLevel(1);
+        }
     }
 }

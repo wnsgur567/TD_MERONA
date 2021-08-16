@@ -718,7 +718,7 @@ MonoBehaviour:
     Unity_address: Synergy/Effect/2synergy_07
   PrefabList:
   - Code: 900001
-    obj: {fileID: 0}
+    obj: {fileID: 1294451033927112, guid: f9edcc26f4698364a854ca5981ad021d, type: 3}
   - Code: 900002
     obj: {fileID: 0}
   - Code: 900003
@@ -886,35 +886,35 @@ MonoBehaviour:
   - Code: 900084
     obj: {fileID: 1080567824412012, guid: fe89a86d49fb902459460a842d58c4f5, type: 3}
   - Code: 900085
-    obj: {fileID: 0}
+    obj: {fileID: 8422643010258117834, guid: 90b5f9062378ec1439065f9a2b2b2fa6, type: 3}
   - Code: 900086
-    obj: {fileID: 0}
+    obj: {fileID: 7187482241703725127, guid: cfb05a86166653e47ba5c0790f54afc6, type: 3}
   - Code: 900087
-    obj: {fileID: 0}
+    obj: {fileID: 1770998690547226946, guid: c9c5d31abe0d72b4b8e432bf5f754433, type: 3}
   - Code: 900088
-    obj: {fileID: 0}
+    obj: {fileID: 517032432797993339, guid: 4c46f3c1b30f70f44b3d52936279a896, type: 3}
   - Code: 900089
-    obj: {fileID: 0}
+    obj: {fileID: 3403713919103666422, guid: 000328bb482384d49a1da57cf89d7a18, type: 3}
   - Code: 900090
-    obj: {fileID: 0}
+    obj: {fileID: 4939801601153124176, guid: c7d4465cfd9987f428fffafdee934f5e, type: 3}
   - Code: 900091
-    obj: {fileID: 0}
+    obj: {fileID: 4919468375687286769, guid: 3916a0c3895e3bd4cbec43a590f7e043, type: 3}
   - Code: 900092
-    obj: {fileID: 0}
+    obj: {fileID: 2096141754478697906, guid: 408c9a45ae2c608459627995e59a41bf, type: 3}
   - Code: 900093
     obj: {fileID: 0}
   - Code: 900094
-    obj: {fileID: 0}
+    obj: {fileID: 6489230153764233459, guid: 7c91bbf7149bb9e428256ea1e720d53c, type: 3}
   - Code: 900095
-    obj: {fileID: 0}
+    obj: {fileID: 5647570697146312607, guid: 5e290e1dd190bf349963db63f7e71031, type: 3}
   - Code: 900096
-    obj: {fileID: 0}
+    obj: {fileID: 9106094078980245266, guid: f3429c0d4c32d684b8b535494442a272, type: 3}
   - Code: 900097
-    obj: {fileID: 0}
+    obj: {fileID: 6357862952736235422, guid: 17d9aa6e22991594db209be23a1f9278, type: 3}
   - Code: 900098
-    obj: {fileID: 0}
+    obj: {fileID: 8525777246585927892, guid: 100ab51d4e2aefe44ae8fb405e676bf3, type: 3}
   - Code: 900099
-    obj: {fileID: 0}
+    obj: {fileID: 2604486107980217304, guid: 9114e71e357316c4188f886c40e4e615, type: 3}
   - Code: 900100
     obj: {fileID: 0}
   - Code: 900101

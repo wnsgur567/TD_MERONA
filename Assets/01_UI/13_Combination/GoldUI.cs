@@ -10,6 +10,7 @@ public class GoldUI : MonoBehaviour
     private void Start()
     {
         UserInfoManager.Instance.OnGoldChangedEvent += OnGoldChanged;
+        UserInfoManager.Instance.UpdateAllInfo();
     }
     public void OnGoldChanged(int current_gold)
     {

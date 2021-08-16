@@ -19,11 +19,11 @@ public class SynergyLineSlot : MonoBehaviour
 
     [SerializeField] int m_showCount;           // m_panel 보여줄 슬롯 개수 (나머지는 추가 버튼으로 확인)
     [SerializeField] bool IsShowExtendPanel;
-    SynergyManager a;
+   
 
     private void Awake()
     {
-        a = SynergyManager.Instance;
+      
     }
     void Start()
     {
