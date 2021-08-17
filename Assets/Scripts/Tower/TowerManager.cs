@@ -130,7 +130,7 @@ public enum E_Tower
     OrkGunner03,
     OrkWarrior03,
     Cyclops03,
-    Goblin03,
+    Goblin04,
     NolWarrior03,
     TrollShamen03,
     Sparkmon03,
