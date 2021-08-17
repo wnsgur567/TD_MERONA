@@ -158,7 +158,7 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         m_info.index = index;
     }
 
-    public void SetTower(Tower tower,Tower_TableExcel data)
+    public void SetTower(Tower tower, Tower_TableExcel data)
     {
         m_info.tower = tower;
         m_info.tower_data = data;
@@ -242,8 +242,8 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
             //Vector3 mouse_pos = eventData.position;
             //mouse_pos.z = 1000.0f;
 
-            
-            Vector3 mouse_pos = eventData.position;            
+
+            Vector3 mouse_pos = eventData.position;
             int layermask = 1 << LayerMask.NameToLayer("Node");
             RaycastHit hitinfo;
 
@@ -253,7 +253,7 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
             //    out hitinfo,
             //    1000f,
             //   layermask))
-            if(Physics.Raycast(new Ray(Camera.main.ScreenToWorldPoint(mouse_pos),Camera.main.transform.forward),
+            if (Physics.Raycast(new Ray(Camera.main.ScreenToWorldPoint(mouse_pos), Camera.main.transform.forward),
                 out hitinfo,
                 Camera.main.farClipPlane,
                 layermask))
@@ -276,11 +276,11 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
     public void OnPointerClick(PointerEventData eventData)
     {   // for tower tooltip panel
-        if ( IsOccupied &&
+        if (IsOccupied &&
             eventData.button == PointerEventData.InputButton.Right)
         {
             Vector2 mousepos = Input.mousePosition;
-            TowerToolTipManager.Instance.ActivateToolTipOnUIClick(mousepos, m_info.tower_data);
+            TowerToolTipManager.Instance.ActivateToolTipOnUIClick(mousepos, this, m_info.tower_data);
         }
     }
 }

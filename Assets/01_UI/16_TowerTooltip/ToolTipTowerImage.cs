@@ -34,7 +34,7 @@ public class ToolTipTowerImage : MonoBehaviour
         // set camera option for render texture
         m_renderCamera.targetTexture = m_renderTexture;
         m_renderCamera.clearFlags = CameraClearFlags.SolidColor;
-        m_renderCamera.backgroundColor = new Color(1f, 1f, 1f, 1f);
+        m_renderCamera.backgroundColor = new Color(1f, 1f, 1f, 0f);
         m_renderCamera.transform.position = m_obj_position + camera_distance;
         m_renderCamera.transform.eulerAngles = camera_rotation;
 
@@ -55,6 +55,7 @@ public class ToolTipTowerImage : MonoBehaviour
 
             // create
             var new_obj = GameObject.Instantiate(origin_prefab);
+            new_obj.transform.position = m_obj_position;
             new_obj.transform.SetParent(this.transform);
             new_obj.SetActive(false);
 
