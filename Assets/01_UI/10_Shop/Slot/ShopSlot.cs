@@ -94,12 +94,24 @@ public class ShopSlot : MonoBehaviour , IPointerClickHandler
         /// camera setting end
 
         /// tower objects setting
+
         // create all tower for this ShopSlotUI
-        foreach (var item in m_towerLoader.DataList)
+        // except devil (character)
+        var tower_data_list = m_towerLoader.DataList.GetRange(3, m_towerLoader.DataList.Count - 3);
+        foreach (var item in tower_data_list)
         {
             GameObject origin_obj = m_prefabLoader.GetPrefab(item.Prefab); // get only tower
             GameObject new_obj = GameObject.Instantiate(origin_obj);
             new_obj.transform.SetParent(this.transform);
+
+            // scaling
+            float scale_rate = m_prefabLoader.DataList.Find(
+                (prefabtable_item) => { return item.Prefab == prefabtable_item.Code; })
+                .Size;
+            new_obj.transform.GetChild(0).localScale = new Vector3( scale_rate, scale_rate, scale_rate);
+            Debug.Log(new_obj.transform.GetChild(0).name);
+            Debug.Log(scale_rate);
+            //new_obj.transform.localScale *= scale_rate;
 
             // regist to managing list
             CKeyValue val = new CKeyValue

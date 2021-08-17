@@ -164,7 +164,7 @@ public class StagePrivewController : MonoBehaviour
 
         // set stage info as much as cell count from current stage
         int current_stage = m_current_stageInfo.stage_num;
-        for (int i = 0; i < m_cell_count + 1; i++)
+        for (int i = 1; i < m_cell_count + 1; i++)
         {
             int index = i + current_stage - 1;
             if (index < m_stage_loader.DataList.Count)

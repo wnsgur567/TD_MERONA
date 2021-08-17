@@ -54,7 +54,7 @@ public class SynergyLineSlot : MonoBehaviour
 
         // link event        
         // TODO : Activate underlihe when combine scene
-        SynergyManager.Instance.UpdateSynergyEndEvent += __OnSynergyUpdate;
+       // SynergyManager.Instance.UpdateSynergyEndEvent += __OnSynergyUpdate;
     }
        
 
