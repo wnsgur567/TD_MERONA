@@ -63,7 +63,7 @@ public class Sprite_TableExcelLoader : ScriptableObject
 
     public Sprite GetSprite(int spriteCode)
     {
-        //Debug.Log(spriteCode);
+        Debug.Log(spriteCode);
         var info = SpriteList.Find((item) => { return item.Code == spriteCode; });
         return info.obj;
     }

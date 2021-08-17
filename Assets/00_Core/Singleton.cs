@@ -18,6 +18,8 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                 GameObject obj = objs.Where(item => item.flag == true).FirstOrDefault()?.gameObject; //GameObject.Find(typeof(T).Name);
                 if (obj == null)
                 {
+                    if (objs.Length > 0)
+                        return objs[0].GetComponent<T>();
                     obj = new GameObject(typeof(T).Name);
                     instance = obj.AddComponent<T>();
                 }

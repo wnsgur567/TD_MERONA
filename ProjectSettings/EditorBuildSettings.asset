@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/ConstantsScene.unity
     guid: 96b7c316111eda547970f73431021751
   - enabled: 1
-    path: Assets/Scenes/LoaderScene.unity
-    guid: 69fc818a6d4e77942ad1aa7f4a5e3717
-  - enabled: 1
     path: Assets/Scenes/SceneLoadTestScene.unity
     guid: e27a9bce556ab0a43b10034303c8628f
   - enabled: 1
@@ -26,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UIScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/LoaderScene.unity
+    guid: 69fc818a6d4e77942ad1aa7f4a5e3717
   m_configObjects: {}

@@ -10,6 +10,7 @@ public struct InventorySlotGUIInfo
     public int index;
     public bool isOccupied;
     public Tower_TableExcel tower_data;
+    public Tower tower;
 }
 
 [System.Serializable]
@@ -28,6 +29,9 @@ public class CKeyValue : System.IEquatable<CKeyValue>
 
 public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler//IPointerEnterHandler,IPointerExitHandler
 {
+    public delegate void SummonTowerHandler(Tower tower);
+    public event SummonTowerHandler OnTowerSummonEvent;
+
     public delegate void InfoChangeHandler();
     public event InfoChangeHandler OnInfoChangedEvent;
 
@@ -37,11 +41,11 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     [Space(10)]
     [SerializeField] Tower_TableExcelLoader m_towerLoader;
     [SerializeField] Prefab_TableExcelLoader m_prefabLoader;
-    [SerializeField] Vector3 camera_distance;           // ������Ʈ�κ����� �Ÿ�
-    [SerializeField] Vector3 camera_rotation;           // ī�޶� ȸ�� ��
-    [SerializeField] Vector3 m_obj_position;            // ���� ���� ������ �����Ұ�
-    [SerializeField] List<CKeyValue> m_showObj_list;    // �Ʒ��� ���� �ִ� ������Ʈ ����Ʈ
-    GameObject m_showObj;   // ���� �����ְ� �ִ� ������Ʈ
+    [SerializeField] Vector3 camera_distance;           // from showObj to camera
+    [SerializeField] Vector3 camera_rotation;           // camera eular rotation
+    [SerializeField] Vector3 m_obj_position;            // showObj position
+    [SerializeField] List<CKeyValue> m_showObj_list;    // showObjs
+    GameObject m_showObj;   // current show obj
 
     [Space(10)]
     [SerializeField] RawImage m_rawImage;
@@ -154,15 +158,22 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         m_info.index = index;
     }
 
-    public void SetTower(Tower_TableExcel data)
+    public void SetTower(Tower tower,Tower_TableExcel data)
     {
+        m_info.tower = tower;
         m_info.tower_data = data;
         m_info.isOccupied = true;
 
         OnInfoChangedEvent?.Invoke();
     }
 
+    public void ClearInven()
+    {
+        m_info.isOccupied = false;
+        m_info.tower = null;
 
+        OnInfoChangedEvent?.Invoke();
+    }
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -198,6 +209,11 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         {
             Debug.Log("tower image moving");
             m_rawImage.transform.position = eventData.position;
+
+            Vector3 mouse_pos = eventData.position;
+            mouse_pos.z = Camera.main.farClipPlane;
+            Debug.DrawRay(Camera.main.transform.position,
+                Camera.main.ScreenToWorldPoint(mouse_pos), Color.red);
         }
     }
 
@@ -222,7 +238,35 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         }
         else if (m_info.isOccupied)
         {
+            /// for perspective
+            //Vector3 mouse_pos = eventData.position;
+            //mouse_pos.z = 1000.0f;
 
+            
+            Vector3 mouse_pos = eventData.position;            
+            int layermask = 1 << LayerMask.NameToLayer("Node");
+            RaycastHit hitinfo;
+
+            /// for perspective
+            //if (Physics.Raycast(new Ray(Camera.main.transform.position,
+            //    Camera.main.ScreenToWorldPoint(mouse_pos)),
+            //    out hitinfo,
+            //    1000f,
+            //   layermask))
+            if(Physics.Raycast(new Ray(Camera.main.ScreenToWorldPoint(mouse_pos),Camera.main.transform.forward),
+                out hitinfo,
+                Camera.main.farClipPlane,
+                layermask))
+            {
+                Debug.Log(hitinfo.collider.gameObject.name);
+                Node hit_node = hitinfo.collider.gameObject.GetComponent<Node>();
+                if (hit_node.m_Tower == null)
+                {   // TODO : Summon Tower Process!!
+                    Debug.Log("Summon!");
+                    hit_node.SetTower(m_info.tower);
+                    ClearInven();
+                }
+            }
         }
 
         // reset moved image position
@@ -232,11 +276,11 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
     public void OnPointerClick(PointerEventData eventData)
     {   // for tower tooltip panel
-        if (eventData.button == PointerEventData.InputButton.Right)
+        if ( IsOccupied &&
+            eventData.button == PointerEventData.InputButton.Right)
         {
             Vector2 mousepos = Input.mousePosition;
-            //tower_tooltip.Set_TowerTT_Pos(mousepos);
-            //tower_tooltip.Set_TowerTT(m_info.tower_data);
+            TowerToolTipManager.Instance.ActivateToolTipOnUIClick(mousepos, m_info.tower_data);
         }
     }
 }

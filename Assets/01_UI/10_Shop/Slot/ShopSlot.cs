@@ -108,9 +108,8 @@ public class ShopSlot : MonoBehaviour , IPointerClickHandler
             float scale_rate = m_prefabLoader.DataList.Find(
                 (prefabtable_item) => { return item.Prefab == prefabtable_item.Code; })
                 .Size;
-            new_obj.transform.GetChild(0).localScale = new Vector3( scale_rate, scale_rate, scale_rate);
-            Debug.Log(new_obj.transform.GetChild(0).name);
-            Debug.Log(scale_rate);
+            new_obj.transform.GetChild(0).localScale = 
+                new Vector3( scale_rate, scale_rate, scale_rate);            
             //new_obj.transform.localScale *= scale_rate;
 
             // regist to managing list
