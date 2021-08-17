@@ -7,41 +7,34 @@ using UnityEngine;
 public class AttackRange : MonoBehaviour
 {
     protected SphereCollider m_RangeCollider;
-    protected List<GameObject> m_TargetList;
+    protected SphereCollider RangeCollider => m_RangeCollider ?? GetComponent<SphereCollider>();
+    protected List<Enemy> m_TargetList;
+
+    public float Range { get => RangeCollider.radius; set => RangeCollider.radius = value; }
 
     private void Awake()
-    {
-        Initialize();
-    }
-
-    public void Initialize()
     {
         m_RangeCollider = GetComponent<SphereCollider>();
         m_RangeCollider ??= gameObject.AddComponent<SphereCollider>();
         m_RangeCollider.isTrigger = true;
-
-        m_TargetList = new List<GameObject>();
+        m_TargetList = new List<Enemy>();
     }
 
-    public void SetRange(float range)
-    {
-        m_RangeCollider.radius = range;
-    }
     public void Clear()
     {
         m_TargetList.Clear();
     }
-    public bool RemoveTarget(GameObject target)
+    public bool RemoveTarget(Enemy target)
     {
         return m_TargetList.Remove(target);
     }
-    public GameObject GetFirstTarget()
+    public Enemy GetFirstTarget()
     {
         return m_TargetList[0];
     }
-    public GameObject GetNearTarget(bool exceptFirst = false)
+    public Enemy GetNearTarget(bool exceptFirst = false)
     {
-        GameObject target;
+        Enemy target;
 
         var tempList = m_TargetList
             .OrderBy(obj =>
@@ -68,7 +61,7 @@ public class AttackRange : MonoBehaviour
 
         return target;
     }
-    public GameObject GetRandomTarget()
+    public Enemy GetRandomTarget()
     {
         int max = m_TargetList.Count;
         if (max <= 0)
@@ -83,10 +76,10 @@ public class AttackRange : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        m_TargetList.Add(other.gameObject);
+        m_TargetList.Add(other.GetComponent<Enemy>());
     }
     private void OnTriggerExit(Collider other)
     {
-        m_TargetList.Remove(other.gameObject);
+        m_TargetList.Remove(other.GetComponent<Enemy>());
     }
 }

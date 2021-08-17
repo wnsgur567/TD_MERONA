@@ -8,7 +8,7 @@ public class Tower : MonoBehaviour
     public float m_SizeTemp;
 
     // 타겟
-    public GameObject m_Target;
+    public Enemy m_Target;
 
     // 타워 정보(엑셀)
     [SerializeField]
@@ -153,7 +153,6 @@ public class Tower : MonoBehaviour
             Attack();
         }
         #endregion
-
         #region 스킬01
         // 스킬01
         if (m_TowerInfo.AttackTimer_Skill01 < m_TowerInfo.AttackSpeed_Skill01)
@@ -167,7 +166,6 @@ public class Tower : MonoBehaviour
             Skill01();
         }
         #endregion
-
         #region 스킬02
         // 스킬02
         if (m_TowerInfo.AttackTimer_Skill02 < m_TowerInfo.AttackSpeed_Skill02)
@@ -248,16 +246,13 @@ public class Tower : MonoBehaviour
         m_Animator.transform.localScale = Vector3.one * size;
 
         m_AttackRange_Default = transform.Find("AttackRange_Default").AddComponent<AttackRange>();
-        m_AttackRange_Default.Initialize();
-        m_AttackRange_Default.SetRange(m_TowerInfo.Stat_Default.Range);
+        m_AttackRange_Default.Range = m_TowerInfo.Stat_Default.Range;
 
         m_AttackRange_Skill01 = transform.Find("AttackRange_Skill01").AddComponent<AttackRange>();
-        m_AttackRange_Skill01.Initialize();
-        m_AttackRange_Skill01.SetRange(m_TowerInfo.Stat_Skill01.Range);
+        m_AttackRange_Skill01.Range = m_TowerInfo.Stat_Skill01.Range;
 
         m_AttackRange_Skill02 = transform.Find("AttackRange_Skill02").AddComponent<AttackRange>();
-        m_AttackRange_Skill02.Initialize();
-        m_AttackRange_Skill02.SetRange(m_TowerInfo.Stat_Skill02.Range);
+        m_AttackRange_Skill02.Range = m_TowerInfo.Stat_Skill02.Range;
         #endregion
     }
 
@@ -876,7 +871,7 @@ public class Tower : MonoBehaviour
         #endregion
 
         // 사거리 업데이트
-        m_AttackRange_Default.SetRange(statData.Range);
+        m_AttackRange_Default.Range = statData.Range;
         #endregion
 
         #region 시너지
@@ -920,12 +915,24 @@ public class Tower : MonoBehaviour
             for (int i = 0; i < EnemyList.Count; ++i)
             {
                 Skill DefaultSkill = M_Skill.SpawnProjectileSkill(DefaultSkillCode);
-                DefaultSkill.transform.position = m_TowerInfo.AttackPivot.position;
+
+                switch ((E_FireType)conditionData.Atk_pick)
+                {
+                    case E_FireType.Select_point:
+                        break;
+                    case E_FireType.Select_self:
+                        DefaultSkill.transform.position = m_TowerInfo.AttackPivot.position;
+                        break;
+                    case E_FireType.Select_enemy:
+                        DefaultSkill.transform.position = m_Target.transform.position; // 적 피격 위치에 생성으로 수정 필요
+                        break;
+                }
+
                 DefaultSkill.enabled = true;
                 DefaultSkill.gameObject.SetActive(true);
 
                 // 기본 스킬 데이터 설정
-                DefaultSkill.InitializeSkill(EnemyList[i].gameObject, conditionData, statData);
+                DefaultSkill.InitializeSkill(EnemyList[i], conditionData, statData);
             }
         }
         else
@@ -943,6 +950,7 @@ public class Tower : MonoBehaviour
                     DefaultSkill.transform.position = m_Target.transform.position; // 적 피격 위치에 생성으로 수정 필요
                     break;
             }
+
             DefaultSkill.enabled = true;
             DefaultSkill.gameObject.SetActive(true);
 
@@ -1551,7 +1559,7 @@ public class Tower : MonoBehaviour
         #endregion
 
         // 사거리 업데이트
-        m_AttackRange_Skill01.SetRange(statData.Range);
+        m_AttackRange_Skill01.Range = statData.Range;
         #endregion
 
         // 스킬01 투사체 생성
@@ -1564,18 +1572,42 @@ public class Tower : MonoBehaviour
             for (int i = 0; i < EnemyList.Count; ++i)
             {
                 Skill Skill01 = M_Skill.SpawnProjectileSkill(Skill01Code);
-                Skill01.transform.position = m_TowerInfo.AttackPivot.position;
+
+                switch ((E_FireType)conditionData.Atk_pick)
+                {
+                    case E_FireType.Select_point:
+                        break;
+                    case E_FireType.Select_self:
+                        Skill01.transform.position = m_TowerInfo.AttackPivot.position;
+                        break;
+                    case E_FireType.Select_enemy:
+                        Skill01.transform.position = m_Target.transform.position; // 적 피격 위치에 생성으로 수정 필요
+                        break;
+                }
+
                 Skill01.enabled = true;
                 Skill01.gameObject.SetActive(true);
 
                 // 스킬01 데이터 설정
-                Skill01.InitializeSkill(EnemyList[i].gameObject, conditionData, statData);
+                Skill01.InitializeSkill(EnemyList[i], conditionData, statData);
             }
         }
         else
         {
             Skill Skill01 = M_Skill.SpawnProjectileSkill(Skill01Code);
-            Skill01.transform.position = m_TowerInfo.AttackPivot.position;
+
+            switch ((E_FireType)conditionData.Atk_pick)
+            {
+                case E_FireType.Select_point:
+                    break;
+                case E_FireType.Select_self:
+                    Skill01.transform.position = m_TowerInfo.AttackPivot.position;
+                    break;
+                case E_FireType.Select_enemy:
+                    Skill01.transform.position = m_Target.transform.position; // 적 피격 위치에 생성으로 수정 필요
+                    break;
+            }
+
             Skill01.enabled = true;
             Skill01.gameObject.SetActive(true);
 
@@ -2184,7 +2216,7 @@ public class Tower : MonoBehaviour
         #endregion
 
         // 사거리 업데이트
-        m_AttackRange_Skill02.SetRange(statData.Range);
+        m_AttackRange_Skill02.Range = statData.Range;
         #endregion
 
         // 스킬02 투사체 생성
@@ -2197,18 +2229,42 @@ public class Tower : MonoBehaviour
             for (int i = 0; i < EnemyList.Count; ++i)
             {
                 Skill Skill02 = M_Skill.SpawnProjectileSkill(Skill02Code);
-                Skill02.transform.position = m_TowerInfo.AttackPivot.position;
+
+                switch ((E_FireType)conditionData.Atk_pick)
+                {
+                    case E_FireType.Select_point:
+                        break;
+                    case E_FireType.Select_self:
+                        Skill02.transform.position = m_TowerInfo.AttackPivot.position;
+                        break;
+                    case E_FireType.Select_enemy:
+                        Skill02.transform.position = m_Target.transform.position; // 적 피격 위치에 생성으로 수정 필요
+                        break;
+                }
+
                 Skill02.enabled = true;
                 Skill02.gameObject.SetActive(true);
 
                 // 스킬02 데이터 설정
-                Skill02.InitializeSkill(EnemyList[i].gameObject, conditionData, statData);
+                Skill02.InitializeSkill(EnemyList[i], conditionData, statData);
             }
         }
         else
         {
             Skill Skill02 = M_Skill.SpawnProjectileSkill(Skill02Code);
-            Skill02.transform.position = m_TowerInfo.AttackPivot.position;
+
+            switch ((E_FireType)conditionData.Atk_pick)
+            {
+                case E_FireType.Select_point:
+                    break;
+                case E_FireType.Select_self:
+                    Skill02.transform.position = m_TowerInfo.AttackPivot.position;
+                    break;
+                case E_FireType.Select_enemy:
+                    Skill02.transform.position = m_Target.transform.position; // 적 피격 위치에 생성으로 수정 필요
+                    break;
+            }
+
             Skill02.enabled = true;
             Skill02.gameObject.SetActive(true);
 
