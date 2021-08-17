@@ -12,7 +12,7 @@ public class EnemyPool : ObjectPool<EnemyPool, Enemy>
     {
         base.__Initialize();
 
-        for (int i = 3; i < M_EnemyData.DataList.Count; ++i)
+        for (int i = 0; i < M_EnemyData.DataList.Count; ++i)
         {
             int PrefabCode = M_EnemyData.DataList[i].Prefab;
             Debug.Log("Enemy_" + PrefabCode);
@@ -28,8 +28,6 @@ public class EnemyPool : ObjectPool<EnemyPool, Enemy>
                 origin.InitializeEnemy(M_EnemyData.DataList[i].Code);
 
                 AddPool(key, origin, transform);
-
-                GameObject.Destroy(originClone);
             }
         }
     }

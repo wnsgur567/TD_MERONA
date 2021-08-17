@@ -41,6 +41,11 @@ public class TimeManager : Singleton<TimeManager>
 
     private int Stage_Num = 1;
 
+    private void Awake()
+    {
+        M_Stage = GameObject.Find("StageManager").GetComponent<StageManager>();
+    }
+
     void Start()
     {
         int stagecode = int.Parse(codename) + Stage_Num;

@@ -27,7 +27,9 @@ public class Stage_EnemyManager : Singleton<Stage_EnemyManager>
         for (int i = 0; i < m_StageEnemyData.DataList.Count; i++)
         {
             if (m_StageEnemyData.DataList[i].Code == code)
+            {
                 origin.Add(m_StageEnemyData.DataList[i]);
+            }
         }
         
         return origin;

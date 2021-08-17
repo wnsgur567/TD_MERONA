@@ -5,30 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public enum E_Enemy
-{
-    None,
-
-    Creep1_Knight = 1,
-    Creep2_Fighter,
-    Creep4_Wizard,
-    Creep5_Templar,
-    Creep6_Bowman,
-    Creep_Rogue,
-
-    Defender01,
-    Defender02,
-    Defender03,
-    Defender04,
-
-    DwarfWarrior01,
-    DwarfWarrior02,
-    DwarfWarrior03,
-    DwarfWarrior04,
-
-    Max
-}
-
 public class Enemy : MonoBehaviour
 {
     [Serializable]
@@ -97,8 +73,6 @@ public class Enemy : MonoBehaviour
 
     private E_Direction direc;
 
-    public E_Enemy ty;
-
     private Animator animator;
 
     private bool isStun = false;
@@ -116,48 +90,40 @@ public class Enemy : MonoBehaviour
     public List<BuffCC_TableExcel> BuffList;
     #endregion
 
+    private float Half_HP;
+
+    public bool isDivide = false;
+
     private void Start()
     {
+        BuffList = new List<BuffCC_TableExcel>();
+
+        M_Enemy = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+
+        Half_HP = (float)(m_EnemyInfo.HP * 0.5);
+
         E_Direction direc = E_Direction.Max;
 
         image.fillAmount = m_EnemyInfo.HP;
 
         animator = GetComponent<Animator>();
 
-        switch (ty)
+        switch (direc)
         {
-            case E_Enemy.Creep1_Knight:
-            case E_Enemy.Creep2_Fighter:
-            case E_Enemy.Creep4_Wizard:
-            case E_Enemy.Creep5_Templar:
-            case E_Enemy.Creep6_Bowman:
-            case E_Enemy.Creep_Rogue:
-            case E_Enemy.Defender01:
-            case E_Enemy.Defender02:
-            case E_Enemy.Defender03:
-            case E_Enemy.Defender04:
-            case E_Enemy.DwarfWarrior01:
-            case E_Enemy.DwarfWarrior02:
-            case E_Enemy.DwarfWarrior03:
-            case E_Enemy.DwarfWarrior04:
-                switch (direc)
-                {
-                    case E_Direction.East:
-                        target = EastWayPoints.points[0];
-                        break;
+            case E_Direction.East:
+                target = EastWayPoints.points[0];
+                break;
 
-                    case E_Direction.West:
-                        target = WestWayPoints.points[0];
-                        break;
+            case E_Direction.West:
+                target = WestWayPoints.points[0];
+                break;
 
-                    case E_Direction.South:
-                        target = SouthWayPoints.points[0];
-                        break;
+            case E_Direction.South:
+                target = SouthWayPoints.points[0];
+                break;
 
-                    case E_Direction.North:
-                        target = NorthWayPoints.points[0];
-                        break;
-                }
+            case E_Direction.North:
+                target = NorthWayPoints.points[0];
                 break;
         }
     }
@@ -169,17 +135,50 @@ public class Enemy : MonoBehaviour
             Vector3 dir = target.position - transform.position;
             transform.Translate(dir.normalized * m_EnemyInfo.Move_spd * Time.deltaTime, Space.World);
 
+            animator.SetBool("Run", true);
+
             if (Vector3.Distance(transform.position, target.position) <= 0.2f)
             {
                 GetNextWayPoint();
             }
         }
 
-        //HP가 전부 없어지는 조건으로 바꿔야됨
-        //타입도 정해줘야됨 분열되는 몬스터만 if문으로
-        if (Input.GetKeyDown(KeyCode.Space) && ty == E_Enemy.Creep1_Knight)
+        if (!isDivide)
         {
-            //On_Divide();
+            //HP가 반아래가 되었을때
+            //타입 griffin_fly
+            //분열 버프
+            if (m_EnemyInfo.HP <= Half_HP && m_EnemyInfo.Name_EN == "Griffin02")
+            {
+                //On_Divide();
+                BuffCC_TableExcel buff = new BuffCC_TableExcel();
+
+                buff.No = 83;
+                buff.Name_KR = "스킬 그리핀(하늘)";
+                buff.Name_EN = "Buff083";
+                buff.Code = 320083;
+                buff.BuffType1 = 14;
+                buff.AddType1 = 1;
+                buff.BuffAmount1 = 1.00f;
+                buff.BuffRand1 = 1.00f;
+                buff.Summon1 = 200009;
+                buff.BuffType2 = 0;
+                buff.AddType2 = 0;
+                buff.BuffAmount2 = 0.00f;
+                buff.BuffRand2 = 0.00f;
+                buff.Summon2 = 0;
+                buff.BuffType3 = 0;
+                buff.AddType3 = 0;
+                buff.BuffAmount3 = 0.00f;
+                buff.BuffRand3 = 0.00f;
+                buff.Summon3 = 0;
+                buff.Duration = 1f;
+                buff.Prefab = 0;
+
+                BuffList.Add(buff);
+
+                isDivide = true;
+            }
         }
 
         if (m_EnemyInfo.HP <= 0)
@@ -194,7 +193,7 @@ public class Enemy : MonoBehaviour
     public void InitializeEnemy(int code)
     {
         #region 엑셀 데이터 정리
-        
+
         m_Enemyinfo_Excel = M_Enemy.GetData(code);
         #endregion
 
@@ -252,7 +251,7 @@ public class Enemy : MonoBehaviour
     public void On_Death()
     {
         animator.SetBool("Die", true);
-        
+
         SpawnManager.Instance.Despawn(this);
         //EnemyPool.Instance.GetPool(data.Name).DeSpawn(enemy);
     }
@@ -260,24 +259,6 @@ public class Enemy : MonoBehaviour
     //데미지
     public void On_DaMage(float damage)
     {
-        if (damage <= Get_EnemyDef)
-        {
-            m_EnemyInfo.HP -= 1;
-        }
-
-        else
-        {
-            damage -= Get_EnemyDef;
-            m_EnemyInfo.HP -= damage;
-        }
-
-        image.fillAmount -= (float)(damage * 0.01);
-
-        if (m_EnemyInfo.HP <= 0)
-        {
-            On_Death();
-        }
-
         // 버프 적용 확률
         List<float> BuffRand = new List<float>();
         // 버프 적용 여부
@@ -327,6 +308,10 @@ public class Enemy : MonoBehaviour
                             float dot_dmg = amount / Buff_Debufftime;
 
                             StartCoroutine(Dot_DmgTime(Buff_Debufftime, dot_dmg));
+                            break;
+
+                        case E_BuffType.Summon:
+                            On_Divide();
                             break;
                     }
                 }
@@ -473,7 +458,7 @@ public class Enemy : MonoBehaviour
                         {
                             switch (buff.BuffType)
                             {
-                                
+
                             }
                         }
                     }
@@ -482,6 +467,25 @@ public class Enemy : MonoBehaviour
         }
 
         #endregion
+
+        if (damage <= Get_EnemyDef)
+        {
+            m_EnemyInfo.HP -= 1;
+        }
+
+        else
+        {
+            damage -= Get_EnemyDef;
+            m_EnemyInfo.HP -= damage;
+        }
+
+        image.fillAmount -= (float)(damage * 0.01);
+
+        if (m_EnemyInfo.HP <= 0)
+        {
+            On_Death();
+        }
+
     }
 
     #endregion
@@ -572,28 +576,21 @@ public class Enemy : MonoBehaviour
     //분열
     IEnumerator Divide()
     {
-        for (int i = 0; i < 2; i++)
+        Vector3 pos = transform.localPosition;
+
+        if (waypointIndex % 2 == 0)
         {
-            Vector3 pos = transform.localPosition;
-
-            if (i == 0)
-            {
-                pos.x = pos.x - 0.2f;
-                pos.z = pos.z - 0.2f;
-            }
-
-            else
-            {
-                pos.x = pos.x + 0.2f;
-                pos.z = pos.z + 0.2f;
-            }
-
-            SpawnManager.Instance.SpawnEnemy(direc, pos, target, waypointIndex, m_EnemyInfo.Name_EN);
-
-            yield return null;
+            pos.x = pos.x - 0.2f;
         }
 
-        Destroy(gameObject);
+        else if (waypointIndex % 2 == 1)
+        {
+            pos.z = pos.z - 0.2f;
+        }
+
+        SpawnManager.Instance.SpawnEnemy(direc, pos, target, waypointIndex, "Griffin01", animator);
+
+        yield return null;
     }
 
     IEnumerator PersentBuff_DeBuffTime(float time, E_BuffType type, float amount)

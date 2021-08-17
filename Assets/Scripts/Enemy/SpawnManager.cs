@@ -35,6 +35,8 @@ public class SpawnManager : Singleton<SpawnManager>
     private void Awake()
     {
         m_StageEnemyInfo_Excel = new List<StageEnemy_TableExcel>();
+        M_StageEnemy = GameObject.Find("Stage_EnemyManager").GetComponent<Stage_EnemyManager>();
+        M_Enemy = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
     }
 
     #region 외부 함수
@@ -107,13 +109,15 @@ public class SpawnManager : Singleton<SpawnManager>
         enemymanager.Enemy_Direction[dir].Add(enemy);
     }
 
-    public void SpawnEnemy(E_Direction dir, Vector3 pos, Transform target, int waypointindex, string enemy_name)
+    public void SpawnEnemy(E_Direction dir, Vector3 pos, Transform target, int waypointindex, string enemy_name, Animator animator)
     {
         Enemy enemy = enemyPool.GetPool(enemy_name).Spawn();
         enemy.InitSetting(dir, target, waypointindex);
         enemy.transform.position = pos;
 
         enemy.gameObject.SetActive(true);
+
+        animator.SetBool("Skill", true);
 
         enemymanager.Enemy_Direction[dir].Add(enemy);
     }
