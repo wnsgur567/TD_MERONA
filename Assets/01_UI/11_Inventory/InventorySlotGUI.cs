@@ -41,11 +41,11 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     [Space(10)]
     [SerializeField] Tower_TableExcelLoader m_towerLoader;
     [SerializeField] Prefab_TableExcelLoader m_prefabLoader;
-    [SerializeField] Vector3 camera_distance;           // ������Ʈ�κ����� �Ÿ�
-    [SerializeField] Vector3 camera_rotation;           // ī�޶� ȸ�� ��
-    [SerializeField] Vector3 m_obj_position;            // ���� ���� ������ �����Ұ�
-    [SerializeField] List<CKeyValue> m_showObj_list;    // �Ʒ��� ���� �ִ� ������Ʈ ����Ʈ
-    GameObject m_showObj;   // ���� �����ְ� �ִ� ������Ʈ
+    [SerializeField] Vector3 camera_distance;           // from showObj to camera
+    [SerializeField] Vector3 camera_rotation;           // camera eular rotation
+    [SerializeField] Vector3 m_obj_position;            // showObj position
+    [SerializeField] List<CKeyValue> m_showObj_list;    // showObjs
+    GameObject m_showObj;   // current show obj
 
     [Space(10)]
     [SerializeField] RawImage m_rawImage;
@@ -276,11 +276,11 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
     public void OnPointerClick(PointerEventData eventData)
     {   // for tower tooltip panel
-        if (eventData.button == PointerEventData.InputButton.Right)
+        if ( IsOccupied &&
+            eventData.button == PointerEventData.InputButton.Right)
         {
             Vector2 mousepos = Input.mousePosition;
-            //tower_tooltip.Set_TowerTT_Pos(mousepos);
-            //tower_tooltip.Set_TowerTT(m_info.tower_data);
+            TowerToolTipManager.Instance.ActivateToolTipOnUIClick(mousepos, m_info.tower_data);
         }
     }
 }

@@ -23,11 +23,11 @@
 //    public string skillavility2;
 //    public string skillavility_text2;
 //    public float skilldmg;
-    
+
 
 //    //�ó��� ����
 //    public string synergyname;
-   
+
 
 //    public int price;
 //};
@@ -77,7 +77,7 @@
 //        synergy = SynergyManager.Instance;
 //        skilltooltip = SkillTooltip.Instance;
 //        towerdata = new Tower_Data();
-       
+
 //        Transform temp = this.transform.Find("TowerUI_Stats/Skill_Icon1");
 //        Skill_Icon1 = temp.gameObject.GetComponent<Image>();
 //        temp = this.transform.Find("TowerUI_Stats/Skill_Icon2");
@@ -90,7 +90,7 @@
 
 //        temp = this.transform.Find("TowerUI_Icon");
 //        Tower_Icon = temp.gameObject.GetComponent<Image>();
-        
+
 //        Tower_TT_pos = this.gameObject.GetComponent<RectTransform>();
 //        screen_maxy = Screen.height;
 //        screen_maxx = Screen.width;
@@ -110,14 +110,14 @@
 //    void Start()
 //    {
 //        this.gameObject.SetActive(false);
-       
+
 //    }
 //    public void Set_TowerTT(Tower_TableExcel info)
 //    {
 //        Tower_Star = info.Star;
 //        Sale_Price.text = info.Price.ToString();
-       
-       
+
+
 //        #region Ÿ������
 //        towerdata.atk = info.Atk;
 //        towerdata.hp = info.HP;
@@ -129,8 +129,9 @@
 //        skillcondition_excel = skill.GetConditionData(info.Atk_Code);
 //        skillstate_excel = skill.GetStatData(skillcondition_excel.PassiveCode);
 //        towerdata.cooltime = skillstate_excel.CoolTime;
-//        if(info.Rank==10)
-//        {   Boss_name_text.text = info.Name_KR;
+//        if (info.Rank == 10)
+//        {
+//            Boss_name_text.text = info.Name_KR;
 //            Tower_Text.gameObject.SetActive(false);
 //            Synergy_icon1.gameObject.SetActive(false);
 //            Synergy_icon2.gameObject.SetActive(false);
@@ -145,8 +146,8 @@
 //            Stats_Number.text = String.Format("{0}\n{1}\n{2}\n{3}\n{4}\n{5}",
 //            towerdata.atk, towerdata.cooltime, towerdata.crit_rate, towerdata.crit_dmg, towerdata.hp, towerdata.def);
 //        }
-//        else 
-//        {   
+//        else
+//        {
 //            Tower_Text.text = info.Name_KR;
 //            Tower_Text.gameObject.SetActive(true);
 //            Synergy_icon1.gameObject.SetActive(true);
@@ -162,7 +163,7 @@
 //            Stats_Number.text = String.Format("{0}\n{1}\n{2}\n{3}",
 //            towerdata.atk, towerdata.cooltime, towerdata.crit_rate, towerdata.crit_dmg);
 //        }
-       
+
 //        #endregion
 
 //        #region ��ų����
@@ -171,7 +172,7 @@
 //        skillcondition_excel = skill.GetConditionData(info.Skill1Code);
 //        skillstate_excel = skill.GetStatData(skillcondition_excel.PassiveCode);
 //        Skill_Name1.text = skillstate_excel.Name_KR;
-//        towerdata.skillname= skillstate_excel.Name_KR;
+//        towerdata.skillname = skillstate_excel.Name_KR;
 //        towerdata.skilltext = skillcondition_excel.Skill_text;
 
 //        //towerdata.skillavility=skillcondition_excel.SkillAvility_Name1;
@@ -208,8 +209,8 @@
 //        synergy_excel = synergy.GetData(info.Type2);
 //        Synergy_name2.text = synergy_excel.Name_KR;
 //        #endregion
-       
-       
+
+
 //    }
 //    public void Set_TowerTT_Pos(Vector2 pos)
 //    {
@@ -235,7 +236,8 @@
 //    {
 //        #region ��ų�����ܿ� ���콺�ø���
 //        if (towertooltip_active)
-//        {   pos.position = Input.mousePosition;
+//        {
+//            pos.position = Input.mousePosition;
 //            List<RaycastResult> results = new List<RaycastResult>();
 //            raycast.Raycast(pos, results);
 //            for (int i = 0; i < results.Count; i++)
@@ -252,7 +254,7 @@
 //                {
 //                    skilltooltip.gameObject.SetActive(false);
 //                }
-//            } 
+//            }
 //        }
 //        #endregion
 //    }
