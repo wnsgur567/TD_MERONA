@@ -24,6 +24,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 0
     Gold: 5
+    Stage_icon: 910051
     Prefab: 0
   - No: 2
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0002"
@@ -35,6 +36,7 @@ MonoBehaviour:
     StageMonsterTable: 410001
     Exp: 0
     Gold: 0
+    Stage_icon: 910052
     Prefab: 0
   - No: 3
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0003"
@@ -46,6 +48,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 2
     Gold: 10
+    Stage_icon: 910051
     Prefab: 0
   - No: 4
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0004"
@@ -57,6 +60,7 @@ MonoBehaviour:
     StageMonsterTable: 410002
     Exp: 0
     Gold: 0
+    Stage_icon: 910052
     Prefab: 0
   - No: 5
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0005"
@@ -68,6 +72,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 2
     Gold: 10
+    Stage_icon: 910051
     Prefab: 0
   - No: 6
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0006"
@@ -79,6 +84,7 @@ MonoBehaviour:
     StageMonsterTable: 410003
     Exp: 0
     Gold: 0
+    Stage_icon: 910052
     Prefab: 0
   - No: 7
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0007"
@@ -90,6 +96,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 2
     Gold: 10
+    Stage_icon: 910051
     Prefab: 0
   - No: 8
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0008"
@@ -101,6 +108,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 0
     Gold: 0
+    Stage_icon: 910052
     Prefab: 0
   - No: 9
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0009"
@@ -112,6 +120,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 2
     Gold: 10
+    Stage_icon: 910051
     Prefab: 0
   - No: 10
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0010"
@@ -123,6 +132,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 0
     Gold: 0
+    Stage_icon: 910052
     Prefab: 0
   - No: 11
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0011"
@@ -134,6 +144,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 2
     Gold: 10
+    Stage_icon: 910051
     Prefab: 0
   - No: 12
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0012"
@@ -145,6 +156,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 0
     Gold: 0
+    Stage_icon: 910052
     Prefab: 0
   - No: 13
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0013"
@@ -156,6 +168,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 2
     Gold: 10
+    Stage_icon: 910051
     Prefab: 0
   - No: 14
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0014"
@@ -167,6 +180,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 0
     Gold: 0
+    Stage_icon: 910052
     Prefab: 0
   - No: 15
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0015"
@@ -178,6 +192,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 2
     Gold: 10
+    Stage_icon: 910051
     Prefab: 0
   - No: 16
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0016"
@@ -189,6 +204,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 0
     Gold: 0
+    Stage_icon: 910052
     Prefab: 0
   - No: 17
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0017"
@@ -200,6 +216,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 2
     Gold: 10
+    Stage_icon: 910051
     Prefab: 0
   - No: 18
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0018"
@@ -211,6 +228,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 0
     Gold: 0
+    Stage_icon: 910052
     Prefab: 0
   - No: 19
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0019"
@@ -222,6 +240,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 2
     Gold: 10
+    Stage_icon: 910051
     Prefab: 0
   - No: 20
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0020"
@@ -233,6 +252,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 0
     Gold: 0
+    Stage_icon: 910052
     Prefab: 0
   - No: 21
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0021"
@@ -244,6 +264,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 2
     Gold: 10
+    Stage_icon: 910051
     Prefab: 0
   - No: 22
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0022"
@@ -255,6 +276,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 0
     Gold: 0
+    Stage_icon: 910052
     Prefab: 0
   - No: 23
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0023"
@@ -266,6 +288,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 2
     Gold: 10
+    Stage_icon: 910051
     Prefab: 0
   - No: 24
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0024"
@@ -277,6 +300,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 0
     Gold: 0
+    Stage_icon: 910052
     Prefab: 0
   - No: 25
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0025"
@@ -288,6 +312,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 2
     Gold: 10
+    Stage_icon: 910051
     Prefab: 0
   - No: 26
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0026"
@@ -299,6 +324,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 0
     Gold: 0
+    Stage_icon: 910052
     Prefab: 0
   - No: 27
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0027"
@@ -310,6 +336,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 2
     Gold: 10
+    Stage_icon: 910051
     Prefab: 0
   - No: 28
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0028"
@@ -321,6 +348,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 0
     Gold: 0
+    Stage_icon: 910052
     Prefab: 0
   - No: 29
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0029"
@@ -332,6 +360,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 2
     Gold: 10
+    Stage_icon: 910051
     Prefab: 0
   - No: 30
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0030"
@@ -343,6 +372,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 0
     Gold: 0
+    Stage_icon: 910052
     Prefab: 0
   - No: 31
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0031"
@@ -354,6 +384,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 2
     Gold: 10
+    Stage_icon: 910051
     Prefab: 0
   - No: 32
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0032"
@@ -365,6 +396,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 0
     Gold: 0
+    Stage_icon: 910052
     Prefab: 0
   - No: 33
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0033"
@@ -376,6 +408,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 2
     Gold: 10
+    Stage_icon: 910051
     Prefab: 0
   - No: 34
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0034"
@@ -387,6 +420,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 0
     Gold: 0
+    Stage_icon: 910052
     Prefab: 0
   - No: 35
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0035"
@@ -398,6 +432,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 2
     Gold: 10
+    Stage_icon: 910051
     Prefab: 0
   - No: 36
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0036"
@@ -409,6 +444,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 0
     Gold: 0
+    Stage_icon: 910052
     Prefab: 0
   - No: 37
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0037"
@@ -420,6 +456,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 2
     Gold: 10
+    Stage_icon: 910051
     Prefab: 0
   - No: 38
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0038"
@@ -431,6 +468,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 0
     Gold: 0
+    Stage_icon: 910052
     Prefab: 0
   - No: 39
     Name_KR: "1-\uC2A4\uD14C\uC774\uC9C0039"
@@ -442,6 +480,7 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 2
     Gold: 10
+    Stage_icon: 910051
     Prefab: 0
   - No: 40
     Name_KR: "1-\uBCF4\uC2A4 \uC2A4\uD14C\uC774\uC9C0"
@@ -453,4 +492,5 @@ MonoBehaviour:
     StageMonsterTable: 0
     Exp: 0
     Gold: 0
+    Stage_icon: 910054
     Prefab: 0

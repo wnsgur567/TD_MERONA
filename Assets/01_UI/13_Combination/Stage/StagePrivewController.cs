@@ -21,7 +21,7 @@ public class StagePrivewController : MonoBehaviour
     [SerializeField] List<StageIconSlot> m_slots;
     [SerializeField] List<float> m_slot_positionX; // standard position (when animation end , each slot return this pos) 
 
-    [SerializeField] Stage_TableExcelLoader m_stage_loader;
+    [SerializeField] Stage_TableExcelLoader m_stage_loader;    
 
     private void Awake()
     {
@@ -159,6 +159,9 @@ public class StagePrivewController : MonoBehaviour
         m_slots[1].SetImageAlpha(1f);
         m_slots[m_slots.Count - 1].SetImageAlpha(0f);
 
+
+
+
         // set stage info as much as cell count from current stage
         int current_stage = m_current_stageInfo.stage_num;
         for (int i = 0; i < m_cell_count; i++)
@@ -167,8 +170,11 @@ public class StagePrivewController : MonoBehaviour
             if (index < m_stage_loader.DataList.Count)
             {
                 var stage_data = m_stage_loader.DataList[index];
-                // TODO : icon matching
-                // now , have no data table
+                m_slots[i].ChangeImage(stage_data.Stage_icon);                
+            }
+            else
+            {
+                // TODO : end of stage
             }
         }
     }
