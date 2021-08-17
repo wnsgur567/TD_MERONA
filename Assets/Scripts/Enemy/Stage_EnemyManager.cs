@@ -19,4 +19,19 @@ public class Stage_EnemyManager : Singleton<Stage_EnemyManager>
         StageEnemy_TableExcel origin = m_StageEnemyData.DataList.Where(item => item.Code == code).Single();
         return origin;
     }
+
+    public List<StageEnemy_TableExcel> GetListData(int code)
+    {
+        List<StageEnemy_TableExcel> origin = new List<StageEnemy_TableExcel>();
+
+        for (int i = 0; i < m_StageEnemyData.DataList.Count; i++)
+        {
+            if (m_StageEnemyData.DataList[i].Code == code)
+            {
+                origin.Add(m_StageEnemyData.DataList[i]);
+            }
+        }
+        
+        return origin;
+    }
 }
