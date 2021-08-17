@@ -11,7 +11,7 @@ public class Skill : MonoBehaviour
     public S_SkillData m_SkillInfo;
 
     // 타겟
-    public GameObject m_Target;
+    public Enemy m_Target;
 
     #region 내부 프로퍼티
     // 스킬 매니져
@@ -54,31 +54,16 @@ public class Skill : MonoBehaviour
     {
         get
         {
-            return DistanceToTarget <= 0.01f;
+            return DistanceToTarget <= m_SkillInfo.AttackRange.Range;
         }
     }
+    // 생존 시간 남음
+    protected bool ExistLifeTime => m_SkillInfo.LifeTime > 0f;
     // 생존 시간 소진
-    protected bool DepletedLifeTime
-    {
-        get
-        {
-            return m_SkillInfo.LifeTime <= 0f;
-        }
-    }
+    protected bool DepletedLifeTime => !ExistLifeTime;
     // 튕김 카운트 소진
-    protected bool DepletedBounceCount
-    {
-        get
-        {
-            return m_SkillInfo.BounceCount <= 0;
-        }
-    }
+    protected bool DepletedBounceCount => m_SkillInfo.BounceCount <= 0;
     #endregion
-
-    private void Awake()
-    {
-
-    }
 
     private void Update()
     {
@@ -90,8 +75,8 @@ public class Skill : MonoBehaviour
 
         UpdateInfo();
 
-        RotateBullet();
-        MoveBullet();
+        RotateSkill();
+        MoveSkill();
 
         if (CheckToUpdateTarget())
         {
@@ -99,22 +84,23 @@ public class Skill : MonoBehaviour
         }
     }
 
-    private bool CheckToDespawn()
+    #region 내부 함수
+    protected bool CheckToDespawn()
     {
         switch ((E_AttackType)m_ConditionInfo_Excel.Atk_type)
         {
             case E_AttackType.NormalFire:
-                return ArrivedToTarget || LostTarget;
+                return LostTarget || ArrivedToTarget;
             case E_AttackType.FixedFire:
             case E_AttackType.PenetrateFire:
                 return DepletedLifeTime;
             case E_AttackType.BounceFire:
-                return DepletedBounceCount || LostTarget;
+                return LostTarget || DepletedBounceCount;
         }
 
-        return ArrivedToTarget || LostTarget;
+        return LostTarget || ArrivedToTarget;
     }
-    private void Despawn()
+    protected void Despawn()
     {
         Skill skill = M_Skill.SpawnProjectileSkill(m_StatInfo_Excel.LoadCode);
         SkillCondition_TableExcel condition = M_Skill.GetConditionData(m_StatInfo_Excel.LoadCode);
@@ -128,8 +114,7 @@ public class Skill : MonoBehaviour
 
         M_Skill.DespawnProjectileSkill(this);
     }
-
-    private bool CheckToUpdateTarget()
+    protected bool CheckToUpdateTarget()
     {
         switch ((E_AttackType)m_ConditionInfo_Excel.Atk_type)
         {
@@ -139,7 +124,7 @@ public class Skill : MonoBehaviour
 
         return false;
     }
-    private void UpdateTarget()
+    protected void UpdateTarget()
     {
         switch ((E_AttackType)m_ConditionInfo_Excel.Atk_type)
         {
@@ -198,8 +183,7 @@ public class Skill : MonoBehaviour
                 break;
         }
     }
-
-    private void RotateBullet()
+    protected void RotateSkill()
     {
         switch ((E_MoveType)m_ConditionInfo_Excel.Move_type)
         {
@@ -211,8 +195,7 @@ public class Skill : MonoBehaviour
                 break;
         }
     }
-
-    private void MoveBullet()
+    protected void MoveSkill()
     {
         switch ((E_MoveType)m_ConditionInfo_Excel.Move_type)
         {
@@ -224,7 +207,7 @@ public class Skill : MonoBehaviour
                 break;
         }
     }
-    private void StraightMove()
+    protected void StraightMove()
     {
         transform.position += TargetDir.normalized * MoveSpeed;
     }
@@ -273,12 +256,11 @@ public class Skill : MonoBehaviour
 
         return dir;
     }
-    private void CurveMove()
+    protected void CurveMove()
     {
         transform.position += GetCurveDir().normalized * MoveSpeed;
     }
-
-    private void UpdateInfo()
+    protected void UpdateInfo()
     {
         switch ((E_AttackType)m_ConditionInfo_Excel.Atk_type)
         {
@@ -291,8 +273,25 @@ public class Skill : MonoBehaviour
                 break;
         }
     }
+    protected bool CheckToAttack()
+    {
+        switch ((E_AttackType)m_ConditionInfo_Excel.Atk_type)
+        {
+            case E_AttackType.NormalFire:
+                return LostTarget || ArrivedToTarget;
+            case E_AttackType.FixedFire:
+            case E_AttackType.PenetrateFire:
+                return DepletedLifeTime;
+            case E_AttackType.BounceFire:
+                return LostTarget || DepletedBounceCount;
+        }
 
-    public void InitializeSkill(GameObject target, SkillCondition_TableExcel conditionData, SkillStat_TableExcel statData)
+        return LostTarget || ArrivedToTarget;
+    }
+    #endregion
+
+    #region 외부 함수
+    public void InitializeSkill(Enemy target, SkillCondition_TableExcel conditionData, SkillStat_TableExcel statData)
     {
         m_Target = target;
 
@@ -302,7 +301,7 @@ public class Skill : MonoBehaviour
         if ((E_AttackType)m_ConditionInfo_Excel.Atk_type == E_AttackType.BounceFire)
         {
             // 다음 타겟 찾는 사거리 = 타워 사거리의 1 / 4
-            m_SkillInfo.AttackRange.SetRange(m_StatInfo_Excel.Range * 0.25f);
+            m_SkillInfo.AttackRange.Range = m_StatInfo_Excel.Range * 0.25f;
         }
 
         m_SkillInfo.BounceCount = m_StatInfo_Excel.Target_num;
@@ -310,7 +309,7 @@ public class Skill : MonoBehaviour
         m_SkillInfo.InitPos = transform.position;
         // ?? : 왼쪽부터 피연산자가 null이 아닌 경우에 피연산자 리턴 (왼쪽 피연산자가 null이 아닌 경우 오른쪽 피연산자는 무시)
         // ??= : 왼쪽 피연산자가 null인 경우에만 오른쪽 피연산자를 대입
-        m_SkillInfo.BounceTargetList ??= new List<GameObject>();
+        m_SkillInfo.BounceTargetList ??= new List<Enemy>();
 
         if (!m_SkillInfo.CanOverlapBounce &&
             null != m_Target)
@@ -318,13 +317,14 @@ public class Skill : MonoBehaviour
             m_SkillInfo.BounceTargetList.Add(m_Target);
         }
     }
+    #endregion
 
     [System.Serializable]
     public struct S_SkillData
     {
         public bool CanOverlapBounce;
         public int BounceCount;
-        public List<GameObject> BounceTargetList;
+        public List<Enemy> BounceTargetList;
         public float LifeTime;
         public AttackRange AttackRange;
         public Vector3 InitPos;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Devil : MonoBehaviour
 {
     // Å¸°Ù
-    public GameObject m_Target;
+    public Enemy m_Target;
 
     // ¸¶¿Õ Á¤º¸(¿¢¼¿)
     protected Tower_TableExcel m_DevilInfo_Excel;
@@ -94,8 +94,7 @@ public class Devil : MonoBehaviour
 
         #region ³»ºÎ ÄÄÆ÷³ÍÆ®
         m_AttackRange = transform.Find("AttackRange").GetComponent<AttackRange>();
-        m_AttackRange.Initialize();
-        m_AttackRange.SetRange(m_DevilInfo.Stat_Default.Range);
+        m_AttackRange.Range = m_DevilInfo.Stat_Default.Range;
         #endregion
     }
     // ¸¶¿Õ È¸Àü
@@ -189,7 +188,7 @@ public class Devil : MonoBehaviour
                     DefaultSkill.gameObject.SetActive(true);
 
                     // ±âº» ½ºÅ³ µ¥ÀÌÅÍ ¼³Á¤
-                    DefaultSkill.InitializeSkill(EnemyList[i].gameObject, conditionData, statData);
+                    DefaultSkill.InitializeSkill(EnemyList[i], conditionData, statData);
                 }
             }
             else
