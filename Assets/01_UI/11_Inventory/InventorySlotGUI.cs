@@ -203,6 +203,13 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     Vector3 m_drag_startPos;
+    bool m_swapFlag;
+
+    // when slot is selected , image must be FRONT
+    private void SetThisSLotFirstOrder()
+    {
+        this.transform.SetAsFirstSibling();
+    }
 
     public void OnDrag(PointerEventData eventData)
     {
@@ -222,7 +229,8 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     {
         m_drag_startPos = m_rawImage.transform.position;
         if (m_info.isOccupied)
-        {
+        {            
+            m_swapFlag = true;
             Debug.Log("tower image move start");
         }
     }
@@ -231,14 +239,19 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     {
 
         RaycastResult target = eventData.pointerCurrentRaycast;
-        if (target.gameObject != null && target.gameObject.tag.Equals("InvenSlot"))
+        if (m_swapFlag &&
+            target.gameObject != null &&
+            target.gameObject.tag.Equals("InvenSlot"))
         {
             // if.. begin drag on Slot UI && end drag on Slot UI
             // swap slot infomation
             SwapInfo(target.gameObject.GetComponent<InventorySlotGUI>());
         }
         else if (m_info.isOccupied)
-        {
+        {   // if Pointer is out of UI , 
+            // Check Pointer is on the Slot (for summon tower process)
+
+
             /// for perspective
             //Vector3 mouse_pos = eventData.position;
             //mouse_pos.z = 1000.0f;
@@ -272,6 +285,7 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
         // reset moved image position
         Debug.Log("tower image move end");
+        m_swapFlag = false;
         m_rawImage.transform.position = m_drag_startPos;
     }
 
