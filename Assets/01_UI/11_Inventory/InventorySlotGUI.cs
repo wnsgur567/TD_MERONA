@@ -10,6 +10,7 @@ public struct InventorySlotGUIInfo
     public int index;
     public bool isOccupied;
     public Tower_TableExcel tower_data;
+    public Tower tower;
 }
 
 [System.Serializable]
@@ -28,6 +29,9 @@ public class CKeyValue : System.IEquatable<CKeyValue>
 
 public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler//IPointerEnterHandler,IPointerExitHandler
 {
+    public delegate void SummonTowerHandler(Tower tower);
+    public event SummonTowerHandler OnTowerSummonEvent;
+
     public delegate void InfoChangeHandler();
     public event InfoChangeHandler OnInfoChangedEvent;
 
@@ -162,7 +166,13 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         OnInfoChangedEvent?.Invoke();
     }
 
+    public void ClearInven()
+    {
+        m_info.isOccupied = false;
+        m_info.tower = null;
 
+        OnInfoChangedEvent?.Invoke();
+    }
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -207,6 +217,10 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         if (m_info.isOccupied)
         {
             Debug.Log("tower image move start");
+            Vector3 mouse_pos = eventData.position;
+            mouse_pos.z = 1000.0f;
+            Debug.DrawRay(Camera.main.transform.position,
+                Camera.main.ScreenToWorldPoint(mouse_pos),Color.red);
         }
     }
 
@@ -221,8 +235,22 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
             SwapInfo(target.gameObject.GetComponent<InventorySlotGUI>());
         }
         else if (m_info.isOccupied)
-        {
+        {   
+            Vector3 mouse_pos = eventData.position;
+            mouse_pos.z = 1000.0f;
 
+            RaycastHit hitinfo;
+            if ( Physics.Raycast(new Ray(Camera.main.transform.position,
+                Camera.main.ScreenToWorldPoint(mouse_pos)),
+                out hitinfo,
+                1000f,
+                LayerMask.GetMask("Node")))
+            {   // TODO : Summon Tower Process!!
+                
+                Debug.Log("Summon!");
+                OnTowerSummonEvent?.Invoke(m_info.tower);
+                ClearInven();
+            }
         }
 
         // reset moved image position
