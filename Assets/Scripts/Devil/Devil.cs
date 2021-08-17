@@ -93,7 +93,7 @@ public class Devil : MonoBehaviour
         #endregion
 
         #region 내부 컴포넌트
-        m_AttackRange = transform.Find("AttackRange").GetComponent<AttackRange>();
+        m_AttackRange = transform.Find("AttackRange_Default").AddComponent<AttackRange>();
         m_AttackRange.Range = m_DevilInfo.Stat_Default.Range;
         #endregion
     }
