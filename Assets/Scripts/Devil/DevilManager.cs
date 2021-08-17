@@ -40,7 +40,9 @@ public class DevilManager : Singleton<DevilManager>
         Tower_TableExcel data = GetData(no);
         GameObject devil = GameObject.Instantiate(m_PrefabData.GetPrefab(data.Prefab));
         devil.transform.position = Vector3.zero;
+        devil.transform.eulerAngles = new Vector3(0f, 180f, 0f);
         devil.transform.localScale = Vector3.one * m_PrefabData.DataList[data.No - 1].Size;
+        devil.transform.SetParent(transform);
 
         switch (no)
         {
@@ -60,7 +62,9 @@ public class DevilManager : Singleton<DevilManager>
         Tower_TableExcel data = GetData(code);
         GameObject devil = GameObject.Instantiate(m_PrefabData.GetPrefab(data.Prefab));
         devil.transform.position = Vector3.zero;
+        devil.transform.eulerAngles = new Vector3(0f, 180f, 0f);
         devil.transform.localScale = Vector3.one * m_PrefabData.DataList[data.No - 1].Size;
+        devil.transform.SetParent(transform);
 
         switch ((E_Devil)data.No)
         {
