@@ -71,8 +71,11 @@ public class InventoryManager : Singleton<InventoryManager>
         InventorySlotGUI slot = GetAvailableSlot();
         if (null == slot)
             return;
-                
-        slot.SetTower(data);
+
+        Debug.Log(data.No);
+        Tower newTower = TowerManager.Instance.SpawnTower((E_Tower)data.No);
+        newTower.gameObject.SetActive(false);
+        slot.SetTower(newTower,data);
     }
     
 }

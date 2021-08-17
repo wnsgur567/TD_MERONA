@@ -158,8 +158,9 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         m_info.index = index;
     }
 
-    public void SetTower(Tower_TableExcel data)
+    public void SetTower(Tower tower,Tower_TableExcel data)
     {
+        m_info.tower = tower;
         m_info.tower_data = data;
         m_info.isOccupied = true;
 
@@ -237,16 +238,25 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         }
         else if (m_info.isOccupied)
         {
-            Vector3 mouse_pos = eventData.position;
-            mouse_pos.z = 1000.0f;
+            /// for perspective
+            //Vector3 mouse_pos = eventData.position;
+            //mouse_pos.z = 1000.0f;
 
+            
+            Vector3 mouse_pos = eventData.position;            
             int layermask = 1 << LayerMask.NameToLayer("Node");
             RaycastHit hitinfo;
-            if (Physics.Raycast(new Ray(Camera.main.transform.position,
-                Camera.main.ScreenToWorldPoint(mouse_pos)),
+
+            /// for perspective
+            //if (Physics.Raycast(new Ray(Camera.main.transform.position,
+            //    Camera.main.ScreenToWorldPoint(mouse_pos)),
+            //    out hitinfo,
+            //    1000f,
+            //   layermask))
+            if(Physics.Raycast(new Ray(Camera.main.ScreenToWorldPoint(mouse_pos),Camera.main.transform.forward),
                 out hitinfo,
-                1000f,
-               layermask))
+                Camera.main.farClipPlane,
+                layermask))
             {
                 Debug.Log(hitinfo.collider.gameObject.name);
                 Node hit_node = hitinfo.collider.gameObject.GetComponent<Node>();
