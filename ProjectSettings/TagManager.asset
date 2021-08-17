@@ -10,6 +10,8 @@ TagManager:
   - ShopSlot
   - InvenSlot
   - SceneStart
+  - Skill_Icon
+  - SceneLoader
   layers:
   - Default
   - TransparentFX
@@ -23,8 +25,8 @@ TagManager:
   - Node
   - NodeRotate
   - 
-  - 
-  - 
+  - Character
+  - MainSceneCharUI
   - 
   - 
   - 

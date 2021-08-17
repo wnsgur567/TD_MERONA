@@ -941,7 +941,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4921928062818711307}
-  - component: {fileID: 224797982094115471}
   - component: {fileID: 2790882502001070318}
   m_Layer: 0
   m_Name: DwarfWarrior03
@@ -965,21 +964,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &224797982094115471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4919468375687286769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c473e31b976c8549bb5b00412909bea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ty: 13
-  image: {fileID: 1536351216260714932}
-  BuffList: []
 --- !u!65 &2790882502001070318
 BoxCollider:
   m_ObjectHideFlags: 0

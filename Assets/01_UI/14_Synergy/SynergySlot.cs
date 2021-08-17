@@ -8,54 +8,69 @@ using UnityEngine.EventSystems;
 public struct SynergySlotInfo
 {
     public int index;
-    public int Code;
-    public int Rank;
+
+    public bool isActivated;
+
     public string name;
-    public Sprite icon_sprite;
-   
-    public string Synergy_text;
-    public string Synergy_ability;
-    // excel data...
-    public Sprite image_sprite; 
+    public string synergy_text;
+    public string synergy_ability;    
+
+    public int sprite_code;
 }
 
 public class SynergySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    [SerializeField] Sprite_TableExcelLoader m_sprite_loader;
+    [SerializeField] SynergySlotInfo m_info;
     [SerializeField] Image m_synergy_image;
 
-    [SerializeField] SynergySlotInfo m_info;
-    
-    Synergy_Tooltip S_Tooltip;
+    [SerializeField] SynergyTooltip m_tooltip;
+   
     private void Awake()
     {
-        m_synergy_image = this.GetComponent<Image>();
-        S_Tooltip = Synergy_Tooltip.Instance;
-       
+        m_synergy_image = this.GetComponent<Image>();       
     }
 
     // info 가 업데이트 됫을 경우
     public void SetInfo(SynergySlotInfo info /*-> excel data*/)
     {
-       // S_Tooltip.Set_Tooltip(info.Name_KR, info.Synergy_text, info.Synergy_Avility, m_synergy_image);
+        m_info = info;
+
         OnInfoChanged();
     }
 
     private void OnInfoChanged()
     {
-        m_synergy_image.sprite = m_info.image_sprite;
+        Sprite sprite = m_sprite_loader.GetSprite(m_info.sprite_code);
+        m_synergy_image.sprite = sprite;
+
+        if(m_info.isActivated)
+        {
+            m_synergy_image.color = new Color(1.0f, 1.0f, 1.0f);
+        }
+        else
+        {
+            m_synergy_image.color = new Color(0.3f, 0.3f, 0.3f);
+        }
     }
 
     
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Vector2 pos = Input.mousePosition;
-
-        S_Tooltip.Set_Tooltip_Pos(pos);
-        S_Tooltip.gameObject.SetActive(true);
+        if(m_info.isActivated)
+        {
+            m_tooltip.SetPoisition(eventData.position);
+            m_tooltip.SetInfo(
+                m_info.name,
+                m_info.synergy_text,
+                m_info.synergy_ability,
+                m_info.sprite_code);
+            m_tooltip.Activate();
+        }      
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        S_Tooltip.gameObject.SetActive(false);
+        m_tooltip.DeActivate();
     }
 }

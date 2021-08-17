@@ -8,10 +8,6 @@ public class SpawnManager : Singleton<SpawnManager>
     [Serializable]
     public struct SpawnData
     {
-        public int No;
-        public string Name_KR;
-        public string Name_EN;
-        public int Code;
         public int SponPosition;
         public int Create_num;
         public int Monster_Code;
@@ -19,92 +15,101 @@ public class SpawnManager : Singleton<SpawnManager>
         public float CreateSpeed;
     }
 
-    //몬스터 프리펩
-    public Transform enemyPrefeb;
-
     //웨이 포인트 시작 위치
     public Transform[] spawnPoint;
 
     public EnemyPool enemyPool => EnemyPool.Instance;
 
-    //몬스터 소환 시간 간격
-    public float Summon_Time = 0.5f;
+    private List<StageEnemy_TableExcel> m_StageEnemyInfo_Excel;
+    private Stage_EnemyManager M_StageEnemy;
 
-    private int Round = 0;
+    private SpawnData[] m_StageEnemyInfo;
 
-    private StageEnemy_TableExcel data;
+    private EnemyManager enemymanager => EnemyManager.Instance;
 
-    private SpawnData spawndata;
+    private int countnum = 0;
+
+    private Enemy_TableExcel m_Enemyinfo_Excel;
+    private EnemyManager M_Enemy;
+
+    private void Awake()
+    {
+        m_StageEnemyInfo_Excel = new List<StageEnemy_TableExcel>();
+        M_StageEnemy = GameObject.Find("Stage_EnemyManager").GetComponent<Stage_EnemyManager>();
+        M_Enemy = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+    }
 
     #region 외부 함수
     //스테이지 시작
-    public void Start_Stage()
+    public void Start_Stage(int code)
     {
-        for (E_Direction i = 0; i < E_Direction.Max; ++i)
-        {
-            if (EnemyManager.Instance.EnemyIndex_Direction[i][Round] != 0)
-            {
-                StartCoroutine(Spawn(i, Round));
-            }
-        }
+        InitializeStageEnemy(code);
 
-        ++Round;
+        for (int i = 0; i < countnum; i++)
+        {
+            StartCoroutine(Spawn((E_Direction)m_StageEnemyInfo[i].SponPosition, i));
+        }
     }
 
     // 몬스터 사망 함수
     public void Despawn(Enemy enemy)
     {
-        EnemyManager.Instance.Enemy_Direction[enemy.Get_Direction()].Remove(enemy);
-        enemyPool.GetPool(enemy.Get_EnemyName_EN()).DeSpawn(enemy);
+        EnemyManager.Instance.Enemy_Direction[enemy.Get_Direction].Remove(enemy);
+        enemyPool.GetPool(enemy.Get_EnemyName_EN).DeSpawn(enemy);
     }
+
     #endregion
 
-    #region 코루틴
-    //혹시 모를 라운드 끝나면 없어지는 몬스터
-    IEnumerator EndStage(int round)
+    #region 내부 함수
+
+    // PrefebData 초기화
+    private string GetPrefebName(int code)
     {
-        if (round != 0)
-        {
-            for (E_Direction i = 0; i < E_Direction.Max; ++i)
-            {
-                if (EnemyManager.Instance.EnemyIndex_Direction[i][round - 1] != 0)
-                {
-                    for (int j = 0; j < EnemyManager.Instance.Enemy_Direction[i].Count; ++j)
-                    {
-                        Despawn(EnemyManager.Instance.Enemy_Direction[i][0]);
-                    }
-                }
-            }
-            //yield return new WaitForSeconds(WaitStageTime);
-        }
-        yield return null;
+        m_Enemyinfo_Excel = M_Enemy.GetData(code);
+
+        return m_Enemyinfo_Excel.Name_EN;
     }
 
-    IEnumerator Spawn(E_Direction dir, int round)
+    // Stage 초기화
+    // 북동남서
+    private void InitializeStageEnemy(int code)
     {
-        for (int i = 0; i < EnemyManager.Instance.EnemyIndex_Direction[dir][round] - 1; ++i)
-        {
-            SpawnEnemy(dir);
-            yield return new WaitForSeconds(Summon_Time);
-        }
-        SpawnEnemy(dir);
-    }
-    #endregion
+        #region 엑셀 데이터 정리
 
-    #region 내부 각 북동남서 소환 함수
-    //엑셀에서 데이터 뽑아와서 바꿔야됨
-    public void SpawnEnemy(E_Direction dir, string enemy_name = "Defender01")
+        m_StageEnemyInfo_Excel = M_StageEnemy.GetListData(code);
+
+        #endregion
+
+        #region 내부 데이터 정리
+
+        countnum = m_StageEnemyInfo_Excel.Count;
+
+        m_StageEnemyInfo = new SpawnData[countnum];
+
+        for (int i = 0; i < countnum; ++i)
+        {
+            m_StageEnemyInfo[i].SponPosition = m_StageEnemyInfo_Excel[i].SponPosition;
+            m_StageEnemyInfo[i].Create_num = m_StageEnemyInfo_Excel[i].Create_num;
+            m_StageEnemyInfo[i].Monster_Code = m_StageEnemyInfo_Excel[i].Monster_Code;
+            m_StageEnemyInfo[i].AppearSpeed = m_StageEnemyInfo_Excel[i].AppearSpeed;
+            m_StageEnemyInfo[i].CreateSpeed = m_StageEnemyInfo_Excel[i].CreateSpeed;
+        }
+
+        #endregion
+    }
+
+    private void SpawnEnemy(E_Direction dir, int num)
     {
-        Enemy enemy = enemyPool.GetPool(enemy_name).Spawn();
+        Enemy enemy = enemyPool.GetPool(GetPrefebName(m_StageEnemyInfo[num].Monster_Code)).Spawn();
         enemy.InitSetting(dir);
         enemy.transform.position = spawnPoint[(int)dir].position;
 
         enemy.gameObject.SetActive(true);
 
-        EnemyManager.Instance.Enemy_Direction[dir].Add(enemy);
+        enemymanager.Enemy_Direction[dir].Add(enemy);
     }
 
-    public void SpawnEnemy(E_Direction dir, Vector3 pos, Transform target, int waypointindex, string enemy_name = "defender1")
+    public void SpawnEnemy(E_Direction dir, Vector3 pos, Transform target, int waypointindex, string enemy_name, Animator animator)
     {
         Enemy enemy = enemyPool.GetPool(enemy_name).Spawn();
         enemy.InitSetting(dir, target, waypointindex);
@@ -112,8 +117,46 @@ public class SpawnManager : Singleton<SpawnManager>
 
         enemy.gameObject.SetActive(true);
 
-        EnemyManager.Instance.Enemy_Direction[dir].Add(enemy);
+        animator.SetBool("Skill", true);
+
+        enemymanager.Enemy_Direction[dir].Add(enemy);
     }
     #endregion
 
+    #region 코루틴
+    //혹시 모를 라운드 끝나면 없어지는 몬스터
+    //IEnumerator EndStage(int round)
+    //{
+    //    if (round != 0)
+    //    {
+    //        for (E_Direction i = 0; i < E_Direction.Max; ++i)
+    //        {
+    //            if (enemymanager.EnemyIndex_Direction[i][round - 1] != 0)
+    //            {
+    //                for (int j = 0; j < enemymanager.Enemy_Direction[i].Count; ++j)
+    //                {
+    //                    Despawn(enemymanager.Enemy_Direction[i][0]);
+    //                }
+    //            }
+    //        }
+    //        //yield return new WaitForSeconds(WaitStageTime);
+    //    }
+    //    yield return null;
+    //}
+
+    IEnumerator Spawn(E_Direction dir, int num)
+    {
+        //처음 등장 속도
+        yield return new WaitForSeconds(m_StageEnemyInfo[num].AppearSpeed);
+
+        for (int i = 0; i < m_StageEnemyInfo[num].Create_num; ++i)
+        {
+            SpawnEnemy(dir, num);
+            //생성 속도
+            yield return new WaitForSeconds(m_StageEnemyInfo[num].CreateSpeed);
+        }
+
+        SpawnEnemy(dir, num);
+    }
+    #endregion
 }

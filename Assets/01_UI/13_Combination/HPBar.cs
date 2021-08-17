@@ -11,8 +11,13 @@ public class HPBar : MonoBehaviour
 
     private void Awake()
     {
-        m_slider = this.GetComponent<Slider>();
-        // link event....
+        m_slider = this.GetComponent<Slider>();        
+    }
+
+    private void Start()
+    {
+        // TODO : link devil hp evnet
+        // DevilManager.Instance
     }
 
     public void OnHpChanged(int maxHp, int currentHp)

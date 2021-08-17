@@ -66,6 +66,11 @@ public class GatePanelController : MonoBehaviour
 
             openProcessFlag = false;
             m_eyesPanel.gameObject.SetActive(true);
+
+            
+            
+            SceneLoader.Instance.UnloadScenes();
+
             return;
         }
 
@@ -78,14 +83,10 @@ public class GatePanelController : MonoBehaviour
            && -right_rt.anchoredPosition.x < 5f)
         {
             left_rt.anchoredPosition = Vector2.zero;
-            right_rt.anchoredPosition = Vector2.zero;
-
-            m_eyesPanel.gameObject.SetActive(false);
+            right_rt.anchoredPosition = Vector2.zero;   
+            
             closeProcessFlag = false;
-
-            m_sceneLoader.StartEventStart();
-            m_sceneLoader.Release();
-
+            SceneLoader.Instance.OnAllCompleted();
             return;
         }
         
@@ -93,9 +94,18 @@ public class GatePanelController : MonoBehaviour
         right_rt.anchoredPosition3D = Vector3.LerpUnclamped(right_rt.anchoredPosition3D, new Vector3(0, 0, 0), Time.deltaTime * m_speed);        
     }
 
-    // event
+
     public void __OnSceneLoadCompleted()
     {
+        openProcessFlag = false;
+        m_eyesPanel.gameObject.SetActive(true);
         closeProcessFlag = true;
+        m_eyesPanel.gameObject.SetActive(false);
+    }
+
+    // event
+    public void __OnSceneAllCompleted()
+    {
+       
     }
 }

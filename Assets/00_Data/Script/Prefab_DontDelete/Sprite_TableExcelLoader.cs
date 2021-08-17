@@ -5,7 +5,6 @@ using UnityEngine;
 public struct Sprite_TableExcel
 {
     public int Code;
-    public float Size;
     public string Unity_address;
 }
 
@@ -34,7 +33,6 @@ public class Sprite_TableExcelLoader : ScriptableObject
         string[] strs = line.Split('`');
 
         data.Code = int.Parse(strs[idx++]);
-        data.Size = float.Parse(strs[idx++]);
         data.Unity_address = strs[idx++];
 
         return data;
@@ -65,7 +63,7 @@ public class Sprite_TableExcelLoader : ScriptableObject
 
     public Sprite GetSprite(int spriteCode)
     {
-        Debug.Log(spriteCode);
+        //Debug.Log(spriteCode);
         var info = SpriteList.Find((item) => { return item.Code == spriteCode; });
         return info.obj;
     }

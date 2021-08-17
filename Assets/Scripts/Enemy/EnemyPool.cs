@@ -12,19 +12,23 @@ public class EnemyPool : ObjectPool<EnemyPool, Enemy>
     {
         base.__Initialize();
 
-        for (int i = 3; i < M_EnemyData.DataList.Count; ++i)
+        for (int i = 0; i < M_EnemyData.DataList.Count; ++i)
         {
             int PrefabCode = M_EnemyData.DataList[i].Prefab;
-            string key = PrefabCode.ToString();
-            Enemy origin = M_PrefabData.GetPrefab(PrefabCode).GetComponent<Enemy>();
-            AddPool(key, origin, transform);
-        }
+            Debug.Log("Enemy_" + PrefabCode);
 
-        //for (E_Enemy i = E_Enemy.Creep1_Knight; i < E_Enemy.Max; ++i)
-        //{
-        //    Enemy enemy = M_Resources.GetGameObject<Enemy>("Enemy", i.ToString());
-        //    enemy.m_TempCode = EnemyManager.Instance.GetData(i).Code;
-        //    AddPool(i.ToString(), enemy, transform);
-        //}
+            GameObject originObj = M_PrefabData.GetPrefab(PrefabCode);
+
+            if (originObj != null)
+            {
+                GameObject originClone = GameObject.Instantiate(originObj);
+                string key = originClone.name = originObj.name;
+
+                Enemy origin = originClone.AddComponent<Enemy>();
+                origin.InitializeEnemy(M_EnemyData.DataList[i].Code);
+
+                AddPool(key, origin, transform);
+            }
+        }
     }
 }

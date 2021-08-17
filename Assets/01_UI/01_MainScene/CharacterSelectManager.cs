@@ -20,7 +20,7 @@ public class CharacterSelectManager : Singleton<CharacterSelectManager>
     Camera m_renderCamera;
 
     [Space(10)]
-    [SerializeField] List<Tower_TableExcel> m_character_dataList;    
+    [SerializeField] List<Tower_TableExcel> m_character_dataList;
     Tower_TableExcel m_current_data;
 
     [Space(10)]
@@ -41,7 +41,8 @@ public class CharacterSelectManager : Singleton<CharacterSelectManager>
         // 렌더 텍스쳐 관련 리소스 할당하기
         InitializeRenderTexture();
         // 첫번째 마왕 오브젝트 활성화 (렌더 텍스쳐 용)
-        m_showObj_list[0].obj.gameObject.SetActive(true);
+        m_showObj = m_showObj_list[0].obj.gameObject;
+        m_showObj.SetActive(true);
 
         OnCharacterChanged();
     }
@@ -52,29 +53,48 @@ public class CharacterSelectManager : Singleton<CharacterSelectManager>
     }
 
     public void OnCharacterChanged()
-    {        
+    {
         SetSkillInfo();
         SetNameInfo();
     }
 
     public void InitializeRenderTexture()
     {
+        int layer = LayerMask.NameToLayer("MainSceneCharUI");
+        Debug.Log(layer);
+
         m_renderTexture = new RenderTexture(256, 256, 16);
         m_renderTexture.Create();
+        
 
         Camera cam_origin = Resources.Load<Camera>("MainSceneCamera");
         m_renderCamera = GameObject.Instantiate<Camera>(cam_origin);
+        m_renderCamera.cullingMask = 1 << layer;
+        m_renderCamera.clearFlags = CameraClearFlags.SolidColor;
+        m_renderCamera.backgroundColor = new Color(0, 0, 0, 0);
 
         m_renderCamera.targetTexture = m_renderTexture;
         m_renderCamera.transform.position = m_obj_position + camera_distance;
         m_renderCamera.transform.eulerAngles = camera_rotation;
+        
 
-        GameObject origin_obj = m_prefab_loader.GetPrefab(m_prefab_loader.DataList[0].Code);
-        GameObject new_obj = GameObject.Instantiate(origin_obj);
+        foreach (var item in m_character_dataList)
+        {
+            GameObject origin_obj = m_prefab_loader.GetPrefab(item.Prefab);
+            GameObject new_obj = GameObject.Instantiate(origin_obj);
 
-        CKeyValue val = new CKeyValue
-        { Code = m_prefab_loader.DataList[0].Code, obj = new_obj };
-        m_showObj_list.Add(val);
+            Transform[] allChildren = new_obj.GetComponentsInChildren<Transform>(true);
+            foreach (var child in allChildren)
+            {
+                child.gameObject.layer = layer;
+            }
+            
+
+            CKeyValue val = new CKeyValue
+            { Code = m_prefab_loader.DataList[0].Code, obj = new_obj };
+            m_showObj_list.Add(val);
+        }
+
 
         foreach (var item in m_showObj_list)
         {   // 전부 꺼논 상태로 같은 위치에 놓기            
@@ -87,9 +107,9 @@ public class CharacterSelectManager : Singleton<CharacterSelectManager>
 
     public void SetRenderTexture(int index)
     {
-        // TODO : 0 -> index
-        // TODO : 기존거 꺼주기
-        m_showObj_list[0].obj.gameObject.SetActive(true);
+        m_showObj.SetActive(false);
+        m_showObj = m_showObj_list[index].obj.gameObject;
+        m_showObj.SetActive(true);
     }
 
     public void SetSkillInfo()
@@ -104,7 +124,7 @@ public class CharacterSelectManager : Singleton<CharacterSelectManager>
     }
     public void SetNameInfo()
     {
-        m_charslot_controll.Set(m_current_data.Name_KR, "Information");         
+        m_charslot_controll.Set(m_current_data.Name_KR, "Information");
     }
 
     public void __OnSelectButton(int index)
@@ -114,5 +134,5 @@ public class CharacterSelectManager : Singleton<CharacterSelectManager>
         UserInfoManager.Instance.SetDevilCode(m_current_data.Code);
         OnCharacterChanged();
     }
-    
+
 }

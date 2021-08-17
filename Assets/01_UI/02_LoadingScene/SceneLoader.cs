@@ -14,24 +14,43 @@ using UnityEngine.SceneManagement;
 // A 와 Loader의 씬을 닫고 끝
 public class SceneLoader : Singleton<SceneLoader>
 {
-    [SerializeField] UnityEvent m_startEvent; 
-    [SerializeField] UnityEvent m_loadCompleteEvent; 
-    
+    public UnityEvent m_load_complete_event;
+    public UnityEvent m_all_complete_event;
+
+    [SerializeField] float delay_second = 3f;
+    [SerializeField] float timer;
+
     private List<string> m_load_scenes;
     private List<string> m_unload_scenes;
     //[SerializeField] Slider m_progressBar;
-        
+
     public bool IsCompleted { get; private set; }
-    
+
     private void Awake()
     {
         IsCompleted = false;
+        m_load_scenes = new List<string>();
+        m_unload_scenes = new List<string>();
+        timer = 0f;
+    }
+
+    private void Start()
+    {
+        m_all_complete_event.AddListener(UnloadThisScene);
     }
 
     public void LoadScene(List<string> scenes, List<string> unload_scenes)
     {
-        m_load_scenes = scenes;
-        m_unload_scenes = unload_scenes;
+        foreach (var item in scenes)
+        {
+            m_load_scenes.Add(item);
+        }
+
+        foreach (var item in unload_scenes)
+        {
+            m_unload_scenes.Add(item);
+        }
+
         StartCoroutine(Co_LoadSceneAsync());
     }
 
@@ -46,13 +65,15 @@ public class SceneLoader : Singleton<SceneLoader>
 
         foreach (var sceneName in m_load_scenes)
         {
-            AsyncOperation op = SceneManager.LoadSceneAsync(sceneName,LoadSceneMode.Additive);
+            AsyncOperation op = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
             ops_list.Add(op);
             op.allowSceneActivation = false;    // 완료된 씬이 바로 로드되지 않도록 함
 
             float beforeProgress = 0.0f;
             while (!op.isDone)
             {
+                timer += Time.deltaTime;
+
                 yield return new WaitForSeconds(0.5f);
 
                 //m_progressBar.value -= beforeProgress;
@@ -60,7 +81,7 @@ public class SceneLoader : Singleton<SceneLoader>
                 beforeProgress = op.progress;
 
                 if (op.progress >= 0.9f)
-                {                    
+                {
                     break;
                 }
             }
@@ -72,11 +93,24 @@ public class SceneLoader : Singleton<SceneLoader>
             item.allowSceneActivation = true;
         }
 
+        if(timer < delay_second)
+            yield return new WaitForSeconds(delay_second);
+
         IsCompleted = true;
-        m_loadCompleteEvent?.Invoke();        
+        m_load_complete_event?.Invoke();
+    }
+   
+    public void OnAllCompleted()
+    {
+        m_all_complete_event?.Invoke();
     }
 
-    public void Release()
+    private void UnloadThisScene()
+    {
+        SceneManager.UnloadSceneAsync("LoaderScene");
+    }
+
+    public void UnloadScenes()
     {
         foreach (var item in m_unload_scenes)
         {
@@ -89,8 +123,8 @@ public class SceneLoader : Singleton<SceneLoader>
         var objs = GameObject.FindGameObjectsWithTag("SceneStart");
         foreach (var item in objs)
         {
-            m_startEvent.AddListener(item.GetComponent<SceneStartEventReciever>().__Start);
+            var reciever = item.GetComponent<SceneStartEventReciever>();
+            reciever.__Start();
         }
-        m_startEvent?.Invoke();
     }
 }

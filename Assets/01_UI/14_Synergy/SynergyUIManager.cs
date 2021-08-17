@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[DefaultExecutionOrder(-1)]
 public class SynergyUIManager : Singleton<SynergyUIManager>
 {
     [SerializeField] Image m_root_panel;
@@ -23,6 +24,8 @@ public class SynergyUIManager : Singleton<SynergyUIManager>
 
     void __Initialize()
     {
+        // synergy manager 에서 이벤트로 연결할것
+
         int cellcount = m_fitter.CellCount.y;
 
         m_origin.gameObject.SetActive(false);
@@ -31,11 +34,17 @@ public class SynergyUIManager : Singleton<SynergyUIManager>
         {
             var newSlot = GameObject.Instantiate<SynergyLineSlot>(m_origin);
 
-            // TODO : ...
+            newSlot.__Indexing(i);
+
             newSlot.gameObject.SetActive(true);
             newSlot.transform.SetParent(m_root_panel.transform);
             m_lineSlots.Add(newSlot);
         }
+    }
+
+    public void __OnSynergyInfoChanged()
+    {
+
     }
 
 }

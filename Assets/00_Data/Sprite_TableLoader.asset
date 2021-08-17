@@ -15,155 +15,167 @@ MonoBehaviour:
   filepath: Assets\00_Data\Txt\Icon_Table.txt
   DataList:
   - Code: 910001
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_01
   - Code: 910002
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_02
   - Code: 910003
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_03
   - Code: 910004
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_04
   - Code: 910005
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_05
   - Code: 910006
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_06
   - Code: 910007
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_07
   - Code: 910008
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_08
   - Code: 910009
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_09
   - Code: 910010
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_10
   - Code: 910011
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_11
   - Code: 910012
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_12
   - Code: 910013
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_13
   - Code: 910014
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_14
   - Code: 910015
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_15
   - Code: 910016
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_16
   - Code: 910017
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_17
   - Code: 910018
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_18
   - Code: 910019
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_19
   - Code: 910020
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_20
   - Code: 910021
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_21
   - Code: 910022
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_22
   - Code: 910023
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_23
   - Code: 910024
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_24
   - Code: 910025
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_25
   - Code: 910026
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_26
   - Code: 910027
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_27
   - Code: 910028
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_28
   - Code: 910029
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_29
   - Code: 910030
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_30
   - Code: 910031
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_31
   - Code: 910032
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_32
   - Code: 910033
-    Size: 1
+    Size: 0
     Unity_address: Skill/Icon/SkillIcon_33
   - Code: 910034
-    Size: 1
+    Size: 0
     Unity_address: Synergy/Icon/1Synergy_01
   - Code: 910035
-    Size: 1
+    Size: 0
     Unity_address: Synergy/Icon/1Synergy_02
   - Code: 910036
-    Size: 1
+    Size: 0
     Unity_address: Synergy/Icon/1Synergy_03
   - Code: 910037
-    Size: 1
+    Size: 0
     Unity_address: Synergy/Icon/1Synergy_04
   - Code: 910038
-    Size: 1
+    Size: 0
     Unity_address: Synergy/Icon/1Synergy_05
   - Code: 910039
-    Size: 1
+    Size: 0
     Unity_address: Synergy/Icon/1Synergy_06
   - Code: 910040
-    Size: 1
+    Size: 0
     Unity_address: Synergy/Icon/1Synergy_07
   - Code: 910041
-    Size: 1
+    Size: 0
     Unity_address: Synergy/Icon/1Synergy_08
   - Code: 910042
-    Size: 1
+    Size: 0
     Unity_address: Synergy/Icon/1Synergy_09
   - Code: 910043
-    Size: 1
+    Size: 0
     Unity_address: Synergy/Icon/1Synergy_10
   - Code: 910044
-    Size: 1
+    Size: 0
     Unity_address: Synergy/Icon/2Synergy_01
   - Code: 910045
-    Size: 1
+    Size: 0
     Unity_address: Synergy/Icon/2Synergy_02
   - Code: 910046
-    Size: 1
+    Size: 0
     Unity_address: Synergy/Icon/2Synergy_03
   - Code: 910047
-    Size: 1
+    Size: 0
     Unity_address: Synergy/Icon/2Synergy_04
   - Code: 910048
-    Size: 1
+    Size: 0
     Unity_address: Synergy/Icon/2Synergy_05
   - Code: 910049
-    Size: 1
+    Size: 0
     Unity_address: Synergy/Icon/2Synergy_06
   - Code: 910050
-    Size: 1
+    Size: 0
     Unity_address: Synergy/Icon/2Synergy_07
+  - Code: 910051
+    Size: 0
+    Unity_address: Stage/Icon/fight_eq_icon_r
+  - Code: 910052
+    Size: 0
+    Unity_address: Stage/Icon/chest_eq_icon_r
+  - Code: 910053
+    Size: 0
+    Unity_address: Stage/Icon/Helm_eq_icon_r
+  - Code: 910054
+    Size: 0
+    Unity_address: Stage/Icon/Helm2_eq_icon_r
   SpriteList:
   - Code: 910001
     obj: {fileID: 21300000, guid: a8f60267eb3037b4d940a0d93fc15870, type: 3}
@@ -265,3 +277,11 @@ MonoBehaviour:
     obj: {fileID: 21300000, guid: affb13c23cdde3147ab3d3cc8b88ae5b, type: 3}
   - Code: 910050
     obj: {fileID: 21300000, guid: fcb8c64b06085df49ac3f87bd5cda9c9, type: 3}
+  - Code: 910051
+    obj: {fileID: 21300000, guid: 97df3d05dafb5f74bb2771e106b85e69, type: 3}
+  - Code: 910052
+    obj: {fileID: 21300000, guid: 20b7666ae1e61fd48aa9f42468c30528, type: 3}
+  - Code: 910053
+    obj: {fileID: 21300000, guid: f35cb642b25b65f4d9f868a490e1a7ab, type: 3}
+  - Code: 910054
+    obj: {fileID: 21300000, guid: 8d888350d1a68c840a868100dd0fb18a, type: 3}

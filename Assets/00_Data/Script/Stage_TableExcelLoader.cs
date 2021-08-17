@@ -14,6 +14,7 @@ public struct Stage_TableExcel
 	public int StageMonsterTable;
 	public int Exp;
 	public int Gold;
+	public int Stage_icon;
 	public int Prefab;
 }
 
@@ -22,7 +23,7 @@ public struct Stage_TableExcel
 //////////////////////////
 
 [CreateAssetMenu(fileName = "Stage_TableLoader", menuName = "Scriptable Object/Stage_TableLoader")]
-public class  Stage_TableExcelLoader : ScriptableObject
+public class Stage_TableExcelLoader : ScriptableObject
 {
 	[SerializeField] string filepath;
 	public List<Stage_TableExcel> DataList;
@@ -45,6 +46,7 @@ public class  Stage_TableExcelLoader : ScriptableObject
 		data.StageMonsterTable = int.Parse(strs[idx++]);
 		data.Exp = int.Parse(strs[idx++]);
 		data.Gold = int.Parse(strs[idx++]);
+		data.Stage_icon = int.Parse(strs[idx++]);
 		data.Prefab = int.Parse(strs[idx++]);
 
 		return data;

@@ -34,28 +34,26 @@ public class SkillTooltip : Singleton<SkillTooltip>
     {
         this.gameObject.SetActive(false);
     }
-    public void Set_Skill_TT(Skill_Date skill)
-    {
+    //public void Set_Skill_TT(Tower_Data tower)
+    //{
         
-        Skill_name.text = skill.skillname;
-        Skill_text.text = skill.skilltext;
-        
-        //¾îºô¸®Æ¼ 2 ¾ø´Â°æ¿ì ºñÈ°¼ºÈ­.
-        //if(skill.isskillavility)
-        //{
-        //    Avilityname.gameObject.SetActive(false);
-        //    Avilitytext.gameObject.SetActive(false);
-        //}
-        //else
-        //{
-        //    Avilityname.gameObject.SetActive(true);
-        //    Avilitytext.gameObject.SetActive(true);
-        //}
-        //Skill_avility_name1=skill.skillavility1;
-        //Skill_avility_text1=tower.skillavility_text1;
-        //Skill_avility_name1=skill.skillavility2;
-        //Skill_avility_text1=tower.skillavility_text2;
-    }
+    //    Skill_name.text = tower.skillname;
+    //    Skill_text.text = tower.skilltext;
+    //    //ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ 2 ï¿½ï¿½ï¿½Â°ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­.
+    //    //if(tower.isskillavility)
+    //    //{
+    //    //    Avilityname.gameObject.SetActive(false);
+    //    //    Avilitytext.gameObject.SetActive(false);
+    //    //}
+    //    //else
+    //    //{
+    //    //    Avilityname.gameObject.SetActive(true);
+    //    //    Avilitytext.gameObject.SetActive(true);
+    //    //}
+    //    //Skill_avility_name1=tower.skillavility1;
+    //    //Skill_avility_text1=tower.skillavility_text1;
+
+    //}
     public void Set_Skill_TT_pos(Vector2 pos)
     {
         float tempposx = pos.x;

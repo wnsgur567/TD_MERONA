@@ -1716,7 +1716,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6500350159137942814}
-  - component: {fileID: 2513822381882886076}
   - component: {fileID: 8388002737861473959}
   m_Layer: 0
   m_Name: Defender01
@@ -1740,21 +1739,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2513822381882886076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8422643010258117834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c473e31b976c8549bb5b00412909bea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ty: 7
-  image: {fileID: 6582883100793541253}
-  BuffList: []
 --- !u!65 &8388002737861473959
 BoxCollider:
   m_ObjectHideFlags: 0
