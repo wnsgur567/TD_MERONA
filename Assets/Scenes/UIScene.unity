@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 705507994}
+  m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -490,11 +490,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 101860454}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -982.4888, y: -486.7436, z: 829.1267}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 459991512}
-  m_RootOrder: 11
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &102757704
 GameObject:
@@ -2717,9 +2717,8 @@ Transform:
   - {fileID: 1949856683}
   - {fileID: 531044522}
   - {fileID: 1922406791}
-  - {fileID: 101860455}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &464194459
 GameObject:
@@ -3331,6 +3330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6599c50e10309a747b6b36f20c66e7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flag: 1
   m_UISpaceType: 0
   m_target_ratio: 0
   m_current_ratio: 0
@@ -4408,99 +4408,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696545989}
   m_CullTransparentMesh: 1
---- !u!1 &705507993
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 705507995}
-  - component: {fileID: 705507994}
-  m_Layer: 0
-  m_Name: Directional Light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!108 &705507994
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705507993}
-  m_Enabled: 1
-  serializedVersion: 10
-  m_Type: 1
-  m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 1
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &705507995
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &715854902
 GameObject:
   m_ObjectHideFlags: 0
@@ -5618,6 +5525,7 @@ MonoBehaviour:
       Type2: 0
       Price: 0
       Prefab: 0
+    tower: {fileID: 0}
   m_textPro: {fileID: 2074510584}
   m_towerLoader: {fileID: 11400000, guid: 4edb6d12b4722f04798cca6c74efe479, type: 2}
   m_prefabLoader: {fileID: 11400000, guid: 25d43685a638f894187cd0a61b20a7a7, type: 2}
@@ -6209,7 +6117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6251,7 +6159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &963194226
 AudioListener:
   m_ObjectHideFlags: 0
@@ -6751,6 +6659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc2c6c452d094745befcae673620c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flag: 1
   m_root_panel: {fileID: 546134063}
   m_originGUI: {fileID: 896326071}
   m_slotGUI_list: []
@@ -10550,6 +10459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9aa6058029437479d30e224b80c150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flag: 1
   m_excel_towerdata_so: {fileID: 11400000, guid: 4edb6d12b4722f04798cca6c74efe479, type: 2}
   m_excel_shopdata_so: {fileID: 11400000, guid: b8b0661e33916b74ebd1003cfa4d60f9, type: 2}
   m_shop_panel: {fileID: 1270166570}
@@ -10847,6 +10757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63be98a542001148a2d8c3da9bd1d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flag: 1
   m_root_panel: {fileID: 1422242841}
   m_origin: {fileID: 2121214198}
   m_lineSlots: []
@@ -11041,6 +10952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cfd721f696886c4c9fc46b2394d0ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flag: 0
   Skill_name: {fileID: 861495826}
   Skill_text: {fileID: 2011380350}
   Skill_avility_name1: {fileID: 1165007504}
@@ -11580,6 +11492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5450a044dec346f40a2a38e716e967cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flag: 1
   m_current_stageInfo:
     No: 0
     Name_KR: 
@@ -12624,6 +12537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca065da32996dc44aa85cb7d6db254fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flag: 0
   m_info:
     SelectedDevilCode: 0
     level: 0
@@ -12644,7 +12558,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1894196094
 MonoBehaviour:
@@ -13051,6 +12965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d95f8d21497574bacf4fbd85ea1b29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flag: 1
   m_screen_directoryPath: 01_UI/Setting/JsonFiles
   m_audio_directoryPath: 01_UI/Setting/JsonFiles
   m_key_directoryPath: 01_UI/Setting/JsonFiles

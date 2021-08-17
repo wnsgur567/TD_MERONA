@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 [DefaultExecutionOrder(-98)]
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
+    public bool flag;
+
     private static T instance;
     public static T Instance
     {
@@ -10,10 +13,13 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         {
             if (instance == null)
             {
-                GameObject obj;
-                obj = GameObject.Find(typeof(T).Name);
+                Singleton<T>[] objs = FindObjectsOfType<Singleton<T>>();
+
+                GameObject obj = objs.Where(item => item.flag == true).FirstOrDefault()?.gameObject; //GameObject.Find(typeof(T).Name);
                 if (obj == null)
                 {
+                    if (objs.Length > 0)
+                        return objs[0].GetComponent<T>();
                     obj = new GameObject(typeof(T).Name);
                     instance = obj.AddComponent<T>();
                 }

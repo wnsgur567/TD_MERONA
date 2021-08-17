@@ -208,6 +208,11 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         {
             Debug.Log("tower image moving");
             m_rawImage.transform.position = eventData.position;
+
+            Vector3 mouse_pos = eventData.position;
+            mouse_pos.z = Camera.main.farClipPlane;
+            Debug.DrawRay(Camera.main.transform.position,
+                Camera.main.ScreenToWorldPoint(mouse_pos), Color.red);
         }
     }
 
@@ -217,10 +222,6 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         if (m_info.isOccupied)
         {
             Debug.Log("tower image move start");
-            Vector3 mouse_pos = eventData.position;
-            mouse_pos.z = 1000.0f;
-            Debug.DrawRay(Camera.main.transform.position,
-                Camera.main.ScreenToWorldPoint(mouse_pos),Color.red);
         }
     }
 
@@ -235,21 +236,26 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
             SwapInfo(target.gameObject.GetComponent<InventorySlotGUI>());
         }
         else if (m_info.isOccupied)
-        {   
+        {
             Vector3 mouse_pos = eventData.position;
             mouse_pos.z = 1000.0f;
 
+            int layermask = 1 << LayerMask.NameToLayer("Node");
             RaycastHit hitinfo;
-            if ( Physics.Raycast(new Ray(Camera.main.transform.position,
+            if (Physics.Raycast(new Ray(Camera.main.transform.position,
                 Camera.main.ScreenToWorldPoint(mouse_pos)),
                 out hitinfo,
                 1000f,
-                LayerMask.GetMask("Node")))
-            {   // TODO : Summon Tower Process!!
-                
-                Debug.Log("Summon!");
-                OnTowerSummonEvent?.Invoke(m_info.tower);
-                ClearInven();
+               layermask))
+            {
+                Debug.Log(hitinfo.collider.gameObject.name);
+                Node hit_node = hitinfo.collider.gameObject.GetComponent<Node>();
+                if (hit_node.m_Tower == null)
+                {   // TODO : Summon Tower Process!!
+                    Debug.Log("Summon!");
+                    hit_node.SetTower(m_info.tower);
+                    ClearInven();
+                }
             }
         }
 

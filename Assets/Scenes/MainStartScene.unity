@@ -4389,6 +4389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fad31ffcba584540a210ed7abd6f15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flag: 1
   m_prefab_loader: {fileID: 11400000, guid: 25d43685a638f894187cd0a61b20a7a7, type: 2}
   m_tower_loader: {fileID: 11400000, guid: 4edb6d12b4722f04798cca6c74efe479, type: 2}
   m_skill_loader: {fileID: 11400000, guid: 4d38259d177bc4847bb3f47994fb0e84, type: 2}
@@ -5049,6 +5050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca065da32996dc44aa85cb7d6db254fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flag: 1
   m_info:
     SelectedDevilCode: 0
     level: 0
@@ -5315,7 +5317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1639529956
 Light:
   m_ObjectHideFlags: 0

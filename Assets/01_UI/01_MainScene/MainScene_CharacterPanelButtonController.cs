@@ -50,7 +50,7 @@ public class MainScene_CharacterPanelButtonController : MonoBehaviour
         List<string> loadScenes = new List<string>();
         List<string> unloadScenes = new List<string>();
 
-        //loadScenes.Add("Map");
+        loadScenes.Add("Map");
         loadScenes.Add("UIScene");
         unloadScenes.Add("MainStartScene");
 
