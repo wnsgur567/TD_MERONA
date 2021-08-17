@@ -68,10 +68,6 @@ public class EnemyManager : Singleton<EnemyManager>
         return Enemy_Direction[direc];
     }
 
-
-
-
-
     public delegate void CreateHandler(object sender, CreateEventArgs e);
     public event CreateHandler Create;
 
