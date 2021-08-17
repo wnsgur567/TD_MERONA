@@ -67,14 +67,18 @@ public class StageInfoManager : Singleton<StageInfoManager>
 
     // 다음 스테이지로 이동
     public void GoNextStage()
-    {
-        
+    {        
         m_current_stageInfo = m_excel_loader.DataList[current_stage];
         ++current_stage;
 
+        // synergy bonus gold
+        int bonus_gold = SynergyManager.Instance.BonusGold;
+
         // user info
-        UserInfoManager.Instance.AddGold(m_current_stageInfo.Gold);
+        UserInfoManager.Instance.AddGold(m_current_stageInfo.Gold + bonus_gold);
         //UserInfoManager.Instance.AddExp(m_current_stageInfo.Exp);
+
+        
 
         // else
         OnStageChangedEvent?.Invoke(

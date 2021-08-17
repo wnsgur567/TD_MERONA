@@ -11,8 +11,11 @@ public struct TempSynergyData
 
 public class SynergyLineSlot : MonoBehaviour
 {
-    [SerializeField] Synergy_TableExcelLoader m_synergy_loader;
-    
+    // 현재 슬롯이 표현할 라인 위치
+    E_Direction m_dir;
+
+    [SerializeField] Synergy_TableExcelLoader m_synergy_loader;    
+
     [Space(20)]
     [SerializeField] SynergySlot m_slot_origin;
     [SerializeField] List<SynergySlot> m_slot_list; // 관리할 하위 슬롯들
@@ -28,6 +31,8 @@ public class SynergyLineSlot : MonoBehaviour
     [SerializeField] int m_showMaxCount;
     [SerializeField] bool IsShowExtendPanel;
 
+    [Space(20)]
+    [SerializeField] List<Synergy_TableExcel> m_synergy_list;   // data from synergy manager on this line
 
     private void Awake()
     {
@@ -46,7 +51,12 @@ public class SynergyLineSlot : MonoBehaviour
         // 확장 창을 닫기
         IsShowExtendPanel = false;
         m_extend_panel.gameObject.SetActive(false);
+
+        // link event        
+        // TODO : Activate underlihe when combine scene
+        SynergyManager.Instance.UpdateSynergyEndEvent += __OnSynergyUpdate;
     }
+       
 
     void __Initialize()
     {
@@ -84,20 +94,21 @@ public class SynergyLineSlot : MonoBehaviour
             }) ;
         }
     }
+    public void __Indexing(int index)
+    {
+        m_dir = (E_Direction)index;
+    }
 
 
     // Slot들을 아래 조건에 따라 정렬하기
     // 1순위 : 시너지 랭크 내림차순
     // 2순위 : 시너지의 인원 수 ???
     // 3순위 : 시너지 코드 오름차순
-    public void SortSlots()
+    public void SortSynergyList()
     {
-        // 임시
-        List<TempSynergyData> list = new List<TempSynergyData>();
+        // SortedSet<Synergy_TableExcel> set = new SortedSet<Synergy_TableExcel>();
 
-        SortedSet<TempSynergyData> set = new SortedSet<TempSynergyData>();
-
-        list.Sort((item1, item2) =>
+        m_synergy_list.Sort((item1, item2) =>
         {
             // 1순위 정렬
             int retval = item2.Rank.CompareTo(item1.Rank);
@@ -113,18 +124,37 @@ public class SynergyLineSlot : MonoBehaviour
     // synergy 정보가 업데이트 된 경우
     public void __OnSynergyUpdate()
     {
-        // list 정보를 가져오고
+        // 1. list 정보를 synergy manager 로 부터 가져오고
+        m_synergy_list.Clear();
+        var synergy_list = SynergyManager.Instance.GetSynergyList(m_dir);
+        foreach (var item in synergy_list)
+        {
+            m_synergy_list.Add(item);
+        }
 
-        // sorting 하고
+        // 2. copy 된 리스트 m_synergy_list 를 sorting 하고
+        SortSynergyList();
 
         // ui 를 업데이트 하기
-        foreach (var item in m_slot_list)
+        for (int i = 0; i < m_synergy_list.Count; i++)
         {
-            SynergySlotInfo data = new SynergySlotInfo();
-
-            //S_SynergyData_Excel data2 = a.GetData(data.Code,data.Rank);
-            item.SetInfo(data);
+            var cur_data = m_synergy_list[i];
+            m_slot_list[i].SetInfo(new SynergySlotInfo()
+            {
+                isActivated = true,
+                name = cur_data.Name_KR,
+                synergy_text = cur_data.Synergy_text,
+                synergy_ability = cur_data.Synergy_Avility,
+                sprite_code = cur_data.Synergy_icon
+            });
         }
+        for (int i = m_synergy_list.Count; i < m_slot_list.Count; i++)
+        {
+            m_slot_list[i].SetInfo(new SynergySlotInfo()
+            {
+                isActivated = false
+            });
+        }        
     }
 
     // 확장 버튼을 클릭 했을 경우

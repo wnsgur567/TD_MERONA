@@ -34,7 +34,8 @@ public class SynergyUIManager : Singleton<SynergyUIManager>
         {
             var newSlot = GameObject.Instantiate<SynergyLineSlot>(m_origin);
 
-            // TODO : ...
+            newSlot.__Indexing(i);
+
             newSlot.gameObject.SetActive(true);
             newSlot.transform.SetParent(m_root_panel.transform);
             m_lineSlots.Add(newSlot);
