@@ -219,12 +219,12 @@ public class ShopManager : Singleton<ShopManager>
             Debug.Log("ShopUnLock");
         }
     }
-    public void __OnOpenButtonClicked()
+
+    public void __OnShopButtonClicked()
     {
-        m_shop_panel.gameObject.SetActive(true);
-    }
-    public void __OnCloseButtonClicked()
-    {
-        m_shop_panel.gameObject.SetActive(false);
-    }
+        if (m_shop_panel.gameObject.activeSelf)
+            m_shop_panel.gameObject.SetActive(false);
+        else
+            m_shop_panel.gameObject.SetActive(true);
+    }    
 }

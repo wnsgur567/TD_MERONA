@@ -38,11 +38,7 @@ public class StagePrivewController : MonoBehaviour
 
     private void Update()
     {
-        // debuggin
-        if(Input.GetKeyDown(KeyCode.Tab))
-        {
-            MoveSlotsAnimation();
-        }
+       
     }
 
     private void __Initailize()

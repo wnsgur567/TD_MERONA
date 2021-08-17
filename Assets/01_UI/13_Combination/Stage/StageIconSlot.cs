@@ -22,8 +22,8 @@ public class StageIconSlot : MonoBehaviour
     }
 
     public void SetPosition(float anckor_x)
-    {
-        m_rt.anchoredPosition = new Vector2(anckor_x, 0);
+    {        
+        m_rt.anchoredPosition = new Vector2(anckor_x, -10);
     }
     public float GetAnckorX()
     {
