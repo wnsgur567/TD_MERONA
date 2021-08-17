@@ -130,6 +130,8 @@ public class SynergyLineSlot : MonoBehaviour
     // 확장 버튼을 클릭 했을 경우
     public void __OnExtednButtonClicked()
     {
+        
+
         // 활성화 되어 있는 경우 
         if (IsShowExtendPanel)
         {   // 확장 창을 닫기
