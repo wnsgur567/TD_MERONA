@@ -47,10 +47,9 @@ public class SkillManager : Singleton<SkillManager>
 
     //    return skill;
     //}
-    public Skill SpawnProjectileSkill(int code)
+    public Skill SpawnProjectileSkill(int prefabCode)
     {
-        int projectPrefabCode = GetConditionData(code).projectile_prefab;
-        string key = projectPrefabCode.ToString();
+        string key = m_PrefabData.GetPrefab(prefabCode)?.name;
 
         Skill skill = M_SkillPool.GetPool(key)?.Spawn();
         return skill;
@@ -58,7 +57,7 @@ public class SkillManager : Singleton<SkillManager>
     public void DespawnProjectileSkill(Skill skill)
     {
         int projectPrefabCode = GetConditionData(skill.m_ConditionInfo_Excel.Code).projectile_prefab;
-        string key = projectPrefabCode.ToString();
+        string key = m_PrefabData.GetPrefab(projectPrefabCode).name;
         M_SkillPool.GetPool(key)?.DeSpawn(skill);
     }
     public int Condition_NoToCode(int no)

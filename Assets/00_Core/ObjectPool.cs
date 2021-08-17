@@ -56,25 +56,32 @@ public abstract class ObjectPool<Pool, Origin> : Singleton<Pool> where Pool : Mo
         m_Pools = null;
     }
 
-    protected void AddPool(string key, Origin origin, Transform parent)
+    protected bool AddPool(string key, Origin origin, Transform parent)
     {
         if (m_Origins.ContainsKey(key))
-            return;
+            return false;
 
         m_Origins.Add(key, origin);
 
         GameObject Parent = new GameObject();
         Parent.name = origin.name;
         Parent.transform.SetParent(parent);
+        origin.transform.SetParent(Parent.transform);
 
         m_Pools.Add(key, new MemoryPool<Origin>(origin, m_PoolSize, Parent.transform));
+
+        origin.name += "_Origin";
 
 #if UNITY_EDITOR
         m_DebugOrigin.Add(key, origin);
 #endif
+        return true;
     }
     public virtual MemoryPool<Origin> GetPool(string key)
     {
+        if (key == null)
+            return null;
+
         if (m_Pools.ContainsKey(key))
             return m_Pools[key];
 

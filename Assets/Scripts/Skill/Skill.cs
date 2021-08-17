@@ -54,7 +54,7 @@ public class Skill : MonoBehaviour
     {
         get
         {
-            return DistanceToTarget <= 0.001f;
+            return DistanceToTarget <= 0.01f;
         }
     }
     // 생존 시간 소진

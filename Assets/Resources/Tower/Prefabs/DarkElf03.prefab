@@ -2061,6 +2061,7 @@ GameObject:
   m_Component:
   - component: {fileID: 97444714480567672}
   - component: {fileID: 5097080208117786647}
+  - component: {fileID: 2827165174213632650}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -2103,6 +2104,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2827165174213632650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2580809551654535583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b4dcbc9fa793714e96daea9df23982e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3080305336334668868
 GameObject:
   m_ObjectHideFlags: 0

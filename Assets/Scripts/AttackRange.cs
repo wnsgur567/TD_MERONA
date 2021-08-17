@@ -9,14 +9,16 @@ public class AttackRange : MonoBehaviour
     protected SphereCollider m_RangeCollider;
     protected List<GameObject> m_TargetList;
 
+    private void Awake()
+    {
+        Initialize();
+    }
+
     public void Initialize()
     {
         m_RangeCollider = GetComponent<SphereCollider>();
-        if (null == m_RangeCollider)
-        {
-            m_RangeCollider = gameObject.AddComponent<SphereCollider>();
-            m_RangeCollider.isTrigger = true;
-        }
+        m_RangeCollider ??= gameObject.AddComponent<SphereCollider>();
+        m_RangeCollider.isTrigger = true;
 
         m_TargetList = new List<GameObject>();
     }

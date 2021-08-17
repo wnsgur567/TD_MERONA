@@ -24,6 +24,8 @@ public class Devil : MonoBehaviour
     #endregion
 
     #region 내부 프로퍼티
+    // 마왕 매니져
+    protected DevilManager M_Devil => DevilManager.Instance;
     // 타워 매니져
     protected TowerManager M_Tower => TowerManager.Instance;
     // 버프 매니져
@@ -71,7 +73,7 @@ public class Devil : MonoBehaviour
     protected virtual void InitializeDevil(E_Devil no)
     {
         #region 엑셀 데이터 정리
-        m_DevilInfo_Excel = M_Tower.GetData(no);
+        m_DevilInfo_Excel = M_Devil.GetData(no);
         #endregion
 
         #region 내부 데이터 정리

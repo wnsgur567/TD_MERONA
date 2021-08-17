@@ -26,11 +26,14 @@ public class SkillPool : ObjectPool<SkillPool, Skill>
                 Skill origin = originClone.AddComponent<Skill>();
 
                 GameObject attackRange = origin.transform.Find("AttackRange").gameObject;
-                (origin.m_SkillInfo.AttackRange = attackRange.AddComponent<AttackRange>()).Initialize();
+                origin.m_SkillInfo.AttackRange = attackRange.AddComponent<AttackRange>();
+                origin.m_SkillInfo.AttackRange.Initialize();
 
-                AddPool(key, origin, transform);
-
-                GameObject.Destroy(originClone);
+                origin.gameObject.SetActive(false);
+                if (!AddPool(key, origin, transform))
+                {
+                    GameObject.Destroy(originClone);
+                }
             }
         }
     }

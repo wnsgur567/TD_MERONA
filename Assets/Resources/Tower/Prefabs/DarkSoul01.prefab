@@ -1295,7 +1295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4387309800941080}
   m_Layer: 0
-  m_Name: Darksoul01
+  m_Name: DarkSoul01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1703,6 +1703,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7976411779590678150}
   - component: {fileID: 3237572937612202830}
+  - component: {fileID: 844142363392903016}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -1745,6 +1746,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &844142363392903016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4343357723191470808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b4dcbc9fa793714e96daea9df23982e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4496986255095214500
 GameObject:
   m_ObjectHideFlags: 0

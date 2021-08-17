@@ -37,13 +37,8 @@ public class TowerManager : Singleton<TowerManager>
     {
         Tower spawn = SpawnTower(tower);
         m_DirTowerList[dir].Add(spawn);
+        spawn.m_TowerInfo.Direction = dir;
         return spawn;
-    }
-    public Tower_TableExcel GetData(E_Devil no)
-    {
-        Tower_TableExcel result = m_TowerData.DataList.Where(item => item.No == (int)no).SingleOrDefault();
-
-        return result;
     }
     public Tower_TableExcel GetData(E_Tower no)
     {
