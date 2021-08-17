@@ -1,37 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class Stage_EnemyManager : Singleton<Stage_EnemyManager>
 {
-    protected StageEnemy_TableExcelLoader m_StageEnemyData;
+    private StageChangedEventArgs Now_StageData;
 
     protected DataTableManager M_DataTable => DataTableManager.Instance;
 
+    private Stage_TableExcelLoader stage_excel_loader;
+    
+    private int monsterCode;
+
     private void Awake()
     {
-        m_StageEnemyData = M_DataTable.GetDataTable<StageEnemy_TableExcelLoader>();
+        stage_excel_loader = M_DataTable.GetDataTable<Stage_TableExcelLoader>();
     }
 
-    public StageEnemy_TableExcel GetData(int code)
+    void Start()
     {
-        StageEnemy_TableExcel origin = m_StageEnemyData.DataList.Where(item => item.Code == code).Single();
-        return origin;
+        StageInfoManager.Instance.OnTimeChangedEvent += OnCountChanged;
+        StageInfoManager.Instance.OnStageChangedEvent += OnStageChanged;
     }
 
-    public List<StageEnemy_TableExcel> GetListData(int code)
+    public void OnStageChanged(StageChangedEventArgs args)
     {
-        List<StageEnemy_TableExcel> origin = new List<StageEnemy_TableExcel>();
-
-        for (int i = 0; i < m_StageEnemyData.DataList.Count; i++)
+        Now_StageData.stage_num = args.stage_num;
+        Now_StageData.stageName = args.stageName;
+        Now_StageData.stage_time = args.stage_time;
+        Now_StageData.stage_type = args.stage_type;
+    }
+    public void OnCountChanged(float remainTime, float progress)
+    {
+        if (Now_StageData.stage_num % 2 == 1 && progress >= 1.0f)
         {
-            if (m_StageEnemyData.DataList[i].Code == code)
-            {
-                origin.Add(m_StageEnemyData.DataList[i]);
-            }
+            M_End_Time();
         }
-        
-        return origin;
+    }
+
+    public void M_End_Time()
+    {
+        monsterCode = stage_excel_loader.DataList[Now_StageData.stage_num].StageMonsterTable;
+        SpawnManager.Instance.Start_Stage(monsterCode);
     }
 }
