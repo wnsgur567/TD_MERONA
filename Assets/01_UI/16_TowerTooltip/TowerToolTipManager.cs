@@ -22,6 +22,7 @@ public class TowerToolTipManager : Singleton<TowerToolTipManager>
     // TODO : param tower can changed ( Node or tower manager / that you want managing tower )
     public void ActivateToolTip(Vector3 worldPos, Tower tower ,Tower_TableExcel data)
     {
+        m_worldFlag = true;
         m_tower = tower;
         m_tooltip.SetUIInfo(data);
         // TODO : camera world to screen pos
@@ -29,6 +30,7 @@ public class TowerToolTipManager : Singleton<TowerToolTipManager>
     }
     public void ActivateToolTipOnUIClick(Vector2 mousePos,InventorySlotGUI slot, Tower_TableExcel data)
     {
+        m_invenFlag = true;
         m_slot = slot;
         m_tooltip.SetUIInfo(data);        
         m_tooltip.SetPosition(mousePos);
@@ -57,7 +59,7 @@ public class TowerToolTipManager : Singleton<TowerToolTipManager>
     {
         if (m_invenFlag)
             FlushInvenSlot();
-        else
+        if(m_worldFlag)
             FlushNode();
         UserInfoManager.Instance.AddGold(price);
 

@@ -152,8 +152,11 @@ public class ShopManager : Singleton<ShopManager>
 
             Debug.Log($"rank : {rank_forCreate}");
 
+            // shop can create tower ONLY 1 STAR
+            var OnlyOneStar_tower_data_list = m_tower_data_list.FindAll((item) => { return item.Star == 1; });
+
             // rank 에 부합하는 데이터 뽑기
-            var tower_data_list = m_tower_data_list.FindAll((item) => { return item.Rank == rank_forCreate; });
+            var tower_data_list = OnlyOneStar_tower_data_list.FindAll((item) => { return item.Rank == rank_forCreate; });
 
             // tower_data_list 중에 하나
             int selected_index = Random.Range(0, tower_data_list.Count);

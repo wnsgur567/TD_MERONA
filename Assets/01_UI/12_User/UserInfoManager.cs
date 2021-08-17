@@ -65,6 +65,10 @@ public class UserInfoManager : Singleton<UserInfoManager>
             // TODO : if have user file data...
         }
 
+        if(DevilCode == 0)
+        {
+            m_info.SelectedDevilCode = 100001;
+        }
     }
     private void Start()
     {

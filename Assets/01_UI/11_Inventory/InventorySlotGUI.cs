@@ -182,7 +182,8 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         m_showObj?.SetActive(false);
 
         if (IsOccupied == false)
-        {   // is empty slot (tower)            
+        {   // is empty slot (tower)
+            m_info.tower = null;
             m_showObj = null;
             m_textPro.text = "Empty";
             return;
