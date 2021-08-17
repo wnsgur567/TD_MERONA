@@ -26,6 +26,6 @@ public class Node : MonoBehaviour
     private void Awake()
     {
         m_Outline = transform.Find("Outline").gameObject;
-        m_Outline.SetActive(false);
+        //m_Outline.SetActive(false);
     }
 }

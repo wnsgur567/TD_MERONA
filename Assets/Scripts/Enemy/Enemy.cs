@@ -27,6 +27,18 @@ public class Enemy : MonoBehaviour
         public int Prefeb;
     }
 
+    [Serializable]
+    public struct SkillStat_Data
+    {
+        public float CoolTime;
+        public float Dmg;
+        public float Dmg_plus;
+        public float Range;
+        public float Speed;
+        public float Target_num;
+        public float Size;
+    }
+
     #region Get프로퍼티
 
     public string Get_EnemyName_EN => m_EnemyInfo.Name_EN;
@@ -66,6 +78,8 @@ public class Enemy : MonoBehaviour
 
     #endregion
 
+    private Dictionary<int, IEnumerator> debuff;
+
     //현재 바라보고 있는 waypoint
     private Transform target;
 
@@ -80,10 +94,20 @@ public class Enemy : MonoBehaviour
     private Enemy_Data m_EnemyInfo;
 
     //체력바
-    public Image image;
+    [SerializeField] Image image;
 
     private Enemy_TableExcel m_Enemyinfo_Excel;
-    private EnemyManager M_Enemy;
+    private EnemyManager M_Enemy => EnemyManager.Instance;
+
+    private DataTableManager M_DataTable => DataTableManager.Instance;
+    private SkillCondition_TableExcelLoader skillcondition_table;
+    private SkillStat_TableExcelLoader skillstat_table;
+
+    private int atkcode;
+    private SkillStat_Data atkstatdata;
+
+    private int skillcode;
+    private SkillStat_Data skillstatdata;
 
     #region 시너지 관련
     // 버프
@@ -91,22 +115,38 @@ public class Enemy : MonoBehaviour
     #endregion
 
     private float Half_HP;
+    private float Origin_HP;
 
     public bool isDivide = false;
 
     private void Start()
     {
-        BuffList = new List<BuffCC_TableExcel>();
+        skillcondition_table = M_DataTable.GetDataTable<SkillCondition_TableExcelLoader>();
+        skillstat_table = M_DataTable.GetDataTable<SkillStat_TableExcelLoader>();
 
-        M_Enemy = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+        atkcode = skillcondition_table.DataList[m_EnemyInfo.Atk_Code].PassiveCode;
 
-        Half_HP = (float)(m_EnemyInfo.HP * 0.5);
-
-        E_Direction direc = E_Direction.Max;
+        skillstatdata.CoolTime = skillstat_table.DataList[atkcode].CoolTime;
+        skillstatdata.Dmg = skillstat_table.DataList[atkcode].Dmg;
+        skillstatdata.Dmg_plus = skillstat_table.DataList[atkcode].Dmg_plus;
+        skillstatdata.Range = skillstat_table.DataList[atkcode].Range;
+        skillstatdata.Speed = skillstat_table.DataList[atkcode].Speed;
+        skillstatdata.Target_num = skillstat_table.DataList[atkcode].Target_num;
+        skillstatdata.Size = skillstat_table.DataList[atkcode].Size;
 
         image.fillAmount = m_EnemyInfo.HP;
 
-        animator = GetComponent<Animator>();
+        if (m_EnemyInfo.Name_EN == "Grffin02")
+        {
+            Half_HP = (float)(m_EnemyInfo.HP * 0.5);
+            Origin_HP = m_EnemyInfo.HP;
+
+
+        }
+
+        BuffList = new List<BuffCC_TableExcel>();
+
+        animator = transform.Find("Mesh").GetComponent<Animator>();
 
         switch (direc)
         {
@@ -126,6 +166,24 @@ public class Enemy : MonoBehaviour
                 target = NorthWayPoints.points[0];
                 break;
         }
+
+        if (m_EnemyInfo.Name_EN == "Defender01" || m_EnemyInfo.Name_EN == "Defender02" 
+            || m_EnemyInfo.Name_EN == "Defender03" || m_EnemyInfo.Name_EN == "Defender04"
+            || m_EnemyInfo.Name_EN == "DwarfWarrior01" || m_EnemyInfo.Name_EN == "DwarfWarrior02"
+            || m_EnemyInfo.Name_EN == "DwarfWarrior04" || m_EnemyInfo.Name_EN == "DwarfWarrior04")
+        {
+            skillcode = skillcondition_table.DataList[m_EnemyInfo.Atk_Code].PassiveCode;
+
+            skillstatdata.CoolTime = skillstat_table.DataList[skillcode].CoolTime;
+            skillstatdata.Dmg = skillstat_table.DataList[skillcode].Dmg;
+            skillstatdata.Dmg_plus = skillstat_table.DataList[skillcode].Dmg_plus;
+            skillstatdata.Range = skillstat_table.DataList[skillcode].Range;
+            skillstatdata.Speed = skillstat_table.DataList[skillcode].Speed;
+            skillstatdata.Target_num = skillstat_table.DataList[skillcode].Target_num;
+            skillstatdata.Size = skillstat_table.DataList[skillcode].Size;
+
+            Invoke("StartSkill", skillstatdata.CoolTime);
+        }
     }
 
     private void Update()
@@ -135,51 +193,24 @@ public class Enemy : MonoBehaviour
             Vector3 dir = target.position - transform.position;
             transform.Translate(dir.normalized * m_EnemyInfo.Move_spd * Time.deltaTime, Space.World);
 
-            animator.SetBool("Run", true);
-
             if (Vector3.Distance(transform.position, target.position) <= 0.2f)
             {
                 GetNextWayPoint();
             }
         }
 
-        if (!isDivide)
+        #region 그리핀(하늘)로 체인지
+
+        if (m_EnemyInfo.Name_EN == "Grffin02" && !isDivide)
         {
             //HP가 반아래가 되었을때
-            //타입 griffin_fly
-            //분열 버프
-            if (m_EnemyInfo.HP <= Half_HP && m_EnemyInfo.Name_EN == "Griffin02")
+            if (m_EnemyInfo.HP <= Half_HP)
             {
-                //On_Divide();
-                BuffCC_TableExcel buff = new BuffCC_TableExcel();
-
-                buff.No = 83;
-                buff.Name_KR = "스킬 그리핀(하늘)";
-                buff.Name_EN = "Buff083";
-                buff.Code = 320083;
-                buff.BuffType1 = 14;
-                buff.AddType1 = 1;
-                buff.BuffAmount1 = 1.00f;
-                buff.BuffRand1 = 1.00f;
-                buff.Summon1 = 200009;
-                buff.BuffType2 = 0;
-                buff.AddType2 = 0;
-                buff.BuffAmount2 = 0.00f;
-                buff.BuffRand2 = 0.00f;
-                buff.Summon2 = 0;
-                buff.BuffType3 = 0;
-                buff.AddType3 = 0;
-                buff.BuffAmount3 = 0.00f;
-                buff.BuffRand3 = 0.00f;
-                buff.Summon3 = 0;
-                buff.Duration = 1f;
-                buff.Prefab = 0;
-
-                BuffList.Add(buff);
-
-                isDivide = true;
+                ChangeMode();
             }
         }
+
+        #endregion
 
         if (m_EnemyInfo.HP <= 0)
         {
@@ -224,10 +255,10 @@ public class Enemy : MonoBehaviour
         StartCoroutine(OnStun());
     }
 
-    //분열
-    public void On_Divide()
+    //소환
+    public void On_Summon()
     {
-        StartCoroutine(Divide());
+        StartCoroutine(OnSummon());
     }
 
     //동서남북
@@ -251,9 +282,6 @@ public class Enemy : MonoBehaviour
     public void On_Death()
     {
         animator.SetBool("Die", true);
-
-        SpawnManager.Instance.Despawn(this);
-        //EnemyPool.Instance.GetPool(data.Name).DeSpawn(enemy);
     }
 
     //데미지
@@ -307,11 +335,31 @@ public class Enemy : MonoBehaviour
                             //총 도트 데미지를 초당으로 데미지로 바꾸기
                             float dot_dmg = amount / Buff_Debufftime;
 
-                            StartCoroutine(Dot_DmgTime(Buff_Debufftime, dot_dmg));
+                            // 디버프 코드
+                            int code = BuffList[i].Code;
+
+                            // 적용되고 있는 디버프 중 현재 디버프 코드가 없으면
+                            if (!debuff.ContainsKey(code))
+                            {
+                                // 추가
+                                debuff.Add(code, Dot_DmgTime(code, Buff_Debufftime, dot_dmg));
+                            }
+                            // 디버프 코드가 있으면
+                            else
+                            {
+                                if (debuff.TryGetValue(code, out IEnumerator coroutine))
+                                {
+                                    StopCoroutine(coroutine);
+                                }
+                                debuff[code] = Dot_DmgTime(code, Buff_Debufftime, dot_dmg);
+                            }
+
+                            StartCoroutine(debuff[code]);
+                            //StartCoroutine(Dot_DmgTime(Buff_Debufftime, dot_dmg));
                             break;
 
                         case E_BuffType.Summon:
-                            On_Divide();
+                            On_Summon();
                             break;
                     }
                 }
@@ -340,7 +388,26 @@ public class Enemy : MonoBehaviour
                                 //총 도트 데미지를 초당으로 데미지로 바꾸기
                                 float dot_dmg = amount / Buff_Debufftime;
 
-                                StartCoroutine(Dot_DmgTime(Buff_Debufftime, dot_dmg));
+                                // 디버프 코드
+                                int code = BuffList[i].Code;
+
+                                // 적용되고 있는 디버프 중 현재 디버프 코드가 없으면
+                                if (!debuff.ContainsKey(code))
+                                {
+                                    // 추가
+                                    debuff.Add(code, Dot_DmgTime(code, Buff_Debufftime, dot_dmg));
+                                }
+                                // 디버프 코드가 있으면
+                                else
+                                {
+                                    if (debuff.TryGetValue(code, out IEnumerator coroutine))
+                                    {
+                                        StopCoroutine(coroutine);
+                                    }
+                                    debuff[code] = Dot_DmgTime(code, Buff_Debufftime, dot_dmg);
+                                }
+
+                                StartCoroutine(debuff[code]);
                                 break;
                         }
                     }
@@ -363,13 +430,34 @@ public class Enemy : MonoBehaviour
                             switch (buff.BuffType)
                             {
                                 case E_BuffType.Dot_Dmg:
+
+                                    //바꿔야됨 tower 공격력으로
                                     //총 체력에 buffamount의 퍼센트 만큼 가져오기
                                     float amount = Get_EnemyHP * BuffAmount;
 
                                     //총 도트 데미지를 초당으로 데미지로 바꾸기
                                     float dot_dmg = amount / Buff_Debufftime;
 
-                                    StartCoroutine(Dot_DmgTime(Buff_Debufftime, dot_dmg));
+                                    // 디버프 코드
+                                    int code = BuffList[i].Code;
+
+                                    // 적용되고 있는 디버프 중 현재 디버프 코드가 없으면
+                                    if (!debuff.ContainsKey(code))
+                                    {
+                                        // 추가
+                                        debuff.Add(code, Dot_DmgTime(code, Buff_Debufftime, dot_dmg));
+                                    }
+                                    // 디버프 코드가 있으면
+                                    else
+                                    {
+                                        if (debuff.TryGetValue(code, out IEnumerator coroutine))
+                                        {
+                                            StopCoroutine(coroutine);
+                                        }
+                                        debuff[code] = Dot_DmgTime(code, Buff_Debufftime, dot_dmg);
+                                    }
+
+                                    StartCoroutine(debuff[code]);
                                     break;
                             }
                         }
@@ -492,6 +580,17 @@ public class Enemy : MonoBehaviour
 
     #region 내부 함수
 
+    private void StartSkill()
+    {
+        animator.SetTrigger("Skill");
+    }
+
+    private void ChangeMode()
+    {
+        //그리핀 하늘 코드로 데이터 셋팅
+        InitializeEnemy(200009);
+    }
+
     //다음 waypoint 정보
     private void GetNextWayPoint()
     {
@@ -501,7 +600,7 @@ public class Enemy : MonoBehaviour
                 if (waypointIndex >= EastWayPoints.points.Length - 1)
                 {
                     transform.position = EastWayPoints.points[EastWayPoints.points.Length - 1].position;
-                    animator.SetBool("Attack", true);
+                    animator.SetTrigger("Attack");
                 }
 
                 else
@@ -516,7 +615,7 @@ public class Enemy : MonoBehaviour
                 if (waypointIndex >= WestWayPoints.points.Length - 1)
                 {
                     transform.position = WestWayPoints.points[WestWayPoints.points.Length - 1].position;
-                    animator.SetBool("Attack", true);
+                    animator.SetTrigger("Attack");
                 }
 
                 else
@@ -531,7 +630,7 @@ public class Enemy : MonoBehaviour
                 if (waypointIndex >= SouthWayPoints.points.Length - 1)
                 {
                     transform.position = SouthWayPoints.points[SouthWayPoints.points.Length - 1].position;
-                    animator.SetBool("Attack", true);
+                    animator.SetTrigger("Attack");
                 }
 
                 else
@@ -546,7 +645,7 @@ public class Enemy : MonoBehaviour
                 if (waypointIndex >= NorthWayPoints.points.Length - 1)
                 {
                     transform.position = NorthWayPoints.points[NorthWayPoints.points.Length - 1].position;
-                    animator.SetBool("Attack", true);
+                    animator.SetTrigger("Attack");
                 }
 
                 else
@@ -568,27 +667,17 @@ public class Enemy : MonoBehaviour
     {
         isStun = true;
 
+        animator.SetTrigger("Stun");
+
         yield return new WaitForSeconds(1f);
 
         isStun = false;
     }
 
     //분열
-    IEnumerator Divide()
+    IEnumerator OnSummon()
     {
-        Vector3 pos = transform.localPosition;
-
-        if (waypointIndex % 2 == 0)
-        {
-            pos.x = pos.x - 0.2f;
-        }
-
-        else if (waypointIndex % 2 == 1)
-        {
-            pos.z = pos.z - 0.2f;
-        }
-
-        SpawnManager.Instance.SpawnEnemy(direc, pos, target, waypointIndex, "Griffin01", animator);
+        SpawnManager.Instance.SpawnEnemy(direc, transform.localPosition, target, waypointIndex, "Griffin01", animator);
 
         yield return null;
     }
@@ -626,13 +715,34 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    IEnumerator Dot_DmgTime(float time, float dmg)
+    IEnumerator Dot_DmgTime(int code, float time, float dmg)
     {
         for (int i = 0; i < time; i++)
         {
             m_EnemyInfo.HP -= dmg;
             yield return new WaitForSeconds(1f);
         }
+
+        debuff[code] = null;
     }
+    #endregion
+
+    #region Call함수
+
+    private void CallAttack()
+    {
+
+    }
+
+    private void CallSkill()
+    {
+
+    }
+
+    private void CallDie()
+    {
+        SpawnManager.Instance.Despawn(this);
+    }
+
     #endregion
 }

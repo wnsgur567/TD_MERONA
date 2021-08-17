@@ -24,6 +24,7 @@ public class DevilManager : Singleton<DevilManager>
 
     #region 내부 프로퍼티
     protected DataTableManager M_DataTable => DataTableManager.Instance;
+    protected UserInfoManager M_UserInfo => UserInfoManager.Instance;
     #endregion
 
     #region 외부 프로퍼티
@@ -36,9 +37,36 @@ public class DevilManager : Singleton<DevilManager>
     #region 외부 함수
     public void SelectDevil(E_Devil no)
     {
-        GameObject devil = GameObject.Instantiate(m_PrefabData.GetPrefab(GetData(no).Prefab));
+        Tower_TableExcel data = GetData(no);
+        GameObject devil = GameObject.Instantiate(m_PrefabData.GetPrefab(data.Prefab));
+        devil.transform.position = Vector3.zero;
+        devil.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        devil.transform.localScale = Vector3.one * m_PrefabData.DataList[data.No - 1].Size;
+        devil.transform.SetParent(transform);
 
         switch (no)
+        {
+            case E_Devil.HateQueen:
+                m_Devil = devil.AddComponent<HateQueen>();
+                break;
+            case E_Devil.HellLord:
+                m_Devil = devil.AddComponent<Devil>();
+                break;
+            case E_Devil.FrostLich:
+                m_Devil = devil.AddComponent<Devil>();
+                break;
+        }
+    }
+    public void SelectDevil(int code)
+    {
+        Tower_TableExcel data = GetData(code);
+        GameObject devil = GameObject.Instantiate(m_PrefabData.GetPrefab(data.Prefab));
+        devil.transform.position = Vector3.zero;
+        devil.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        devil.transform.localScale = Vector3.one * m_PrefabData.DataList[data.No - 1].Size;
+        devil.transform.SetParent(transform);
+
+        switch ((E_Devil)data.No)
         {
             case E_Devil.HateQueen:
                 m_Devil = devil.AddComponent<HateQueen>();
@@ -57,6 +85,12 @@ public class DevilManager : Singleton<DevilManager>
 
         return result;
     }
+    public Tower_TableExcel GetData(int code)
+    {
+        Tower_TableExcel result = m_TowerData.DataList.Where(item => item.Code == code).SingleOrDefault();
+
+        return result;
+    }
     #endregion
 
     #region 유니티 콜백 함수
@@ -64,6 +98,11 @@ public class DevilManager : Singleton<DevilManager>
     {
         m_TowerData = M_DataTable.GetDataTable<Tower_TableExcelLoader>();
         m_PrefabData = M_DataTable.GetDataTable<Prefab_TableExcelLoader>();
+    }
+
+    private void Start()
+    {
+        SelectDevil(M_UserInfo.DevilCode);
     }
 
     void Update()

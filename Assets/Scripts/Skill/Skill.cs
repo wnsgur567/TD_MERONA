@@ -16,51 +16,23 @@ public class Skill : MonoBehaviour
     #region 내부 프로퍼티
     // 스킬 매니져
     protected SkillManager M_Skill => SkillManager.Instance;
+    // 버프 매니져
+    protected BuffManager M_Buff => BuffManager.Instance;
 
+    // 타겟 위치
+    protected Vector3 TargetPos => m_Target.transform.position;
     // 스킬 이동 속도
-    protected float MoveSpeed
-    {
-        get
-        {
-            return m_StatInfo_Excel.Speed * Time.deltaTime;
-        }
-    }
+    protected float MoveSpeed => m_StatInfo_Excel.Speed * Time.deltaTime;
     // 타겟까지의 방향
-    protected Vector3 TargetDir
-    {
-        get
-        {
-            return (m_Target.transform.position - transform.position);
-        }
-    }
+    protected Vector3 TargetDir => TargetPos - transform.position;
     // 타겟까지의 거리
-    protected float DistanceToTarget
-    {
-        get
-        {
-            return Vector3.Distance(transform.position, m_Target.transform.position);
-        }
-    }
+    protected float DistanceToTarget => Vector3.Distance(transform.position, TargetPos);
     // 타겟 잃어버림
-    protected bool LostTarget
-    {
-        get
-        {
-            return null == m_Target;
-        }
-    }
+    protected bool LostTarget => m_Target == null;
     // 타겟에게 도착 여부
-    protected bool ArrivedToTarget
-    {
-        get
-        {
-            return DistanceToTarget <= m_SkillInfo.AttackRange.Range;
-        }
-    }
-    // 생존 시간 남음
-    protected bool ExistLifeTime => m_SkillInfo.LifeTime > 0f;
+    protected bool ArrivedToTarget => DistanceToTarget <= m_SkillInfo.AttackRange.Range;
     // 생존 시간 소진
-    protected bool DepletedLifeTime => !ExistLifeTime;
+    protected bool DepletedLifeTime => m_SkillInfo.LifeTime <= 0f;
     // 튕김 카운트 소진
     protected bool DepletedBounceCount => m_SkillInfo.BounceCount <= 0;
     #endregion
@@ -77,6 +49,11 @@ public class Skill : MonoBehaviour
 
         RotateSkill();
         MoveSkill();
+
+        if (CheckToAttack())
+        {
+            Attack();
+        }
 
         if (CheckToUpdateTarget())
         {
@@ -109,8 +86,21 @@ public class Skill : MonoBehaviour
 
         m_Target = null;
 
+        switch ((E_AttackType)m_ConditionInfo_Excel.Atk_type)
+        {
+            case E_AttackType.FixedFire:
+                m_SkillInfo.FixedTargetList.Clear();
+                break;
+            case E_AttackType.PenetrateFire:
+                m_SkillInfo.FixedTargetList.Clear();
+                m_SkillInfo.PenetrateTargetList.Clear();
+                break;
+            case E_AttackType.BounceFire:
+                m_SkillInfo.BounceTargetList.Clear();
+                break;
+        }
+
         m_SkillInfo.AttackRange.Clear();
-        m_SkillInfo.BounceTargetList.Clear();
 
         M_Skill.DespawnProjectileSkill(this);
     }
@@ -178,8 +168,6 @@ public class Skill : MonoBehaviour
                         m_SkillInfo.BounceTargetList.Add(m_Target);
                     }
                 }
-
-                --m_SkillInfo.BounceCount;
                 break;
         }
     }
@@ -265,28 +253,94 @@ public class Skill : MonoBehaviour
         switch ((E_AttackType)m_ConditionInfo_Excel.Atk_type)
         {
             case E_AttackType.NormalFire:
-            case E_AttackType.BounceFire:
                 break;
             case E_AttackType.FixedFire:
+                if (m_SkillInfo.DotTimer <= 0f)
+                {
+                    m_SkillInfo.DotTimer += 1f;
+                }
+                m_SkillInfo.DotTimer -= Time.deltaTime;
+                m_SkillInfo.LifeTime -= Time.deltaTime;
+                break;
             case E_AttackType.PenetrateFire:
                 m_SkillInfo.LifeTime -= Time.deltaTime;
+                break;
+            case E_AttackType.BounceFire:
                 break;
         }
     }
     protected bool CheckToAttack()
     {
+        if (LostTarget)
+            return false;
+
         switch ((E_AttackType)m_ConditionInfo_Excel.Atk_type)
         {
             case E_AttackType.NormalFire:
-                return LostTarget || ArrivedToTarget;
+                return ArrivedToTarget;
             case E_AttackType.FixedFire:
+                return m_SkillInfo.DotTimer <= 0f;
             case E_AttackType.PenetrateFire:
-                return DepletedLifeTime;
+                return m_SkillInfo.PenetrateTargetList.Count > 0;
             case E_AttackType.BounceFire:
-                return LostTarget || DepletedBounceCount;
+                return ArrivedToTarget;
         }
 
-        return LostTarget || ArrivedToTarget;
+        return ArrivedToTarget;
+    }
+    protected void Attack()
+    {
+        float damage = m_StatInfo_Excel.Dmg;
+        BuffCC_TableExcel buffData = M_Buff.GetData(m_StatInfo_Excel.Buff_CC);
+
+        switch ((E_AttackType)m_ConditionInfo_Excel.Atk_type)
+        {
+            case E_AttackType.NormalFire:
+                if (buffData.Code != 0)
+                {
+                    m_Target.BuffList.Add(buffData);
+                }
+
+                m_Target.On_DaMage(damage);
+                break;
+            case E_AttackType.FixedFire:
+                for (int i = 0; i < m_SkillInfo.FixedTargetList.Count; ++i)
+                {
+                    if (buffData.Code != 0)
+                    {
+                        m_SkillInfo.FixedTargetList[i].BuffList.Add(buffData);
+                    }
+
+                    m_SkillInfo.FixedTargetList[i].On_DaMage(damage);
+                }
+                break;
+            case E_AttackType.PenetrateFire:
+                for (int i = 0; i < m_SkillInfo.FixedTargetList.Count; ++i)
+                {
+                    Enemy target = m_SkillInfo.FixedTargetList[i];
+
+                    if (!m_SkillInfo.PenetrateTargetList.Contains(target))
+                    {
+                        if (buffData.Code != 0)
+                        {
+                            target.BuffList.Add(buffData);
+                        }
+
+                        target.On_DaMage(damage);
+                        m_SkillInfo.PenetrateTargetList.Add(target);
+                    }
+                }
+                break;
+            case E_AttackType.BounceFire:
+                if (buffData.Code != 0)
+                {
+                    m_Target.BuffList.Add(buffData);
+                }
+
+                m_Target.On_DaMage(damage);
+                --m_SkillInfo.BounceCount;
+                break;
+        }
     }
     #endregion
 
@@ -298,10 +352,22 @@ public class Skill : MonoBehaviour
         m_ConditionInfo_Excel = conditionData;
         m_StatInfo_Excel = statData;
 
-        if ((E_AttackType)m_ConditionInfo_Excel.Atk_type == E_AttackType.BounceFire)
+        switch ((E_AttackType)m_ConditionInfo_Excel.Atk_type)
         {
-            // 다음 타겟 찾는 사거리 = 타워 사거리의 1 / 4
-            m_SkillInfo.AttackRange.Range = m_StatInfo_Excel.Range * 0.25f;
+            case E_AttackType.NormalFire:
+                break;
+            case E_AttackType.FixedFire:
+                m_SkillInfo.FixedTargetList = m_SkillInfo.AttackRange.TargetList;
+                m_SkillInfo.AttackRange.Range = m_StatInfo_Excel.Range;
+                break;
+            case E_AttackType.PenetrateFire:
+                m_SkillInfo.FixedTargetList = m_SkillInfo.AttackRange.TargetList;
+                m_SkillInfo.AttackRange.Range = m_StatInfo_Excel.Range;
+                break;
+            case E_AttackType.BounceFire:
+                // 다음 타겟 찾는 사거리 = 타워 사거리의 1 / 4
+                m_SkillInfo.AttackRange.Range = m_StatInfo_Excel.Range * 0.25f;
+                break;
         }
 
         m_SkillInfo.BounceCount = m_StatInfo_Excel.Target_num;
@@ -309,6 +375,8 @@ public class Skill : MonoBehaviour
         m_SkillInfo.InitPos = transform.position;
         // ?? : 왼쪽부터 피연산자가 null이 아닌 경우에 피연산자 리턴 (왼쪽 피연산자가 null이 아닌 경우 오른쪽 피연산자는 무시)
         // ??= : 왼쪽 피연산자가 null인 경우에만 오른쪽 피연산자를 대입
+        m_SkillInfo.FixedTargetList ??= new List<Enemy>();
+        m_SkillInfo.PenetrateTargetList ??= new List<Enemy>();
         m_SkillInfo.BounceTargetList ??= new List<Enemy>();
 
         if (!m_SkillInfo.CanOverlapBounce &&
@@ -324,8 +392,11 @@ public class Skill : MonoBehaviour
     {
         public bool CanOverlapBounce;
         public int BounceCount;
+        public List<Enemy> FixedTargetList;
+        public List<Enemy> PenetrateTargetList;
         public List<Enemy> BounceTargetList;
         public float LifeTime;
+        public float DotTimer;
         public AttackRange AttackRange;
         public Vector3 InitPos;
     }

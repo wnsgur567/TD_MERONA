@@ -924,7 +924,9 @@ public class Tower : MonoBehaviour
                         DefaultSkill.transform.position = m_TowerInfo.AttackPivot.position;
                         break;
                     case E_FireType.Select_enemy:
-                        DefaultSkill.transform.position = m_Target.transform.position; // 적 피격 위치에 생성으로 수정 필요
+                        GameObject pivot = new GameObject();
+                        pivot.transform.position = m_Target.transform.position;
+                        DefaultSkill.transform.position = pivot.transform.position; // 적 피격 위치에 생성으로 수정 필요
                         break;
                 }
 
@@ -947,7 +949,9 @@ public class Tower : MonoBehaviour
                     DefaultSkill.transform.position = m_TowerInfo.AttackPivot.position;
                     break;
                 case E_FireType.Select_enemy:
-                    DefaultSkill.transform.position = m_Target.transform.position; // 적 피격 위치에 생성으로 수정 필요
+                    GameObject pivot = new GameObject();
+                    pivot.transform.position = m_Target.transform.position;
+                    DefaultSkill.transform.position = pivot.transform.position; // 적 피격 위치에 생성으로 수정 필요
                     break;
             }
 
@@ -1581,7 +1585,9 @@ public class Tower : MonoBehaviour
                         Skill01.transform.position = m_TowerInfo.AttackPivot.position;
                         break;
                     case E_FireType.Select_enemy:
-                        Skill01.transform.position = m_Target.transform.position; // 적 피격 위치에 생성으로 수정 필요
+                        GameObject pivot = new GameObject();
+                        pivot.transform.position = m_Target.transform.position;
+                        Skill01.transform.position = pivot.transform.position; // 적 피격 위치에 생성으로 수정 필요
                         break;
                 }
 
@@ -1604,7 +1610,9 @@ public class Tower : MonoBehaviour
                     Skill01.transform.position = m_TowerInfo.AttackPivot.position;
                     break;
                 case E_FireType.Select_enemy:
-                    Skill01.transform.position = m_Target.transform.position; // 적 피격 위치에 생성으로 수정 필요
+                    GameObject pivot = new GameObject();
+                    pivot.transform.position = m_Target.transform.position;
+                    Skill01.transform.position = pivot.transform.position; // 적 피격 위치에 생성으로 수정 필요
                     break;
             }
 
@@ -2238,7 +2246,9 @@ public class Tower : MonoBehaviour
                         Skill02.transform.position = m_TowerInfo.AttackPivot.position;
                         break;
                     case E_FireType.Select_enemy:
-                        Skill02.transform.position = m_Target.transform.position; // 적 피격 위치에 생성으로 수정 필요
+                        GameObject pivot = new GameObject();
+                        pivot.transform.position = m_Target.transform.position;
+                        Skill02.transform.position = pivot.transform.position; // 적 피격 위치에 생성으로 수정 필요
                         break;
                 }
 
@@ -2261,7 +2271,9 @@ public class Tower : MonoBehaviour
                     Skill02.transform.position = m_TowerInfo.AttackPivot.position;
                     break;
                 case E_FireType.Select_enemy:
-                    Skill02.transform.position = m_Target.transform.position; // 적 피격 위치에 생성으로 수정 필요
+                    GameObject pivot = new GameObject();
+                    pivot.transform.position = m_Target.transform.position;
+                    Skill02.transform.position = pivot.transform.position; // 적 피격 위치에 생성으로 수정 필요
                     break;
             }
 

@@ -9,6 +9,7 @@ public class AttackRange : MonoBehaviour
     protected SphereCollider m_RangeCollider;
     protected SphereCollider RangeCollider => m_RangeCollider ?? GetComponent<SphereCollider>();
     protected List<Enemy> m_TargetList;
+    public List<Enemy> TargetList => m_TargetList;
 
     public float Range { get => RangeCollider.radius; set => RangeCollider.radius = value; }
 

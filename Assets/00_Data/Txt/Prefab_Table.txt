@@ -1,4 +1,4 @@
-900001`3`Devil/Prefabs/HateQueen;
+900001`2.5`Devil/Prefabs/HateQueen;
 900002`3`Devil/Prefabs/HellLord;
 900003`3`Devil/Prefabs/FrostSkeleton;
 900004`1`Tower/Prefabs/OrkGunner01;
@@ -34,7 +34,7 @@
 900034`1.5`Tower/Prefabs/Goblin02;
 900035`1.3`Tower/Prefabs/NolWarrior02;
 900036`1.5`Tower/Prefabs/TrollShamen03;
-900037`2`Tower/Prefabs/Sparkmon01;
+900037`2`Tower/Prefabs/Sparkmon02;
 900038`1.5`Tower/Prefabs/Salamander02;
 900039`1`Tower/Prefabs/LavaGolem02;
 900040`1.2`Tower/Prefabs/Cerberos03;
@@ -61,7 +61,7 @@
 900061`1.5`Tower/Prefabs/Goblin04;
 900062`1.3`Tower/Prefabs/NolWarrior03;
 900063`1.5`Tower/Prefabs/TrollShamen04;
-900064`2`Tower/Prefabs/Sparkmon02;
+900064`2`Tower/Prefabs/Sparkmon03;
 900065`1.5`Tower/Prefabs/Salamander04;
 900066`1`Tower/Prefabs/LavaGolem03;
 900067`1.2`Tower/Prefabs/Cerberos04;
@@ -97,6 +97,7 @@
 900097`0.5`Enemy/Prefabs/Creep5_Templar;
 900098`0.5`Enemy/Prefabs/Creep6_Bowman;
 900099`0.5`Enemy/Prefabs/Creep_Rogue;
+0`1`Tower/Skill/Default;
 900100`1`Devil/Effect/Boss_01;
 900101`0.7`Devil/Skill/BossPro_01;
 900102`0.3`Devil/Effect/BossHit_01;

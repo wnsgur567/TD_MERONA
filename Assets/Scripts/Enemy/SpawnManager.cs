@@ -19,24 +19,20 @@ public class SpawnManager : Singleton<SpawnManager>
     public Transform[] spawnPoint;
 
     public EnemyPool enemyPool => EnemyPool.Instance;
+    private EnemyManager enemymanager => EnemyManager.Instance;
+    private Stage_EnemyDataManager M_StageEnemy => Stage_EnemyDataManager.Instance;
 
     private List<StageEnemy_TableExcel> m_StageEnemyInfo_Excel;
-    private Stage_EnemyManager M_StageEnemy;
 
     private SpawnData[] m_StageEnemyInfo;
-
-    private EnemyManager enemymanager => EnemyManager.Instance;
 
     private int countnum = 0;
 
     private Enemy_TableExcel m_Enemyinfo_Excel;
-    private EnemyManager M_Enemy;
 
     private void Awake()
     {
         m_StageEnemyInfo_Excel = new List<StageEnemy_TableExcel>();
-        M_StageEnemy = GameObject.Find("Stage_EnemyManager").GetComponent<Stage_EnemyManager>();
-        M_Enemy = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
     }
 
     #region 외부 함수
@@ -65,7 +61,7 @@ public class SpawnManager : Singleton<SpawnManager>
     // PrefebData 초기화
     private string GetPrefebName(int code)
     {
-        m_Enemyinfo_Excel = M_Enemy.GetData(code);
+        m_Enemyinfo_Excel = enemymanager.GetData(code);
 
         return m_Enemyinfo_Excel.Name_EN;
     }
@@ -116,6 +112,8 @@ public class SpawnManager : Singleton<SpawnManager>
         enemy.transform.position = pos;
 
         enemy.gameObject.SetActive(true);
+
+        enemy.InitializeEnemy(200009);
 
         animator.SetBool("Skill", true);
 
