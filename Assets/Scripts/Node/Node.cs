@@ -31,9 +31,17 @@ public class Node : MonoBehaviour
         m_Tower.m_TowerInfo.InitialRotation = Vector3.forward * 90f * (int)m_Tower.Direction;
 
         m_Tower.gameObject.SetActive(true);
+        m_Tower.m_TowerInfo.IsOnInventory = false;
 
         M_Tower.AddTower(tower, m_Tower.m_TowerInfo.Direction);
         M_Synergy.UpdateSynergy();
+    }
+
+    public void ClearNode()
+    {
+        m_Tower.transform.SetParent(null);
+        m_Tower.m_TowerInfo.node = null;
+        m_Tower = null;
     }
 
     private void Awake()

@@ -61,6 +61,7 @@ public class Tower : MonoBehaviour
     public E_Direction Direction => m_TowerInfo.Direction;  // cha
     public string Name => m_TowerInfo_Excel.Name_EN;
     public int TowerCode => m_TowerInfo_Excel.Code;
+    public int TowerKind => m_TowerInfo_Excel.Tower_Kinds;
     public int SynergyCode1 => m_TowerInfo_Excel.Type1;
     public int SynergyCode2 => m_TowerInfo_Excel.Type2;
     #endregion

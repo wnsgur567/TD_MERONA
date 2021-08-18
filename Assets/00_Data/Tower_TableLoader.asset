@@ -16,10 +16,11 @@ MonoBehaviour:
   DataList:
   - No: 1
     Name_KR: "\uC99D\uC624\uC758 \uC5EC\uC655"
-    Name_EN: Hate Queen
+    Name_EN: HateQueen
     Code: 100001
     Rank: 10
     Star: 10
+    Tower_Kinds: 1
     Atk: 1
     HP: 500
     Def: 10
@@ -30,15 +31,17 @@ MonoBehaviour:
     Skill2Code: 300026
     Type1: 0
     Type2: 0
+    Next_Stat: 0
     Price: 0
     Prefab: 900001
   - No: 2
     Name_KR: "\uC9C0\uC625\uC758 \uAD70\uC8FC"
-    Name_EN: Hell Lord
+    Name_EN: HellLord
     Code: 100002
     Rank: 10
     Star: 10
-    Atk: 1
+    Tower_Kinds: 2
+    Atk: 1000
     HP: 500
     Def: 10
     Crit_rate: 0.2
@@ -48,15 +51,17 @@ MonoBehaviour:
     Skill2Code: 300029
     Type1: 0
     Type2: 0
+    Next_Stat: 0
     Price: 0
     Prefab: 900002
   - No: 3
     Name_KR: "\uD504\uB85C\uC2A4\uD2B8 \uB9AC\uCE58"
-    Name_EN: Frost Lich
+    Name_EN: FrostSkeleton
     Code: 100003
     Rank: 10
     Star: 10
-    Atk: 1
+    Tower_Kinds: 3
+    Atk: 500
     HP: 500
     Def: 10
     Crit_rate: 0.2
@@ -66,6 +71,7 @@ MonoBehaviour:
     Skill2Code: 300032
     Type1: 0
     Type2: 0
+    Next_Stat: 0
     Price: 0
     Prefab: 900003
   - No: 4
@@ -74,7 +80,8 @@ MonoBehaviour:
     Code: 100004
     Rank: 2
     Star: 1
-    Atk: 1
+    Tower_Kinds: 4
+    Atk: 10
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -84,6 +91,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330001
     Type2: 330011
+    Next_Stat: 100031
     Price: 3
     Prefab: 900004
   - No: 5
@@ -92,6 +100,7 @@ MonoBehaviour:
     Code: 100005
     Rank: 2
     Star: 1
+    Tower_Kinds: 5
     Atk: 1
     HP: 0
     Def: 0
@@ -102,6 +111,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330001
     Type2: 330013
+    Next_Stat: 100032
     Price: 3
     Prefab: 900005
   - No: 6
@@ -110,7 +120,8 @@ MonoBehaviour:
     Code: 100006
     Rank: 4
     Star: 1
-    Atk: 1
+    Tower_Kinds: 6
+    Atk: 100
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -120,6 +131,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330001
     Type2: 330013
+    Next_Stat: 100033
     Price: 7
     Prefab: 900006
   - No: 7
@@ -128,7 +140,8 @@ MonoBehaviour:
     Code: 100007
     Rank: 1
     Star: 1
-    Atk: 1
+    Tower_Kinds: 7
+    Atk: 10
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -138,6 +151,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330002
     Type2: 330011
+    Next_Stat: 100034
     Price: 1
     Prefab: 900007
   - No: 8
@@ -146,7 +160,8 @@ MonoBehaviour:
     Code: 100008
     Rank: 1
     Star: 1
-    Atk: 1
+    Tower_Kinds: 8
+    Atk: 10
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -156,6 +171,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330002
     Type2: 330013
+    Next_Stat: 100035
     Price: 1
     Prefab: 900008
   - No: 9
@@ -164,6 +180,7 @@ MonoBehaviour:
     Code: 100009
     Rank: 4
     Star: 1
+    Tower_Kinds: 9
     Atk: 1
     HP: 0
     Def: 0
@@ -174,6 +191,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330002
     Type2: 330015
+    Next_Stat: 100036
     Price: 7
     Prefab: 900009
   - No: 10
@@ -182,7 +200,8 @@ MonoBehaviour:
     Code: 100010
     Rank: 1
     Star: 1
-    Atk: 1
+    Tower_Kinds: 10
+    Atk: 10
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -192,6 +211,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330003
     Type2: 330015
+    Next_Stat: 100037
     Price: 1
     Prefab: 900010
   - No: 11
@@ -200,7 +220,8 @@ MonoBehaviour:
     Code: 100011
     Rank: 3
     Star: 1
-    Atk: 1
+    Tower_Kinds: 11
+    Atk: 10
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -210,6 +231,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330003
     Type2: 330011
+    Next_Stat: 100038
     Price: 5
     Prefab: 900011
   - No: 12
@@ -218,7 +240,8 @@ MonoBehaviour:
     Code: 100012
     Rank: 3
     Star: 1
-    Atk: 1
+    Tower_Kinds: 12
+    Atk: 10
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -228,6 +251,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330003
     Type2: 330016
+    Next_Stat: 100039
     Price: 5
     Prefab: 900012
   - No: 13
@@ -236,6 +260,7 @@ MonoBehaviour:
     Code: 100013
     Rank: 1
     Star: 1
+    Tower_Kinds: 13
     Atk: 1
     HP: 0
     Def: 0
@@ -246,6 +271,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330004
     Type2: 330011
+    Next_Stat: 100040
     Price: 1
     Prefab: 900013
   - No: 14
@@ -254,6 +280,7 @@ MonoBehaviour:
     Code: 100014
     Rank: 4
     Star: 1
+    Tower_Kinds: 14
     Atk: 1
     HP: 0
     Def: 0
@@ -264,6 +291,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330004
     Type2: 330016
+    Next_Stat: 100041
     Price: 7
     Prefab: 900014
   - No: 15
@@ -272,7 +300,8 @@ MonoBehaviour:
     Code: 100015
     Rank: 2
     Star: 1
-    Atk: 1
+    Tower_Kinds: 15
+    Atk: 10
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -282,6 +311,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330004
     Type2: 330013
+    Next_Stat: 100042
     Price: 3
     Prefab: 900015
   - No: 16
@@ -290,7 +320,8 @@ MonoBehaviour:
     Code: 100016
     Rank: 2
     Star: 1
-    Atk: 1
+    Tower_Kinds: 16
+    Atk: 10
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -300,6 +331,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330004
     Type2: 330012
+    Next_Stat: 100043
     Price: 3
     Prefab: 900016
   - No: 17
@@ -308,7 +340,8 @@ MonoBehaviour:
     Code: 100017
     Rank: 1
     Star: 1
-    Atk: 1
+    Tower_Kinds: 17
+    Atk: 10
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -318,6 +351,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330005
     Type2: 330014
+    Next_Stat: 100044
     Price: 1
     Prefab: 900017
   - No: 18
@@ -326,7 +360,8 @@ MonoBehaviour:
     Code: 100018
     Rank: 5
     Star: 1
-    Atk: 1
+    Tower_Kinds: 18
+    Atk: 10
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -336,6 +371,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330005
     Type2: 330017
+    Next_Stat: 100045
     Price: 10
     Prefab: 900018
   - No: 19
@@ -344,7 +380,8 @@ MonoBehaviour:
     Code: 100019
     Rank: 3
     Star: 1
-    Atk: 1
+    Tower_Kinds: 19
+    Atk: 10
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -354,6 +391,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330005
     Type2: 330014
+    Next_Stat: 100046
     Price: 5
     Prefab: 900019
   - No: 20
@@ -362,7 +400,8 @@ MonoBehaviour:
     Code: 100020
     Rank: 2
     Star: 1
-    Atk: 1
+    Tower_Kinds: 20
+    Atk: 10
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -372,6 +411,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330006
     Type2: 330016
+    Next_Stat: 100047
     Price: 3
     Prefab: 900020
   - No: 21
@@ -380,7 +420,8 @@ MonoBehaviour:
     Code: 100021
     Rank: 3
     Star: 1
-    Atk: 1
+    Tower_Kinds: 21
+    Atk: 10
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -390,6 +431,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330006
     Type2: 330015
+    Next_Stat: 100048
     Price: 5
     Prefab: 900021
   - No: 22
@@ -398,6 +440,7 @@ MonoBehaviour:
     Code: 100022
     Rank: 1
     Star: 1
+    Tower_Kinds: 22
     Atk: 1
     HP: 0
     Def: 0
@@ -408,6 +451,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330007
     Type2: 330014
+    Next_Stat: 100049
     Price: 1
     Prefab: 900022
   - No: 23
@@ -416,7 +460,8 @@ MonoBehaviour:
     Code: 100023
     Rank: 2
     Star: 1
-    Atk: 1
+    Tower_Kinds: 23
+    Atk: 10
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -426,6 +471,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330007
     Type2: 330011
+    Next_Stat: 100050
     Price: 3
     Prefab: 900023
   - No: 24
@@ -434,7 +480,8 @@ MonoBehaviour:
     Code: 100024
     Rank: 3
     Star: 1
-    Atk: 1
+    Tower_Kinds: 24
+    Atk: 10
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -444,6 +491,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330007
     Type2: 330013
+    Next_Stat: 100051
     Price: 5
     Prefab: 900024
   - No: 25
@@ -452,7 +500,8 @@ MonoBehaviour:
     Code: 100025
     Rank: 2
     Star: 1
-    Atk: 1
+    Tower_Kinds: 25
+    Atk: 10
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -462,6 +511,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330008
     Type2: 330015
+    Next_Stat: 100052
     Price: 3
     Prefab: 900025
   - No: 26
@@ -470,7 +520,8 @@ MonoBehaviour:
     Code: 100026
     Rank: 3
     Star: 1
-    Atk: 1
+    Tower_Kinds: 26
+    Atk: 100
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -480,6 +531,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330008
     Type2: 330012
+    Next_Stat: 100053
     Price: 5
     Prefab: 900026
   - No: 27
@@ -488,7 +540,8 @@ MonoBehaviour:
     Code: 100027
     Rank: 4
     Star: 1
-    Atk: 1
+    Tower_Kinds: 27
+    Atk: 100
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -498,15 +551,17 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330008
     Type2: 330012
+    Next_Stat: 100054
     Price: 7
     Prefab: 900027
   - No: 28
     Name_KR: "\uB4DC\uB798\uACE4"
-    Name_EN: Dragon01
+    Name_EN: Dragon02
     Code: 100028
     Rank: 5
     Star: 1
-    Atk: 1
+    Tower_Kinds: 28
+    Atk: 1000
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -516,6 +571,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330009
     Type2: 330017
+    Next_Stat: 100055
     Price: 10
     Prefab: 900028
   - No: 29
@@ -524,6 +580,7 @@ MonoBehaviour:
     Code: 100029
     Rank: 1
     Star: 1
+    Tower_Kinds: 29
     Atk: 1
     HP: 0
     Def: 0
@@ -534,6 +591,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330010
     Type2: 330012
+    Next_Stat: 100056
     Price: 1
     Prefab: 900029
   - No: 30
@@ -542,7 +600,8 @@ MonoBehaviour:
     Code: 100030
     Rank: 4
     Star: 1
-    Atk: 1
+    Tower_Kinds: 30
+    Atk: 10
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -552,6 +611,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330010
     Type2: 330014
+    Next_Stat: 100057
     Price: 7
     Prefab: 900030
   - No: 31
@@ -560,7 +620,8 @@ MonoBehaviour:
     Code: 100031
     Rank: 2
     Star: 2
-    Atk: 1
+    Tower_Kinds: 4
+    Atk: 20
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -570,14 +631,16 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330001
     Type2: 330011
+    Next_Stat: 100058
     Price: 6
     Prefab: 900031
   - No: 32
     Name_KR: "\uC624\uD06C\uC804\uC0AC"
-    Name_EN: OrkWarrior02
+    Name_EN: OrkWarrior03
     Code: 100032
     Rank: 2
     Star: 2
+    Tower_Kinds: 5
     Atk: 1
     HP: 0
     Def: 0
@@ -588,6 +651,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330001
     Type2: 330013
+    Next_Stat: 100059
     Price: 6
     Prefab: 900032
   - No: 33
@@ -596,7 +660,8 @@ MonoBehaviour:
     Code: 100033
     Rank: 4
     Star: 2
-    Atk: 1
+    Tower_Kinds: 6
+    Atk: 200
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -606,6 +671,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330001
     Type2: 330013
+    Next_Stat: 100060
     Price: 14
     Prefab: 900033
   - No: 34
@@ -614,6 +680,7 @@ MonoBehaviour:
     Code: 100034
     Rank: 1
     Star: 2
+    Tower_Kinds: 7
     Atk: 1
     HP: 0
     Def: 0
@@ -624,6 +691,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330002
     Type2: 330011
+    Next_Stat: 100061
     Price: 2
     Prefab: 900034
   - No: 35
@@ -632,7 +700,8 @@ MonoBehaviour:
     Code: 100035
     Rank: 1
     Star: 2
-    Atk: 1
+    Tower_Kinds: 8
+    Atk: 20
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -642,14 +711,16 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330002
     Type2: 330013
+    Next_Stat: 100062
     Price: 2
     Prefab: 900035
   - No: 36
     Name_KR: "\uD2B8\uB864\uC8FC\uC220\uC0AC"
-    Name_EN: TrollShamen02
+    Name_EN: TrollShamen03
     Code: 100036
     Rank: 4
     Star: 2
+    Tower_Kinds: 9
     Atk: 1
     HP: 0
     Def: 0
@@ -660,6 +731,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330002
     Type2: 330015
+    Next_Stat: 100063
     Price: 14
     Prefab: 900036
   - No: 37
@@ -668,7 +740,8 @@ MonoBehaviour:
     Code: 100037
     Rank: 1
     Star: 2
-    Atk: 1
+    Tower_Kinds: 10
+    Atk: 20
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -678,6 +751,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330003
     Type2: 330015
+    Next_Stat: 100064
     Price: 2
     Prefab: 900037
   - No: 38
@@ -686,7 +760,8 @@ MonoBehaviour:
     Code: 100038
     Rank: 3
     Star: 2
-    Atk: 1
+    Tower_Kinds: 11
+    Atk: 20
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -696,6 +771,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330003
     Type2: 330011
+    Next_Stat: 100065
     Price: 10
     Prefab: 900038
   - No: 39
@@ -704,7 +780,8 @@ MonoBehaviour:
     Code: 100039
     Rank: 3
     Star: 2
-    Atk: 1
+    Tower_Kinds: 12
+    Atk: 20
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -714,14 +791,16 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330003
     Type2: 330016
+    Next_Stat: 100066
     Price: 10
     Prefab: 900039
   - No: 40
     Name_KR: "\uCF00\uB974\uBCA0\uB85C\uC2A4"
-    Name_EN: Cerberos02
+    Name_EN: Cerberos03
     Code: 100040
     Rank: 1
     Star: 2
+    Tower_Kinds: 13
     Atk: 1
     HP: 0
     Def: 0
@@ -732,14 +811,16 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330004
     Type2: 330011
+    Next_Stat: 100067
     Price: 2
     Prefab: 900040
   - No: 41
     Name_KR: "\uBC1C\uB85D"
-    Name_EN: Balrog02
+    Name_EN: Balrog03
     Code: 100041
     Rank: 4
     Star: 2
+    Tower_Kinds: 14
     Atk: 1
     HP: 0
     Def: 0
@@ -750,15 +831,17 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330004
     Type2: 330016
+    Next_Stat: 100068
     Price: 14
     Prefab: 900041
   - No: 42
     Name_KR: "\uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A4"
-    Name_EN: Minotaurus02
+    Name_EN: Minotaurus03
     Code: 100042
     Rank: 2
     Star: 2
-    Atk: 1
+    Tower_Kinds: 15
+    Atk: 20
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -768,15 +851,17 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330004
     Type2: 330013
+    Next_Stat: 100069
     Price: 6
     Prefab: 900042
   - No: 43
     Name_KR: "\uC0AC\uD2F0\uB85C\uC2A4"
-    Name_EN: Satyr02
+    Name_EN: Satyr03
     Code: 100043
     Rank: 2
     Star: 2
-    Atk: 1
+    Tower_Kinds: 16
+    Atk: 20
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -786,6 +871,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330004
     Type2: 330012
+    Next_Stat: 100070
     Price: 6
     Prefab: 900043
   - No: 44
@@ -794,7 +880,8 @@ MonoBehaviour:
     Code: 100044
     Rank: 1
     Star: 2
-    Atk: 1
+    Tower_Kinds: 17
+    Atk: 20
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -804,6 +891,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330005
     Type2: 330014
+    Next_Stat: 100071
     Price: 2
     Prefab: 900044
   - No: 45
@@ -812,7 +900,8 @@ MonoBehaviour:
     Code: 100045
     Rank: 5
     Star: 2
-    Atk: 1
+    Tower_Kinds: 18
+    Atk: 20
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -822,15 +911,17 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330005
     Type2: 330017
+    Next_Stat: 100072
     Price: 20
     Prefab: 900045
   - No: 46
     Name_KR: "\uB2E4\uD06C\uC18C\uC6B8"
-    Name_EN: DarkSoul02
+    Name_EN: DarkSoul03
     Code: 100046
     Rank: 3
     Star: 2
-    Atk: 1
+    Tower_Kinds: 19
+    Atk: 20
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -840,6 +931,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330005
     Type2: 330014
+    Next_Stat: 100073
     Price: 10
     Prefab: 900046
   - No: 47
@@ -848,7 +940,8 @@ MonoBehaviour:
     Code: 100047
     Rank: 2
     Star: 2
-    Atk: 1
+    Tower_Kinds: 20
+    Atk: 20
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -858,6 +951,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330006
     Type2: 330016
+    Next_Stat: 100074
     Price: 6
     Prefab: 900047
   - No: 48
@@ -866,7 +960,8 @@ MonoBehaviour:
     Code: 100048
     Rank: 3
     Star: 2
-    Atk: 1
+    Tower_Kinds: 21
+    Atk: 20
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -876,6 +971,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330006
     Type2: 330015
+    Next_Stat: 100075
     Price: 10
     Prefab: 900048
   - No: 49
@@ -884,6 +980,7 @@ MonoBehaviour:
     Code: 100049
     Rank: 1
     Star: 2
+    Tower_Kinds: 22
     Atk: 1
     HP: 0
     Def: 0
@@ -894,6 +991,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330007
     Type2: 330014
+    Next_Stat: 100076
     Price: 2
     Prefab: 900049
   - No: 50
@@ -902,7 +1000,8 @@ MonoBehaviour:
     Code: 100050
     Rank: 2
     Star: 2
-    Atk: 1
+    Tower_Kinds: 23
+    Atk: 20
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -912,15 +1011,17 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330007
     Type2: 330011
+    Next_Stat: 100077
     Price: 6
     Prefab: 900050
   - No: 51
     Name_KR: "\uD30C\uC774\uD2B8\uBCA0\uC5B4"
-    Name_EN: FightBear02
+    Name_EN: FightBear03
     Code: 100051
     Rank: 3
     Star: 2
-    Atk: 1
+    Tower_Kinds: 24
+    Atk: 20
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -930,15 +1031,17 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330007
     Type2: 330013
+    Next_Stat: 100078
     Price: 10
     Prefab: 900051
   - No: 52
     Name_KR: "\uAD11\uB300"
-    Name_EN: Clown02
+    Name_EN: Clown03
     Code: 100052
     Rank: 2
     Star: 2
-    Atk: 1
+    Tower_Kinds: 25
+    Atk: 20
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -948,6 +1051,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330008
     Type2: 330015
+    Next_Stat: 100079
     Price: 6
     Prefab: 900052
   - No: 53
@@ -956,7 +1060,8 @@ MonoBehaviour:
     Code: 100053
     Rank: 3
     Star: 2
-    Atk: 1
+    Tower_Kinds: 26
+    Atk: 200
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -966,15 +1071,17 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330008
     Type2: 330012
+    Next_Stat: 100080
     Price: 10
     Prefab: 900053
   - No: 54
     Name_KR: "\uC774\uD504\uB9AC\uC2A4"
-    Name_EN: Ipris02
+    Name_EN: Ipris03
     Code: 100054
     Rank: 4
     Star: 2
-    Atk: 1
+    Tower_Kinds: 27
+    Atk: 200
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -984,15 +1091,17 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330008
     Type2: 330012
+    Next_Stat: 100081
     Price: 14
     Prefab: 900054
   - No: 55
     Name_KR: "\uB4DC\uB798\uACE4"
-    Name_EN: Dragon02
+    Name_EN: Dragon03
     Code: 100055
     Rank: 5
     Star: 2
-    Atk: 1
+    Tower_Kinds: 28
+    Atk: 2000
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1002,14 +1111,16 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330009
     Type2: 330017
+    Next_Stat: 100082
     Price: 20
     Prefab: 900055
   - No: 56
     Name_KR: "\uB9C8\uB140"
-    Name_EN: Witch02
+    Name_EN: Witch03
     Code: 100056
     Rank: 1
     Star: 2
+    Tower_Kinds: 29
     Atk: 1
     HP: 0
     Def: 0
@@ -1020,15 +1131,17 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330010
     Type2: 330012
+    Next_Stat: 100083
     Price: 2
     Prefab: 900056
   - No: 57
     Name_KR: "\uB2E4\uD06C\uC5D8\uD504"
-    Name_EN: DarkElf02
+    Name_EN: DarkElf03
     Code: 100057
     Rank: 4
     Star: 2
-    Atk: 1
+    Tower_Kinds: 30
+    Atk: 20
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1038,6 +1151,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330010
     Type2: 330014
+    Next_Stat: 100084
     Price: 14
     Prefab: 900057
   - No: 58
@@ -1046,7 +1160,8 @@ MonoBehaviour:
     Code: 100058
     Rank: 2
     Star: 3
-    Atk: 1
+    Tower_Kinds: 4
+    Atk: 30
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1056,14 +1171,16 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330001
     Type2: 330011
+    Next_Stat: 0
     Price: 18
     Prefab: 900058
   - No: 59
     Name_KR: "\uC624\uD06C\uC804\uC0AC"
-    Name_EN: OrkWarrior03
+    Name_EN: OrkWarrior04
     Code: 100059
     Rank: 2
     Star: 3
+    Tower_Kinds: 5
     Atk: 1
     HP: 0
     Def: 0
@@ -1074,15 +1191,17 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330001
     Type2: 330013
+    Next_Stat: 0
     Price: 18
     Prefab: 900059
   - No: 60
     Name_KR: "\uC0AC\uC774\uD074\uB86D\uC2A4"
-    Name_EN: Cyclops03
+    Name_EN: Cyclops04
     Code: 100060
     Rank: 4
     Star: 3
-    Atk: 1
+    Tower_Kinds: 6
+    Atk: 300
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1092,14 +1211,16 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330001
     Type2: 330013
+    Next_Stat: 0
     Price: 42
     Prefab: 900060
   - No: 61
     Name_KR: "\uACE0\uBE14\uB9B0"
-    Name_EN: Goblin03
+    Name_EN: Goblin034
     Code: 100061
     Rank: 1
     Star: 3
+    Tower_Kinds: 7
     Atk: 1
     HP: 0
     Def: 0
@@ -1110,6 +1231,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330002
     Type2: 330011
+    Next_Stat: 0
     Price: 6
     Prefab: 900061
   - No: 62
@@ -1118,7 +1240,8 @@ MonoBehaviour:
     Code: 100062
     Rank: 1
     Star: 3
-    Atk: 1
+    Tower_Kinds: 8
+    Atk: 30
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1128,14 +1251,16 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330002
     Type2: 330013
+    Next_Stat: 0
     Price: 6
     Prefab: 900062
   - No: 63
     Name_KR: "\uD2B8\uB864\uC8FC\uC220\uC0AC"
-    Name_EN: TrollShamen03
+    Name_EN: TrollShamen04
     Code: 100063
     Rank: 4
     Star: 3
+    Tower_Kinds: 9
     Atk: 1
     HP: 0
     Def: 0
@@ -1146,6 +1271,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330002
     Type2: 330015
+    Next_Stat: 0
     Price: 42
     Prefab: 900063
   - No: 64
@@ -1154,7 +1280,8 @@ MonoBehaviour:
     Code: 100064
     Rank: 1
     Star: 3
-    Atk: 1
+    Tower_Kinds: 10
+    Atk: 30
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1164,15 +1291,17 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330003
     Type2: 330015
+    Next_Stat: 0
     Price: 6
     Prefab: 900064
   - No: 65
     Name_KR: "\uC0B4\uB77C\uB9E8\uB354"
-    Name_EN: Salamander03
+    Name_EN: Salamander04
     Code: 100065
     Rank: 3
     Star: 3
-    Atk: 1
+    Tower_Kinds: 11
+    Atk: 30
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1182,6 +1311,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330003
     Type2: 330011
+    Next_Stat: 0
     Price: 30
     Prefab: 900065
   - No: 66
@@ -1190,7 +1320,8 @@ MonoBehaviour:
     Code: 100066
     Rank: 3
     Star: 3
-    Atk: 1
+    Tower_Kinds: 12
+    Atk: 30
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1200,14 +1331,16 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330003
     Type2: 330016
+    Next_Stat: 0
     Price: 30
     Prefab: 900066
   - No: 67
     Name_KR: "\uCF00\uB974\uBCA0\uB85C\uC2A4"
-    Name_EN: Cerberos03
+    Name_EN: Cerberos04
     Code: 100067
     Rank: 1
     Star: 3
+    Tower_Kinds: 13
     Atk: 1
     HP: 0
     Def: 0
@@ -1218,14 +1351,16 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330004
     Type2: 330011
+    Next_Stat: 0
     Price: 6
     Prefab: 900067
   - No: 68
     Name_KR: "\uBC1C\uB85D"
-    Name_EN: Balrog03
+    Name_EN: Balrog04
     Code: 100068
     Rank: 4
     Star: 3
+    Tower_Kinds: 14
     Atk: 1
     HP: 0
     Def: 0
@@ -1236,15 +1371,17 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330004
     Type2: 330016
+    Next_Stat: 0
     Price: 42
     Prefab: 900068
   - No: 69
     Name_KR: "\uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A4"
-    Name_EN: Minotaurus03
+    Name_EN: Minotaurus04
     Code: 100069
     Rank: 2
     Star: 3
-    Atk: 1
+    Tower_Kinds: 15
+    Atk: 30
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1254,15 +1391,17 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330004
     Type2: 330013
+    Next_Stat: 0
     Price: 18
     Prefab: 900069
   - No: 70
     Name_KR: "\uC0AC\uD2F0\uB85C\uC2A4"
-    Name_EN: Satyr03
+    Name_EN: Satyr04
     Code: 100070
     Rank: 2
     Star: 3
-    Atk: 1
+    Tower_Kinds: 16
+    Atk: 30
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1272,15 +1411,17 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330004
     Type2: 330012
+    Next_Stat: 0
     Price: 18
     Prefab: 900070
   - No: 71
     Name_KR: "\uADF8\uB9BC\uB9AC\uD37C"
-    Name_EN: GrimReaper03
+    Name_EN: GrimReaper04
     Code: 100071
     Rank: 1
     Star: 3
-    Atk: 1
+    Tower_Kinds: 17
+    Atk: 30
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1290,6 +1431,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330005
     Type2: 330014
+    Next_Stat: 0
     Price: 6
     Prefab: 900071
   - No: 72
@@ -1298,7 +1440,8 @@ MonoBehaviour:
     Code: 100072
     Rank: 5
     Star: 3
-    Atk: 1
+    Tower_Kinds: 18
+    Atk: 30
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1308,15 +1451,17 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330005
     Type2: 330017
+    Next_Stat: 0
     Price: 60
     Prefab: 900072
   - No: 73
     Name_KR: "\uB2E4\uD06C\uC18C\uC6B8"
-    Name_EN: DarkSoul03
+    Name_EN: DarkSoul04
     Code: 100073
     Rank: 3
     Star: 3
-    Atk: 1
+    Tower_Kinds: 19
+    Atk: 30
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1326,6 +1471,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330005
     Type2: 330014
+    Next_Stat: 0
     Price: 30
     Prefab: 900073
   - No: 74
@@ -1334,7 +1480,8 @@ MonoBehaviour:
     Code: 100074
     Rank: 2
     Star: 3
-    Atk: 1
+    Tower_Kinds: 20
+    Atk: 30
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1344,6 +1491,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330006
     Type2: 330016
+    Next_Stat: 0
     Price: 18
     Prefab: 900074
   - No: 75
@@ -1352,7 +1500,8 @@ MonoBehaviour:
     Code: 100075
     Rank: 3
     Star: 3
-    Atk: 1
+    Tower_Kinds: 21
+    Atk: 30
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1362,14 +1511,16 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330006
     Type2: 330015
+    Next_Stat: 0
     Price: 30
     Prefab: 900075
   - No: 76
     Name_KR: "\uBC15\uC950"
-    Name_EN: Bat03
+    Name_EN: Bat04
     Code: 100076
     Rank: 1
     Star: 3
+    Tower_Kinds: 22
     Atk: 1
     HP: 0
     Def: 0
@@ -1380,6 +1531,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330007
     Type2: 330014
+    Next_Stat: 0
     Price: 6
     Prefab: 900076
   - No: 77
@@ -1388,7 +1540,8 @@ MonoBehaviour:
     Code: 100077
     Rank: 2
     Star: 3
-    Atk: 1
+    Tower_Kinds: 23
+    Atk: 30
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1398,15 +1551,17 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330007
     Type2: 330011
+    Next_Stat: 0
     Price: 18
     Prefab: 900077
   - No: 78
     Name_KR: "\uD30C\uC774\uD2B8\uBCA0\uC5B4"
-    Name_EN: FightBear03
+    Name_EN: FightBear04
     Code: 100078
     Rank: 3
     Star: 3
-    Atk: 1
+    Tower_Kinds: 24
+    Atk: 30
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1416,15 +1571,17 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330007
     Type2: 330013
+    Next_Stat: 0
     Price: 30
     Prefab: 900078
   - No: 79
     Name_KR: "\uAD11\uB300"
-    Name_EN: Clown03
+    Name_EN: Clown04
     Code: 100079
     Rank: 2
     Star: 3
-    Atk: 1
+    Tower_Kinds: 25
+    Atk: 30
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1434,6 +1591,7 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330008
     Type2: 330015
+    Next_Stat: 0
     Price: 18
     Prefab: 900079
   - No: 80
@@ -1442,7 +1600,8 @@ MonoBehaviour:
     Code: 100080
     Rank: 3
     Star: 3
-    Atk: 1
+    Tower_Kinds: 26
+    Atk: 300
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1452,15 +1611,17 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330008
     Type2: 330012
+    Next_Stat: 0
     Price: 30
     Prefab: 900080
   - No: 81
     Name_KR: "\uC774\uD504\uB9AC\uC2A4"
-    Name_EN: Ipris03
+    Name_EN: Ipris04
     Code: 100081
     Rank: 4
     Star: 3
-    Atk: 1
+    Tower_Kinds: 27
+    Atk: 300
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1470,15 +1631,17 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330008
     Type2: 330012
+    Next_Stat: 0
     Price: 42
     Prefab: 900081
   - No: 82
     Name_KR: "\uB4DC\uB798\uACE4"
-    Name_EN: Dragon03
+    Name_EN: Dragon01
     Code: 100082
     Rank: 5
     Star: 3
-    Atk: 1
+    Tower_Kinds: 28
+    Atk: 3000
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1488,14 +1651,16 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330009
     Type2: 330017
+    Next_Stat: 0
     Price: 60
     Prefab: 900082
   - No: 83
     Name_KR: "\uB9C8\uB140"
-    Name_EN: Witch03
+    Name_EN: Witch02
     Code: 100083
     Rank: 1
     Star: 3
+    Tower_Kinds: 29
     Atk: 1
     HP: 0
     Def: 0
@@ -1506,15 +1671,17 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330010
     Type2: 330012
+    Next_Stat: 0
     Price: 6
     Prefab: 900083
   - No: 84
     Name_KR: "\uB2E4\uD06C\uC5D8\uD504"
-    Name_EN: DarkElf03
+    Name_EN: DarkElf04
     Code: 100084
     Rank: 4
     Star: 3
-    Atk: 1
+    Tower_Kinds: 30
+    Atk: 30
     HP: 0
     Def: 0
     Crit_rate: 0.2
@@ -1524,5 +1691,6 @@ MonoBehaviour:
     Skill2Code: 0
     Type1: 330010
     Type2: 330014
+    Next_Stat: 0
     Price: 42
     Prefab: 900084

@@ -71,15 +71,28 @@ public class InventoryManager : Singleton<InventoryManager>
         InventorySlotGUI slot = GetAvailableSlot();
         if (null == slot)
             return;
-
-        Debug.Log(data.No);
-        Tower newTower = TowerManager.Instance.SpawnTower((E_Tower)data.No);
+        
+        Tower newTower = TowerManager.Instance.SpawnTower(data.Code);
         newTower.gameObject.SetActive(false);
         slot.SetTower(newTower,data);
+
+        CombinationManager.Instance.CombinationRecurr();
+        foreach (var item in m_slotGUI_list)
+        {
+            item.ForceUIUpdate();
+        }
+
     }
     public void RemoveTower(Tower tower)
     {
-
+        foreach (var item in m_slotGUI_list)
+        {
+            if (item.TowerObj == tower)
+            {
+                item.ClearInven();
+                TowerManager.Instance.DespawnTower(tower);
+            }
+        }
     }
 }
  

@@ -49,7 +49,7 @@ public abstract class ObjectPool<Pool, Origin> : Singleton<Pool> where Pool : Mo
     {
         foreach (var item in m_Pools)
         {
-            item.Value.Dispose();
+            item.Value?.Dispose();
         }
 
         m_Pools.Clear();

@@ -19,6 +19,8 @@ public class CombinationManager : Singleton<CombinationManager>
     // param : all towers in list need same code 
     private void CombinationProcess(List<Tower> tower_list)
     {
+        Debug.Log("Combination process");
+
         // desapwn only 3 towers         
         int next_tower_code = tower_list[0].ExcelData.Next_Stat;        
 
@@ -43,7 +45,7 @@ public class CombinationManager : Singleton<CombinationManager>
 
     }
 
-    private bool CombinationRecurr()
+    public bool CombinationRecurr()
     {
         Dictionary<int, List<Tower>> codeToCount_dic = new Dictionary<int, List<Tower>>();
         var tower_list = TowerManager.Instance.GetTowerList();
@@ -62,24 +64,16 @@ public class CombinationManager : Singleton<CombinationManager>
 
         foreach (var item in codeToCount_dic)
         {
-            if(item.Value.Count > 3)
+            if (item.Value.Count >= 3)
             {
                 if (IsMaximum(item.Value[0]))
                     continue;
 
                 CombinationProcess(item.Value);
+                return CombinationRecurr();
             }
         }
 
-
-
         return false;
-    }
-
-
-    public void __OnBeforeSpawnNewTower(Tower_TableExcel tower_data)
-    {
-
-    }
-
+    }    
 }

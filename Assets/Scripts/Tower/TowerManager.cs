@@ -30,11 +30,11 @@ public class TowerManager : Singleton<TowerManager>
         M_Node.m_RotateEndEvent += UpdateTowerList;
     }
 
-    public Tower SpawnTower(E_Tower tower)
+    public Tower SpawnTower(int code)
     {
         // only spawn in inventory
         // do not call this function other class
-        Tower spawn = M_TowerPool.GetPool(GetData(tower).Name_EN).Spawn();
+        Tower spawn = M_TowerPool.GetPool(GetData(code).Name_EN).Spawn();
         spawn.m_TowerInfo.IsOnInventory = true;
         m_TowerList.Add(spawn);
         return spawn;
@@ -43,6 +43,7 @@ public class TowerManager : Singleton<TowerManager>
     public void DespawnTower(Tower tower)
     {   // only on NODE
         // cha
+        tower.m_TowerInfo.node.ClearNode();
         var tower_pool = M_TowerPool.GetPool(tower.Name);
         m_TowerList.Remove(tower);
         m_DirTowerList[tower.Direction].Remove(tower);
@@ -73,15 +74,17 @@ public class TowerManager : Singleton<TowerManager>
     //    return spawn;
     //}
 
-    public Tower_TableExcel GetData(E_Tower no)
+    public Tower_TableExcel GetData(int code)
     {
-        Tower_TableExcel result = m_TowerData.DataList.Where(item => item.No == (int)no).SingleOrDefault();
+        Tower_TableExcel result = m_TowerData.DataList
+            .Where(item => item.Code == code).SingleOrDefault();
 
         return result;
     }
-    public Tower_TableExcel GetData(int code)
+    public Tower_TableExcel GetTower(int kind, int star)
     {
-        Tower_TableExcel result = m_TowerData.DataList.Where(item => item.Code == code).SingleOrDefault();
+        Tower_TableExcel result = m_TowerData.DataList
+            .Where(item => item.Tower_Kinds == kind && item.Star == star).SingleOrDefault();
 
         return result;
     }
@@ -104,7 +107,7 @@ public class TowerManager : Singleton<TowerManager>
     public void UpdateTowerList(E_Direction dir)
     {
         List<Node> nodeList = M_Node.GetNodeList(dir);
-       
+
         foreach (var item in nodeList)
         {
             if (item.m_Tower != null)
@@ -116,98 +119,6 @@ public class TowerManager : Singleton<TowerManager>
 
     public bool CheckSameTower(Tower tower1, Tower tower2)
     {
-        return tower1.TowerCode == tower2.TowerCode;
+        return tower1.TowerKind == tower2.TowerKind;
     }
-}
-
-public enum E_Tower
-{
-    None,
-
-    // 타워
-    OrkGunner01 = 4,
-    OrkWarrior01,
-    Cyclops01,
-    Goblin01,
-    NolWarrior01,
-    TrollShamen01,
-    Sparkmon01,
-    Salamander01,
-    LavaGolem01,
-    Cerberos01,
-    Balrog01,
-    Minotaurus01,
-    Satyr01,
-    GrimReaper01,
-    DeathKnight01,
-    DarkSoul01,
-    StoneGolem01,
-    FireDemon01,
-    Bat01,
-    Wolf01,
-    FightBear01,
-    Clown01,
-    FallenAngel01,
-    Ipris01,
-    Dragon02,
-    Witch01,
-    DarkElf01,
-
-    OrkGunner02,
-    OrkWarrior02,
-    Cyclops02,
-    Goblin02,
-    NolWarrior02,
-    TrollShamen02,
-    Sparkmon02,
-    Salamander02,
-    LavaGolem02,
-    Cerberos02,
-    Balrog02,
-    Minotaurus02,
-    Satyr02,
-    GrimReaper02,
-    DeathKnight02,
-    DarkSoul02,
-    StoneGolem02,
-    FireDemon02,
-    Bat02,
-    Wolf02,
-    FightBear02,
-    Clown02,
-    FallenAngel02,
-    Ipris02,
-    Dragon03,
-    Witch02,
-    DarkElf02,
-
-    OrkGunner03,
-    OrkWarrior03,
-    Cyclops03,
-    Goblin04,
-    NolWarrior03,
-    TrollShamen03,
-    Sparkmon03,
-    Salamander03,
-    LavaGolem03,
-    Cerberos03,
-    Balrog03,
-    Minotaurus03,
-    Satyr03,
-    GrimReaper03,
-    DeathKnight03,
-    DarkSoul03,
-    StoneGolem03,
-    FireDemon03,
-    Bat03,
-    Wolf03,
-    FightBear03,
-    Clown03,
-    FallenAngel03,
-    Ipris03,
-    Dragon04,
-    Witch03,
-    DarkElf03,
-
-    Max
 }

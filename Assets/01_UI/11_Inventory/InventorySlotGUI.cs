@@ -59,6 +59,14 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
     public bool IsOccupied { get { return m_info.isOccupied; } }
 
+    public Tower TowerObj { 
+        get {
+            if (IsOccupied)
+                return m_info.tower;
+            else 
+                return null;
+        } }
+
     private void Awake()
     {
         //tower_tooltip = TowerUI_Tooltip.Instance;
@@ -185,6 +193,11 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         m_info.tower = null;
 
         OnInfoChangedEvent?.Invoke();
+    }
+
+    public void ForceUIUpdate()
+    {
+        OnInfoChanged();
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
