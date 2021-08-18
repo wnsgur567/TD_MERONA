@@ -38,6 +38,11 @@ public class EnemySkill : MonoBehaviour
         ArrivedToTarget = true;
     }
 
+    private void Start()
+    {
+        gameObject.layer = LayerMask.NameToLayer("EnemyProjectile");
+    }
+
     private void Update()
     {
         if (CheckToDespawn())
