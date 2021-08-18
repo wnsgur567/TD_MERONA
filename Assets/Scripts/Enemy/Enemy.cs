@@ -139,7 +139,7 @@ public class Enemy : MonoBehaviour
     public Transform AttackPivot;
     public Transform HitPivot;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         Enemy_obj.Add(this);
 
@@ -167,6 +167,9 @@ public class Enemy : MonoBehaviour
         BuffList = new List<BuffCC_TableExcel>();
 
         animator = transform.Find("Mesh").GetComponent<Animator>();
+
+        AttackPivot = transform.GetChild("AttackPivot");
+        HitPivot = transform.GetChild("HitPivot");
 
         Enemy_obj = new List<Enemy>();
 
@@ -983,13 +986,13 @@ public class Enemy : MonoBehaviour
 
     #region CallÇÔ¼ö
 
-    private void CallAttack()
+    public void CallAttack()
     {
         m_EnemyInfo.Atk *= atkstatdata.Dmg;
         enemyskillmanager.SpawnProjectileSkill(atkconditiondata.projectile_prefab, m_EnemyInfo.Atk, atkconditiondata, atkstatdata);
     }
 
-    private void CallSkill()
+    public void CallSkill()
     {
         for (int i = 0; i < Enemy_obj.Count; i++)
         {
@@ -1005,7 +1008,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void CallDie()
+    public void CallDie()
     {
         SpawnManager.Instance.Despawn(this);
     }

@@ -98,7 +98,7 @@ public class NodeManager : Singleton<NodeManager>
     protected void MouseProcess()
     {
         // 마우스 포인터가 UI위에 없을 때
-        if (false == UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        if (false == UnityEngine.EventSystems.EventSystem.current?.IsPointerOverGameObject())
         {
             // 좌클릭 시
             if (Input.GetMouseButtonDown(0))
@@ -182,7 +182,7 @@ public class NodeManager : Singleton<NodeManager>
             return;
 
         // 마우스 포인터가 UI위에 없을 때
-        if (false == UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        if (false == UnityEngine.EventSystems.EventSystem.current?.IsPointerOverGameObject())
         {
             if (null != m_SelectedNode)
             {

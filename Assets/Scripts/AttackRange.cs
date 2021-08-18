@@ -19,6 +19,7 @@ public class AttackRange : MonoBehaviour
             return m_RangeCollider;
         }
     }
+    [SerializeField]
     protected List<Enemy> m_TargetList;
     public List<Enemy> TargetList => m_TargetList;
 

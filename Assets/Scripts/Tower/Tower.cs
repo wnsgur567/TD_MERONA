@@ -204,6 +204,11 @@ public class Tower : MonoBehaviour
 
     #region 외부 함수
     // 타워 초기화
+    [ContextMenu("Init")]
+    public void InitializeTower()
+    {
+        InitializeTower(m_CodeTemp, m_SizeTemp);
+    }
     public void InitializeTower(int code, float size = 1.0f)
     {
         #region 엑셀 데이터 정리

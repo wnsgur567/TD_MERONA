@@ -6,6 +6,18 @@ using UnityEngine;
 public class TowerManager : Singleton<TowerManager>
 {
     protected Tower_TableExcelLoader m_TowerData;
+    protected Tower_TableExcelLoader TowerData
+    {
+        get
+        {
+            if (null == m_TowerData)
+            {
+                m_TowerData = M_DataTable.GetDataTable<Tower_TableExcelLoader>();
+            }
+
+            return m_TowerData;
+        }
+    }
 
     protected List<Tower> m_TowerList;
     protected Dictionary<E_Direction, List<Tower>> m_DirTowerList;
@@ -77,14 +89,14 @@ public class TowerManager : Singleton<TowerManager>
 
     public Tower_TableExcel GetData(int code)
     {
-        Tower_TableExcel result = m_TowerData.DataList
+        Tower_TableExcel result = TowerData.DataList
             .Where(item => item.Code == code).SingleOrDefault();
 
         return result;
     }
     public Tower_TableExcel GetTower(int kind, int star)
     {
-        Tower_TableExcel result = m_TowerData.DataList
+        Tower_TableExcel result = TowerData.DataList
             .Where(item => item.Tower_Kinds == kind && item.Star == star).SingleOrDefault();
 
         return result;
