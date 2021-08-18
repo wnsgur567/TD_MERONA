@@ -85,6 +85,60 @@ public class SynergyManager : Singleton<SynergyManager>
 
         UpdateSynergyEndEvent?.Invoke();
     }
+    protected void LoadSynergyCode(Tower tower, ref Dictionary<int, List<Tower>> SynergyTowers)
+    {
+        // 중복 체크용
+        bool flag;
+        // 시너지 코드
+        int code1 = tower.SynergyCode1;
+        int code2 = tower.SynergyCode2;
+
+        #region 시너지1
+        // 첫 체크면 리스트 추가
+        if (!SynergyTowers.ContainsKey(code1))
+        {
+            SynergyTowers[code1] = new List<Tower>();
+        }
+
+        // 중복 타워 체크
+        flag = false;
+        foreach (var item in SynergyTowers[code1])
+        {
+            if (M_Tower.CheckSameTower(item, tower))
+            {
+                flag = true;
+                break;
+            }
+        }
+
+        // 중복 타워 없으면 시너지 리스트에 추가
+        if (!flag)
+            SynergyTowers[code1].Add(tower);
+        #endregion
+
+        #region 시너지2
+        // 첫 체크면 리스트 추가
+        if (!SynergyTowers.ContainsKey(code2))
+        {
+            SynergyTowers[code2] = new List<Tower>();
+        }
+
+        // 중복 타워 체크
+        flag = false;
+        foreach (var item in SynergyTowers[code2])
+        {
+            if (M_Tower.CheckSameTower(item, tower))
+            {
+                flag = true;
+                break;
+            }
+        }
+
+        // 중복 타워 없으면 시너지 리스트에 추가
+        if (!flag)
+            SynergyTowers[code2].Add(tower);
+        #endregion
+    }
     protected void UpdateSynergy(E_Direction dir)
     {
         List<Tower> towers = M_Tower.GetTowerList(dir);
@@ -111,51 +165,10 @@ public class SynergyManager : Singleton<SynergyManager>
         // 시너지 코드, 시너지 적용될 타워들
         Dictionary<int, List<Tower>> SynergyTowers = new Dictionary<int, List<Tower>>();
 
+        // 시너지 코드 로드
         for (int i = 0; i < towers.Count; ++i)
         {
-            // 시너지 코드 가져오기
-            int code1 = towers[i].SynergyCode1;
-            int code2 = towers[i].SynergyCode2;
-            bool flag = false;
-
-            #region 시너지1
-            if (!SynergyTowers.ContainsKey(code1))
-            {
-                SynergyTowers[code1] = new List<Tower>();
-            }
-
-            foreach (var item in SynergyTowers[code1])
-            {
-                if (M_Tower.CheckSameTower(item, towers[i]))
-                {
-                    flag = true;
-                    break;
-                }
-            }
-
-            if (!flag)
-                SynergyTowers[code1].Add(towers[i]);
-            #endregion
-
-            #region 시너지2
-            if (!SynergyTowers.ContainsKey(code2))
-            {
-                SynergyTowers[code2] = new List<Tower>();
-            }
-
-            flag = false;
-            foreach (var item in SynergyTowers[code2])
-            {
-                if (M_Tower.CheckSameTower(item, towers[i]))
-                {
-                    flag = true;
-                    break;
-                }
-            }
-
-            if (!flag)
-                SynergyTowers[code2].Add(towers[i]);
-            #endregion
+            LoadSynergyCode(towers[i], ref SynergyTowers);
         }
 
         foreach (var item in SynergyTowers)
