@@ -58,7 +58,8 @@ public class Tower : MonoBehaviour
 
     #region 외부 프로퍼티
     public Tower_TableExcel ExcelData => m_TowerInfo_Excel; // cha
-    public E_Direction Direction => m_TowerInfo.Direction;  // cha
+    public E_Direction Direction { get => m_TowerInfo.Direction; set => m_TowerInfo.Direction = value; }
+    public Node Node { get => m_TowerInfo.node; set => m_TowerInfo.node = value; }
     public string Name => m_TowerInfo_Excel.Name_EN;
     public int TowerCode => m_TowerInfo_Excel.Code;
     public int TowerKind => m_TowerInfo_Excel.Tower_Kinds;
@@ -212,7 +213,7 @@ public class Tower : MonoBehaviour
         m_TowerInfo.ShouldFindTarget = true;
 
         // 공격 피벗
-        m_TowerInfo.AttackPivot = transform.GetChild("AttackPivot");
+        m_TowerInfo.AttackPivot ??= transform.GetChild("AttackPivot");
 
         // 기본 스킬 데이터
         m_TowerInfo.Condition_Default = M_Skill.GetConditionData(m_TowerInfo_Excel.Atk_Code);
@@ -237,26 +238,38 @@ public class Tower : MonoBehaviour
 
         // 시너지
         m_TowerInfo.Synergy_Atk_type = E_AttackType.None;
-        m_TowerInfo.BuffList = new List<BuffCC_TableExcel>();
-        m_TowerInfo.BerserkerBuffList = new List<BuffCC_TableExcel>();
+        m_TowerInfo.BuffList ??= new List<BuffCC_TableExcel>();
+        m_TowerInfo.BerserkerBuffList ??= new List<BuffCC_TableExcel>();
 
         // 마왕 스킬
-        m_TowerInfo.DevilSkillBuffList = new List<BuffCC_TableExcel>();
+        m_TowerInfo.DevilSkillBuffList ??= new List<BuffCC_TableExcel>();
         #endregion
 
         #region 내부 컴포넌트
-        m_Animator = GetComponentInChildren<Animator>();
+        m_Animator ??= GetComponentInChildren<Animator>();
         m_Animator.transform.localScale = Vector3.one * size;
 
-        m_AttackRange_Default = transform.Find("AttackRange_Default").AddComponent<AttackRange>();
+        m_AttackRange_Default ??= transform.Find("AttackRange_Default").AddComponent<AttackRange>();
         m_AttackRange_Default.Range = m_TowerInfo.Stat_Default.Range;
 
-        m_AttackRange_Skill01 = transform.Find("AttackRange_Skill01").AddComponent<AttackRange>();
+        m_AttackRange_Skill01 ??= transform.Find("AttackRange_Skill01").AddComponent<AttackRange>();
         m_AttackRange_Skill01.Range = m_TowerInfo.Stat_Skill01.Range;
 
-        m_AttackRange_Skill02 = transform.Find("AttackRange_Skill02").AddComponent<AttackRange>();
+        m_AttackRange_Skill02 ??= transform.Find("AttackRange_Skill02").AddComponent<AttackRange>();
         m_AttackRange_Skill02.Range = m_TowerInfo.Stat_Skill02.Range;
         #endregion
+    }
+    public void FinializeTower()
+    {
+        m_TowerInfo.node?.ClearNode();
+
+        m_TowerInfo.BuffList.Clear();
+        m_TowerInfo.BerserkerBuffList.Clear();
+        m_TowerInfo.DevilSkillBuffList.Clear();
+
+        m_AttackRange_Default.Clear();
+        m_AttackRange_Skill01.Clear();
+        m_AttackRange_Skill02.Clear();
     }
 
     public void CallAttack()
@@ -2293,6 +2306,11 @@ public class Tower : MonoBehaviour
     private void Awake()
     {
         //InitializeTower(m_CodeTemp, m_SizeTemp);
+    }
+
+    private void OnApplicationQuit()
+    {
+        FinializeTower();
     }
 
     private void Update()
