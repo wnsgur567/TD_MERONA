@@ -7,13 +7,13 @@ public class Tower : MonoBehaviour
     public int m_CodeTemp;
     public float m_SizeTemp;
 
-    // Ÿ��
+    // 타겟
     public Enemy m_Target;
 
-    // Ÿ�� ����(����)
+    // 타워 정보(엑셀)
     [SerializeField]
     protected Tower_TableExcel m_TowerInfo_Excel;
-    // Ÿ�� ����
+    // 타워 정보
     public S_TowerData m_TowerInfo;
 
     #region 내부 컴포넌트
@@ -58,6 +58,8 @@ public class Tower : MonoBehaviour
 
     #region 외부 프로퍼티
     public Tower_TableExcel ExcelData => m_TowerInfo_Excel;
+    public string Name => m_TowerInfo_Excel.Name_EN;
+    public int TowerCode => m_TowerInfo_Excel.Code;
     public int SynergyCode1 => m_TowerInfo_Excel.Type1;
     public int SynergyCode2 => m_TowerInfo_Excel.Type2;
     #endregion
@@ -84,15 +86,15 @@ public class Tower : MonoBehaviour
 
         // y 회전 방지
         dir.y = transform.position.y;
-        Debug.Log("�ٶ� ��ġ: " + dir);
+        //Debug.Log("바라볼 위치: " + dir);
 
         // 회전
         transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.LookRotation(dir), RotateSpeed);
     }
-    // Ÿ�� ������Ʈ
+    // 타겟 업데이트
     protected void UpdateTarget()
     {
-        // Ÿ�� ���� ���ؿ� ����
+        // 타겟 변경 기준에 따라
         switch ((E_TargetType)m_TowerInfo.Condition_Default.Target_type)
         {
             case E_TargetType.CloseTarget:
@@ -119,10 +121,10 @@ public class Tower : MonoBehaviour
                     }
                 }
                 break;
-            // FixTarget (Ÿ���� ��Ÿ��� ����ų� ���� ��� ����)
+            // FixTarget (타겟이 사거리를 벗어나거나 죽은 경우 변경)
             case E_TargetType.FixTarget:
-                if (null == m_Target || // ����ó��
-                    DistanceToTarget > m_TowerInfo.Stat_Default.Range) // Ÿ���� ��Ÿ��� ��� ���
+                if (null == m_Target || // 예외처리
+                    DistanceToTarget > m_TowerInfo.Stat_Default.Range) // 타겟이 사거리를 벗어난 경우
                 {
                     m_Target = m_AttackRange_Default.GetNearTarget();
                 }
@@ -136,26 +138,26 @@ public class Tower : MonoBehaviour
                 break;
         }
     }
-    // Ÿ�� ����
+    // 타워 공격
     protected void AttackTarget()
     {
-        #region �⺻ ��ų
-        // �⺻ ��ų Ÿ�̸�
+        #region 기본 스킬
+        // 기본 스킬 타이머
         if (m_TowerInfo.AttackTimer_Default < m_TowerInfo.AttackSpeed_Default)
         {
             m_TowerInfo.AttackTimer_Default += Time.deltaTime;
         }
-        // �⺻ ��ų ����
+        // 기본 스킬 공격
         else if (null != m_Target)
         {
-            // ���� ������ ����
+            // 내부 데이터 정리
             m_TowerInfo.AttackTimer_Default -= m_TowerInfo.AttackSpeed_Default;
 
             Attack();
         }
         #endregion
-        #region ��ų01
-        // ��ų01
+        #region 스킬01
+        // 스킬01
         if (m_TowerInfo.AttackTimer_Skill01 < m_TowerInfo.AttackSpeed_Skill01)
         {
             m_TowerInfo.AttackTimer_Skill01 += Time.deltaTime;
@@ -167,8 +169,8 @@ public class Tower : MonoBehaviour
             Skill01();
         }
         #endregion
-        #region ��ų02
-        // ��ų02
+        #region 스킬02
+        // 스킬02
         if (m_TowerInfo.AttackTimer_Skill02 < m_TowerInfo.AttackSpeed_Skill02)
         {
             m_TowerInfo.AttackTimer_Skill02 += Time.deltaTime;
@@ -196,52 +198,52 @@ public class Tower : MonoBehaviour
     }
     #endregion
 
-    #region �ܺ� �Լ�
-    // Ÿ�� �ʱ�ȭ
+    #region 외부 함수
+    // 타워 초기화
     public void InitializeTower(int code, float size = 1.0f)
     {
-        #region ���� ������ ����
+        #region 엑셀 데이터 정리
         m_TowerInfo_Excel = M_Tower.GetData(code);
         #endregion
 
-        #region ���� ������ ����
+        #region 내부 데이터 정리
         m_TowerInfo.RotateSpeed = 5f;
         m_TowerInfo.ShouldFindTarget = true;
 
-        // ���� �ǹ�
+        // 공격 피벗
         m_TowerInfo.AttackPivot = transform.GetChild("AttackPivot");
 
-        // �⺻ ��ų ������
+        // 기본 스킬 데이터
         m_TowerInfo.Condition_Default = M_Skill.GetConditionData(m_TowerInfo_Excel.Atk_Code);
         m_TowerInfo.Stat_Default = M_Skill.GetStatData(m_TowerInfo.Condition_Default.PassiveCode);
-        // �⺻ ��ų
+        // 기본 스킬
         m_TowerInfo.AttackSpeed_Default = m_TowerInfo.Stat_Default.CoolTime;
         m_TowerInfo.AttackTimer_Default = m_TowerInfo.Stat_Default.CoolTime;
 
-        // ��ų1 ������
+        // 스킬1 데이터
         m_TowerInfo.Condition_Skill01 = M_Skill.GetConditionData(m_TowerInfo_Excel.Skill1Code);
         m_TowerInfo.Stat_Skill01 = M_Skill.GetStatData(m_TowerInfo.Condition_Skill01.PassiveCode);
-        // ��ų1
+        // 스킬1
         m_TowerInfo.AttackSpeed_Skill01 = m_TowerInfo.Stat_Skill01.CoolTime;
         m_TowerInfo.AttackTimer_Skill01 = 0f;
 
-        // ��ų2 ������
+        // 스킬2 데이터
         m_TowerInfo.Condition_Skill02 = M_Skill.GetConditionData(m_TowerInfo_Excel.Skill2Code);
         m_TowerInfo.Stat_Skill02 = M_Skill.GetStatData(m_TowerInfo.Condition_Skill02.PassiveCode);
-        // ��ų2
+        // 스킬2
         m_TowerInfo.AttackSpeed_Skill02 = m_TowerInfo.Stat_Skill02.CoolTime;
         m_TowerInfo.AttackTimer_Skill02 = 0f;
 
-        // �ó���
+        // 시너지
         m_TowerInfo.Synergy_Atk_type = E_AttackType.None;
         m_TowerInfo.BuffList = new List<BuffCC_TableExcel>();
         m_TowerInfo.BerserkerBuffList = new List<BuffCC_TableExcel>();
 
-        // ���� ��ų
+        // 마왕 스킬
         m_TowerInfo.DevilSkillBuffList = new List<BuffCC_TableExcel>();
         #endregion
 
-        #region ���� ������Ʈ
+        #region 내부 컴포넌트
         m_Animator = GetComponentInChildren<Animator>();
         m_Animator.transform.localScale = Vector3.one * size;
 
@@ -261,25 +263,25 @@ public class Tower : MonoBehaviour
         m_TowerInfo.AttackSpeed_Default = m_TowerInfo.Stat_Default.CoolTime;
         m_TowerInfo.ShouldFindTarget = true;
 
-        // �⺻ ��ų ������ �ҷ�����
+        // 기본 스킬 데이터 불러오기
         SkillCondition_TableExcel conditionData = m_TowerInfo.Condition_Default;
         SkillStat_TableExcel statData = m_TowerInfo.Stat_Default;
 
-        // �⺻ ����� ����
+        // 기본 대미지 설정
         statData.Dmg *= m_TowerInfo_Excel.Atk;
         statData.Dmg += statData.Dmg_plus;
 
-        #region ����
-        // ������ ���� ����Ʈ
+        #region 버프
+        // 적용할 버프 리스트
         List<BuffCC_TableExcel> BuffList;
 
-        // �ó��� ����
+        // 시너지 버프
         BuffList = m_TowerInfo.BuffList;
-        // ���� ���� Ȯ��
+        // 버프 적용 확률
         List<float> BuffRand = new List<float>();
-        // ���� ���� ����
+        // 버프 적용 여부
         List<bool> BuffApply = new List<bool>();
-        // ���� ���� ���
+        // 버프 적용 계산
         for (int i = 0; i < BuffList.Count; ++i)
         {
             BuffRand.Add(Random.Range(0.00001f, 1f));
@@ -290,13 +292,13 @@ public class Tower : MonoBehaviour
             BuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand3);
         }
 
-        // ����Ŀ ����
+        // 버서커 버프
         BuffList = m_TowerInfo.BerserkerBuffList;
-        // ����Ŀ ���� ���� Ȯ��
+        // 버서커 버프 적용 확률
         List<float> BerserkerBuffRand = new List<float>();
-        // ����Ŀ ���� ���� ����
+        // 버서커 버프 적용 여부
         List<bool> BerserkerBuffApply = new List<bool>();
-        // ����Ŀ ���� ���� ���
+        // 버서커 버프 적용 계산
         for (int i = 0; i < BuffList.Count; ++i)
         {
             BerserkerBuffRand.Add(Random.Range(0.00001f, 1f));
@@ -307,13 +309,13 @@ public class Tower : MonoBehaviour
             BerserkerBuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].BuffRand3);
         }
 
-        // ���� ��ų ����
+        // 마왕 스킬 버프
         BuffList = m_TowerInfo.DevilSkillBuffList;
-        // ���� ��ų ���� ���� Ȯ��
+        // 마왕 스킬 버프 적용 확률
         List<float> DevilSkillBuffRand = new List<float>();
-        // ���� ��ų ���� ���� ����
+        // 마왕 스킬 버프 적용 여부
         List<bool> DevilSkillBuffApply = new List<bool>();
-        // ���� ��ų ���� ���� ���
+        // 마왕 스킬 버프 적용 계산
         for (int i = 0; i < BuffList.Count; ++i)
         {
             DevilSkillBuffRand.Add(Random.Range(0.00001f, 1f));
@@ -324,15 +326,15 @@ public class Tower : MonoBehaviour
             DevilSkillBuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].BuffRand3);
         }
 
-        // ������ ���� ��Ƶ� ����
+        // 적용할 버프 담아둘 변수
         S_Buff buff;
 
-        // ���� ����
-        #region ���� �տ���
+        // 버프 적용
+        #region 버프 합연산
         BuffList = m_TowerInfo.BuffList;
         for (int i = 0; i < BuffList.Count; ++i)
         {
-            // ����1 üũ
+            // 버프1 체크
             if (BuffApply[i * 3])
             {
                 buff = new S_Buff(
@@ -344,7 +346,7 @@ public class Tower : MonoBehaviour
                     );
                 float BuffAmount = buff.BuffAmount;
 
-                // ����1 �տ���
+                // 버프1 합연산
                 if (buff.AddType == E_AddType.Fix)
                 {
                     switch (buff.BuffType)
@@ -365,7 +367,7 @@ public class Tower : MonoBehaviour
                     }
                 }
 
-                // ����2 üũ
+                // 버프2 체크
                 if (BuffApply[i * 3 + 1])
                 {
                     buff = new S_Buff(
@@ -377,7 +379,7 @@ public class Tower : MonoBehaviour
                         );
                     BuffAmount = buff.BuffAmount;
 
-                    // ����2 �տ���
+                    // 버프2 합연산
                     if (buff.AddType == E_AddType.Fix)
                     {
                         switch (buff.BuffType)
@@ -398,7 +400,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ����3 üũ
+                    // 버프3 체크
                     if (BuffApply[i * 3 + 2])
                     {
                         buff = new S_Buff(
@@ -410,7 +412,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount;
 
-                        // ����3 �տ���
+                        // 버프3 합연산
                         if (buff.AddType == E_AddType.Fix)
                         {
                             switch (buff.BuffType)
@@ -435,13 +437,13 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ����Ŀ ���� �տ���
+        #region 버서커 버프 합연산
         BuffList = m_TowerInfo.BerserkerBuffList;
         if (m_TowerInfo.Berserker)
         {
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                // ����Ŀ ����1 üũ
+                // 버서커 버프1 체크
                 if (BerserkerBuffApply[i * 3])
                 {
                     buff = new S_Buff(
@@ -453,7 +455,7 @@ public class Tower : MonoBehaviour
                         );
                     float BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                    // ����Ŀ ����1 �տ���
+                    // 버서커 버프1 합연산
                     if (buff.AddType == E_AddType.Fix)
                     {
                         switch (buff.BuffType)
@@ -474,7 +476,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ����Ŀ ����2 üũ
+                    // 버서커 버프2 체크
                     if (BerserkerBuffApply[i * 3 + 1])
                     {
                         buff = new S_Buff(
@@ -486,7 +488,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                        // ����Ŀ ����2 �տ���
+                        // 버서커 버프2 합연산
                         if (buff.AddType == E_AddType.Fix)
                         {
                             switch (buff.BuffType)
@@ -507,7 +509,7 @@ public class Tower : MonoBehaviour
                             }
                         }
 
-                        // ����Ŀ ����3 üũ
+                        // 버서커 버프3 체크
                         if (BerserkerBuffApply[i * 3 + 2])
                         {
                             buff = new S_Buff(
@@ -519,7 +521,7 @@ public class Tower : MonoBehaviour
                                 );
                             BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                            // ����Ŀ ����3 �տ���
+                            // 버서커 버프3 합연산
                             if (buff.AddType == E_AddType.Fix)
                             {
                                 switch (buff.BuffType)
@@ -545,11 +547,11 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ���� ������
+        #region 버프 곱연산
         BuffList = m_TowerInfo.BuffList;
         for (int i = 0; i < BuffList.Count; ++i)
         {
-            // ����1 üũ
+            // 버프1 체크
             if (BuffApply[i * 3])
             {
                 buff = new S_Buff(
@@ -561,7 +563,7 @@ public class Tower : MonoBehaviour
                     );
                 float BuffAmount = buff.BuffAmount;
 
-                // ����1 ������
+                // 버프1 곱연산
                 if (buff.AddType == E_AddType.Percent)
                 {
                     switch (buff.BuffType)
@@ -582,7 +584,7 @@ public class Tower : MonoBehaviour
                     }
                 }
 
-                // ����2 üũ
+                // 버프2 체크
                 if (BuffApply[i * 3 + 1])
                 {
                     buff = new S_Buff(
@@ -594,7 +596,7 @@ public class Tower : MonoBehaviour
                         );
                     BuffAmount = buff.BuffAmount;
 
-                    // ����2 ������
+                    // 버프2 곱연산
                     if (buff.AddType == E_AddType.Percent)
                     {
                         switch (buff.BuffType)
@@ -615,7 +617,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ����3 üũ
+                    // 버프3 체크
                     if (BuffApply[i * 3 + 2])
                     {
                         buff = new S_Buff(
@@ -627,7 +629,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount;
 
-                        // ����3 ������
+                        // 버프3 곱연산
                         if (buff.AddType == E_AddType.Percent)
                         {
                             switch (buff.BuffType)
@@ -652,13 +654,13 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ����Ŀ ���� ������
+        #region 버서커 버프 곱연산
         BuffList = m_TowerInfo.BerserkerBuffList;
         if (m_TowerInfo.Berserker)
         {
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                // ����Ŀ ����1 üũ
+                // 버서커 버프1 체크
                 if (BerserkerBuffApply[i * 3])
                 {
                     buff = new S_Buff(
@@ -670,7 +672,7 @@ public class Tower : MonoBehaviour
                         );
                     float BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                    // ����Ŀ ����1 ������
+                    // 버서커 버프1 곱연산
                     if (buff.AddType == E_AddType.Percent)
                     {
                         switch (buff.BuffType)
@@ -691,7 +693,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ����Ŀ ����2 üũ
+                    // 버서커 버프2 체크
                     if (BerserkerBuffApply[i * 3 + 1])
                     {
                         buff = new S_Buff(
@@ -703,7 +705,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                        // ����Ŀ ����2 ������
+                        // 버서커 버프2 곱연산
                         if (buff.AddType == E_AddType.Percent)
                         {
                             switch (buff.BuffType)
@@ -724,7 +726,7 @@ public class Tower : MonoBehaviour
                             }
                         }
 
-                        // ����Ŀ ����3 üũ
+                        // 버서커 버프3 체크
                         if (BerserkerBuffApply[i * 3 + 2])
                         {
                             buff = new S_Buff(
@@ -736,7 +738,7 @@ public class Tower : MonoBehaviour
                                 );
                             BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                            // ����Ŀ ����3 ������
+                            // 버서커 버프3 곱연산
                             if (buff.AddType == E_AddType.Percent)
                             {
                                 switch (buff.BuffType)
@@ -762,11 +764,11 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ���� ��ų ���� ������
+        #region 마왕 스킬 버프 곱연산
         BuffList = m_TowerInfo.DevilSkillBuffList;
         for (int i = 0; i < BuffList.Count; ++i)
         {
-            // ���� ��ų ����1 üũ
+            // 마왕 스킬 버프1 체크
             if (DevilSkillBuffApply[i * 3])
             {
                 buff = new S_Buff(
@@ -778,7 +780,7 @@ public class Tower : MonoBehaviour
                     );
                 float BuffAmount = buff.BuffAmount;
 
-                // ���� ��ų ����1 ������
+                // 마왕 스킬 버프1 곱연산
                 if (buff.AddType == E_AddType.Percent)
                 {
                     switch (buff.BuffType)
@@ -799,7 +801,7 @@ public class Tower : MonoBehaviour
                     }
                 }
 
-                // ���� ��ų ����2 üũ
+                // 마왕 스킬 버프2 체크
                 if (DevilSkillBuffApply[i * 3 + 1])
                 {
                     buff = new S_Buff(
@@ -811,7 +813,7 @@ public class Tower : MonoBehaviour
                         );
                     BuffAmount = buff.BuffAmount;
 
-                    // ���� ��ų ����2 ������
+                    // 마왕 스킬 버프2 곱연산
                     if (buff.AddType == E_AddType.Percent)
                     {
                         switch (buff.BuffType)
@@ -832,7 +834,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ���� ��ų ����3 üũ
+                    // 마왕 스킬 버프3 체크
                     if (DevilSkillBuffApply[i * 3 + 2])
                     {
                         buff = new S_Buff(
@@ -844,7 +846,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount;
 
-                        // ���� ��ų ����3 ������
+                        // 마왕 스킬 버프3 곱연산
                         if (buff.AddType == E_AddType.Percent)
                         {
                             switch (buff.BuffType)
@@ -870,29 +872,29 @@ public class Tower : MonoBehaviour
         }
         #endregion
 
-        // ��Ÿ� ������Ʈ
+        // 사거리 업데이트
         m_AttackRange_Default.Range = statData.Range;
         #endregion
 
-        #region �ó���
-        // ����Ŀ
+        #region 시너지
+        // 버서커
         if (m_TowerInfo.Berserker)
         {
-            // ����Ŀ ���� ����
+            // 버서커 스택 증가
             if (m_TowerInfo.BerserkerStack < m_TowerInfo.BerserkerMaxStack)
             {
                 ++m_TowerInfo.BerserkerStack;
             }
         }
 
-        // ���� Ÿ�� ����
+        // 공격 타입 변경
         if (m_TowerInfo.Synergy_Atk_type != E_AttackType.None)
         {
             conditionData.Atk_type = (int)m_TowerInfo.Synergy_Atk_type;
             statData.Target_num = m_TowerInfo.BounceCount;
         }
 
-        // ���� ��Ÿ�� ����
+        // 마왕 쿨타임 감소
         if (m_TowerInfo.ReduceCooldown)
         {
             float ReduceCooldownRand = Random.Range(0.00001f, 1f);
@@ -906,7 +908,7 @@ public class Tower : MonoBehaviour
         }
         #endregion
 
-        // �⺻ ��ų ����ü ����
+        // 기본 스킬 투사체 생성
         int DefaultSkillCode = conditionData.projectile_prefab;
         if ((E_TargetType)m_TowerInfo.Condition_Default.Target_type == E_TargetType.TileTarget)
         {
@@ -926,14 +928,14 @@ public class Tower : MonoBehaviour
                     case E_FireType.Select_enemy:
                         GameObject pivot = new GameObject();
                         pivot.transform.position = m_Target.transform.position;
-                        DefaultSkill.transform.position = pivot.transform.position; // �� �ǰ� ��ġ�� �������� ���� �ʿ�
+                        DefaultSkill.transform.position = pivot.transform.position; // 적 피격 위치에 생성으로 수정 필요
                         break;
                 }
 
                 DefaultSkill.enabled = true;
                 DefaultSkill.gameObject.SetActive(true);
 
-                // �⺻ ��ų ������ ����
+                // 기본 스킬 데이터 설정
                 DefaultSkill.InitializeSkill(EnemyList[i], conditionData, statData);
             }
         }
@@ -951,42 +953,42 @@ public class Tower : MonoBehaviour
                 case E_FireType.Select_enemy:
                     GameObject pivot = new GameObject();
                     pivot.transform.position = m_Target.transform.position;
-                    DefaultSkill.transform.position = pivot.transform.position; // �� �ǰ� ��ġ�� �������� ���� �ʿ�
+                    DefaultSkill.transform.position = pivot.transform.position; // 적 피격 위치에 생성으로 수정 필요
                     break;
             }
 
             DefaultSkill.enabled = true;
             DefaultSkill.gameObject.SetActive(true);
 
-            // �⺻ ��ų ������ ����
+            // 기본 스킬 데이터 설정
             DefaultSkill.InitializeSkill(m_Target, conditionData, statData);
         }
     }
     public void CallSkill01()
     {
-        // ���� ������ ����
+        // 내부 데이터 정리
         m_TowerInfo.AttackSpeed_Skill01 = m_TowerInfo.Stat_Skill01.CoolTime;
         m_TowerInfo.ShouldFindTarget = true;
 
-        // ��ų01 ������ �ҷ�����
+        // 스킬01 데이터 불러오기
         SkillCondition_TableExcel conditionData = m_TowerInfo.Condition_Skill01;
         SkillStat_TableExcel statData = m_TowerInfo.Stat_Skill01;
 
-        // �⺻ ����� ����
+        // 기본 대미지 설정
         statData.Dmg *= m_TowerInfo_Excel.Atk;
         statData.Dmg += statData.Dmg_plus;
 
-        #region ����
-        // ������ ���� ����Ʈ
+        #region 버프
+        // 적용할 버프 리스트
         List<BuffCC_TableExcel> BuffList;
 
-        // �ó��� ����
+        // 시너지 버프
         BuffList = m_TowerInfo.BuffList;
-        // ���� ���� Ȯ��
+        // 버프 적용 확률
         List<float> BuffRand = new List<float>();
-        // ���� ���� ����
+        // 버프 적용 여부
         List<bool> BuffApply = new List<bool>();
-        // ���� ���� ���
+        // 버프 적용 계산
         for (int i = 0; i < BuffList.Count; ++i)
         {
             BuffRand.Add(Random.Range(0.00001f, 1f));
@@ -997,13 +999,13 @@ public class Tower : MonoBehaviour
             BuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand3);
         }
 
-        // ����Ŀ ����
+        // 버서커 버프
         BuffList = m_TowerInfo.BerserkerBuffList;
-        // ����Ŀ ���� ���� Ȯ��
+        // 버서커 버프 적용 확률
         List<float> BerserkerBuffRand = new List<float>();
-        // ����Ŀ ���� ���� ����
+        // 버서커 버프 적용 여부
         List<bool> BerserkerBuffApply = new List<bool>();
-        // ����Ŀ ���� ���� ���
+        // 버서커 버프 적용 계산
         for (int i = 0; i < BuffList.Count; ++i)
         {
             BerserkerBuffRand.Add(Random.Range(0.00001f, 1f));
@@ -1014,13 +1016,13 @@ public class Tower : MonoBehaviour
             BerserkerBuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].BuffRand3);
         }
 
-        // ���� ��ų ����
+        // 마왕 스킬 버프
         BuffList = m_TowerInfo.DevilSkillBuffList;
-        // ���� ��ų ���� ���� Ȯ��
+        // 마왕 스킬 버프 적용 확률
         List<float> DevilSkillBuffRand = new List<float>();
-        // ���� ��ų ���� ���� ����
+        // 마왕 스킬 버프 적용 여부
         List<bool> DevilSkillBuffApply = new List<bool>();
-        // ���� ��ų ���� ���� ���
+        // 마왕 스킬 버프 적용 계산
         for (int i = 0; i < BuffList.Count; ++i)
         {
             DevilSkillBuffRand.Add(Random.Range(0.00001f, 1f));
@@ -1031,15 +1033,15 @@ public class Tower : MonoBehaviour
             DevilSkillBuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].BuffRand3);
         }
 
-        // ������ ���� ��Ƶ� ����
+        // 적용할 버프 담아둘 변수
         S_Buff buff;
 
-        // ���� ����
-        #region ���� �տ���
+        // 버프 적용
+        #region 버프 합연산
         BuffList = m_TowerInfo.BuffList;
         for (int i = 0; i < BuffList.Count; ++i)
         {
-            // ����1 üũ
+            // 버프1 체크
             if (BuffApply[i * 3])
             {
                 buff = new S_Buff(
@@ -1051,7 +1053,7 @@ public class Tower : MonoBehaviour
                     );
                 float BuffAmount = buff.BuffAmount;
 
-                // ����1 �տ���
+                // 버프1 합연산
                 if (buff.AddType == E_AddType.Fix)
                 {
                     switch (buff.BuffType)
@@ -1071,7 +1073,7 @@ public class Tower : MonoBehaviour
                     }
                 }
 
-                // ����2 üũ
+                // 버프2 체크
                 if (BuffApply[i * 3 + 1])
                 {
                     buff = new S_Buff(
@@ -1083,7 +1085,7 @@ public class Tower : MonoBehaviour
                         );
                     BuffAmount = buff.BuffAmount;
 
-                    // ����2 �տ���
+                    // 버프2 합연산
                     if (buff.AddType == E_AddType.Fix)
                     {
                         switch (buff.BuffType)
@@ -1103,7 +1105,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ����3 üũ
+                    // 버프3 체크
                     if (BuffApply[i * 3 + 2])
                     {
                         buff = new S_Buff(
@@ -1115,7 +1117,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount;
 
-                        // ����3 �տ���
+                        // 버프3 합연산
                         if (buff.AddType == E_AddType.Fix)
                         {
                             switch (buff.BuffType)
@@ -1139,13 +1141,13 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ����Ŀ ���� �տ���
+        #region 버서커 버프 합연산
         BuffList = m_TowerInfo.BerserkerBuffList;
         if (m_TowerInfo.Berserker)
         {
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                // ����Ŀ ����1 üũ
+                // 버서커 버프1 체크
                 if (BerserkerBuffApply[i * 3])
                 {
                     buff = new S_Buff(
@@ -1157,7 +1159,7 @@ public class Tower : MonoBehaviour
                         );
                     float BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                    // ����Ŀ ����1 �տ���
+                    // 버서커 버프1 합연산
                     if (buff.AddType == E_AddType.Fix)
                     {
                         switch (buff.BuffType)
@@ -1177,7 +1179,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ����Ŀ ����2 üũ
+                    // 버서커 버프2 체크
                     if (BerserkerBuffApply[i * 3 + 1])
                     {
                         buff = new S_Buff(
@@ -1189,7 +1191,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                        // ����Ŀ ����2 �տ���
+                        // 버서커 버프2 합연산
                         if (buff.AddType == E_AddType.Fix)
                         {
                             switch (buff.BuffType)
@@ -1209,7 +1211,7 @@ public class Tower : MonoBehaviour
                             }
                         }
 
-                        // ����Ŀ ����3 üũ
+                        // 버서커 버프3 체크
                         if (BerserkerBuffApply[i * 3 + 2])
                         {
                             buff = new S_Buff(
@@ -1221,7 +1223,7 @@ public class Tower : MonoBehaviour
                                 );
                             BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                            // ����Ŀ ����3 �տ���
+                            // 버서커 버프3 합연산
                             if (buff.AddType == E_AddType.Fix)
                             {
                                 switch (buff.BuffType)
@@ -1246,11 +1248,11 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ���� ������
+        #region 버프 곱연산
         BuffList = m_TowerInfo.BuffList;
         for (int i = 0; i < BuffList.Count; ++i)
         {
-            // ����1 üũ
+            // 버프1 체크
             if (BuffApply[i * 3])
             {
                 buff = new S_Buff(
@@ -1262,7 +1264,7 @@ public class Tower : MonoBehaviour
                     );
                 float BuffAmount = buff.BuffAmount;
 
-                // ����1 ������
+                // 버프1 곱연산
                 if (buff.AddType == E_AddType.Percent)
                 {
                     switch (buff.BuffType)
@@ -1282,7 +1284,7 @@ public class Tower : MonoBehaviour
                     }
                 }
 
-                // ����2 üũ
+                // 버프2 체크
                 if (BuffApply[i * 3 + 1])
                 {
                     buff = new S_Buff(
@@ -1294,7 +1296,7 @@ public class Tower : MonoBehaviour
                         );
                     BuffAmount = buff.BuffAmount;
 
-                    // ����2 ������
+                    // 버프2 곱연산
                     if (buff.AddType == E_AddType.Percent)
                     {
                         switch (buff.BuffType)
@@ -1314,7 +1316,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ����3 üũ
+                    // 버프3 체크
                     if (BuffApply[i * 3 + 2])
                     {
                         buff = new S_Buff(
@@ -1326,7 +1328,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount;
 
-                        // ����3 ������
+                        // 버프3 곱연산
                         if (buff.AddType == E_AddType.Percent)
                         {
                             switch (buff.BuffType)
@@ -1350,13 +1352,13 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ����Ŀ ���� ������
+        #region 버서커 버프 곱연산
         BuffList = m_TowerInfo.BerserkerBuffList;
         if (m_TowerInfo.Berserker)
         {
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                // ����Ŀ ����1 üũ
+                // 버서커 버프1 체크
                 if (BerserkerBuffApply[i * 3])
                 {
                     buff = new S_Buff(
@@ -1368,7 +1370,7 @@ public class Tower : MonoBehaviour
                         );
                     float BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                    // ����Ŀ ����1 ������
+                    // 버서커 버프1 곱연산
                     if (buff.AddType == E_AddType.Percent)
                     {
                         switch (buff.BuffType)
@@ -1388,7 +1390,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ����Ŀ ����2 üũ
+                    // 버서커 버프2 체크
                     if (BerserkerBuffApply[i * 3 + 1])
                     {
                         buff = new S_Buff(
@@ -1400,7 +1402,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                        // ����Ŀ ����2 ������
+                        // 버서커 버프2 곱연산
                         if (buff.AddType == E_AddType.Percent)
                         {
                             switch (buff.BuffType)
@@ -1420,7 +1422,7 @@ public class Tower : MonoBehaviour
                             }
                         }
 
-                        // ����Ŀ ����3 üũ
+                        // 버서커 버프3 체크
                         if (BerserkerBuffApply[i * 3 + 2])
                         {
                             buff = new S_Buff(
@@ -1432,7 +1434,7 @@ public class Tower : MonoBehaviour
                                 );
                             BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                            // ����Ŀ ����3 ������
+                            // 버서커 버프3 곱연산
                             if (buff.AddType == E_AddType.Percent)
                             {
                                 switch (buff.BuffType)
@@ -1457,11 +1459,11 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ���� ��ų ���� ������
+        #region 마왕 스킬 버프 곱연산
         BuffList = m_TowerInfo.DevilSkillBuffList;
         for (int i = 0; i < BuffList.Count; ++i)
         {
-            // ���� ��ų ����1 üũ
+            // 마왕 스킬 버프1 체크
             if (DevilSkillBuffApply[i * 3])
             {
                 buff = new S_Buff(
@@ -1473,7 +1475,7 @@ public class Tower : MonoBehaviour
                     );
                 float BuffAmount = buff.BuffAmount;
 
-                // ���� ��ų ����1 ������
+                // 마왕 스킬 버프1 곱연산
                 if (buff.AddType == E_AddType.Percent)
                 {
                     switch (buff.BuffType)
@@ -1493,7 +1495,7 @@ public class Tower : MonoBehaviour
                     }
                 }
 
-                // ���� ��ų ����2 üũ
+                // 마왕 스킬 버프2 체크
                 if (DevilSkillBuffApply[i * 3 + 1])
                 {
                     buff = new S_Buff(
@@ -1505,7 +1507,7 @@ public class Tower : MonoBehaviour
                         );
                     BuffAmount = buff.BuffAmount;
 
-                    // ���� ��ų ����2 ������
+                    // 마왕 스킬 버프2 곱연산
                     if (buff.AddType == E_AddType.Percent)
                     {
                         switch (buff.BuffType)
@@ -1525,7 +1527,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ���� ��ų ����3 üũ
+                    // 마왕 스킬 버프3 체크
                     if (DevilSkillBuffApply[i * 3 + 2])
                     {
                         buff = new S_Buff(
@@ -1537,7 +1539,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount;
 
-                        // ���� ��ų ����3 ������
+                        // 마왕 스킬 버프3 곱연산
                         if (buff.AddType == E_AddType.Percent)
                         {
                             switch (buff.BuffType)
@@ -1562,11 +1564,11 @@ public class Tower : MonoBehaviour
         }
         #endregion
 
-        // ��Ÿ� ������Ʈ
+        // 사거리 업데이트
         m_AttackRange_Skill01.Range = statData.Range;
         #endregion
 
-        // ��ų01 ����ü ����
+        // 스킬01 투사체 생성
         int Skill01Code = conditionData.projectile_prefab;
 
         if ((E_TargetType)m_TowerInfo.Condition_Skill01.Target_type == E_TargetType.TileTarget)
@@ -1587,14 +1589,14 @@ public class Tower : MonoBehaviour
                     case E_FireType.Select_enemy:
                         GameObject pivot = new GameObject();
                         pivot.transform.position = m_Target.transform.position;
-                        Skill01.transform.position = pivot.transform.position; // �� �ǰ� ��ġ�� �������� ���� �ʿ�
+                        Skill01.transform.position = pivot.transform.position; // 적 피격 위치에 생성으로 수정 필요
                         break;
                 }
 
                 Skill01.enabled = true;
                 Skill01.gameObject.SetActive(true);
 
-                // ��ų01 ������ ����
+                // 스킬01 데이터 설정
                 Skill01.InitializeSkill(EnemyList[i], conditionData, statData);
             }
         }
@@ -1612,42 +1614,42 @@ public class Tower : MonoBehaviour
                 case E_FireType.Select_enemy:
                     GameObject pivot = new GameObject();
                     pivot.transform.position = m_Target.transform.position;
-                    Skill01.transform.position = pivot.transform.position; // �� �ǰ� ��ġ�� �������� ���� �ʿ�
+                    Skill01.transform.position = pivot.transform.position; // 적 피격 위치에 생성으로 수정 필요
                     break;
             }
 
             Skill01.enabled = true;
             Skill01.gameObject.SetActive(true);
 
-            // ��ų01 ������ ����
+            // 스킬01 데이터 설정
             Skill01.InitializeSkill(m_Target, conditionData, statData);
         }
     }
     public void CallSkill02()
     {
-        // ���� ������ ����
+        // 내부 데이터 정리
         m_TowerInfo.AttackSpeed_Skill02 = m_TowerInfo.Stat_Skill02.CoolTime;
         m_TowerInfo.ShouldFindTarget = true;
 
-        // ��ų02 ������ �ҷ�����
+        // 스킬02 데이터 불러오기
         SkillCondition_TableExcel conditionData = m_TowerInfo.Condition_Skill02;
         SkillStat_TableExcel statData = m_TowerInfo.Stat_Skill02;
 
-        // �⺻ ����� ����
+        // 기본 대미지 설정
         statData.Dmg *= m_TowerInfo_Excel.Atk;
         statData.Dmg += statData.Dmg_plus;
 
-        #region ����
-        // ������ ���� ����Ʈ
+        #region 버프
+        // 적용할 버프 리스트
         List<BuffCC_TableExcel> BuffList;
 
-        // �ó��� ����
+        // 시너지 버프
         BuffList = m_TowerInfo.BuffList;
-        // ���� ���� Ȯ��
+        // 버프 적용 확률
         List<float> BuffRand = new List<float>();
-        // ���� ���� ����
+        // 버프 적용 여부
         List<bool> BuffApply = new List<bool>();
-        // ���� ���� ���
+        // 버프 적용 계산
         for (int i = 0; i < BuffList.Count; ++i)
         {
             BuffRand.Add(Random.Range(0.00001f, 1f));
@@ -1658,13 +1660,13 @@ public class Tower : MonoBehaviour
             BuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand3);
         }
 
-        // ����Ŀ ����
+        // 버서커 버프
         BuffList = m_TowerInfo.BerserkerBuffList;
-        // ����Ŀ ���� ���� Ȯ��
+        // 버서커 버프 적용 확률
         List<float> BerserkerBuffRand = new List<float>();
-        // ����Ŀ ���� ���� ����
+        // 버서커 버프 적용 여부
         List<bool> BerserkerBuffApply = new List<bool>();
-        // ����Ŀ ���� ���� ���
+        // 버서커 버프 적용 계산
         for (int i = 0; i < BuffList.Count; ++i)
         {
             BerserkerBuffRand.Add(Random.Range(0.00001f, 1f));
@@ -1675,13 +1677,13 @@ public class Tower : MonoBehaviour
             BerserkerBuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].BuffRand3);
         }
 
-        // ���� ��ų ����
+        // 마왕 스킬 버프
         BuffList = m_TowerInfo.DevilSkillBuffList;
-        // ���� ��ų ���� ���� Ȯ��
+        // 마왕 스킬 버프 적용 확률
         List<float> DevilSkillBuffRand = new List<float>();
-        // ���� ��ų ���� ���� ����
+        // 마왕 스킬 버프 적용 여부
         List<bool> DevilSkillBuffApply = new List<bool>();
-        // ���� ��ų ���� ���� ���
+        // 마왕 스킬 버프 적용 계산
         for (int i = 0; i < BuffList.Count; ++i)
         {
             DevilSkillBuffRand.Add(Random.Range(0.00001f, 1f));
@@ -1692,15 +1694,15 @@ public class Tower : MonoBehaviour
             DevilSkillBuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].BuffRand3);
         }
 
-        // ������ ���� ��Ƶ� ����
+        // 적용할 버프 담아둘 변수
         S_Buff buff;
 
-        // ���� ����
-        #region ���� �տ���
+        // 버프 적용
+        #region 버프 합연산
         BuffList = m_TowerInfo.BuffList;
         for (int i = 0; i < BuffList.Count; ++i)
         {
-            // ����1 üũ
+            // 버프1 체크
             if (BuffApply[i * 3])
             {
                 buff = new S_Buff(
@@ -1712,7 +1714,7 @@ public class Tower : MonoBehaviour
                     );
                 float BuffAmount = buff.BuffAmount;
 
-                // ����1 �տ���
+                // 버프1 합연산
                 if (buff.AddType == E_AddType.Fix)
                 {
                     switch (buff.BuffType)
@@ -1732,7 +1734,7 @@ public class Tower : MonoBehaviour
                     }
                 }
 
-                // ����2 üũ
+                // 버프2 체크
                 if (BuffApply[i * 3 + 1])
                 {
                     buff = new S_Buff(
@@ -1744,7 +1746,7 @@ public class Tower : MonoBehaviour
                         );
                     BuffAmount = buff.BuffAmount;
 
-                    // ����2 �տ���
+                    // 버프2 합연산
                     if (buff.AddType == E_AddType.Fix)
                     {
                         switch (buff.BuffType)
@@ -1764,7 +1766,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ����3 üũ
+                    // 버프3 체크
                     if (BuffApply[i * 3 + 2])
                     {
                         buff = new S_Buff(
@@ -1776,7 +1778,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount;
 
-                        // ����3 �տ���
+                        // 버프3 합연산
                         if (buff.AddType == E_AddType.Fix)
                         {
                             switch (buff.BuffType)
@@ -1800,13 +1802,13 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ����Ŀ ���� �տ���
+        #region 버서커 버프 합연산
         BuffList = m_TowerInfo.BerserkerBuffList;
         if (m_TowerInfo.Berserker)
         {
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                // ����Ŀ ����1 üũ
+                // 버서커 버프1 체크
                 if (BerserkerBuffApply[i * 3])
                 {
                     buff = new S_Buff(
@@ -1818,7 +1820,7 @@ public class Tower : MonoBehaviour
                         );
                     float BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                    // ����Ŀ ����1 �տ���
+                    // 버서커 버프1 합연산
                     if (buff.AddType == E_AddType.Fix)
                     {
                         switch (buff.BuffType)
@@ -1838,7 +1840,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ����Ŀ ����2 üũ
+                    // 버서커 버프2 체크
                     if (BerserkerBuffApply[i * 3 + 1])
                     {
                         buff = new S_Buff(
@@ -1850,7 +1852,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                        // ����Ŀ ����2 �տ���
+                        // 버서커 버프2 합연산
                         if (buff.AddType == E_AddType.Fix)
                         {
                             switch (buff.BuffType)
@@ -1870,7 +1872,7 @@ public class Tower : MonoBehaviour
                             }
                         }
 
-                        // ����Ŀ ����3 üũ
+                        // 버서커 버프3 체크
                         if (BerserkerBuffApply[i * 3 + 2])
                         {
                             buff = new S_Buff(
@@ -1882,7 +1884,7 @@ public class Tower : MonoBehaviour
                                 );
                             BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                            // ����Ŀ ����3 �տ���
+                            // 버서커 버프3 합연산
                             if (buff.AddType == E_AddType.Fix)
                             {
                                 switch (buff.BuffType)
@@ -1907,11 +1909,11 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ���� ������
+        #region 버프 곱연산
         BuffList = m_TowerInfo.BuffList;
         for (int i = 0; i < BuffList.Count; ++i)
         {
-            // ����1 üũ
+            // 버프1 체크
             if (BuffApply[i * 3])
             {
                 buff = new S_Buff(
@@ -1923,7 +1925,7 @@ public class Tower : MonoBehaviour
                     );
                 float BuffAmount = buff.BuffAmount;
 
-                // ����1 ������
+                // 버프1 곱연산
                 if (buff.AddType == E_AddType.Percent)
                 {
                     switch (buff.BuffType)
@@ -1943,7 +1945,7 @@ public class Tower : MonoBehaviour
                     }
                 }
 
-                // ����2 üũ
+                // 버프2 체크
                 if (BuffApply[i * 3 + 1])
                 {
                     buff = new S_Buff(
@@ -1955,7 +1957,7 @@ public class Tower : MonoBehaviour
                         );
                     BuffAmount = buff.BuffAmount;
 
-                    // ����2 ������
+                    // 버프2 곱연산
                     if (buff.AddType == E_AddType.Percent)
                     {
                         switch (buff.BuffType)
@@ -1975,7 +1977,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ����3 üũ
+                    // 버프3 체크
                     if (BuffApply[i * 3 + 2])
                     {
                         buff = new S_Buff(
@@ -1987,7 +1989,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount;
 
-                        // ����3 ������
+                        // 버프3 곱연산
                         if (buff.AddType == E_AddType.Percent)
                         {
                             switch (buff.BuffType)
@@ -2011,13 +2013,13 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ����Ŀ ���� ������
+        #region 버서커 버프 곱연산
         BuffList = m_TowerInfo.BerserkerBuffList;
         if (m_TowerInfo.Berserker)
         {
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                // ����Ŀ ����1 üũ
+                // 버서커 버프1 체크
                 if (BerserkerBuffApply[i * 3])
                 {
                     buff = new S_Buff(
@@ -2029,7 +2031,7 @@ public class Tower : MonoBehaviour
                         );
                     float BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                    // ����Ŀ ����1 ������
+                    // 버서커 버프1 곱연산
                     if (buff.AddType == E_AddType.Percent)
                     {
                         switch (buff.BuffType)
@@ -2049,7 +2051,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ����Ŀ ����2 üũ
+                    // 버서커 버프2 체크
                     if (BerserkerBuffApply[i * 3 + 1])
                     {
                         buff = new S_Buff(
@@ -2061,7 +2063,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                        // ����Ŀ ����2 ������
+                        // 버서커 버프2 곱연산
                         if (buff.AddType == E_AddType.Percent)
                         {
                             switch (buff.BuffType)
@@ -2081,7 +2083,7 @@ public class Tower : MonoBehaviour
                             }
                         }
 
-                        // ����Ŀ ����3 üũ
+                        // 버서커 버프3 체크
                         if (BerserkerBuffApply[i * 3 + 2])
                         {
                             buff = new S_Buff(
@@ -2093,7 +2095,7 @@ public class Tower : MonoBehaviour
                                 );
                             BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                            // ����Ŀ ����3 ������
+                            // 버서커 버프3 곱연산
                             if (buff.AddType == E_AddType.Percent)
                             {
                                 switch (buff.BuffType)
@@ -2118,11 +2120,11 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ���� ��ų ���� ������
+        #region 마왕 스킬 버프 곱연산
         BuffList = m_TowerInfo.DevilSkillBuffList;
         for (int i = 0; i < BuffList.Count; ++i)
         {
-            // ���� ��ų ����1 üũ
+            // 마왕 스킬 버프1 체크
             if (DevilSkillBuffApply[i * 3])
             {
                 buff = new S_Buff(
@@ -2134,7 +2136,7 @@ public class Tower : MonoBehaviour
                     );
                 float BuffAmount = buff.BuffAmount;
 
-                // ���� ��ų ����1 ������
+                // 마왕 스킬 버프1 곱연산
                 if (buff.AddType == E_AddType.Percent)
                 {
                     switch (buff.BuffType)
@@ -2154,7 +2156,7 @@ public class Tower : MonoBehaviour
                     }
                 }
 
-                // ���� ��ų ����2 üũ
+                // 마왕 스킬 버프2 체크
                 if (DevilSkillBuffApply[i * 3 + 1])
                 {
                     buff = new S_Buff(
@@ -2166,7 +2168,7 @@ public class Tower : MonoBehaviour
                         );
                     BuffAmount = buff.BuffAmount;
 
-                    // ���� ��ų ����2 ������
+                    // 마왕 스킬 버프2 곱연산
                     if (buff.AddType == E_AddType.Percent)
                     {
                         switch (buff.BuffType)
@@ -2186,7 +2188,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ���� ��ų ����3 üũ
+                    // 마왕 스킬 버프3 체크
                     if (DevilSkillBuffApply[i * 3 + 2])
                     {
                         buff = new S_Buff(
@@ -2198,7 +2200,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount;
 
-                        // ���� ��ų ����3 ������
+                        // 마왕 스킬 버프3 곱연산
                         if (buff.AddType == E_AddType.Percent)
                         {
                             switch (buff.BuffType)
@@ -2223,11 +2225,11 @@ public class Tower : MonoBehaviour
         }
         #endregion
 
-        // ��Ÿ� ������Ʈ
+        // 사거리 업데이트
         m_AttackRange_Skill02.Range = statData.Range;
         #endregion
 
-        // ��ų02 ����ü ����
+        // 스킬02 투사체 생성
         int Skill02Code = conditionData.projectile_prefab;
 
         if ((E_TargetType)m_TowerInfo.Condition_Skill02.Target_type == E_TargetType.TileTarget)
@@ -2248,14 +2250,14 @@ public class Tower : MonoBehaviour
                     case E_FireType.Select_enemy:
                         GameObject pivot = new GameObject();
                         pivot.transform.position = m_Target.transform.position;
-                        Skill02.transform.position = pivot.transform.position; // �� �ǰ� ��ġ�� �������� ���� �ʿ�
+                        Skill02.transform.position = pivot.transform.position; // 적 피격 위치에 생성으로 수정 필요
                         break;
                 }
 
                 Skill02.enabled = true;
                 Skill02.gameObject.SetActive(true);
 
-                // ��ų02 ������ ����
+                // 스킬02 데이터 설정
                 Skill02.InitializeSkill(EnemyList[i], conditionData, statData);
             }
         }
@@ -2273,20 +2275,20 @@ public class Tower : MonoBehaviour
                 case E_FireType.Select_enemy:
                     GameObject pivot = new GameObject();
                     pivot.transform.position = m_Target.transform.position;
-                    Skill02.transform.position = pivot.transform.position; // �� �ǰ� ��ġ�� �������� ���� �ʿ�
+                    Skill02.transform.position = pivot.transform.position; // 적 피격 위치에 생성으로 수정 필요
                     break;
             }
 
             Skill02.enabled = true;
             Skill02.gameObject.SetActive(true);
 
-            // ��ų02 ������ ����
+            // 스킬02 데이터 설정
             Skill02.InitializeSkill(m_Target, conditionData, statData);
         }
     }
     #endregion
 
-    #region ����Ƽ �ݹ� �Լ�
+    #region 유니티 콜백 함수
     private void Awake()
     {
         //InitializeTower(m_CodeTemp, m_SizeTemp);
@@ -2300,107 +2302,107 @@ public class Tower : MonoBehaviour
     }
     #endregion
 
-    // Ÿ�� ����
+    // 타워 정보
     [System.Serializable]
     public struct S_TowerData
     {
-        // Ÿ�� ����
+        // 타워 방향
         public E_Direction Direction;
-        // ȸ�� �ӵ�
+        // 회전 속도
         public float RotateSpeed;
-        // �ʱ� ȸ�� ��
+        // 초기 회전 값
         public Vector3 InitialRotation;
-        // �� ���� ����
+        // 적 감지 여부
         public bool ShouldFindTarget;
-        // ���� �ǹ�
+        // 공격 피벗
         public Transform AttackPivot;
 
-        // �⺻ ��ų ������
+        // 기본 스킬 데이터
         public SkillCondition_TableExcel Condition_Default;
         public SkillStat_TableExcel Stat_Default;
-        // �⺻ ��ų ���� �ӵ�
+        // 기본 스킬 공격 속도
         public float AttackSpeed_Default;
-        // �⺻ ��ų Ÿ�̸�
+        // 기본 스킬 타이머
         public float AttackTimer_Default;
 
-        // ��ų01 ������
+        // 스킬01 데이터
         public SkillCondition_TableExcel Condition_Skill01;
         public SkillStat_TableExcel Stat_Skill01;
-        // ��ų01 ���� �ӵ�
+        // 스킬01 공격 속도
         public float AttackSpeed_Skill01;
-        // ��ų01 Ÿ�̸�
+        // 스킬01 타이머
         public float AttackTimer_Skill01;
 
-        // ��ų02 ������
+        // 스킬02 데이터
         public SkillCondition_TableExcel Condition_Skill02;
         public SkillStat_TableExcel Stat_Skill02;
-        // ��ų02 ���� �ӵ�
+        // 스킬02 공격 속도
         public float AttackSpeed_Skill02;
-        // ��ų02 Ÿ�̸�
+        // 스킬02 타이머
         public float AttackTimer_Skill02;
 
-        #region �ó���
-        // ����
+        #region 시너지
+        // 버프
         public List<BuffCC_TableExcel> BuffList;
 
-        // ���� Ÿ�� ����
+        // 공격 타입 변경
         public E_AttackType Synergy_Atk_type;
         public int BounceCount;
 
-        // ����Ŀ
+        // 버서커
         public bool Berserker;
         public int BerserkerStack;
         public int BerserkerMaxStack;
         public List<BuffCC_TableExcel> BerserkerBuffList;
 
-        // ���� ��Ÿ�� ����
+        // 마왕 쿨타임 감소
         public bool ReduceCooldown;
         public float ReduceCooldownRand;
         #endregion
 
-        // ���� ��ų ����
+        // 마왕 스킬 버프
         public List<BuffCC_TableExcel> DevilSkillBuffList;
     }
     //[System.Serializable]
     //public struct S_BuffStat
     //{
-    //    // ���� Ȯ��
+    //    // 적용 확률
     //    public float BuffRand;
 
-    //    // ���ݷ�
+    //    // 공격력
     //    public float Atk_Fix;
     //    public float Atk_Percent;
-    //    // ��Ÿ�
+    //    // 사거리
     //    public float Range_Fix;
     //    public float Range_Percent;
-    //    // ���� �ӵ�
+    //    // 공격 속도
     //    public float Atk_spd_Fix;
     //    public float Atk_spd_Percent;
-    //    // ġ��Ÿ Ȯ��
+    //    // 치명타 확률
     //    public float Crit_rate_Fix;
     //    public float Crit_rate_Percent;
-    //    // ġ��Ÿ ����
+    //    // 치명타 배율
     //    public float Crit_Dmg_Fix;
     //    public float Crit_Dmg_Percent;
 
     //    public void Initialize()
     //    {
-    //        // ���� Ȯ��
+    //        // 적용 확률
     //        BuffRand = 1f;
 
-    //        // ���ݷ�
+    //        // 공격력
     //        Atk_Fix = 0f;
     //        Atk_Percent = 1f;
-    //        // ��Ÿ�
+    //        // 사거리
     //        Range_Fix = 0f;
     //        Range_Percent = 1f;
-    //        // ���� �ӵ�
+    //        // 공격 속도
     //        Atk_spd_Fix = 0f;
     //        Atk_spd_Percent = 1f;
-    //        // ġ��Ÿ Ȯ��
+    //        // 치명타 확률
     //        Crit_rate_Fix = 0f;
     //        Crit_rate_Percent = 1f;
-    //        // ġ��Ÿ ����
+    //        // 치명타 배율
     //        Crit_Dmg_Fix = 0f;
     //        Crit_Dmg_Percent = 1f;
     //    }

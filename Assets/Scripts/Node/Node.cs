@@ -11,6 +11,7 @@ public class Node : MonoBehaviour
 
     #region 내부 프로퍼티
     protected NodeManager M_Node => NodeManager.Instance;
+    protected SynergyManager M_Synergy => SynergyManager.Instance;
     #endregion
 
     #region 외부 프로퍼티
@@ -31,6 +32,8 @@ public class Node : MonoBehaviour
         Debug.Log("초기 회전 값: " + m_Tower.m_TowerInfo.InitialRotation);
 
         m_Tower.gameObject.SetActive(true);
+
+        M_Synergy.UpdateSynergy();
     }
 
     private void Awake()

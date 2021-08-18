@@ -40,12 +40,12 @@ public class SynergySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
 
     private void OnInfoChanged()
-    {
-        Sprite sprite = m_sprite_loader.GetSprite(m_info.sprite_code);
-        m_synergy_image.sprite = sprite;
+    { 
 
         if(m_info.isActivated)
         {
+            Sprite sprite = m_sprite_loader.GetSprite(m_info.sprite_code);
+            m_synergy_image.sprite = sprite;
             m_synergy_image.color = new Color(1.0f, 1.0f, 1.0f);
         }
         else
