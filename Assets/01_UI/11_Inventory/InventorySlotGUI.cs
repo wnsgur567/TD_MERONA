@@ -275,7 +275,7 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
                 Debug.Log(hitinfo.collider.gameObject.name);
                 Node hit_node = hitinfo.collider.gameObject.GetComponent<Node>();
                 if (hit_node.m_Tower == null)
-                {   // TODO : Summon Tower Process!!
+                {   
                     Debug.Log("Summon!");
                     hit_node.SetTower(m_info.tower);
                     ClearInven();

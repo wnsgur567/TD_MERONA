@@ -52,6 +52,7 @@ public class ShopSlot : MonoBehaviour , IPointerClickHandler
     Dictionary<int, Color> m_rankToColor_dic;
 
     public bool IsOccupied { get { return m_info.isOccupied; } }
+    public int Price { get { return m_info.cost; } }
 
     private void Awake()
     {
@@ -175,7 +176,6 @@ public class ShopSlot : MonoBehaviour , IPointerClickHandler
     // 현재 정보에 따라 ui 변경 process
     void OnInfoChanged()
     {       
-        // TODO 아예 꺼버리는 대신에 비활성화 상태만 되도록 만들기
         if(IsOccupied)
         {
             ///tower obj

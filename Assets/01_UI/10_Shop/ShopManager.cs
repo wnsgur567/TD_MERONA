@@ -181,7 +181,12 @@ public class ShopManager : Singleton<ShopManager>
     {
         ShopSlot slot = m_slot_list[slotIndex];
 
-        // TODO : UserInfoManager.Instance.Gold 보다 price 가 작으면            
+        if(false == UserInfoManager.Instance.UseGold(slot.Price))
+        {
+            Debug.Log("Shop : have not enough minerals");
+            return false;
+        }    
+
         if (false == InventoryManager.Instance.IsAllOccupied())
         {   // 인벤에 빈 공간이 있으면
             var info = slot.GetInfo();
