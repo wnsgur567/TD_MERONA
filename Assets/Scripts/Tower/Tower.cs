@@ -7,16 +7,16 @@ public class Tower : MonoBehaviour
     public int m_CodeTemp;
     public float m_SizeTemp;
 
-    // Å¸°Ù
+    // íƒ€ê²Ÿ
     public Enemy m_Target;
 
-    // Å¸¿ö Á¤º¸(¿¢¼¿)
+    // íƒ€ì›Œ ì •ë³´(ì—‘ì…€)
     [SerializeField]
     protected Tower_TableExcel m_TowerInfo_Excel;
-    // Å¸¿ö Á¤º¸
+    // íƒ€ì›Œ ì •ë³´
     public S_TowerData m_TowerInfo;
 
-    #region ³»ºÎ ÄÄÆ÷³ÍÆ®
+    #region ë‚´ë¶€ ì»´í¬ë„ŒíŠ¸
     [SerializeField]
     protected Animator m_Animator;
 
@@ -28,17 +28,17 @@ public class Tower : MonoBehaviour
     protected AttackRange m_AttackRange_Skill02;
     #endregion
 
-    #region ³»ºÎ ÇÁ·ÎÆÛÆ¼
-    // Å¸¿ö ¸Å´ÏÁ®
+    #region ë‚´ë¶€ í”„ë¡œí¼í‹°
+    // íƒ€ì›Œ ë§¤ë‹ˆì ¸
     protected TowerManager M_Tower => TowerManager.Instance;
-    // ½ºÅ³ ¸Å´ÏÁ®
+    // ìŠ¤í‚¬ ë§¤ë‹ˆì ¸
     protected SkillManager M_Skill => SkillManager.Instance;
-    // Àû ¸Å´ÏÁ®
+    // ì  ë§¤ë‹ˆì ¸
     protected EnemyManager M_Enemy => EnemyManager.Instance;
-    // ¸¶¿Õ ¸Å´ÏÁ®
+    // ë§ˆì™• ë§¤ë‹ˆì ¸
     protected DevilManager M_Devil => DevilManager.Instance;
 
-    // Å¸¿ö È¸Àü ¼Óµµ
+    // íƒ€ì›Œ íšŒì „ ì†ë„
     protected float RotateSpeed
     {
         get
@@ -46,7 +46,7 @@ public class Tower : MonoBehaviour
             return m_TowerInfo.RotateSpeed * Time.deltaTime;
         }
     }
-    // Å¸°Ù±îÁöÀÇ °Å¸®
+    // íƒ€ê²Ÿê¹Œì§€ì˜ ê±°ë¦¬
     protected float DistanceToTarget
     {
         get
@@ -56,44 +56,45 @@ public class Tower : MonoBehaviour
     }
     #endregion
 
-    #region ¿ÜºÎ ÇÁ·ÎÆÛÆ¼
+    #region ì™¸ë¶€ í”„ë¡œí¼í‹°
+    public Tower_TableExcel ExcelData => m_TowerInfo_Excel;
+    public string Name => m_TowerInfo_Excel.Name_EN;
     public int TowerCode => m_TowerInfo_Excel.Code;
     public int SynergyCode1 => m_TowerInfo_Excel.Type1;
     public int SynergyCode2 => m_TowerInfo_Excel.Type2;
-
-    public Tower_TableExcel ExcelData => m_TowerInfo_Excel;
     #endregion
 
-    #region ³»ºÎ ÇÔ¼ö
-    // Å¸¿ö È¸Àü
+    #region ë‚´ë¶€ í•¨ìˆ˜
+    // íƒ€ì›Œ íšŒì „
     protected void RotateToTarget()
     {
-        // È¸ÀüÇÒ ¹æÇâ
+        // íšŒì „í•  ë°©í–¥
         Vector3 dir;
 
-        // Å¸°ÙÀÌ ¾øÀ¸¸é
+        // íƒ€ê²Ÿì´ ì—†ìœ¼ë©´
         if (null == m_Target)
         {
-            // ÃÊ±â ¹æÇâÀ¸·Î ¹æÇâ ¼³Á¤
-            dir = m_TowerInfo.InitialRotation;
+            // ì´ˆê¸° ë°©í–¥ìœ¼ë¡œ ë°©í–¥ ì„¤ì •
+            dir = transform.position + m_TowerInfo.InitialRotation;
         }
-        // Å¸°ÙÀÌ ÀÖÀ¸¸é
+        // íƒ€ê²Ÿì´ ìˆìœ¼ë©´
         else
         {
-            // Å¸°Ù ¹æÇâÀ¸·Î ¹æÇâ ¼³Á¤
+            // íƒ€ê²Ÿ ë°©í–¥ìœ¼ë¡œ ë°©í–¥ ì„¤ì •
             dir = m_Target.transform.position - transform.position;
         }
 
-        // y È¸Àü ¹æÁö
-        dir.y = 0f;
+        // y íšŒì „ ë°©ì§€
+        dir.y = transform.position.y;
+        //Debug.Log("ë°”ë¼ë³¼ ìœ„ì¹˜: " + dir);
 
-        // È¸Àü
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), RotateSpeed);
+        // íšŒì „
+        transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.LookRotation(dir), RotateSpeed);
     }
-    // Å¸°Ù ¾÷µ¥ÀÌÆ®
+    // íƒ€ê²Ÿ ì—…ë°ì´íŠ¸
     protected void UpdateTarget()
     {
-        // Å¸°Ù º¯°æ ±âÁØ¿¡ µû¶ó
+        // íƒ€ê²Ÿ ë³€ê²½ ê¸°ì¤€ì— ë”°ë¼
         switch ((E_TargetType)m_TowerInfo.Condition_Default.Target_type)
         {
             case E_TargetType.CloseTarget:
@@ -120,10 +121,10 @@ public class Tower : MonoBehaviour
                     }
                 }
                 break;
-            // FixTarget (Å¸°ÙÀÌ »ç°Å¸®¸¦ ¹ş¾î³ª°Å³ª Á×Àº °æ¿ì º¯°æ)
+            // FixTarget (íƒ€ê²Ÿì´ ì‚¬ê±°ë¦¬ë¥¼ ë²—ì–´ë‚˜ê±°ë‚˜ ì£½ì€ ê²½ìš° ë³€ê²½)
             case E_TargetType.FixTarget:
-                if (null == m_Target || // ¿¹¿ÜÃ³¸®
-                    DistanceToTarget > m_TowerInfo.Stat_Default.Range) // Å¸°ÙÀÌ »ç°Å¸®¸¦ ¹ş¾î³­ °æ¿ì
+                if (null == m_Target || // ì˜ˆì™¸ì²˜ë¦¬
+                    DistanceToTarget > m_TowerInfo.Stat_Default.Range) // íƒ€ê²Ÿì´ ì‚¬ê±°ë¦¬ë¥¼ ë²—ì–´ë‚œ ê²½ìš°
                 {
                     m_Target = m_AttackRange_Default.GetNearTarget();
                 }
@@ -137,26 +138,26 @@ public class Tower : MonoBehaviour
                 break;
         }
     }
-    // Å¸¿ö °ø°İ
+    // íƒ€ì›Œ ê³µê²©
     protected void AttackTarget()
     {
-        #region ±âº» ½ºÅ³
-        // ±âº» ½ºÅ³ Å¸ÀÌ¸Ó
+        #region ê¸°ë³¸ ìŠ¤í‚¬
+        // ê¸°ë³¸ ìŠ¤í‚¬ íƒ€ì´ë¨¸
         if (m_TowerInfo.AttackTimer_Default < m_TowerInfo.AttackSpeed_Default)
         {
             m_TowerInfo.AttackTimer_Default += Time.deltaTime;
         }
-        // ±âº» ½ºÅ³ °ø°İ
+        // ê¸°ë³¸ ìŠ¤í‚¬ ê³µê²©
         else if (null != m_Target)
         {
-            // ³»ºÎ µ¥ÀÌÅÍ Á¤¸®
+            // ë‚´ë¶€ ë°ì´í„° ì •ë¦¬
             m_TowerInfo.AttackTimer_Default -= m_TowerInfo.AttackSpeed_Default;
 
             Attack();
         }
         #endregion
-        #region ½ºÅ³01
-        // ½ºÅ³01
+        #region ìŠ¤í‚¬01
+        // ìŠ¤í‚¬01
         if (m_TowerInfo.AttackTimer_Skill01 < m_TowerInfo.AttackSpeed_Skill01)
         {
             m_TowerInfo.AttackTimer_Skill01 += Time.deltaTime;
@@ -168,8 +169,8 @@ public class Tower : MonoBehaviour
             Skill01();
         }
         #endregion
-        #region ½ºÅ³02
-        // ½ºÅ³02
+        #region ìŠ¤í‚¬02
+        // ìŠ¤í‚¬02
         if (m_TowerInfo.AttackTimer_Skill02 < m_TowerInfo.AttackSpeed_Skill02)
         {
             m_TowerInfo.AttackTimer_Skill02 += Time.deltaTime;
@@ -197,53 +198,52 @@ public class Tower : MonoBehaviour
     }
     #endregion
 
-    #region ¿ÜºÎ ÇÔ¼ö
-    // Å¸¿ö ÃÊ±âÈ­
+    #region ì™¸ë¶€ í•¨ìˆ˜
+    // íƒ€ì›Œ ì´ˆê¸°í™”
     public void InitializeTower(int code, float size = 1.0f)
     {
-        #region ¿¢¼¿ µ¥ÀÌÅÍ Á¤¸®
+        #region ì—‘ì…€ ë°ì´í„° ì •ë¦¬
         m_TowerInfo_Excel = M_Tower.GetData(code);
         #endregion
 
-        #region ³»ºÎ µ¥ÀÌÅÍ Á¤¸®
+        #region ë‚´ë¶€ ë°ì´í„° ì •ë¦¬
         m_TowerInfo.RotateSpeed = 5f;
-        m_TowerInfo.InitialRotation = transform.eulerAngles;
         m_TowerInfo.ShouldFindTarget = true;
 
-        // °ø°İ ÇÇ¹ş
+        // ê³µê²© í”¼ë²—
         m_TowerInfo.AttackPivot = transform.GetChild("AttackPivot");
 
-        // ±âº» ½ºÅ³ µ¥ÀÌÅÍ
+        // ê¸°ë³¸ ìŠ¤í‚¬ ë°ì´í„°
         m_TowerInfo.Condition_Default = M_Skill.GetConditionData(m_TowerInfo_Excel.Atk_Code);
         m_TowerInfo.Stat_Default = M_Skill.GetStatData(m_TowerInfo.Condition_Default.PassiveCode);
-        // ±âº» ½ºÅ³
+        // ê¸°ë³¸ ìŠ¤í‚¬
         m_TowerInfo.AttackSpeed_Default = m_TowerInfo.Stat_Default.CoolTime;
         m_TowerInfo.AttackTimer_Default = m_TowerInfo.Stat_Default.CoolTime;
 
-        // ½ºÅ³1 µ¥ÀÌÅÍ
+        // ìŠ¤í‚¬1 ë°ì´í„°
         m_TowerInfo.Condition_Skill01 = M_Skill.GetConditionData(m_TowerInfo_Excel.Skill1Code);
         m_TowerInfo.Stat_Skill01 = M_Skill.GetStatData(m_TowerInfo.Condition_Skill01.PassiveCode);
-        // ½ºÅ³1
+        // ìŠ¤í‚¬1
         m_TowerInfo.AttackSpeed_Skill01 = m_TowerInfo.Stat_Skill01.CoolTime;
         m_TowerInfo.AttackTimer_Skill01 = 0f;
 
-        // ½ºÅ³2 µ¥ÀÌÅÍ
+        // ìŠ¤í‚¬2 ë°ì´í„°
         m_TowerInfo.Condition_Skill02 = M_Skill.GetConditionData(m_TowerInfo_Excel.Skill2Code);
         m_TowerInfo.Stat_Skill02 = M_Skill.GetStatData(m_TowerInfo.Condition_Skill02.PassiveCode);
-        // ½ºÅ³2
+        // ìŠ¤í‚¬2
         m_TowerInfo.AttackSpeed_Skill02 = m_TowerInfo.Stat_Skill02.CoolTime;
         m_TowerInfo.AttackTimer_Skill02 = 0f;
 
-        // ½Ã³ÊÁö
+        // ì‹œë„ˆì§€
         m_TowerInfo.Synergy_Atk_type = E_AttackType.None;
         m_TowerInfo.BuffList = new List<BuffCC_TableExcel>();
         m_TowerInfo.BerserkerBuffList = new List<BuffCC_TableExcel>();
 
-        // ¸¶¿Õ ½ºÅ³
+        // ë§ˆì™• ìŠ¤í‚¬
         m_TowerInfo.DevilSkillBuffList = new List<BuffCC_TableExcel>();
         #endregion
 
-        #region ³»ºÎ ÄÄÆ÷³ÍÆ®
+        #region ë‚´ë¶€ ì»´í¬ë„ŒíŠ¸
         m_Animator = GetComponentInChildren<Animator>();
         m_Animator.transform.localScale = Vector3.one * size;
 
@@ -263,25 +263,25 @@ public class Tower : MonoBehaviour
         m_TowerInfo.AttackSpeed_Default = m_TowerInfo.Stat_Default.CoolTime;
         m_TowerInfo.ShouldFindTarget = true;
 
-        // ±âº» ½ºÅ³ µ¥ÀÌÅÍ ºÒ·¯¿À±â
+        // ê¸°ë³¸ ìŠ¤í‚¬ ë°ì´í„° ë¶ˆëŸ¬ì˜¤ê¸°
         SkillCondition_TableExcel conditionData = m_TowerInfo.Condition_Default;
         SkillStat_TableExcel statData = m_TowerInfo.Stat_Default;
 
-        // ±âº» ´ë¹ÌÁö ¼³Á¤
+        // ê¸°ë³¸ ëŒ€ë¯¸ì§€ ì„¤ì •
         statData.Dmg *= m_TowerInfo_Excel.Atk;
         statData.Dmg += statData.Dmg_plus;
 
-        #region ¹öÇÁ
-        // Àû¿ëÇÒ ¹öÇÁ ¸®½ºÆ®
+        #region ë²„í”„
+        // ì ìš©í•  ë²„í”„ ë¦¬ìŠ¤íŠ¸
         List<BuffCC_TableExcel> BuffList;
 
-        // ½Ã³ÊÁö ¹öÇÁ
+        // ì‹œë„ˆì§€ ë²„í”„
         BuffList = m_TowerInfo.BuffList;
-        // ¹öÇÁ Àû¿ë È®·ü
+        // ë²„í”„ ì ìš© í™•ë¥ 
         List<float> BuffRand = new List<float>();
-        // ¹öÇÁ Àû¿ë ¿©ºÎ
+        // ë²„í”„ ì ìš© ì—¬ë¶€
         List<bool> BuffApply = new List<bool>();
-        // ¹öÇÁ Àû¿ë °è»ê
+        // ë²„í”„ ì ìš© ê³„ì‚°
         for (int i = 0; i < BuffList.Count; ++i)
         {
             BuffRand.Add(Random.Range(0.00001f, 1f));
@@ -292,13 +292,13 @@ public class Tower : MonoBehaviour
             BuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand3);
         }
 
-        // ¹ö¼­Ä¿ ¹öÇÁ
+        // ë²„ì„œì»¤ ë²„í”„
         BuffList = m_TowerInfo.BerserkerBuffList;
-        // ¹ö¼­Ä¿ ¹öÇÁ Àû¿ë È®·ü
+        // ë²„ì„œì»¤ ë²„í”„ ì ìš© í™•ë¥ 
         List<float> BerserkerBuffRand = new List<float>();
-        // ¹ö¼­Ä¿ ¹öÇÁ Àû¿ë ¿©ºÎ
+        // ë²„ì„œì»¤ ë²„í”„ ì ìš© ì—¬ë¶€
         List<bool> BerserkerBuffApply = new List<bool>();
-        // ¹ö¼­Ä¿ ¹öÇÁ Àû¿ë °è»ê
+        // ë²„ì„œì»¤ ë²„í”„ ì ìš© ê³„ì‚°
         for (int i = 0; i < BuffList.Count; ++i)
         {
             BerserkerBuffRand.Add(Random.Range(0.00001f, 1f));
@@ -309,13 +309,13 @@ public class Tower : MonoBehaviour
             BerserkerBuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].BuffRand3);
         }
 
-        // ¸¶¿Õ ½ºÅ³ ¹öÇÁ
+        // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„
         BuffList = m_TowerInfo.DevilSkillBuffList;
-        // ¸¶¿Õ ½ºÅ³ ¹öÇÁ Àû¿ë È®·ü
+        // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„ ì ìš© í™•ë¥ 
         List<float> DevilSkillBuffRand = new List<float>();
-        // ¸¶¿Õ ½ºÅ³ ¹öÇÁ Àû¿ë ¿©ºÎ
+        // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„ ì ìš© ì—¬ë¶€
         List<bool> DevilSkillBuffApply = new List<bool>();
-        // ¸¶¿Õ ½ºÅ³ ¹öÇÁ Àû¿ë °è»ê
+        // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„ ì ìš© ê³„ì‚°
         for (int i = 0; i < BuffList.Count; ++i)
         {
             DevilSkillBuffRand.Add(Random.Range(0.00001f, 1f));
@@ -326,15 +326,15 @@ public class Tower : MonoBehaviour
             DevilSkillBuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].BuffRand3);
         }
 
-        // Àû¿ëÇÒ ¹öÇÁ ´ã¾ÆµÑ º¯¼ö
+        // ì ìš©í•  ë²„í”„ ë‹´ì•„ë‘˜ ë³€ìˆ˜
         S_Buff buff;
 
-        // ¹öÇÁ Àû¿ë
-        #region ¹öÇÁ ÇÕ¿¬»ê
+        // ë²„í”„ ì ìš©
+        #region ë²„í”„ í•©ì—°ì‚°
         BuffList = m_TowerInfo.BuffList;
         for (int i = 0; i < BuffList.Count; ++i)
         {
-            // ¹öÇÁ1 Ã¼Å©
+            // ë²„í”„1 ì²´í¬
             if (BuffApply[i * 3])
             {
                 buff = new S_Buff(
@@ -346,7 +346,7 @@ public class Tower : MonoBehaviour
                     );
                 float BuffAmount = buff.BuffAmount;
 
-                // ¹öÇÁ1 ÇÕ¿¬»ê
+                // ë²„í”„1 í•©ì—°ì‚°
                 if (buff.AddType == E_AddType.Fix)
                 {
                     switch (buff.BuffType)
@@ -367,7 +367,7 @@ public class Tower : MonoBehaviour
                     }
                 }
 
-                // ¹öÇÁ2 Ã¼Å©
+                // ë²„í”„2 ì²´í¬
                 if (BuffApply[i * 3 + 1])
                 {
                     buff = new S_Buff(
@@ -379,7 +379,7 @@ public class Tower : MonoBehaviour
                         );
                     BuffAmount = buff.BuffAmount;
 
-                    // ¹öÇÁ2 ÇÕ¿¬»ê
+                    // ë²„í”„2 í•©ì—°ì‚°
                     if (buff.AddType == E_AddType.Fix)
                     {
                         switch (buff.BuffType)
@@ -400,7 +400,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ¹öÇÁ3 Ã¼Å©
+                    // ë²„í”„3 ì²´í¬
                     if (BuffApply[i * 3 + 2])
                     {
                         buff = new S_Buff(
@@ -412,7 +412,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount;
 
-                        // ¹öÇÁ3 ÇÕ¿¬»ê
+                        // ë²„í”„3 í•©ì—°ì‚°
                         if (buff.AddType == E_AddType.Fix)
                         {
                             switch (buff.BuffType)
@@ -437,13 +437,13 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ¹ö¼­Ä¿ ¹öÇÁ ÇÕ¿¬»ê
+        #region ë²„ì„œì»¤ ë²„í”„ í•©ì—°ì‚°
         BuffList = m_TowerInfo.BerserkerBuffList;
         if (m_TowerInfo.Berserker)
         {
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                // ¹ö¼­Ä¿ ¹öÇÁ1 Ã¼Å©
+                // ë²„ì„œì»¤ ë²„í”„1 ì²´í¬
                 if (BerserkerBuffApply[i * 3])
                 {
                     buff = new S_Buff(
@@ -455,7 +455,7 @@ public class Tower : MonoBehaviour
                         );
                     float BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                    // ¹ö¼­Ä¿ ¹öÇÁ1 ÇÕ¿¬»ê
+                    // ë²„ì„œì»¤ ë²„í”„1 í•©ì—°ì‚°
                     if (buff.AddType == E_AddType.Fix)
                     {
                         switch (buff.BuffType)
@@ -476,7 +476,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ¹ö¼­Ä¿ ¹öÇÁ2 Ã¼Å©
+                    // ë²„ì„œì»¤ ë²„í”„2 ì²´í¬
                     if (BerserkerBuffApply[i * 3 + 1])
                     {
                         buff = new S_Buff(
@@ -488,7 +488,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                        // ¹ö¼­Ä¿ ¹öÇÁ2 ÇÕ¿¬»ê
+                        // ë²„ì„œì»¤ ë²„í”„2 í•©ì—°ì‚°
                         if (buff.AddType == E_AddType.Fix)
                         {
                             switch (buff.BuffType)
@@ -509,7 +509,7 @@ public class Tower : MonoBehaviour
                             }
                         }
 
-                        // ¹ö¼­Ä¿ ¹öÇÁ3 Ã¼Å©
+                        // ë²„ì„œì»¤ ë²„í”„3 ì²´í¬
                         if (BerserkerBuffApply[i * 3 + 2])
                         {
                             buff = new S_Buff(
@@ -521,7 +521,7 @@ public class Tower : MonoBehaviour
                                 );
                             BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                            // ¹ö¼­Ä¿ ¹öÇÁ3 ÇÕ¿¬»ê
+                            // ë²„ì„œì»¤ ë²„í”„3 í•©ì—°ì‚°
                             if (buff.AddType == E_AddType.Fix)
                             {
                                 switch (buff.BuffType)
@@ -547,11 +547,11 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ¹öÇÁ °ö¿¬»ê
+        #region ë²„í”„ ê³±ì—°ì‚°
         BuffList = m_TowerInfo.BuffList;
         for (int i = 0; i < BuffList.Count; ++i)
         {
-            // ¹öÇÁ1 Ã¼Å©
+            // ë²„í”„1 ì²´í¬
             if (BuffApply[i * 3])
             {
                 buff = new S_Buff(
@@ -563,7 +563,7 @@ public class Tower : MonoBehaviour
                     );
                 float BuffAmount = buff.BuffAmount;
 
-                // ¹öÇÁ1 °ö¿¬»ê
+                // ë²„í”„1 ê³±ì—°ì‚°
                 if (buff.AddType == E_AddType.Percent)
                 {
                     switch (buff.BuffType)
@@ -584,7 +584,7 @@ public class Tower : MonoBehaviour
                     }
                 }
 
-                // ¹öÇÁ2 Ã¼Å©
+                // ë²„í”„2 ì²´í¬
                 if (BuffApply[i * 3 + 1])
                 {
                     buff = new S_Buff(
@@ -596,7 +596,7 @@ public class Tower : MonoBehaviour
                         );
                     BuffAmount = buff.BuffAmount;
 
-                    // ¹öÇÁ2 °ö¿¬»ê
+                    // ë²„í”„2 ê³±ì—°ì‚°
                     if (buff.AddType == E_AddType.Percent)
                     {
                         switch (buff.BuffType)
@@ -617,7 +617,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ¹öÇÁ3 Ã¼Å©
+                    // ë²„í”„3 ì²´í¬
                     if (BuffApply[i * 3 + 2])
                     {
                         buff = new S_Buff(
@@ -629,7 +629,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount;
 
-                        // ¹öÇÁ3 °ö¿¬»ê
+                        // ë²„í”„3 ê³±ì—°ì‚°
                         if (buff.AddType == E_AddType.Percent)
                         {
                             switch (buff.BuffType)
@@ -654,13 +654,13 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ¹ö¼­Ä¿ ¹öÇÁ °ö¿¬»ê
+        #region ë²„ì„œì»¤ ë²„í”„ ê³±ì—°ì‚°
         BuffList = m_TowerInfo.BerserkerBuffList;
         if (m_TowerInfo.Berserker)
         {
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                // ¹ö¼­Ä¿ ¹öÇÁ1 Ã¼Å©
+                // ë²„ì„œì»¤ ë²„í”„1 ì²´í¬
                 if (BerserkerBuffApply[i * 3])
                 {
                     buff = new S_Buff(
@@ -672,7 +672,7 @@ public class Tower : MonoBehaviour
                         );
                     float BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                    // ¹ö¼­Ä¿ ¹öÇÁ1 °ö¿¬»ê
+                    // ë²„ì„œì»¤ ë²„í”„1 ê³±ì—°ì‚°
                     if (buff.AddType == E_AddType.Percent)
                     {
                         switch (buff.BuffType)
@@ -693,7 +693,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ¹ö¼­Ä¿ ¹öÇÁ2 Ã¼Å©
+                    // ë²„ì„œì»¤ ë²„í”„2 ì²´í¬
                     if (BerserkerBuffApply[i * 3 + 1])
                     {
                         buff = new S_Buff(
@@ -705,7 +705,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                        // ¹ö¼­Ä¿ ¹öÇÁ2 °ö¿¬»ê
+                        // ë²„ì„œì»¤ ë²„í”„2 ê³±ì—°ì‚°
                         if (buff.AddType == E_AddType.Percent)
                         {
                             switch (buff.BuffType)
@@ -726,7 +726,7 @@ public class Tower : MonoBehaviour
                             }
                         }
 
-                        // ¹ö¼­Ä¿ ¹öÇÁ3 Ã¼Å©
+                        // ë²„ì„œì»¤ ë²„í”„3 ì²´í¬
                         if (BerserkerBuffApply[i * 3 + 2])
                         {
                             buff = new S_Buff(
@@ -738,7 +738,7 @@ public class Tower : MonoBehaviour
                                 );
                             BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                            // ¹ö¼­Ä¿ ¹öÇÁ3 °ö¿¬»ê
+                            // ë²„ì„œì»¤ ë²„í”„3 ê³±ì—°ì‚°
                             if (buff.AddType == E_AddType.Percent)
                             {
                                 switch (buff.BuffType)
@@ -764,11 +764,11 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ¸¶¿Õ ½ºÅ³ ¹öÇÁ °ö¿¬»ê
+        #region ë§ˆì™• ìŠ¤í‚¬ ë²„í”„ ê³±ì—°ì‚°
         BuffList = m_TowerInfo.DevilSkillBuffList;
         for (int i = 0; i < BuffList.Count; ++i)
         {
-            // ¸¶¿Õ ½ºÅ³ ¹öÇÁ1 Ã¼Å©
+            // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„1 ì²´í¬
             if (DevilSkillBuffApply[i * 3])
             {
                 buff = new S_Buff(
@@ -780,7 +780,7 @@ public class Tower : MonoBehaviour
                     );
                 float BuffAmount = buff.BuffAmount;
 
-                // ¸¶¿Õ ½ºÅ³ ¹öÇÁ1 °ö¿¬»ê
+                // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„1 ê³±ì—°ì‚°
                 if (buff.AddType == E_AddType.Percent)
                 {
                     switch (buff.BuffType)
@@ -801,7 +801,7 @@ public class Tower : MonoBehaviour
                     }
                 }
 
-                // ¸¶¿Õ ½ºÅ³ ¹öÇÁ2 Ã¼Å©
+                // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„2 ì²´í¬
                 if (DevilSkillBuffApply[i * 3 + 1])
                 {
                     buff = new S_Buff(
@@ -813,7 +813,7 @@ public class Tower : MonoBehaviour
                         );
                     BuffAmount = buff.BuffAmount;
 
-                    // ¸¶¿Õ ½ºÅ³ ¹öÇÁ2 °ö¿¬»ê
+                    // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„2 ê³±ì—°ì‚°
                     if (buff.AddType == E_AddType.Percent)
                     {
                         switch (buff.BuffType)
@@ -834,7 +834,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ¸¶¿Õ ½ºÅ³ ¹öÇÁ3 Ã¼Å©
+                    // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„3 ì²´í¬
                     if (DevilSkillBuffApply[i * 3 + 2])
                     {
                         buff = new S_Buff(
@@ -846,7 +846,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount;
 
-                        // ¸¶¿Õ ½ºÅ³ ¹öÇÁ3 °ö¿¬»ê
+                        // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„3 ê³±ì—°ì‚°
                         if (buff.AddType == E_AddType.Percent)
                         {
                             switch (buff.BuffType)
@@ -872,29 +872,29 @@ public class Tower : MonoBehaviour
         }
         #endregion
 
-        // »ç°Å¸® ¾÷µ¥ÀÌÆ®
+        // ì‚¬ê±°ë¦¬ ì—…ë°ì´íŠ¸
         m_AttackRange_Default.Range = statData.Range;
         #endregion
 
-        #region ½Ã³ÊÁö
-        // ¹ö¼­Ä¿
+        #region ì‹œë„ˆì§€
+        // ë²„ì„œì»¤
         if (m_TowerInfo.Berserker)
         {
-            // ¹ö¼­Ä¿ ½ºÅÃ Áõ°¡
+            // ë²„ì„œì»¤ ìŠ¤íƒ ì¦ê°€
             if (m_TowerInfo.BerserkerStack < m_TowerInfo.BerserkerMaxStack)
             {
                 ++m_TowerInfo.BerserkerStack;
             }
         }
 
-        // °ø°İ Å¸ÀÔ º¯°æ
+        // ê³µê²© íƒ€ì… ë³€ê²½
         if (m_TowerInfo.Synergy_Atk_type != E_AttackType.None)
         {
             conditionData.Atk_type = (int)m_TowerInfo.Synergy_Atk_type;
             statData.Target_num = m_TowerInfo.BounceCount;
         }
 
-        // ¸¶¿Õ ÄğÅ¸ÀÓ °¨¼Ò
+        // ë§ˆì™• ì¿¨íƒ€ì„ ê°ì†Œ
         if (m_TowerInfo.ReduceCooldown)
         {
             float ReduceCooldownRand = Random.Range(0.00001f, 1f);
@@ -908,7 +908,7 @@ public class Tower : MonoBehaviour
         }
         #endregion
 
-        // ±âº» ½ºÅ³ Åõ»çÃ¼ »ı¼º
+        // ê¸°ë³¸ ìŠ¤í‚¬ íˆ¬ì‚¬ì²´ ìƒì„±
         int DefaultSkillCode = conditionData.projectile_prefab;
         if ((E_TargetType)m_TowerInfo.Condition_Default.Target_type == E_TargetType.TileTarget)
         {
@@ -928,14 +928,14 @@ public class Tower : MonoBehaviour
                     case E_FireType.Select_enemy:
                         GameObject pivot = new GameObject();
                         pivot.transform.position = m_Target.transform.position;
-                        DefaultSkill.transform.position = pivot.transform.position; // Àû ÇÇ°İ À§Ä¡¿¡ »ı¼ºÀ¸·Î ¼öÁ¤ ÇÊ¿ä
+                        DefaultSkill.transform.position = pivot.transform.position; // ì  í”¼ê²© ìœ„ì¹˜ì— ìƒì„±ìœ¼ë¡œ ìˆ˜ì • í•„ìš”
                         break;
                 }
 
                 DefaultSkill.enabled = true;
                 DefaultSkill.gameObject.SetActive(true);
 
-                // ±âº» ½ºÅ³ µ¥ÀÌÅÍ ¼³Á¤
+                // ê¸°ë³¸ ìŠ¤í‚¬ ë°ì´í„° ì„¤ì •
                 DefaultSkill.InitializeSkill(EnemyList[i], conditionData, statData);
             }
         }
@@ -953,42 +953,42 @@ public class Tower : MonoBehaviour
                 case E_FireType.Select_enemy:
                     GameObject pivot = new GameObject();
                     pivot.transform.position = m_Target.transform.position;
-                    DefaultSkill.transform.position = pivot.transform.position; // Àû ÇÇ°İ À§Ä¡¿¡ »ı¼ºÀ¸·Î ¼öÁ¤ ÇÊ¿ä
+                    DefaultSkill.transform.position = pivot.transform.position; // ì  í”¼ê²© ìœ„ì¹˜ì— ìƒì„±ìœ¼ë¡œ ìˆ˜ì • í•„ìš”
                     break;
             }
 
             DefaultSkill.enabled = true;
             DefaultSkill.gameObject.SetActive(true);
 
-            // ±âº» ½ºÅ³ µ¥ÀÌÅÍ ¼³Á¤
+            // ê¸°ë³¸ ìŠ¤í‚¬ ë°ì´í„° ì„¤ì •
             DefaultSkill.InitializeSkill(m_Target, conditionData, statData);
         }
     }
     public void CallSkill01()
     {
-        // ³»ºÎ µ¥ÀÌÅÍ Á¤¸®
+        // ë‚´ë¶€ ë°ì´í„° ì •ë¦¬
         m_TowerInfo.AttackSpeed_Skill01 = m_TowerInfo.Stat_Skill01.CoolTime;
         m_TowerInfo.ShouldFindTarget = true;
 
-        // ½ºÅ³01 µ¥ÀÌÅÍ ºÒ·¯¿À±â
+        // ìŠ¤í‚¬01 ë°ì´í„° ë¶ˆëŸ¬ì˜¤ê¸°
         SkillCondition_TableExcel conditionData = m_TowerInfo.Condition_Skill01;
         SkillStat_TableExcel statData = m_TowerInfo.Stat_Skill01;
 
-        // ±âº» ´ë¹ÌÁö ¼³Á¤
+        // ê¸°ë³¸ ëŒ€ë¯¸ì§€ ì„¤ì •
         statData.Dmg *= m_TowerInfo_Excel.Atk;
         statData.Dmg += statData.Dmg_plus;
 
-        #region ¹öÇÁ
-        // Àû¿ëÇÒ ¹öÇÁ ¸®½ºÆ®
+        #region ë²„í”„
+        // ì ìš©í•  ë²„í”„ ë¦¬ìŠ¤íŠ¸
         List<BuffCC_TableExcel> BuffList;
 
-        // ½Ã³ÊÁö ¹öÇÁ
+        // ì‹œë„ˆì§€ ë²„í”„
         BuffList = m_TowerInfo.BuffList;
-        // ¹öÇÁ Àû¿ë È®·ü
+        // ë²„í”„ ì ìš© í™•ë¥ 
         List<float> BuffRand = new List<float>();
-        // ¹öÇÁ Àû¿ë ¿©ºÎ
+        // ë²„í”„ ì ìš© ì—¬ë¶€
         List<bool> BuffApply = new List<bool>();
-        // ¹öÇÁ Àû¿ë °è»ê
+        // ë²„í”„ ì ìš© ê³„ì‚°
         for (int i = 0; i < BuffList.Count; ++i)
         {
             BuffRand.Add(Random.Range(0.00001f, 1f));
@@ -999,13 +999,13 @@ public class Tower : MonoBehaviour
             BuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand3);
         }
 
-        // ¹ö¼­Ä¿ ¹öÇÁ
+        // ë²„ì„œì»¤ ë²„í”„
         BuffList = m_TowerInfo.BerserkerBuffList;
-        // ¹ö¼­Ä¿ ¹öÇÁ Àû¿ë È®·ü
+        // ë²„ì„œì»¤ ë²„í”„ ì ìš© í™•ë¥ 
         List<float> BerserkerBuffRand = new List<float>();
-        // ¹ö¼­Ä¿ ¹öÇÁ Àû¿ë ¿©ºÎ
+        // ë²„ì„œì»¤ ë²„í”„ ì ìš© ì—¬ë¶€
         List<bool> BerserkerBuffApply = new List<bool>();
-        // ¹ö¼­Ä¿ ¹öÇÁ Àû¿ë °è»ê
+        // ë²„ì„œì»¤ ë²„í”„ ì ìš© ê³„ì‚°
         for (int i = 0; i < BuffList.Count; ++i)
         {
             BerserkerBuffRand.Add(Random.Range(0.00001f, 1f));
@@ -1016,13 +1016,13 @@ public class Tower : MonoBehaviour
             BerserkerBuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].BuffRand3);
         }
 
-        // ¸¶¿Õ ½ºÅ³ ¹öÇÁ
+        // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„
         BuffList = m_TowerInfo.DevilSkillBuffList;
-        // ¸¶¿Õ ½ºÅ³ ¹öÇÁ Àû¿ë È®·ü
+        // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„ ì ìš© í™•ë¥ 
         List<float> DevilSkillBuffRand = new List<float>();
-        // ¸¶¿Õ ½ºÅ³ ¹öÇÁ Àû¿ë ¿©ºÎ
+        // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„ ì ìš© ì—¬ë¶€
         List<bool> DevilSkillBuffApply = new List<bool>();
-        // ¸¶¿Õ ½ºÅ³ ¹öÇÁ Àû¿ë °è»ê
+        // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„ ì ìš© ê³„ì‚°
         for (int i = 0; i < BuffList.Count; ++i)
         {
             DevilSkillBuffRand.Add(Random.Range(0.00001f, 1f));
@@ -1033,15 +1033,15 @@ public class Tower : MonoBehaviour
             DevilSkillBuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].BuffRand3);
         }
 
-        // Àû¿ëÇÒ ¹öÇÁ ´ã¾ÆµÑ º¯¼ö
+        // ì ìš©í•  ë²„í”„ ë‹´ì•„ë‘˜ ë³€ìˆ˜
         S_Buff buff;
 
-        // ¹öÇÁ Àû¿ë
-        #region ¹öÇÁ ÇÕ¿¬»ê
+        // ë²„í”„ ì ìš©
+        #region ë²„í”„ í•©ì—°ì‚°
         BuffList = m_TowerInfo.BuffList;
         for (int i = 0; i < BuffList.Count; ++i)
         {
-            // ¹öÇÁ1 Ã¼Å©
+            // ë²„í”„1 ì²´í¬
             if (BuffApply[i * 3])
             {
                 buff = new S_Buff(
@@ -1053,7 +1053,7 @@ public class Tower : MonoBehaviour
                     );
                 float BuffAmount = buff.BuffAmount;
 
-                // ¹öÇÁ1 ÇÕ¿¬»ê
+                // ë²„í”„1 í•©ì—°ì‚°
                 if (buff.AddType == E_AddType.Fix)
                 {
                     switch (buff.BuffType)
@@ -1073,7 +1073,7 @@ public class Tower : MonoBehaviour
                     }
                 }
 
-                // ¹öÇÁ2 Ã¼Å©
+                // ë²„í”„2 ì²´í¬
                 if (BuffApply[i * 3 + 1])
                 {
                     buff = new S_Buff(
@@ -1085,7 +1085,7 @@ public class Tower : MonoBehaviour
                         );
                     BuffAmount = buff.BuffAmount;
 
-                    // ¹öÇÁ2 ÇÕ¿¬»ê
+                    // ë²„í”„2 í•©ì—°ì‚°
                     if (buff.AddType == E_AddType.Fix)
                     {
                         switch (buff.BuffType)
@@ -1105,7 +1105,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ¹öÇÁ3 Ã¼Å©
+                    // ë²„í”„3 ì²´í¬
                     if (BuffApply[i * 3 + 2])
                     {
                         buff = new S_Buff(
@@ -1117,7 +1117,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount;
 
-                        // ¹öÇÁ3 ÇÕ¿¬»ê
+                        // ë²„í”„3 í•©ì—°ì‚°
                         if (buff.AddType == E_AddType.Fix)
                         {
                             switch (buff.BuffType)
@@ -1141,13 +1141,13 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ¹ö¼­Ä¿ ¹öÇÁ ÇÕ¿¬»ê
+        #region ë²„ì„œì»¤ ë²„í”„ í•©ì—°ì‚°
         BuffList = m_TowerInfo.BerserkerBuffList;
         if (m_TowerInfo.Berserker)
         {
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                // ¹ö¼­Ä¿ ¹öÇÁ1 Ã¼Å©
+                // ë²„ì„œì»¤ ë²„í”„1 ì²´í¬
                 if (BerserkerBuffApply[i * 3])
                 {
                     buff = new S_Buff(
@@ -1159,7 +1159,7 @@ public class Tower : MonoBehaviour
                         );
                     float BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                    // ¹ö¼­Ä¿ ¹öÇÁ1 ÇÕ¿¬»ê
+                    // ë²„ì„œì»¤ ë²„í”„1 í•©ì—°ì‚°
                     if (buff.AddType == E_AddType.Fix)
                     {
                         switch (buff.BuffType)
@@ -1179,7 +1179,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ¹ö¼­Ä¿ ¹öÇÁ2 Ã¼Å©
+                    // ë²„ì„œì»¤ ë²„í”„2 ì²´í¬
                     if (BerserkerBuffApply[i * 3 + 1])
                     {
                         buff = new S_Buff(
@@ -1191,7 +1191,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                        // ¹ö¼­Ä¿ ¹öÇÁ2 ÇÕ¿¬»ê
+                        // ë²„ì„œì»¤ ë²„í”„2 í•©ì—°ì‚°
                         if (buff.AddType == E_AddType.Fix)
                         {
                             switch (buff.BuffType)
@@ -1211,7 +1211,7 @@ public class Tower : MonoBehaviour
                             }
                         }
 
-                        // ¹ö¼­Ä¿ ¹öÇÁ3 Ã¼Å©
+                        // ë²„ì„œì»¤ ë²„í”„3 ì²´í¬
                         if (BerserkerBuffApply[i * 3 + 2])
                         {
                             buff = new S_Buff(
@@ -1223,7 +1223,7 @@ public class Tower : MonoBehaviour
                                 );
                             BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                            // ¹ö¼­Ä¿ ¹öÇÁ3 ÇÕ¿¬»ê
+                            // ë²„ì„œì»¤ ë²„í”„3 í•©ì—°ì‚°
                             if (buff.AddType == E_AddType.Fix)
                             {
                                 switch (buff.BuffType)
@@ -1248,11 +1248,11 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ¹öÇÁ °ö¿¬»ê
+        #region ë²„í”„ ê³±ì—°ì‚°
         BuffList = m_TowerInfo.BuffList;
         for (int i = 0; i < BuffList.Count; ++i)
         {
-            // ¹öÇÁ1 Ã¼Å©
+            // ë²„í”„1 ì²´í¬
             if (BuffApply[i * 3])
             {
                 buff = new S_Buff(
@@ -1264,7 +1264,7 @@ public class Tower : MonoBehaviour
                     );
                 float BuffAmount = buff.BuffAmount;
 
-                // ¹öÇÁ1 °ö¿¬»ê
+                // ë²„í”„1 ê³±ì—°ì‚°
                 if (buff.AddType == E_AddType.Percent)
                 {
                     switch (buff.BuffType)
@@ -1284,7 +1284,7 @@ public class Tower : MonoBehaviour
                     }
                 }
 
-                // ¹öÇÁ2 Ã¼Å©
+                // ë²„í”„2 ì²´í¬
                 if (BuffApply[i * 3 + 1])
                 {
                     buff = new S_Buff(
@@ -1296,7 +1296,7 @@ public class Tower : MonoBehaviour
                         );
                     BuffAmount = buff.BuffAmount;
 
-                    // ¹öÇÁ2 °ö¿¬»ê
+                    // ë²„í”„2 ê³±ì—°ì‚°
                     if (buff.AddType == E_AddType.Percent)
                     {
                         switch (buff.BuffType)
@@ -1316,7 +1316,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ¹öÇÁ3 Ã¼Å©
+                    // ë²„í”„3 ì²´í¬
                     if (BuffApply[i * 3 + 2])
                     {
                         buff = new S_Buff(
@@ -1328,7 +1328,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount;
 
-                        // ¹öÇÁ3 °ö¿¬»ê
+                        // ë²„í”„3 ê³±ì—°ì‚°
                         if (buff.AddType == E_AddType.Percent)
                         {
                             switch (buff.BuffType)
@@ -1352,13 +1352,13 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ¹ö¼­Ä¿ ¹öÇÁ °ö¿¬»ê
+        #region ë²„ì„œì»¤ ë²„í”„ ê³±ì—°ì‚°
         BuffList = m_TowerInfo.BerserkerBuffList;
         if (m_TowerInfo.Berserker)
         {
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                // ¹ö¼­Ä¿ ¹öÇÁ1 Ã¼Å©
+                // ë²„ì„œì»¤ ë²„í”„1 ì²´í¬
                 if (BerserkerBuffApply[i * 3])
                 {
                     buff = new S_Buff(
@@ -1370,7 +1370,7 @@ public class Tower : MonoBehaviour
                         );
                     float BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                    // ¹ö¼­Ä¿ ¹öÇÁ1 °ö¿¬»ê
+                    // ë²„ì„œì»¤ ë²„í”„1 ê³±ì—°ì‚°
                     if (buff.AddType == E_AddType.Percent)
                     {
                         switch (buff.BuffType)
@@ -1390,7 +1390,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ¹ö¼­Ä¿ ¹öÇÁ2 Ã¼Å©
+                    // ë²„ì„œì»¤ ë²„í”„2 ì²´í¬
                     if (BerserkerBuffApply[i * 3 + 1])
                     {
                         buff = new S_Buff(
@@ -1402,7 +1402,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                        // ¹ö¼­Ä¿ ¹öÇÁ2 °ö¿¬»ê
+                        // ë²„ì„œì»¤ ë²„í”„2 ê³±ì—°ì‚°
                         if (buff.AddType == E_AddType.Percent)
                         {
                             switch (buff.BuffType)
@@ -1422,7 +1422,7 @@ public class Tower : MonoBehaviour
                             }
                         }
 
-                        // ¹ö¼­Ä¿ ¹öÇÁ3 Ã¼Å©
+                        // ë²„ì„œì»¤ ë²„í”„3 ì²´í¬
                         if (BerserkerBuffApply[i * 3 + 2])
                         {
                             buff = new S_Buff(
@@ -1434,7 +1434,7 @@ public class Tower : MonoBehaviour
                                 );
                             BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                            // ¹ö¼­Ä¿ ¹öÇÁ3 °ö¿¬»ê
+                            // ë²„ì„œì»¤ ë²„í”„3 ê³±ì—°ì‚°
                             if (buff.AddType == E_AddType.Percent)
                             {
                                 switch (buff.BuffType)
@@ -1459,11 +1459,11 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ¸¶¿Õ ½ºÅ³ ¹öÇÁ °ö¿¬»ê
+        #region ë§ˆì™• ìŠ¤í‚¬ ë²„í”„ ê³±ì—°ì‚°
         BuffList = m_TowerInfo.DevilSkillBuffList;
         for (int i = 0; i < BuffList.Count; ++i)
         {
-            // ¸¶¿Õ ½ºÅ³ ¹öÇÁ1 Ã¼Å©
+            // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„1 ì²´í¬
             if (DevilSkillBuffApply[i * 3])
             {
                 buff = new S_Buff(
@@ -1475,7 +1475,7 @@ public class Tower : MonoBehaviour
                     );
                 float BuffAmount = buff.BuffAmount;
 
-                // ¸¶¿Õ ½ºÅ³ ¹öÇÁ1 °ö¿¬»ê
+                // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„1 ê³±ì—°ì‚°
                 if (buff.AddType == E_AddType.Percent)
                 {
                     switch (buff.BuffType)
@@ -1495,7 +1495,7 @@ public class Tower : MonoBehaviour
                     }
                 }
 
-                // ¸¶¿Õ ½ºÅ³ ¹öÇÁ2 Ã¼Å©
+                // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„2 ì²´í¬
                 if (DevilSkillBuffApply[i * 3 + 1])
                 {
                     buff = new S_Buff(
@@ -1507,7 +1507,7 @@ public class Tower : MonoBehaviour
                         );
                     BuffAmount = buff.BuffAmount;
 
-                    // ¸¶¿Õ ½ºÅ³ ¹öÇÁ2 °ö¿¬»ê
+                    // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„2 ê³±ì—°ì‚°
                     if (buff.AddType == E_AddType.Percent)
                     {
                         switch (buff.BuffType)
@@ -1527,7 +1527,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ¸¶¿Õ ½ºÅ³ ¹öÇÁ3 Ã¼Å©
+                    // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„3 ì²´í¬
                     if (DevilSkillBuffApply[i * 3 + 2])
                     {
                         buff = new S_Buff(
@@ -1539,7 +1539,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount;
 
-                        // ¸¶¿Õ ½ºÅ³ ¹öÇÁ3 °ö¿¬»ê
+                        // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„3 ê³±ì—°ì‚°
                         if (buff.AddType == E_AddType.Percent)
                         {
                             switch (buff.BuffType)
@@ -1564,11 +1564,11 @@ public class Tower : MonoBehaviour
         }
         #endregion
 
-        // »ç°Å¸® ¾÷µ¥ÀÌÆ®
+        // ì‚¬ê±°ë¦¬ ì—…ë°ì´íŠ¸
         m_AttackRange_Skill01.Range = statData.Range;
         #endregion
 
-        // ½ºÅ³01 Åõ»çÃ¼ »ı¼º
+        // ìŠ¤í‚¬01 íˆ¬ì‚¬ì²´ ìƒì„±
         int Skill01Code = conditionData.projectile_prefab;
 
         if ((E_TargetType)m_TowerInfo.Condition_Skill01.Target_type == E_TargetType.TileTarget)
@@ -1589,14 +1589,14 @@ public class Tower : MonoBehaviour
                     case E_FireType.Select_enemy:
                         GameObject pivot = new GameObject();
                         pivot.transform.position = m_Target.transform.position;
-                        Skill01.transform.position = pivot.transform.position; // Àû ÇÇ°İ À§Ä¡¿¡ »ı¼ºÀ¸·Î ¼öÁ¤ ÇÊ¿ä
+                        Skill01.transform.position = pivot.transform.position; // ì  í”¼ê²© ìœ„ì¹˜ì— ìƒì„±ìœ¼ë¡œ ìˆ˜ì • í•„ìš”
                         break;
                 }
 
                 Skill01.enabled = true;
                 Skill01.gameObject.SetActive(true);
 
-                // ½ºÅ³01 µ¥ÀÌÅÍ ¼³Á¤
+                // ìŠ¤í‚¬01 ë°ì´í„° ì„¤ì •
                 Skill01.InitializeSkill(EnemyList[i], conditionData, statData);
             }
         }
@@ -1614,42 +1614,42 @@ public class Tower : MonoBehaviour
                 case E_FireType.Select_enemy:
                     GameObject pivot = new GameObject();
                     pivot.transform.position = m_Target.transform.position;
-                    Skill01.transform.position = pivot.transform.position; // Àû ÇÇ°İ À§Ä¡¿¡ »ı¼ºÀ¸·Î ¼öÁ¤ ÇÊ¿ä
+                    Skill01.transform.position = pivot.transform.position; // ì  í”¼ê²© ìœ„ì¹˜ì— ìƒì„±ìœ¼ë¡œ ìˆ˜ì • í•„ìš”
                     break;
             }
 
             Skill01.enabled = true;
             Skill01.gameObject.SetActive(true);
 
-            // ½ºÅ³01 µ¥ÀÌÅÍ ¼³Á¤
+            // ìŠ¤í‚¬01 ë°ì´í„° ì„¤ì •
             Skill01.InitializeSkill(m_Target, conditionData, statData);
         }
     }
     public void CallSkill02()
     {
-        // ³»ºÎ µ¥ÀÌÅÍ Á¤¸®
+        // ë‚´ë¶€ ë°ì´í„° ì •ë¦¬
         m_TowerInfo.AttackSpeed_Skill02 = m_TowerInfo.Stat_Skill02.CoolTime;
         m_TowerInfo.ShouldFindTarget = true;
 
-        // ½ºÅ³02 µ¥ÀÌÅÍ ºÒ·¯¿À±â
+        // ìŠ¤í‚¬02 ë°ì´í„° ë¶ˆëŸ¬ì˜¤ê¸°
         SkillCondition_TableExcel conditionData = m_TowerInfo.Condition_Skill02;
         SkillStat_TableExcel statData = m_TowerInfo.Stat_Skill02;
 
-        // ±âº» ´ë¹ÌÁö ¼³Á¤
+        // ê¸°ë³¸ ëŒ€ë¯¸ì§€ ì„¤ì •
         statData.Dmg *= m_TowerInfo_Excel.Atk;
         statData.Dmg += statData.Dmg_plus;
 
-        #region ¹öÇÁ
-        // Àû¿ëÇÒ ¹öÇÁ ¸®½ºÆ®
+        #region ë²„í”„
+        // ì ìš©í•  ë²„í”„ ë¦¬ìŠ¤íŠ¸
         List<BuffCC_TableExcel> BuffList;
 
-        // ½Ã³ÊÁö ¹öÇÁ
+        // ì‹œë„ˆì§€ ë²„í”„
         BuffList = m_TowerInfo.BuffList;
-        // ¹öÇÁ Àû¿ë È®·ü
+        // ë²„í”„ ì ìš© í™•ë¥ 
         List<float> BuffRand = new List<float>();
-        // ¹öÇÁ Àû¿ë ¿©ºÎ
+        // ë²„í”„ ì ìš© ì—¬ë¶€
         List<bool> BuffApply = new List<bool>();
-        // ¹öÇÁ Àû¿ë °è»ê
+        // ë²„í”„ ì ìš© ê³„ì‚°
         for (int i = 0; i < BuffList.Count; ++i)
         {
             BuffRand.Add(Random.Range(0.00001f, 1f));
@@ -1660,13 +1660,13 @@ public class Tower : MonoBehaviour
             BuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand3);
         }
 
-        // ¹ö¼­Ä¿ ¹öÇÁ
+        // ë²„ì„œì»¤ ë²„í”„
         BuffList = m_TowerInfo.BerserkerBuffList;
-        // ¹ö¼­Ä¿ ¹öÇÁ Àû¿ë È®·ü
+        // ë²„ì„œì»¤ ë²„í”„ ì ìš© í™•ë¥ 
         List<float> BerserkerBuffRand = new List<float>();
-        // ¹ö¼­Ä¿ ¹öÇÁ Àû¿ë ¿©ºÎ
+        // ë²„ì„œì»¤ ë²„í”„ ì ìš© ì—¬ë¶€
         List<bool> BerserkerBuffApply = new List<bool>();
-        // ¹ö¼­Ä¿ ¹öÇÁ Àû¿ë °è»ê
+        // ë²„ì„œì»¤ ë²„í”„ ì ìš© ê³„ì‚°
         for (int i = 0; i < BuffList.Count; ++i)
         {
             BerserkerBuffRand.Add(Random.Range(0.00001f, 1f));
@@ -1677,13 +1677,13 @@ public class Tower : MonoBehaviour
             BerserkerBuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : BerserkerBuffRand[BerserkerBuffRand.Count - 1] <= BuffList[i].BuffRand3);
         }
 
-        // ¸¶¿Õ ½ºÅ³ ¹öÇÁ
+        // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„
         BuffList = m_TowerInfo.DevilSkillBuffList;
-        // ¸¶¿Õ ½ºÅ³ ¹öÇÁ Àû¿ë È®·ü
+        // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„ ì ìš© í™•ë¥ 
         List<float> DevilSkillBuffRand = new List<float>();
-        // ¸¶¿Õ ½ºÅ³ ¹öÇÁ Àû¿ë ¿©ºÎ
+        // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„ ì ìš© ì—¬ë¶€
         List<bool> DevilSkillBuffApply = new List<bool>();
-        // ¸¶¿Õ ½ºÅ³ ¹öÇÁ Àû¿ë °è»ê
+        // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„ ì ìš© ê³„ì‚°
         for (int i = 0; i < BuffList.Count; ++i)
         {
             DevilSkillBuffRand.Add(Random.Range(0.00001f, 1f));
@@ -1694,15 +1694,15 @@ public class Tower : MonoBehaviour
             DevilSkillBuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : DevilSkillBuffRand[DevilSkillBuffRand.Count - 1] <= BuffList[i].BuffRand3);
         }
 
-        // Àû¿ëÇÒ ¹öÇÁ ´ã¾ÆµÑ º¯¼ö
+        // ì ìš©í•  ë²„í”„ ë‹´ì•„ë‘˜ ë³€ìˆ˜
         S_Buff buff;
 
-        // ¹öÇÁ Àû¿ë
-        #region ¹öÇÁ ÇÕ¿¬»ê
+        // ë²„í”„ ì ìš©
+        #region ë²„í”„ í•©ì—°ì‚°
         BuffList = m_TowerInfo.BuffList;
         for (int i = 0; i < BuffList.Count; ++i)
         {
-            // ¹öÇÁ1 Ã¼Å©
+            // ë²„í”„1 ì²´í¬
             if (BuffApply[i * 3])
             {
                 buff = new S_Buff(
@@ -1714,7 +1714,7 @@ public class Tower : MonoBehaviour
                     );
                 float BuffAmount = buff.BuffAmount;
 
-                // ¹öÇÁ1 ÇÕ¿¬»ê
+                // ë²„í”„1 í•©ì—°ì‚°
                 if (buff.AddType == E_AddType.Fix)
                 {
                     switch (buff.BuffType)
@@ -1734,7 +1734,7 @@ public class Tower : MonoBehaviour
                     }
                 }
 
-                // ¹öÇÁ2 Ã¼Å©
+                // ë²„í”„2 ì²´í¬
                 if (BuffApply[i * 3 + 1])
                 {
                     buff = new S_Buff(
@@ -1746,7 +1746,7 @@ public class Tower : MonoBehaviour
                         );
                     BuffAmount = buff.BuffAmount;
 
-                    // ¹öÇÁ2 ÇÕ¿¬»ê
+                    // ë²„í”„2 í•©ì—°ì‚°
                     if (buff.AddType == E_AddType.Fix)
                     {
                         switch (buff.BuffType)
@@ -1766,7 +1766,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ¹öÇÁ3 Ã¼Å©
+                    // ë²„í”„3 ì²´í¬
                     if (BuffApply[i * 3 + 2])
                     {
                         buff = new S_Buff(
@@ -1778,7 +1778,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount;
 
-                        // ¹öÇÁ3 ÇÕ¿¬»ê
+                        // ë²„í”„3 í•©ì—°ì‚°
                         if (buff.AddType == E_AddType.Fix)
                         {
                             switch (buff.BuffType)
@@ -1802,13 +1802,13 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ¹ö¼­Ä¿ ¹öÇÁ ÇÕ¿¬»ê
+        #region ë²„ì„œì»¤ ë²„í”„ í•©ì—°ì‚°
         BuffList = m_TowerInfo.BerserkerBuffList;
         if (m_TowerInfo.Berserker)
         {
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                // ¹ö¼­Ä¿ ¹öÇÁ1 Ã¼Å©
+                // ë²„ì„œì»¤ ë²„í”„1 ì²´í¬
                 if (BerserkerBuffApply[i * 3])
                 {
                     buff = new S_Buff(
@@ -1820,7 +1820,7 @@ public class Tower : MonoBehaviour
                         );
                     float BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                    // ¹ö¼­Ä¿ ¹öÇÁ1 ÇÕ¿¬»ê
+                    // ë²„ì„œì»¤ ë²„í”„1 í•©ì—°ì‚°
                     if (buff.AddType == E_AddType.Fix)
                     {
                         switch (buff.BuffType)
@@ -1840,7 +1840,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ¹ö¼­Ä¿ ¹öÇÁ2 Ã¼Å©
+                    // ë²„ì„œì»¤ ë²„í”„2 ì²´í¬
                     if (BerserkerBuffApply[i * 3 + 1])
                     {
                         buff = new S_Buff(
@@ -1852,7 +1852,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                        // ¹ö¼­Ä¿ ¹öÇÁ2 ÇÕ¿¬»ê
+                        // ë²„ì„œì»¤ ë²„í”„2 í•©ì—°ì‚°
                         if (buff.AddType == E_AddType.Fix)
                         {
                             switch (buff.BuffType)
@@ -1872,7 +1872,7 @@ public class Tower : MonoBehaviour
                             }
                         }
 
-                        // ¹ö¼­Ä¿ ¹öÇÁ3 Ã¼Å©
+                        // ë²„ì„œì»¤ ë²„í”„3 ì²´í¬
                         if (BerserkerBuffApply[i * 3 + 2])
                         {
                             buff = new S_Buff(
@@ -1884,7 +1884,7 @@ public class Tower : MonoBehaviour
                                 );
                             BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                            // ¹ö¼­Ä¿ ¹öÇÁ3 ÇÕ¿¬»ê
+                            // ë²„ì„œì»¤ ë²„í”„3 í•©ì—°ì‚°
                             if (buff.AddType == E_AddType.Fix)
                             {
                                 switch (buff.BuffType)
@@ -1909,11 +1909,11 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ¹öÇÁ °ö¿¬»ê
+        #region ë²„í”„ ê³±ì—°ì‚°
         BuffList = m_TowerInfo.BuffList;
         for (int i = 0; i < BuffList.Count; ++i)
         {
-            // ¹öÇÁ1 Ã¼Å©
+            // ë²„í”„1 ì²´í¬
             if (BuffApply[i * 3])
             {
                 buff = new S_Buff(
@@ -1925,7 +1925,7 @@ public class Tower : MonoBehaviour
                     );
                 float BuffAmount = buff.BuffAmount;
 
-                // ¹öÇÁ1 °ö¿¬»ê
+                // ë²„í”„1 ê³±ì—°ì‚°
                 if (buff.AddType == E_AddType.Percent)
                 {
                     switch (buff.BuffType)
@@ -1945,7 +1945,7 @@ public class Tower : MonoBehaviour
                     }
                 }
 
-                // ¹öÇÁ2 Ã¼Å©
+                // ë²„í”„2 ì²´í¬
                 if (BuffApply[i * 3 + 1])
                 {
                     buff = new S_Buff(
@@ -1957,7 +1957,7 @@ public class Tower : MonoBehaviour
                         );
                     BuffAmount = buff.BuffAmount;
 
-                    // ¹öÇÁ2 °ö¿¬»ê
+                    // ë²„í”„2 ê³±ì—°ì‚°
                     if (buff.AddType == E_AddType.Percent)
                     {
                         switch (buff.BuffType)
@@ -1977,7 +1977,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ¹öÇÁ3 Ã¼Å©
+                    // ë²„í”„3 ì²´í¬
                     if (BuffApply[i * 3 + 2])
                     {
                         buff = new S_Buff(
@@ -1989,7 +1989,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount;
 
-                        // ¹öÇÁ3 °ö¿¬»ê
+                        // ë²„í”„3 ê³±ì—°ì‚°
                         if (buff.AddType == E_AddType.Percent)
                         {
                             switch (buff.BuffType)
@@ -2013,13 +2013,13 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ¹ö¼­Ä¿ ¹öÇÁ °ö¿¬»ê
+        #region ë²„ì„œì»¤ ë²„í”„ ê³±ì—°ì‚°
         BuffList = m_TowerInfo.BerserkerBuffList;
         if (m_TowerInfo.Berserker)
         {
             for (int i = 0; i < BuffList.Count; ++i)
             {
-                // ¹ö¼­Ä¿ ¹öÇÁ1 Ã¼Å©
+                // ë²„ì„œì»¤ ë²„í”„1 ì²´í¬
                 if (BerserkerBuffApply[i * 3])
                 {
                     buff = new S_Buff(
@@ -2031,7 +2031,7 @@ public class Tower : MonoBehaviour
                         );
                     float BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                    // ¹ö¼­Ä¿ ¹öÇÁ1 °ö¿¬»ê
+                    // ë²„ì„œì»¤ ë²„í”„1 ê³±ì—°ì‚°
                     if (buff.AddType == E_AddType.Percent)
                     {
                         switch (buff.BuffType)
@@ -2051,7 +2051,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ¹ö¼­Ä¿ ¹öÇÁ2 Ã¼Å©
+                    // ë²„ì„œì»¤ ë²„í”„2 ì²´í¬
                     if (BerserkerBuffApply[i * 3 + 1])
                     {
                         buff = new S_Buff(
@@ -2063,7 +2063,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                        // ¹ö¼­Ä¿ ¹öÇÁ2 °ö¿¬»ê
+                        // ë²„ì„œì»¤ ë²„í”„2 ê³±ì—°ì‚°
                         if (buff.AddType == E_AddType.Percent)
                         {
                             switch (buff.BuffType)
@@ -2083,7 +2083,7 @@ public class Tower : MonoBehaviour
                             }
                         }
 
-                        // ¹ö¼­Ä¿ ¹öÇÁ3 Ã¼Å©
+                        // ë²„ì„œì»¤ ë²„í”„3 ì²´í¬
                         if (BerserkerBuffApply[i * 3 + 2])
                         {
                             buff = new S_Buff(
@@ -2095,7 +2095,7 @@ public class Tower : MonoBehaviour
                                 );
                             BuffAmount = buff.BuffAmount * m_TowerInfo.BerserkerStack;
 
-                            // ¹ö¼­Ä¿ ¹öÇÁ3 °ö¿¬»ê
+                            // ë²„ì„œì»¤ ë²„í”„3 ê³±ì—°ì‚°
                             if (buff.AddType == E_AddType.Percent)
                             {
                                 switch (buff.BuffType)
@@ -2120,11 +2120,11 @@ public class Tower : MonoBehaviour
             }
         }
         #endregion
-        #region ¸¶¿Õ ½ºÅ³ ¹öÇÁ °ö¿¬»ê
+        #region ë§ˆì™• ìŠ¤í‚¬ ë²„í”„ ê³±ì—°ì‚°
         BuffList = m_TowerInfo.DevilSkillBuffList;
         for (int i = 0; i < BuffList.Count; ++i)
         {
-            // ¸¶¿Õ ½ºÅ³ ¹öÇÁ1 Ã¼Å©
+            // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„1 ì²´í¬
             if (DevilSkillBuffApply[i * 3])
             {
                 buff = new S_Buff(
@@ -2136,7 +2136,7 @@ public class Tower : MonoBehaviour
                     );
                 float BuffAmount = buff.BuffAmount;
 
-                // ¸¶¿Õ ½ºÅ³ ¹öÇÁ1 °ö¿¬»ê
+                // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„1 ê³±ì—°ì‚°
                 if (buff.AddType == E_AddType.Percent)
                 {
                     switch (buff.BuffType)
@@ -2156,7 +2156,7 @@ public class Tower : MonoBehaviour
                     }
                 }
 
-                // ¸¶¿Õ ½ºÅ³ ¹öÇÁ2 Ã¼Å©
+                // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„2 ì²´í¬
                 if (DevilSkillBuffApply[i * 3 + 1])
                 {
                     buff = new S_Buff(
@@ -2168,7 +2168,7 @@ public class Tower : MonoBehaviour
                         );
                     BuffAmount = buff.BuffAmount;
 
-                    // ¸¶¿Õ ½ºÅ³ ¹öÇÁ2 °ö¿¬»ê
+                    // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„2 ê³±ì—°ì‚°
                     if (buff.AddType == E_AddType.Percent)
                     {
                         switch (buff.BuffType)
@@ -2188,7 +2188,7 @@ public class Tower : MonoBehaviour
                         }
                     }
 
-                    // ¸¶¿Õ ½ºÅ³ ¹öÇÁ3 Ã¼Å©
+                    // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„3 ì²´í¬
                     if (DevilSkillBuffApply[i * 3 + 2])
                     {
                         buff = new S_Buff(
@@ -2200,7 +2200,7 @@ public class Tower : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount;
 
-                        // ¸¶¿Õ ½ºÅ³ ¹öÇÁ3 °ö¿¬»ê
+                        // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„3 ê³±ì—°ì‚°
                         if (buff.AddType == E_AddType.Percent)
                         {
                             switch (buff.BuffType)
@@ -2225,11 +2225,11 @@ public class Tower : MonoBehaviour
         }
         #endregion
 
-        // »ç°Å¸® ¾÷µ¥ÀÌÆ®
+        // ì‚¬ê±°ë¦¬ ì—…ë°ì´íŠ¸
         m_AttackRange_Skill02.Range = statData.Range;
         #endregion
 
-        // ½ºÅ³02 Åõ»çÃ¼ »ı¼º
+        // ìŠ¤í‚¬02 íˆ¬ì‚¬ì²´ ìƒì„±
         int Skill02Code = conditionData.projectile_prefab;
 
         if ((E_TargetType)m_TowerInfo.Condition_Skill02.Target_type == E_TargetType.TileTarget)
@@ -2250,14 +2250,14 @@ public class Tower : MonoBehaviour
                     case E_FireType.Select_enemy:
                         GameObject pivot = new GameObject();
                         pivot.transform.position = m_Target.transform.position;
-                        Skill02.transform.position = pivot.transform.position; // Àû ÇÇ°İ À§Ä¡¿¡ »ı¼ºÀ¸·Î ¼öÁ¤ ÇÊ¿ä
+                        Skill02.transform.position = pivot.transform.position; // ì  í”¼ê²© ìœ„ì¹˜ì— ìƒì„±ìœ¼ë¡œ ìˆ˜ì • í•„ìš”
                         break;
                 }
 
                 Skill02.enabled = true;
                 Skill02.gameObject.SetActive(true);
 
-                // ½ºÅ³02 µ¥ÀÌÅÍ ¼³Á¤
+                // ìŠ¤í‚¬02 ë°ì´í„° ì„¤ì •
                 Skill02.InitializeSkill(EnemyList[i], conditionData, statData);
             }
         }
@@ -2275,20 +2275,20 @@ public class Tower : MonoBehaviour
                 case E_FireType.Select_enemy:
                     GameObject pivot = new GameObject();
                     pivot.transform.position = m_Target.transform.position;
-                    Skill02.transform.position = pivot.transform.position; // Àû ÇÇ°İ À§Ä¡¿¡ »ı¼ºÀ¸·Î ¼öÁ¤ ÇÊ¿ä
+                    Skill02.transform.position = pivot.transform.position; // ì  í”¼ê²© ìœ„ì¹˜ì— ìƒì„±ìœ¼ë¡œ ìˆ˜ì • í•„ìš”
                     break;
             }
 
             Skill02.enabled = true;
             Skill02.gameObject.SetActive(true);
 
-            // ½ºÅ³02 µ¥ÀÌÅÍ ¼³Á¤
+            // ìŠ¤í‚¬02 ë°ì´í„° ì„¤ì •
             Skill02.InitializeSkill(m_Target, conditionData, statData);
         }
     }
     #endregion
 
-    #region À¯´ÏÆ¼ Äİ¹é ÇÔ¼ö
+    #region ìœ ë‹ˆí‹° ì½œë°± í•¨ìˆ˜
     private void Awake()
     {
         //InitializeTower(m_CodeTemp, m_SizeTemp);
@@ -2302,107 +2302,107 @@ public class Tower : MonoBehaviour
     }
     #endregion
 
-    // Å¸¿ö Á¤º¸
+    // íƒ€ì›Œ ì •ë³´
     [System.Serializable]
     public struct S_TowerData
     {
-        // Å¸¿ö ¹æÇâ
+        // íƒ€ì›Œ ë°©í–¥
         public E_Direction Direction;
-        // È¸Àü ¼Óµµ
+        // íšŒì „ ì†ë„
         public float RotateSpeed;
-        // ÃÊ±â È¸Àü °ª
+        // ì´ˆê¸° íšŒì „ ê°’
         public Vector3 InitialRotation;
-        // Àû °¨Áö ¿©ºÎ
+        // ì  ê°ì§€ ì—¬ë¶€
         public bool ShouldFindTarget;
-        // °ø°İ ÇÇ¹ş
+        // ê³µê²© í”¼ë²—
         public Transform AttackPivot;
 
-        // ±âº» ½ºÅ³ µ¥ÀÌÅÍ
+        // ê¸°ë³¸ ìŠ¤í‚¬ ë°ì´í„°
         public SkillCondition_TableExcel Condition_Default;
         public SkillStat_TableExcel Stat_Default;
-        // ±âº» ½ºÅ³ °ø°İ ¼Óµµ
+        // ê¸°ë³¸ ìŠ¤í‚¬ ê³µê²© ì†ë„
         public float AttackSpeed_Default;
-        // ±âº» ½ºÅ³ Å¸ÀÌ¸Ó
+        // ê¸°ë³¸ ìŠ¤í‚¬ íƒ€ì´ë¨¸
         public float AttackTimer_Default;
 
-        // ½ºÅ³01 µ¥ÀÌÅÍ
+        // ìŠ¤í‚¬01 ë°ì´í„°
         public SkillCondition_TableExcel Condition_Skill01;
         public SkillStat_TableExcel Stat_Skill01;
-        // ½ºÅ³01 °ø°İ ¼Óµµ
+        // ìŠ¤í‚¬01 ê³µê²© ì†ë„
         public float AttackSpeed_Skill01;
-        // ½ºÅ³01 Å¸ÀÌ¸Ó
+        // ìŠ¤í‚¬01 íƒ€ì´ë¨¸
         public float AttackTimer_Skill01;
 
-        // ½ºÅ³02 µ¥ÀÌÅÍ
+        // ìŠ¤í‚¬02 ë°ì´í„°
         public SkillCondition_TableExcel Condition_Skill02;
         public SkillStat_TableExcel Stat_Skill02;
-        // ½ºÅ³02 °ø°İ ¼Óµµ
+        // ìŠ¤í‚¬02 ê³µê²© ì†ë„
         public float AttackSpeed_Skill02;
-        // ½ºÅ³02 Å¸ÀÌ¸Ó
+        // ìŠ¤í‚¬02 íƒ€ì´ë¨¸
         public float AttackTimer_Skill02;
 
-        #region ½Ã³ÊÁö
-        // ¹öÇÁ
+        #region ì‹œë„ˆì§€
+        // ë²„í”„
         public List<BuffCC_TableExcel> BuffList;
 
-        // °ø°İ Å¸ÀÔ º¯°æ
+        // ê³µê²© íƒ€ì… ë³€ê²½
         public E_AttackType Synergy_Atk_type;
         public int BounceCount;
 
-        // ¹ö¼­Ä¿
+        // ë²„ì„œì»¤
         public bool Berserker;
         public int BerserkerStack;
         public int BerserkerMaxStack;
         public List<BuffCC_TableExcel> BerserkerBuffList;
 
-        // ¸¶¿Õ ÄğÅ¸ÀÓ °¨¼Ò
+        // ë§ˆì™• ì¿¨íƒ€ì„ ê°ì†Œ
         public bool ReduceCooldown;
         public float ReduceCooldownRand;
         #endregion
 
-        // ¸¶¿Õ ½ºÅ³ ¹öÇÁ
+        // ë§ˆì™• ìŠ¤í‚¬ ë²„í”„
         public List<BuffCC_TableExcel> DevilSkillBuffList;
     }
     //[System.Serializable]
     //public struct S_BuffStat
     //{
-    //    // Àû¿ë È®·ü
+    //    // ì ìš© í™•ë¥ 
     //    public float BuffRand;
 
-    //    // °ø°İ·Â
+    //    // ê³µê²©ë ¥
     //    public float Atk_Fix;
     //    public float Atk_Percent;
-    //    // »ç°Å¸®
+    //    // ì‚¬ê±°ë¦¬
     //    public float Range_Fix;
     //    public float Range_Percent;
-    //    // °ø°İ ¼Óµµ
+    //    // ê³µê²© ì†ë„
     //    public float Atk_spd_Fix;
     //    public float Atk_spd_Percent;
-    //    // Ä¡¸íÅ¸ È®·ü
+    //    // ì¹˜ëª…íƒ€ í™•ë¥ 
     //    public float Crit_rate_Fix;
     //    public float Crit_rate_Percent;
-    //    // Ä¡¸íÅ¸ ¹èÀ²
+    //    // ì¹˜ëª…íƒ€ ë°°ìœ¨
     //    public float Crit_Dmg_Fix;
     //    public float Crit_Dmg_Percent;
 
     //    public void Initialize()
     //    {
-    //        // Àû¿ë È®·ü
+    //        // ì ìš© í™•ë¥ 
     //        BuffRand = 1f;
 
-    //        // °ø°İ·Â
+    //        // ê³µê²©ë ¥
     //        Atk_Fix = 0f;
     //        Atk_Percent = 1f;
-    //        // »ç°Å¸®
+    //        // ì‚¬ê±°ë¦¬
     //        Range_Fix = 0f;
     //        Range_Percent = 1f;
-    //        // °ø°İ ¼Óµµ
+    //        // ê³µê²© ì†ë„
     //        Atk_spd_Fix = 0f;
     //        Atk_spd_Percent = 1f;
-    //        // Ä¡¸íÅ¸ È®·ü
+    //        // ì¹˜ëª…íƒ€ í™•ë¥ 
     //        Crit_rate_Fix = 0f;
     //        Crit_rate_Percent = 1f;
-    //        // Ä¡¸íÅ¸ ¹èÀ²
+    //        // ì¹˜ëª…íƒ€ ë°°ìœ¨
     //        Crit_Dmg_Fix = 0f;
     //        Crit_Dmg_Percent = 1f;
     //    }

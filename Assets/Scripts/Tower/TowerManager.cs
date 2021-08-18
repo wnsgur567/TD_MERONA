@@ -29,7 +29,7 @@ public class TowerManager : Singleton<TowerManager>
 
     public Tower SpawnTower(E_Tower tower)
     {
-        Tower spawn = M_TowerPool.GetPool(tower.ToString()).Spawn();
+        Tower spawn = M_TowerPool.GetPool(GetData(tower).Name_EN).Spawn();
         m_TowerList.Add(spawn);
         return spawn;
     }
@@ -95,7 +95,7 @@ public enum E_Tower
     Clown01,
     FallenAngel01,
     Ipris01,
-    Dragon01,
+    Dragon02,
     Witch01,
     DarkElf01,
 
@@ -123,7 +123,7 @@ public enum E_Tower
     Clown02,
     FallenAngel02,
     Ipris02,
-    Dragon02,
+    Dragon03,
     Witch02,
     DarkElf02,
 
@@ -151,7 +151,7 @@ public enum E_Tower
     Clown03,
     FallenAngel03,
     Ipris03,
-    Dragon03,
+    Dragon04,
     Witch03,
     DarkElf03,
 

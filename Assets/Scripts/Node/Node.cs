@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class Node : MonoBehaviour
 
     #region 내부 프로퍼티
     protected NodeManager M_Node => NodeManager.Instance;
+    protected SynergyManager M_Synergy => SynergyManager.Instance;
     #endregion
 
     #region 외부 프로퍼티
@@ -22,6 +24,16 @@ public class Node : MonoBehaviour
         m_Tower.transform.SetParent(transform);
         m_Tower.gameObject.SetActive(true);
         m_Tower.transform.localPosition = new Vector3(0f, 0.501f, 0f);
+        m_Tower.transform.localEulerAngles = Vector3.zero;
+        m_Tower.m_TowerInfo.Direction = (E_Direction)Enum.Parse(typeof(E_Direction), transform.parent.name);
+        m_Tower.m_TowerInfo.InitialRotation = (m_Tower.transform.forward * 10f);
+        Debug.Log("타워 앞: " + m_Tower.transform.forward);
+        Debug.Log("타워 위치: " + m_Tower.transform.position);
+        Debug.Log("초기 회전 값: " + m_Tower.m_TowerInfo.InitialRotation);
+
+        m_Tower.gameObject.SetActive(true);
+
+        M_Synergy.UpdateSynergy();
     }
 
     private void Awake()
