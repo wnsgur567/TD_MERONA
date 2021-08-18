@@ -388,6 +388,10 @@ public class NodeManager : Singleton<NodeManager>
 
         // 노드 부모 업데이트
         UpdateParent(StandardNodeType, clockwise);
+
+        // 타워 방향 업데이트
+        UpdateTower();
+        
         // 회전 여부 설정
         m_IsRotating = false;
 
@@ -444,6 +448,21 @@ public class NodeManager : Singleton<NodeManager>
         for (int i = 0; i < FirstCount; ++i)
         {
             Temp_T[i].SetParent(Second_T);
+        }
+    }
+    // 타워 업데이트
+    protected void UpdateTower()
+    {
+        // 타워 방향 업데이트
+        for (E_NodeType i = 0; i < E_NodeType.Max; ++i)
+        {
+            for (E_Direction j = 0; j < E_Direction.Max; ++j)
+            {
+                foreach (var item in m_NodeList[i][j])
+                {
+                    item.m_Tower.Direction = j;
+                }
+            }
         }
     }
     #endregion

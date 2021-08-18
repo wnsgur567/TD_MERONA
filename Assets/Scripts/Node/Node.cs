@@ -9,13 +9,13 @@ public class Node : MonoBehaviour
     protected GameObject m_Outline;
     public Tower m_Tower;
 
-    #region ³»ºÎ ÇÁ·ÎÆÛÆ¼
+    #region ë‚´ë¶€ í”„ë¡œí¼í‹°
     protected NodeManager M_Node => NodeManager.Instance;
     protected TowerManager M_Tower => TowerManager.Instance;
     protected SynergyManager M_Synergy => SynergyManager.Instance;
     #endregion
 
-    #region ¿ÜºÎ ÇÁ·ÎÆÛÆ¼
+    #region ì™¸ë¶€ í”„ë¡œí¼í‹°
     public GameObject Outline => m_Outline;
     #endregion
 
@@ -26,7 +26,7 @@ public class Node : MonoBehaviour
         m_Tower.gameObject.SetActive(true);
         m_Tower.transform.localPosition = new Vector3(0f, 0.501f, 0f);
         m_Tower.transform.localEulerAngles = Vector3.zero;
-        m_Tower.m_TowerInfo.node = this;
+        m_Tower.Node = this;
         m_Tower.m_TowerInfo.Direction = (E_Direction)Enum.Parse(typeof(E_Direction), transform.parent.name);
         m_Tower.m_TowerInfo.InitialRotation = Vector3.forward * 90f * (int)m_Tower.Direction;
 
@@ -39,8 +39,7 @@ public class Node : MonoBehaviour
 
     public void ClearNode()
     {
-        m_Tower.transform.SetParent(null);
-        m_Tower.m_TowerInfo.node = null;
+        m_Tower.Node = null;
         m_Tower = null;
     }
 

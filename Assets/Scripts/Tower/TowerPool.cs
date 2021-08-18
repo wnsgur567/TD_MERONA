@@ -27,7 +27,7 @@ public class TowerPool : ObjectPool<TowerPool, Tower>
                 Tower origin = originClone.AddComponent<Tower>();
                 origin.m_CodeTemp = M_TowerData.DataList[i].Code;
                 origin.m_SizeTemp = M_PrefabData.DataList[i].Size;
-                origin.InitializeTower(M_TowerData.DataList[i].Code, M_PrefabData.DataList[i].Size);
+                origin.gameObject.layer = LayerMask.GetMask("Tower");
                 origin.gameObject.SetActive(false);
 
                 string key = origin.Name;

@@ -35,6 +35,7 @@ public class TowerManager : Singleton<TowerManager>
         // only spawn in inventory
         // do not call this function other class
         Tower spawn = M_TowerPool.GetPool(GetData(code).Name_EN).Spawn();
+        spawn.InitializeTower(spawn.m_CodeTemp, spawn.m_SizeTemp);
         spawn.m_TowerInfo.IsOnInventory = true;
         m_TowerList.Add(spawn);
         return spawn;
@@ -47,6 +48,7 @@ public class TowerManager : Singleton<TowerManager>
         var tower_pool = M_TowerPool.GetPool(tower.Name);
         m_TowerList.Remove(tower);
         m_DirTowerList[tower.Direction].Remove(tower);
+        tower.FinializeTower();
         tower_pool.DeSpawn(tower);
     }
 
