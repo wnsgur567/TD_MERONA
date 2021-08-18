@@ -22,8 +22,7 @@ public class TowerPool : ObjectPool<TowerPool, Tower>
             if (originObj != null)
             {
                 GameObject originClone = GameObject.Instantiate(originObj);
-                string key = originClone.name = originObj.name;
-                Debug.Log("Tower_" + PrefabCode + ": " + key);
+                originClone.name = originObj.name;
 
                 Tower origin = originClone.AddComponent<Tower>();
                 origin.m_CodeTemp = M_TowerData.DataList[i].Code;
@@ -31,6 +30,7 @@ public class TowerPool : ObjectPool<TowerPool, Tower>
                 origin.InitializeTower(M_TowerData.DataList[i].Code, M_PrefabData.DataList[i].Size);
                 origin.gameObject.SetActive(false);
 
+                string key = origin.Name;
                 if (!AddPool(key, origin, transform))
                 {
                     GameObject.Destroy(originClone);

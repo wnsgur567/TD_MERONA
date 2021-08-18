@@ -60,6 +60,7 @@ public class Tower : MonoBehaviour
     public int TowerCode => m_TowerInfo_Excel.Code;
     public int SynergyCode1 => m_TowerInfo_Excel.Type1;
     public int SynergyCode2 => m_TowerInfo_Excel.Type2;
+    public string Name => m_TowerInfo_Excel.Name_EN;
     #endregion
 
     #region 내부 함수
@@ -73,7 +74,7 @@ public class Tower : MonoBehaviour
         if (null == m_Target)
         {
             // 초기 방향으로 방향 설정
-            dir = m_TowerInfo.InitialRotation;
+            dir = transform.position + m_TowerInfo.InitialRotation;
         }
         // 타겟이 있으면
         else
@@ -83,10 +84,11 @@ public class Tower : MonoBehaviour
         }
 
         // y 회전 방지
-        dir.y = 0f;
+        dir.y = transform.position.y;
+        Debug.Log("바라볼 위치: " + dir);
 
         // 회전
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), RotateSpeed);
+        transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.LookRotation(dir), RotateSpeed);
     }
     // 타겟 업데이트
     protected void UpdateTarget()
@@ -205,7 +207,6 @@ public class Tower : MonoBehaviour
 
         #region 내부 데이터 정리
         m_TowerInfo.RotateSpeed = 5f;
-        m_TowerInfo.InitialRotation = transform.eulerAngles;
         m_TowerInfo.ShouldFindTarget = true;
 
         // 공격 피벗
