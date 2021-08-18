@@ -1492,7 +1492,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1772544024903005520}
-  - component: {fileID: 5276905936067270974}
+  - component: {fileID: 8667098358512475864}
   m_Layer: 0
   m_Name: Defender03
   m_TagString: Untagged
@@ -1515,8 +1515,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &5276905936067270974
-BoxCollider:
+--- !u!135 &8667098358512475864
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1526,8 +1526,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.664049, y: 1.8131201, z: 1}
-  m_Center: {x: -0.0027537197, y: 0.9903432, z: 0}
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &1771019378860622772
 GameObject:
   m_ObjectHideFlags: 0

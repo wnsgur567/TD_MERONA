@@ -10,13 +10,13 @@ public enum E_DataTableType
 
     BuffCC,
     Level,
-    Monster,
+    Enemy,
     Prefab,
     Shop,
     SkillCondition,
     SkillStat,
     Stage,
-    StageMonster,
+    StageEnemy,
     Synergy,
     Tower,
 

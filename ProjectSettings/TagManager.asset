@@ -22,14 +22,14 @@ TagManager:
   - UI
   - TowerAttackRange
   - BulletAttackRange
-  - Monster
+  - Enemy
+  - EnemyProjectile
   - Node
   - NodeRotate
-  - 
   - Character
   - MainSceneCharUI
   - 
-  - 
+  - Devil
   - Tower
   - 
   - 

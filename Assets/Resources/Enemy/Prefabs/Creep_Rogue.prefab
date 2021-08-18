@@ -1572,7 +1572,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2607461109925539992}
-  - component: {fileID: 5020854882872321185}
+  - component: {fileID: 7747582572305503369}
   m_Layer: 0
   m_Name: Creep_Rogue
   m_TagString: Untagged
@@ -1595,8 +1595,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &5020854882872321185
-BoxCollider:
+--- !u!135 &7747582572305503369
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1606,8 +1606,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.664049, y: 1.8131201, z: 1}
-  m_Center: {x: -0.0027537197, y: 0.9903432, z: 0}
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &2604497121568551120
 GameObject:
   m_ObjectHideFlags: 0

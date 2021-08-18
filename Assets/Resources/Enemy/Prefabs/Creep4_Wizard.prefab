@@ -3471,7 +3471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9099528298823969642}
-  - component: {fileID: 5143945284038018224}
+  - component: {fileID: 3182243021211063054}
   m_Layer: 0
   m_Name: Creep4_Wizard
   m_TagString: Untagged
@@ -3494,8 +3494,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &5143945284038018224
-BoxCollider:
+--- !u!135 &3182243021211063054
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3505,5 +3505,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.664049, y: 1.8131201, z: 1}
-  m_Center: {x: -0.0027537197, y: 0.9903432, z: 0}
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.5, z: 0}

@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class Stage_EnemyManager : Singleton<Stage_EnemyManager>
 {
-    private StageChangedEventArgs Now_StageData;
+    [SerializeField] StageChangedEventArgs Now_StageData;
 
     protected DataTableManager M_DataTable => DataTableManager.Instance;
 
-    private Stage_TableExcelLoader stage_excel_loader;
+    private Stage_TableExcelLoader stage_excel_loader => M_DataTable.GetDataTable<Stage_TableExcelLoader>();
     
     private int monsterCode;
-
-    private void Awake()
-    {
-        stage_excel_loader = M_DataTable.GetDataTable<Stage_TableExcelLoader>();
-    }
+    private bool stagechange = false;
 
     void Start()
     {
@@ -29,18 +25,28 @@ public class Stage_EnemyManager : Singleton<Stage_EnemyManager>
         Now_StageData.stageName = args.stageName;
         Now_StageData.stage_time = args.stage_time;
         Now_StageData.stage_type = args.stage_type;
+
+        stagechange = false;
     }
+
     public void OnCountChanged(float remainTime, float progress)
     {
-        if (Now_StageData.stage_num % 2 == 1 && progress >= 1.0f)
+        if (!stagechange)
         {
-            M_End_Time();
+            if (Now_StageData.stage_num % 2 == 0)
+            {
+                M_End_Time();
+                stagechange = true;
+            }
         }
     }
 
     public void M_End_Time()
     {
-        monsterCode = stage_excel_loader.DataList[Now_StageData.stage_num].StageMonsterTable;
-        SpawnManager.Instance.Start_Stage(monsterCode);
+        if (Now_StageData.stage_num != 0)
+        {
+            monsterCode = stage_excel_loader.DataList[Now_StageData.stage_num - 1].StageMonsterTable;
+            SpawnManager.Instance.Start_Stage(monsterCode);
+        }
     }
 }

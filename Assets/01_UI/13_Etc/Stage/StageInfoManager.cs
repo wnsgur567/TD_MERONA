@@ -6,9 +6,9 @@ using UnityEngine;
 public struct StageChangedEventArgs
 {
     public string stageName;
-    public int stage_num;   // ¼ø¹ø
+    public int stage_num;   // ï¿½ï¿½ï¿½ï¿½
     public int stage_type;
-    public float stage_time;  // stage ½Ã°£
+    public float stage_time;  // stage ï¿½Ã°ï¿½
 }
 
 public class StageInfoManager : Singleton<StageInfoManager>
@@ -25,7 +25,7 @@ public class StageInfoManager : Singleton<StageInfoManager>
     [SerializeField] bool m_startFlag;
     [SerializeField] float m_timer;
 
-    // ÇöÀç ½ºÅ×ÀÌÁö ÁøÇà »óÈ²(¹éºÐÀ² 0.0f ~ 1.0f )
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²(ï¿½ï¿½ï¿½ï¿½ï¿½ 0.0f ~ 1.0f )
     public float Progress
     {
         get
@@ -63,8 +63,7 @@ public class StageInfoManager : Singleton<StageInfoManager>
         }
     }
 
-
-    // ´ÙÀ½ ½ºÅ×ÀÌÁö·Î ÀÌµ¿
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
     public void GoNextStage()
     {        
         m_current_stageInfo = m_excel_loader.DataList[current_stage];

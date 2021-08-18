@@ -364,7 +364,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6489230153764233457}
-  - component: {fileID: 7431278545295594985}
+  - component: {fileID: 1384355389868520429}
   m_Layer: 0
   m_Name: Creep1_Knight
   m_TagString: Untagged
@@ -387,8 +387,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7431278545295594985
-BoxCollider:
+--- !u!135 &1384355389868520429
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -398,8 +398,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.664049, y: 1.8131201, z: 1}
-  m_Center: {x: -0.0027537197, y: 0.9903432, z: 0}
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &6489230153782344736
 GameObject:
   m_ObjectHideFlags: 0
