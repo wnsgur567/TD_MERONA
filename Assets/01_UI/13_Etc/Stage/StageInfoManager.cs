@@ -43,7 +43,6 @@ public class StageInfoManager : Singleton<StageInfoManager>
 
     private void Start()
     {
-        m_current_stageInfo = new Stage_TableExcel();
         m_timer = 0.0f;
     }
 
@@ -63,7 +62,6 @@ public class StageInfoManager : Singleton<StageInfoManager>
             }
         }
     }
-
 
     // 다음 스테이지로 이동
     public void GoNextStage()

@@ -81,27 +81,27 @@ public class Enemy : MonoBehaviour
     private Dictionary<int, IEnumerator> debuff;
 
     //현재 바라보고 있는 waypoint
-    private Transform target;
+    [SerializeField] Transform target;
 
-    private int waypointIndex = 0;
+    [SerializeField] int waypointIndex = 0;
 
-    private E_Direction direc;
+    [SerializeField] E_Direction direc;
 
     private Animator animator;
 
     private bool isStun = false;
 
-    private Enemy_Data m_EnemyInfo;
+    [SerializeField] Enemy_Data m_EnemyInfo;
 
     //체력바
-    [SerializeField] Image image;
+    private Image image;
 
     private Enemy_TableExcel m_Enemyinfo_Excel;
     private EnemyManager M_Enemy => EnemyManager.Instance;
 
     private DataTableManager M_DataTable => DataTableManager.Instance;
-    private SkillCondition_TableExcelLoader skillcondition_table;
-    private SkillStat_TableExcelLoader skillstat_table;
+    private SkillCondition_TableExcelLoader skillcondition_table => M_DataTable.GetDataTable<SkillCondition_TableExcelLoader>();
+    private SkillStat_TableExcelLoader skillstat_table => M_DataTable.GetDataTable<SkillStat_TableExcelLoader>();
 
     #region 시너지 관련
     // 버프
@@ -115,7 +115,6 @@ public class Enemy : MonoBehaviour
 
     //범위
     protected SphereCollider m_RangeCollider;
-    protected SphereCollider RangeCollider => m_RangeCollider ?? GetComponent<SphereCollider>();
 
     //스킬 쓸때 주변 Enemy 저장
     private List<Enemy> Enemy_obj;
@@ -128,10 +127,10 @@ public class Enemy : MonoBehaviour
     private SkillStat_TableExcel atkstatdata;
 
     private SkillCondition_TableExcel skillconditiondata;
-    private SkillStat_TableExcel skillstatdata;
+    [SerializeField] SkillStat_TableExcel skillstatdata;
 
-    //Enemy 투사체
-    [SerializeField] int projectile_prefeb;
+    public Transform AttackPivot;
+    public Transform HitPivot;
 
     private void OnTriggerStay(Collider other)
     {
@@ -143,10 +142,11 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        image = transform.GetChild("Fill").GetComponent<Image>();
+
         enemyskillmanager = EnemySkillManager.Instance;
 
         m_RangeCollider = GetComponent<SphereCollider>();
-        m_RangeCollider ??= gameObject.AddComponent<SphereCollider>();
         m_RangeCollider.isTrigger = true;
 
         BuffList = new List<BuffCC_TableExcel>();
@@ -156,9 +156,6 @@ public class Enemy : MonoBehaviour
         Enemy_obj = new List<Enemy>();
 
         //스킬 데이터
-        skillcondition_table = M_DataTable.GetDataTable<SkillCondition_TableExcelLoader>();
-        skillstat_table = M_DataTable.GetDataTable<SkillStat_TableExcelLoader>();
-
         atkconditiondata = enemyskillmanager.GetConditionData(m_EnemyInfo.Atk_Code);
 
         atkstatdata = enemyskillmanager.GetStatData(atkconditiondata.PassiveCode);
@@ -194,10 +191,7 @@ public class Enemy : MonoBehaviour
         }
 
         //스킬 쓰는 몬스터만
-        if (m_EnemyInfo.Name_EN == "Defender01" || m_EnemyInfo.Name_EN == "Defender02" 
-            || m_EnemyInfo.Name_EN == "Defender03" || m_EnemyInfo.Name_EN == "Defender04"
-            || m_EnemyInfo.Name_EN == "DwarfWarrior01" || m_EnemyInfo.Name_EN == "DwarfWarrior02"
-            || m_EnemyInfo.Name_EN == "DwarfWarrior04" || m_EnemyInfo.Name_EN == "DwarfWarrior04")
+        if (m_EnemyInfo.Skill1Code > 0)
         {
             skillconditiondata = enemyskillmanager.GetConditionData(m_EnemyInfo.Skill1Code);
 
@@ -237,8 +231,16 @@ public class Enemy : MonoBehaviour
 
         if (!isStun)
         {
+            //Vector3 dir = target.position - transform.position;
+            //transform.Translate(dir.normalized * m_EnemyInfo.Move_spd * Time.deltaTime, Space.World);
+
+            //if (Vector3.Distance(transform.position, target.position) <= 0.2f)
+            //{
+            //    GetNextWayPoint();
+            //}
+
             Vector3 dir = target.position - transform.position;
-            transform.Translate(dir.normalized * m_EnemyInfo.Move_spd * Time.deltaTime, Space.World);
+            transform.Translate(dir.normalized * 1f * Time.deltaTime, Space.World);
 
             if (Vector3.Distance(transform.position, target.position) <= 0.2f)
             {

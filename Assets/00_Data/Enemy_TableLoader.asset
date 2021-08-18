@@ -28,8 +28,8 @@ MonoBehaviour:
     CC_Rgs2: 0
     CC_Rgs3: 0
     Atk_Code: 300008
-    Skill1Code: 10000
-    Skill2Code: 10000
+    Skill1Code: 0
+    Skill2Code: 0
     HPSkillCast: 1
     Prefab: 900085
   - No: 2
@@ -46,8 +46,8 @@ MonoBehaviour:
     CC_Rgs2: 0
     CC_Rgs3: 0
     Atk_Code: 300008
-    Skill1Code: 10000
-    Skill2Code: 10000
+    Skill1Code: 0
+    Skill2Code: 0
     HPSkillCast: 1
     Prefab: 900086
   - No: 3
@@ -64,8 +64,8 @@ MonoBehaviour:
     CC_Rgs2: 0
     CC_Rgs3: 0
     Atk_Code: 300008
-    Skill1Code: 10000
-    Skill2Code: 10000
+    Skill1Code: 0
+    Skill2Code: 0
     HPSkillCast: 1
     Prefab: 900087
   - No: 4
@@ -82,8 +82,8 @@ MonoBehaviour:
     CC_Rgs2: 0
     CC_Rgs3: 0
     Atk_Code: 300008
-    Skill1Code: 10000
-    Skill2Code: 10000
+    Skill1Code: 0
+    Skill2Code: 0
     HPSkillCast: 1
     Prefab: 900088
   - No: 5
@@ -100,8 +100,8 @@ MonoBehaviour:
     CC_Rgs2: 0
     CC_Rgs3: 0
     Atk_Code: 300008
-    Skill1Code: 10000
-    Skill2Code: 10000
+    Skill1Code: 0
+    Skill2Code: 0
     HPSkillCast: 1
     Prefab: 900089
   - No: 6
@@ -118,8 +118,8 @@ MonoBehaviour:
     CC_Rgs2: 0
     CC_Rgs3: 0
     Atk_Code: 300008
-    Skill1Code: 10000
-    Skill2Code: 10000
+    Skill1Code: 0
+    Skill2Code: 0
     HPSkillCast: 1
     Prefab: 900090
   - No: 7
@@ -136,8 +136,8 @@ MonoBehaviour:
     CC_Rgs2: 0
     CC_Rgs3: 0
     Atk_Code: 300008
-    Skill1Code: 10000
-    Skill2Code: 10000
+    Skill1Code: 0
+    Skill2Code: 0
     HPSkillCast: 1
     Prefab: 900091
   - No: 8
@@ -154,8 +154,8 @@ MonoBehaviour:
     CC_Rgs2: 0
     CC_Rgs3: 0
     Atk_Code: 300008
-    Skill1Code: 10000
-    Skill2Code: 10000
+    Skill1Code: 0
+    Skill2Code: 0
     HPSkillCast: 1
     Prefab: 900092
   - No: 9
@@ -172,9 +172,9 @@ MonoBehaviour:
     CC_Rgs2: 0
     CC_Rgs3: 0
     Atk_Code: 300005
-    Skill1Code: 10000
-    Skill2Code: 10000
-    HPSkillCast: 0.5
+    Skill1Code: 0
+    Skill2Code: 0
+    HPSkillCast: 1
     Prefab: 900093
   - No: 10
     Name_KR: "\uADF8\uB9AC\uD540(\uB545)"
@@ -190,9 +190,9 @@ MonoBehaviour:
     CC_Rgs2: 0
     CC_Rgs3: 0
     Atk_Code: 300005
-    Skill1Code: 10000
-    Skill2Code: 10000
-    HPSkillCast: 1
+    Skill1Code: 300151
+    Skill2Code: 0
+    HPSkillCast: 0.5
     Prefab: 900093
   - No: 11
     Name_KR: "\uAE30\uC0AC"
