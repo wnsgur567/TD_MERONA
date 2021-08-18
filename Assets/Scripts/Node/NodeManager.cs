@@ -460,7 +460,10 @@ public class NodeManager : Singleton<NodeManager>
             {
                 foreach (var item in m_NodeList[i][j])
                 {
-                    item.m_Tower.Direction = j;
+                    if (item.m_Tower != null)
+                    {
+                        item.m_Tower.Direction = j;
+                    }
                 }
             }
         }
