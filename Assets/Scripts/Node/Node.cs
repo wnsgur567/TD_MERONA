@@ -9,13 +9,13 @@ public class Node : MonoBehaviour
     protected GameObject m_Outline;
     public Tower m_Tower;
 
-    #region ³»ºÎ ÇÁ·ÎÆÛÆ¼
+    #region ë‚´ë¶€ í”„ë¡œí¼í‹°
     protected NodeManager M_Node => NodeManager.Instance;
     protected TowerManager M_Tower => TowerManager.Instance;
     protected SynergyManager M_Synergy => SynergyManager.Instance;
     #endregion
 
-    #region ¿ÜºÎ ÇÁ·ÎÆÛÆ¼
+    #region ì™¸ë¶€ í”„ë¡œí¼í‹°
     public GameObject Outline => m_Outline;
     #endregion
 
@@ -31,6 +31,7 @@ public class Node : MonoBehaviour
         m_Tower.m_TowerInfo.InitialRotation = Vector3.forward * 90f * (int)m_Tower.Direction;
 
         m_Tower.gameObject.SetActive(true);
+        m_Tower.m_TowerInfo.IsOnInventory = false;
 
         M_Tower.AddTower(tower, m_Tower.m_TowerInfo.Direction);
         M_Synergy.UpdateSynergy();

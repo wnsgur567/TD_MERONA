@@ -190,14 +190,7 @@ public class ShopManager : Singleton<ShopManager>
             }
 
             var info = slot.GetInfo();
-
-            // check... this tower can be combined
-            int summoned_count = TowerManager.Instance.GetSameTowerCount(info.excel_data.Value.Code);
-            if(summoned_count > 2)
-            {   // Combine process
-
-            }
-
+            
             InventoryManager.Instance.AddNewTower(info.excel_data.Value);
 
             Debug.Log("Puchase!!");
