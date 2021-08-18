@@ -71,14 +71,12 @@ public class StageInfoManager : Singleton<StageInfoManager>
         m_current_stageInfo = m_excel_loader.DataList[current_stage];
         ++current_stage;
 
-        // TODO : Activate underlihe when combine scene
         // synergy bonus gold
-        // int bonus_gold = SynergyManager.Instance.BonusGold;
+         int bonus_gold = SynergyManager.Instance.BonusGold;
 
-        // user info
-        UserInfoManager.Instance.AddGold(m_current_stageInfo.Gold /*+ bonus_gold*/);
-        //UserInfoManager.Instance.AddExp(m_current_stageInfo.Exp);
-
+        // user info update
+        UserInfoManager.Instance.AddGold(m_current_stageInfo.Gold + bonus_gold);
+        UserInfoManager.Instance.AddExp(m_current_stageInfo.Exp);
         
 
         // else

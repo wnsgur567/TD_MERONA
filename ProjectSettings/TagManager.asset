@@ -12,6 +12,7 @@ TagManager:
   - SceneStart
   - Skill_Icon
   - SceneLoader
+  - TowerToolTip
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - MainSceneCharUI
   - 
   - 
-  - 
+  - Tower
   - 
   - 
   - 

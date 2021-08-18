@@ -19,7 +19,7 @@ public class SynergyUIManager : Singleton<SynergyUIManager>
 
     private void Start()
     {
-        __Initialize();
+        __Initialize();        
     }
 
     void __Initialize()
@@ -41,10 +41,4 @@ public class SynergyUIManager : Singleton<SynergyUIManager>
             m_lineSlots.Add(newSlot);
         }
     }
-
-    public void __OnSynergyInfoChanged()
-    {
-
-    }
-
 }

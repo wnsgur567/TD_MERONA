@@ -58,6 +58,9 @@ public class LevelInfoUIController : MonoBehaviour , IPointerClickHandler
     public void __OnEXPPurchaseProcess()
     {
         int require_gold = UserInfoManager.Instance.RequireGoldForPurchaseEXP;
+        if (require_gold == 0) // NO_DATA
+            return;
+
         if (false == UserInfoManager.Instance.UseGold(require_gold))
         {
             // not enough gold

@@ -152,8 +152,11 @@ public class ShopManager : Singleton<ShopManager>
 
             Debug.Log($"rank : {rank_forCreate}");
 
+            // shop can create tower ONLY 1 STAR
+            var OnlyOneStar_tower_data_list = m_tower_data_list.FindAll((item) => { return item.Star == 1; });
+
             // rank 에 부합하는 데이터 뽑기
-            var tower_data_list = m_tower_data_list.FindAll((item) => { return item.Rank == rank_forCreate; });
+            var tower_data_list = OnlyOneStar_tower_data_list.FindAll((item) => { return item.Rank == rank_forCreate; });
 
             // tower_data_list 중에 하나
             int selected_index = Random.Range(0, tower_data_list.Count);
@@ -178,7 +181,12 @@ public class ShopManager : Singleton<ShopManager>
     {
         ShopSlot slot = m_slot_list[slotIndex];
 
-        // TODO : UserInfoManager.Instance.Gold 보다 price 가 작으면            
+        if(false == UserInfoManager.Instance.UseGold(slot.Price))
+        {
+            Debug.Log("Shop : have not enough minerals");
+            return false;
+        }    
+
         if (false == InventoryManager.Instance.IsAllOccupied())
         {   // 인벤에 빈 공간이 있으면
             var info = slot.GetInfo();

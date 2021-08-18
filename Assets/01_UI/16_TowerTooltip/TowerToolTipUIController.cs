@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class TowerToolTipUIController : MonoBehaviour
@@ -18,7 +19,10 @@ public class TowerToolTipUIController : MonoBehaviour
     [SerializeField] ToolTipRightDataLine m_stat_data4;
     [Space(10)]
     [SerializeField] ToolTipRightSkill m_skill;
-    
+    [Space(10)]
+    [SerializeField] ToolTipStar m_star;
+    [Space(10)]
+    [SerializeField] ToolTipSalePrice m_saleprice;
 
     [Space(20)]
     [SerializeField] Synergy_TableExcelLoader m_synergyLoader;  // for synergy info
@@ -41,7 +45,7 @@ public class TowerToolTipUIController : MonoBehaviour
         var synergy2_data = m_synergyLoader.DataList.
             Find((item) => { return item.Code == synergy2Code; });
         m_synergyline1.SetUI(synergy1_data.Synergy_icon, synergy1_data.Name_KR);
-        m_synergyline2.SetUI(synergy2_data.Synergy_icon, synergy1_data.Name_KR);
+        m_synergyline2.SetUI(synergy2_data.Synergy_icon, synergy2_data.Name_KR);
 
 
         // tower data (atk critical etc)
@@ -52,6 +56,8 @@ public class TowerToolTipUIController : MonoBehaviour
         m_stat_data2.SetUI(
             "공격속도",
             ((int)(1f / atk_speed * 100)).ToString() + "%");
+        Debug.Log($"atk speed : {atk_speed}");
+        Debug.Log($"caculated atk speed : {(int)(1f / atk_speed * 100)}");
         // -critical rate
         m_stat_data3.SetUI("치명타 확률", (data.Crit_rate * 100).ToString() + "%");
         // -critical damage
@@ -64,15 +70,155 @@ public class TowerToolTipUIController : MonoBehaviour
         });
 
         m_skill.SetUI(skill_data.Skill_icon, skill_data.Name_KR);
+
+        m_star.SetUI(data.Star);
+
+        // 타워 구매 비용 * 3^(Star(별) -1)/1.5}
+        float sale_price = 0.0f;
+        if (data.Star == 1)
+            sale_price = data.Price;
+        else
+            sale_price = data.Price * 3 * (data.Star - 1) / 1.5f;
+        m_saleprice.SetUI((int)sale_price);
+    }
+
+    enum ETooltipDirection
+    {
+        Default,
+        UpperLeft,
+        UpperRight,
+        BottomLeft,
+        BottomRight,
+    }
+
+    private ETooltipDirection GetDirection(Vector2 mousePos)
+    {
+        ETooltipDirection dir = ETooltipDirection.Default;
+
+        int screen_width = Screen.width;
+        int screen_height = Screen.height;
+
+        var m_rt = this.GetComponent<RectTransform>();
+        float tooltip_widht = m_rt.rect.width;
+        float tooltip_height = m_rt.rect.height;
+
+       
+        bool left = false;
+        if(mousePos.x < tooltip_widht)
+        {   // right            
+            left = false;
+        }
+        else if(mousePos.x > screen_width - tooltip_widht)
+        {   // left           
+            left = true;
+        }
+        if( mousePos.y < tooltip_widht)
+        {   // upper
+            if (left)
+                dir = ETooltipDirection.UpperLeft;
+            else
+                dir = ETooltipDirection.UpperRight;
+        }
+        else if(mousePos.y > screen_height)
+        {   // bottom
+            if (left)
+                dir = ETooltipDirection.BottomLeft;
+            else
+                dir = ETooltipDirection.BottomRight;
+        }
+
+        return dir;
     }
 
     public void SetPosition(Vector2 mousePos)
     {
-        this.transform.position = mousePos;
+        var m_rt = this.GetComponent<RectTransform>();
+        float tooltip_widht = m_rt.rect.width;
+        float tooltip_height = m_rt.rect.height;
+
+        var direction = GetDirection(mousePos);
+        switch (direction)
+        {
+            case ETooltipDirection.UpperLeft:
+                this.transform.position = mousePos
+                    + new Vector2(-tooltip_widht * 0.5f, tooltip_height * 0.5f); ;
+                break;
+            case ETooltipDirection.UpperRight:
+                this.transform.position = mousePos
+                    + new Vector2(tooltip_widht * 0.5f, tooltip_height * 0.5f); ;
+                break;
+            case ETooltipDirection.Default:
+            case ETooltipDirection.BottomLeft:
+                this.transform.position = mousePos
+                    + new Vector2(-tooltip_widht * 0.5f, -tooltip_height * 0.5f); ;
+                break;
+            case ETooltipDirection.BottomRight:
+                this.transform.position = mousePos
+                    + new Vector2(tooltip_widht * 0.5f, -tooltip_height * 0.5f); ;
+                break;                
+        }        
     }
+
+
+
+    
+    [Space(30)]
+    [SerializeField] GraphicRaycaster m_Raycaster;
+    [SerializeField] EventSystem m_EventSystem;
+    PointerEventData m_PointerEventData;
 
     private void Update()
     {
-        
+        //
+        // check click position is out of this panel
+        // 
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+        {
+            m_PointerEventData = new PointerEventData(m_EventSystem);
+
+            List<RaycastResult> results = new List<RaycastResult>();
+            m_Raycaster.Raycast(m_PointerEventData, results);
+
+            foreach (RaycastResult result in results)
+            {
+                if(result.gameObject.tag == "TowerToolTip")
+                {
+                    return;
+                }
+            }
+
+            // out of panel
+            TowerToolTipManager.Instance.DeActivateTooltip();
+        }
+
+        //
+        // check click world position (for summoned towers)
+        // when tower hit by raycast
+        // activate tooltip
+        if(Input.GetMouseButtonDown(1))
+        {
+            /// perspective only
+            
+            // raycast ( mouse -> summoned tower)
+            Vector3 mouse_pos = Input.mousePosition;
+            mouse_pos.z = Camera.main.farClipPlane;
+
+            int layermask = 1 << LayerMask.NameToLayer("Tower");
+            RaycastHit hitinfo;
+            if (Physics.Raycast(new Ray(Camera.main.transform.position,
+                Camera.main.ScreenToWorldPoint(mouse_pos)),
+                out hitinfo,
+                1000f,
+               layermask))
+            {
+                Tower hit_tower = hitinfo.collider.gameObject.GetComponent<Tower>();
+                // TODO : 타워 관리자에서 해당 타워가 사라질 경우 처리 수 있는 조치가 되어있어야 함!!!
+                TowerToolTipManager.Instance.ActivateToolTip(
+                    hit_tower.transform.position,
+                    hit_tower,
+                    hit_tower.ExcelData);
+            }
+        }
     }
+
 }

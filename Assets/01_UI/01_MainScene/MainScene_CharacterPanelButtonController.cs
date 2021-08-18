@@ -17,11 +17,10 @@ public class MainScene_CharacterPanelButtonController : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    public void __OnSelectCompleteButton()
+    public void __OnSelectCompleteButton(Button button)
     {
-
-        //SceneManager.LoadScene("LoaderScene", LoadSceneMode.Additive);
         EventSystem.current.SetSelectedGameObject(null);
+        button.enabled = false;
         StartCoroutine(LoadLoadingScene());
     }
 

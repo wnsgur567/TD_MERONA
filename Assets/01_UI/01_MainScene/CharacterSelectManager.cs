@@ -83,6 +83,10 @@ public class CharacterSelectManager : Singleton<CharacterSelectManager>
             GameObject origin_obj = m_prefab_loader.GetPrefab(item.Prefab);
             GameObject new_obj = GameObject.Instantiate(origin_obj);
 
+            // scaling
+            float obj_scale = m_prefab_loader.DataList.Find((inner)=> { return inner.Code == item.Prefab; }).Size;
+            new_obj.transform.GetChild(0).localScale = new Vector3(obj_scale, obj_scale, obj_scale);
+
             Transform[] allChildren = new_obj.GetComponentsInChildren<Transform>(true);
             foreach (var child in allChildren)
             {

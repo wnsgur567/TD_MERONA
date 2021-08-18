@@ -158,7 +158,7 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         m_info.index = index;
     }
 
-    public void SetTower(Tower tower,Tower_TableExcel data)
+    public void SetTower(Tower tower, Tower_TableExcel data)
     {
         m_info.tower = tower;
         m_info.tower_data = data;
@@ -182,7 +182,8 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         m_showObj?.SetActive(false);
 
         if (IsOccupied == false)
-        {   // is empty slot (tower)            
+        {   // is empty slot (tower)
+            m_info.tower = null;
             m_showObj = null;
             m_textPro.text = "Empty";
             return;
@@ -202,6 +203,13 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     Vector3 m_drag_startPos;
+    bool m_swapFlag;
+
+    // when slot is selected , image must be FRONT
+    private void SetThisSLotFirstOrder()
+    {
+        this.transform.SetAsFirstSibling();
+    }
 
     public void OnDrag(PointerEventData eventData)
     {
@@ -222,6 +230,7 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         m_drag_startPos = m_rawImage.transform.position;
         if (m_info.isOccupied)
         {
+            m_swapFlag = true;
             Debug.Log("tower image move start");
         }
     }
@@ -230,20 +239,26 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     {
 
         RaycastResult target = eventData.pointerCurrentRaycast;
-        if (target.gameObject != null && target.gameObject.tag.Equals("InvenSlot"))
+        if (m_swapFlag &&
+            target.gameObject != null &&
+            target.gameObject.tag.Equals("InvenSlot"))
         {
             // if.. begin drag on Slot UI && end drag on Slot UI
             // swap slot infomation
             SwapInfo(target.gameObject.GetComponent<InventorySlotGUI>());
         }
         else if (m_info.isOccupied)
-        {
+        {   // if Pointer is out of UI , 
+            // Check Pointer is on the Slot (for summon tower process)
+
+
             /// for perspective
             Vector3 mouse_pos = eventData.position;
             mouse_pos.z = 1000.0f;
 
+            /// for othographic
+            //Vector3 mouse_pos = eventData.position;
 
-            //Vector3 mouse_pos = eventData.position;            
             int layermask = 1 << LayerMask.NameToLayer("Node");
             RaycastHit hitinfo;
 
@@ -253,15 +268,15 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
                 out hitinfo,
                 1000f,
                layermask))
-            //if(Physics.Raycast(new Ray(Camera.main.ScreenToWorldPoint(mouse_pos),Camera.main.transform.forward),
-            //    out hitinfo,
-            //    Camera.main.farClipPlane,
-            //    layermask))
+            ///for othographic
+            //if (Physics.Raycast(new Ray(Camera.main.ScreenToWorldPoint(mouse_pos), Camera.main.transform.forward),
+            //out hitinfo,
+            //Camera.main.farClipPlane,
+            //layermask))
             {
-                Debug.Log(hitinfo.collider.gameObject.name);
                 Node hit_node = hitinfo.collider.gameObject.GetComponent<Node>();
                 if (hit_node.m_Tower == null)
-                {   // TODO : Summon Tower Process!!
+                {
                     Debug.Log("Summon!");
                     hit_node.SetTower(m_info.tower);
                     ClearInven();
@@ -271,16 +286,17 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
         // reset moved image position
         Debug.Log("tower image move end");
+        m_swapFlag = false;
         m_rawImage.transform.position = m_drag_startPos;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {   // for tower tooltip panel
-        if ( IsOccupied &&
+        if (IsOccupied &&
             eventData.button == PointerEventData.InputButton.Right)
         {
             Vector2 mousepos = Input.mousePosition;
-            TowerToolTipManager.Instance.ActivateToolTipOnUIClick(mousepos, m_info.tower_data);
+            TowerToolTipManager.Instance.ActivateToolTipOnUIClick(mousepos, this, m_info.tower_data);
         }
     }
 }

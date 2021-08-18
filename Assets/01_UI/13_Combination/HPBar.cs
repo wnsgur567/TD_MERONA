@@ -16,11 +16,12 @@ public class HPBar : MonoBehaviour
 
     private void Start()
     {
-        // TODO : link devil hp evnet
-        // DevilManager.Instance
+        var devil = DevilManager.Instance.Devil;
+        devil.UpdateHPEvent += OnHpChanged;
+        OnHpChanged(devil.MaxHP, devil.HP);
     }
 
-    public void OnHpChanged(int maxHp, int currentHp)
+    public void OnHpChanged(float maxHp, float currentHp)
     {
         m_hp_ratio = currentHp / maxHp;
         m_slider.value = m_hp_ratio;

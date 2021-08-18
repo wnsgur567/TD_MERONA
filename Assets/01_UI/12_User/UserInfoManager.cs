@@ -32,10 +32,14 @@ public class UserInfoManager : Singleton<UserInfoManager>
     public int Gold { get { return m_info.gold; } }
     public int EXP { get { return m_info.exp; } }
     public int MaxEXP { get { return m_info.max_exp; } }
+
+    // if has no data , RETURN 0
     public int RequireGoldForPurchaseEXP
     {   // gold amount of purchase exp        
         get
         {
+            if (m_info.level >= m_levelLadoer.DataList.Count)
+                return 0;  // No Data
             var cur_level_data = m_levelLadoer.DataList[m_info.level - 1];
             return cur_level_data.Buy_Gold;
         }
@@ -65,6 +69,10 @@ public class UserInfoManager : Singleton<UserInfoManager>
             // TODO : if have user file data...
         }
 
+        if(DevilCode == 0)
+        {
+            m_info.SelectedDevilCode = 100001;
+        }
     }
     private void Start()
     {
