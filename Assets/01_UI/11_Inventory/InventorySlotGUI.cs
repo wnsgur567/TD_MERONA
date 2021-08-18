@@ -274,7 +274,6 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
             //Camera.main.farClipPlane,
             //layermask))
             {
-                Debug.Log(hitinfo.collider.gameObject.name);
                 Node hit_node = hitinfo.collider.gameObject.GetComponent<Node>();
                 if (hit_node.m_Tower == null)
                 {
