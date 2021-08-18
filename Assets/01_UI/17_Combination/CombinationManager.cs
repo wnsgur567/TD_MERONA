@@ -7,6 +7,10 @@ public class CombinationManager : Singleton<CombinationManager>
     [SerializeField] Tower_TableExcelLoader m_towerLoader;
     private int MaxStar = 3;    // star maximum
 
+    public delegate void CombinationEndHnadler(bool DespawnWorldObjFlag);
+    public event CombinationEndHnadler OnCombinationCompleteEvent;
+
+    bool m_DespawnWorldObjFlag;
 
     private bool IsMaximum(Tower tower)
     {
@@ -30,6 +34,7 @@ public class CombinationManager : Singleton<CombinationManager>
             if(false ==tower_list[i].m_TowerInfo.IsOnInventory)
             {   // Node
                 TowerManager.Instance.DespawnTower(tower_list[i]);
+                m_DespawnWorldObjFlag = true;
             }
             else
             {   // Inven
@@ -45,7 +50,7 @@ public class CombinationManager : Singleton<CombinationManager>
 
     }
 
-    public bool CombinationRecurr()
+    private bool CombinationRecurr()
     {
         Dictionary<int, List<Tower>> codeToCount_dic = new Dictionary<int, List<Tower>>();
         var tower_list = TowerManager.Instance.GetTowerList();
@@ -76,4 +81,13 @@ public class CombinationManager : Singleton<CombinationManager>
 
         return false;
     }    
+
+    public void Combinatnion()
+    {
+        CombinationRecurr();
+
+        Debug.Log($"Combinatnion Complete Event : {m_DespawnWorldObjFlag}");
+        OnCombinationCompleteEvent?.Invoke(m_DespawnWorldObjFlag);
+        m_DespawnWorldObjFlag = false;
+    }
 }

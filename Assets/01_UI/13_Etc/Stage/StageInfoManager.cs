@@ -42,8 +42,7 @@ public class StageInfoManager : Singleton<StageInfoManager>
     }
 
     private void Start()
-    {
-        m_current_stageInfo = new Stage_TableExcel();
+    {       
         m_timer = 0.0f;
     }
 

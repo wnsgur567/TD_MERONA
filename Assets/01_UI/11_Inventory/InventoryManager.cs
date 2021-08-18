@@ -76,7 +76,7 @@ public class InventoryManager : Singleton<InventoryManager>
         newTower.gameObject.SetActive(false);
         slot.SetTower(newTower,data);
 
-        CombinationManager.Instance.CombinationRecurr();
+        CombinationManager.Instance.Combinatnion();
         foreach (var item in m_slotGUI_list)
         {
             item.ForceUIUpdate();
