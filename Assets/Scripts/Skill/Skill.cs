@@ -375,9 +375,23 @@ public class Skill : MonoBehaviour
         m_SkillInfo.InitPos = transform.position;
         // ?? : 왼쪽부터 피연산자가 null이 아닌 경우에 피연산자 리턴 (왼쪽 피연산자가 null이 아닌 경우 오른쪽 피연산자는 무시)
         // ??= : 왼쪽 피연산자가 null인 경우에만 오른쪽 피연산자를 대입
-        m_SkillInfo.FixedTargetList ??= new List<Enemy>();
-        m_SkillInfo.PenetrateTargetList ??= new List<Enemy>();
-        m_SkillInfo.BounceTargetList ??= new List<Enemy>();
+        // null 병합 연산자 안되는 이유
+        // https://overworks.github.io/unity/2019/07/22/null-of-unity-object-part-2.html
+        //m_SkillInfo.FixedTargetList ??= new List<Enemy>();
+        if (m_SkillInfo.FixedTargetList == null)
+            m_SkillInfo.FixedTargetList = new List<Enemy>();
+        else if (m_SkillInfo.FixedTargetList.Count > 0)
+            m_SkillInfo.FixedTargetList.Clear();
+        //m_SkillInfo.PenetrateTargetList ??= new List<Enemy>();
+        if (m_SkillInfo.PenetrateTargetList == null)
+            m_SkillInfo.PenetrateTargetList = new List<Enemy>();
+        else if (m_SkillInfo.PenetrateTargetList.Count > 0)
+            m_SkillInfo.PenetrateTargetList.Clear();
+        //m_SkillInfo.BounceTargetList ??= new List<Enemy>();
+        if (m_SkillInfo.BounceTargetList == null)
+            m_SkillInfo.BounceTargetList = new List<Enemy>();
+        else if (m_SkillInfo.BounceTargetList.Count > 0)
+            m_SkillInfo.BounceTargetList.Clear();
 
         if (!m_SkillInfo.CanOverlapBounce &&
             null != m_Target)

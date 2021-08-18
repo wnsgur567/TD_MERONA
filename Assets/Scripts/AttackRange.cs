@@ -7,16 +7,17 @@ using UnityEngine;
 public class AttackRange : MonoBehaviour
 {
     protected SphereCollider m_RangeCollider;
-    protected SphereCollider RangeCollider => m_RangeCollider ?? GetComponent<SphereCollider>();
     protected List<Enemy> m_TargetList;
     public List<Enemy> TargetList => m_TargetList;
 
-    public float Range { get => RangeCollider.radius; set => RangeCollider.radius = value; }
+    public float Range { get => m_RangeCollider.radius; set => m_RangeCollider.radius = value; }
 
     private void Awake()
     {
         m_RangeCollider = GetComponent<SphereCollider>();
-        m_RangeCollider ??= gameObject.AddComponent<SphereCollider>();
+        //m_RangeCollider ??= gameObject.AddComponent<SphereCollider>();
+        if (null == m_RangeCollider)
+            m_RangeCollider = gameObject.AddComponent<SphereCollider>();
         m_RangeCollider.isTrigger = true;
         m_TargetList = new List<Enemy>();
     }
