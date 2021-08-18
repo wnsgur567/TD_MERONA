@@ -41,6 +41,9 @@ public class ShopManager : Singleton<ShopManager>
         ShopReset();
         // lock button release
         ShopUnLock();
+
+        // link callback
+        UserInfoManager.Instance.OnLevelChanged += OnLevelChanged;
     }
 
     public void __Initialize()
@@ -71,9 +74,6 @@ public class ShopManager : Singleton<ShopManager>
         m_tower_data_list = m_excel_towerdata_so.DataList.GetRange(
             3,
             m_excel_towerdata_so.DataList.Count - 3);
-
-        // link callback
-        UserInfoManager.Instance.OnLevelChanged += OnLevelChanged;
     }
 
 

@@ -21,7 +21,6 @@ public class SkillPool : ObjectPool<SkillPool, Skill>
             {
                 GameObject originClone = GameObject.Instantiate(originObj);
                 string key = originClone.name = originObj.name;
-                Debug.Log("Skill_" + PrefabCode + ": " + key);
 
                 Skill origin = originClone.AddComponent<Skill>();
 

@@ -73,7 +73,7 @@ public class InventoryManager : Singleton<InventoryManager>
             return;
 
         Debug.Log(data.No);
-        Tower newTower = TowerManager.Instance.SpawnTower((E_Tower)data.No);
+        Tower newTower = TowerManager.Instance.SpawnTower(data.Code);
         newTower.gameObject.SetActive(false);
         slot.SetTower(newTower,data);
     }
