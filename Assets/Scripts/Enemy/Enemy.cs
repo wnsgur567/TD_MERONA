@@ -103,12 +103,6 @@ public class Enemy : MonoBehaviour
     private SkillCondition_TableExcelLoader skillcondition_table;
     private SkillStat_TableExcelLoader skillstat_table;
 
-    private int atkcode;
-    private SkillStat_Data atkstatdata;
-
-    private int skillcode;
-    private SkillStat_Data skillstatdata;
-
     #region 시너지 관련
     // 버프
     public List<BuffCC_TableExcel> BuffList;
@@ -119,20 +113,57 @@ public class Enemy : MonoBehaviour
 
     public bool isDivide = false;
 
+    //범위
+    protected SphereCollider m_RangeCollider;
+    protected SphereCollider RangeCollider => m_RangeCollider ?? GetComponent<SphereCollider>();
+
+    //스킬 쓸때 주변 Enemy 저장
+    private List<Enemy> Enemy_obj;
+
+    private float Atk_Timer;
+
+    private EnemySkillManager enemyskillmanager;
+
+    private SkillCondition_TableExcel atkconditiondata;
+    private SkillStat_TableExcel atkstatdata;
+
+    private SkillCondition_TableExcel skillconditiondata;
+    private SkillStat_TableExcel skillstatdata;
+
+    //Enemy 투사체
+    [SerializeField] int projectile_prefeb;
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            Enemy_obj.Add(other.gameObject.transform.Find("Enemy").GetComponent<Enemy>());
+        }
+    }
+
     private void Start()
     {
+        enemyskillmanager = EnemySkillManager.Instance;
+
+        m_RangeCollider = GetComponent<SphereCollider>();
+        m_RangeCollider ??= gameObject.AddComponent<SphereCollider>();
+        m_RangeCollider.isTrigger = true;
+
+        BuffList = new List<BuffCC_TableExcel>();
+
+        animator = transform.Find("Mesh").GetComponent<Animator>();
+
+        Enemy_obj = new List<Enemy>();
+
+        //스킬 데이터
         skillcondition_table = M_DataTable.GetDataTable<SkillCondition_TableExcelLoader>();
         skillstat_table = M_DataTable.GetDataTable<SkillStat_TableExcelLoader>();
 
-        atkcode = skillcondition_table.DataList[m_EnemyInfo.Atk_Code].PassiveCode;
+        atkconditiondata = enemyskillmanager.GetConditionData(m_EnemyInfo.Atk_Code);
 
-        skillstatdata.CoolTime = skillstat_table.DataList[atkcode].CoolTime;
-        skillstatdata.Dmg = skillstat_table.DataList[atkcode].Dmg;
-        skillstatdata.Dmg_plus = skillstat_table.DataList[atkcode].Dmg_plus;
-        skillstatdata.Range = skillstat_table.DataList[atkcode].Range;
-        skillstatdata.Speed = skillstat_table.DataList[atkcode].Speed;
-        skillstatdata.Target_num = skillstat_table.DataList[atkcode].Target_num;
-        skillstatdata.Size = skillstat_table.DataList[atkcode].Size;
+        atkstatdata = enemyskillmanager.GetStatData(atkconditiondata.PassiveCode);
+
+        Atk_Timer = atkstatdata.CoolTime;
 
         image.fillAmount = m_EnemyInfo.HP;
 
@@ -140,14 +171,9 @@ public class Enemy : MonoBehaviour
         {
             Half_HP = (float)(m_EnemyInfo.HP * 0.5);
             Origin_HP = m_EnemyInfo.HP;
-
-
         }
 
-        BuffList = new List<BuffCC_TableExcel>();
-
-        animator = transform.Find("Mesh").GetComponent<Animator>();
-
+        //각 방향으로 타겟 초기화
         switch (direc)
         {
             case E_Direction.East:
@@ -167,20 +193,17 @@ public class Enemy : MonoBehaviour
                 break;
         }
 
+        //스킬 쓰는 몬스터만
         if (m_EnemyInfo.Name_EN == "Defender01" || m_EnemyInfo.Name_EN == "Defender02" 
             || m_EnemyInfo.Name_EN == "Defender03" || m_EnemyInfo.Name_EN == "Defender04"
             || m_EnemyInfo.Name_EN == "DwarfWarrior01" || m_EnemyInfo.Name_EN == "DwarfWarrior02"
             || m_EnemyInfo.Name_EN == "DwarfWarrior04" || m_EnemyInfo.Name_EN == "DwarfWarrior04")
         {
-            skillcode = skillcondition_table.DataList[m_EnemyInfo.Atk_Code].PassiveCode;
+            skillconditiondata = enemyskillmanager.GetConditionData(m_EnemyInfo.Skill1Code);
 
-            skillstatdata.CoolTime = skillstat_table.DataList[skillcode].CoolTime;
-            skillstatdata.Dmg = skillstat_table.DataList[skillcode].Dmg;
-            skillstatdata.Dmg_plus = skillstat_table.DataList[skillcode].Dmg_plus;
-            skillstatdata.Range = skillstat_table.DataList[skillcode].Range;
-            skillstatdata.Speed = skillstat_table.DataList[skillcode].Speed;
-            skillstatdata.Target_num = skillstat_table.DataList[skillcode].Target_num;
-            skillstatdata.Size = skillstat_table.DataList[skillcode].Size;
+            skillstatdata = enemyskillmanager.GetStatData(skillconditiondata.PassiveCode);
+
+            m_RangeCollider.radius = skillstatdata.Range;
 
             Invoke("StartSkill", skillstatdata.CoolTime);
         }
@@ -188,6 +211,30 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        //마왕만 타겟으로 잡기
+        //벽이나 중간에 장애물이 있다면 바꿔야함
+        if (waypointIndex >= 3)
+        {
+            float Distance = Vector3.Distance(transform.position, new Vector3(0f,0f,0f));
+
+            //거리 안에 있다면
+            if (Distance <= atkstatdata.Range) 
+            {
+                transform.rotation.SetLookRotation(new Vector3(0f, 0f, 0f));
+
+                if (Atk_Timer >= atkstatdata.CoolTime)
+                {
+                    animator.SetTrigger("Attack");
+                    Atk_Timer = 0f;
+                }
+
+                else
+                {
+                    Atk_Timer += Time.deltaTime;
+                }
+            }
+        }
+
         if (!isStun)
         {
             Vector3 dir = target.position - transform.position;
@@ -256,9 +303,9 @@ public class Enemy : MonoBehaviour
     }
 
     //소환
-    public void On_Summon()
+    public void On_Summon(string name)
     {
-        StartCoroutine(OnSummon());
+        StartCoroutine(OnSummon(name));
     }
 
     //동서남북
@@ -304,12 +351,11 @@ public class Enemy : MonoBehaviour
 
         S_Buff buff;
 
-        //몬스터 버프 넣어야함
-        #region 버프&디버프 합연산
+        #region 디버프 합연산
 
         for (int i = 0; i < BuffList.Count; ++i)
         {
-            // 버프&디버프1 체크
+            // 디버프1 체크
             if (BuffApply[i * 3])
             {
                 buff = new S_Buff(
@@ -323,7 +369,7 @@ public class Enemy : MonoBehaviour
                 float BuffAmount = buff.BuffAmount;
                 float Buff_Debufftime = BuffList[i].Duration;
 
-                // 버프&디버프1 합연산
+                // 디버프1 합연산
                 if (buff.AddType == E_AddType.Fix)
                 {
                     switch (buff.BuffType)
@@ -359,12 +405,12 @@ public class Enemy : MonoBehaviour
                             break;
 
                         case E_BuffType.Summon:
-                            On_Summon();
+                            On_Summon(BuffList[i].Name_EN);
                             break;
                     }
                 }
 
-                // 버프&디버프2 체크
+                // 디버프2 체크
                 if (BuffApply[i * 3 + 1])
                 {
                     buff = new S_Buff(
@@ -412,7 +458,7 @@ public class Enemy : MonoBehaviour
                         }
                     }
 
-                    // 버프&디버프3 체크
+                    // 디버프3 체크
                     if (BuffApply[i * 3 + 2])
                     {
                         buff = new S_Buff(
@@ -424,7 +470,7 @@ public class Enemy : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount;
 
-                        // 버프&디버프3 합연산
+                        // 디버프3 합연산
                         if (buff.AddType == E_AddType.Fix)
                         {
                             switch (buff.BuffType)
@@ -468,11 +514,11 @@ public class Enemy : MonoBehaviour
 
         #endregion
 
-        #region 버프&디버프 곱연산
+        #region 디버프 곱연산
 
         for (int i = 0; i < BuffList.Count; ++i)
         {
-            // 버프&디버프1 체크
+            // 디버프1 체크
             if (BuffApply[i * 3])
             {
                 buff = new S_Buff(
@@ -485,7 +531,7 @@ public class Enemy : MonoBehaviour
                 float BuffAmount = buff.BuffAmount;
                 float Buff_Debufftime = BuffList[i].Duration;
 
-                // 버프&디버프1 곱연산
+                // 디버프1 곱연산
                 if (buff.AddType == E_AddType.Percent)
                 {
 
@@ -506,7 +552,7 @@ public class Enemy : MonoBehaviour
                     }
                 }
 
-                // 버프&디버프2 체크
+                // 디버프2 체크
                 if (BuffApply[i * 3 + 1])
                 {
                     buff = new S_Buff(
@@ -518,7 +564,7 @@ public class Enemy : MonoBehaviour
                         );
                     BuffAmount = buff.BuffAmount;
 
-                    // 버프&디버프2 곱연산
+                    // 디버프2 곱연산
                     if (buff.AddType == E_AddType.Percent)
                     {
                         switch (buff.BuffType)
@@ -529,7 +575,7 @@ public class Enemy : MonoBehaviour
                         }
                     }
 
-                    // 버프&디버프3 체크
+                    // 디버프3 체크
                     if (BuffApply[i * 3 + 2])
                     {
                         buff = new S_Buff(
@@ -541,7 +587,7 @@ public class Enemy : MonoBehaviour
                             );
                         BuffAmount = buff.BuffAmount;
 
-                        // 버프&디버프3 곱연산
+                        // 디버프3 곱연산
                         if (buff.AddType == E_AddType.Percent)
                         {
                             switch (buff.BuffType)
@@ -675,9 +721,9 @@ public class Enemy : MonoBehaviour
     }
 
     //분열
-    IEnumerator OnSummon()
+    IEnumerator OnSummon(string name)
     {
-        SpawnManager.Instance.SpawnEnemy(direc, transform.localPosition, target, waypointIndex, "Griffin01", animator);
+        SpawnManager.Instance.SpawnEnemy(direc, transform.localPosition, target, waypointIndex, name, animator);
 
         yield return null;
     }
@@ -731,12 +777,14 @@ public class Enemy : MonoBehaviour
 
     private void CallAttack()
     {
-
+        m_EnemyInfo.Atk *= atkstatdata.Dmg;
+        enemyskillmanager.SpawnProjectileSkill(atkconditiondata.projectile_prefab, m_EnemyInfo.Atk, atkconditiondata, atkstatdata);
     }
 
     private void CallSkill()
     {
 
+        BuffList.RemoveAt(0);
     }
 
     private void CallDie()
