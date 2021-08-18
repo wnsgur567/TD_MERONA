@@ -22,75 +22,24 @@ public class NodeManager : Singleton<NodeManager>
     // [타입(안, 밖)][방향(북, 동, 남, 서)]
     // 회전시킬 노드 리스트
     protected Dictionary<E_NodeType, Dictionary<E_Direction, List<Node>>> m_NodeList;
-    //protected List<Node>[][] m_NodeList;
     // 노드 부모 (동서남북)
     protected Dictionary<E_NodeType, Dictionary<E_Direction, Transform>> m_NodeParentList;
-    //protected Transform[][] m_NodeParentList;
 
     // 선택 노드
     protected Node m_SelectedNode;
     // 회전 기준 노드 (회전을 시작할 때 선택한 노드)
-    protected Node m_StandardNode_Rotation;
+    protected Node m_RotationStandardNode;
     // 회전 여부
     [SerializeField]
     protected bool m_IsRotating;
+    // 타워 바라볼 방향 회전용 오브젝트
+    protected GameObject m_LookingDir;
 
     #region 내부 프로퍼티
     // 선택 노드의 타입
-    protected E_NodeType? SelectedNodeType
-    {
-        get
-        {
-            if (null == m_SelectedNode)
-                return null;
-
-            for (E_NodeType i = 0; i < E_NodeType.Max; ++i)
-            {
-                for (E_Direction j = 0; j < E_Direction.Max; ++j)
-                {
-                    if (m_NodeList[i][j].Contains(m_SelectedNode))
-                    {
-                        return i;
-                    }
-                }
-            }
-
-            return null;
-        }
-    }
-    // 선택 노드의 방향
-    protected E_Direction? SelectedNodeDir
-    {
-        get
-        {
-            if (null == m_SelectedNode)
-                return null;
-
-            return (E_Direction)Enum.Parse(typeof(E_Direction), m_SelectedNode.transform.parent.name);
-        }
-    }
-    // 회전 기준 노드의 타입
-    protected E_NodeType? StandardNodeType
-    {
-        get
-        {
-            if (null == m_StandardNode_Rotation)
-                return null;
-
-            for (E_NodeType i = 0; i < E_NodeType.Max; ++i)
-            {
-                for (E_Direction j = 0; j < E_Direction.Max; ++j)
-                {
-                    if (m_NodeList[i][j].Contains(m_StandardNode_Rotation))
-                    {
-                        return i;
-                    }
-                }
-            }
-
-            return null;
-        }
-    }
+    protected E_NodeType SelectedNodeType => m_SelectedNode.m_NodeType;
+    protected E_Direction SelectedNodeDir => m_SelectedNode.m_Direction;
+    protected E_NodeType StandardNodeType => m_RotationStandardNode.m_NodeType;
     // 현재 카메라
     protected Camera MainCamera => Camera.main;
     #endregion
@@ -101,27 +50,39 @@ public class NodeManager : Singleton<NodeManager>
         m_Center = transform.Find("Center");
         if (null == m_Center)
         {
-            Debug.LogError("회전의 중심점이 없거나 잘못된 이름을 입력했습니다.");
-            Debug.LogError("회전의 중심점의 이름은 \"Center\"여야 합니다.");
+            GameObject center = new GameObject("Center");
+            center.transform.SetParent(transform);
+            m_Center = center.transform;
         }
 
         // 초기화
         m_NodeList = new Dictionary<E_NodeType, Dictionary<E_Direction, List<Node>>>();//new List<Node>[(int)E_NodeType.Max][];
         m_NodeParentList = new Dictionary<E_NodeType, Dictionary<E_Direction, Transform>>();//new Transform[(int)E_NodeType.Max][];
 
+        // 타입별 (안, 밖)
         for (E_NodeType i = 0; i < E_NodeType.Max; ++i)
         {
-            m_NodeList[i] = new Dictionary<E_Direction, List<Node>>();//new List<Node>[(int)E_Direction.Max];
-            m_NodeParentList[i] = new Dictionary<E_Direction, Transform>();//new Transform[(int)E_Direction.Max];
+            m_NodeList[i] = new Dictionary<E_Direction, List<Node>>();
+            m_NodeParentList[i] = new Dictionary<E_Direction, Transform>();
 
+            // 방향별
             for (E_Direction j = 0; j < E_Direction.Max; ++j)
             {
                 m_NodeList[i][j] = new List<Node>();
                 m_NodeParentList[i][j] = transform.Find(i.ToString()).Find(j.ToString());
 
                 m_NodeParentList[i][j].GetComponentsInChildren<Node>(m_NodeList[i][j]);
+
+                foreach (var item in m_NodeList[i][j])
+                {
+                    item.m_NodeType = i;
+                    item.m_Direction = j;
+                }
             }
         }
+
+        m_LookingDir = new GameObject();
+        m_LookingDir.SetActive(false);
     }
 
     private void Update()
@@ -136,31 +97,31 @@ public class NodeManager : Singleton<NodeManager>
     // 선택 노드 검색
     protected void MouseProcess()
     {
-        // 좌클릭 시
-        if (Input.GetMouseButtonDown(0))
+        // 마우스 포인터가 UI위에 없을 때
+        if (false == UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {
-            // 클릭한 곳으로 레이캐스트
-            Ray ray = MainCamera.ScreenPointToRay(Input.mousePosition);
-            float maxDistance = MainCamera.farClipPlane;
-            int layerMask = LayerMask.GetMask("Node");
-
-            RaycastHit hit;
-
-            // 레이캐스트 성공 시
-            if (Physics.Raycast(ray, out hit, maxDistance, layerMask))
+            // 좌클릭 시
+            if (Input.GetMouseButtonDown(0))
             {
-                // 선택 노드 설정
-                // if mouse is out of UI 
-                if (false == UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+                // 클릭한 곳으로 레이캐스트
+                Ray ray = MainCamera.ScreenPointToRay(Input.mousePosition);
+                float maxDistance = MainCamera.farClipPlane;
+                int layerMask = LayerMask.GetMask("Node");
+
+                RaycastHit hit;
+
+                // 레이캐스트 성공 시
+                if (Physics.Raycast(ray, out hit, maxDistance, layerMask))
                 {
-                    SelectNode(hit.transform.GetComponentInParent<Node>());
+                    // 선택 노드 설정
+                    SelectNode(hit.transform.GetComponent<Node>());
                 }
-            }
-            // 레이캐스트 실패 시
-            else
-            {
-                // 선택 노드 제거
-                SelectNode(null);
+                // 레이캐스트 실패 시
+                else
+                {
+                    // 선택 노드 제거
+                    SelectNode(null);
+                }
             }
         }
     }
@@ -168,31 +129,32 @@ public class NodeManager : Singleton<NodeManager>
     // 아웃라인 업데이트
     protected void UpdateOutline(bool active)
     {
-        // 예외 처리 (null 체크)
-        if (SelectedNodeType.HasValue)
-        {
-            E_NodeType SelectedType = SelectedNodeType.Value;
-            // 아웃라인 설정할 노드 리스트
-            Dictionary<E_Direction, List<Node>> nodes = m_NodeList[SelectedType];
+        // 아웃라인 설정할 노드 리스트
+        Dictionary<E_Direction, List<Node>> nodes = m_NodeList[SelectedNodeType];
 
-            // 아웃라인 on, off 설정
-            for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
+        // 아웃라인 on, off 설정
+        for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
+        {
+            for (int j = 0; j < nodes[i].Count; ++j)
             {
-                for (int j = 0; j < nodes[i].Count; ++j)
-                {
-                    nodes[i][j].Outline.SetActive(active);
-                }
+                nodes[i][j].Outline.SetActive(active);
             }
         }
     }
     // 노드 선택
     protected void SelectNode(Node node)
     {
-        // 선택 노드 아웃라인 제거
-        UpdateOutline(false);
+        if (null != m_SelectedNode)
+        {
+            // 선택 노드 아웃라인 제거
+            UpdateOutline(false);
+        }
 
         // 선택 노드 변경
         m_SelectedNode = node;
+
+        if (null == node)
+            return;
 
         // 선택 노드 아웃라인 생성
         UpdateOutline(true);
@@ -203,7 +165,7 @@ public class NodeManager : Singleton<NodeManager>
     protected void RotateProcess()
     {
         // 선택 노드가 존재하면
-        if (null != SelectedNodeType)
+        //if (null != SelectedNodeType)
         {
             // 마우스 회전 검사
             Rotate_Mouse();
@@ -219,39 +181,46 @@ public class NodeManager : Singleton<NodeManager>
         if (m_IsRotating)
             return;
 
-        // 좌클릭시
-        if (Input.GetMouseButtonUp(0))
+        // 마우스 포인터가 UI위에 없을 때
+        if (false == UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {
-            // 클릭한 곳으로 레이캐스트
-            Ray ray = MainCamera.ScreenPointToRay(Input.mousePosition);
-            float maxDistance = MainCamera.farClipPlane;
-            int layerMask = LayerMask.GetMask("NodeRotate");
-
-            RaycastHit hit;
-
-            // 레이캐스트 성공 시
-            if (Physics.Raycast(ray, out hit, maxDistance, layerMask))
+            if (null != m_SelectedNode)
             {
-                // 방향 계산
-                E_Direction from = (E_Direction)SelectedNodeDir;
-                E_Direction to = (E_Direction)Enum.Parse(typeof(E_Direction), hit.transform.parent.name);
+                // 좌클릭시
+                if (Input.GetMouseButtonUp(0))
+                {
+                    // 클릭한 곳으로 레이캐스트
+                    Ray ray = MainCamera.ScreenPointToRay(Input.mousePosition);
+                    float maxDistance = MainCamera.farClipPlane;
+                    int layerMask = LayerMask.GetMask("Node", "NodeRotate");
 
-                // 시계 방향 회전
-                if ((int)to == (int)(from + 1) % (int)E_Direction.Max)
-                {
-                    CWRotate();
+                    RaycastHit hit;
+
+                    // 레이캐스트 성공 시
+                    if (Physics.Raycast(ray, out hit, maxDistance, layerMask))
+                    {
+                        // 방향 계산
+                        E_Direction from = SelectedNodeDir;
+                        E_Direction to = (E_Direction)Enum.Parse(typeof(E_Direction), hit.transform.parent.name);
+
+                        // 시계 방향 회전
+                        if ((int)to == (int)(from + 1) % (int)E_Direction.Max)
+                        {
+                            CWRotate();
+                        }
+                        // 반시계 방향 회전
+                        else if ((int)to == (int)(from + (int)E_Direction.Max - 1) % (int)E_Direction.Max)
+                        {
+                            CCWRotate();
+                        }
+                    }
+                    // 레이캐스트 실패 시
+                    else
+                    {
+                        // 선택 노드 제거
+                        SelectNode(null);
+                    }
                 }
-                // 반시계 방향 회전
-                else if ((int)to == (int)(from + (int)E_Direction.Max - 1) % (int)E_Direction.Max)
-                {
-                    CCWRotate();
-                }
-            }
-            // 레이캐스트 실패 시
-            else
-            {
-                // 선택 노드 제거
-                SelectNode(null);
             }
         }
     }
@@ -287,31 +256,40 @@ public class NodeManager : Singleton<NodeManager>
         // 회전 여부 설정
         m_IsRotating = true;
         // 회전 기준 노드 설정
-        m_StandardNode_Rotation = m_SelectedNode;
+        m_RotationStandardNode = m_SelectedNode;
 
-        E_NodeType StandardType = StandardNodeType.Value;
         // 방향별 노드 부모
-        Dictionary<E_Direction, Transform> node_parent_by_dir = m_NodeParentList[StandardType];
+        Dictionary<E_Direction, Transform> node_parent_by_dir = m_NodeParentList[StandardNodeType];
 
         // 총 경과한 시간
         float time = 0f;
         // 회전할 방향
         int Dir = clockwise ? 1 : -1;
+        // 회전할 각도
+        float angle;
 
         // 예외 처리 (회전에 걸리는 시간이 0이하인 경우)
         if (m_Duration <= 0f)
         {
+            // 회전할 각도 계산
+            angle = Dir * m_RotateAngle;
             // 회전할 각도만큼 즉시 회전
             for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
             {
                 for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
                 {
-                    node_parent_by_dir[i].GetChild(j).RotateAround(m_Center.transform.position, Vector3.up, Dir * m_RotateAngle);
+                    node_parent_by_dir[i].GetChild(j).RotateAround(m_Center.transform.position, Vector3.up, angle);
                 }
             }
+            // 타워가 바라볼 방향도 회전
+            UpdateTowerLookingDir(angle);
 
-            // 노드 부모 업데이트
-            UpdateParent(StandardNodeType, clockwise);
+            // 노드 업데이트
+            UpdateNode(clockwise);
+
+            // 타워 공격 여부 설정
+            UpdateTowerAttack(true);
+
             // 회전 여부 설정
             m_IsRotating = false;
 
@@ -321,6 +299,9 @@ public class NodeManager : Singleton<NodeManager>
             // 회전 종료
             yield break;
         }
+
+        // 타워 공격 여부 설정
+        UpdateTowerAttack(false);
 
         // 위로 이동
         for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
@@ -334,14 +315,18 @@ public class NodeManager : Singleton<NodeManager>
         // 정해진 시간동안 회전
         while (time < m_Duration)
         {
-            // 현재 프레임까지 걸린 시간만큼 비례하여 회전
+            // 회전할 각도 계산
+            angle = Dir * m_RotateAngle * Time.deltaTime / m_Duration;
+            // 회전
             for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
             {
                 for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
                 {
-                    node_parent_by_dir[i].GetChild(j).RotateAround(m_Center.transform.position, Vector3.up, Dir * m_RotateAngle * Time.deltaTime / m_Duration);
+                    node_parent_by_dir[i].GetChild(j).RotateAround(m_Center.transform.position, Vector3.up, angle);
                 }
             }
+            // 타워가 바라볼 방향도 회전
+            UpdateTowerLookingDir(angle);
 
             // 총 경과 시간 증가
             time += Time.deltaTime;
@@ -350,14 +335,18 @@ public class NodeManager : Singleton<NodeManager>
             yield return null;
         }
 
+        // 회전할 각도 계산
+        angle = Dir * m_RotateAngle * (m_Duration - time) / m_Duration;
         // 오차 범위 수정 (원하는 시간 보다 +된 만큼 반대방향으로 회전)
         for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
         {
             for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
             {
-                node_parent_by_dir[i].GetChild(j).RotateAround(m_Center.transform.position, Vector3.up, Dir * m_RotateAngle * (m_Duration - time) / m_Duration);
+                node_parent_by_dir[i].GetChild(j).RotateAround(m_Center.transform.position, Vector3.up, angle);
             }
         }
+        // 타워가 바라볼 방향도 오차 범위 수정
+        UpdateTowerLookingDir(angle);
 
         // 아래로 이동
         for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
@@ -386,45 +375,45 @@ public class NodeManager : Singleton<NodeManager>
 #endif
         #endregion
 
-        // 노드 부모 업데이트
-        UpdateParent(StandardNodeType, clockwise);
+        // 노드 업데이트
+        UpdateNode(clockwise);
 
-        // 타워 방향 업데이트
-        UpdateTower();
-        
+        // 타워 공격 여부 설정
+        UpdateTowerAttack(true);
+
         // 회전 여부 설정
         m_IsRotating = false;
 
         // 회전 종료 이벤트 호출
         m_RotateEndEvent?.Invoke();
     }
-    // 부모 업데이트
-    protected void UpdateParent(E_NodeType? type, bool clockwise = true)
+    // 노드 업데이트
+    protected void UpdateNode(bool clockwise = true)
     {
         // 시계 방향
         if (clockwise)
         {
-            SwapParent(type, E_Direction.North, E_Direction.East);
-            SwapParent(type, E_Direction.South, E_Direction.West);
-            SwapParent(type, E_Direction.North, E_Direction.South);
+            SwapList(E_Direction.North, E_Direction.East);
+            SwapList(E_Direction.South, E_Direction.West);
+            SwapList(E_Direction.North, E_Direction.South);
         }
         // 반시계 방향
         else
         {
-            SwapParent(type, E_Direction.North, E_Direction.West);
-            SwapParent(type, E_Direction.South, E_Direction.East);
-            SwapParent(type, E_Direction.North, E_Direction.South);
+            SwapList(E_Direction.North, E_Direction.West);
+            SwapList(E_Direction.South, E_Direction.East);
+            SwapList(E_Direction.North, E_Direction.South);
         }
     }
-    // 부모 교환
-    protected void SwapParent(E_NodeType? type, E_Direction first, E_Direction second)
+    // 리스트 교환
+    protected void SwapList(E_Direction first, E_Direction second)
     {
-        E_NodeType nodeType = type.Value;
-        List<Node> FirstList = m_NodeList[nodeType][first];
-        List<Node> SecondList = m_NodeList[nodeType][second];
+        List<Node> FirstList = m_NodeList[StandardNodeType][first];
+        List<Node> SecondList = m_NodeList[StandardNodeType][second];
         List<Node> TempList = new List<Node>(FirstList);
-        Transform First_T = m_NodeParentList[nodeType][first];
-        Transform Second_T = m_NodeParentList[nodeType][second];
+
+        Transform First_T = m_NodeParentList[StandardNodeType][first];
+        Transform Second_T = m_NodeParentList[StandardNodeType][second];
         List<Transform> Temp_T = new List<Transform>();
 
         int FirstCount = First_T.childCount;
@@ -449,21 +438,55 @@ public class NodeManager : Singleton<NodeManager>
         {
             Temp_T[i].SetParent(Second_T);
         }
-    }
-    // 타워 업데이트
-    protected void UpdateTower()
-    {
-        // 타워 방향 업데이트
-        for (E_NodeType i = 0; i < E_NodeType.Max; ++i)
+
+        // 정보 업데이트
+        foreach (var item in FirstList)
         {
-            for (E_Direction j = 0; j < E_Direction.Max; ++j)
+            // 노드 방향 업데이트
+            item.m_Direction = first;
+
+            // 타워 방향 업데이트
+            if (null != item.m_Tower)
+                item.m_Tower.Direction = first;
+        }
+        foreach (var item in SecondList)
+        {
+            // 노드 방향 업데이트
+            item.m_Direction = second;
+
+            // 타워 방향 업데이트
+            if (null != item.m_Tower)
+                item.m_Tower.Direction = second;
+        }
+    }
+    // 타워 바라볼 방향 업데이트
+    protected void UpdateTowerLookingDir(float angle)
+    {
+        // 타워 바라볼 방향 업데이트
+        for (E_Direction i = 0; i < E_Direction.Max; ++i)
+        {
+            foreach (var item in m_NodeList[StandardNodeType][i])
             {
-                foreach (var item in m_NodeList[i][j])
+                if (null != item.m_Tower)
                 {
-                    if (item.m_Tower != null)
-                    {
-                        item.m_Tower.Direction = j;
-                    }
+                    m_LookingDir.transform.position = item.m_Tower.m_TowerInfo.LookingDir;
+                    m_LookingDir.transform.RotateAround(m_Center.transform.position, Vector3.up, angle);
+                    item.m_Tower.m_TowerInfo.LookingDir = m_LookingDir.transform.position;
+                }
+            }
+        }
+    }
+    // 타워 공격 여부 업데이트
+    protected void UpdateTowerAttack(bool flag)
+    {
+        // 타워 공격 여부 업데이트
+        for (E_Direction i = 0; i < E_Direction.Max; ++i)
+        {
+            foreach (var item in m_NodeList[StandardNodeType][i])
+            {
+                if (null != item.m_Tower)
+                {
+                    item.m_Tower.CanAttack = flag;
                 }
             }
         }
@@ -488,12 +511,14 @@ public class NodeManager : Singleton<NodeManager>
     {
         StartCoroutine(RotateNode(false));
     }
+}
 
-    public enum E_NodeType
-    {
-        Inner,
-        Outer,
+public enum E_NodeType
+{
+    None = -1,
 
-        Max
-    }
+    Inner,
+    Outer,
+
+    Max
 }

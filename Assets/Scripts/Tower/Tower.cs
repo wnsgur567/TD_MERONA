@@ -60,6 +60,7 @@ public class Tower : MonoBehaviour
     public Tower_TableExcel ExcelData => m_TowerInfo_Excel; // cha
     public E_Direction Direction { get => m_TowerInfo.Direction; set => m_TowerInfo.Direction = value; }
     public Node Node { get => m_TowerInfo.node; set => m_TowerInfo.node = value; }
+    public bool CanAttack { get => m_TowerInfo.CanAttack; set => m_TowerInfo.CanAttack = value; }
     public string Name => m_TowerInfo_Excel.Name_EN;
     public int TowerCode => m_TowerInfo_Excel.Code;
     public int TowerKind => m_TowerInfo_Excel.Tower_Kinds;
@@ -151,7 +152,7 @@ public class Tower : MonoBehaviour
             m_TowerInfo.AttackTimer_Default += Time.deltaTime;
         }
         // 기본 스킬 공격
-        else if (null != m_Target)
+        else if (m_TowerInfo.CanAttack && null != m_Target)
         {
             // 내부 데이터 정리
             m_TowerInfo.AttackTimer_Default -= m_TowerInfo.AttackSpeed_Default;
@@ -165,7 +166,7 @@ public class Tower : MonoBehaviour
         {
             m_TowerInfo.AttackTimer_Skill01 += Time.deltaTime;
         }
-        else if (null != m_Target)
+        else if (m_TowerInfo.CanAttack && null != m_Target)
         {
             m_TowerInfo.AttackTimer_Skill01 -= m_TowerInfo.AttackSpeed_Skill01;
 
@@ -178,7 +179,7 @@ public class Tower : MonoBehaviour
         {
             m_TowerInfo.AttackTimer_Skill02 += Time.deltaTime;
         }
-        else if (null != m_Target)
+        else if (m_TowerInfo.CanAttack && null != m_Target)
         {
             m_TowerInfo.AttackTimer_Skill02 -= m_TowerInfo.AttackSpeed_Skill02;
 
@@ -212,6 +213,7 @@ public class Tower : MonoBehaviour
         #region 내부 데이터 정리
         m_TowerInfo.RotateSpeed = 5f;
         m_TowerInfo.ShouldFindTarget = true;
+        m_TowerInfo.CanAttack = false;
 
         // null 병합 연산자 안되는 이유
         // https://overworks.github.io/unity/2019/07/22/null-of-unity-object-part-2.html
@@ -2367,10 +2369,8 @@ public class Tower : MonoBehaviour
         // if this tower is located in Inventory => true
         // in NODE => false
         public bool IsOnInventory;
-
-        // cha
+        // 노드
         public Node node;
-
         // 타워 방향
         public E_Direction Direction;
         // 회전 속도
@@ -2381,6 +2381,8 @@ public class Tower : MonoBehaviour
         public bool ShouldFindTarget;
         // 공격 피벗
         public Transform AttackPivot;
+        // 공격 가능 여부
+        public bool CanAttack;
 
         // 기본 스킬 데이터
         public SkillCondition_TableExcel Condition_Default;
