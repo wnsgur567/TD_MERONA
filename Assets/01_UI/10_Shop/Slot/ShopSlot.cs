@@ -80,6 +80,8 @@ public class ShopSlot : MonoBehaviour , IPointerClickHandler
     }
     public void SetRenderTexture()
     {
+        int layer = LayerMask.NameToLayer("Tower");
+
         // create render texture
         m_renderTexture = new RenderTexture(256, 256, 16);
         m_renderTexture.Create();
@@ -88,6 +90,10 @@ public class ShopSlot : MonoBehaviour , IPointerClickHandler
         Camera shop_cam_origin = Resources.Load<Camera>("ShopCamera");
         m_renderCamera = GameObject.Instantiate<Camera>(shop_cam_origin);
         m_renderCamera.transform.SetParent(this.transform);
+
+        m_renderCamera.clearFlags = CameraClearFlags.SolidColor;
+        m_renderCamera.backgroundColor = new Color(0, 0, 0, 0);
+        m_renderCamera.cullingMask = 1 << layer;
 
         m_renderCamera.targetTexture = m_renderTexture;
         m_renderCamera.transform.position = m_obj_position + camera_distance;
@@ -104,6 +110,13 @@ public class ShopSlot : MonoBehaviour , IPointerClickHandler
             GameObject origin_obj = m_prefabLoader.GetPrefab(item.Prefab); // get only tower
             GameObject new_obj = GameObject.Instantiate(origin_obj);
             new_obj.transform.SetParent(this.transform);
+
+            // set layer (for camera culling)
+            Transform[] allChildren = new_obj.GetComponentsInChildren<Transform>(true);
+            foreach (var child in allChildren)
+            {
+                child.gameObject.layer = layer;
+            }
 
             // scaling
             float scale_rate = m_prefabLoader.DataList.Find(
