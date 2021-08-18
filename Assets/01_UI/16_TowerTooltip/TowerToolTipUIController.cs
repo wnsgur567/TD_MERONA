@@ -55,10 +55,11 @@ public class TowerToolTipUIController : MonoBehaviour ,IPointerEnterHandler, IPo
         // -atk
         m_stat_data1.SetUI("공격력", data.Atk.ToString());
         // -atk speed
-        float atk_speed = m_skillstat_loader.DataList.Find((item) => { return item.Code == data.Atk_Code; }).Speed;
+        float atk_speed = m_skillstat_loader.DataList.Find((item) => { return item.Code == data.Atk_Code; }).CoolTime;
+        float calc_atk_speed = (atk_speed == 0) ? 1 : ((int)(1f / atk_speed * 100));
         m_stat_data2.SetUI(
             "공격속도",
-            ((int)(1f / atk_speed * 100)).ToString() + "%");
+            calc_atk_speed.ToString() + "%");
         Debug.Log($"atk speed : {atk_speed}");
         Debug.Log($"caculated atk speed : {(int)(1f / atk_speed * 100)}");
         // -critical rate
@@ -162,13 +163,7 @@ public class TowerToolTipUIController : MonoBehaviour ,IPointerEnterHandler, IPo
         }        
     }
 
-
-
-    
-    [Space(30)]
-    
-    [SerializeField] GraphicRaycaster m_Raycaster;
-    [SerializeField] EventSystem m_EventSystem;    
+    //////////////////////////////////     
 
     private void Update()
     {
@@ -184,34 +179,6 @@ public class TowerToolTipUIController : MonoBehaviour ,IPointerEnterHandler, IPo
             TowerToolTipManager.Instance.DeActivateTooltip();
         }
 
-        //
-        // check click world position (for summoned towers)
-        // when tower hit by raycast
-        // activate tooltip
-        if(Input.GetMouseButtonDown(1))
-        {
-            /// perspective only
-            
-            // raycast ( mouse -> summoned tower)
-            Vector3 mouse_pos = Input.mousePosition;
-            mouse_pos.z = Camera.main.farClipPlane;
-
-            int layermask = 1 << LayerMask.NameToLayer("Tower");
-            RaycastHit hitinfo;
-            if (Physics.Raycast(new Ray(Camera.main.transform.position,
-                Camera.main.ScreenToWorldPoint(mouse_pos)),
-                out hitinfo,
-                1000f,
-               layermask))
-            {
-                Tower hit_tower = hitinfo.collider.gameObject.GetComponent<Tower>();
-                // TODO : 타워 관리자에서 해당 타워가 사라질 경우 처리 수 있는 조치가 되어있어야 함!!!
-                TowerToolTipManager.Instance.ActivateToolTip(
-                    hit_tower.transform.position,
-                    hit_tower,
-                    hit_tower.ExcelData);
-            }
-        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)

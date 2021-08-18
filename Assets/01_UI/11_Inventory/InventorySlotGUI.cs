@@ -245,7 +245,7 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     {
         if (eventData.IsPointerMoving() && m_info.isOccupied)
         {
-            Debug.Log("tower image moving");
+            //Debug.Log("tower image moving");
             m_rawImage.transform.position = eventData.position;
 
             Vector3 mouse_pos = eventData.position;
@@ -261,13 +261,13 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         if (m_info.isOccupied)
         {
             m_swapFlag = true;
-            Debug.Log("tower image move start");
+            //Debug.Log("tower image move start");
         }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-
+        
         RaycastResult target = eventData.pointerCurrentRaycast;
         if (m_swapFlag &&
             target.gameObject != null &&
@@ -318,7 +318,7 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         }
 
         // reset moved image position
-        Debug.Log("tower image move end");
+        //Debug.Log("tower image move end");
         m_swapFlag = false;
         m_rawImage.transform.position = m_drag_startPos;
     }
