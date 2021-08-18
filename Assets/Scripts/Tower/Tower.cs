@@ -76,7 +76,7 @@ public class Tower : MonoBehaviour
         if (null == m_Target)
         {
             // 초기 방향으로 방향 설정
-            dir = transform.position + m_TowerInfo.InitialRotation;
+            dir = m_TowerInfo.InitialRotation;
         }
         // 타겟이 있으면
         else
@@ -87,7 +87,6 @@ public class Tower : MonoBehaviour
 
         // y 회전 방지
         dir.y = transform.position.y;
-        //Debug.Log("바라볼 위치: " + dir);
 
         // 회전
         transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.LookRotation(dir), RotateSpeed);

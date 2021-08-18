@@ -150,7 +150,11 @@ public class NodeManager : Singleton<NodeManager>
             if (Physics.Raycast(ray, out hit, maxDistance, layerMask))
             {
                 // 선택 노드 설정
-                SelectNode(hit.transform.GetComponentInParent<Node>());
+                // if mouse is out of UI 
+                if (false == UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+                {
+                    SelectNode(hit.transform.GetComponentInParent<Node>());
+                }
             }
             // 레이캐스트 실패 시
             else
@@ -412,9 +416,12 @@ public class NodeManager : Singleton<NodeManager>
     protected void SwapParent(E_NodeType? type, E_Direction first, E_Direction second)
     {
         E_NodeType nodeType = type.Value;
+        List<Node> FirstList = m_NodeList[nodeType][first];
+        List<Node> SecondList = m_NodeList[nodeType][second];
+        List<Node> TempList = new List<Node>(FirstList);
         Transform First_T = m_NodeParentList[nodeType][first];
         Transform Second_T = m_NodeParentList[nodeType][second];
-        List<Transform> TempList = new List<Transform>();
+        List<Transform> Temp_T = new List<Transform>();
 
         int FirstCount = First_T.childCount;
         int SecondCount = Second_T.childCount;
@@ -422,17 +429,21 @@ public class NodeManager : Singleton<NodeManager>
         // 1 -> Temp
         for (int i = 0; i < FirstCount; ++i)
         {
-            TempList.Add(First_T.GetChild(i));
+            Temp_T.Add(First_T.GetChild(i));
         }
         // 2 -> 1
+        FirstList.Clear();
+        FirstList.AddRange(SecondList);
         for (int i = 0; i < SecondCount; ++i)
         {
             Second_T.GetChild(0).SetParent(First_T);
         }
         // Temp -> 2
+        SecondList.Clear();
+        SecondList.AddRange(TempList);
         for (int i = 0; i < FirstCount; ++i)
         {
-            TempList[i].SetParent(Second_T);
+            Temp_T[i].SetParent(Second_T);
         }
     }
     #endregion

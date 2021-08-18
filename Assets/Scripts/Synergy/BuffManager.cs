@@ -23,7 +23,7 @@ public class BuffManager : Singleton<BuffManager>
     #region 외부 함수
     public BuffCC_TableExcel GetData(int code)
     {
-        BuffCC_TableExcel result = m_BuffCCData.DataList.Where(item => item.Code == code).Single();
+        BuffCC_TableExcel result = m_BuffCCData.DataList.Where(item => item.Code == code).SingleOrDefault();
 
         return result;
     }
