@@ -60,6 +60,8 @@ public class Tower : MonoBehaviour
     public int TowerCode => m_TowerInfo_Excel.Code;
     public int SynergyCode1 => m_TowerInfo_Excel.Type1;
     public int SynergyCode2 => m_TowerInfo_Excel.Type2;
+
+    public Tower_TableExcel ExcelData => m_TowerInfo_Excel;
     #endregion
 
     #region 내부 함수

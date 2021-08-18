@@ -19,21 +19,27 @@ public class TowerToolTipManager : Singleton<TowerToolTipManager>
     }
 
     // TODO : tooltip position setting algorythm
-    // TODO : param tower can changed ( Node or tower manager / that you want managing tower )
+    // TODO : param tower can changed ( Node or tower manager / what you want like towermanager )
     public void ActivateToolTip(Vector3 worldPos, Tower tower ,Tower_TableExcel data)
     {
         m_worldFlag = true;
+
+        // TODO : change
         m_tower = tower;
-        m_tooltip.SetUIInfo(data);
-        // TODO : camera world to screen pos
+        m_tooltip.SetUIInfo(data);      
+        Vector3 mousepos = Camera.main.WorldToScreenPoint(worldPos);       
+        m_tooltip.SetPosition(mousepos);
+
         m_tooltip.gameObject.SetActive(true);
     }
     public void ActivateToolTipOnUIClick(Vector2 mousePos,InventorySlotGUI slot, Tower_TableExcel data)
     {
         m_invenFlag = true;
+
         m_slot = slot;
         m_tooltip.SetUIInfo(data);        
         m_tooltip.SetPosition(mousePos);
+
         m_tooltip.gameObject.SetActive(true);
     }
     public void DeActivateTooltip()
