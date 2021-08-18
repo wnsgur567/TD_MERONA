@@ -28,7 +28,7 @@ public class Node : MonoBehaviour
         m_Tower.transform.localEulerAngles = Vector3.zero;
         m_Tower.Node = this;
         m_Tower.m_TowerInfo.Direction = (E_Direction)Enum.Parse(typeof(E_Direction), transform.parent.name);
-        m_Tower.m_TowerInfo.LookingDir = transform.parent.forward;// * 90f * (int)(m_Tower.Direction + 1);
+        m_Tower.m_TowerInfo.LookingDir = m_Tower.transform.forward;// * 90f * (int)(m_Tower.Direction + 1);
 
         m_Tower.gameObject.SetActive(true);
         m_Tower.m_TowerInfo.IsOnInventory = false;

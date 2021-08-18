@@ -78,7 +78,7 @@ public class Tower : MonoBehaviour
         if (null == m_Target)
         {
             // 초기 방향으로 방향 설정
-            lookingDir = m_TowerInfo.LookingDir;
+            lookingDir = m_TowerInfo.LookingDir * 100f;
         }
         // 타겟이 있으면
         else
@@ -88,7 +88,7 @@ public class Tower : MonoBehaviour
         }
 
         // y 회전 방지
-        lookingDir.y = transform.localPosition.y;
+        lookingDir.y = 0f;
 
         // 회전
         //transform.localEulerAngles = Quaternion.Lerp(transform.localRotation, Quaternion.LookRotation(lookingDir), RotateSpeed).eulerAngles;
@@ -245,23 +245,20 @@ public class Tower : MonoBehaviour
 
         // 시너지
         m_TowerInfo.Synergy_Atk_type = E_AttackType.None;
-        // null 병합 연산자 안되는 이유
-        // https://overworks.github.io/unity/2019/07/22/null-of-unity-object-part-2.html
+
         //m_TowerInfo.BuffList ??= new List<BuffCC_TableExcel>();
         if (m_TowerInfo.BuffList == null)
             m_TowerInfo.BuffList = new List<BuffCC_TableExcel>();
         else if (m_TowerInfo.BuffList.Count > 0)
             m_TowerInfo.BuffList.Clear();
-        // null 병합 연산자 안되는 이유
-        // https://overworks.github.io/unity/2019/07/22/null-of-unity-object-part-2.html
+
         //m_TowerInfo.BerserkerBuffList ??= new List<BuffCC_TableExcel>();
         if (m_TowerInfo.BerserkerBuffList == null)
             m_TowerInfo.BerserkerBuffList = new List<BuffCC_TableExcel>();
         else if (m_TowerInfo.BerserkerBuffList.Count > 0)
             m_TowerInfo.BerserkerBuffList.Clear();
+
         // 마왕 스킬
-        // null 병합 연산자 안되는 이유
-        // https://overworks.github.io/unity/2019/07/22/null-of-unity-object-part-2.html
         //m_TowerInfo.DevilSkillBuffList ??= new List<BuffCC_TableExcel>();
         if (m_TowerInfo.DevilSkillBuffList == null)
             m_TowerInfo.DevilSkillBuffList = new List<BuffCC_TableExcel>();
@@ -270,32 +267,33 @@ public class Tower : MonoBehaviour
         #endregion
 
         #region 내부 컴포넌트
-        // null 병합 연산자 안되는 이유
-        // https://overworks.github.io/unity/2019/07/22/null-of-unity-object-part-2.html
         // m_TowerAnimator ??= GetComponentInChildren<TowerAnimator>(true);
         if (m_TowerAnimator == null)
             m_TowerAnimator = GetComponentInChildren<TowerAnimator>(true);
         m_TowerAnimator.transform.localScale = Vector3.one * size;
 
-        // null 병합 연산자 안되는 이유
-        // https://overworks.github.io/unity/2019/07/22/null-of-unity-object-part-2.html
         // m_AttackRange_Default ??= transform.Find("AttackRange_Default").AddComponent<AttackRange>();
         if (m_AttackRange_Default == null)
+        {
             m_AttackRange_Default = transform.Find("AttackRange_Default").AddComponent<AttackRange>();
+            m_AttackRange_Default.gameObject.layer = LayerMask.NameToLayer("Tower");
+        }
         m_AttackRange_Default.Range = m_TowerInfo.Stat_Default.Range;
 
-        // null 병합 연산자 안되는 이유
-        // https://overworks.github.io/unity/2019/07/22/null-of-unity-object-part-2.html
         //m_AttackRange_Skill01 ??= transform.Find("AttackRange_Skill01").AddComponent<AttackRange>();
         if (m_AttackRange_Skill01 == null)
+        {
             m_AttackRange_Skill01 = transform.Find("AttackRange_Skill01").AddComponent<AttackRange>();
+            m_AttackRange_Skill01.gameObject.layer = LayerMask.NameToLayer("Tower");
+        }
         m_AttackRange_Skill01.Range = m_TowerInfo.Stat_Skill01.Range;
 
-        // null 병합 연산자 안되는 이유
-        // https://overworks.github.io/unity/2019/07/22/null-of-unity-object-part-2.html
         //m_AttackRange_Skill02 ??= transform.Find("AttackRange_Skill02").AddComponent<AttackRange>();
         if (m_AttackRange_Skill02 == null)
+        {
             m_AttackRange_Skill02 = transform.Find("AttackRange_Skill02").AddComponent<AttackRange>();
+            m_AttackRange_Skill02.gameObject.layer = LayerMask.NameToLayer("Tower");
+        }
         m_AttackRange_Skill02.Range = m_TowerInfo.Stat_Skill02.Range;
         #endregion
     }
