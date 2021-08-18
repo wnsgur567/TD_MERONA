@@ -14,6 +14,7 @@ public class ToolTipSalePrice : MonoBehaviour
 
     public void __OnSaleButtonClicked()
     {
+        Debug.Log("Sell Button Clicked");
         TowerToolTipManager.Instance.__OnSaleButtonClicked(m_price);
     }
 }
