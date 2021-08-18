@@ -9,9 +9,10 @@ public class MainScene_MainPanelButtonController : MonoBehaviour
     [Space(10)]
     [SerializeField] Image m_option_panel;    
 
-    public void __OnStartButton()
+    public void __OnStartButton(Button button)
     {
         m_character_panel.gameObject.SetActive(true);
+        button.enabled = true;
         this.gameObject.SetActive(false);
         CharacterSelectManager.Instance.OnStart();
     }
