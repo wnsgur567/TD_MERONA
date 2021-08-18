@@ -57,7 +57,8 @@ public class Tower : MonoBehaviour
     #endregion
 
     #region 외부 프로퍼티
-    public Tower_TableExcel ExcelData => m_TowerInfo_Excel;
+    public Tower_TableExcel ExcelData => m_TowerInfo_Excel; // cha
+    public E_Direction Direction => m_TowerInfo.Direction;  // cha
     public string Name => m_TowerInfo_Excel.Name_EN;
     public int TowerCode => m_TowerInfo_Excel.Code;
     public int SynergyCode1 => m_TowerInfo_Excel.Type1;
@@ -2306,6 +2307,14 @@ public class Tower : MonoBehaviour
     [System.Serializable]
     public struct S_TowerData
     {
+        // cha
+        // if this tower is located in Inventory => true
+        // in NODE => false
+        public bool IsOnInventory;
+
+        // cha
+        public Node node;
+
         // 타워 방향
         public E_Direction Direction;
         // 회전 속도

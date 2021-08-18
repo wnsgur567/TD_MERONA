@@ -171,7 +171,7 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     }
 
     public void SetTower(Tower tower, Tower_TableExcel data)
-    {
+    {        
         m_info.tower = tower;
         m_info.tower_data = data;
         m_info.isOccupied = true;

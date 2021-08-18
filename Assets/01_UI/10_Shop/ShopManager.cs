@@ -150,7 +150,7 @@ public class ShopManager : Singleton<ShopManager>
                 }
             }
 
-            Debug.Log($"rank : {rank_forCreate}");
+            //Debug.Log($"rank : {rank_forCreate}");           
 
             // shop can create tower ONLY 1 STAR
             var OnlyOneStar_tower_data_list = m_tower_data_list.FindAll((item) => { return item.Star == 1; });
@@ -179,24 +179,52 @@ public class ShopManager : Singleton<ShopManager>
 
     public bool PurchaseProcess(int slotIndex)
     {
-        ShopSlot slot = m_slot_list[slotIndex];
-
-        if(false == UserInfoManager.Instance.UseGold(slot.Price))
-        {
-            Debug.Log("Shop : have not enough minerals");
-            return false;
-        }    
+        ShopSlot slot = m_slot_list[slotIndex];          
 
         if (false == InventoryManager.Instance.IsAllOccupied())
         {   // 인벤에 빈 공간이 있으면
+            if (false == UserInfoManager.Instance.UseGold(slot.Price))
+            {   // 보유 골드가 부족하면
+                Debug.Log("Shop : have not enough minerals");
+                return false;
+            }
+
             var info = slot.GetInfo();
+
+            // check... this tower can be combined
+            int summoned_count = TowerManager.Instance.GetSameTowerCount(info.excel_data.Value.Code);
+            if(summoned_count > 2)
+            {   // Combine process
+
+            }
+
             InventoryManager.Instance.AddNewTower(info.excel_data.Value);
 
             Debug.Log("Puchase!!");
             return true;
         }
+        else
+        {
+
+        }
 
         return false;
+    }
+
+    public Tower CombineTowerProcess(int tower_code)
+    {   // tower count is always over 2
+        var towers = TowerManager.Instance.GetTowers(tower_code);
+        for (int i = 0; i < 3; i++)
+        {
+            if(towers[i].m_TowerInfo.IsOnInventory)
+            TowerManager.Instance.DespawnTower(towers[i]);
+        }
+
+        // TODO : fix
+
+        //TowerManager.Instance.SpawnTower
+
+        return null;
     }
 
     /*************************** button callback ******************************/
