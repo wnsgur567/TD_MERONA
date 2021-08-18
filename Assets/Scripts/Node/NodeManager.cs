@@ -437,6 +437,14 @@ public class NodeManager : Singleton<NodeManager>
     }
     #endregion
 
+    public List<Node> GetNodeList(E_Direction dir)
+    {
+        List<Node> result = new List<Node>();
+        result.AddRange(m_NodeList[E_NodeType.Inner][dir]);
+        result.AddRange(m_NodeList[E_NodeType.Outer][dir]);
+        return result;
+    }
+
     // 시계 방향 회전
     protected void CWRotate()
     {

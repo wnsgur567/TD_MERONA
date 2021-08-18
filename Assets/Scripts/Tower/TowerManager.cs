@@ -12,6 +12,7 @@ public class TowerManager : Singleton<TowerManager>
 
     #region 내부 프로퍼티
     protected TowerPool M_TowerPool => TowerPool.Instance;
+    protected NodeManager M_Node => NodeManager.Instance;
     protected DataTableManager M_DataTable => DataTableManager.Instance;
     #endregion
 
@@ -25,6 +26,8 @@ public class TowerManager : Singleton<TowerManager>
         {
             m_DirTowerList.Add(i, new List<Tower>());
         }
+
+        M_Node.m_RotateEndEvent += UpdateTowerList;
     }
 
     public Tower SpawnTower(E_Tower tower)
@@ -33,13 +36,18 @@ public class TowerManager : Singleton<TowerManager>
         m_TowerList.Add(spawn);
         return spawn;
     }
-    public Tower SpawnTower(E_Tower tower, E_Direction dir)
+    public void AddTower(Tower tower, E_Direction dir)
     {
-        Tower spawn = SpawnTower(tower);
-        m_DirTowerList[dir].Add(spawn);
-        spawn.m_TowerInfo.Direction = dir;
-        return spawn;
+        m_DirTowerList[dir].Add(tower);
     }
+    //public Tower SpawnTower(E_Tower tower, E_Direction dir)
+    //{
+    //    Tower spawn = SpawnTower(tower);
+    //    m_DirTowerList[dir].Add(spawn);
+    //    spawn.m_TowerInfo.Direction = dir;
+    //    return spawn;
+    //}
+
     public Tower_TableExcel GetData(E_Tower no)
     {
         Tower_TableExcel result = m_TowerData.DataList.Where(item => item.No == (int)no).SingleOrDefault();
@@ -60,6 +68,27 @@ public class TowerManager : Singleton<TowerManager>
     {
         return m_DirTowerList[dir];
     }
+    public void UpdateTowerList()
+    {
+        for (E_Direction i = 0; i < E_Direction.Max; i++)
+        {
+            UpdateTowerList(i);
+        }
+    }
+    public void UpdateTowerList(E_Direction dir)
+    {
+        List<Node> nodeList = M_Node.GetNodeList(dir);
+        m_DirTowerList[dir].Clear();
+
+        foreach (var item in nodeList)
+        {
+            if (item.m_Tower != null)
+            {
+                m_DirTowerList[dir].Add(item.m_Tower);
+            }
+        }
+    }
+
     public bool CheckSameTower(Tower tower1, Tower tower2)
     {
         return tower1.TowerCode == tower2.TowerCode;
