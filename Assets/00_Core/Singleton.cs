@@ -4,7 +4,8 @@ using UnityEngine;
 [DefaultExecutionOrder(-98)]
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    public bool flag;
+    [SerializeField]
+    protected bool flag;
 
     private static T instance;
     public static T Instance

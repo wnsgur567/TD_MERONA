@@ -37,7 +37,10 @@ public class SynergyManager : Singleton<SynergyManager>
         {
             m_Synergys.Add(i, new List<Synergy_TableExcel>());
         }
+    }
 
+    private void Start()
+    {
         M_Node.m_RotateEndEvent += UpdateSynergy;
     }
 

@@ -11,6 +11,7 @@ public class Node : MonoBehaviour
 
     #region 내부 프로퍼티
     protected NodeManager M_Node => NodeManager.Instance;
+    protected TowerManager M_Tower => TowerManager.Instance;
     protected SynergyManager M_Synergy => SynergyManager.Instance;
     #endregion
 
@@ -33,6 +34,7 @@ public class Node : MonoBehaviour
 
         m_Tower.gameObject.SetActive(true);
 
+        M_Tower.AddTower(tower, m_Tower.m_TowerInfo.Direction);
         M_Synergy.UpdateSynergy();
     }
 
