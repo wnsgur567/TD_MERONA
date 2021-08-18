@@ -75,15 +75,20 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
     public void SetRenderTexture()
     {
+        int layer = LayerMask.NameToLayer("Tower");
+
         // create render texture
         m_renderTexture = new RenderTexture(256, 256, 16);
-        m_renderTexture.Create();
-
+        m_renderTexture.Create();        
 
         /// camera setting
         Camera inven_cam_origin = Resources.Load<Camera>("InventoryCamera");
         m_renderCamera = GameObject.Instantiate<Camera>(inven_cam_origin);
         m_renderCamera.transform.SetParent(this.transform);
+
+        m_renderCamera.clearFlags = CameraClearFlags.SolidColor;
+        m_renderCamera.backgroundColor = new Color(0, 0, 0, 0);
+        m_renderCamera.cullingMask = 1 << layer;
 
         m_renderCamera.targetTexture = m_renderTexture;
         m_renderCamera.transform.position = m_obj_position + camera_distance;
@@ -98,6 +103,13 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
             GameObject origin_obj = m_prefabLoader.GetPrefab(item.Prefab); // get only tower
             GameObject new_obj = GameObject.Instantiate(origin_obj);
             new_obj.transform.SetParent(this.transform);
+
+            // set layer (for camera culling)
+            Transform[] allChildren = new_obj.GetComponentsInChildren<Transform>(true);
+            foreach (var child  in allChildren)
+            {
+                child.gameObject.layer = layer;
+            }
 
 
             // scaling
@@ -159,7 +171,7 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     }
 
     public void SetTower(Tower tower, Tower_TableExcel data)
-    {
+    {        
         m_info.tower = tower;
         m_info.tower_data = data;
         m_info.isOccupied = true;
@@ -251,35 +263,38 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         {   // if Pointer is out of UI , 
             // Check Pointer is on the Slot (for summon tower process)
 
-
-            /// for perspective
-            Vector3 mouse_pos = eventData.position;
-            mouse_pos.z = 1000.0f;
-
-            /// for othographic
-            //Vector3 mouse_pos = eventData.position;
-
-            int layermask = 1 << LayerMask.NameToLayer("Node");
-            RaycastHit hitinfo;
-
-            /// for perspective
-            if (Physics.Raycast(new Ray(Camera.main.transform.position,
-                Camera.main.ScreenToWorldPoint(mouse_pos)),
-                out hitinfo,
-                1000f,
-               layermask))
-            ///for othographic
-            //if (Physics.Raycast(new Ray(Camera.main.ScreenToWorldPoint(mouse_pos), Camera.main.transform.forward),
-            //out hitinfo,
-            //Camera.main.farClipPlane,
-            //layermask))
+            // if mouse is out of UI 
+            if (false == EventSystem.current.IsPointerOverGameObject())
             {
-                Node hit_node = hitinfo.collider.gameObject.GetComponent<Node>();
-                if (hit_node.m_Tower == null)
+                /// for perspective
+                Vector3 mouse_pos = eventData.position;
+                mouse_pos.z = 1000.0f;
+
+                /// for othographic
+                //Vector3 mouse_pos = eventData.position;
+
+                int layermask = 1 << LayerMask.NameToLayer("Node");
+                RaycastHit hitinfo;
+
+                /// for perspective
+                if (Physics.Raycast(new Ray(Camera.main.transform.position,
+                    Camera.main.ScreenToWorldPoint(mouse_pos)),
+                    out hitinfo,
+                    1000f,
+                   layermask))
+                ///for othographic
+                //if (Physics.Raycast(new Ray(Camera.main.ScreenToWorldPoint(mouse_pos), Camera.main.transform.forward),
+                //out hitinfo,
+                //Camera.main.farClipPlane,
+                //layermask))
                 {
-                    Debug.Log("Summon!");
-                    hit_node.SetTower(m_info.tower);
-                    ClearInven();
+                    Node hit_node = hitinfo.collider.gameObject.GetComponent<Node>();
+                    if (hit_node.m_Tower == null)
+                    {
+                        Debug.Log("Summon!");
+                        hit_node.SetTower(m_info.tower);
+                        ClearInven();
+                    }
                 }
             }
         }

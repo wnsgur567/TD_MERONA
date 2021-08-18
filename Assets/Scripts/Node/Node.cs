@@ -20,7 +20,8 @@ public class Node : MonoBehaviour
     #endregion
 
     public void SetTower(Tower tower)
-    {
+    {      
+
         m_Tower = tower;
         m_Tower.transform.SetParent(transform);
         m_Tower.gameObject.SetActive(true);
@@ -28,6 +29,10 @@ public class Node : MonoBehaviour
         m_Tower.transform.localEulerAngles = Vector3.zero;
         m_Tower.m_TowerInfo.Direction = (E_Direction)Enum.Parse(typeof(E_Direction), transform.parent.name);
         m_Tower.m_TowerInfo.InitialRotation = (m_Tower.transform.forward * 10f);
+
+        // cha
+        m_Tower.m_TowerInfo.node = this;
+
         Debug.Log("타워 앞: " + m_Tower.transform.forward);
         Debug.Log("타워 위치: " + m_Tower.transform.position);
         Debug.Log("초기 회전 값: " + m_Tower.m_TowerInfo.InitialRotation);

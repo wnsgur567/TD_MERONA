@@ -27,6 +27,8 @@ public class ToolTipTowerImage : MonoBehaviour
 
     void __InitializeTexture()
     {
+        int layer = LayerMask.NameToLayer("Tower");
+
         // create render texture
         m_renderTexture = new RenderTexture(256, 256, 16);
         m_renderTexture.Create();
@@ -35,6 +37,7 @@ public class ToolTipTowerImage : MonoBehaviour
         m_renderCamera.targetTexture = m_renderTexture;
         m_renderCamera.clearFlags = CameraClearFlags.SolidColor;
         m_renderCamera.backgroundColor = new Color(1f, 1f, 1f, 0f);
+        m_renderCamera.cullingMask = 1 << layer;
         m_renderCamera.transform.position = m_obj_position + camera_distance;
         m_renderCamera.transform.eulerAngles = camera_rotation;
 
@@ -51,13 +54,20 @@ public class ToolTipTowerImage : MonoBehaviour
             float scale_rate = m_prefabLoader.DataList.Find(
                 (prefabtable_item) =>
                 { return item.Prefab == prefabtable_item.Code; })
-                .Size;
+                .Size;           
 
             // create
             var new_obj = GameObject.Instantiate(origin_prefab);
             new_obj.transform.position = m_obj_position;
             new_obj.transform.SetParent(this.transform);
             new_obj.SetActive(false);
+
+            // set layer (for camera culling)
+            Transform[] allChildren = new_obj.GetComponentsInChildren<Transform>(true);
+            foreach (var child in allChildren)
+            {
+                child.gameObject.layer = layer;
+            }
 
             // scaling
             new_obj.transform.GetChild(0).localScale = new Vector3(scale_rate, scale_rate, scale_rate);

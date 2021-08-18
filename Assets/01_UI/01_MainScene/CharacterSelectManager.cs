@@ -61,14 +61,13 @@ public class CharacterSelectManager : Singleton<CharacterSelectManager>
     public void InitializeRenderTexture()
     {
         int layer = LayerMask.NameToLayer("MainSceneCharUI");
-        Debug.Log(layer);
 
         m_renderTexture = new RenderTexture(256, 256, 16);
         m_renderTexture.Create();
         
 
         Camera cam_origin = Resources.Load<Camera>("MainSceneCamera");
-        m_renderCamera = GameObject.Instantiate<Camera>(cam_origin);
+        m_renderCamera = GameObject.Instantiate<Camera>(cam_origin);        
         m_renderCamera.cullingMask = 1 << layer;
         m_renderCamera.clearFlags = CameraClearFlags.SolidColor;
         m_renderCamera.backgroundColor = new Color(0, 0, 0, 0);

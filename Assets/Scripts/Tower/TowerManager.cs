@@ -10,7 +10,7 @@ public class TowerManager : Singleton<TowerManager>
     protected List<Tower> m_TowerList;
     protected Dictionary<E_Direction, List<Tower>> m_DirTowerList;
 
-    #region ³»ºÎ ÇÁ·ÎÆÛÆ¼
+    #region ë‚´ë¶€ í”„ë¡œí¼í‹°
     protected TowerPool M_TowerPool => TowerPool.Instance;
     protected NodeManager M_Node => NodeManager.Instance;
     protected DataTableManager M_DataTable => DataTableManager.Instance;
@@ -31,14 +31,39 @@ public class TowerManager : Singleton<TowerManager>
     }
 
     public Tower SpawnTower(E_Tower tower)
-    {
+    {   // only spawn in inventory
+        // do not call this function other class
         Tower spawn = M_TowerPool.GetPool(GetData(tower).Name_EN).Spawn();
+        spawn.m_TowerInfo.IsOnInventory = true;
         m_TowerList.Add(spawn);
         return spawn;
     }
+
+    public void DespawnTower(Tower tower)
+    {   // cha
+        
+
+        var tower_pool = M_TowerPool.GetPool(tower.Name);
+        m_TowerList.Remove(tower);
+        m_DirTowerList[tower.Direction].Remove(tower);
+        tower_pool.DeSpawn(tower);
+    }
+
     public void AddTower(Tower tower, E_Direction dir)
     {
         m_DirTowerList[dir].Add(tower);
+    }
+
+    public int GetSameTowerCount(int tower_code)
+    {
+        return m_TowerList.FindAll((item) =>
+        { return item.TowerCode == tower_code; }).Count;
+    }
+
+    public Tower[] GetTowers(int tower_code)
+    {
+        return m_TowerList.FindAll((item) =>
+        { return item.TowerCode == tower_code; }).ToArray();
     }
     //public Tower SpawnTower(E_Tower tower, E_Direction dir)
     //{
@@ -79,7 +104,7 @@ public class TowerManager : Singleton<TowerManager>
     public void UpdateTowerList(E_Direction dir)
     {
         List<Node> nodeList = M_Node.GetNodeList(dir);
-
+       
         foreach (var item in nodeList)
         {
             if (item.m_Tower != null)
@@ -99,7 +124,7 @@ public enum E_Tower
 {
     None,
 
-    // Å¸¿ö
+    // íƒ€ì›Œ
     OrkGunner01 = 4,
     OrkWarrior01,
     Cyclops01,
