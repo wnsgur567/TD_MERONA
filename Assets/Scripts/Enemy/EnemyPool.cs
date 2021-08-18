@@ -27,7 +27,12 @@ public class EnemyPool : ObjectPool<EnemyPool, Enemy>
                 Enemy origin = originClone.AddComponent<Enemy>();
                 origin.InitializeEnemy(M_EnemyData.DataList[i].Code);
 
-                AddPool(key, origin, transform);
+                origin.gameObject.SetActive(false);
+
+                if (!AddPool(key, origin, transform))
+                {
+                    GameObject.Destroy(originClone);
+                }
             }
         }
     }
