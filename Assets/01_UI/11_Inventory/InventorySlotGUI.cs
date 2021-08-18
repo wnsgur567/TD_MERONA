@@ -162,12 +162,17 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         // tower swap
         var this_tower_data = m_info.tower_data;
         bool this_occupied = m_info.isOccupied;
+        Tower this_tower = m_info.tower;
+
 
         m_info.tower_data = otherSlotGUI.m_info.tower_data;
         m_info.isOccupied = otherSlotGUI.m_info.isOccupied;
+        m_info.tower = otherSlotGUI.m_info.tower;
+
 
         otherSlotGUI.m_info.tower_data = this_tower_data;
         otherSlotGUI.m_info.isOccupied = this_occupied;
+        otherSlotGUI.m_info.tower = this_tower;
 
         otherSlotGUI.OnInfoChangedEvent?.Invoke();
         OnInfoChangedEvent?.Invoke();       // change ui

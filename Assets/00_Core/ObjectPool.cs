@@ -47,6 +47,9 @@ public abstract class ObjectPool<Pool, Origin> : Singleton<Pool> where Pool : Mo
     }
     public virtual void __Finalize()
     {
+        if (m_Pools == null)
+            return;
+
         foreach (var item in m_Pools)
         {
             item.Value?.Dispose();

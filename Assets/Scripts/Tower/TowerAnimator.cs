@@ -21,6 +21,10 @@ public class TowerAnimator : MonoBehaviour
     #endregion
 
     #region 외부 함수
+    public void SetTrigger(string name)
+    {
+        m_Animator.SetTrigger(name);
+    }
     public void CallAttack()
     {
         m_Tower.CallAttack();
