@@ -23,7 +23,7 @@ public class AttackRange : MonoBehaviour
 
     public void Clear()
     {
-        m_TargetList.Clear();
+        m_TargetList?.Clear();
     }
     public bool RemoveTarget(Enemy target)
     {

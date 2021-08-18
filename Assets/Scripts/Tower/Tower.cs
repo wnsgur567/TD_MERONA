@@ -18,7 +18,7 @@ public class Tower : MonoBehaviour
 
     #region 내부 컴포넌트
     [SerializeField]
-    protected Animator m_Animator;
+    protected TowerAnimator m_TowerAnimator;
 
     [SerializeField]
     protected AttackRange m_AttackRange_Default;
@@ -188,15 +188,15 @@ public class Tower : MonoBehaviour
 
     public void Attack()
     {
-        m_Animator.SetTrigger("Attack");
+        m_TowerAnimator.SetTrigger("Attack");
     }
     public void Skill01()
     {
-        m_Animator.SetTrigger("Skill01");
+        m_TowerAnimator.SetTrigger("Skill01");
     }
     public void Skill02()
     {
-        m_Animator.SetTrigger("Skill02");
+        m_TowerAnimator.SetTrigger("Skill02");
     }
     #endregion
 
@@ -246,8 +246,8 @@ public class Tower : MonoBehaviour
         #endregion
 
         #region 내부 컴포넌트
-        m_Animator ??= GetComponentInChildren<Animator>();
-        m_Animator.transform.localScale = Vector3.one * size;
+        m_TowerAnimator ??= GetComponentInChildren<TowerAnimator>(true);
+        m_TowerAnimator.transform.localScale = Vector3.one * size;
 
         m_AttackRange_Default ??= transform.Find("AttackRange_Default").AddComponent<AttackRange>();
         m_AttackRange_Default.Range = m_TowerInfo.Stat_Default.Range;
