@@ -4,8 +4,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class TowerToolTipUIController : MonoBehaviour
-{    
+public class TowerToolTipUIController : MonoBehaviour ,IPointerEnterHandler, IPointerExitHandler
+{
+    [SerializeField] bool OnThisPanel = false;
+
+    [Space(20)]
     [SerializeField] TMPro.TextMeshProUGUI m_name_textpro;
     [Space(10)]
     [SerializeField] ToolTipTowerImage m_image;
@@ -32,7 +35,7 @@ public class TowerToolTipUIController : MonoBehaviour
     public void SetUIInfo(Tower_TableExcel data)
     {
         // name
-        m_name_textpro.name = data.Name_KR;
+        m_name_textpro.text = data.Name_KR;
         // raw image (render texture)
         m_image.SetUI(data.Code);
 
@@ -69,7 +72,7 @@ public class TowerToolTipUIController : MonoBehaviour
             return item.Code == data.Skill1Code;
         });
 
-        m_skill.SetUI(skill_data.Skill_icon, skill_data.Name_KR);
+        m_skill.SetUI(skill_data);
 
         m_star.SetUI(data.Star);
 
@@ -163,9 +166,9 @@ public class TowerToolTipUIController : MonoBehaviour
 
     
     [Space(30)]
+    
     [SerializeField] GraphicRaycaster m_Raycaster;
-    [SerializeField] EventSystem m_EventSystem;
-    PointerEventData m_PointerEventData;
+    [SerializeField] EventSystem m_EventSystem;    
 
     private void Update()
     {
@@ -174,18 +177,8 @@ public class TowerToolTipUIController : MonoBehaviour
         // 
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
-            m_PointerEventData = new PointerEventData(m_EventSystem);
-
-            List<RaycastResult> results = new List<RaycastResult>();
-            m_Raycaster.Raycast(m_PointerEventData, results);
-
-            foreach (RaycastResult result in results)
-            {
-                if(result.gameObject.tag == "TowerToolTip")
-                {
-                    return;
-                }
-            }
+            if (OnThisPanel)
+                return;
 
             // out of panel
             TowerToolTipManager.Instance.DeActivateTooltip();
@@ -221,4 +214,13 @@ public class TowerToolTipUIController : MonoBehaviour
         }
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        OnThisPanel = true;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        OnThisPanel = false;
+    }
 }
