@@ -41,7 +41,7 @@ public class TowerManager : Singleton<TowerManager>
     }
 
     public void DespawnTower(Tower tower)
-    {   
+    {   // only on NODE
         // cha
         var tower_pool = M_TowerPool.GetPool(tower.Name);
         m_TowerList.Remove(tower);

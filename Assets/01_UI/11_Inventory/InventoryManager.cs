@@ -77,6 +77,9 @@ public class InventoryManager : Singleton<InventoryManager>
         newTower.gameObject.SetActive(false);
         slot.SetTower(newTower,data);
     }
-    
+    public void RemoveTower(Tower tower)
+    {
+
+    }
 }
  
