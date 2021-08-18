@@ -9,6 +9,7 @@ public struct TempSynergyData
     public int Rank;
 }
 
+// synergy manager 로부터 이벤트를 받아 실제 UI 를 띄움
 public class SynergyLineSlot : MonoBehaviour
 {
     // 현재 슬롯이 표현할 라인 위치
@@ -52,9 +53,8 @@ public class SynergyLineSlot : MonoBehaviour
         IsShowExtendPanel = false;
         m_extend_panel.gameObject.SetActive(false);
 
-        // link event        
-        // TODO : Activate underlihe when combine scene
-       // SynergyManager.Instance.UpdateSynergyEndEvent += __OnSynergyUpdate;
+        // link event               
+        SynergyManager.Instance.UpdateSynergyEndEvent += __OnSynergyUpdate;        
     }
        
 
@@ -86,7 +86,7 @@ public class SynergyLineSlot : MonoBehaviour
         {
             item.SetInfo(new SynergySlotInfo
             {
-                isActivated = true,
+                isActivated = false,
                 name = temp_data.Name_KR,
                 synergy_text = temp_data.Synergy_text,
                 synergy_ability = temp_data.Synergy_Avility,
@@ -124,6 +124,8 @@ public class SynergyLineSlot : MonoBehaviour
     // synergy 정보가 업데이트 된 경우
     public void __OnSynergyUpdate()
     {
+        Debug.Log("SynergyLineSlot : Event is Called");
+
         // 1. list 정보를 synergy manager 로 부터 가져오고
         m_synergy_list.Clear();
         var synergy_list = SynergyManager.Instance.GetSynergyList(m_dir);

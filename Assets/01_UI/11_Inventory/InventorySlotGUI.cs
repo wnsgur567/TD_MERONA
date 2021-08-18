@@ -229,7 +229,7 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     {
         m_drag_startPos = m_rawImage.transform.position;
         if (m_info.isOccupied)
-        {            
+        {
             m_swapFlag = true;
             Debug.Log("tower image move start");
         }
@@ -253,29 +253,31 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
 
             /// for perspective
-            //Vector3 mouse_pos = eventData.position;
-            //mouse_pos.z = 1000.0f;
-
-
             Vector3 mouse_pos = eventData.position;
+            mouse_pos.z = 1000.0f;
+
+            /// for othographic
+            //Vector3 mouse_pos = eventData.position;
+
             int layermask = 1 << LayerMask.NameToLayer("Node");
             RaycastHit hitinfo;
 
             /// for perspective
-            //if (Physics.Raycast(new Ray(Camera.main.transform.position,
-            //    Camera.main.ScreenToWorldPoint(mouse_pos)),
-            //    out hitinfo,
-            //    1000f,
-            //   layermask))
-            if (Physics.Raycast(new Ray(Camera.main.ScreenToWorldPoint(mouse_pos), Camera.main.transform.forward),
+            if (Physics.Raycast(new Ray(Camera.main.transform.position,
+                Camera.main.ScreenToWorldPoint(mouse_pos)),
                 out hitinfo,
-                Camera.main.farClipPlane,
-                layermask))
+                1000f,
+               layermask))
+            ///for othographic
+            //if (Physics.Raycast(new Ray(Camera.main.ScreenToWorldPoint(mouse_pos), Camera.main.transform.forward),
+            //out hitinfo,
+            //Camera.main.farClipPlane,
+            //layermask))
             {
                 Debug.Log(hitinfo.collider.gameObject.name);
                 Node hit_node = hitinfo.collider.gameObject.GetComponent<Node>();
                 if (hit_node.m_Tower == null)
-                {   
+                {
                     Debug.Log("Summon!");
                     hit_node.SetTower(m_info.tower);
                     ClearInven();

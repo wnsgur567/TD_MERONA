@@ -20,6 +20,7 @@ public class Node : MonoBehaviour
     {
         m_Tower = tower;
         m_Tower.transform.SetParent(transform);
+        m_Tower.gameObject.SetActive(true);
         m_Tower.transform.localPosition = new Vector3(0f, 0.501f, 0f);
     }
 
