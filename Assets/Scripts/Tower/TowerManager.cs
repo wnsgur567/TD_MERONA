@@ -72,13 +72,13 @@ public class TowerManager : Singleton<TowerManager>
     {
         for (E_Direction i = 0; i < E_Direction.Max; i++)
         {
+            m_DirTowerList[i].Clear();
             UpdateTowerList(i);
         }
     }
     public void UpdateTowerList(E_Direction dir)
     {
         List<Node> nodeList = M_Node.GetNodeList(dir);
-        m_DirTowerList[dir].Clear();
 
         foreach (var item in nodeList)
         {

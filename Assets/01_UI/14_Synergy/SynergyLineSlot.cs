@@ -135,7 +135,7 @@ public class SynergyLineSlot : MonoBehaviour
         }
 
         // 2. copy 된 리스트 m_synergy_list 를 sorting 하고
-        SortSynergyList();
+        //SortSynergyList();
 
         // ui 를 업데이트 하기
         for (int i = 0; i < m_synergy_list.Count; i++)
