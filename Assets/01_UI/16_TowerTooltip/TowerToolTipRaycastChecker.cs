@@ -25,6 +25,7 @@ public class TowerToolTipRaycastChecker : MonoBehaviour
                 mouse_pos.z = Camera.main.farClipPlane;
 
                 int layermask = 1 << LayerMask.NameToLayer("Tower");
+                int tt = LayerMask.GetMask("Tower");
                 RaycastHit hitinfo;
                 Ray ray = new Ray(Camera.main.transform.position,
                     Camera.main.ScreenToWorldPoint(mouse_pos));
