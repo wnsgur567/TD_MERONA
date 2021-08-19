@@ -30,12 +30,7 @@ public class DataTableManager : Singleton<DataTableManager>
     [SerializeField]
     protected List<ScriptableObject> m_DataTableList;
     // 타입별 딕셔너리
-    // protected Dictionary<E_DataTableType, ScriptableObject> m_DataTables;
-#if UNITY_EDITOR
-    // 디버깅용 딕셔너리
-    [SerializeField, ReadOnly]
-    protected DebugDictionary<E_DataTableType, ScriptableObject> m_Debug;
-#endif
+
 
     #region 외부 함수
     public ScriptableObject GetDataTable(E_DataTableType type)
@@ -59,9 +54,6 @@ public class DataTableManager : Singleton<DataTableManager>
     {
         // 딕셔너리 초기화
         //m_DataTables = new Dictionary<E_DataTableType, ScriptableObject>();
-#if UNITY_EDITOR
-        m_Debug = new DebugDictionary<E_DataTableType, ScriptableObject>();
-#endif
 
         // 테이블 타입별 초기화
         for (E_DataTableType i = E_DataTableType.None + 1; i < E_DataTableType.Max; ++i)
@@ -72,9 +64,6 @@ public class DataTableManager : Singleton<DataTableManager>
             //    Where(item => i.ToString() + "_TableLoader" == item.name).
             //    SingleOrDefault());
 
-#if UNITY_EDITOR
-            //m_Debug.Add(i, m_DataTables[i]);
-#endif
         }
     }
     #endregion
