@@ -78,6 +78,7 @@ public class EnemySkill : MonoBehaviour
 
     protected void Despawn()
     {
+        ArrivedToTarget = false;
         enemyskillmanager.DespawnProjectileSkill(this);
     }
 

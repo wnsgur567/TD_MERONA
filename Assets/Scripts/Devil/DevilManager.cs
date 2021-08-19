@@ -66,22 +66,18 @@ public class DevilManager : Singleton<DevilManager>
         node.transform.position = Vector3.zero;
         node.m_NodeType = E_NodeType.None;
         node.m_Direction = E_Direction.None;
+        node.gameObject.layer = LayerMask.NameToLayer("Node");
 
         BoxCollider collider = node.gameObject.AddComponent<BoxCollider>();
         collider.isTrigger = true;
         collider.size = Vector3.one * 6f;
-        collider.center.Set(0f, collider.size.y * 0.5f, 0f);
+        collider.center.Set(0f, 3f, 0f);
 
         GameObject devil = GameObject.Instantiate(m_PrefabData.GetPrefab(data.Prefab));
         devil.transform.SetParent(node.transform);
         devil.transform.position = Vector3.zero;
         devil.transform.eulerAngles = new Vector3(0f, 180f, 0f);
         devil.transform.localScale = Vector3.one * m_PrefabData.DataList[data.No - 1].Size;
-
-        Tower dummyTower = devil.AddComponent<Tower>();
-
-        node.SetTower(dummyTower);
-        dummyTower.enabled = false;
 
         switch ((E_Devil)data.No)
         {
@@ -95,6 +91,8 @@ public class DevilManager : Singleton<DevilManager>
                 m_Devil = devil.AddComponent<Devil>();
                 break;
         }
+
+        node.SetDevil(m_Devil);
     }
     public Tower_TableExcel GetData(E_Devil no)
     {
@@ -107,6 +105,10 @@ public class DevilManager : Singleton<DevilManager>
         Tower_TableExcel result = m_TowerData.DataList.Where(item => item.Code == code).SingleOrDefault();
 
         return result;
+    }
+    public float GetSize(E_Devil no)
+    {
+        return m_PrefabData.DataList[(int)no - 1].Size;
     }
     #endregion
 

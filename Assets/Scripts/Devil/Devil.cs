@@ -19,7 +19,14 @@ public class Devil : MonoBehaviour
     public delegate void DevilUpdateHPHandler(float max, float current);
     public event DevilUpdateHPHandler UpdateHPEvent;
 
+    public delegate void DevilDeathHandler();
+    public event DevilDeathHandler DeathEvent;
+
     #region 내부 컴포넌트
+    [SerializeField, ReadOnly]
+    protected DevilAnimator m_DevilAnimator;
+
+    [SerializeField]
     protected AttackRange m_AttackRange_Default;
     #endregion
 
@@ -28,29 +35,19 @@ public class Devil : MonoBehaviour
     protected DevilManager M_Devil => DevilManager.Instance;
     // 타워 매니져
     protected TowerManager M_Tower => TowerManager.Instance;
-    // 버프 매니져
-    protected BuffManager M_Buff => BuffManager.Instance;
     // 스킬 매니져
     protected SkillManager M_Skill => SkillManager.Instance;
     // 적 매니져
     protected EnemyManager M_Enemy => EnemyManager.Instance;
+    // 이펙트 매니져
+    protected EffectManager M_Effect => EffectManager.Instance;
+    // 버프 매니져
+    protected BuffManager M_Buff => BuffManager.Instance;
 
     // 타워 회전 속도
-    protected float RotateSpeed
-    {
-        get
-        {
-            return m_DevilInfo.RotateSpeed * Time.deltaTime;
-        }
-    }
+    protected float RotateSpeed => m_DevilInfo.RotateSpeed * Time.deltaTime;
     // 타겟까지의 거리
-    protected float DistanceToTarget
-    {
-        get
-        {
-            return Vector3.Distance(transform.position, m_Target.transform.position);
-        }
-    }
+    protected float DistanceToTarget => Vector3.Distance(transform.position, m_Target.transform.position);
     #endregion
 
     #region 외부 프로퍼티
@@ -81,17 +78,20 @@ public class Devil : MonoBehaviour
 
         #region 내부 데이터 정리
         m_DevilInfo.RotateSpeed = 5f;
-        m_DevilInfo.InitialRotation = transform.eulerAngles;
         m_DevilInfo.ShouldFindTarget = true;
 
         // 공격 피벗
         // m_DevilInfo.AttackPivot ??= transform.GetChild("AttackPivot");
         if (null == m_DevilInfo.AttackPivot)
+        {
             m_DevilInfo.AttackPivot = transform.GetChild("AttackPivot");
+        }
         // 피격 피벗
         // m_DevilInfo.HitPivot ??= transform.GetChild("HitPivot");
         if (null == m_DevilInfo.HitPivot)
+        {
             m_DevilInfo.HitPivot = transform.GetChild("HitPivot");
+        }
 
         // 기본 스킬 데이터
         m_DevilInfo.Condition_Default = M_Skill.GetConditionData(m_DevilInfo_Excel.Atk_Code);
@@ -100,11 +100,18 @@ public class Devil : MonoBehaviour
         m_DevilInfo.AttackSpeed_Default = m_DevilInfo.Stat_Default.CoolTime;
         m_DevilInfo.AttackTimer_Default = m_DevilInfo.Stat_Default.CoolTime;
 
+        // 현재 체력
         m_DevilInfo.m_HP = m_DevilInfo_Excel.HP;
+        // 현재 방어력
         m_DevilInfo.m_Def = m_DevilInfo_Excel.Def;
         #endregion
 
         #region 내부 컴포넌트
+        if (null == m_DevilAnimator)
+        {
+            m_DevilAnimator = GetComponentInChildren<DevilAnimator>(true);
+        }
+
         if (null == m_AttackRange_Default)
         {
             m_AttackRange_Default = transform.Find("AttackRange_Default").AddComponent<AttackRange>();
@@ -117,23 +124,23 @@ public class Devil : MonoBehaviour
     protected void RotateToTarget()
     {
         // 회전할 방향
-        Vector3 dir;
+        Vector3 lookingDir;
 
         // 타겟이 없으면
         if (null == m_Target)
         {
             // 초기 방향으로 방향 설정
-            dir = m_DevilInfo.InitialRotation;
+            lookingDir = m_DevilInfo.LookingDir;
         }
         // 타겟이 있으면
         else
         {
             // 타겟 방향으로 방향 설정
-            dir = m_Target.transform.position - transform.position;
+            lookingDir = m_Target.transform.position - transform.position;
         }
 
         // 회전
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), RotateSpeed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lookingDir), RotateSpeed);
     }
     // 타겟 업데이트
     protected void UpdateTarget()
@@ -163,6 +170,13 @@ public class Devil : MonoBehaviour
                     m_Target = m_AttackRange_Default.GetNearTarget();
                 }
                 break;
+            case E_TargetType.TileTarget:
+                if (m_DevilInfo.ShouldFindTarget)
+                {
+                    m_Target = m_AttackRange_Default.GetNearTarget();
+                    m_DevilInfo.ShouldFindTarget = false;
+                }
+                break;
         }
     }
     // 마왕 공격
@@ -179,44 +193,8 @@ public class Devil : MonoBehaviour
         {
             // 내부 데이터 정리
             m_DevilInfo.AttackTimer_Default -= m_DevilInfo.AttackSpeed_Default;
-            m_DevilInfo.AttackSpeed_Default = m_DevilInfo.Stat_Default.CoolTime;
-            m_DevilInfo.ShouldFindTarget = true;
 
-            // 기본 스킬 데이터 불러오기
-            SkillCondition_TableExcel conditionData = m_DevilInfo.Condition_Default;
-            SkillStat_TableExcel statData = m_DevilInfo.Stat_Default;
-
-            // 기본 대미지 설정
-            statData.Dmg *= m_DevilInfo_Excel.Atk;
-            statData.Dmg += statData.Dmg_plus;
-
-            // 기본 스킬 투사체 생성
-            int DefaultSkillCode = conditionData.projectile_prefab;
-            if ((E_TargetType)m_DevilInfo.Condition_Default.Target_type == E_TargetType.TileTarget)
-            {
-                List<Enemy> EnemyList = M_Enemy.GetEnemyList();
-
-                for (int i = 0; i < EnemyList.Count; ++i)
-                {
-                    Skill DefaultSkill = M_Skill.SpawnProjectileSkill(DefaultSkillCode);
-                    DefaultSkill.transform.position = m_DevilInfo.AttackPivot.position;
-                    DefaultSkill.enabled = true;
-                    DefaultSkill.gameObject.SetActive(true);
-
-                    // 기본 스킬 데이터 설정
-                    DefaultSkill.InitializeSkill(EnemyList[i], conditionData, statData);
-                }
-            }
-            else
-            {
-                Skill DefaultSkill = M_Skill.SpawnProjectileSkill(DefaultSkillCode);
-                DefaultSkill.transform.position = m_DevilInfo.AttackPivot.position;
-                DefaultSkill.enabled = true;
-                DefaultSkill.gameObject.SetActive(true);
-
-                // 기본 스킬 데이터 설정
-                DefaultSkill.InitializeSkill(m_Target, conditionData, statData);
-            }
+            Attack();
         }
         #endregion
     }
@@ -250,6 +228,23 @@ public class Devil : MonoBehaviour
     protected IEnumerator SK006()
     {
         yield break;
+    }
+
+    protected void Attack()
+    {
+        m_DevilAnimator.SetTrigger("Attack");
+    }
+    protected void Skill01()
+    {
+        m_DevilAnimator.SetTrigger("Skill01");
+    }
+    protected void Skill02()
+    {
+        m_DevilAnimator.SetTrigger("Skill02");
+    }
+    protected void Die()
+    {
+        m_DevilAnimator.SetTrigger("Die");
     }
     #endregion
 
@@ -311,6 +306,54 @@ public class Devil : MonoBehaviour
         m_DevilInfo.m_HP -= Damage;
 
         UpdateHPEvent?.Invoke(MaxHP, HP);
+
+        if (m_DevilInfo.m_HP <= 0f)
+        {
+            DeathEvent?.Invoke();
+        }
+    }
+
+    public void CallAttack()
+    {
+        // 내부 데이터 정리
+        m_DevilInfo.AttackSpeed_Default = m_DevilInfo.Stat_Default.CoolTime;
+        m_DevilInfo.ShouldFindTarget = true;
+
+        // 기본 스킬 데이터 불러오기
+        SkillCondition_TableExcel conditionData = m_DevilInfo.Condition_Default;
+        SkillStat_TableExcel statData = m_DevilInfo.Stat_Default;
+
+        // 기본 대미지 설정
+        statData.Dmg *= m_DevilInfo_Excel.Atk;
+        statData.Dmg += statData.Dmg_plus;
+
+        // 기본 스킬 투사체 생성
+        int DefaultSkillCode = conditionData.projectile_prefab;
+        if ((E_TargetType)m_DevilInfo.Condition_Default.Target_type == E_TargetType.TileTarget)
+        {
+            List<Enemy> EnemyList = M_Enemy.GetEnemyList();
+
+            for (int i = 0; i < EnemyList.Count; ++i)
+            {
+                Skill DefaultSkill = M_Skill.SpawnProjectileSkill(DefaultSkillCode);
+                DefaultSkill.transform.position = m_DevilInfo.AttackPivot.position;
+                DefaultSkill.enabled = true;
+                DefaultSkill.gameObject.SetActive(true);
+
+                // 기본 스킬 데이터 설정
+                DefaultSkill.InitializeSkill(EnemyList[i], conditionData, statData);
+            }
+        }
+        else
+        {
+            Skill DefaultSkill = M_Skill.SpawnProjectileSkill(DefaultSkillCode);
+            DefaultSkill.transform.position = m_DevilInfo.AttackPivot.position;
+            DefaultSkill.enabled = true;
+            DefaultSkill.gameObject.SetActive(true);
+
+            // 기본 스킬 데이터 설정
+            DefaultSkill.InitializeSkill(m_Target, conditionData, statData);
+        }
     }
     #endregion
 
@@ -319,8 +362,8 @@ public class Devil : MonoBehaviour
     {
         // 회전 속도
         public float RotateSpeed;
-        // 초기 회전 값
-        public Vector3 InitialRotation;
+        // 초기 바라볼 방향
+        public Vector3 LookingDir;
         // 적 감지 여부
         public bool ShouldFindTarget;
         // 공격 피벗

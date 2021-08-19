@@ -5,9 +5,9 @@ using UnityEngine;
 public class TowerAnimator : MonoBehaviour
 {
     protected Tower m_Tower;
-    protected Animator m_animator;
 
     #region 내부 컴포넌트
+    protected Animator m_animator;
     #endregion
 
     #region 내부 프로퍼티
@@ -53,11 +53,6 @@ public class TowerAnimator : MonoBehaviour
     {
         m_Tower = transform.parent.GetComponent<Tower>();
         //m_animator = gameObject.AddComponent<Animator>();
-    }
-
-    void Update()
-    {
-
     }
     #endregion
 }

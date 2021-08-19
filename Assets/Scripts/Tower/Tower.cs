@@ -42,21 +42,9 @@ public class Tower : MonoBehaviour
     protected EffectManager M_Effect => EffectManager.Instance;
 
     // 타워 회전 속도
-    protected float RotateSpeed
-    {
-        get
-        {
-            return m_TowerInfo.RotateSpeed * Time.deltaTime;
-        }
-    }
+    protected float RotateSpeed => m_TowerInfo.RotateSpeed * Time.deltaTime;
     // 타겟까지의 거리
-    protected float DistanceToTarget
-    {
-        get
-        {
-            return Vector3.Distance(transform.position, m_Target.transform.position);
-        }
-    }
+    protected float DistanceToTarget => Vector3.Distance(transform.position, m_Target.transform.position);
     #endregion
 
     #region 외부 프로퍼티
@@ -191,15 +179,15 @@ public class Tower : MonoBehaviour
         #endregion
     }
 
-    public void Attack()
+    protected void Attack()
     {
         m_TowerAnimator.SetTrigger("Attack");
     }
-    public void Skill01()
+    protected void Skill01()
     {
         m_TowerAnimator.SetTrigger("Skill01");
     }
-    public void Skill02()
+    protected void Skill02()
     {
         m_TowerAnimator.SetTrigger("Skill02");
     }
@@ -285,7 +273,7 @@ public class Tower : MonoBehaviour
         }
 
         // m_AttackRange_Default ??= transform.Find("AttackRange_Default").AddComponent<AttackRange>();
-        if (m_AttackRange_Default == null)
+        if (null == m_AttackRange_Default)
         {
             m_AttackRange_Default = transform.Find("AttackRange_Default").AddComponent<AttackRange>();
             m_AttackRange_Default.gameObject.layer = LayerMask.NameToLayer("TowerAttackRange");
@@ -321,7 +309,6 @@ public class Tower : MonoBehaviour
         m_AttackRange_Skill01?.Clear();
         m_AttackRange_Skill02?.Clear();
     }
-
     public void CallAttack()
     {
         m_TowerInfo.AttackSpeed_Default = m_TowerInfo.Stat_Default.CoolTime;
@@ -2409,13 +2396,13 @@ public class Tower : MonoBehaviour
         public E_Direction Direction;
         // 회전 속도
         public float RotateSpeed;
-        // 초기 회전 값
+        // 초기 바라볼 방향
         public Vector3 LookingDir;
         // 적 감지 여부
         public bool ShouldFindTarget;
         // 공격 피벗
         public Transform AttackPivot;
-        // 공격 가능 여부
+        // 공격 가능 여부 (노드 회전)
         public bool CanAttack;
 
         // 기본 스킬 데이터
