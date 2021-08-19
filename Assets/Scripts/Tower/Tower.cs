@@ -17,7 +17,8 @@ public class Tower : MonoBehaviour
     public S_TowerData m_TowerInfo;
 
     #region 내부 컴포넌트
-    [SerializeField]
+    // 타워 애니메이터
+    [SerializeField, ReadOnly]
     protected TowerAnimator m_TowerAnimator;
 
     [SerializeField]
@@ -277,9 +278,11 @@ public class Tower : MonoBehaviour
 
         #region 내부 컴포넌트
         // m_TowerAnimator ??= GetComponentInChildren<TowerAnimator>(true);
-        if (m_TowerAnimator == null)
+        if (null == m_TowerAnimator)
+        {
             m_TowerAnimator = GetComponentInChildren<TowerAnimator>(true);
-        m_TowerAnimator.transform.localScale = Vector3.one * size;
+            m_TowerAnimator.transform.localScale = Vector3.one * size;
+        }
 
         // m_AttackRange_Default ??= transform.Find("AttackRange_Default").AddComponent<AttackRange>();
         if (m_AttackRange_Default == null)
@@ -310,13 +313,13 @@ public class Tower : MonoBehaviour
     {
         m_TowerInfo.node?.ClearNode();
 
-        m_TowerInfo.BuffList.Clear();
-        m_TowerInfo.BerserkerBuffList.Clear();
-        m_TowerInfo.DevilSkillBuffList.Clear();
+        m_TowerInfo.BuffList?.Clear();
+        m_TowerInfo.BerserkerBuffList?.Clear();
+        m_TowerInfo.DevilSkillBuffList?.Clear();
 
-        m_AttackRange_Default.Clear();
-        m_AttackRange_Skill01.Clear();
-        m_AttackRange_Skill02.Clear();
+        m_AttackRange_Default?.Clear();
+        m_AttackRange_Skill01?.Clear();
+        m_AttackRange_Skill02?.Clear();
     }
 
     public void CallAttack()

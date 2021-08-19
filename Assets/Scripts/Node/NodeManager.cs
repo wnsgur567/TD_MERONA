@@ -95,6 +95,7 @@ public class NodeManager : Singleton<NodeManager>
                 {
                     item.m_NodeType = i;
                     item.m_Direction = j;
+                    item.Initialize();
                 }
             }
         }

@@ -301,7 +301,11 @@ public class Devil : MonoBehaviour
     }
     public void GetDamage(float damage)
     {
-        m_DevilInfo.m_HP -= (damage - m_DevilInfo.m_Def);
+        float Damage = damage - m_DevilInfo.m_Def;
+        if (Damage < 1f)
+            Damage = 1f;
+
+        m_DevilInfo.m_HP -= Damage;
 
         UpdateHPEvent?.Invoke(MaxHP, HP);
     }
