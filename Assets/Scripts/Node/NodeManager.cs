@@ -288,6 +288,9 @@ public class NodeManager : Singleton<NodeManager>
         // 회전할 각도
         float angle;
 
+        // 타워 타겟 업데이트
+        UpdateTowerTarget();
+
         // 예외 처리 (회전에 걸리는 시간이 0이하인 경우)
         if (m_Duration <= 0f)
         {
@@ -492,6 +495,21 @@ public class NodeManager : Singleton<NodeManager>
                     m_LookingDir.transform.position = item.m_Tower.m_TowerInfo.LookingDir;
                     m_LookingDir.transform.RotateAround(m_Center.transform.position, Vector3.up, angle);
                     item.m_Tower.m_TowerInfo.LookingDir = m_LookingDir.transform.position;
+                }
+            }
+        }
+    }
+    // 타워 타겟 업데이트
+    protected void UpdateTowerTarget()
+    {
+        for (E_Direction i = 0; i <E_Direction.Max;++ i)
+        {
+            foreach (var item in m_NodeList[StandardNodeType][i])
+            {
+                if (null != item.m_Tower)
+                {
+                    item.m_Tower.m_Target = null;
+                    item.m_Tower.m_TowerInfo.ShouldFindTarget = true;
                 }
             }
         }

@@ -663,7 +663,7 @@ public class Enemy : MonoBehaviour
             m_EnemyInfo.HP -= damage;
         }
 
-        m_HPBar.fillAmount = m_EnemyInfo.HP / m_Enemyinfo_Excel.HP;
+        m_HPBar.fillAmount = m_EnemyInfo.HP / MaxHp;
 
         if (m_EnemyInfo.HP <= 0)
         {
