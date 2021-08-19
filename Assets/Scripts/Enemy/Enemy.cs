@@ -119,6 +119,9 @@ public class Enemy : MonoBehaviour
 
     public bool isDivide = false;
     private bool isDefBuff = false;
+    private bool isDie = false;
+
+    public bool IsDie => isDie;
 
     //범위
     protected SphereCollider m_RangeCollider;
@@ -153,6 +156,9 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        isDie = false;
+        isDefBuff = false;
+
         debuff = new Dictionary<int, IEnumerator>();
         m_buff = new Dictionary<int, IEnumerator>();
 
@@ -226,73 +232,77 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        //마왕만 타겟으로 잡기
-        //벽이나 중간에 장애물이 있다면 바꿔야함
-        if (waypointIndex >= 3)
+        if (!isDie)
         {
-            float Distance = Vector3.Distance(transform.position, new Vector3(0f, 0f, 0f));
-
-            //거리 안에 있다면
-            if (Distance <= atkstatdata.Range)
+            //마왕만 타겟으로 잡기
+            //벽이나 중간에 장애물이 있다면 바꿔야함
+            if (waypointIndex >= 3)
             {
-                // 회전할 방향
-                Vector3 lookingDir = target.position - transform.position;
+                float Distance = Vector3.Distance(transform.position, new Vector3(0f, 0f, 0f));
 
-                // y 회전 방지
-                lookingDir.y = 0f;
-
-                // 회전
-                transform.rotation = Quaternion.LookRotation(lookingDir);
-
-                if (Atk_Timer >= atkstatdata.CoolTime)
+                //거리 안에 있다면
+                if (Distance <= atkstatdata.Range)
                 {
-                    animator.SetTrigger("Attack");
-                    Atk_Timer = 0f;
-                }
+                    // 회전할 방향
+                    Vector3 lookingDir = target.position - transform.position;
 
-                else
+                    // y 회전 방지
+                    lookingDir.y = 0f;
+
+                    // 회전
+                    transform.rotation = Quaternion.LookRotation(lookingDir);
+
+                    if (Atk_Timer >= atkstatdata.CoolTime)
+                    {
+                        animator.SetTrigger("Attack");
+                        Atk_Timer = 0f;
+                    }
+
+                    else
+                    {
+                        Atk_Timer += Time.deltaTime;
+                    }
+                }
+            }
+
+            if (!isStun)
+            {
+                //Vector3 dir = target.position - transform.position;
+                //transform.Translate(dir.normalized * m_EnemyInfo.Move_spd * Time.deltaTime, Space.World);
+
+                //if (Vector3.Distance(transform.position, target.position) <= 0.2f)
+                //{
+                //    GetNextWayPoint();
+                //}
+
+                Vector3 dir = target.position - transform.position;
+                transform.Translate(dir.normalized * 2f * Time.deltaTime, Space.World);
+                m_HPBar.transform.position = M_EnemyHPBar.m_HPBarCanvas.worldCamera.WorldToScreenPoint(transform.position) + M_EnemyHPBar.Distance;
+
+                if (Vector3.Distance(transform.position, target.position) <= 0.2f)
                 {
-                    Atk_Timer += Time.deltaTime;
+                    GetNextWayPoint();
                 }
             }
-        }
 
-        if (!isStun)
-        {
-            //Vector3 dir = target.position - transform.position;
-            //transform.Translate(dir.normalized * m_EnemyInfo.Move_spd * Time.deltaTime, Space.World);
+            #region 그리핀(하늘)로 체인지
 
-            //if (Vector3.Distance(transform.position, target.position) <= 0.2f)
-            //{
-            //    GetNextWayPoint();
-            //}
-
-            Vector3 dir = target.position - transform.position;
-            transform.Translate(dir.normalized * 1f * Time.deltaTime, Space.World);
-            m_HPBar.transform.position = M_EnemyHPBar.m_HPBarCanvas.worldCamera.WorldToScreenPoint(transform.position) + M_EnemyHPBar.Distance;
-
-            if (Vector3.Distance(transform.position, target.position) <= 0.2f)
+            if (m_EnemyInfo.Name_EN == "Grffin02" && !isDivide)
             {
-                GetNextWayPoint();
+                //HP가 반아래가 되었을때
+                if (m_EnemyInfo.HP <= Half_HP)
+                {
+                    ChangeMode();
+                }
             }
-        }
 
-        #region 그리핀(하늘)로 체인지
+            #endregion
 
-        if (m_EnemyInfo.Name_EN == "Grffin02" && !isDivide)
-        {
-            //HP가 반아래가 되었을때
-            if (m_EnemyInfo.HP <= Half_HP)
+            if (m_EnemyInfo.HP <= 0)
             {
-                ChangeMode();
+                On_Death();
+                isDie = true;
             }
-        }
-
-        #endregion
-
-        if (m_EnemyInfo.HP <= 0)
-        {
-            On_Death();
         }
     }
 
@@ -1026,6 +1036,7 @@ public class Enemy : MonoBehaviour
     public void CallDie()
     {
         SpawnManager.Instance.Despawn(this);
+        animator.SetBool("Die", false);
     }
 
     #endregion
