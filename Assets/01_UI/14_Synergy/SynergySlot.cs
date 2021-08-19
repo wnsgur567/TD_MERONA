@@ -26,14 +26,11 @@ public class SynergySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     [SerializeField] SynergyTooltip m_tooltip;
 
-    private void Awake()
-    {
-        m_synergy_image = this.GetComponent<Image>();
-    }
+    
 
     // info 가 업데이트 됫을 경우
     public void SetInfo(SynergySlotInfo info /*-> excel data*/)
-    {
+    {        
         m_info = info;
 
         OnInfoChanged();
@@ -41,11 +38,10 @@ public class SynergySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private void OnInfoChanged()
     {
-
+        Sprite sprite = m_sprite_loader.GetSprite(m_info.sprite_code);
+        m_synergy_image.sprite = sprite;
         if (m_info.isActivated)
-        {
-            Sprite sprite = m_sprite_loader.GetSprite(m_info.sprite_code);
-            m_synergy_image.sprite = sprite;
+        {            
             m_synergy_image.color = new Color(1.0f, 1.0f, 1.0f);
         }
         else

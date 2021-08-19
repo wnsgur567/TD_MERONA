@@ -41,4 +41,12 @@ public class SynergyUIManager : Singleton<SynergyUIManager>
             m_lineSlots.Add(newSlot);
         }
     }
+
+    public void DeActivateAllExtendSynergyPanel()
+    {
+        foreach (var item in m_lineSlots)
+        {
+            item.DeActivateExtendPanel();
+        }
+    }
 }
