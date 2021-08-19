@@ -165,7 +165,7 @@ public class NodeManager : Singleton<NodeManager>
     protected void RotateProcess()
     {
         // 선택 노드가 존재하면
-        //if (null != SelectedNodeType)
+        if (null != m_SelectedNode)
         {
             // 마우스 회전 검사
             Rotate_Mouse();
@@ -184,42 +184,39 @@ public class NodeManager : Singleton<NodeManager>
         // 마우스 포인터가 UI위에 없을 때
         if (false == UnityEngine.EventSystems.EventSystem.current?.IsPointerOverGameObject())
         {
-            if (null != m_SelectedNode)
+            // 좌클릭시
+            if (Input.GetMouseButtonUp(0))
             {
-                // 좌클릭시
-                if (Input.GetMouseButtonUp(0))
+                // 클릭한 곳으로 레이캐스트
+                Ray ray = MainCamera.ScreenPointToRay(Input.mousePosition);
+                float maxDistance = MainCamera.farClipPlane;
+                int layerMask = LayerMask.GetMask("Node", "NodeRotate");
+
+                RaycastHit hit;
+
+                // 레이캐스트 성공 시
+                if (Physics.Raycast(ray, out hit, maxDistance, layerMask))
                 {
-                    // 클릭한 곳으로 레이캐스트
-                    Ray ray = MainCamera.ScreenPointToRay(Input.mousePosition);
-                    float maxDistance = MainCamera.farClipPlane;
-                    int layerMask = LayerMask.GetMask("Node", "NodeRotate");
+                    // 방향 계산
+                    E_Direction from = SelectedNodeDir;
+                    E_Direction to = (E_Direction)Enum.Parse(typeof(E_Direction), hit.transform.parent.name);
 
-                    RaycastHit hit;
-
-                    // 레이캐스트 성공 시
-                    if (Physics.Raycast(ray, out hit, maxDistance, layerMask))
+                    // 시계 방향 회전
+                    if ((int)to == (int)(from + 1) % (int)E_Direction.Max)
                     {
-                        // 방향 계산
-                        E_Direction from = SelectedNodeDir;
-                        E_Direction to = (E_Direction)Enum.Parse(typeof(E_Direction), hit.transform.parent.name);
-
-                        // 시계 방향 회전
-                        if ((int)to == (int)(from + 1) % (int)E_Direction.Max)
-                        {
-                            CWRotate();
-                        }
-                        // 반시계 방향 회전
-                        else if ((int)to == (int)(from + (int)E_Direction.Max - 1) % (int)E_Direction.Max)
-                        {
-                            CCWRotate();
-                        }
+                        CWRotate();
                     }
-                    // 레이캐스트 실패 시
-                    else
+                    // 반시계 방향 회전
+                    else if ((int)to == (int)(from + (int)E_Direction.Max - 1) % (int)E_Direction.Max)
                     {
-                        // 선택 노드 제거
-                        SelectNode(null);
+                        CCWRotate();
                     }
+                }
+                // 레이캐스트 실패 시
+                else
+                {
+                    // 선택 노드 제거
+                    SelectNode(null);
                 }
             }
         }

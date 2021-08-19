@@ -18,9 +18,11 @@ public class Skill : MonoBehaviour
     protected SkillManager M_Skill => SkillManager.Instance;
     // 버프 매니져
     protected BuffManager M_Buff => BuffManager.Instance;
+    // 이펙트 매니져
+    protected EffectManager M_Effect => EffectManager.Instance;
 
     // 타겟 위치
-    protected Vector3 TargetPos => m_Target.transform.position;
+    protected Vector3 TargetPos => (m_Target == null ? Vector3.zero : m_Target.transform.position);
     // 스킬 이동 속도
     protected float MoveSpeed => m_StatInfo_Excel.Speed * Time.deltaTime;
     // 타겟까지의 방향
@@ -290,6 +292,11 @@ public class Skill : MonoBehaviour
     }
     protected void Attack()
     {
+        // 피격 이펙트 생성
+        Effect hitEffect = M_Effect.SpawnEffect(m_ConditionInfo_Excel.damage_prefab);
+        hitEffect.transform.position = m_Target.HitPivot.transform.position;
+        hitEffect.gameObject.SetActive(true);
+
         float damage = m_StatInfo_Excel.Dmg;
         BuffCC_TableExcel buffData = M_Buff.GetData(m_StatInfo_Excel.Buff_CC);
 
