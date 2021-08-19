@@ -42,8 +42,11 @@ public class ShopManager : Singleton<ShopManager>
         // lock button release
         ShopUnLock();
 
+        m_shop_panel.gameObject.SetActive(false);
+
         // link callback
         UserInfoManager.Instance.OnLevelChanged += OnLevelChanged;
+        StageInfoManager.Instance.OnStageChangedEvent += OnStageChanged;
     }
 
     public void __Initialize()
@@ -77,6 +80,11 @@ public class ShopManager : Singleton<ShopManager>
     }
 
 
+    public void OnStageChanged(StageChangedEventArgs args)
+    {
+        ShopReset();
+    }
+
     /*************************** UI Control ******************************/
 
     // 레벨 변경시 좌측 하단 패널의 text 변경
@@ -89,8 +97,8 @@ public class ShopManager : Singleton<ShopManager>
 
         m_cur_data = data_list.Find((item) => { return cur_user_level == item.User_Level; });
 
-        
-        m_rates.Clear();      
+
+        m_rates.Clear();
         m_rates.Add(m_cur_data.Tower_Rand1);
         m_rates.Add(m_cur_data.Tower_Rand2);
         m_rates.Add(m_cur_data.Tower_Rand3);
@@ -125,7 +133,7 @@ public class ShopManager : Singleton<ShopManager>
         float rand_val = 0.0f;
 
         // tower data 개수
-        int total_towerType_count = m_tower_data_list.Count; 
+        int total_towerType_count = m_tower_data_list.Count;
         // tower type 지정 확률        
         int rand_val_tower = 0;
 
@@ -162,7 +170,7 @@ public class ShopManager : Singleton<ShopManager>
             int selected_index = Random.Range(0, tower_data_list.Count);
 
             // 위에서 생성된 데이터로 Shop Slot의 정보 업데이트            
-            var tower_data = tower_data_list[selected_index]; 
+            var tower_data = tower_data_list[selected_index];
             m_slot_list[i].SetInfo(cost, tower_data);
         }
     }
@@ -179,7 +187,7 @@ public class ShopManager : Singleton<ShopManager>
 
     public bool PurchaseProcess(int slotIndex)
     {
-        ShopSlot slot = m_slot_list[slotIndex];          
+        ShopSlot slot = m_slot_list[slotIndex];
 
         if (false == InventoryManager.Instance.IsAllOccupied())
         {   // 인벤에 빈 공간이 있으면
@@ -190,7 +198,7 @@ public class ShopManager : Singleton<ShopManager>
             }
 
             var info = slot.GetInfo();
-            
+
             InventoryManager.Instance.AddNewTower(info.excel_data.Value);
 
             Debug.Log("Puchase!!");
@@ -209,8 +217,8 @@ public class ShopManager : Singleton<ShopManager>
         var towers = TowerManager.Instance.GetTowers(tower_code);
         for (int i = 0; i < 3; i++)
         {
-            if(towers[i].m_TowerInfo.IsOnInventory)
-            TowerManager.Instance.DespawnTower(towers[i]);
+            if (towers[i].m_TowerInfo.IsOnInventory)
+                TowerManager.Instance.DespawnTower(towers[i]);
         }
 
         // TODO : fix
@@ -228,7 +236,11 @@ public class ShopManager : Singleton<ShopManager>
 
         if (false == m_isLocked)
         {
-            ShopReset();
+            int reset_cost = m_excel_shopdata_so.DataList.Find(
+                (item) => { return item.User_Level == UserInfoManager.Instance.Level; }).Reset_Gold;
+
+            if (UserInfoManager.Instance.UseGold(reset_cost))
+                ShopReset();
         }
     }
 
@@ -255,5 +267,5 @@ public class ShopManager : Singleton<ShopManager>
             m_shop_panel.gameObject.SetActive(false);
         else
             m_shop_panel.gameObject.SetActive(true);
-    }    
+    }
 }
