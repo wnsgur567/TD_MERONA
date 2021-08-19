@@ -235,7 +235,14 @@ public class Enemy : MonoBehaviour
             //거리 안에 있다면
             if (Distance <= atkstatdata.Range)
             {
-                transform.rotation.SetLookRotation(new Vector3(0f, 0f, 0f));
+                // 회전할 방향
+                Vector3 lookingDir = target.position - transform.position;
+
+                // y 회전 방지
+                lookingDir.y = 0f;
+
+                // 회전
+                transform.rotation = Quaternion.LookRotation(lookingDir);
 
                 if (Atk_Timer >= atkstatdata.CoolTime)
                 {
@@ -646,7 +653,7 @@ public class Enemy : MonoBehaviour
             m_EnemyInfo.HP -= damage;
         }
 
-        m_HPBar.fillAmount -= m_EnemyInfo.HP / m_Enemyinfo_Excel.HP;
+        m_HPBar.fillAmount = m_EnemyInfo.HP / m_Enemyinfo_Excel.HP;
 
         if (m_EnemyInfo.HP <= 0)
         {
@@ -997,7 +1004,7 @@ public class Enemy : MonoBehaviour
     public void CallAttack()
     {
         m_EnemyInfo.Atk *= atkstatdata.Dmg;
-        enemyskillmanager.SpawnProjectileSkill(atkconditiondata.projectile_prefab, m_EnemyInfo.Atk, atkconditiondata, atkstatdata);
+        enemyskillmanager.SpawnProjectileSkill(atkconditiondata.projectile_prefab, m_EnemyInfo.Atk, atkconditiondata, atkstatdata, AttackPivot);
     }
 
     public void CallSkill()
