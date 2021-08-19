@@ -28,10 +28,12 @@ public class EffectManager : Singleton<EffectManager>
         string key = m_PrefabData.GetPrefab(prefabCode)?.name;
 
         Effect effect = M_EffectPool.GetPool(key)?.Spawn();
+        effect.InitializeEffect();
         return effect;
     }
     public void DespawnEffect(Effect effect)
     {
+        effect.FinalizeEffect();
         string key = m_PrefabData.GetPrefab(effect.m_PrefabCode).name;
         M_EffectPool.GetPool(key)?.DeSpawn(effect);
     }

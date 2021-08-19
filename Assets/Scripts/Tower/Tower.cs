@@ -285,7 +285,7 @@ public class Tower : MonoBehaviour
         if (m_AttackRange_Default == null)
         {
             m_AttackRange_Default = transform.Find("AttackRange_Default").AddComponent<AttackRange>();
-            m_AttackRange_Default.gameObject.layer = LayerMask.NameToLayer("Tower");
+            m_AttackRange_Default.gameObject.layer = LayerMask.NameToLayer("TowerAttackRange");
         }
         m_AttackRange_Default.Range = m_TowerInfo.Stat_Default.Range;
 
@@ -293,7 +293,7 @@ public class Tower : MonoBehaviour
         if (m_AttackRange_Skill01 == null)
         {
             m_AttackRange_Skill01 = transform.Find("AttackRange_Skill01").AddComponent<AttackRange>();
-            m_AttackRange_Skill01.gameObject.layer = LayerMask.NameToLayer("Tower");
+            m_AttackRange_Skill01.gameObject.layer = LayerMask.NameToLayer("TowerAttackRange");
         }
         m_AttackRange_Skill01.Range = m_TowerInfo.Stat_Skill01.Range;
 
@@ -301,7 +301,7 @@ public class Tower : MonoBehaviour
         if (m_AttackRange_Skill02 == null)
         {
             m_AttackRange_Skill02 = transform.Find("AttackRange_Skill02").AddComponent<AttackRange>();
-            m_AttackRange_Skill02.gameObject.layer = LayerMask.NameToLayer("Tower");
+            m_AttackRange_Skill02.gameObject.layer = LayerMask.NameToLayer("TowerAttackRange");
         }
         m_AttackRange_Skill02.Range = m_TowerInfo.Stat_Skill02.Range;
         #endregion
