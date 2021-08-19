@@ -23,14 +23,8 @@ public struct SkillCondition_TableExcel
 	public string Skill_text;
 	public string SkillAvility1_Name;
 	public string SkillAvility1_Text;
-	public string SkillAvility1_Star1;
-	public string SkillAvility1_Star2;
-	public string SkillAvility1_Star3;
 	public string SkillAvility2_Name;
 	public string SkillAvility2_Text;
-	public string SkillAvility2_Star1;
-	public string SkillAvility2_Star2;
-	public string SkillAvility2_Star3;
 }
 
 
@@ -70,14 +64,8 @@ public class  SkillCondition_TableExcelLoader : ScriptableObject
 		data.Skill_text = strs[idx++];
 		data.SkillAvility1_Name = strs[idx++];
 		data.SkillAvility1_Text = strs[idx++];
-		data.SkillAvility1_Star1 = strs[idx++];
-		data.SkillAvility1_Star2 = strs[idx++];
-		data.SkillAvility1_Star3 = strs[idx++];
 		data.SkillAvility2_Name = strs[idx++];
 		data.SkillAvility2_Text = strs[idx++];
-		data.SkillAvility2_Star1 = strs[idx++];
-		data.SkillAvility2_Star2 = strs[idx++];
-		data.SkillAvility2_Star3 = strs[idx++];
 
 		return data;
 	}

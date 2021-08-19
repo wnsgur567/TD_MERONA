@@ -52,7 +52,7 @@ public class Stage_EnemyManager : Singleton<Stage_EnemyManager>
     {
         if (Now_StageData.stage_num != 0)
         {
-            monsterCode = stage_excel_loader.DataList[Now_StageData.stage_num - 1].StageMonsterTable;
+            monsterCode = stage_excel_loader.DataList[Now_StageData.stage_num - 1].StageEnemyTable;
             SpawnManager.Instance.Start_Stage(monsterCode);
         }
     }

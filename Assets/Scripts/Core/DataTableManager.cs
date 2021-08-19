@@ -30,20 +30,30 @@ public class DataTableManager : Singleton<DataTableManager>
     [SerializeField]
     protected List<ScriptableObject> m_DataTableList;
     // 타입별 딕셔너리
+<<<<<<< HEAD
 
+=======
+    protected Dictionary<E_DataTableType, ScriptableObject> m_DataTables;
+//#if UNITY_EDITOR
+//    // 디버깅용 딕셔너리
+//    [SerializeField, ReadOnly]
+//    protected DebugDictionary<E_DataTableType, ScriptableObject> m_Debug;
+//#endif
+>>>>>>> b196ec9fd52178fdd63cebeca91118e7ec61b2aa
 
     #region 외부 함수
     public ScriptableObject GetDataTable(E_DataTableType type)
     {
-        return m_DataTableList[(int)type]; //m_DataTables[type];
+        //return m_DataTableList[(int)type];
+        return m_DataTables[type];
     }
     public T GetDataTable<T>() where T : ScriptableObject
     {
         string typeName = typeof(T).ToString().Split('_')[0];
         E_DataTableType type;
         if (Enum.TryParse<E_DataTableType>(typeName, out type))
-            return m_DataTableList[(int)type] as T;
-            //return m_DataTables[type] as T;
+            //return m_DataTableList[(int)type] as T;
+            return m_DataTables[type] as T;
 
         return null;
     }
@@ -53,17 +63,30 @@ public class DataTableManager : Singleton<DataTableManager>
     void Awake()
     {
         // 딕셔너리 초기화
+<<<<<<< HEAD
         //m_DataTables = new Dictionary<E_DataTableType, ScriptableObject>();
+=======
+        m_DataTables = new Dictionary<E_DataTableType, ScriptableObject>();
+//#if UNITY_EDITOR
+//        m_Debug = new DebugDictionary<E_DataTableType, ScriptableObject>();
+//#endif
+>>>>>>> b196ec9fd52178fdd63cebeca91118e7ec61b2aa
 
         // 테이블 타입별 초기화
         for (E_DataTableType i = E_DataTableType.None + 1; i < E_DataTableType.Max; ++i)
         {
             // 타입과 이름이 일치하는 스크립터블 오브젝트가 있으면 딕셔너리에 추가
-            //m_DataTables.Add(i,
-            //    m_DataTableList.
-            //    Where(item => i.ToString() + "_TableLoader" == item.name).
-            //    SingleOrDefault());
+            m_DataTables.Add(i,
+                m_DataTableList.
+                Where(item => i.ToString() + "_TableLoader" == item.name).
+                SingleOrDefault());
 
+<<<<<<< HEAD
+=======
+            //#if UNITY_EDITOR
+            //            m_Debug.Add(i, m_DataTables[i]);
+            //#endif
+>>>>>>> b196ec9fd52178fdd63cebeca91118e7ec61b2aa
         }
     }
     #endregion

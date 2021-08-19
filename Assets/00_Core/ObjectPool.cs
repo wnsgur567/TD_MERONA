@@ -11,10 +11,10 @@ public abstract class ObjectPool<Pool, Origin> : Singleton<Pool> where Pool : Mo
     public Dictionary<string, Origin> m_Origins = null;
     protected Dictionary<string, MemoryPool<Origin>> m_Pools = null;
 
-#if UNITY_EDITOR
-    [ReadOnly]
-    public DebugDictionary<string, Origin> m_DebugOrigin = null;
-#endif
+//#if UNITY_EDITOR
+//    [ReadOnly]
+//    public DebugDictionary<string, Origin> m_DebugOrigin = null;
+//#endif
 
     protected ResourcesManager M_Resources => ResourcesManager.Instance;
 
@@ -32,9 +32,9 @@ public abstract class ObjectPool<Pool, Origin> : Singleton<Pool> where Pool : Mo
         m_Origins = new Dictionary<string, Origin>();
         m_Pools = new Dictionary<string, MemoryPool<Origin>>();
 
-#if UNITY_EDITOR
-        m_DebugOrigin = new DebugDictionary<string, Origin>();
-#endif
+//#if UNITY_EDITOR
+//        m_DebugOrigin = new DebugDictionary<string, Origin>();
+//#endif
 
         //for (int i = 0; i < m_Origins.Count; ++i)
         //{
@@ -75,9 +75,9 @@ public abstract class ObjectPool<Pool, Origin> : Singleton<Pool> where Pool : Mo
 
         origin.name += "_Origin";
 
-#if UNITY_EDITOR
-        m_DebugOrigin.Add(key, origin);
-#endif
+//#if UNITY_EDITOR
+//        m_DebugOrigin.Add(key, origin);
+//#endif
         return true;
     }
     public virtual MemoryPool<Origin> GetPool(string key)
@@ -104,10 +104,10 @@ public abstract class ObjectPool<Pool> : Singleton<Pool> where Pool : MonoBehavi
     public Dictionary<string, GameObject> m_Origins = null;
     protected Dictionary<string, MemoryPool> m_Pools = null;
 
-#if UNITY_EDITOR
-    [ReadOnly]
-    public DebugDictionary<string, GameObject> m_DebugOrigin = null;
-#endif
+//#if UNITY_EDITOR
+//    [ReadOnly]
+//    public DebugDictionary<string, GameObject> m_DebugOrigin = null;
+//#endif
 
     protected ResourcesManager M_Resources => ResourcesManager.Instance;
 
@@ -125,9 +125,9 @@ public abstract class ObjectPool<Pool> : Singleton<Pool> where Pool : MonoBehavi
         m_Origins = new Dictionary<string, GameObject>();
         m_Pools = new Dictionary<string, MemoryPool>();
 
-#if UNITY_EDITOR
-        m_DebugOrigin = new DebugDictionary<string, GameObject>();
-#endif
+//#if UNITY_EDITOR
+//        m_DebugOrigin = new DebugDictionary<string, GameObject>();
+//#endif
 
         //for (int i = 0; i < m_Origins.Count; ++i)
         //{
@@ -168,9 +168,9 @@ public abstract class ObjectPool<Pool> : Singleton<Pool> where Pool : MonoBehavi
 
         origin.name += "_Origin";
 
-#if UNITY_EDITOR
-        m_DebugOrigin.Add(key, origin);
-#endif
+//#if UNITY_EDITOR
+//        m_DebugOrigin.Add(key, origin);
+//#endif
         return true;
     }
     public virtual MemoryPool GetPool(string key)

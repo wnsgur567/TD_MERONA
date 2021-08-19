@@ -10,7 +10,7 @@ public struct StageEnemy_TableExcel
 	public int Code;
 	public int SponPosition;
 	public int Create_num;
-	public int Monster_Code;
+	public int Emeny_Code;
 	public float AppearSpeed;
 	public float CreateSpeed;
 }
@@ -39,7 +39,7 @@ public class  StageEnemy_TableExcelLoader : ScriptableObject
 		data.Code = int.Parse(strs[idx++]);
 		data.SponPosition = int.Parse(strs[idx++]);
 		data.Create_num = int.Parse(strs[idx++]);
-		data.Monster_Code = int.Parse(strs[idx++]);
+		data.Emeny_Code = int.Parse(strs[idx++]);
 		data.AppearSpeed = float.Parse(strs[idx++]);
 		data.CreateSpeed = float.Parse(strs[idx++]);
 
