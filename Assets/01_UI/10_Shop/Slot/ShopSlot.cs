@@ -57,7 +57,7 @@ public class ShopSlot : MonoBehaviour , IPointerClickHandler
     private void Awake()
     {
         m_rankToColor_dic = new Dictionary<int, Color>();
-        m_rankToColor_dic.Add(1, Color.gray);
+        m_rankToColor_dic.Add(1, Color.white);
         m_rankToColor_dic.Add(2, Color.green);
         m_rankToColor_dic.Add(3, Color.blue);
         m_rankToColor_dic.Add(4, new Color(0.7f,0f,1f));

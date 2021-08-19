@@ -34,11 +34,6 @@ public class StageInfoManager : Singleton<StageInfoManager>
         }
     }
 
-    private void Awake()
-    {
-        
-    }
-
     // when scene loaded complete
     // this function must be called by Scene start evnet reciever    
     public void __StartTimer()
