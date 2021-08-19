@@ -19,7 +19,7 @@ public class LoadTest : MonoBehaviour
 
             //unloadscenes.Add("LoaderScene");
 
-            SceneLoader.LoadScene(loadScenes, unloadscenes);
+            SceneLoader.SetLoadingSceneInfomation(loadScenes, unloadscenes);
         }
     }
 }

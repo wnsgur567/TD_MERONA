@@ -55,7 +55,7 @@ public class MainScene_CharacterPanelButtonController : MonoBehaviour
 
         var obj = GameObject.FindWithTag("SceneLoader");
         var sceneLoader = obj.GetComponent<SceneLoader>();
-        sceneLoader.LoadScene(loadScenes, unloadScenes);
+        sceneLoader.SetLoadingSceneInfomation(loadScenes, unloadScenes);
 
     }
 }

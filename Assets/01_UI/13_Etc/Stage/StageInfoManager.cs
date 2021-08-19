@@ -5,10 +5,10 @@ using UnityEngine;
 
 public struct StageChangedEventArgs
 {
-    public string stageName;
-    public int stage_num;   // ����
-    public int stage_type;
-    public float stage_time;  // stage �ð�
+    public string stageName;    // stage name 
+    public int stage_num;       // current stage num
+    public int stage_type;      // break , battle etc
+    public float stage_time;    // stage total time
 }
 
 public class StageInfoManager : Singleton<StageInfoManager>
@@ -25,7 +25,7 @@ public class StageInfoManager : Singleton<StageInfoManager>
     [SerializeField] bool m_startFlag;
     [SerializeField] float m_timer;
 
-    // ���� �������� ���� ��Ȳ(����� 0.0f ~ 1.0f )
+    // ( 0.0f ~ 1.0f )
     public float Progress
     {
         get
@@ -36,20 +36,25 @@ public class StageInfoManager : Singleton<StageInfoManager>
 
     private void Awake()
     {
-        current_stage = 0;
-        m_startFlag = true;
-        GoNextStage();
+        
     }
 
-    private void Start()
-    {       
+    // when scene loaded complete
+    // this function must be called by Scene start evnet reciever    
+    public void __StartTimer()
+    {
+        Debug.Log("Stage Timer Start");
+        current_stage = 0;
+        m_startFlag = true;
         m_timer = 0.0f;
-    }
+        GoNextStage();
+    }    
 
     private void Update()
     {
+        // if time check flag is true
         if (m_startFlag)
-        {
+        {   // time check
             m_timer += Time.deltaTime;
 
             float remain_time = m_current_stageInfo.StageTime - m_timer;
@@ -63,7 +68,6 @@ public class StageInfoManager : Singleton<StageInfoManager>
         }
     }
 
-    // ���� ���������� �̵�
     public void GoNextStage()
     {        
         m_current_stageInfo = m_excel_loader.DataList[current_stage];

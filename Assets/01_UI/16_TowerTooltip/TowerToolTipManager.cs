@@ -24,7 +24,6 @@ public class TowerToolTipManager : Singleton<TowerToolTipManager>
     {
         m_worldFlag = true;
 
-        // TODO : change
         m_tower = tower;
         m_tooltip.SetUIInfo(data);
         Vector3 mousepos = Camera.main.WorldToScreenPoint(worldPos);
@@ -57,7 +56,7 @@ public class TowerToolTipManager : Singleton<TowerToolTipManager>
     }
     public void FlushNode()
     {   // World
-        // TODO : Flush Node
+        TowerManager.Instance.DespawnTower(m_tower);
     }
 
     // called by TooltipSalePrice class ( and TooltipSalePrice function called by Button Event )

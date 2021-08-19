@@ -94,6 +94,7 @@ public class ShopSlot : MonoBehaviour , IPointerClickHandler
         m_renderCamera.clearFlags = CameraClearFlags.SolidColor;
         m_renderCamera.backgroundColor = new Color(0, 0, 0, 0);
         m_renderCamera.cullingMask = 1 << layer;
+        m_renderCamera.farClipPlane = 50f;
 
         m_renderCamera.targetTexture = m_renderTexture;
         m_renderCamera.transform.position = m_obj_position + camera_distance;
