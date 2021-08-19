@@ -321,6 +321,10 @@ public class Enemy : MonoBehaviour
 
         #endregion
     }
+    public void FinializeEnemy()
+    {
+        M_EnemyHPBar.DespawnHPBar(m_HPBar);
+    }
 
     // Ω∫≈œ
     public void On_Stun(int code)

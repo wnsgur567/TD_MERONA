@@ -55,6 +55,7 @@ public class SpawnManager : Singleton<SpawnManager>
     public void Despawn(Enemy enemy)
     {
         EnemyManager.Instance.Enemy_Direction[enemy.Get_Direction].Remove(enemy);
+        enemy.FinializeEnemy();
         enemyPool.GetPool(enemy.Get_EnemyName_EN).DeSpawn(enemy);
     }
 

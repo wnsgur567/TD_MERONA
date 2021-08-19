@@ -16,6 +16,9 @@ public class EffectPool : ObjectPool<EffectPool, Effect>
         {
             int PrefabCode = M_SkillConditionData.DataList[i].Atk_prefab;
 
+            if (PrefabCode == 0)
+                continue;
+
             GameObject originObj = M_PrefabData.GetPrefab(PrefabCode);
             if (originObj != null)
             {
@@ -34,6 +37,9 @@ public class EffectPool : ObjectPool<EffectPool, Effect>
             }
 
             PrefabCode = M_SkillConditionData.DataList[i].damage_prefab;
+
+            if (PrefabCode == 0)
+                continue;
 
             originObj = M_PrefabData.GetPrefab(PrefabCode);
             if (originObj != null)
