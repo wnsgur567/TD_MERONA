@@ -27,6 +27,10 @@ public class AttackRange : MonoBehaviour
 
     private void Awake()
     {
+        Initialize();
+    }
+    public void Initialize()
+    {
         m_RangeCollider = GetComponent<SphereCollider>();
         //m_RangeCollider ??= gameObject.AddComponent<SphereCollider>();
         if (null == m_RangeCollider)
@@ -34,7 +38,6 @@ public class AttackRange : MonoBehaviour
         m_RangeCollider.isTrigger = true;
         m_TargetList = new List<Enemy>();
     }
-
     public void Clear()
     {
         m_TargetList?.Clear();

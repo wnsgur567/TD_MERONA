@@ -1871,7 +1871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4228394727616034421}
   - component: {fileID: 4602557866667157607}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: AttackRange_Skill01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1915,7 +1915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7795748757918704541}
   - component: {fileID: 4480053076452601460}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: AttackRange_Default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1989,7 +1989,7 @@ GameObject:
   m_Component:
   - component: {fileID: 805730994337360384}
   - component: {fileID: 6037280612657949113}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: AttackRange_Skill02
   m_TagString: Untagged
   m_Icon: {fileID: 0}

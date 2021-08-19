@@ -20,7 +20,7 @@ public class Devil : MonoBehaviour
     public event DevilUpdateHPHandler UpdateHPEvent;
 
     #region 내부 컴포넌트
-    protected AttackRange m_AttackRange;
+    protected AttackRange m_AttackRange_Default;
     #endregion
 
     #region 내부 프로퍼티
@@ -102,8 +102,12 @@ public class Devil : MonoBehaviour
         #endregion
 
         #region 내부 컴포넌트
-        m_AttackRange = transform.Find("AttackRange_Default").AddComponent<AttackRange>();
-        m_AttackRange.Range = m_DevilInfo.Stat_Default.Range;
+        if (null == m_AttackRange_Default)
+        {
+            m_AttackRange_Default = transform.Find("AttackRange_Default").AddComponent<AttackRange>();
+            m_AttackRange_Default.gameObject.layer = LayerMask.NameToLayer("TowerAttackRange");
+        }
+        m_AttackRange_Default.Range = m_DevilInfo.Stat_Default.Range;
         #endregion
     }
     // 마왕 회전
@@ -137,14 +141,14 @@ public class Devil : MonoBehaviour
             case E_TargetType.CloseTarget:
                 if (m_DevilInfo.ShouldFindTarget)
                 {
-                    m_Target = m_AttackRange.GetNearTarget();
+                    m_Target = m_AttackRange_Default.GetNearTarget();
                     m_DevilInfo.ShouldFindTarget = false;
                 }
                 break;
             case E_TargetType.RandTarget:
                 if (m_DevilInfo.ShouldFindTarget)
                 {
-                    m_Target = m_AttackRange.GetRandomTarget();
+                    m_Target = m_AttackRange_Default.GetRandomTarget();
                     m_DevilInfo.ShouldFindTarget = false;
                 }
                 break;
@@ -153,7 +157,7 @@ public class Devil : MonoBehaviour
                 if (null == m_Target || // 예외처리
                     DistanceToTarget > m_DevilInfo.Stat_Default.Range) // 타겟이 사거리를 벗어난 경우
                 {
-                    m_Target = m_AttackRange.GetNearTarget();
+                    m_Target = m_AttackRange_Default.GetNearTarget();
                 }
                 break;
         }

@@ -33,7 +33,7 @@ public class TowerPool : ObjectPool<TowerPool, Tower>
                 SkinnedMeshRenderer meshRenderer = origin.transform.Find("Mesh").GetComponentInChildren<SkinnedMeshRenderer>(true);
                 boxCollider.isTrigger = true;
                 boxCollider.center = meshRenderer.bounds.center;
-                boxCollider.size = meshRenderer.bounds.size;
+                boxCollider.size = meshRenderer.bounds.size * origin.m_SizeTemp;
 
                 origin.gameObject.layer = LayerMask.NameToLayer("Tower");
                 origin.gameObject.SetActive(false);

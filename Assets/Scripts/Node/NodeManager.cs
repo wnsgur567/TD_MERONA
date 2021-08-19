@@ -34,6 +34,8 @@ public class NodeManager : Singleton<NodeManager>
     protected bool m_IsRotating;
     // 타워 바라볼 방향 회전용 오브젝트
     protected GameObject m_LookingDir;
+    // 메인 카메라
+    protected Camera m_Camera;
 
     #region 내부 프로퍼티
     // 선택 노드의 타입
@@ -41,10 +43,26 @@ public class NodeManager : Singleton<NodeManager>
     protected E_Direction SelectedNodeDir => m_SelectedNode.m_Direction;
     protected E_NodeType StandardNodeType => m_RotationStandardNode.m_NodeType;
     // 현재 카메라
-    protected Camera MainCamera => Camera.main;
+    protected Camera MainCamera
+    {
+        get
+        {
+            if (null == m_Camera)
+            {
+                m_Camera = Camera.main;
+            }
+
+            return m_Camera;
+        }
+    }
     #endregion
 
     private void Awake()
+    {
+        Initialize();
+    }
+
+    protected void Initialize()
     {
         // 회전 중심점 설정
         m_Center = transform.Find("Center");
@@ -82,6 +100,7 @@ public class NodeManager : Singleton<NodeManager>
         }
 
         m_LookingDir = new GameObject();
+        m_LookingDir.transform.SetParent(transform);
         m_LookingDir.SetActive(false);
     }
 
@@ -129,6 +148,10 @@ public class NodeManager : Singleton<NodeManager>
     // 아웃라인 업데이트
     protected void UpdateOutline(bool active)
     {
+        // 예외 처리 (선택한 노드가 없을 때)
+        if (null == m_SelectedNode)
+            return;
+
         // 아웃라인 설정할 노드 리스트
         Dictionary<E_Direction, List<Node>> nodes = m_NodeList[SelectedNodeType];
 
@@ -144,17 +167,11 @@ public class NodeManager : Singleton<NodeManager>
     // 노드 선택
     protected void SelectNode(Node node)
     {
-        if (null != m_SelectedNode)
-        {
-            // 선택 노드 아웃라인 제거
-            UpdateOutline(false);
-        }
+        // 선택 노드 아웃라인 제거
+        UpdateOutline(false);
 
         // 선택 노드 변경
         m_SelectedNode = node;
-
-        if (null == node)
-            return;
 
         // 선택 노드 아웃라인 생성
         UpdateOutline(true);
@@ -164,14 +181,10 @@ public class NodeManager : Singleton<NodeManager>
     // 회전
     protected void RotateProcess()
     {
-        // 선택 노드가 존재하면
-        if (null != m_SelectedNode)
-        {
-            // 마우스 회전 검사
-            Rotate_Mouse();
-            // 키보드 회전 검사
-            Rotate_Keyboard();
-        }
+        // 마우스 회전 검사
+        Rotate_Mouse();
+        // 키보드 회전 검사
+        Rotate_Keyboard();
     }
     #region RotateProcess
     // 마우스 회전
@@ -179,6 +192,10 @@ public class NodeManager : Singleton<NodeManager>
     {
         // 예외 처리 (이미 회전 중인 경우)
         if (m_IsRotating)
+            return;
+
+        // 예외 처리 (선택한 노드가 없을 때)
+        if (null == m_SelectedNode)
             return;
 
         // 마우스 포인터가 UI위에 없을 때
@@ -228,16 +245,17 @@ public class NodeManager : Singleton<NodeManager>
         if (m_IsRotating)
             return;
 
+        // 예외 처리 (선택한 노드가 없을 때)
+        if (null == m_SelectedNode)
+            return;
+
         // Q키를 누른 경우
         if (Input.GetKeyDown(KeyCode.Q))
         {
             // 반시계 방향 회전
             CCWRotate();
-        }
-
-        // 예외 처리 (이미 회전 중인 경우)
-        if (m_IsRotating)
             return;
+        }
 
         // E키를 누른 경우
         if (Input.GetKeyDown(KeyCode.E))

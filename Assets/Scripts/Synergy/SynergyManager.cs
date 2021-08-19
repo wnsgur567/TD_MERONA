@@ -28,6 +28,7 @@ public class SynergyManager : Singleton<SynergyManager>
     protected BuffManager M_Buff => BuffManager.Instance;
     protected NodeManager M_Node => NodeManager.Instance;
     protected DataTableManager M_DataTable => DataTableManager.Instance;
+    protected CombinationManager M_Combination => CombinationManager.Instance;
     #endregion
 
     private void Awake()
@@ -46,6 +47,7 @@ public class SynergyManager : Singleton<SynergyManager>
     private void Start()
     {
         M_Node.m_RotateEndEvent += UpdateSynergy;
+        M_Combination.OnCombinationCompleteEvent += UpdateSynergy_Combination;
     }
 
     public Synergy_TableExcel GetData(int code, int rank = 1)
@@ -85,6 +87,13 @@ public class SynergyManager : Singleton<SynergyManager>
 
         UpdateSynergyEndEvent?.Invoke();
     }
+    public void UpdateSynergy_Combination(bool flag)
+    {
+        if (flag)
+        {
+            UpdateSynergy();
+        }
+    }
     protected void LoadSynergyCode(Tower tower, ref Dictionary<int, List<Tower>> SynergyTowers)
     {
         // 중복 체크용
@@ -104,7 +113,7 @@ public class SynergyManager : Singleton<SynergyManager>
         flag = false;
         foreach (var item in SynergyTowers[code1])
         {
-            if (M_Tower.CheckSameTower(item, tower))
+            if (item.TowerKind == tower.TowerKind)
             {
                 flag = true;
                 break;
@@ -127,7 +136,7 @@ public class SynergyManager : Singleton<SynergyManager>
         flag = false;
         foreach (var item in SynergyTowers[code2])
         {
-            if (M_Tower.CheckSameTower(item, tower))
+            if (item.TowerKind == tower.TowerKind)
             {
                 flag = true;
                 break;

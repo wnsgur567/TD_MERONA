@@ -129,9 +129,4 @@ public class TowerManager : Singleton<TowerManager>
             }
         }
     }
-
-    public bool CheckSameTower(Tower tower1, Tower tower2)
-    {
-        return tower1.TowerKind == tower2.TowerKind;
-    }
 }
