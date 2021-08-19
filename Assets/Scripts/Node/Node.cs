@@ -11,6 +11,8 @@ public class Node : MonoBehaviour
     public E_Direction m_Direction;
     [ReadOnly(true)]
     public Tower m_Tower;
+    [ReadOnly(true)]
+    public Devil m_Devil;
     [SerializeField, ReadOnly]
     protected GameObject m_Outline;
 
@@ -45,6 +47,10 @@ public class Node : MonoBehaviour
             M_Tower.AddTower(tower, m_Tower.m_TowerInfo.Direction);
             M_Synergy.UpdateSynergy();
         }
+    }
+    public void SetDevil(Devil devil)
+    {
+        m_Devil = devil;
     }
 
     public void ClearNode()

@@ -18,11 +18,6 @@ public class HateQueen : Devil
     {
         InitializeDevil(E_Devil.HateQueen);
     }
-
-    private void Update()
-    {
-        
-    }
     #endregion
 
     #region 내부 함수

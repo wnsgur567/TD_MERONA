@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerAnimator : MonoBehaviour
+public class DevilAnimator : MonoBehaviour
 {
-    protected Tower m_Tower;
+    protected Devil m_Devil;
 
     #region 내부 컴포넌트
     protected Animator m_animator;
@@ -14,8 +14,8 @@ public class TowerAnimator : MonoBehaviour
     #endregion
 
     #region 외부 프로퍼티
-    public Animator m_Animator // => m_animator ??= GetComponent<Animator>();
-    { 
+    public Animator m_Animator
+    {
         get
         {
             if (m_animator == null)
@@ -36,23 +36,24 @@ public class TowerAnimator : MonoBehaviour
     }
     public void CallAttack()
     {
-        m_Tower.CallAttack();
+        m_Devil.CallAttack();
     }
     public void CallSkill01()
     {
-        m_Tower.CallSkill01();
+        // 마왕 스킬1 투사체 발사
+        //m_Devil.CallSkill01();
     }
     public void CallSkill02()
     {
-        m_Tower.CallSkill02();
+        // 마왕 스킬2 투사체 발사
+        //m_Devil.CallSkill02();
     }
     #endregion
 
     #region 유니티 콜백 함수
     void Awake()
     {
-        m_Tower = transform.parent.GetComponent<Tower>();
-        //m_animator = gameObject.AddComponent<Animator>();
+        m_Devil = transform.parent.GetComponent<Devil>();
     }
     #endregion
 }
