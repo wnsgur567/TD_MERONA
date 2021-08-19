@@ -66,6 +66,7 @@ public class DevilManager : Singleton<DevilManager>
         node.transform.position = Vector3.zero;
         node.m_NodeType = E_NodeType.None;
         node.m_Direction = E_Direction.None;
+        node.gameObject.layer = LayerMask.NameToLayer("Node");
 
         BoxCollider collider = node.gameObject.AddComponent<BoxCollider>();
         collider.isTrigger = true;

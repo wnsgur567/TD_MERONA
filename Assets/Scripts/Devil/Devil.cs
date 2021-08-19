@@ -19,6 +19,9 @@ public class Devil : MonoBehaviour
     public delegate void DevilUpdateHPHandler(float max, float current);
     public event DevilUpdateHPHandler UpdateHPEvent;
 
+    public delegate void DevilDeathHandler();
+    public event DevilDeathHandler DeathEvent;
+
     #region 내부 컴포넌트
     protected AttackRange m_AttackRange_Default;
     #endregion
@@ -309,6 +312,11 @@ public class Devil : MonoBehaviour
         m_DevilInfo.m_HP -= Damage;
 
         UpdateHPEvent?.Invoke(MaxHP, HP);
+
+        if (m_DevilInfo.m_HP <= 0f)
+        {
+            DeathEvent?.Invoke();
+        }
     }
     #endregion
 
