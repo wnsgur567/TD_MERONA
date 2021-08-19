@@ -21,6 +21,7 @@ public class SpawnManager : Singleton<SpawnManager>
     public EnemyPool enemyPool => EnemyPool.Instance;
     private EnemyManager enemymanager => EnemyManager.Instance;
     private Stage_EnemyDataManager M_StageEnemy => Stage_EnemyDataManager.Instance;
+    protected EnemyHPBarManager M_EnemyHPBar => EnemyHPBarManager.Instance;
 
     private List<StageEnemy_TableExcel> m_StageEnemyInfo_Excel;
 
@@ -106,7 +107,13 @@ public class SpawnManager : Singleton<SpawnManager>
         enemy.InitSetting(dir - 1);
         enemy.transform.position = spawnPoint[(int)dir - 1].position;
 
+        enemy.m_HPBar = M_EnemyHPBar.SpawnHPBar();
+        enemy.m_HPBar.fillAmount = 1f;
+        enemy.m_HPBar.m_EnemyTransform = transform;
+        enemy.m_HPBar.transform.position = M_EnemyHPBar.m_HPBarCanvas.worldCamera.WorldToScreenPoint(enemy.transform.position) + M_EnemyHPBar.Distance;
+
         enemy.gameObject.SetActive(true);
+        enemy.m_HPBar.gameObject.SetActive(true);
 
         enemymanager.Enemy_Direction[dir - 1].Add(enemy);
         enemymanager.All_Enemy.Add(enemy);

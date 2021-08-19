@@ -35,6 +35,8 @@ public class EnemyHPBar : MonoBehaviour
         {
             m_Fill = transform.Find("Fill").GetComponent<Image>();
         }
+
+        fillAmount = 1f;
     }
     #endregion
 

@@ -99,7 +99,7 @@ public class Enemy : MonoBehaviour
     private float MaxHp;
 
     //Ã¼·Â¹Ù
-    private EnemyHPBar m_HPBar;
+    public EnemyHPBar m_HPBar;
 
     private Enemy_TableExcel m_Enemyinfo_Excel;
     private EnemyManager M_Enemy => EnemyManager.Instance;
@@ -158,10 +158,10 @@ public class Enemy : MonoBehaviour
 
         gameObject.layer = LayerMask.NameToLayer("Enemy");
 
-        m_HPBar = M_EnemyHPBar.SpawnHPBar(); //transform.GetChild("Fill").GetComponent<Image>();
-        m_HPBar.fillAmount = 1f;
-        m_HPBar.m_EnemyTransform = transform;
-        m_HPBar.gameObject.SetActive(true);
+        //m_HPBar = M_EnemyHPBar.SpawnHPBar();
+        //m_HPBar.fillAmount = 1f;
+        //m_HPBar.m_EnemyTransform = transform;
+        //m_HPBar.gameObject.SetActive(true);
 
         enemyskillmanager = EnemySkillManager.Instance;
 
