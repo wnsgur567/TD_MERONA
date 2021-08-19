@@ -9,11 +9,18 @@ public class Stage_EnemyManager : Singleton<Stage_EnemyManager>
     protected DataTableManager M_DataTable => DataTableManager.Instance;
 
     private Stage_TableExcelLoader stage_excel_loader => M_DataTable.GetDataTable<Stage_TableExcelLoader>();
-    
+
+    [SerializeField] SceneStartEventReciever reciever;
+
     private int monsterCode;
     private bool stagechange = false;
 
     void Start()
+    {
+        reciever.m_scene_start_event.AddListener(Onreciever);
+    }
+
+    public void Onreciever()
     {
         StageInfoManager.Instance.OnTimeChangedEvent += OnCountChanged;
         StageInfoManager.Instance.OnStageChangedEvent += OnStageChanged;
