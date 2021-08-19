@@ -60,6 +60,7 @@ public class Tower : MonoBehaviour
     public Tower_TableExcel ExcelData => m_TowerInfo_Excel; // cha
     public E_Direction Direction { get => m_TowerInfo.Direction; set => m_TowerInfo.Direction = value; }
     public Node Node { get => m_TowerInfo.node; set => m_TowerInfo.node = value; }
+    public bool CanAttack { get => m_TowerInfo.CanAttack; set => m_TowerInfo.CanAttack = value; }
     public string Name => m_TowerInfo_Excel.Name_EN;
     public int TowerCode => m_TowerInfo_Excel.Code;
     public int TowerKind => m_TowerInfo_Excel.Tower_Kinds;
@@ -72,26 +73,27 @@ public class Tower : MonoBehaviour
     protected void RotateToTarget()
     {
         // 회전할 방향
-        Vector3 dir;
+        Vector3 lookingDir;
 
         // 타겟이 없으면
         if (null == m_Target)
         {
             // 초기 방향으로 방향 설정
-            dir = m_TowerInfo.InitialRotation;
+            lookingDir = m_TowerInfo.LookingDir * 100f;
         }
         // 타겟이 있으면
         else
         {
             // 타겟 방향으로 방향 설정
-            dir = m_Target.transform.position - transform.position;
+            lookingDir = m_Target.transform.position - transform.position;
         }
 
         // y 회전 방지
-        dir.y = transform.position.y;
+        lookingDir.y = 0f;
 
         // 회전
-        transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.LookRotation(dir), RotateSpeed);
+        //transform.localEulerAngles = Quaternion.Lerp(transform.localRotation, Quaternion.LookRotation(lookingDir), RotateSpeed).eulerAngles;
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lookingDir), RotateSpeed);
     }
     // 타겟 업데이트
     protected void UpdateTarget()
@@ -150,7 +152,7 @@ public class Tower : MonoBehaviour
             m_TowerInfo.AttackTimer_Default += Time.deltaTime;
         }
         // 기본 스킬 공격
-        else if (null != m_Target)
+        else if (m_TowerInfo.CanAttack && null != m_Target)
         {
             // 내부 데이터 정리
             m_TowerInfo.AttackTimer_Default -= m_TowerInfo.AttackSpeed_Default;
@@ -164,7 +166,7 @@ public class Tower : MonoBehaviour
         {
             m_TowerInfo.AttackTimer_Skill01 += Time.deltaTime;
         }
-        else if (null != m_Target)
+        else if (m_TowerInfo.CanAttack && null != m_Target)
         {
             m_TowerInfo.AttackTimer_Skill01 -= m_TowerInfo.AttackSpeed_Skill01;
 
@@ -177,7 +179,7 @@ public class Tower : MonoBehaviour
         {
             m_TowerInfo.AttackTimer_Skill02 += Time.deltaTime;
         }
-        else if (null != m_Target)
+        else if (m_TowerInfo.CanAttack && null != m_Target)
         {
             m_TowerInfo.AttackTimer_Skill02 -= m_TowerInfo.AttackSpeed_Skill02;
 
@@ -202,6 +204,11 @@ public class Tower : MonoBehaviour
 
     #region 외부 함수
     // 타워 초기화
+    [ContextMenu("Init")]
+    public void InitializeTower()
+    {
+        InitializeTower(m_CodeTemp, m_SizeTemp);
+    }
     public void InitializeTower(int code, float size = 1.0f)
     {
         #region 엑셀 데이터 정리
@@ -211,9 +218,16 @@ public class Tower : MonoBehaviour
         #region 내부 데이터 정리
         m_TowerInfo.RotateSpeed = 5f;
         m_TowerInfo.ShouldFindTarget = true;
+        m_TowerInfo.CanAttack = false;
 
+        // null 병합 연산자 안되는 이유
+        // https://overworks.github.io/unity/2019/07/22/null-of-unity-object-part-2.html
+        // m_TowerInfo.AttackPivot ??= transform.Find("Mesh").GetChild("AttackPivot");
         // 공격 피벗
-        m_TowerInfo.AttackPivot ??= transform.GetChild("AttackPivot");
+        if (m_TowerInfo.AttackPivot == null)
+        {
+            m_TowerInfo.AttackPivot = transform.Find("Mesh").GetChild("AttackPivot");
+        }
 
         // 기본 스킬 데이터
         m_TowerInfo.Condition_Default = M_Skill.GetConditionData(m_TowerInfo_Excel.Atk_Code);
@@ -238,24 +252,55 @@ public class Tower : MonoBehaviour
 
         // 시너지
         m_TowerInfo.Synergy_Atk_type = E_AttackType.None;
-        m_TowerInfo.BuffList ??= new List<BuffCC_TableExcel>();
-        m_TowerInfo.BerserkerBuffList ??= new List<BuffCC_TableExcel>();
+
+        //m_TowerInfo.BuffList ??= new List<BuffCC_TableExcel>();
+        if (m_TowerInfo.BuffList == null)
+            m_TowerInfo.BuffList = new List<BuffCC_TableExcel>();
+        else if (m_TowerInfo.BuffList.Count > 0)
+            m_TowerInfo.BuffList.Clear();
+
+        //m_TowerInfo.BerserkerBuffList ??= new List<BuffCC_TableExcel>();
+        if (m_TowerInfo.BerserkerBuffList == null)
+            m_TowerInfo.BerserkerBuffList = new List<BuffCC_TableExcel>();
+        else if (m_TowerInfo.BerserkerBuffList.Count > 0)
+            m_TowerInfo.BerserkerBuffList.Clear();
 
         // 마왕 스킬
-        m_TowerInfo.DevilSkillBuffList ??= new List<BuffCC_TableExcel>();
+        //m_TowerInfo.DevilSkillBuffList ??= new List<BuffCC_TableExcel>();
+        if (m_TowerInfo.DevilSkillBuffList == null)
+            m_TowerInfo.DevilSkillBuffList = new List<BuffCC_TableExcel>();
+        else if (m_TowerInfo.DevilSkillBuffList.Count > 0)
+            m_TowerInfo.DevilSkillBuffList.Clear();
         #endregion
 
         #region 내부 컴포넌트
-        m_TowerAnimator ??= GetComponentInChildren<TowerAnimator>(true);
+        // m_TowerAnimator ??= GetComponentInChildren<TowerAnimator>(true);
+        if (m_TowerAnimator == null)
+            m_TowerAnimator = GetComponentInChildren<TowerAnimator>(true);
         m_TowerAnimator.transform.localScale = Vector3.one * size;
 
-        m_AttackRange_Default ??= transform.Find("AttackRange_Default").AddComponent<AttackRange>();
+        // m_AttackRange_Default ??= transform.Find("AttackRange_Default").AddComponent<AttackRange>();
+        if (m_AttackRange_Default == null)
+        {
+            m_AttackRange_Default = transform.Find("AttackRange_Default").AddComponent<AttackRange>();
+            m_AttackRange_Default.gameObject.layer = LayerMask.NameToLayer("Tower");
+        }
         m_AttackRange_Default.Range = m_TowerInfo.Stat_Default.Range;
 
-        m_AttackRange_Skill01 ??= transform.Find("AttackRange_Skill01").AddComponent<AttackRange>();
+        //m_AttackRange_Skill01 ??= transform.Find("AttackRange_Skill01").AddComponent<AttackRange>();
+        if (m_AttackRange_Skill01 == null)
+        {
+            m_AttackRange_Skill01 = transform.Find("AttackRange_Skill01").AddComponent<AttackRange>();
+            m_AttackRange_Skill01.gameObject.layer = LayerMask.NameToLayer("Tower");
+        }
         m_AttackRange_Skill01.Range = m_TowerInfo.Stat_Skill01.Range;
 
-        m_AttackRange_Skill02 ??= transform.Find("AttackRange_Skill02").AddComponent<AttackRange>();
+        //m_AttackRange_Skill02 ??= transform.Find("AttackRange_Skill02").AddComponent<AttackRange>();
+        if (m_AttackRange_Skill02 == null)
+        {
+            m_AttackRange_Skill02 = transform.Find("AttackRange_Skill02").AddComponent<AttackRange>();
+            m_AttackRange_Skill02.gameObject.layer = LayerMask.NameToLayer("Tower");
+        }
         m_AttackRange_Skill02.Range = m_TowerInfo.Stat_Skill02.Range;
         #endregion
     }
@@ -2329,20 +2374,20 @@ public class Tower : MonoBehaviour
         // if this tower is located in Inventory => true
         // in NODE => false
         public bool IsOnInventory;
-
-        // cha
+        // 노드
         public Node node;
-
         // 타워 방향
         public E_Direction Direction;
         // 회전 속도
         public float RotateSpeed;
         // 초기 회전 값
-        public Vector3 InitialRotation;
+        public Vector3 LookingDir;
         // 적 감지 여부
         public bool ShouldFindTarget;
         // 공격 피벗
         public Transform AttackPivot;
+        // 공격 가능 여부
+        public bool CanAttack;
 
         // 기본 스킬 데이터
         public SkillCondition_TableExcel Condition_Default;

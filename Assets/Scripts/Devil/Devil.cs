@@ -81,6 +81,15 @@ public class Devil : MonoBehaviour
         m_DevilInfo.InitialRotation = transform.eulerAngles;
         m_DevilInfo.ShouldFindTarget = true;
 
+        // 공격 피벗
+        // m_DevilInfo.AttackPivot ??= transform.GetChild("AttackPivot");
+        if (null == m_DevilInfo.AttackPivot)
+            m_DevilInfo.AttackPivot = transform.GetChild("AttackPivot");
+        // 피격 피벗
+        // m_DevilInfo.HitPivot ??= transform.GetChild("HitPivot");
+        if (null == m_DevilInfo.HitPivot)
+            m_DevilInfo.HitPivot = transform.GetChild("HitPivot");
+
         // 기본 스킬 데이터
         m_DevilInfo.Condition_Default = M_Skill.GetConditionData(m_DevilInfo_Excel.Atk_Code);
         m_DevilInfo.Stat_Default = M_Skill.GetStatData(m_DevilInfo_Excel.Atk_Code);
@@ -305,6 +314,8 @@ public class Devil : MonoBehaviour
         public bool ShouldFindTarget;
         // 공격 피벗
         public Transform AttackPivot;
+        // 피격 피벗
+        public Transform HitPivot;
 
         // 기본 스킬 데이터
         public SkillCondition_TableExcel Condition_Default;

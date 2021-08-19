@@ -14,7 +14,16 @@ public class TowerAnimator : MonoBehaviour
     #endregion
 
     #region 외부 프로퍼티
-    public Animator m_Animator => m_animator;
+    public Animator m_Animator // => m_animator ??= GetComponent<Animator>();
+    { 
+        get
+        {
+            if (m_animator == null)
+                m_animator = GetComponent<Animator>();
+
+            return m_animator;
+        }
+    }
     #endregion
 
     #region 내부 함수

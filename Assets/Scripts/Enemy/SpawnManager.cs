@@ -24,9 +24,11 @@ public class SpawnManager : Singleton<SpawnManager>
 
     private List<StageEnemy_TableExcel> m_StageEnemyInfo_Excel;
 
-    private SpawnData[] m_StageEnemyInfo;
+    [SerializeField] SpawnData[] m_StageEnemyInfo;
 
-    private int countnum = 0;
+    [SerializeField] int countnum = 0;
+
+    [SerializeField] int startnum = 0;
 
     private Enemy_TableExcel m_Enemyinfo_Excel;
 
@@ -39,6 +41,8 @@ public class SpawnManager : Singleton<SpawnManager>
     //스테이지 시작
     public void Start_Stage(int code)
     {
+        ++startnum;
+
         InitializeStageEnemy(code);
 
         for (int i = 0; i < countnum; i++)
@@ -97,8 +101,8 @@ public class SpawnManager : Singleton<SpawnManager>
     private void SpawnEnemy(E_Direction dir, int num)
     {
         Enemy enemy = enemyPool.GetPool(GetPrefebName(m_StageEnemyInfo[num].Monster_Code)).Spawn();
-        enemy.InitSetting(dir);
-        enemy.transform.position = spawnPoint[(int)dir].position;
+        enemy.InitSetting(dir - 1);
+        enemy.transform.position = spawnPoint[(int)dir - 1].position;
 
         enemy.gameObject.SetActive(true);
 
@@ -147,7 +151,7 @@ public class SpawnManager : Singleton<SpawnManager>
         //처음 등장 속도
         yield return new WaitForSeconds(m_StageEnemyInfo[num].AppearSpeed);
 
-        for (int i = 0; i < m_StageEnemyInfo[num].Create_num; ++i)
+        for (int i = 0; i < m_StageEnemyInfo[num].Create_num - 1; ++i)
         {
             SpawnEnemy(dir, num);
             //생성 속도

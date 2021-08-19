@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -80,28 +81,33 @@ public class Enemy : MonoBehaviour
 
     private Dictionary<int, IEnumerator> debuff;
 
+    private Dictionary<int, IEnumerator> m_buff;
+
     //현재 바라보고 있는 waypoint
-    private Transform target;
+    [SerializeField] Transform target;
 
-    private int waypointIndex = 0;
+    [SerializeField] int waypointIndex = 0;
 
-    private E_Direction direc;
+    [SerializeField] E_Direction direc;
 
     private Animator animator;
 
     private bool isStun = false;
 
-    private Enemy_Data m_EnemyInfo;
+    [SerializeField] Enemy_Data m_EnemyInfo;
+
+    private float MaxHp;
 
     //체력바
-    [SerializeField] Image image;
+    private Image image;
 
     private Enemy_TableExcel m_Enemyinfo_Excel;
     private EnemyManager M_Enemy => EnemyManager.Instance;
 
     private DataTableManager M_DataTable => DataTableManager.Instance;
-    private SkillCondition_TableExcelLoader skillcondition_table;
-    private SkillStat_TableExcelLoader skillstat_table;
+    private SkillCondition_TableExcelLoader skillcondition_table => M_DataTable.GetDataTable<SkillCondition_TableExcelLoader>();
+    private SkillStat_TableExcelLoader skillstat_table => M_DataTable.GetDataTable<SkillStat_TableExcelLoader>();
+    private BuffCC_TableExcelLoader buffcc_table => M_DataTable.GetDataTable<BuffCC_TableExcelLoader>();
 
     #region 시너지 관련
     // 버프
@@ -112,10 +118,10 @@ public class Enemy : MonoBehaviour
     private float Origin_HP;
 
     public bool isDivide = false;
+    private bool isDefBuff = false;
 
     //범위
     protected SphereCollider m_RangeCollider;
-    protected SphereCollider RangeCollider => m_RangeCollider ?? GetComponent<SphereCollider>();
 
     //스킬 쓸때 주변 Enemy 저장
     private List<Enemy> Enemy_obj;
@@ -128,37 +134,46 @@ public class Enemy : MonoBehaviour
     private SkillStat_TableExcel atkstatdata;
 
     private SkillCondition_TableExcel skillconditiondata;
-    private SkillStat_TableExcel skillstatdata;
+    [SerializeField] SkillStat_TableExcel skillstatdata;
 
-    //Enemy 투사체
-    [SerializeField] int projectile_prefeb;
+    public Transform AttackPivot;
+    public Transform HitPivot;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy")
+        Enemy_obj.Add(this);
+
+        for (int i = 0; i < skillstatdata.Target_num - 1; i++)
         {
-            Enemy_obj.Add(other.gameObject.transform.Find("Enemy").GetComponent<Enemy>());
+            Enemy_obj.Add(other.gameObject.GetComponent<Enemy>());
         }
     }
 
     private void Start()
     {
+        debuff = new Dictionary<int, IEnumerator>();
+        m_buff = new Dictionary<int, IEnumerator>();
+
+        gameObject.layer = LayerMask.NameToLayer("Enemy");
+
+        image = transform.GetChild("Fill").GetComponent<Image>();
+
         enemyskillmanager = EnemySkillManager.Instance;
 
-        m_RangeCollider = GetComponent<SphereCollider>();
-        m_RangeCollider ??= gameObject.AddComponent<SphereCollider>();
+        transform.Find("EnemySkillRange").gameObject.layer = LayerMask.NameToLayer("EnemySkillRange");
+        m_RangeCollider = transform.Find("EnemySkillRange").GetComponent<SphereCollider>();
         m_RangeCollider.isTrigger = true;
 
         BuffList = new List<BuffCC_TableExcel>();
 
         animator = transform.Find("Mesh").GetComponent<Animator>();
 
+        AttackPivot = transform.GetChild("AttackPivot");
+        HitPivot = transform.GetChild("HitPivot");
+
         Enemy_obj = new List<Enemy>();
 
         //스킬 데이터
-        skillcondition_table = M_DataTable.GetDataTable<SkillCondition_TableExcelLoader>();
-        skillstat_table = M_DataTable.GetDataTable<SkillStat_TableExcelLoader>();
-
         atkconditiondata = enemyskillmanager.GetConditionData(m_EnemyInfo.Atk_Code);
 
         atkstatdata = enemyskillmanager.GetStatData(atkconditiondata.PassiveCode);
@@ -194,10 +209,7 @@ public class Enemy : MonoBehaviour
         }
 
         //스킬 쓰는 몬스터만
-        if (m_EnemyInfo.Name_EN == "Defender01" || m_EnemyInfo.Name_EN == "Defender02" 
-            || m_EnemyInfo.Name_EN == "Defender03" || m_EnemyInfo.Name_EN == "Defender04"
-            || m_EnemyInfo.Name_EN == "DwarfWarrior01" || m_EnemyInfo.Name_EN == "DwarfWarrior02"
-            || m_EnemyInfo.Name_EN == "DwarfWarrior04" || m_EnemyInfo.Name_EN == "DwarfWarrior04")
+        if (m_EnemyInfo.Skill1Code > 0)
         {
             skillconditiondata = enemyskillmanager.GetConditionData(m_EnemyInfo.Skill1Code);
 
@@ -237,8 +249,16 @@ public class Enemy : MonoBehaviour
 
         if (!isStun)
         {
+            //Vector3 dir = target.position - transform.position;
+            //transform.Translate(dir.normalized * m_EnemyInfo.Move_spd * Time.deltaTime, Space.World);
+
+            //if (Vector3.Distance(transform.position, target.position) <= 0.2f)
+            //{
+            //    GetNextWayPoint();
+            //}
+
             Vector3 dir = target.position - transform.position;
-            transform.Translate(dir.normalized * m_EnemyInfo.Move_spd * Time.deltaTime, Space.World);
+            transform.Translate(dir.normalized * 1f * Time.deltaTime, Space.World);
 
             if (Vector3.Distance(transform.position, target.position) <= 0.2f)
             {
@@ -293,13 +313,15 @@ public class Enemy : MonoBehaviour
         m_EnemyInfo.HPSkillCast = m_Enemyinfo_Excel.HPSkillCast;
         m_EnemyInfo.Prefeb = m_Enemyinfo_Excel.Prefab;
 
+        MaxHp = m_EnemyInfo.HP;
+
         #endregion
     }
 
     // 스턴
-    public void On_Stun()
+    public void On_Stun(int code)
     {
-        StartCoroutine(OnStun());
+        StartCoroutine(OnStun(code));
     }
 
     //소환
@@ -541,7 +563,10 @@ public class Enemy : MonoBehaviour
                             StartCoroutine(PersentBuff_DeBuffTime(Buff_Debufftime, buff.BuffType, BuffAmount));
                             break;
                         case E_BuffType.Stun:
-                            On_Stun();
+
+                            int code = BuffList[i].Code;
+
+                            On_Stun(code);
                             break;
                         case E_BuffType.Insta_Kill:
                             On_Death();
@@ -620,6 +645,151 @@ public class Enemy : MonoBehaviour
             On_Death();
         }
 
+    }
+
+    public void On_SkillBuff()
+    {
+        // 버프 적용 확률
+        List<float> BuffRand = new List<float>();
+        // 버프 적용 여부
+        List<bool> BuffApply = new List<bool>();
+        // 버프 적용 계산
+        for (int i = 0; i < BuffList.Count; ++i)
+        {
+            BuffRand.Add(Random.Range(0f, 1f));
+            BuffApply.Add((E_BuffType)BuffList[i].BuffType1 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand1);
+            BuffRand.Add(Random.Range(0f, 1f));
+            BuffApply.Add((E_BuffType)BuffList[i].BuffType2 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand2);
+            BuffRand.Add(Random.Range(0f, 1f));
+            BuffApply.Add((E_BuffType)BuffList[i].BuffType3 == E_BuffType.None ? false : BuffRand[BuffRand.Count - 1] <= BuffList[i].BuffRand3);
+        }
+
+        S_Buff buff;
+
+        #region 버프 합연산
+
+        for (int i = 0; i < BuffList.Count; ++i)
+        {
+            // 버프1 체크
+            if (BuffApply[i * 3])
+            {
+                buff = new S_Buff(
+                    BuffList[i].BuffType1,
+                    BuffList[i].AddType1,
+                    BuffList[i].BuffAmount1,
+                    BuffList[i].BuffRand1,
+                    BuffList[i].Summon1
+                    );
+
+                float BuffAmount = buff.BuffAmount;
+                float Buff_Debufftime = BuffList[i].Duration;
+
+                // 버프1 합연산
+                if (buff.AddType == E_AddType.Percent)
+                {
+                    switch (buff.BuffType)
+                    {
+                        case E_BuffType.Heal:
+                            // 버프 코드
+                            int code = BuffList[i].Code;
+
+                            float amount = Get_EnemyHP * BuffAmount;
+
+                            //총 도트 데미지를 초당으로 데미지로 바꾸기
+                            float hp_heal = amount / Buff_Debufftime;
+
+                            // 적용되고 있는 버프 중 현재 버프 코드가 없으면
+                            if (!m_buff.ContainsKey(code))
+                            {
+                                // 추가
+                                m_buff.Add(code, HealTime(code, Buff_Debufftime, hp_heal));
+                            }
+                            // 버프 코드가 있으면
+                            else
+                            {
+                                if (m_buff.TryGetValue(code, out IEnumerator coroutine))
+                                {
+                                    StopCoroutine(coroutine);
+                                }
+                                m_buff[code] = HealTime(code, Buff_Debufftime, hp_heal);
+                            }
+
+                            StartCoroutine(m_buff[code]);
+                            break;
+
+                        case E_BuffType.Def:
+                            code = BuffList[i].Code;
+
+                            amount = Get_EnemyDef * BuffAmount;
+
+                            // 적용되고 있는 버프 중 현재 버프 코드가 없으면
+                            if (!m_buff.ContainsKey(code))
+                            {
+                                // 추가
+                                m_buff.Add(code, DefBuff(code, Buff_Debufftime, amount));
+                            }
+                            // 버프 코드가 있으면
+                            else
+                            {
+                                if (m_buff.TryGetValue(code, out IEnumerator coroutine))
+                                {
+                                    StopCoroutine(coroutine);
+                                }
+                                m_buff[code] = DefBuff(code, Buff_Debufftime, amount);
+                            }
+
+                            StartCoroutine(m_buff[code]);
+                            break;
+                    }
+                }
+
+                // 버프2 체크
+                if (BuffApply[i * 3 + 1])
+                {
+                    buff = new S_Buff(
+                        BuffList[i].BuffType2,
+                        BuffList[i].AddType2,
+                        BuffList[i].BuffAmount2,
+                        BuffList[i].BuffRand2,
+                        BuffList[i].Summon2
+                        );
+                    BuffAmount = buff.BuffAmount;
+
+                    // 버프2 합연산
+                    if (buff.AddType == E_AddType.Percent)
+                    {
+                        switch (buff.BuffType)
+                        {
+
+                        }
+                    }
+
+                    // 버프3 체크
+                    if (BuffApply[i * 3 + 2])
+                    {
+                        buff = new S_Buff(
+                            BuffList[i].BuffType3,
+                            BuffList[i].AddType3,
+                            BuffList[i].BuffAmount3,
+                            BuffList[i].BuffRand3,
+                            BuffList[i].Summon3
+                            );
+                        BuffAmount = buff.BuffAmount;
+
+                        // 버프3 합연산
+                        if (buff.AddType == E_AddType.Percent)
+                        {
+                            switch (buff.BuffType)
+                            {
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #endregion
     }
 
     #endregion
@@ -709,7 +879,7 @@ public class Enemy : MonoBehaviour
 
     //스턴
     //애니메이션 추가
-    IEnumerator OnStun()
+    IEnumerator OnStun(int code)
     {
         isStun = true;
 
@@ -759,10 +929,14 @@ public class Enemy : MonoBehaviour
                 m_EnemyInfo.Move_spd = origin;
                 break;
         }
+
+        //debuff[code] = null;
+        BuffList.RemoveAt(0);
     }
 
     IEnumerator Dot_DmgTime(int code, float time, float dmg)
     {
+        BuffList.RemoveAt(0);
         for (int i = 0; i < time; i++)
         {
             m_EnemyInfo.HP -= dmg;
@@ -770,24 +944,71 @@ public class Enemy : MonoBehaviour
         }
 
         debuff[code] = null;
+        BuffList.RemoveAt(0);
     }
+
+    IEnumerator HealTime(int code, float time, float hp_heal)
+    {
+        for (int i = 0; i < time; i++)
+        {
+            if (m_EnemyInfo.HP <= MaxHp)
+            {
+                m_EnemyInfo.HP += hp_heal;
+
+                if (MaxHp < m_EnemyInfo.HP)
+                {
+                    m_EnemyInfo.HP = MaxHp;
+                }
+            }
+
+            yield return new WaitForSeconds(1f);
+        }
+
+        m_buff[code] = null;
+        BuffList.RemoveAt(0);
+    }
+
+    IEnumerator DefBuff(int code, float time, float amount)
+    {
+        float origin = m_EnemyInfo.Def;
+
+        m_EnemyInfo.Def = amount;
+
+        yield return new WaitForSeconds(time);
+
+        m_EnemyInfo.Def = origin;
+
+        m_buff[code] = null;
+        BuffList.RemoveAt(0);
+    }
+
     #endregion
 
     #region Call함수
 
-    private void CallAttack()
+    public void CallAttack()
     {
         m_EnemyInfo.Atk *= atkstatdata.Dmg;
         enemyskillmanager.SpawnProjectileSkill(atkconditiondata.projectile_prefab, m_EnemyInfo.Atk, atkconditiondata, atkstatdata);
     }
 
-    private void CallSkill()
+    public void CallSkill()
     {
+        for (int i = 0; i < Enemy_obj.Count; i++)
+        {
+            if (Enemy_obj[i] != null)
+            {
+                BuffCC_TableExcel setbuff;
 
-        BuffList.RemoveAt(0);
+                setbuff = buffcc_table.DataList.Where(item => item.Code == m_EnemyInfo.Skill1Code).Single();
+
+                Enemy_obj[i].BuffList.Add(setbuff);
+                Enemy_obj[i].On_SkillBuff();
+            }
+        }
     }
 
-    private void CallDie()
+    public void CallDie()
     {
         SpawnManager.Instance.Despawn(this);
     }

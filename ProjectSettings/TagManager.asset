@@ -20,19 +20,19 @@ TagManager:
   - 
   - Water
   - UI
-  - TowerAttackRange
-  - BulletAttackRange
-  - Monster
+  - 
+  - 
+  - Enemy
+  - EnemyProjectile
   - Node
   - NodeRotate
-  - 
   - Character
   - MainSceneCharUI
   - 
-  - 
+  - Devil
   - Tower
-  - 
-  - 
+  - TowerProjectile
+  - EnemySkillRange
   - 
   - 
   - 

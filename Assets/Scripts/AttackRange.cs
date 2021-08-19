@@ -7,7 +7,19 @@ using UnityEngine;
 public class AttackRange : MonoBehaviour
 {
     protected SphereCollider m_RangeCollider;
-    protected SphereCollider RangeCollider => m_RangeCollider ?? GetComponent<SphereCollider>();
+    protected SphereCollider RangeCollider
+    {
+        get
+        {
+            if (m_RangeCollider == null)
+            {
+                m_RangeCollider = GetComponent<SphereCollider>();
+            }
+
+            return m_RangeCollider;
+        }
+    }
+    [SerializeField]
     protected List<Enemy> m_TargetList;
     public List<Enemy> TargetList => m_TargetList;
 
@@ -16,7 +28,9 @@ public class AttackRange : MonoBehaviour
     private void Awake()
     {
         m_RangeCollider = GetComponent<SphereCollider>();
-        m_RangeCollider ??= gameObject.AddComponent<SphereCollider>();
+        //m_RangeCollider ??= gameObject.AddComponent<SphereCollider>();
+        if (null == m_RangeCollider)
+            m_RangeCollider = gameObject.AddComponent<SphereCollider>();
         m_RangeCollider.isTrigger = true;
         m_TargetList = new List<Enemy>();
     }

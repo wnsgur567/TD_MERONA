@@ -5,9 +5,14 @@ using UnityEngine;
 
 public class Node : MonoBehaviour
 {
+    [ReadOnly]
+    public E_NodeType m_NodeType;
+    [ReadOnly]
+    public E_Direction m_Direction;
+    [ReadOnly]
+    public Tower m_Tower;
     [SerializeField, ReadOnly]
     protected GameObject m_Outline;
-    public Tower m_Tower;
 
     #region 내부 프로퍼티
     protected NodeManager M_Node => NodeManager.Instance;
@@ -28,10 +33,11 @@ public class Node : MonoBehaviour
         m_Tower.transform.localEulerAngles = Vector3.zero;
         m_Tower.Node = this;
         m_Tower.m_TowerInfo.Direction = (E_Direction)Enum.Parse(typeof(E_Direction), transform.parent.name);
-        m_Tower.m_TowerInfo.InitialRotation = Vector3.forward * 90f * (int)m_Tower.Direction;
+        m_Tower.m_TowerInfo.LookingDir = m_Tower.transform.forward;
 
         m_Tower.gameObject.SetActive(true);
         m_Tower.m_TowerInfo.IsOnInventory = false;
+        m_Tower.m_TowerInfo.CanAttack = true;
 
         M_Tower.AddTower(tower, m_Tower.m_TowerInfo.Direction);
         M_Synergy.UpdateSynergy();
@@ -45,6 +51,7 @@ public class Node : MonoBehaviour
 
     private void Awake()
     {
+        m_Direction = (E_Direction)Enum.Parse(typeof(E_Direction), transform.parent.name);
         m_Outline = transform.Find("Outline").gameObject;
         //m_Outline.SetActive(false);
     }

@@ -34,11 +34,13 @@ public class EnemySkill : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //마왕 데미지 주는 함수 불러오기
-        if (other.tag == "Devil")
-        {
-            ArrivedToTarget = true;
-        }
+        //조건 추가
+        ArrivedToTarget = true;
+    }
+
+    private void Start()
+    {
+        gameObject.layer = LayerMask.NameToLayer("EnemyProjectile");
     }
 
     private void Update()
