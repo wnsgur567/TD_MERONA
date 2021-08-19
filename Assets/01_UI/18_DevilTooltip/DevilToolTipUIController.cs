@@ -71,9 +71,14 @@ public class DevilToolTipUIController : MonoBehaviour, IPointerEnterHandler, IPo
         m_skill_2.SetUI(skill_data2);
     }
 
-    public void SetPosition(Vector3 mousePos)
+    public void SetPosition(Vector2 mousePos)
     {
-        this.transform.position = mousePos;
+        var m_rt = this.GetComponent<RectTransform>();
+        float tooltip_widht = m_rt.rect.width;
+        float tooltip_height = m_rt.rect.height;
+
+        this.transform.position =
+            mousePos + new Vector2(tooltip_widht * 0.5f, -tooltip_height * 0.5f);
     }
 
     private void Update()
@@ -87,7 +92,7 @@ public class DevilToolTipUIController : MonoBehaviour, IPointerEnterHandler, IPo
                 return;
 
             // out of panel
-            TowerToolTipManager.Instance.DeActivateTooltip();
+            DevilToolTipManager.Instance.DeActivateTooltip();
         }
     }
 

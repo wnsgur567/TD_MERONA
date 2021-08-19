@@ -36,10 +36,10 @@ public class DevilToolTipRaycastChecker : MonoBehaviour
                    layermask))
                 {
                     Node hit_node = hitinfo.collider.gameObject.GetComponent<Node>();
-                    Tower tower = hit_node.m_Tower;
-                    if (tower != null && tower.Direction == E_Direction.None)
+                    Devil hit_devil = hit_node.m_Devil;
+                    if (hit_devil != null)
                         DevilToolTipManager.Instance.ActivateToolTip(
-                            DevilManager.Instance.Devil.transform.position
+                            hit_devil.transform.position
                             );
                 }
             }
