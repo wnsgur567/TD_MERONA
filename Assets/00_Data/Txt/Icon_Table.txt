@@ -50,5 +50,3 @@
 910050`Synergy/Icon/2Synergy_07;
 910051`Stage/Icon/fight_eq_icon_r;
 910052`Stage/Icon/chest_eq_icon_r;
-910053`Stage/Icon/Helm_eq_icon_r;
-910054`Stage/Icon/Helm2_eq_icon_r;

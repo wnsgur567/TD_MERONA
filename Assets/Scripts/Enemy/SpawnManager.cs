@@ -10,7 +10,7 @@ public class SpawnManager : Singleton<SpawnManager>
     {
         public int SponPosition;
         public int Create_num;
-        public int Monster_Code;
+        public int Enemy_Code;
         public float AppearSpeed;
         public float CreateSpeed;
     }
@@ -93,7 +93,7 @@ public class SpawnManager : Singleton<SpawnManager>
         {
             m_StageEnemyInfo[i].SponPosition = m_StageEnemyInfo_Excel[i].SponPosition;
             m_StageEnemyInfo[i].Create_num = m_StageEnemyInfo_Excel[i].Create_num;
-            m_StageEnemyInfo[i].Monster_Code = m_StageEnemyInfo_Excel[i].Monster_Code;
+            m_StageEnemyInfo[i].Enemy_Code = m_StageEnemyInfo_Excel[i].Emeny_Code;
             m_StageEnemyInfo[i].AppearSpeed = m_StageEnemyInfo_Excel[i].AppearSpeed;
             m_StageEnemyInfo[i].CreateSpeed = m_StageEnemyInfo_Excel[i].CreateSpeed;
         }
@@ -103,7 +103,7 @@ public class SpawnManager : Singleton<SpawnManager>
 
     private void SpawnEnemy(E_Direction dir, int num)
     {
-        Enemy enemy = enemyPool.GetPool(GetPrefebName(m_StageEnemyInfo[num].Monster_Code)).Spawn();
+        Enemy enemy = enemyPool.GetPool(GetPrefebName(m_StageEnemyInfo[num].Enemy_Code)).Spawn();
         enemy.InitSetting(dir - 1);
         enemy.transform.position = spawnPoint[(int)dir - 1].position;
 
