@@ -10,7 +10,7 @@ public class Devil : MonoBehaviour
     // ¸¶¿Õ Á¤º¸(¿¢¼¿)
     protected Tower_TableExcel m_DevilInfo_Excel;
     // ¸¶¿Õ Á¤º¸
-    protected S_DevilData m_DevilInfo;
+    [SerializeField] S_DevilData m_DevilInfo;
 
     protected delegate void DevilSkillHandler(DevilSkillArg arg);
     protected event DevilSkillHandler Skill01Event;
@@ -301,7 +301,14 @@ public class Devil : MonoBehaviour
     }
     public void GetDamage(float damage)
     {
-        m_DevilInfo.m_HP -= (damage - m_DevilInfo.m_Def);
+        float Damage = damage - m_DevilInfo.m_Def;
+
+        if (Damage < 1f)
+        {
+            Damage = 1f;
+        }
+
+        m_DevilInfo.m_HP -= Damage;
 
         UpdateHPEvent?.Invoke(MaxHP, HP);
     }

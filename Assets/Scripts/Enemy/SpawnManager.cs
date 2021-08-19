@@ -54,7 +54,8 @@ public class SpawnManager : Singleton<SpawnManager>
     // 몬스터 사망 함수
     public void Despawn(Enemy enemy)
     {
-        EnemyManager.Instance.Enemy_Direction[enemy.Get_Direction].Remove(enemy);
+        enemymanager.Enemy_Direction[enemy.Get_Direction].Remove(enemy);
+        enemymanager.All_Enemy.Remove(enemy);
         enemyPool.GetPool(enemy.Get_EnemyName_EN).DeSpawn(enemy);
     }
 
@@ -106,7 +107,8 @@ public class SpawnManager : Singleton<SpawnManager>
 
         enemy.gameObject.SetActive(true);
 
-        enemymanager.Enemy_Direction[dir].Add(enemy);
+        enemymanager.Enemy_Direction[dir - 1].Add(enemy);
+        enemymanager.All_Enemy.Add(enemy);
     }
 
     public void SpawnEnemy(E_Direction dir, Vector3 pos, Transform target, int waypointindex, string enemy_name, Animator animator)
@@ -121,7 +123,7 @@ public class SpawnManager : Singleton<SpawnManager>
 
         animator.SetBool("Skill", true);
 
-        enemymanager.Enemy_Direction[dir].Add(enemy);
+        enemymanager.Enemy_Direction[dir - 1].Add(enemy);
     }
     #endregion
 
