@@ -25,18 +25,15 @@ public class EnemySkill : MonoBehaviour
     // 타겟까지의 방향
     protected Vector3 TargetDir => TargetPos - transform.position;
 
+    // 타겟까지의 거리
+    public float DistanceTarget => Vector3.Distance(transform.position, TargetPos);
+
     // 타겟에게 도착 여부
     protected bool ArrivedToTarget;
 
     private float m_damage;
 
     #endregion
-
-    private void OnTriggerEnter(Collider other)
-    {
-        //조건 추가
-        ArrivedToTarget = true;
-    }
 
     private void Start()
     {
@@ -53,6 +50,17 @@ public class EnemySkill : MonoBehaviour
 
         RotateSkill();
         MoveSkill();
+
+        if (DistanceTarget <= 0.2f)
+        {
+            EnemyEffect effect = EnemyEffectManager.Instance.SpawnEffect(m_ConditionInfo.damage_prefab);
+
+            effect.gameObject.transform.position = DevilManager.Instance.Devil.HitPivot.position;
+            effect.gameObject.SetActive(true);
+
+            DevilManager.Instance.Devil.GetDamage(m_damage);
+            ArrivedToTarget = true;
+        }
     }
 
     #region 내부 함수
@@ -103,8 +111,9 @@ public class EnemySkill : MonoBehaviour
     #region 외부 함수
 
     //Enemy 스크립트에 있는 데이터 가져오기
-    public void InitializeSkill(float damage, SkillCondition_TableExcel conditionData, SkillStat_TableExcel statData)
+    public void InitializeSkill(float damage, SkillCondition_TableExcel conditionData, SkillStat_TableExcel statData, Transform attackpivot)
     {
+        gameObject.transform.position = attackpivot.position;
         m_ConditionInfo = conditionData;
         m_StatInfo = statData;
 

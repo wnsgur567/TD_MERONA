@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Devil : MonoBehaviour
 {
-    // Å¸°Ù
+    // íƒ€ê²Ÿ
     public Enemy m_Target;
 
-    // ¸¶¿Õ Á¤º¸(¿¢¼¿)
+    // ë§ˆì™• ì •ë³´(ì—‘ì…€)
     protected Tower_TableExcel m_DevilInfo_Excel;
-    // ¸¶¿Õ Á¤º¸
+    // ë§ˆì™• ì •ë³´
     protected S_DevilData m_DevilInfo;
 
     protected delegate void DevilSkillHandler(DevilSkillArg arg);
@@ -19,23 +19,23 @@ public class Devil : MonoBehaviour
     public delegate void DevilUpdateHPHandler(float max, float current);
     public event DevilUpdateHPHandler UpdateHPEvent;
 
-    #region ³»ºÎ ÄÄÆ÷³ÍÆ®
+    #region ë‚´ë¶€ ì»´í¬ë„ŒíŠ¸
     protected AttackRange m_AttackRange_Default;
     #endregion
 
-    #region ³»ºÎ ÇÁ·ÎÆÛÆ¼
-    // ¸¶¿Õ ¸Å´ÏÁ®
+    #region ë‚´ë¶€ í”„ë¡œí¼í‹°
+    // ë§ˆì™• ë§¤ë‹ˆì ¸
     protected DevilManager M_Devil => DevilManager.Instance;
-    // Å¸¿ö ¸Å´ÏÁ®
+    // íƒ€ì›Œ ë§¤ë‹ˆì ¸
     protected TowerManager M_Tower => TowerManager.Instance;
-    // ¹öÇÁ ¸Å´ÏÁ®
+    // ë²„í”„ ë§¤ë‹ˆì ¸
     protected BuffManager M_Buff => BuffManager.Instance;
-    // ½ºÅ³ ¸Å´ÏÁ®
+    // ìŠ¤í‚¬ ë§¤ë‹ˆì ¸
     protected SkillManager M_Skill => SkillManager.Instance;
-    // Àû ¸Å´ÏÁ®
+    // ì  ë§¤ë‹ˆì ¸
     protected EnemyManager M_Enemy => EnemyManager.Instance;
 
-    // Å¸¿ö È¸Àü ¼Óµµ
+    // íƒ€ì›Œ íšŒì „ ì†ë„
     protected float RotateSpeed
     {
         get
@@ -43,7 +43,7 @@ public class Devil : MonoBehaviour
             return m_DevilInfo.RotateSpeed * Time.deltaTime;
         }
     }
-    // Å¸°Ù±îÁöÀÇ °Å¸®
+    // íƒ€ê²Ÿê¹Œì§€ì˜ ê±°ë¦¬
     protected float DistanceToTarget
     {
         get
@@ -53,15 +53,16 @@ public class Devil : MonoBehaviour
     }
     #endregion
 
-    #region ¿ÜºÎ ÇÁ·ÎÆÛÆ¼
+    #region ì™¸ë¶€ í”„ë¡œí¼í‹°
     public float MaxHP => m_DevilInfo_Excel.HP;
     public float HP => m_DevilInfo.m_HP;
 
     public Tower_TableExcel ExcelData => m_DevilInfo_Excel;
+    public Transform HitPivot => m_DevilInfo.HitPivot;
     #endregion
 
-    #region À¯´ÏÆ¼ Äİ¹é ÇÔ¼ö
-    private void Update()
+    #region ìœ ë‹ˆí‹° ì½œë°± í•¨ìˆ˜
+    protected void Update()
     {
         RotateToTarget();
         UpdateTarget();
@@ -70,32 +71,32 @@ public class Devil : MonoBehaviour
     }
     #endregion
 
-    #region ³»ºÎ ÇÔ¼ö
-    // ¸¶¿Õ ÃÊ±âÈ­
+    #region ë‚´ë¶€ í•¨ìˆ˜
+    // ë§ˆì™• ì´ˆê¸°í™”
     protected virtual void InitializeDevil(E_Devil no)
     {
-        #region ¿¢¼¿ µ¥ÀÌÅÍ Á¤¸®
+        #region ì—‘ì…€ ë°ì´í„° ì •ë¦¬
         m_DevilInfo_Excel = M_Devil.GetData(no);
         #endregion
 
-        #region ³»ºÎ µ¥ÀÌÅÍ Á¤¸®
+        #region ë‚´ë¶€ ë°ì´í„° ì •ë¦¬
         m_DevilInfo.RotateSpeed = 5f;
         m_DevilInfo.InitialRotation = transform.eulerAngles;
         m_DevilInfo.ShouldFindTarget = true;
 
-        // °ø°İ ÇÇ¹ş
+        // ê³µê²© í”¼ë²—
         // m_DevilInfo.AttackPivot ??= transform.GetChild("AttackPivot");
         if (null == m_DevilInfo.AttackPivot)
             m_DevilInfo.AttackPivot = transform.GetChild("AttackPivot");
-        // ÇÇ°İ ÇÇ¹ş
+        // í”¼ê²© í”¼ë²—
         // m_DevilInfo.HitPivot ??= transform.GetChild("HitPivot");
         if (null == m_DevilInfo.HitPivot)
             m_DevilInfo.HitPivot = transform.GetChild("HitPivot");
 
-        // ±âº» ½ºÅ³ µ¥ÀÌÅÍ
+        // ê¸°ë³¸ ìŠ¤í‚¬ ë°ì´í„°
         m_DevilInfo.Condition_Default = M_Skill.GetConditionData(m_DevilInfo_Excel.Atk_Code);
         m_DevilInfo.Stat_Default = M_Skill.GetStatData(m_DevilInfo_Excel.Atk_Code);
-        // ±âº» ½ºÅ³
+        // ê¸°ë³¸ ìŠ¤í‚¬
         m_DevilInfo.AttackSpeed_Default = m_DevilInfo.Stat_Default.CoolTime;
         m_DevilInfo.AttackTimer_Default = m_DevilInfo.Stat_Default.CoolTime;
 
@@ -103,7 +104,7 @@ public class Devil : MonoBehaviour
         m_DevilInfo.m_Def = m_DevilInfo_Excel.Def;
         #endregion
 
-        #region ³»ºÎ ÄÄÆ÷³ÍÆ®
+        #region ë‚´ë¶€ ì»´í¬ë„ŒíŠ¸
         if (null == m_AttackRange_Default)
         {
             m_AttackRange_Default = transform.Find("AttackRange_Default").AddComponent<AttackRange>();
@@ -112,32 +113,32 @@ public class Devil : MonoBehaviour
         m_AttackRange_Default.Range = m_DevilInfo.Stat_Default.Range;
         #endregion
     }
-    // ¸¶¿Õ È¸Àü
+    // ë§ˆì™• íšŒì „
     protected void RotateToTarget()
     {
-        // È¸ÀüÇÒ ¹æÇâ
+        // íšŒì „í•  ë°©í–¥
         Vector3 dir;
 
-        // Å¸°ÙÀÌ ¾øÀ¸¸é
+        // íƒ€ê²Ÿì´ ì—†ìœ¼ë©´
         if (null == m_Target)
         {
-            // ÃÊ±â ¹æÇâÀ¸·Î ¹æÇâ ¼³Á¤
+            // ì´ˆê¸° ë°©í–¥ìœ¼ë¡œ ë°©í–¥ ì„¤ì •
             dir = m_DevilInfo.InitialRotation;
         }
-        // Å¸°ÙÀÌ ÀÖÀ¸¸é
+        // íƒ€ê²Ÿì´ ìˆìœ¼ë©´
         else
         {
-            // Å¸°Ù ¹æÇâÀ¸·Î ¹æÇâ ¼³Á¤
+            // íƒ€ê²Ÿ ë°©í–¥ìœ¼ë¡œ ë°©í–¥ ì„¤ì •
             dir = m_Target.transform.position - transform.position;
         }
 
-        // È¸Àü
+        // íšŒì „
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), RotateSpeed);
     }
-    // Å¸°Ù ¾÷µ¥ÀÌÆ®
+    // íƒ€ê²Ÿ ì—…ë°ì´íŠ¸
     protected void UpdateTarget()
     {
-        // Å¸°Ù º¯°æ ±âÁØ¿¡ µû¶ó
+        // íƒ€ê²Ÿ ë³€ê²½ ê¸°ì¤€ì— ë”°ë¼
         switch ((E_TargetType)m_DevilInfo.Condition_Default.Target_type)
         {
             case E_TargetType.CloseTarget:
@@ -154,42 +155,42 @@ public class Devil : MonoBehaviour
                     m_DevilInfo.ShouldFindTarget = false;
                 }
                 break;
-            // FixTarget (Å¸°ÙÀÌ »ç°Å¸®¸¦ ¹ş¾î³ª°Å³ª Á×Àº °æ¿ì º¯°æ)
+            // FixTarget (íƒ€ê²Ÿì´ ì‚¬ê±°ë¦¬ë¥¼ ë²—ì–´ë‚˜ê±°ë‚˜ ì£½ì€ ê²½ìš° ë³€ê²½)
             case E_TargetType.FixTarget:
-                if (null == m_Target || // ¿¹¿ÜÃ³¸®
-                    DistanceToTarget > m_DevilInfo.Stat_Default.Range) // Å¸°ÙÀÌ »ç°Å¸®¸¦ ¹ş¾î³­ °æ¿ì
+                if (null == m_Target || // ì˜ˆì™¸ì²˜ë¦¬
+                    DistanceToTarget > m_DevilInfo.Stat_Default.Range) // íƒ€ê²Ÿì´ ì‚¬ê±°ë¦¬ë¥¼ ë²—ì–´ë‚œ ê²½ìš°
                 {
                     m_Target = m_AttackRange_Default.GetNearTarget();
                 }
                 break;
         }
     }
-    // ¸¶¿Õ °ø°İ
+    // ë§ˆì™• ê³µê²©
     protected void AttackTarget()
     {
-        #region ±âº» ½ºÅ³
-        // ±âº» ½ºÅ³ Å¸ÀÌ¸Ó
+        #region ê¸°ë³¸ ìŠ¤í‚¬
+        // ê¸°ë³¸ ìŠ¤í‚¬ íƒ€ì´ë¨¸
         if (m_DevilInfo.AttackTimer_Default < m_DevilInfo.AttackSpeed_Default)
         {
             m_DevilInfo.AttackTimer_Default += Time.deltaTime;
         }
-        // ±âº» ½ºÅ³ °ø°İ
+        // ê¸°ë³¸ ìŠ¤í‚¬ ê³µê²©
         else if (null != m_Target)
         {
-            // ³»ºÎ µ¥ÀÌÅÍ Á¤¸®
+            // ë‚´ë¶€ ë°ì´í„° ì •ë¦¬
             m_DevilInfo.AttackTimer_Default -= m_DevilInfo.AttackSpeed_Default;
             m_DevilInfo.AttackSpeed_Default = m_DevilInfo.Stat_Default.CoolTime;
             m_DevilInfo.ShouldFindTarget = true;
 
-            // ±âº» ½ºÅ³ µ¥ÀÌÅÍ ºÒ·¯¿À±â
+            // ê¸°ë³¸ ìŠ¤í‚¬ ë°ì´í„° ë¶ˆëŸ¬ì˜¤ê¸°
             SkillCondition_TableExcel conditionData = m_DevilInfo.Condition_Default;
             SkillStat_TableExcel statData = m_DevilInfo.Stat_Default;
 
-            // ±âº» ´ë¹ÌÁö ¼³Á¤
+            // ê¸°ë³¸ ëŒ€ë¯¸ì§€ ì„¤ì •
             statData.Dmg *= m_DevilInfo_Excel.Atk;
             statData.Dmg += statData.Dmg_plus;
 
-            // ±âº» ½ºÅ³ Åõ»çÃ¼ »ı¼º
+            // ê¸°ë³¸ ìŠ¤í‚¬ íˆ¬ì‚¬ì²´ ìƒì„±
             int DefaultSkillCode = conditionData.projectile_prefab;
             if ((E_TargetType)m_DevilInfo.Condition_Default.Target_type == E_TargetType.TileTarget)
             {
@@ -202,7 +203,7 @@ public class Devil : MonoBehaviour
                     DefaultSkill.enabled = true;
                     DefaultSkill.gameObject.SetActive(true);
 
-                    // ±âº» ½ºÅ³ µ¥ÀÌÅÍ ¼³Á¤
+                    // ê¸°ë³¸ ìŠ¤í‚¬ ë°ì´í„° ì„¤ì •
                     DefaultSkill.InitializeSkill(EnemyList[i], conditionData, statData);
                 }
             }
@@ -213,13 +214,13 @@ public class Devil : MonoBehaviour
                 DefaultSkill.enabled = true;
                 DefaultSkill.gameObject.SetActive(true);
 
-                // ±âº» ½ºÅ³ µ¥ÀÌÅÍ ¼³Á¤
+                // ê¸°ë³¸ ìŠ¤í‚¬ ë°ì´í„° ì„¤ì •
                 DefaultSkill.InitializeSkill(m_Target, conditionData, statData);
             }
         }
         #endregion
     }
-    // ¸¶¿Õ ½ºÅ³ ÄğÅ¸ÀÓ °¨¼Ò
+    // ë§ˆì™• ìŠ¤í‚¬ ì¿¨íƒ€ì„ ê°ì†Œ
     protected void ReduceSkillCooldown()
     {
         ReduceSkill01Cooldown(Time.deltaTime);
@@ -252,8 +253,8 @@ public class Devil : MonoBehaviour
     }
     #endregion
 
-    #region ¿ÜºÎ ÇÔ¼ö
-    // ½ºÅ³01 ÄğÅ¸ÀÓ °¨¼Ò
+    #region ì™¸ë¶€ í•¨ìˆ˜
+    // ìŠ¤í‚¬01 ì¿¨íƒ€ì„ ê°ì†Œ
     public void ReduceSkill01Cooldown(float time)
     {
         if (m_DevilInfo.m_Skill01.m_CurrentCharge < m_DevilInfo.m_Skill01.m_MaxCharge)
@@ -268,7 +269,7 @@ public class Devil : MonoBehaviour
             }
         }
     }
-    // ½ºÅ³02 ÄğÅ¸ÀÓ °¨¼Ò
+    // ìŠ¤í‚¬02 ì¿¨íƒ€ì„ ê°ì†Œ
     public void ReduceSkill02Cooldown(float time)
     {
         if (m_DevilInfo.m_Skill02.m_CurrentCharge < m_DevilInfo.m_Skill02.m_MaxCharge)
@@ -303,7 +304,11 @@ public class Devil : MonoBehaviour
     }
     public void GetDamage(float damage)
     {
-        m_DevilInfo.m_HP -= (damage - m_DevilInfo.m_Def);
+        float Damage = damage - m_DevilInfo.m_Def;
+        if (Damage < 1f)
+            Damage = 1f;
+
+        m_DevilInfo.m_HP -= Damage;
 
         UpdateHPEvent?.Invoke(MaxHP, HP);
     }
@@ -312,26 +317,26 @@ public class Devil : MonoBehaviour
     [System.Serializable]
     public struct S_DevilData
     {
-        // È¸Àü ¼Óµµ
+        // íšŒì „ ì†ë„
         public float RotateSpeed;
-        // ÃÊ±â È¸Àü °ª
+        // ì´ˆê¸° íšŒì „ ê°’
         public Vector3 InitialRotation;
-        // Àû °¨Áö ¿©ºÎ
+        // ì  ê°ì§€ ì—¬ë¶€
         public bool ShouldFindTarget;
-        // °ø°İ ÇÇ¹ş
+        // ê³µê²© í”¼ë²—
         public Transform AttackPivot;
-        // ÇÇ°İ ÇÇ¹ş
+        // í”¼ê²© í”¼ë²—
         public Transform HitPivot;
 
-        // ±âº» ½ºÅ³ µ¥ÀÌÅÍ
+        // ê¸°ë³¸ ìŠ¤í‚¬ ë°ì´í„°
         public SkillCondition_TableExcel Condition_Default;
         public SkillStat_TableExcel Stat_Default;
-        // ±âº» ½ºÅ³ °ø°İ ¼Óµµ
+        // ê¸°ë³¸ ìŠ¤í‚¬ ê³µê²© ì†ë„
         public float AttackSpeed_Default;
-        // ±âº» ½ºÅ³ Å¸ÀÌ¸Ó
+        // ê¸°ë³¸ ìŠ¤í‚¬ íƒ€ì´ë¨¸
         public float AttackTimer_Default;
 
-        // ½ºÅ³
+        // ìŠ¤í‚¬
         public S_DevilSkillData m_Skill01;
         public S_DevilSkillData m_Skill02;
 
@@ -339,7 +344,7 @@ public class Devil : MonoBehaviour
         public float m_Def;
         public float m_DefaultSkill_LifeSteal;
     }
-    // ¸¶¿Õ ½ºÅ³ Á¤º¸
+    // ë§ˆì™• ìŠ¤í‚¬ ì •ë³´
     [System.Serializable]
     public struct S_DevilSkillData
     {
