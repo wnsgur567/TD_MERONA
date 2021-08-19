@@ -39,14 +39,14 @@ public class EnemySkillManager : Singleton<EnemySkillManager>
         return skillStatData;
     }
 
-    public EnemySkill SpawnProjectileSkill(int prefabCode, float m_damage, SkillCondition_TableExcel condition, SkillStat_TableExcel stat)
+    public void SpawnProjectileSkill(int prefabCode, float m_damage, SkillCondition_TableExcel condition, SkillStat_TableExcel stat)
     {
         string key = m_PrefabData.GetPrefab(prefabCode)?.name;
 
         EnemySkill skill = M_SkillPool.GetPool(key)?.Spawn();
         skill.InitializeSkill(m_damage, condition, stat);
 
-        return skill;
+        skill.gameObject.SetActive(true);
     }
 
     public void DespawnProjectileSkill(EnemySkill skill)
@@ -54,6 +54,8 @@ public class EnemySkillManager : Singleton<EnemySkillManager>
         int projectPrefabCode = GetConditionData(skill.m_ConditionInfo.Code).projectile_prefab;
         string key = m_PrefabData.GetPrefab(projectPrefabCode).name;
         M_SkillPool.GetPool(key)?.DeSpawn(skill);
+
+        skill.gameObject.SetActive(false);
     }
 
     public int Condition_NoToCode(int no)

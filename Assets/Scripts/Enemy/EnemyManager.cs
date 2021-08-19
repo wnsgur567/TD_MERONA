@@ -12,10 +12,6 @@ public class EnemyManager : Singleton<EnemyManager>
 
     //방향별 나온 몬스터 저장하는 리스트
     public Dictionary<E_Direction, List<Enemy>> Enemy_Direction;
-    //몬스터 나오는 숫자
-    public Dictionary<E_Direction, List<int>> EnemyIndex_Direction;
-    //몬스터 이름 리스트
-    public Dictionary<E_Direction, List<string>> EnemyName_Direction;
 
     //전체 몬스터
     public List<Enemy> All_Enemy;
@@ -25,14 +21,10 @@ public class EnemyManager : Singleton<EnemyManager>
         All_Enemy = new List<Enemy>();
 
         Enemy_Direction = new Dictionary<E_Direction, List<Enemy>>();
-        EnemyIndex_Direction = new Dictionary<E_Direction, List<int>>();
-        EnemyName_Direction = new Dictionary<E_Direction, List<string>>();
 
         for (E_Direction i = 0; i < E_Direction.Max; ++i)
         {
             Enemy_Direction[i] = new List<Enemy>();
-            EnemyIndex_Direction[i] = new List<int>();
-            EnemyName_Direction[i] = new List<string>();
         }
     }
 

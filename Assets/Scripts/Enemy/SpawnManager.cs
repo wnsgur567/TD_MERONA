@@ -15,7 +15,7 @@ public class SpawnManager : Singleton<SpawnManager>
         public float CreateSpeed;
     }
 
-    //¿þÀÌ Æ÷ÀÎÆ® ½ÃÀÛ À§Ä¡
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
     public Transform[] spawnPoint;
 
     public EnemyPool enemyPool => EnemyPool.Instance;
@@ -37,8 +37,8 @@ public class SpawnManager : Singleton<SpawnManager>
         m_StageEnemyInfo_Excel = new List<StageEnemy_TableExcel>();
     }
 
-    #region ¿ÜºÎ ÇÔ¼ö
-    //½ºÅ×ÀÌÁö ½ÃÀÛ
+    #region ï¿½Üºï¿½ ï¿½Ô¼ï¿½
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public void Start_Stage(int code)
     {
         ++startnum;
@@ -51,19 +51,20 @@ public class SpawnManager : Singleton<SpawnManager>
         }
     }
 
-    // ¸ó½ºÅÍ »ç¸Á ÇÔ¼ö
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     public void Despawn(Enemy enemy)
     {
-        EnemyManager.Instance.Enemy_Direction[enemy.Get_Direction].Remove(enemy);
+        enemymanager.Enemy_Direction[enemy.Get_Direction].Remove(enemy);
+        enemymanager.All_Enemy.Remove(enemy);
         enemy.FinializeEnemy();
         enemyPool.GetPool(enemy.Get_EnemyName_EN).DeSpawn(enemy);
     }
 
     #endregion
 
-    #region ³»ºÎ ÇÔ¼ö
+    #region ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 
-    // PrefebData ÃÊ±âÈ­
+    // PrefebData ï¿½Ê±ï¿½È­
     private string GetPrefebName(int code)
     {
         m_Enemyinfo_Excel = enemymanager.GetData(code);
@@ -71,17 +72,17 @@ public class SpawnManager : Singleton<SpawnManager>
         return m_Enemyinfo_Excel.Name_EN;
     }
 
-    // Stage ÃÊ±âÈ­
-    // ºÏµ¿³²¼­
+    // Stage ï¿½Ê±ï¿½È­
+    // ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½
     private void InitializeStageEnemy(int code)
     {
-        #region ¿¢¼¿ µ¥ÀÌÅÍ Á¤¸®
+        #region ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
         m_StageEnemyInfo_Excel = M_StageEnemy.GetListData(code);
 
         #endregion
 
-        #region ³»ºÎ µ¥ÀÌÅÍ Á¤¸®
+        #region ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
         countnum = m_StageEnemyInfo_Excel.Count;
 
@@ -107,7 +108,8 @@ public class SpawnManager : Singleton<SpawnManager>
 
         enemy.gameObject.SetActive(true);
 
-        enemymanager.Enemy_Direction[dir].Add(enemy);
+        enemymanager.Enemy_Direction[dir - 1].Add(enemy);
+        enemymanager.All_Enemy.Add(enemy);
     }
 
     public void SpawnEnemy(E_Direction dir, Vector3 pos, Transform target, int waypointindex, string enemy_name, Animator animator)
@@ -122,12 +124,12 @@ public class SpawnManager : Singleton<SpawnManager>
 
         animator.SetBool("Skill", true);
 
-        enemymanager.Enemy_Direction[dir].Add(enemy);
+        enemymanager.Enemy_Direction[dir - 1].Add(enemy);
     }
     #endregion
 
-    #region ÄÚ·çÆ¾
-    //È¤½Ã ¸ð¸¦ ¶ó¿îµå ³¡³ª¸é ¾ø¾îÁö´Â ¸ó½ºÅÍ
+    #region ï¿½Ú·ï¿½Æ¾
+    //È¤ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     //IEnumerator EndStage(int round)
     //{
     //    if (round != 0)
@@ -149,13 +151,13 @@ public class SpawnManager : Singleton<SpawnManager>
 
     IEnumerator Spawn(E_Direction dir, int num)
     {
-        //Ã³À½ µîÀå ¼Óµµ
+        //Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
         yield return new WaitForSeconds(m_StageEnemyInfo[num].AppearSpeed);
 
         for (int i = 0; i < m_StageEnemyInfo[num].Create_num - 1; ++i)
         {
             SpawnEnemy(dir, num);
-            //»ý¼º ¼Óµµ
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
             yield return new WaitForSeconds(m_StageEnemyInfo[num].CreateSpeed);
         }
 
