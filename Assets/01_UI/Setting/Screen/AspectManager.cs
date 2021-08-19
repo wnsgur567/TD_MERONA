@@ -81,16 +81,16 @@ public class AspectManager : Singleton<AspectManager>
 
     private void Start()
     {        
-        //SettingManager.Instance.OnSettingChnagedEvent += __Init;
+        SettingManager.Instance.OnSettingChnagedEvent += __Init;
 
         //__Init();
     }
 
     private void Update()
     {
-//#if UNITY_EDITOR
-//        __Init(SettingManager.Instance.GetCurrentSetting());
-//#endif
+#if UNITY_EDITOR
+        __Init(SettingManager.Instance.GetCurrentSetting());
+#endif
     }
 
     public void __Init(SettingArgs e)
