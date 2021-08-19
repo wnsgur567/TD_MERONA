@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class DevilToolTipUIController : MonoBehaviour
+public class DevilToolTipUIController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] bool OnThisPanel = false;
 
     [Space(20)]
     [SerializeField] TMPro.TextMeshProUGUI m_name_textpro;
     [Space(10)]
-    [SerializeField] DevilToolTipImage m_image;    
+    [SerializeField] DevilToolTipImage m_image;
+    [Space(10)]
+    [SerializeField] TMPro.TextMeshProUGUI m_text_textpro;
+
     [Space(10)]
     [SerializeField] DevilToolTipDataLine m_stat_data1;
     [SerializeField] DevilToolTipDataLine m_stat_data2;
@@ -20,9 +24,9 @@ public class DevilToolTipUIController : MonoBehaviour
     [Space(10)]
     [SerializeField] DevilToolTipSkill m_skill_1;
     [SerializeField] DevilToolTipSkill m_skill_2;
-    
 
-    [Space(20)]   
+
+    [Space(20)]
     [SerializeField] SkillCondition_TableExcelLoader m_skill_loader; // for skill info overall
     [SerializeField] SkillStat_TableExcelLoader m_skillstat_loader; // for atk speed
 
@@ -32,7 +36,7 @@ public class DevilToolTipUIController : MonoBehaviour
         m_name_textpro.text = data.Name_KR;
 
         // raw image (render texture)
-        m_image.SetUI(data.Code);       
+        m_image.SetUI(data.Code);
 
 
         // tower data (atk critical etc)
@@ -51,7 +55,7 @@ public class DevilToolTipUIController : MonoBehaviour
         // -critical damage
         m_stat_data4.SetUI("치명타 피해", (data.Crit_Dmg * 100).ToString() + "%");
         m_stat_data5.SetUI("체력", (data.HP * 100).ToString());
-        m_stat_data6.SetUI("방어력", (data.Def* 100).ToString());
+        m_stat_data6.SetUI("방어력", (data.Def * 100).ToString());
 
         // skill
         var skill_data1 = m_skill_loader.DataList.Find((item) =>
@@ -63,7 +67,38 @@ public class DevilToolTipUIController : MonoBehaviour
             return item.Code == data.Skill2Code;
         });
 
-        m_skill_1.SetUI(skill_data1);    
-        m_skill_2.SetUI(skill_data2);    
+        m_skill_1.SetUI(skill_data1);
+        m_skill_2.SetUI(skill_data2);
+    }
+
+    public void SetPosition(Vector3 mousePos)
+    {
+        this.transform.position = mousePos;
+    }
+
+    private void Update()
+    {
+        //
+        // check click position is out of this panel
+        // 
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+        {
+            if (OnThisPanel)
+                return;
+
+            // out of panel
+            TowerToolTipManager.Instance.DeActivateTooltip();
+        }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        OnThisPanel = true;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        OnThisPanel = false;
     }
 }
+
