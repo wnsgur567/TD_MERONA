@@ -21,9 +21,9 @@ MonoBehaviour:
     Max_Charge: 1
     CoolTime: 0
     Dmg: 1
-    Dmg_plus: 10
+    Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -36,9 +36,9 @@ MonoBehaviour:
     Max_Charge: 1
     CoolTime: 0
     Dmg: 1
-    Dmg_plus: 10
+    Dmg_plus: 0
     Range: 5
-    Speed: 1
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -51,9 +51,9 @@ MonoBehaviour:
     Max_Charge: 1
     CoolTime: 0
     Dmg: 0.5
-    Dmg_plus: 10
+    Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -66,9 +66,9 @@ MonoBehaviour:
     Max_Charge: 1
     CoolTime: 0
     Dmg: 0.5
-    Dmg_plus: 10
+    Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -81,9 +81,9 @@ MonoBehaviour:
     Max_Charge: 1
     CoolTime: 0
     Dmg: 0.5
-    Dmg_plus: 10
+    Dmg_plus: 0
     Range: 5
-    Speed: 1
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -96,9 +96,9 @@ MonoBehaviour:
     Max_Charge: 1
     CoolTime: 0
     Dmg: 0
-    Dmg_plus: 10
+    Dmg_plus: 0
     Range: 5
-    Speed: 1
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -111,9 +111,9 @@ MonoBehaviour:
     Max_Charge: 1
     CoolTime: 0
     Dmg: 1
-    Dmg_plus: 10
+    Dmg_plus: 0
     Range: 5
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 1
     Life_Time: 1
@@ -203,7 +203,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 5
-    Speed: 1
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -218,7 +218,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 5
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 1
     Life_Time: 1
@@ -233,7 +233,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 5
-    Speed: 1
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -248,7 +248,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 5
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 1
     Life_Time: 1
@@ -263,7 +263,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 5
-    Speed: 1
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -278,7 +278,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 5
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 1
     Life_Time: 1
@@ -293,7 +293,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 100
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 0
     Life_Time: 1
@@ -308,7 +308,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 100
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 0
     Life_Time: 1
@@ -323,7 +323,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 100
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 0
     Life_Time: 1
@@ -338,7 +338,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -353,7 +353,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -368,7 +368,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -383,7 +383,7 @@ MonoBehaviour:
     Dmg: 2
     Dmg_plus: 0
     Range: 5
-    Speed: 1
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -398,7 +398,7 @@ MonoBehaviour:
     Dmg: 2
     Dmg_plus: 0
     Range: 5
-    Speed: 1
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -413,7 +413,7 @@ MonoBehaviour:
     Dmg: 2
     Dmg_plus: 0
     Range: 5
-    Speed: 1
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -428,7 +428,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 0
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -443,7 +443,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 0
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -458,7 +458,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 0
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -473,7 +473,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 100
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 0
     Life_Time: 1
@@ -488,7 +488,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 100
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 0
     Life_Time: 1
@@ -503,7 +503,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 100
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 0
     Life_Time: 1
@@ -518,7 +518,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 0
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -533,7 +533,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 0
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -548,7 +548,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 0
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -563,7 +563,7 @@ MonoBehaviour:
     Dmg: 1.5
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -578,7 +578,7 @@ MonoBehaviour:
     Dmg: 1.5
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -593,7 +593,7 @@ MonoBehaviour:
     Dmg: 1.5
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -608,7 +608,7 @@ MonoBehaviour:
     Dmg: 0.5
     Dmg_plus: 0
     Range: 3
-    Speed: 3
+    Speed: 10
     Target_num: 100
     Size: 1
     Life_Time: 1
@@ -623,7 +623,7 @@ MonoBehaviour:
     Dmg: 0.5
     Dmg_plus: 0
     Range: 3
-    Speed: 3
+    Speed: 10
     Target_num: 100
     Size: 1
     Life_Time: 1
@@ -638,7 +638,7 @@ MonoBehaviour:
     Dmg: 0.5
     Dmg_plus: 0
     Range: 3
-    Speed: 3
+    Speed: 10
     Target_num: 100
     Size: 1
     Life_Time: 1
@@ -653,7 +653,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 0
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 3
     Life_Time: 1
@@ -668,7 +668,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 0
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 3
     Life_Time: 1
@@ -683,7 +683,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 0
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 3
     Life_Time: 1
@@ -698,7 +698,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 100
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 0
     Life_Time: 1
@@ -713,7 +713,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 100
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 0
     Life_Time: 1
@@ -728,7 +728,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 100
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 0
     Life_Time: 1
@@ -743,7 +743,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -758,7 +758,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -773,7 +773,7 @@ MonoBehaviour:
     Dmg: 3
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -788,7 +788,7 @@ MonoBehaviour:
     Dmg: 3
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -803,7 +803,7 @@ MonoBehaviour:
     Dmg: 5
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -818,7 +818,7 @@ MonoBehaviour:
     Dmg: 5
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -833,7 +833,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 5
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -848,7 +848,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 5
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -863,7 +863,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 5
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -878,7 +878,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 4
     Life_Time: 1
@@ -893,7 +893,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 4
     Life_Time: 1
@@ -908,7 +908,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 4
     Life_Time: 1
@@ -923,7 +923,7 @@ MonoBehaviour:
     Dmg: 2
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -938,7 +938,7 @@ MonoBehaviour:
     Dmg: 2
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -953,7 +953,7 @@ MonoBehaviour:
     Dmg: 2
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -968,7 +968,7 @@ MonoBehaviour:
     Dmg: 2
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -983,7 +983,7 @@ MonoBehaviour:
     Dmg: 2
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -998,7 +998,7 @@ MonoBehaviour:
     Dmg: 2
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -1013,7 +1013,7 @@ MonoBehaviour:
     Dmg: 2
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -1028,7 +1028,7 @@ MonoBehaviour:
     Dmg: 2
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -1043,7 +1043,7 @@ MonoBehaviour:
     Dmg: 2
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -1058,7 +1058,7 @@ MonoBehaviour:
     Dmg: 2
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -1073,7 +1073,7 @@ MonoBehaviour:
     Dmg: 2
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -1088,7 +1088,7 @@ MonoBehaviour:
     Dmg: 2
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -1103,7 +1103,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 7
-    Speed: 4
+    Speed: 10
     Target_num: 100
     Size: 1
     Life_Time: 1
@@ -1118,7 +1118,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 7
-    Speed: 4
+    Speed: 10
     Target_num: 100
     Size: 1
     Life_Time: 1
@@ -1133,7 +1133,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 7
-    Speed: 4
+    Speed: 10
     Target_num: 100
     Size: 1
     Life_Time: 1
@@ -1148,7 +1148,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1163,7 +1163,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1178,7 +1178,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1193,7 +1193,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 3
@@ -1208,7 +1208,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 3
@@ -1223,7 +1223,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 3
@@ -1238,7 +1238,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1253,7 +1253,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1268,7 +1268,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1283,7 +1283,7 @@ MonoBehaviour:
     Dmg: 1.5
     Dmg_plus: 0
     Range: 3
-    Speed: 5
+    Speed: 10
     Target_num: 100
     Size: 1
     Life_Time: 2
@@ -1298,7 +1298,7 @@ MonoBehaviour:
     Dmg: 1.5
     Dmg_plus: 0
     Range: 3
-    Speed: 5
+    Speed: 10
     Target_num: 100
     Size: 1
     Life_Time: 2
@@ -1313,7 +1313,7 @@ MonoBehaviour:
     Dmg: 1.5
     Dmg_plus: 0
     Range: 3
-    Speed: 5
+    Speed: 10
     Target_num: 100
     Size: 1
     Life_Time: 2
@@ -1328,7 +1328,7 @@ MonoBehaviour:
     Dmg: 1.5
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -1343,7 +1343,7 @@ MonoBehaviour:
     Dmg: 1.5
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -1358,7 +1358,7 @@ MonoBehaviour:
     Dmg: 1.5
     Dmg_plus: 0
     Range: 2
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -1373,7 +1373,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 5
-    Speed: 2
+    Speed: 10
     Target_num: 5
     Size: 0
     Life_Time: 1
@@ -1388,7 +1388,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 5
-    Speed: 2
+    Speed: 10
     Target_num: 5
     Size: 0
     Life_Time: 1
@@ -1403,7 +1403,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 5
-    Speed: 2
+    Speed: 10
     Target_num: 5
     Size: 0
     Life_Time: 1
@@ -1418,7 +1418,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1433,7 +1433,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1448,7 +1448,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1463,7 +1463,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 5
-    Speed: 5
+    Speed: 10
     Target_num: 100
     Size: 1
     Life_Time: 2
@@ -1478,7 +1478,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 5
-    Speed: 5
+    Speed: 10
     Target_num: 100
     Size: 1
     Life_Time: 2
@@ -1493,7 +1493,7 @@ MonoBehaviour:
     Dmg: 1
     Dmg_plus: 0
     Range: 5
-    Speed: 5
+    Speed: 10
     Target_num: 100
     Size: 1
     Life_Time: 2
@@ -1508,7 +1508,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 100
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 0
     Life_Time: 1
@@ -1523,7 +1523,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 100
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 0
     Life_Time: 1
@@ -1538,7 +1538,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 100
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 0
     Life_Time: 1
@@ -1553,7 +1553,7 @@ MonoBehaviour:
     Dmg: 0.2
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1568,7 +1568,7 @@ MonoBehaviour:
     Dmg: 0.2
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1583,7 +1583,7 @@ MonoBehaviour:
     Dmg: 0.2
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1598,7 +1598,7 @@ MonoBehaviour:
     Dmg: 0.2
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1613,7 +1613,7 @@ MonoBehaviour:
     Dmg: 0.2
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1628,7 +1628,7 @@ MonoBehaviour:
     Dmg: 0.2
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1643,7 +1643,7 @@ MonoBehaviour:
     Dmg: 0.2
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1658,7 +1658,7 @@ MonoBehaviour:
     Dmg: 0.2
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1673,7 +1673,7 @@ MonoBehaviour:
     Dmg: 0.2
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1688,7 +1688,7 @@ MonoBehaviour:
     Dmg: 0.2
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1703,7 +1703,7 @@ MonoBehaviour:
     Dmg: 0.2
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1718,7 +1718,7 @@ MonoBehaviour:
     Dmg: 0.2
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1733,7 +1733,7 @@ MonoBehaviour:
     Dmg: 0.2
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1748,7 +1748,7 @@ MonoBehaviour:
     Dmg: 0.2
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1763,7 +1763,7 @@ MonoBehaviour:
     Dmg: 0.2
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 5
     Life_Time: 1
@@ -1778,7 +1778,7 @@ MonoBehaviour:
     Dmg: 0.4
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 6
     Life_Time: 3
@@ -1789,11 +1789,11 @@ MonoBehaviour:
     Name_EN: SkillStat119
     Code: 310119
     Max_Charge: 1
-    CoolTime: 30
+    CoolTime: 0
     Dmg: 0.4
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 6
     Life_Time: 3
@@ -1804,11 +1804,11 @@ MonoBehaviour:
     Name_EN: SkillStat120
     Code: 310120
     Max_Charge: 1
-    CoolTime: 30
+    CoolTime: 0
     Dmg: 0.4
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 6
     Life_Time: 3
@@ -1823,7 +1823,7 @@ MonoBehaviour:
     Dmg: 0.4
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 6
     Life_Time: 3
@@ -1834,11 +1834,11 @@ MonoBehaviour:
     Name_EN: SkillStat122
     Code: 310122
     Max_Charge: 1
-    CoolTime: 30
+    CoolTime: 0
     Dmg: 0.4
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 6
     Life_Time: 3
@@ -1849,11 +1849,11 @@ MonoBehaviour:
     Name_EN: SkillStat123
     Code: 310123
     Max_Charge: 1
-    CoolTime: 30
+    CoolTime: 0
     Dmg: 0.4
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 6
     Life_Time: 3
@@ -1868,7 +1868,7 @@ MonoBehaviour:
     Dmg: 0.4
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 6
     Life_Time: 3
@@ -1879,11 +1879,11 @@ MonoBehaviour:
     Name_EN: SkillStat125
     Code: 310125
     Max_Charge: 1
-    CoolTime: 30
+    CoolTime: 0
     Dmg: 0.4
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 6
     Life_Time: 3
@@ -1894,11 +1894,11 @@ MonoBehaviour:
     Name_EN: SkillStat126
     Code: 310126
     Max_Charge: 1
-    CoolTime: 30
+    CoolTime: 0
     Dmg: 0.4
     Dmg_plus: 0
     Range: 2
-    Speed: 0
+    Speed: 10
     Target_num: 100
     Size: 6
     Life_Time: 3
@@ -1913,7 +1913,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 3
-    Speed: 5
+    Speed: 10
     Target_num: 10
     Size: 0
     Life_Time: 1
@@ -1928,7 +1928,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 3
-    Speed: 5
+    Speed: 10
     Target_num: 10
     Size: 0
     Life_Time: 1
@@ -1943,7 +1943,7 @@ MonoBehaviour:
     Dmg: 99999
     Dmg_plus: 0
     Range: 0.5
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -1958,7 +1958,7 @@ MonoBehaviour:
     Dmg: 99999
     Dmg_plus: 0
     Range: 0.5
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -1973,7 +1973,7 @@ MonoBehaviour:
     Dmg: 150
     Dmg_plus: 0
     Range: 1
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -1988,7 +1988,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 0
-    Speed: 0
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
@@ -2003,7 +2003,7 @@ MonoBehaviour:
     Dmg: 0
     Dmg_plus: 0
     Range: 1
-    Speed: 5
+    Speed: 10
     Target_num: 1
     Size: 0
     Life_Time: 1
