@@ -21,6 +21,11 @@ public class EnemyHPBarPool : ObjectPool<EnemyHPBarPool, EnemyHPBar>
     {
         base.__Initialize();
 
+        if (null == m_Origin)
+        {
+            m_Origin = transform.Find("EnemyHPBar").GetComponent<EnemyHPBar>();
+        }
+
         m_Origin.Initialize();
 
         AddPool("EnemyHPBar", m_Origin, transform);

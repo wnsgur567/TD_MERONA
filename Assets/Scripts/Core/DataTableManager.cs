@@ -30,7 +30,7 @@ public class DataTableManager : Singleton<DataTableManager>
     [SerializeField]
     protected List<ScriptableObject> m_DataTableList;
     // 타입별 딕셔너리
-    protected Dictionary<E_DataTableType, ScriptableObject> m_DataTables;
+    // protected Dictionary<E_DataTableType, ScriptableObject> m_DataTables;
 #if UNITY_EDITOR
     // 디버깅용 딕셔너리
     [SerializeField, ReadOnly]
@@ -40,14 +40,15 @@ public class DataTableManager : Singleton<DataTableManager>
     #region 외부 함수
     public ScriptableObject GetDataTable(E_DataTableType type)
     {
-        return m_DataTables[type];
+        return m_DataTableList[(int)type]; //m_DataTables[type];
     }
     public T GetDataTable<T>() where T : ScriptableObject
     {
         string typeName = typeof(T).ToString().Split('_')[0];
         E_DataTableType type;
         if (Enum.TryParse<E_DataTableType>(typeName, out type))
-            return m_DataTables[type] as T;
+            return m_DataTableList[(int)type] as T;
+            //return m_DataTables[type] as T;
 
         return null;
     }
@@ -57,7 +58,7 @@ public class DataTableManager : Singleton<DataTableManager>
     void Awake()
     {
         // 딕셔너리 초기화
-        m_DataTables = new Dictionary<E_DataTableType, ScriptableObject>();
+        //m_DataTables = new Dictionary<E_DataTableType, ScriptableObject>();
 #if UNITY_EDITOR
         m_Debug = new DebugDictionary<E_DataTableType, ScriptableObject>();
 #endif
@@ -66,13 +67,13 @@ public class DataTableManager : Singleton<DataTableManager>
         for (E_DataTableType i = E_DataTableType.None + 1; i < E_DataTableType.Max; ++i)
         {
             // 타입과 이름이 일치하는 스크립터블 오브젝트가 있으면 딕셔너리에 추가
-            m_DataTables.Add(i,
-                m_DataTableList.
-                Where(item => i.ToString() + "_TableLoader" == item.name).
-                SingleOrDefault());
+            //m_DataTables.Add(i,
+            //    m_DataTableList.
+            //    Where(item => i.ToString() + "_TableLoader" == item.name).
+            //    SingleOrDefault());
 
 #if UNITY_EDITOR
-            m_Debug.Add(i, m_DataTables[i]);
+            //m_Debug.Add(i, m_DataTables[i]);
 #endif
         }
     }
