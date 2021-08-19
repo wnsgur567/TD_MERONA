@@ -99,7 +99,7 @@ public class Enemy : MonoBehaviour
     private float MaxHp;
 
     //체력바
-    private Image image;
+    private EnemyHPBar m_HPBar;
 
     private Enemy_TableExcel m_Enemyinfo_Excel;
     private EnemyManager M_Enemy => EnemyManager.Instance;
@@ -128,6 +128,8 @@ public class Enemy : MonoBehaviour
 
     private float Atk_Timer;
 
+    // Kim
+    protected EnemyHPBarManager M_EnemyHPBar => EnemyHPBarManager.Instance;
     private EnemySkillManager enemyskillmanager;
 
     private SkillCondition_TableExcel atkconditiondata;
@@ -156,7 +158,10 @@ public class Enemy : MonoBehaviour
 
         gameObject.layer = LayerMask.NameToLayer("Enemy");
 
-        image = transform.GetChild("Fill").GetComponent<Image>();
+        m_HPBar = M_EnemyHPBar.SpawnHPBar(); //transform.GetChild("Fill").GetComponent<Image>();
+        m_HPBar.fillAmount = 1f;
+        m_HPBar.m_EnemyTransform = transform;
+        m_HPBar.gameObject.SetActive(true);
 
         enemyskillmanager = EnemySkillManager.Instance;
 
@@ -179,8 +184,6 @@ public class Enemy : MonoBehaviour
         atkstatdata = enemyskillmanager.GetStatData(atkconditiondata.PassiveCode);
 
         Atk_Timer = atkstatdata.CoolTime;
-
-        image.fillAmount = m_EnemyInfo.HP;
 
         if (m_EnemyInfo.Name_EN == "Grffin02")
         {
@@ -227,10 +230,10 @@ public class Enemy : MonoBehaviour
         //벽이나 중간에 장애물이 있다면 바꿔야함
         if (waypointIndex >= 3)
         {
-            float Distance = Vector3.Distance(transform.position, new Vector3(0f,0f,0f));
+            float Distance = Vector3.Distance(transform.position, new Vector3(0f, 0f, 0f));
 
             //거리 안에 있다면
-            if (Distance <= atkstatdata.Range) 
+            if (Distance <= atkstatdata.Range)
             {
                 transform.rotation.SetLookRotation(new Vector3(0f, 0f, 0f));
 
@@ -259,6 +262,7 @@ public class Enemy : MonoBehaviour
 
             Vector3 dir = target.position - transform.position;
             transform.Translate(dir.normalized * 1f * Time.deltaTime, Space.World);
+            m_HPBar.transform.position = M_EnemyHPBar.m_HPBarCanvas.worldCamera.WorldToScreenPoint(transform.position) + M_EnemyHPBar.Distance;
 
             if (Vector3.Distance(transform.position, target.position) <= 0.2f)
             {
@@ -638,7 +642,7 @@ public class Enemy : MonoBehaviour
             m_EnemyInfo.HP -= damage;
         }
 
-        image.fillAmount -= (float)(damage * 0.01);
+        m_HPBar.fillAmount -= m_EnemyInfo.HP / m_Enemyinfo_Excel.HP;
 
         if (m_EnemyInfo.HP <= 0)
         {
@@ -781,7 +785,7 @@ public class Enemy : MonoBehaviour
                         {
                             switch (buff.BuffType)
                             {
-                                
+
                             }
                         }
                     }

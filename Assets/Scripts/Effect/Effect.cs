@@ -27,7 +27,7 @@ public class Effect : MonoBehaviour
     {
         if (null == m_Particle)
         {
-            m_Particle = GetComponentInChildren<ParticleSystem>();
+            m_Particle = GetComponentInChildren<ParticleSystem>(true);
         }
         m_Timer = 0f;
     }
