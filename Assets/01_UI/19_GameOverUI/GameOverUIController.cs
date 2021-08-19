@@ -16,10 +16,7 @@ public class GameOverUIController : MonoBehaviour
     [SerializeField] GameOverDataLine m_line3;
     [SerializeField] GameOverProgressBar m_progressBar;
 
-    private void Start()
-    {
-        
-    }
+   
 
     public void SetUI(GameEndData data)
     {
