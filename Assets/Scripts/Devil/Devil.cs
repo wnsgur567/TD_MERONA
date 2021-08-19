@@ -59,6 +59,8 @@ public class Devil : MonoBehaviour
     #region 외부 프로퍼티
     public float MaxHP => m_DevilInfo_Excel.HP;
     public float HP => m_DevilInfo.m_HP;
+
+    public Tower_TableExcel ExcelData => m_DevilInfo_Excel;
     public Transform HitPivot => m_DevilInfo.HitPivot;
     #endregion
 

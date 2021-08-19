@@ -36,7 +36,7 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     public event InfoChangeHandler OnInfoChangedEvent;
 
     [SerializeField] InventorySlotGUIInfo m_info;
-    [SerializeField] TMPro.TextMeshProUGUI m_textPro;
+    //[SerializeField] TMPro.TextMeshProUGUI m_textPro;
 
     [Space(10)]
     [SerializeField] Tower_TableExcelLoader m_towerLoader;
@@ -216,7 +216,7 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         {   // is empty slot (tower)
             m_info.tower = null;
             m_showObj = null;
-            m_textPro.text = "Empty";
+            //m_textPro.text = "Empty";
             return;
         }
 
@@ -226,7 +226,7 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         int code = m_info.tower_data.Code;
         m_showObj = m_showObj_list.Find((item) => { return item.Code == code; }).obj;
         m_showObj.gameObject.SetActive(true);
-        m_textPro.text = m_info.tower_data.Name_EN;
+        //m_textPro.text = m_info.tower_data.Name_EN;
     }
 
 

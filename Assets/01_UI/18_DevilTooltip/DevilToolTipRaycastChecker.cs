@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TowerToolTipRaycastChecker : MonoBehaviour
-{ 
-
+public class DevilToolTipRaycastChecker : MonoBehaviour
+{   
     // Update is called once per frame
     void Update()
     {
@@ -28,8 +27,6 @@ public class TowerToolTipRaycastChecker : MonoBehaviour
                 Ray ray = new Ray(Camera.main.transform.position,
                     Camera.main.ScreenToWorldPoint(mouse_pos));
 
-                //Debug.Log($"{ray},{Camera.main.ScreenPointToRay(Input.mousePosition)}");
-
                 if (Physics.Raycast(ray,
                     out hitinfo,
                     Camera.main.farClipPlane,
@@ -37,13 +34,12 @@ public class TowerToolTipRaycastChecker : MonoBehaviour
                 {
                     Node hit_node = hitinfo.collider.gameObject.GetComponent<Node>();
                     Tower tower = hit_node.m_Tower;
-                    if(tower != null)
-                        TowerToolTipManager.Instance.ActivateToolTip(
-                            tower.transform.position,
-                            tower,
-                            tower.ExcelData);
+                    if (tower != null && tower.Direction == E_Direction.None)
+                        DevilToolTipManager.Instance.ActivateToolTip(
+                            DevilManager.Instance.Devil.transform.position
+                            );
                 }
             }
-        }           
+        }
     }
 }
