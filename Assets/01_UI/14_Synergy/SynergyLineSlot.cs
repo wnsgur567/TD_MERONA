@@ -205,20 +205,54 @@ public class SynergyLineSlot : MonoBehaviour
         }
     }
 
-    // 확장 버튼을 클릭 했을 경우
-    public void __OnExtednButtonClicked()
-    {
+    [Space(30)]
+    [SerializeField] Image m_synergy_root_paenl;
+    float margin = 30.0f;
 
+    // 확장 버튼을 클릭 했을 경우
+    public void __OnExtednButtonClicked()  
+    {
         // 활성화 되어 있는 경우 
         if (IsShowExtendPanel)
         {   // 확장 창을 닫기
-            m_extend_root_panel.gameObject.SetActive(false);
-            IsShowExtendPanel = false;
+            DeActivateExtendPanel();
         }
         else
-        {   // 확장 창을 열기
+        {            
+            // 라인에 따라 패널 위치를 조정
+            switch (m_dir)
+            {
+                case E_Direction.North:                    
+                case E_Direction.East:
+                    m_extend_root_panel.transform.position =
+                        m_synergy_root_paenl.transform.position;
+
+                    m_extend_root_panel.rectTransform.anchoredPosition +=
+                        new Vector2(m_extend_root_panel.rectTransform.sizeDelta.x + margin, 0);
+                       
+                    break;
+
+                case E_Direction.South:                    
+                case E_Direction.West:
+                    m_extend_root_panel.transform.position =
+                        m_synergy_root_paenl.transform.position;
+
+
+                    m_extend_root_panel.rectTransform.anchoredPosition +=
+                        new Vector2(m_extend_root_panel.rectTransform.sizeDelta.x + margin, 0);
+
+                    break;
+            }
+
+            // 확장 창을 열기
             m_extend_root_panel.gameObject.SetActive(true);
             IsShowExtendPanel = true;
         }
+    }
+
+    public void DeActivateExtendPanel()
+    {
+        m_extend_root_panel.gameObject.SetActive(false);
+        IsShowExtendPanel = false;
     }
 }

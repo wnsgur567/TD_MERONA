@@ -56,7 +56,7 @@ public class TowerToolTipUIController : MonoBehaviour ,IPointerEnterHandler, IPo
         m_stat_data1.SetUI("공격력", data.Atk.ToString());
         // -atk speed
         float atk_speed = m_skillstat_loader.DataList.Find((item) => { return item.Code == data.Atk_Code; }).CoolTime;
-        float calc_atk_speed = (atk_speed == 0) ? 1 : ((int)(1f / atk_speed * 100));
+        float calc_atk_speed = (atk_speed == 0) ? 100 : ((int)(1f / atk_speed * 100));
         m_stat_data2.SetUI(
             "공격속도",
             calc_atk_speed.ToString() + "%");
