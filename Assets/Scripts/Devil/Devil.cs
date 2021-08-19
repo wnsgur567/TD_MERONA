@@ -59,7 +59,7 @@ public class Devil : MonoBehaviour
     #endregion
 
     #region 유니티 콜백 함수
-    private void Update()
+    protected void Update()
     {
         RotateToTarget();
         UpdateTarget();

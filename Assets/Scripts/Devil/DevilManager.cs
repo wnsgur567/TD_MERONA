@@ -121,10 +121,5 @@ public class DevilManager : Singleton<DevilManager>
     {
         SelectDevil(M_UserInfo.DevilCode);
     }
-
-    void Update()
-    {
-
-    }
     #endregion
 }
