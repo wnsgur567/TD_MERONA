@@ -39,12 +39,12 @@ public class EnemySkillManager : Singleton<EnemySkillManager>
         return skillStatData;
     }
 
-    public void SpawnProjectileSkill(int prefabCode, float m_damage, SkillCondition_TableExcel condition, SkillStat_TableExcel stat)
+    public void SpawnProjectileSkill(int prefabCode, float m_damage, SkillCondition_TableExcel condition, SkillStat_TableExcel stat, Transform attackpivot)
     {
         string key = m_PrefabData.GetPrefab(prefabCode)?.name;
 
         EnemySkill skill = M_SkillPool.GetPool(key)?.Spawn();
-        skill.InitializeSkill(m_damage, condition, stat);
+        skill.InitializeSkill(m_damage, condition, stat, attackpivot);
 
         skill.gameObject.SetActive(true);
     }
