@@ -81,7 +81,7 @@ public class AspectManager : Singleton<AspectManager>
 
     private void Start()
     {        
-        SettingManager.Instance.OnSettingChnagedEvent += __Init;
+        //SettingManager.Instance.OnSettingChnagedEvent += __Init;
 
         //__Init();
     }
