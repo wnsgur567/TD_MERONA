@@ -27,6 +27,9 @@ public class DevilToolTipRaycastChecker : MonoBehaviour
                 Ray ray = new Ray(Camera.main.transform.position,
                     Camera.main.ScreenToWorldPoint(mouse_pos));
 
+                //if (Physics.Raycast(ray, out hitinfo))
+                //    Debug.Log($"DevilToolTipRaycastChecker : {hitinfo.collider.name}");
+
                 if (Physics.Raycast(ray,
                     out hitinfo,
                     Camera.main.farClipPlane,
