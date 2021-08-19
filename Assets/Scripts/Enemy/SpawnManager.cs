@@ -109,7 +109,7 @@ public class SpawnManager : Singleton<SpawnManager>
 
         enemy.m_HPBar = M_EnemyHPBar.SpawnHPBar();
         enemy.m_HPBar.fillAmount = 1f;
-        enemy.m_HPBar.m_EnemyTransform = transform;
+        enemy.m_HPBar.m_EnemyTransform = enemy.transform;
         enemy.m_HPBar.transform.position = M_EnemyHPBar.m_HPBarCanvas.worldCamera.WorldToScreenPoint(enemy.transform.position) + M_EnemyHPBar.Distance;
 
         enemy.gameObject.SetActive(true);

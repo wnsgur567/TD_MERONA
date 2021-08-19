@@ -25555,7 +25555,7 @@ GameObject:
   - component: {fileID: 2117495848}
   m_Layer: 0
   m_Name: SceneStartEvnetReciever
-  m_TagString: SceneLoader
+  m_TagString: SceneStart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
