@@ -37,6 +37,8 @@ public class Tower : MonoBehaviour
     protected EnemyManager M_Enemy => EnemyManager.Instance;
     // 마왕 매니져
     protected DevilManager M_Devil => DevilManager.Instance;
+    // 이펙트 매니져
+    protected EffectManager M_Effect => EffectManager.Instance;
 
     // 타워 회전 속도
     protected float RotateSpeed
@@ -205,7 +207,7 @@ public class Tower : MonoBehaviour
     #region 외부 함수
     // 타워 초기화
     [ContextMenu("Init")]
-    public void InitializeTower()
+    protected void InitializeTower()
     {
         InitializeTower(m_CodeTemp, m_SizeTemp);
     }
@@ -325,6 +327,14 @@ public class Tower : MonoBehaviour
         // 기본 스킬 데이터 불러오기
         SkillCondition_TableExcel conditionData = m_TowerInfo.Condition_Default;
         SkillStat_TableExcel statData = m_TowerInfo.Stat_Default;
+
+        // 이펙트 생성
+        Effect atkEffect = M_Effect.SpawnEffect(conditionData.Atk_prefab);
+        if (null != atkEffect)
+        {
+            atkEffect.transform.position = m_TowerInfo.AttackPivot.position;
+            atkEffect.gameObject.SetActive(true);
+        }
 
         // 기본 대미지 설정
         statData.Dmg *= m_TowerInfo_Excel.Atk;
@@ -1033,6 +1043,14 @@ public class Tower : MonoBehaviour
         SkillCondition_TableExcel conditionData = m_TowerInfo.Condition_Skill01;
         SkillStat_TableExcel statData = m_TowerInfo.Stat_Skill01;
 
+        // 이펙트 생성
+        Effect atkEffect = M_Effect.SpawnEffect(conditionData.Atk_prefab);
+        if (null != atkEffect)
+        {
+            atkEffect.transform.position = m_TowerInfo.AttackPivot.position;
+            atkEffect.gameObject.SetActive(true);
+        }
+
         // 기본 대미지 설정
         statData.Dmg *= m_TowerInfo_Excel.Atk;
         statData.Dmg += statData.Dmg_plus;
@@ -1693,6 +1711,14 @@ public class Tower : MonoBehaviour
         // 스킬02 데이터 불러오기
         SkillCondition_TableExcel conditionData = m_TowerInfo.Condition_Skill02;
         SkillStat_TableExcel statData = m_TowerInfo.Stat_Skill02;
+
+        // 이펙트 생성
+        Effect atkEffect = M_Effect.SpawnEffect(conditionData.Atk_prefab);
+        if (null != atkEffect)
+        {
+            atkEffect.transform.position = m_TowerInfo.AttackPivot.position;
+            atkEffect.gameObject.SetActive(true);
+        }
 
         // 기본 대미지 설정
         statData.Dmg *= m_TowerInfo_Excel.Atk;

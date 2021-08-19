@@ -294,8 +294,11 @@ public class Skill : MonoBehaviour
     {
         // 피격 이펙트 생성
         Effect hitEffect = M_Effect.SpawnEffect(m_ConditionInfo_Excel.damage_prefab);
-        hitEffect.transform.position = m_Target.HitPivot.transform.position;
-        hitEffect.gameObject.SetActive(true);
+        if (null != hitEffect)
+        {
+            hitEffect.transform.position = m_Target.HitPivot.transform.position;
+            hitEffect.gameObject.SetActive(true);
+        }
 
         float damage = m_StatInfo_Excel.Dmg;
         BuffCC_TableExcel buffData = M_Buff.GetData(m_StatInfo_Excel.Buff_CC);
