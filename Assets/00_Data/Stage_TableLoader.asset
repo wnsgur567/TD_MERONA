@@ -21,7 +21,7 @@ MonoBehaviour:
     Stage_Num: 1
     StageType: 1
     StageTime: 10
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 0
     Gold: 5
     Stage_icon: 910051
@@ -33,7 +33,7 @@ MonoBehaviour:
     Stage_Num: 2
     StageType: 2
     StageTime: 50
-    StageMonsterTable: 410001
+    StageEnemyTable: 410001
     Exp: 0
     Gold: 0
     Stage_icon: 910052
@@ -45,7 +45,7 @@ MonoBehaviour:
     Stage_Num: 3
     StageType: 1
     StageTime: 10
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 2
     Gold: 10
     Stage_icon: 910051
@@ -57,7 +57,7 @@ MonoBehaviour:
     Stage_Num: 4
     StageType: 2
     StageTime: 50
-    StageMonsterTable: 410002
+    StageEnemyTable: 410002
     Exp: 0
     Gold: 0
     Stage_icon: 910052
@@ -69,7 +69,7 @@ MonoBehaviour:
     Stage_Num: 5
     StageType: 1
     StageTime: 10
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 2
     Gold: 10
     Stage_icon: 910051
@@ -81,7 +81,7 @@ MonoBehaviour:
     Stage_Num: 6
     StageType: 2
     StageTime: 50
-    StageMonsterTable: 410003
+    StageEnemyTable: 410003
     Exp: 0
     Gold: 0
     Stage_icon: 910052
@@ -93,7 +93,7 @@ MonoBehaviour:
     Stage_Num: 7
     StageType: 1
     StageTime: 10
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 2
     Gold: 10
     Stage_icon: 910051
@@ -105,7 +105,7 @@ MonoBehaviour:
     Stage_Num: 8
     StageType: 2
     StageTime: 50
-    StageMonsterTable: 0
+    StageEnemyTable: 410004
     Exp: 0
     Gold: 0
     Stage_icon: 910052
@@ -117,7 +117,7 @@ MonoBehaviour:
     Stage_Num: 9
     StageType: 1
     StageTime: 10
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 2
     Gold: 10
     Stage_icon: 910051
@@ -129,7 +129,7 @@ MonoBehaviour:
     Stage_Num: 10
     StageType: 2
     StageTime: 50
-    StageMonsterTable: 0
+    StageEnemyTable: 410005
     Exp: 0
     Gold: 0
     Stage_icon: 910052
@@ -141,7 +141,7 @@ MonoBehaviour:
     Stage_Num: 11
     StageType: 1
     StageTime: 10
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 2
     Gold: 10
     Stage_icon: 910051
@@ -153,7 +153,7 @@ MonoBehaviour:
     Stage_Num: 12
     StageType: 2
     StageTime: 50
-    StageMonsterTable: 0
+    StageEnemyTable: 410006
     Exp: 0
     Gold: 0
     Stage_icon: 910052
@@ -165,7 +165,7 @@ MonoBehaviour:
     Stage_Num: 13
     StageType: 1
     StageTime: 10
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 2
     Gold: 10
     Stage_icon: 910051
@@ -177,7 +177,7 @@ MonoBehaviour:
     Stage_Num: 14
     StageType: 2
     StageTime: 50
-    StageMonsterTable: 0
+    StageEnemyTable: 410007
     Exp: 0
     Gold: 0
     Stage_icon: 910052
@@ -189,7 +189,7 @@ MonoBehaviour:
     Stage_Num: 15
     StageType: 1
     StageTime: 10
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 2
     Gold: 10
     Stage_icon: 910051
@@ -201,7 +201,7 @@ MonoBehaviour:
     Stage_Num: 16
     StageType: 2
     StageTime: 50
-    StageMonsterTable: 0
+    StageEnemyTable: 410008
     Exp: 0
     Gold: 0
     Stage_icon: 910052
@@ -213,7 +213,7 @@ MonoBehaviour:
     Stage_Num: 17
     StageType: 1
     StageTime: 10
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 2
     Gold: 10
     Stage_icon: 910051
@@ -225,7 +225,7 @@ MonoBehaviour:
     Stage_Num: 18
     StageType: 2
     StageTime: 50
-    StageMonsterTable: 0
+    StageEnemyTable: 410009
     Exp: 0
     Gold: 0
     Stage_icon: 910052
@@ -237,7 +237,7 @@ MonoBehaviour:
     Stage_Num: 19
     StageType: 1
     StageTime: 10
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 2
     Gold: 10
     Stage_icon: 910051
@@ -249,7 +249,7 @@ MonoBehaviour:
     Stage_Num: 20
     StageType: 2
     StageTime: 50
-    StageMonsterTable: 0
+    StageEnemyTable: 410010
     Exp: 0
     Gold: 0
     Stage_icon: 910052
@@ -261,7 +261,7 @@ MonoBehaviour:
     Stage_Num: 21
     StageType: 1
     StageTime: 10
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 2
     Gold: 10
     Stage_icon: 910051
@@ -272,8 +272,8 @@ MonoBehaviour:
     Code: 400001
     Stage_Num: 22
     StageType: 2
-    StageTime: 50
-    StageMonsterTable: 0
+    StageTime: 100
+    StageEnemyTable: 410011
     Exp: 0
     Gold: 0
     Stage_icon: 910052
@@ -285,7 +285,7 @@ MonoBehaviour:
     Stage_Num: 23
     StageType: 1
     StageTime: 10
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 2
     Gold: 10
     Stage_icon: 910051
@@ -297,7 +297,7 @@ MonoBehaviour:
     Stage_Num: 24
     StageType: 2
     StageTime: 50
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 0
     Gold: 0
     Stage_icon: 910052
@@ -309,7 +309,7 @@ MonoBehaviour:
     Stage_Num: 25
     StageType: 1
     StageTime: 10
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 2
     Gold: 10
     Stage_icon: 910051
@@ -321,7 +321,7 @@ MonoBehaviour:
     Stage_Num: 26
     StageType: 2
     StageTime: 50
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 0
     Gold: 0
     Stage_icon: 910052
@@ -333,7 +333,7 @@ MonoBehaviour:
     Stage_Num: 27
     StageType: 1
     StageTime: 10
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 2
     Gold: 10
     Stage_icon: 910051
@@ -345,7 +345,7 @@ MonoBehaviour:
     Stage_Num: 28
     StageType: 2
     StageTime: 50
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 0
     Gold: 0
     Stage_icon: 910052
@@ -357,7 +357,7 @@ MonoBehaviour:
     Stage_Num: 29
     StageType: 1
     StageTime: 10
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 2
     Gold: 10
     Stage_icon: 910051
@@ -369,7 +369,7 @@ MonoBehaviour:
     Stage_Num: 30
     StageType: 2
     StageTime: 50
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 0
     Gold: 0
     Stage_icon: 910052
@@ -381,7 +381,7 @@ MonoBehaviour:
     Stage_Num: 31
     StageType: 1
     StageTime: 10
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 2
     Gold: 10
     Stage_icon: 910051
@@ -393,7 +393,7 @@ MonoBehaviour:
     Stage_Num: 32
     StageType: 2
     StageTime: 50
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 0
     Gold: 0
     Stage_icon: 910052
@@ -405,7 +405,7 @@ MonoBehaviour:
     Stage_Num: 33
     StageType: 1
     StageTime: 10
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 2
     Gold: 10
     Stage_icon: 910051
@@ -417,7 +417,7 @@ MonoBehaviour:
     Stage_Num: 34
     StageType: 2
     StageTime: 50
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 0
     Gold: 0
     Stage_icon: 910052
@@ -429,7 +429,7 @@ MonoBehaviour:
     Stage_Num: 35
     StageType: 1
     StageTime: 10
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 2
     Gold: 10
     Stage_icon: 910051
@@ -441,7 +441,7 @@ MonoBehaviour:
     Stage_Num: 36
     StageType: 2
     StageTime: 50
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 0
     Gold: 0
     Stage_icon: 910052
@@ -453,7 +453,7 @@ MonoBehaviour:
     Stage_Num: 37
     StageType: 1
     StageTime: 10
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 2
     Gold: 10
     Stage_icon: 910051
@@ -465,7 +465,7 @@ MonoBehaviour:
     Stage_Num: 38
     StageType: 2
     StageTime: 50
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 0
     Gold: 0
     Stage_icon: 910052
@@ -477,7 +477,7 @@ MonoBehaviour:
     Stage_Num: 39
     StageType: 1
     StageTime: 10
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 2
     Gold: 10
     Stage_icon: 910051
@@ -489,7 +489,7 @@ MonoBehaviour:
     Stage_Num: 40
     StageType: 3
     StageTime: 1000
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 0
     Gold: 0
     Stage_icon: 910054

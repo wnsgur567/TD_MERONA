@@ -26,6 +26,7 @@ public class SkillPool : ObjectPool<SkillPool, Skill>
 
                 GameObject attackRange = origin.transform.Find("AttackRange").gameObject;
                 origin.m_SkillInfo.AttackRange = attackRange.AddComponent<AttackRange>();
+                origin.m_SkillInfo.AttackRange.gameObject.layer = LayerMask.NameToLayer("TowerAttackRange");
 
                 origin.gameObject.SetActive(false);
                 if (!AddPool(key, origin, transform))

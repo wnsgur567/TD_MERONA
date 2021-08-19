@@ -96,11 +96,13 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] Enemy_Data m_EnemyInfo;
 
+    [SerializeField]
     private float MaxHp;
 
     //체력바
     public EnemyHPBar m_HPBar;
 
+    [SerializeField]
     private Enemy_TableExcel m_Enemyinfo_Excel;
     private EnemyManager M_Enemy => EnemyManager.Instance;
 
@@ -119,6 +121,7 @@ public class Enemy : MonoBehaviour
 
     public bool isDivide = false;
     private bool isDefBuff = false;
+    [SerializeField]
     private bool isDie = false;
 
     public bool IsDie => isDie;
@@ -156,18 +159,12 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        isDie = false;
-        isDefBuff = false;
+        Init();
 
         debuff = new Dictionary<int, IEnumerator>();
         m_buff = new Dictionary<int, IEnumerator>();
 
         gameObject.layer = LayerMask.NameToLayer("Enemy");
-
-        //m_HPBar = M_EnemyHPBar.SpawnHPBar();
-        //m_HPBar.fillAmount = 1f;
-        //m_HPBar.m_EnemyTransform = transform;
-        //m_HPBar.gameObject.SetActive(true);
 
         enemyskillmanager = EnemySkillManager.Instance;
 
@@ -228,6 +225,13 @@ public class Enemy : MonoBehaviour
 
             Invoke("StartSkill", skillstatdata.CoolTime);
         }
+    }
+
+    public void Init()
+    {
+        isDie = false;
+        isDefBuff = false;
+        MaxHp = m_EnemyInfo.HP;
     }
 
     private void Update()
@@ -359,6 +363,7 @@ public class Enemy : MonoBehaviour
     public void InitSetting(E_Direction p_waypoint)
     {
         direc = p_waypoint;
+        Init();
     }
 
     //분열한 적이 가지는 데이터
@@ -370,6 +375,7 @@ public class Enemy : MonoBehaviour
         direc = p_waypoint;
         target = _target;
         waypointIndex = _waypointindex;
+        Init();
     }
 
     //사망

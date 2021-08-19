@@ -33,14 +33,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 2
     Name_KR: "\uC77C\uBC18 \uB9C8\uC65502"
     Name_EN: Skill002
@@ -60,14 +54,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 3
     Name_KR: "\uC77C\uBC18 \uB9C8\uC65503"
     Name_EN: Skill003
@@ -87,14 +75,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 4
     Name_KR: "\uC77C\uBC18 \uADFC 01"
     Name_EN: Skill004
@@ -114,14 +96,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 5
     Name_KR: "\uC77C\uBC18 \uADFC 02"
     Name_EN: Skill005
@@ -141,14 +117,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 6
     Name_KR: "\uC77C\uBC18 \uADFC 03"
     Name_EN: Skill006
@@ -168,14 +138,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 7
     Name_KR: "\uC77C\uBC18 \uADFC 04"
     Name_EN: Skill007
@@ -195,14 +159,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 8
     Name_KR: "\uC77C\uBC18 \uADFC 05"
     Name_EN: Skill008
@@ -222,14 +180,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 9
     Name_KR: "\uC77C\uBC18 \uADFC 06"
     Name_EN: Skill009
@@ -249,14 +201,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 10
     Name_KR: "\uC77C\uBC18 \uADFC 07"
     Name_EN: Skill010
@@ -276,14 +222,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 11
     Name_KR: "\uC77C\uBC18 \uC6D0 01"
     Name_EN: Skill011
@@ -303,14 +243,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 12
     Name_KR: "\uC77C\uBC18 \uC6D0 02"
     Name_EN: Skill012
@@ -330,14 +264,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 13
     Name_KR: "\uC77C\uBC18 \uC6D0 03"
     Name_EN: Skill013
@@ -357,14 +285,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 14
     Name_KR: "\uC77C\uBC18 \uC6D0 04"
     Name_EN: Skill014
@@ -384,14 +306,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 15
     Name_KR: "\uC77C\uBC18 \uC6D0 05"
     Name_EN: Skill015
@@ -411,14 +327,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 16
     Name_KR: "\uC77C\uBC18 \uC6D0 06"
     Name_EN: Skill016
@@ -438,14 +348,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 17
     Name_KR: "\uC77C\uBC18 \uC6D0 07"
     Name_EN: Skill017
@@ -465,14 +369,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 18
     Name_KR: "\uC77C\uBC18 \uC6D0 08"
     Name_EN: Skill018
@@ -492,14 +390,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 19
     Name_KR: "\uB354\uBE14 \uADFC 01"
     Name_EN: Skill019
@@ -519,14 +411,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 20
     Name_KR: "\uB354\uBE14 \uADFC 02"
     Name_EN: Skill020
@@ -546,14 +432,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 21
     Name_KR: "\uB354\uBE14 \uADFC 03"
     Name_EN: Skill021
@@ -573,14 +453,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 22
     Name_KR: "\uB354\uBE14 \uADFC 04"
     Name_EN: Skill022
@@ -600,14 +474,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 23
     Name_KR: "\uAD11\uC5ED \uC6D0 01"
     Name_EN: Skill023
@@ -627,14 +495,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 24
     Name_KR: "\uAD11\uC5ED \uC6D0 02"
     Name_EN: Skill024
@@ -654,14 +516,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 25
     Name_KR: "\uC99D\uC624\uC758 \uC528\uC557"
     Name_EN: Skill025
@@ -682,15 +538,9 @@ MonoBehaviour:
       \uBFCC\uB824 \uC120\uD0DD\uD55C \uAD6C\uC5ED\uC758 \uBAA8\uB4E0 \uD0C0\uC6CC
       \uACF5\uACA9\uB825\uC744 5\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uACF5\uACA9\uB825 \uC99D\uAC00"
-    SkillAvility1_Text: '[<b>{0}</b]'
-    SkillAvility1_Star1: 0.5
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
+    SkillAvility1_Text: '[<b>{50%}</b]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 26
     Name_KR: "\uC99D\uC624\uC758 \uAD8C\uB2A5"
     Name_EN: Skill026
@@ -711,15 +561,9 @@ MonoBehaviour:
       \uBD80\uC5EC\uD574 \uBAA8\uB4E0 \uAD6C\uC5ED\uC758 \uD0C0\uC6CC \uACF5\uACA9\uC18D\uB3C4\uB97C
       5\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
-    SkillAvility1_Text: '[<b>{0}</b]'
-    SkillAvility1_Star1: 1
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
+    SkillAvility1_Text: '[<b>{100%}</b]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 27
     Name_KR: "\uBD88\uAD6C\uB369\uC774"
     Name_EN: Skill027
@@ -741,15 +585,9 @@ MonoBehaviour:
       \uC90D\uB2C8\uB2E4. \uB9C8\uC655\uC758 \uCCB4\uB825\uC774 50%\uC774\uD558\uB77C\uBA74
       \uC804\uCCB4\uD53C\uD574\uB7C9\uC758 10%\uB9CC\uD07C \uCCB4\uB825\uC744 \uD68C\uBCF5\uD569\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b]'
-    SkillAvility1_Star1: 2000
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
+    SkillAvility1_Text: '[<b>{2000}</b]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 28
     Name_KR: "\uC2A4\uD0AC\uC9C0\uC625\uC758\uAD70\uC8FC01.2"
     Name_EN: Skill028
@@ -769,14 +607,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 29
     Name_KR: "\uD53C\uC758 \uAD8C\uB2A5"
     Name_EN: Skill029
@@ -798,14 +630,8 @@ MonoBehaviour:
       \uD68C\uBCF5\uD569\uB2C8\uB2E4."
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 30
     Name_KR: "\uC601\uAD6C\uB3D9\uD1A0"
     Name_EN: Skill030
@@ -826,15 +652,9 @@ MonoBehaviour:
       10\uCD08\uAC04 \uC0DD\uC131\uD574 \uD53C\uD574\uB97C \uC785\uD788\uBA70 \uC774\uB3D9\uC18D\uB3C4\uB97C
       \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uCD08\uB2F9 \uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b]'
-    SkillAvility1_Star1: 200
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
+    SkillAvility1_Text: '[<b>{200}</b]'
     SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
-    SkillAvility2_Text: '[<b>{0}</b]'
-    SkillAvility2_Star1: 0.6
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
+    SkillAvility2_Text: '[<b>{60%}</b]'
   - No: 31
     Name_KR: "\uC2A4\uD0AC \uD504\uB85C\uC2A4\uD2B8\uB9AC\uCE5801.2"
     Name_EN: Skill031
@@ -854,14 +674,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 32
     Name_KR: "\uC5BC\uC74C\uC655\uC758 \uAC80"
     Name_EN: Skill032
@@ -882,15 +696,9 @@ MonoBehaviour:
       \uC0DD\uC131\uD574 \uD53C\uD574\uB97C \uC785\uD788\uBA70 \uC774\uB3D9\uC18D\uB3C4\uB97C
       5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b]'
-    SkillAvility1_Star1: 150
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
+    SkillAvility1_Text: '[<b>{150}</b]'
     SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
-    SkillAvility2_Text: '[<b>{0}</b]'
-    SkillAvility2_Star1: 0.6
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
+    SkillAvility2_Text: '[<b>{100%}</b]'
   - No: 33
     Name_KR: "\uC2A4\uD0AC \uD504\uB85C\uC2A4\uD2B8\uB9AC\uCE5802.2"
     Name_EN: Skill033
@@ -910,14 +718,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 34
     Name_KR: "\uD3EC\uACA9 1"
     Name_EN: Skill034
@@ -938,15 +740,9 @@ MonoBehaviour:
       \uBC1C\uC0AC\uD574 \uB099\uD558\uC9C0\uC810\uC758 \uC801\uB4E4\uC5D0\uAC8C
       \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[<b>{50}</b> / {100} / {200}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 35
     Name_KR: "\uC2A4\uD0AC \uC624\uD06C\uAC70\uB10801.2 1"
     Name_EN: Skill035
@@ -966,14 +762,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 36
     Name_KR: "\uD3EC\uACA9 2"
     Name_EN: Skill036
@@ -994,15 +784,9 @@ MonoBehaviour:
       \uBC1C\uC0AC\uD574 \uB099\uD558\uC9C0\uC810\uC758 \uC801\uB4E4\uC5D0\uAC8C
       \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[{50} /<b>{100}</b> / {200}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 37
     Name_KR: "\uC2A4\uD0AC \uC624\uD06C\uAC70\uB10801.2 2"
     Name_EN: Skill037
@@ -1022,14 +806,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 38
     Name_KR: "\uD3EC\uACA9 3"
     Name_EN: Skill038
@@ -1050,15 +828,9 @@ MonoBehaviour:
       \uBC1C\uC0AC\uD574 \uB099\uD558\uC9C0\uC810\uC758 \uC801\uB4E4\uC5D0\uAC8C
       \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[{50} / {100} / <b>{200}</b>]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 39
     Name_KR: "\uC2A4\uD0AC \uC624\uD06C\uAC70\uB10801.2 3"
     Name_EN: Skill039
@@ -1078,14 +850,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 40
     Name_KR: "\uC804\uD22C\uC758 \uD568\uC131 1"
     Name_EN: Skill040
@@ -1105,15 +871,9 @@ MonoBehaviour:
     Skill_text: "\uC624\uD06C\uC804\uC0AC\uC758 \uD568\uC131\uC5D0 \uC544\uAD70\uC758
       \uACF5\uACA9\uC18D\uB3C4\uAC00 5\uCD08\uAC04 \uC99D\uAC00\uD569\uB2C8\uB2E4. "
     SkillAvility1_Name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 0.05263157894736836
-    SkillAvility1_Star2: 0.11111111111111116
-    SkillAvility1_Star3: 0.17647058823529416
+    SkillAvility1_Text: '[<b>{5%}</b> / {11%} / {18%}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 41
     Name_KR: "\uC804\uD22C\uC758 \uD568\uC131 2"
     Name_EN: Skill041
@@ -1133,15 +893,9 @@ MonoBehaviour:
     Skill_text: "\uC624\uD06C\uC804\uC0AC\uC758 \uD568\uC131\uC5D0 \uC544\uAD70\uC758
       \uACF5\uACA9\uC18D\uB3C4\uAC00 5\uCD08\uAC04 \uC99D\uAC00\uD569\uB2C8\uB2E4. "
     SkillAvility1_Name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 0.05263157894736836
-    SkillAvility1_Star2: 0.11111111111111116
-    SkillAvility1_Star3: 0.17647058823529416
+    SkillAvility1_Text: '[{5%} / <b>{11%}</b> / {18%}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 42
     Name_KR: "\uC804\uD22C\uC758 \uD568\uC131 3"
     Name_EN: Skill042
@@ -1161,15 +915,9 @@ MonoBehaviour:
     Skill_text: "\uC624\uD06C\uC804\uC0AC\uC758 \uD568\uC131\uC5D0 \uC544\uAD70\uC758
       \uACF5\uACA9\uC18D\uB3C4\uAC00 5\uCD08\uAC04 \uC99D\uAC00\uD569\uB2C8\uB2E4."
     SkillAvility1_Name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 0.05263157894736836
-    SkillAvility1_Star2: 0.11111111111111116
-    SkillAvility1_Star3: 0.17647058823529416
+    SkillAvility1_Text: '[{5%} / {11%} / <b>{18%}</b>]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 43
     Name_KR: "\uD06C\uAC8C \uD55C \uBC29 1"
     Name_EN: Skill043
@@ -1189,15 +937,9 @@ MonoBehaviour:
     Skill_text: "\uC0AC\uC774\uD074\uB86D\uC2A4\uAC00 \uBABD\uB465\uC774\uB85C \uB545\uC744
       \uAC15\uD558\uAC8C \uB0B4\uB9AC\uCCD0 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 100
-    SkillAvility1_Star2: 200
-    SkillAvility1_Star3: 300
+    SkillAvility1_Text: '[<b>{50}</b> / {100} / {200}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 44
     Name_KR: "\uD06C\uAC8C \uD55C \uBC29 2"
     Name_EN: Skill044
@@ -1217,15 +959,9 @@ MonoBehaviour:
     Skill_text: "\uC0AC\uC774\uD074\uB86D\uC2A4\uAC00 \uBABD\uB465\uC774\uB85C \uB545\uC744
       \uAC15\uD558\uAC8C \uB0B4\uB9AC\uCCD0 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 100
-    SkillAvility1_Star2: 200
-    SkillAvility1_Star3: 300
+    SkillAvility1_Text: '[{50} / <b>{100}</b> / {200}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 45
     Name_KR: "\uD06C\uAC8C \uD55C \uBC29 3"
     Name_EN: Skill045
@@ -1245,15 +981,9 @@ MonoBehaviour:
     Skill_text: "\uC0AC\uC774\uD074\uB86D\uC2A4\uAC00 \uBABD\uB465\uC774\uB85C \uB545\uC744
       \uAC15\uD558\uAC8C \uB0B4\uB9AC\uCCD0 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 100
-    SkillAvility1_Star2: 200
-    SkillAvility1_Star3: 300
+    SkillAvility1_Text: '[{50} / {100} / <b>{200}</b>]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 46
     Name_KR: "\uAC15\uD654\uD0C4 \uBC1C\uC0AC 1"
     Name_EN: Skill046
@@ -1273,15 +1003,9 @@ MonoBehaviour:
     Skill_text: "\uACE0\uBE14\uB9B0\uC774 \uD2B9\uC218\uD55C \uD0C4\uC744 \uBC1C\uC0AC\uD574
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 20
-    SkillAvility1_Star2: 40
-    SkillAvility1_Star3: 60
+    SkillAvility1_Text: '[<b>{100}</b> / {200} / {400}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 47
     Name_KR: "\uAC15\uD654\uD0C4 \uBC1C\uC0AC 2"
     Name_EN: Skill047
@@ -1301,15 +1025,9 @@ MonoBehaviour:
     Skill_text: "\uACE0\uBE14\uB9B0\uC774 \uD2B9\uC218\uD55C \uD0C4\uC744 \uBC1C\uC0AC\uD574
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 20
-    SkillAvility1_Star2: 40
-    SkillAvility1_Star3: 60
+    SkillAvility1_Text: '[{100} / <b>{200}</b> / {400}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 48
     Name_KR: "\uAC15\uD654\uD0C4 \uBC1C\uC0AC 3"
     Name_EN: Skill048
@@ -1329,15 +1047,9 @@ MonoBehaviour:
     Skill_text: "\uACE0\uBE14\uB9B0\uC774 \uD2B9\uC218\uD55C \uD0C4\uC744 \uBC1C\uC0AC\uD574
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 20
-    SkillAvility1_Star2: 40
-    SkillAvility1_Star3: 60
+    SkillAvility1_Text: '[{100} / {200} / <b>{400}</b>]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 49
     Name_KR: "\uD68C\uC624\uB9AC\uCE58\uAE30 1"
     Name_EN: Skill049
@@ -1357,15 +1069,9 @@ MonoBehaviour:
     Skill_text: "\uB180\uC804\uC0AC\uAC00 \uD55C\uBC14\uD034 \uD68C\uC804\uD558\uBA74\uC11C
       \uC8FC\uBCC0\uC758 \uC801\uB4E4\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[<b>{50}</b> / {100} / {200}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 50
     Name_KR: "\uD68C\uC624\uB9AC\uCE58\uAE30 2"
     Name_EN: Skill050
@@ -1385,15 +1091,9 @@ MonoBehaviour:
     Skill_text: "\uB180\uC804\uC0AC\uAC00 \uD55C\uBC14\uD034 \uD68C\uC804\uD558\uBA74\uC11C
       \uC8FC\uBCC0\uC758 \uC801\uB4E4\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[{50} / <b>{100}</b> / {200}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 51
     Name_KR: "\uD68C\uC624\uB9AC\uCE58\uAE30 3"
     Name_EN: Skill051
@@ -1413,15 +1113,9 @@ MonoBehaviour:
     Skill_text: "\uB180\uC804\uC0AC\uAC00 \uD55C\uBC14\uD034 \uD68C\uC804\uD558\uBA74\uC11C
       \uC8FC\uBCC0\uC758 \uC801\uB4E4\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '{50} / {100} / [<b>{200}</b>]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 52
     Name_KR: "\uAC15\uB839\uC220 1"
     Name_EN: Skill052
@@ -1441,15 +1135,9 @@ MonoBehaviour:
     Skill_text: "\uD2B8\uB864\uC8FC\uC220\uC0AC\uAC00 \uC601\uD63C\uC744 \uBD88\uB7EC\uC640
       \uC544\uAD70\uC758 \uACF5\uACA9\uC18D\uB3C4\uB97C 5\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 0.05263157894736836
-    SkillAvility1_Star2: 0.17647058823529416
-    SkillAvility1_Star3: 0.33333333333333326
+    SkillAvility1_Text: '[<b>{5%}</b> / {18%} / {33%}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 53
     Name_KR: "\uAC15\uB839\uC220 2"
     Name_EN: Skill053
@@ -1469,15 +1157,9 @@ MonoBehaviour:
     Skill_text: "\uD2B8\uB864\uC8FC\uC220\uC0AC\uAC00 \uC601\uD63C\uC744 \uBD88\uB7EC\uC640
       \uC544\uAD70\uC758 \uACF5\uACA9\uC18D\uB3C4\uB97C 5\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 0.05263157894736836
-    SkillAvility1_Star2: 0.17647058823529416
-    SkillAvility1_Star3: 0.33333333333333326
+    SkillAvility1_Text: '[{5%} / <b>{18%}</b> / {33%}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 54
     Name_KR: "\uAC15\uB839\uC220 3"
     Name_EN: Skill054
@@ -1497,15 +1179,9 @@ MonoBehaviour:
     Skill_text: "\uD2B8\uB864\uC8FC\uC220\uC0AC\uAC00 \uC601\uD63C\uC744 \uBD88\uB7EC\uC640
       \uC544\uAD70\uC758 \uACF5\uACA9\uC18D\uB3C4\uB97C 5\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 0.05263157894736836
-    SkillAvility1_Star2: 0.17647058823529416
-    SkillAvility1_Star3: 0.33333333333333326
+    SkillAvility1_Text: '[{5%} / {18%} / <b>{33%}</b>]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 55
     Name_KR: "\uBE5B \uD3ED\uD30C 1"
     Name_EN: Skill055
@@ -1526,15 +1202,9 @@ MonoBehaviour:
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
       5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[<b>{50}</b> / {100} / {200}]'
     SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
-    SkillAvility2_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility2_Star1: 0.15000000000000002
-    SkillAvility2_Star2: 0.25
-    SkillAvility2_Star3: 0.4
+    SkillAvility2_Text: '[<b>{15%}</b> / {25%} / {40%}]'
   - No: 56
     Name_KR: "\uBE5B \uD3ED\uD30C 2"
     Name_EN: Skill056
@@ -1555,15 +1225,9 @@ MonoBehaviour:
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
       5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[{50} / <b>{100}</b> / {200}]'
     SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
-    SkillAvility2_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility2_Star1: 0.15000000000000002
-    SkillAvility2_Star2: 0.25
-    SkillAvility2_Star3: 0.4
+    SkillAvility2_Text: '[{15%} / <b>{25%}</b> / {40%}]'
   - No: 57
     Name_KR: "\uBE5B \uD3ED\uD30C 3"
     Name_EN: Skill057
@@ -1584,15 +1248,9 @@ MonoBehaviour:
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
       5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[{50} / {100} / <b>{200}</b>]'
     SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
-    SkillAvility2_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility2_Star1: 0.15000000000000002
-    SkillAvility2_Star2: 0.25
-    SkillAvility2_Star3: 0.4
+    SkillAvility2_Text: '[{15%} / {25%} / <b>{40%}</b>]'
   - No: 58
     Name_KR: "\uC57D\uC810 \uACF5\uACA9 1"
     Name_EN: Skill058
@@ -1612,15 +1270,9 @@ MonoBehaviour:
     Skill_text: "\uC0B4\uB77C\uB9E8\uB354\uAC00 \uC801\uC758 \uC57D\uC810\uC744 \uACF5\uACA9\uD574
       \uD53C\uD574\uB97C \uC8FC\uACE0 3\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 15
-    SkillAvility1_Star2: 30
-    SkillAvility1_Star3: 45
+    SkillAvility1_Text: '[<b>{75}</b> / {150} / {300}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 59
     Name_KR: "\uC57D\uC810 \uACF5\uACA9 2"
     Name_EN: Skill059
@@ -1640,15 +1292,9 @@ MonoBehaviour:
     Skill_text: "\uC0B4\uB77C\uB9E8\uB354\uAC00 \uC801\uC758 \uC57D\uC810\uC744 \uACF5\uACA9\uD574
       \uD53C\uD574\uB97C \uC8FC\uACE0 3\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 15
-    SkillAvility1_Star2: 30
-    SkillAvility1_Star3: 45
+    SkillAvility1_Text: '[{75} / <b>{150}</b> / {300}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 60
     Name_KR: "\uC57D\uC810 \uACF5\uACA9 3"
     Name_EN: Skill060
@@ -1668,15 +1314,9 @@ MonoBehaviour:
     Skill_text: "\uC0B4\uB77C\uB9E8\uB354\uAC00 \uC801\uC758 \uC57D\uC810\uC744 \uACF5\uACA9\uD574
       \uD53C\uD574\uB97C \uC8FC\uACE0 3\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 15
-    SkillAvility1_Star2: 30
-    SkillAvility1_Star3: 45
+    SkillAvility1_Text: '[{75} / {150} / <b>{300}</b>]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 61
     Name_KR: "\uD654\uC5FC\uD3EC 1"
     Name_EN: Skill061
@@ -1697,15 +1337,9 @@ MonoBehaviour:
       \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uD654\uC0C1
       \uD6A8\uACFC\uB97C 5\uCD08\uAC04 \uBD80\uC5EC\uD569\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 5
-    SkillAvility1_Star2: 10
-    SkillAvility1_Star3: 15
+    SkillAvility1_Text: '[<b>{25}</b> / {50} / {100}]'
     SkillAvility2_Name: "\uD654\uC0C1 \uD6A8\uACFC"
-    SkillAvility2_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility2_Star1: 0.1
-    SkillAvility2_Star2: 0.15
-    SkillAvility2_Star3: 0.25
+    SkillAvility2_Text: '[<b>{10%}</b> / {15%} / {25%}]'
   - No: 62
     Name_KR: "\uD654\uC5FC\uD3EC 2"
     Name_EN: Skill062
@@ -1726,15 +1360,9 @@ MonoBehaviour:
       \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uD654\uC0C1
       \uD6A8\uACFC\uB97C 5\uCD08\uAC04 \uBD80\uC5EC\uD569\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 5
-    SkillAvility1_Star2: 10
-    SkillAvility1_Star3: 15
+    SkillAvility1_Text: '[{25} / <b>{50}</b> / {100}]'
     SkillAvility2_Name: "\uD654\uC0C1 \uD6A8\uACFC"
-    SkillAvility2_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility2_Star1: 0.1
-    SkillAvility2_Star2: 0.15
-    SkillAvility2_Star3: 0.25
+    SkillAvility2_Text: '[{10%} / <b>{15%}</b> / {25%}]'
   - No: 63
     Name_KR: "\uD654\uC5FC\uD3EC 3"
     Name_EN: Skill063
@@ -1755,15 +1383,9 @@ MonoBehaviour:
       \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uD654\uC0C1
       \uD6A8\uACFC\uB97C 5\uCD08\uAC04 \uBD80\uC5EC\uD569\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 5
-    SkillAvility1_Star2: 10
-    SkillAvility1_Star3: 15
+    SkillAvility1_Text: '[{25} / {50} / <b>{100}</b>]'
     SkillAvility2_Name: "\uD654\uC0C1 \uD6A8\uACFC"
-    SkillAvility2_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility2_Star1: 0.1
-    SkillAvility2_Star2: 0.15
-    SkillAvility2_Star3: 0.25
+    SkillAvility2_Text: '[{10%} / {15%} / <b>{25%}</b>]'
   - No: 64
     Name_KR: "\uC0AC\uC790\uD6C4 1"
     Name_EN: Skill064
@@ -1784,15 +1406,9 @@ MonoBehaviour:
       \uC9C8\uB7EC \uC8FC\uBCC0 \uC801\uC758 \uBC29\uC5B4\uB825\uC744 5\uCD08\uAC04
       \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uBC29\uC5B4\uB825 \uAC10\uC18C"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 0.15000000000000002
-    SkillAvility1_Star2: 0.19999999999999996
-    SkillAvility1_Star3: 0.30000000000000004
+    SkillAvility1_Text: '[<b>{15%}</b> / {20%} / {30%}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 65
     Name_KR: "\uC0AC\uC790\uD6C4 2"
     Name_EN: Skill065
@@ -1813,15 +1429,9 @@ MonoBehaviour:
       \uC9C8\uB7EC \uC8FC\uBCC0 \uC801\uC758 \uBC29\uC5B4\uB825\uC744 5\uCD08\uAC04
       \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uBC29\uC5B4\uB825 \uAC10\uC18C"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 0.15000000000000002
-    SkillAvility1_Star2: 0.19999999999999996
-    SkillAvility1_Star3: 0.30000000000000004
+    SkillAvility1_Text: '[{15%} / <b>{20%}</b> / {30%}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 66
     Name_KR: "\uC0AC\uC790\uD6C4 3"
     Name_EN: Skill066
@@ -1842,15 +1452,9 @@ MonoBehaviour:
       \uC9C8\uB7EC \uC8FC\uBCC0 \uC801\uC758 \uBC29\uC5B4\uB825\uC744 5\uCD08\uAC04
       \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uBC29\uC5B4\uB825 \uAC10\uC18C"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 0.15000000000000002
-    SkillAvility1_Star2: 0.19999999999999996
-    SkillAvility1_Star3: 0.30000000000000004
+    SkillAvility1_Text: '[{15%} / {20%} / <b>{30%}</b>]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 67
     Name_KR: "\uC804\uC7A5\uC758 \uC9C0\uD718\uC790 1"
     Name_EN: Skill067
@@ -1871,15 +1475,9 @@ MonoBehaviour:
       \uC544\uAD70\uC758 \uACF5\uACA9\uB825\uACFC \uACF5\uACA9\uC18D\uB3C4\uB97C
       10\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uACF5\uACA9\uB825 \uC99D\uAC00"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 0.1499999999999999
-    SkillAvility1_Star2: 0.30000000000000004
-    SkillAvility1_Star3: 0.3999999999999999
+    SkillAvility1_Text: '[<b>{15%}</b> / {30%} / {40%}]'
     SkillAvility2_Name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
-    SkillAvility2_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility2_Star1: 0.11111111111111116
-    SkillAvility2_Star2: 0.17647058823529416
-    SkillAvility2_Star3: 0.25
+    SkillAvility2_Text: '[<b>{11%}</b> / {18%} / {25%}]'
   - No: 68
     Name_KR: "\uC804\uC7A5\uC758 \uC9C0\uD718\uC790 2"
     Name_EN: Skill068
@@ -1900,15 +1498,9 @@ MonoBehaviour:
       \uC544\uAD70\uC758 \uACF5\uACA9\uB825\uACFC \uACF5\uACA9\uC18D\uB3C4\uB97C
       10\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uACF5\uACA9\uB825 \uC99D\uAC00"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 0.1499999999999999
-    SkillAvility1_Star2: 0.30000000000000004
-    SkillAvility1_Star3: 0.3999999999999999
+    SkillAvility1_Text: '[{15%} / <b>{30%}</b> / {40%}]'
     SkillAvility2_Name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
-    SkillAvility2_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility2_Star1: 0.11111111111111116
-    SkillAvility2_Star2: 0.17647058823529416
-    SkillAvility2_Star3: 0.25
+    SkillAvility2_Text: '[{11%} / <b>{18%}</b> / {25%}]'
   - No: 69
     Name_KR: "\uC804\uC7A5\uC758 \uC9C0\uD718\uC790 3"
     Name_EN: Skill069
@@ -1929,15 +1521,9 @@ MonoBehaviour:
       \uC544\uAD70\uC758 \uACF5\uACA9\uB825\uACFC \uACF5\uACA9\uC18D\uB3C4\uB97C
       10\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uACF5\uACA9\uB825 \uC99D\uAC00"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 0.1499999999999999
-    SkillAvility1_Star2: 0.30000000000000004
-    SkillAvility1_Star3: 0.3999999999999999
+    SkillAvility1_Text: '[{15%} / {30%} / <b>{40%}</b>]'
     SkillAvility2_Name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00"
-    SkillAvility2_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility2_Star1: 0.11111111111111116
-    SkillAvility2_Star2: 0.17647058823529416
-    SkillAvility2_Star3: 0.25
+    SkillAvility2_Text: '[{11%} / {18%} / <b>{25%}</b>]'
   - No: 70
     Name_KR: "\uACF5\uD3EC\uC758 \uB9DD\uCE58 1"
     Name_EN: Skill070
@@ -1958,15 +1544,9 @@ MonoBehaviour:
       \uC801\uC744 5\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0A4\uACE0 \uC8FC\uBCC0 \uC801\uC5D0\uAC8C
       \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 60
-    SkillAvility1_Star3: 150
+    SkillAvility1_Text: '[<b>{50}</b> / {300} / {1000}]'
     SkillAvility2_Name: "\uC8FC\uBCC0 \uD53C\uD574\uB7C9"
-    SkillAvility2_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility2_Star1: 10
-    SkillAvility2_Star2: 60
-    SkillAvility2_Star3: 150
+    SkillAvility2_Text: '[<b>{50}</b> / {300} / {1000}]'
   - No: 71
     Name_KR: "\uC2A4\uD0AC \uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A401.2 1"
     Name_EN: Skill071
@@ -1986,14 +1566,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 72
     Name_KR: "\uACF5\uD3EC\uC758 \uB9DD\uCE58 2"
     Name_EN: Skill072
@@ -2014,15 +1588,9 @@ MonoBehaviour:
       \uC801\uC744 5\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0A4\uACE0 \uC8FC\uBCC0 \uC801\uC5D0\uAC8C
       \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 60
-    SkillAvility1_Star3: 150
+    SkillAvility1_Text: '[{50} / <b>{300}</b> / {1000}]'
     SkillAvility2_Name: "\uC8FC\uBCC0 \uD53C\uD574\uB7C9"
-    SkillAvility2_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility2_Star1: 10
-    SkillAvility2_Star2: 60
-    SkillAvility2_Star3: 150
+    SkillAvility2_Text: '[{50} / <b>{300}</b> / {1000}]'
   - No: 73
     Name_KR: "\uC2A4\uD0AC \uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A401.2 2"
     Name_EN: Skill073
@@ -2042,14 +1610,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 74
     Name_KR: "\uACF5\uD3EC\uC758 \uB9DD\uCE58 3"
     Name_EN: Skill074
@@ -2070,15 +1632,9 @@ MonoBehaviour:
       \uC801\uC744 5\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0A4\uACE0 \uC8FC\uBCC0 \uC801\uC5D0\uAC8C
       \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 60
-    SkillAvility1_Star3: 150
+    SkillAvility1_Text: '[{50} / {300} / <b>{1000}</b>]'
     SkillAvility2_Name: "\uC8FC\uBCC0 \uD53C\uD574\uB7C9"
-    SkillAvility2_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility2_Star1: 10
-    SkillAvility2_Star2: 60
-    SkillAvility2_Star3: 150
+    SkillAvility2_Text: '[{50} / {300} / <b>{1000}</b>]'
   - No: 75
     Name_KR: "\uC2A4\uD0AC \uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A401.2 3"
     Name_EN: Skill075
@@ -2098,14 +1654,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 76
     Name_KR: "\uBC88\uAC1C \uD3ED\uD48D 1"
     Name_EN: Skill076
@@ -2126,15 +1676,9 @@ MonoBehaviour:
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
       5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[<b>{50}</b> / {100} / {200}]'
     SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
-    SkillAvility2_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility2_Star1: 0.19999999999999996
-    SkillAvility2_Star2: 0.30000000000000004
-    SkillAvility2_Star3: 0.35
+    SkillAvility2_Text: '[<b>{20%}</b> / {30%} / {35%}]'
   - No: 77
     Name_KR: "\uBC88\uAC1C \uD3ED\uD48D 2"
     Name_EN: Skill077
@@ -2155,15 +1699,9 @@ MonoBehaviour:
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
       5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[{50} / <b>{100}</b> / {200}]'
     SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
-    SkillAvility2_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility2_Star1: 0.19999999999999996
-    SkillAvility2_Star2: 0.30000000000000004
-    SkillAvility2_Star3: 0.35
+    SkillAvility2_Text: '[{20%} / <b>{30%}</b> / {35%}]'
   - No: 78
     Name_KR: "\uBC88\uAC1C \uD3ED\uD48D 3"
     Name_EN: Skill078
@@ -2184,15 +1722,9 @@ MonoBehaviour:
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
       5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[{50} / {100} / <b>{200}</b>]'
     SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
-    SkillAvility2_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility2_Star1: 0.19999999999999996
-    SkillAvility2_Star2: 0.30000000000000004
-    SkillAvility2_Star3: 0.35
+    SkillAvility2_Text: '[{20%}/ {30%} / <b>{35%}</b> ]'
   - No: 79
     Name_KR: "\uC2A4\uD0AC \uC0AC\uD2F0\uB85C\uC2A401.2"
     Name_EN: Skill079
@@ -2212,14 +1744,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 80
     Name_KR: "\uC2EC\uD310 1"
     Name_EN: Skill080
@@ -2239,15 +1765,9 @@ MonoBehaviour:
     Skill_text: "\uADF8\uB9BC\uB9AC\uD37C\uAC00 \uB0AB\uC744 \uB465\uAE00\uAC8C \uD718\uB458\uB7EC
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4"
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[<b>{50}</b> / {100} / {200}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 81
     Name_KR: "\uC2EC\uD310 2"
     Name_EN: Skill081
@@ -2267,15 +1787,9 @@ MonoBehaviour:
     Skill_text: "\uADF8\uB9BC\uB9AC\uD37C\uAC00 \uB0AB\uC744 \uB465\uAE00\uAC8C \uD718\uB458\uB7EC
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4"
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[{50} / <b>{100}</b> / {200}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 82
     Name_KR: "\uC2EC\uD310 3"
     Name_EN: Skill082
@@ -2295,15 +1809,9 @@ MonoBehaviour:
     Skill_text: "\uADF8\uB9BC\uB9AC\uD37C\uAC00 \uB0AB\uC744 \uB465\uAE00\uAC8C \uD718\uB458\uB7EC
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4"
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[{50} / {100} / <b>{200}</b>]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 83
     Name_KR: "\uC5F0\uC18D\uBCA0\uAE30 1"
     Name_EN: Skill083
@@ -2323,15 +1831,9 @@ MonoBehaviour:
     Skill_text: "\uB370\uC2A4\uB098\uC774\uD2B8\uAC00 \uAC80\uC744 \uBE60\uB974\uAC8C
       4\uBC88 \uD718\uB458\uB7EC \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 80
-    SkillAvility1_Star2: 160
-    SkillAvility1_Star3: 240
+    SkillAvility1_Text: '[<b>{400}</b> / {800} / {1600}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 84
     Name_KR: "\uC2A4\uD0AC \uB370\uC2A4\uB098\uC774\uD2B801.2 1"
     Name_EN: Skill084
@@ -2351,14 +1853,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 85
     Name_KR: "\uC2A4\uD0AC \uB370\uC2A4\uB098\uC774\uD2B801.3 1"
     Name_EN: Skill085
@@ -2378,14 +1874,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 86
     Name_KR: "\uC2A4\uD0AC \uB370\uC2A4\uB098\uC774\uD2B801.4 1"
     Name_EN: Skill086
@@ -2405,14 +1895,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 87
     Name_KR: "\uC5F0\uC18D\uBCA0\uAE30 2"
     Name_EN: Skill087
@@ -2432,15 +1916,9 @@ MonoBehaviour:
     Skill_text: "\uB370\uC2A4\uB098\uC774\uD2B8\uAC00 \uAC80\uC744 \uBE60\uB974\uAC8C
       4\uBC88 \uD718\uB458\uB7EC \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 80
-    SkillAvility1_Star2: 160
-    SkillAvility1_Star3: 240
+    SkillAvility1_Text: '[{400} / <b>{800}</b> / {1600}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 88
     Name_KR: "\uC2A4\uD0AC \uB370\uC2A4\uB098\uC774\uD2B801.2 2"
     Name_EN: Skill088
@@ -2460,14 +1938,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 89
     Name_KR: "\uC2A4\uD0AC \uB370\uC2A4\uB098\uC774\uD2B801.3 2"
     Name_EN: Skill089
@@ -2487,14 +1959,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 90
     Name_KR: "\uC2A4\uD0AC \uB370\uC2A4\uB098\uC774\uD2B801.4 2"
     Name_EN: Skill090
@@ -2514,14 +1980,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 91
     Name_KR: "\uC5F0\uC18D\uBCA0\uAE30 3"
     Name_EN: Skill091
@@ -2541,15 +2001,9 @@ MonoBehaviour:
     Skill_text: "\uB370\uC2A4\uB098\uC774\uD2B8\uAC00 \uAC80\uC744 \uBE60\uB974\uAC8C
       4\uBC88 \uD718\uB458\uB7EC \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 80
-    SkillAvility1_Star2: 160
-    SkillAvility1_Star3: 240
+    SkillAvility1_Text: '[{400} / {800} / <b>{1600}</b>]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 92
     Name_KR: "\uC2A4\uD0AC \uB370\uC2A4\uB098\uC774\uD2B801.2 3"
     Name_EN: Skill092
@@ -2569,14 +2023,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 93
     Name_KR: "\uC2A4\uD0AC \uB370\uC2A4\uB098\uC774\uD2B801.3 3"
     Name_EN: Skill093
@@ -2596,14 +2044,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 94
     Name_KR: "\uC2A4\uD0AC \uB370\uC2A4\uB098\uC774\uD2B801.4 3"
     Name_EN: Skill094
@@ -2623,14 +2065,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 95
     Name_KR: "\uADF8\uB9BC\uC790\uAD00\uD1B5 1"
     Name_EN: Skill095
@@ -2650,15 +2086,9 @@ MonoBehaviour:
     Skill_text: "\uB2E4\uD06C\uC18C\uC6B8\uC774 \uB450 \uC190\uC744 \uCC14\uB7EC
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[<b>{50}</b> / {100} / {200}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 96
     Name_KR: "\uADF8\uB9BC\uC790\uAD00\uD1B5 2"
     Name_EN: Skill096
@@ -2678,15 +2108,9 @@ MonoBehaviour:
     Skill_text: "\uB2E4\uD06C\uC18C\uC6B8\uC774 \uB450 \uC190\uC744 \uCC14\uB7EC
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[{50} / <b>{100}</b> / {200}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 97
     Name_KR: "\uADF8\uB9BC\uC790\uAD00\uD1B5 3"
     Name_EN: Skill097
@@ -2706,15 +2130,9 @@ MonoBehaviour:
     Skill_text: "\uB2E4\uD06C\uC18C\uC6B8\uC774 \uB450 \uC190\uC744 \uCC14\uB7EC
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[{50} / {100} / <b>{200}</b>]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 98
     Name_KR: "\uC9C0\uC9C4 1"
     Name_EN: Skill098
@@ -2734,15 +2152,9 @@ MonoBehaviour:
     Skill_text: "\uC2A4\uD1A4\uACE8\uB818\uC774 \uC9C0\uC9C4\uC744 \uC77C\uC73C\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 5\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[<b>{50}</b> / {100} / {200}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 99
     Name_KR: "\uC9C0\uC9C4 2"
     Name_EN: Skill099
@@ -2762,15 +2174,9 @@ MonoBehaviour:
     Skill_text: "\uC2A4\uD1A4\uACE8\uB818\uC774 \uC9C0\uC9C4\uC744 \uC77C\uC73C\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 5\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[{50} / <b>{100}</b> / {200}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 100
     Name_KR: "\uC9C0\uC9C4 3"
     Name_EN: Skill100
@@ -2790,15 +2196,9 @@ MonoBehaviour:
     Skill_text: "\uC2A4\uD1A4\uACE8\uB818\uC774 \uC9C0\uC9C4\uC744 \uC77C\uC73C\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 5\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[{50} / {100} / <b>{200}</b>]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 101
     Name_KR: "\uD654\uC0B0\uD3ED\uBC1C 1"
     Name_EN: Skill101
@@ -2818,15 +2218,9 @@ MonoBehaviour:
     Skill_text: "\uB77C\uBC14\uACE8\uB818\uC774 \uC801\uC5D0\uAC8C \uD654\uC0C1 \uD6A8\uACFC\uB97C
       5\uCD08\uAC04 \uBD80\uC5EC\uD569\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD654\uC0C1 \uD6A8\uACFC"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 0.15
-    SkillAvility1_Star2: 0.2
-    SkillAvility1_Star3: 0.25
+    SkillAvility1_Text: '[<b>{15%}</b> / {20%} / {25%}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 102
     Name_KR: "\uD654\uC0B0\uD3ED\uBC1C 2"
     Name_EN: Skill102
@@ -2846,15 +2240,9 @@ MonoBehaviour:
     Skill_text: "\uB77C\uBC14\uACE8\uB818\uC774 \uC801\uC5D0\uAC8C \uD654\uC0C1 \uD6A8\uACFC\uB97C
       5\uCD08\uAC04 \uBD80\uC5EC\uD569\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD654\uC0C1 \uD6A8\uACFC"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 0.15
-    SkillAvility1_Star2: 0.2
-    SkillAvility1_Star3: 0.25
+    SkillAvility1_Text: '[{15%} / <b>{20%}</b> / {25%}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 103
     Name_KR: "\uD654\uC0B0\uD3ED\uBC1C 3"
     Name_EN: Skill103
@@ -2874,15 +2262,9 @@ MonoBehaviour:
     Skill_text: "\uB77C\uBC14\uACE8\uB818\uC774  \uC801\uC5D0\uAC8C \uD654\uC0C1
       \uD6A8\uACFC\uB97C 5\uCD08\uAC04 \uBD80\uC5EC\uD569\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD654\uC0C1 \uD6A8\uACFC"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 0.15
-    SkillAvility1_Star2: 0.2
-    SkillAvility1_Star3: 0.25
+    SkillAvility1_Text: '[{15%} / {20%} / <b>{25%}</b>]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 104
     Name_KR: "\uCD08\uC74C\uD30C 1"
     Name_EN: Skill104
@@ -2902,15 +2284,9 @@ MonoBehaviour:
     Skill_text: "\uBC15\uC950\uAC00 \uC801\uC5D0\uAC8C \uCD08\uC74C\uD30C\uB97C \uBCF4\uB0B4
       \uBC29\uC5B4\uB825\uC744 5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uBC29\uC5B4\uB825 \uAC10\uC18C"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 0.09999999999999998
-    SkillAvility1_Star2: 0.15000000000000002
-    SkillAvility1_Star3: 0.30000000000000004
+    SkillAvility1_Text: '[<b>{10%}</b> / {15%} / {30%}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 105
     Name_KR: "\uCD08\uC74C\uD30C 2"
     Name_EN: Skill105
@@ -2930,15 +2306,9 @@ MonoBehaviour:
     Skill_text: "\uBC15\uC950\uAC00 \uC801\uC5D0\uAC8C \uCD08\uC74C\uD30C\uB97C \uBCF4\uB0B4
       \uBC29\uC5B4\uB825\uC744 5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uBC29\uC5B4\uB825 \uAC10\uC18C"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 0.09999999999999998
-    SkillAvility1_Star2: 0.15000000000000002
-    SkillAvility1_Star3: 0.30000000000000004
+    SkillAvility1_Text: '[{10%} / <b>{15%}</b> / {30%}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 106
     Name_KR: "\uCD08\uC74C\uD30C 3"
     Name_EN: Skill106
@@ -2958,15 +2328,9 @@ MonoBehaviour:
     Skill_text: "\uBC15\uC950\uAC00 \uC801\uC5D0\uAC8C \uCD08\uC74C\uD30C\uB97C \uBCF4\uB0B4
       \uBC29\uC5B4\uB825\uC744 5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uBC29\uC5B4\uB825 \uAC10\uC18C"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 0.09999999999999998
-    SkillAvility1_Star2: 0.15000000000000002
-    SkillAvility1_Star3: 0.30000000000000004
+    SkillAvility1_Text: '[{10%} / {15%} / <b>{30%}</b>]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 107
     Name_KR: "\uBAB8\uD1B5\uBC15\uCE58\uAE30 1"
     Name_EN: Skill107
@@ -2986,15 +2350,9 @@ MonoBehaviour:
     Skill_text: "\uB291\uB300\uAC00 \uC801\uC5D0\uAC8C \uB3CC\uC9C4\uD574 \uD53C\uD574\uB97C
       \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C 5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 15
-    SkillAvility1_Star2: 30
-    SkillAvility1_Star3: 45
+    SkillAvility1_Text: '[<b>{75}</b> / {150} / {300}]'
     SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
-    SkillAvility2_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility2_Star1: 0.15000000000000002
-    SkillAvility2_Star2: 0.25
-    SkillAvility2_Star3: 0.30000000000000004
+    SkillAvility2_Text: '[<b>{15%}</b> / {25%} / {30%}]'
   - No: 108
     Name_KR: "\uBAB8\uD1B5\uBC15\uCE58\uAE30 2"
     Name_EN: Skill108
@@ -3014,15 +2372,9 @@ MonoBehaviour:
     Skill_text: "\uB291\uB300\uAC00 \uC801\uC5D0\uAC8C \uB3CC\uC9C4\uD574 \uD53C\uD574\uB97C
       \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C 5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 15
-    SkillAvility1_Star2: 30
-    SkillAvility1_Star3: 45
+    SkillAvility1_Text: '[{75} / <b>{150}</b> / {300}]'
     SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
-    SkillAvility2_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility2_Star1: 0.15000000000000002
-    SkillAvility2_Star2: 0.25
-    SkillAvility2_Star3: 0.30000000000000004
+    SkillAvility2_Text: '[{15%} / <b>{25%}</b> / {30%}]'
   - No: 109
     Name_KR: "\uBAB8\uD1B5\uBC15\uCE58\uAE30 3"
     Name_EN: Skill109
@@ -3042,15 +2394,9 @@ MonoBehaviour:
     Skill_text: "\uB291\uB300\uAC00 \uC801\uC5D0\uAC8C \uB3CC\uC9C4\uD574 \uD53C\uD574\uB97C
       \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C 5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 15
-    SkillAvility1_Star2: 30
-    SkillAvility1_Star3: 45
+    SkillAvility1_Text: '[{75} / {150} / <b>{300}</b>]'
     SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
-    SkillAvility2_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility2_Star1: 0.15000000000000002
-    SkillAvility2_Star2: 0.25
-    SkillAvility2_Star3: 0.30000000000000004
+    SkillAvility2_Text: '[{15%} / {25%} / <b>{30%}</b>]'
   - No: 110
     Name_KR: "\uC2B9\uB8E1\uAD8C 1"
     Name_EN: Skill110
@@ -3070,15 +2416,9 @@ MonoBehaviour:
     Skill_text: "\uD30C\uC774\uD2B8\uBCA0\uC5B4\uAC00 \uC8FC\uBA39\uC744 \uC704\uB85C
       \uC62C\uB824\uCCD0 \uC801\uC5D0\uAC8C \uD070 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 15
-    SkillAvility1_Star2: 30
-    SkillAvility1_Star3: 45
+    SkillAvility1_Text: '[<b>{75}</b> / {150} / {300}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 111
     Name_KR: "\uC2B9\uB8E1\uAD8C 2"
     Name_EN: Skill111
@@ -3098,15 +2438,9 @@ MonoBehaviour:
     Skill_text: "\uD30C\uC774\uD2B8\uBCA0\uC5B4\uAC00 \uC8FC\uBA39\uC744 \uC704\uB85C
       \uC62C\uB824\uCCD0 \uC801\uC5D0\uAC8C \uD070 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 15
-    SkillAvility1_Star2: 30
-    SkillAvility1_Star3: 45
+    SkillAvility1_Text: '[{75} / <b>{150}</b> / {300}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 112
     Name_KR: "\uC2B9\uB8E1\uAD8C 3"
     Name_EN: Skill112
@@ -3126,15 +2460,9 @@ MonoBehaviour:
     Skill_text: "\uD30C\uC774\uD2B8\uBCA0\uC5B4\uAC00 \uC8FC\uBA39\uC744 \uC704\uB85C
       \uC62C\uB824\uCCD0 \uC801\uC5D0\uAC8C \uD070 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 15
-    SkillAvility1_Star2: 30
-    SkillAvility1_Star3: 45
+    SkillAvility1_Text: '[{75} / {150} / <b>{300}</b>]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 113
     Name_KR: "\uC554\uD751 \uC804\uC774 1"
     Name_EN: Skill113
@@ -3154,15 +2482,9 @@ MonoBehaviour:
     Skill_text: "\uAD11\uB300\uAC00 \uC554\uD751\uC5D0\uB108\uC9C0\uB97C \uC77C\uC73C\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[<b>{50}</b> / {100} / {200}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 114
     Name_KR: "\uC554\uD751 \uC804\uC774 2"
     Name_EN: Skill114
@@ -3182,15 +2504,9 @@ MonoBehaviour:
     Skill_text: "\uAD11\uB300\uAC00 \uC554\uD751\uC5D0\uB108\uC9C0\uB97C \uC77C\uC73C\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[{50} / <b>{100}</b> / {200}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 115
     Name_KR: "\uC554\uD751 \uC804\uC774 3"
     Name_EN: Skill115
@@ -3210,15 +2526,9 @@ MonoBehaviour:
     Skill_text: "\uAD11\uB300\uAC00 \uC554\uD751\uC5D0\uB108\uC9C0\uB97C \uC77C\uC73C\uCF1C
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[{50} / {100} / <b>{200}</b>]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 116
     Name_KR: "\uC5D0\uB108\uC9C0 \uBC29\uCD9C 1"
     Name_EN: Skill116
@@ -3239,15 +2549,9 @@ MonoBehaviour:
       \uBC29\uCD9C\uC2DC\uCF1C \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0
       5\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 100
-    SkillAvility1_Star2: 200
-    SkillAvility1_Star3: 300
+    SkillAvility1_Text: '[<b>{50}</b> / {100} / {200}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 117
     Name_KR: "\uC5D0\uB108\uC9C0 \uBC29\uCD9C 2"
     Name_EN: Skill117
@@ -3268,15 +2572,9 @@ MonoBehaviour:
       \uBC29\uCD9C\uC2DC\uCF1C \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0
       5\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 100
-    SkillAvility1_Star2: 200
-    SkillAvility1_Star3: 300
+    SkillAvility1_Text: '[{50} / <b>{100}</b> / {200}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 118
     Name_KR: "\uC5D0\uB108\uC9C0 \uBC29\uCD9C 3"
     Name_EN: Skill118
@@ -3297,15 +2595,9 @@ MonoBehaviour:
       \uBC29\uCD9C\uC2DC\uCF1C \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0
       5\uCD08\uAC04 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 100
-    SkillAvility1_Star2: 200
-    SkillAvility1_Star3: 300
+    SkillAvility1_Text: '[{50} / {100} / <b>{200}</b>]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 119
     Name_KR: "\uB4DC\uB798\uACE4 \uBE0C\uB808\uC2A4 1"
     Name_EN: Skill119
@@ -3326,15 +2618,9 @@ MonoBehaviour:
       \uC3D8\uC544 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
       5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 1000
-    SkillAvility1_Star2: 2000
-    SkillAvility1_Star3: 3000
+    SkillAvility1_Text: '[<b>{50}</b> / {100} / {200}]'
     SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
-    SkillAvility2_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility2_Star1: 0.15000000000000002
-    SkillAvility2_Star2: 0.30000000000000004
-    SkillAvility2_Star3: 0.4
+    SkillAvility2_Text: '[<b>{15%}</b> / {30%} / {40%}]'
   - No: 120
     Name_KR: "\uB4DC\uB798\uACE4 \uBE0C\uB808\uC2A4 2"
     Name_EN: Skill120
@@ -3355,15 +2641,9 @@ MonoBehaviour:
       \uC3D8\uC544 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
       5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 1000
-    SkillAvility1_Star2: 2000
-    SkillAvility1_Star3: 3000
+    SkillAvility1_Text: '[{50} / <b>{100}</b> / {200}]'
     SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
-    SkillAvility2_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility2_Star1: 0.15000000000000002
-    SkillAvility2_Star2: 0.30000000000000004
-    SkillAvility2_Star3: 0.4
+    SkillAvility2_Text: '[{15%} / <b>{30%}</b> / {40%}]'
   - No: 121
     Name_KR: "\uB4DC\uB798\uACE4 \uBE0C\uB808\uC2A4 3"
     Name_EN: Skill121
@@ -3384,15 +2664,9 @@ MonoBehaviour:
       \uC3D8\uC544 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC18D\uB3C4\uB97C
       5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 1000
-    SkillAvility1_Star2: 2000
-    SkillAvility1_Star3: 3000
+    SkillAvility1_Text: '[{50} / {100} / <b>{200}</b>]'
     SkillAvility2_Name: "\uC774\uB3D9\uC18D\uB3C4 \uAC10\uC18C"
-    SkillAvility2_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility2_Star1: 0.15000000000000002
-    SkillAvility2_Star2: 0.30000000000000004
-    SkillAvility2_Star3: 0.4
+    SkillAvility2_Text: '[{15%} / {30%} / <b>{40%}</b>]'
   - No: 122
     Name_KR: "\uAC15\uD654 \uC8FC\uBB38 1"
     Name_EN: Skill122
@@ -3412,15 +2686,9 @@ MonoBehaviour:
     Skill_text: "\uB9C8\uB140\uAC00 \uC8FC\uBB38\uC744 \uAC78\uC5B4 \uC544\uAD70\uC758
       \uACF5\uACA9\uB825\uC744 5\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uACF5\uACA9\uB825 \uC99D\uAC00"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 0.10000000000000009
-    SkillAvility1_Star2: 0.19999999999999996
-    SkillAvility1_Star3: 0.25
+    SkillAvility1_Text: '[<b>{10%}</b> / {20%} / {25%}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 123
     Name_KR: "\uAC15\uD654 \uC8FC\uBB38 2"
     Name_EN: Skill123
@@ -3440,15 +2708,9 @@ MonoBehaviour:
     Skill_text: "\uB9C8\uB140\uAC00 \uC8FC\uBB38\uC744 \uAC78\uC5B4 \uC544\uAD70\uC758
       \uACF5\uACA9\uB825\uC744 5\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uACF5\uACA9\uB825 \uC99D\uAC00"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 0.10000000000000009
-    SkillAvility1_Star2: 0.19999999999999996
-    SkillAvility1_Star3: 0.25
+    SkillAvility1_Text: '[{10%} / <b>{20%}</b> / {25%}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 124
     Name_KR: "\uAC15\uD654 \uC8FC\uBB38 3"
     Name_EN: Skill124
@@ -3468,15 +2730,9 @@ MonoBehaviour:
     Skill_text: "\uB9C8\uB140\uAC00 \uC8FC\uBB38\uC744 \uAC78\uC5B4 \uC544\uAD70\uC758
       \uACF5\uACA9\uB825\uC744 5\uCD08\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uACF5\uACA9\uB825 \uC99D\uAC00"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 0.10000000000000009
-    SkillAvility1_Star2: 0.19999999999999996
-    SkillAvility1_Star3: 0.25
+    SkillAvility1_Text: '[{10%} / {20%} / <b>{25%}</b>]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 125
     Name_KR: "\uCE7C\uB0A0 \uB3CC\uD48D 1"
     Name_EN: Skill125
@@ -3497,15 +2753,9 @@ MonoBehaviour:
       \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uBC29\uC5B4\uB825\uC744
       5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[<b>{50}</b> / {100} / {200}]'
     SkillAvility2_Name: "\uBC29\uC5B4\uB825 \uAC10\uC18C"
-    SkillAvility2_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility2_Star1: 0.19999999999999996
-    SkillAvility2_Star2: 0.30000000000000004
-    SkillAvility2_Star3: 0.4
+    SkillAvility2_Text: '[<b>{20%}</b> / {30%} / {40%}]'
   - No: 126
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.2 1"
     Name_EN: Skill126
@@ -3525,14 +2775,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 127
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.3 1"
     Name_EN: Skill127
@@ -3552,14 +2796,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 128
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.4 1"
     Name_EN: Skill128
@@ -3579,14 +2817,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 129
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.5 1"
     Name_EN: Skill129
@@ -3606,14 +2838,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 130
     Name_KR: "\uCE7C\uB0A0 \uB3CC\uD48D 2"
     Name_EN: Skill130
@@ -3634,15 +2860,9 @@ MonoBehaviour:
       \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uBC29\uC5B4\uB825\uC744
       5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[{50} / <b>{100}</b> / {200}]'
     SkillAvility2_Name: "\uBC29\uC5B4\uB825 \uAC10\uC18C"
-    SkillAvility2_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility2_Star1: 0.19999999999999996
-    SkillAvility2_Star2: 0.30000000000000004
-    SkillAvility2_Star3: 0.4
+    SkillAvility2_Text: '[{20%} / <b>{30%}</b> / {40%}]'
   - No: 131
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.2 2"
     Name_EN: Skill131
@@ -3662,14 +2882,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 132
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.3 2"
     Name_EN: Skill132
@@ -3689,14 +2903,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 133
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.4 2"
     Name_EN: Skill133
@@ -3716,14 +2924,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 134
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.5 2"
     Name_EN: Skill134
@@ -3743,14 +2945,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 135
     Name_KR: "\uCE7C\uB0A0 \uB3CC\uD48D 3"
     Name_EN: Skill135
@@ -3771,15 +2967,9 @@ MonoBehaviour:
       \uC8FC\uBCC0 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uBC29\uC5B4\uB825\uC744
       5\uCD08\uAC04 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 10
-    SkillAvility1_Star2: 20
-    SkillAvility1_Star3: 30
+    SkillAvility1_Text: '[{50} / {100} / <b>{200}</b>]'
     SkillAvility2_Name: "\uBC29\uC5B4\uB825 \uAC10\uC18C"
-    SkillAvility2_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility2_Star1: 0.19999999999999996
-    SkillAvility2_Star2: 0.30000000000000004
-    SkillAvility2_Star3: 0.4
+    SkillAvility2_Text: '[{20%} / {30%} / <b>{40%}</b>]'
   - No: 136
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.2 3"
     Name_EN: Skill136
@@ -3799,14 +2989,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 137
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.3 3"
     Name_EN: Skill137
@@ -3826,14 +3010,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 138
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.4 3"
     Name_EN: Skill138
@@ -3853,14 +3031,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 139
     Name_KR: "\uC2A4\uD0AC \uB2E4\uD06C\uC5D8\uD50401.5 3"
     Name_EN: Skill139
@@ -3880,14 +3052,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 140
     Name_KR: "\uC18C\uB4DC\uB808\uC778 1"
     Name_EN: Skill140
@@ -3907,15 +3073,9 @@ MonoBehaviour:
     Skill_text: "\uD0C0\uB77D\uCC9C\uC0AC\uAC00 \uCE7C\uC744 \uBE44\uCC98\uB7FC \uB5A8\uC5B4\uB728\uB824
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[<b>{0}</b> / {1} / {2}]'
-    SkillAvility1_Star1: 120
-    SkillAvility1_Star2: 240
-    SkillAvility1_Star3: 360
+    SkillAvility1_Text: '[<b>{60}</b> / {120} / {240}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 141
     Name_KR: "\uC2A4\uD0AC \uD0C0\uB77D\uCC9C\uC0AC01.2 1"
     Name_EN: Skill141
@@ -3935,14 +3095,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 142
     Name_KR: "\uC2A4\uD0AC \uD0C0\uB77D\uCC9C\uC0AC01.3 1"
     Name_EN: Skill142
@@ -3962,14 +3116,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 143
     Name_KR: "\uC18C\uB4DC\uB808\uC778 2"
     Name_EN: Skill143
@@ -3989,15 +3137,9 @@ MonoBehaviour:
     Skill_text: "\uD0C0\uB77D\uCC9C\uC0AC\uAC00 \uCE7C\uC744 \uBE44\uCC98\uB7FC \uB5A8\uC5B4\uB728\uB824
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} /<b>{1}</b> / {2}]'
-    SkillAvility1_Star1: 120
-    SkillAvility1_Star2: 240
-    SkillAvility1_Star3: 360
+    SkillAvility1_Text: '[{60} / <b>{120}</b> / {240}]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 144
     Name_KR: "\uC2A4\uD0AC \uD0C0\uB77D\uCC9C\uC0AC01.2 2"
     Name_EN: Skill144
@@ -4017,14 +3159,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 145
     Name_KR: "\uC2A4\uD0AC \uD0C0\uB77D\uCC9C\uC0AC01.3 2"
     Name_EN: Skill145
@@ -4044,14 +3180,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 146
     Name_KR: "\uC18C\uB4DC\uB808\uC778 3"
     Name_EN: Skill146
@@ -4071,15 +3201,9 @@ MonoBehaviour:
     Skill_text: "\uD0C0\uB77D\uCC9C\uC0AC\uAC00 \uCE7C\uC744 \uBE44\uCC98\uB7FC \uB5A8\uC5B4\uB728\uB824
       \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
     SkillAvility1_Name: "\uD53C\uD574\uB7C9"
-    SkillAvility1_Text: '[{0} / {1} / <b>{2}</b>]'
-    SkillAvility1_Star1: 120
-    SkillAvility1_Star2: 240
-    SkillAvility1_Star3: 360
+    SkillAvility1_Text: '[{60} / {120} / <b>{240}</b>]'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 147
     Name_KR: "\uC2A4\uD0AC \uD0C0\uB77D\uCC9C\uC0AC01.2 3"
     Name_EN: Skill147
@@ -4099,14 +3223,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 148
     Name_KR: "\uC2A4\uD0AC \uD0C0\uB77D\uCC9C\uC0AC01.3 3"
     Name_EN: Skill148
@@ -4126,14 +3244,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 149
     Name_KR: "\uB514\uD39C\uB354 \uC2A4\uD0AC"
     Name_EN: Skill149
@@ -4153,14 +3265,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 150
     Name_KR: "\uB4DC\uC6CC\uD504\uC804\uC0AC \uC2A4\uD0AC"
     Name_EN: Skill150
@@ -4180,14 +3286,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 151
     Name_KR: "\uADF8\uB9AC\uD540(\uD558\uB298) \uC2A4\uD0AC"
     Name_EN: Skill151
@@ -4207,14 +3307,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 152
     Name_KR: "\uC790\uD3ED\uC2A4\uD0AC1(\uC790\uAE30\uD53C\uD574)"
     Name_EN: Skill152
@@ -4234,14 +3328,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 153
     Name_KR: "\uC790\uD3ED\uC2A4\uD0AC2(\uC8FC\uBCC0\uD53C\uD574)"
     Name_EN: Skill153
@@ -4261,14 +3349,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 154
     Name_KR: "\uC18C\uD658"
     Name_EN: Skill154
@@ -4288,14 +3370,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 155
     Name_KR: "\uCCB4\uB825\uBE44\uB840\uB2A5\uB825(\uC774\uB3D9\uC18D\uB3C4)"
     Name_EN: Skill155
@@ -4315,14 +3391,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 156
     Name_KR: "\uCCB4\uB825\uBE44\uB840\uB2A5\uB825(\uBC29\uC5B4\uB825)"
     Name_EN: Skill156
@@ -4342,14 +3412,8 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'
   - No: 157
     Name_KR: "\uCCB4\uB825\uBE44\uB840\uB2A5\uB825(\uCCB4\uB825\uD68C\uBCF5)"
     Name_EN: Skill157
@@ -4369,11 +3433,5 @@ MonoBehaviour:
     Skill_text: '-'
     SkillAvility1_Name: '-'
     SkillAvility1_Text: '-'
-    SkillAvility1_Star1: '-'
-    SkillAvility1_Star2: '-'
-    SkillAvility1_Star3: '-'
     SkillAvility2_Name: '-'
     SkillAvility2_Text: '-'
-    SkillAvility2_Star1: '-'
-    SkillAvility2_Star2: '-'
-    SkillAvility2_Star3: '-'

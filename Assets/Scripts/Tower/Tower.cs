@@ -91,6 +91,9 @@ public class Tower : MonoBehaviour
     {
         if (null != m_Target && (DistanceToTarget > m_TowerInfo.Stat_Default.Range || m_Target.IsDie))
         {
+            m_AttackRange_Default.RemoveTarget(m_Target);
+            m_AttackRange_Skill01.RemoveTarget(m_Target);
+            m_AttackRange_Skill02.RemoveTarget(m_Target);
             m_Target = null;
         }
 
@@ -316,6 +319,11 @@ public class Tower : MonoBehaviour
     }
     public void CallAttack()
     {
+        if (null == m_Target)
+        {
+            return;
+        }
+
         m_TowerInfo.AttackSpeed_Default = m_TowerInfo.Stat_Default.CoolTime;
         m_TowerInfo.ShouldFindTarget = true;
 
@@ -1030,6 +1038,11 @@ public class Tower : MonoBehaviour
     }
     public void CallSkill01()
     {
+        if (null == m_Target)
+        {
+            return;
+        }
+
         // 내부 데이터 정리
         m_TowerInfo.AttackSpeed_Skill01 = m_TowerInfo.Stat_Skill01.CoolTime;
         m_TowerInfo.ShouldFindTarget = true;
@@ -1699,6 +1712,11 @@ public class Tower : MonoBehaviour
     }
     public void CallSkill02()
     {
+        if (null == m_Target)
+        {
+            return;
+        }
+
         // 내부 데이터 정리
         m_TowerInfo.AttackSpeed_Skill02 = m_TowerInfo.Stat_Skill02.CoolTime;
         m_TowerInfo.ShouldFindTarget = true;
