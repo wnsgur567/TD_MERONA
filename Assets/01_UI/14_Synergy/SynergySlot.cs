@@ -13,7 +13,7 @@ public struct SynergySlotInfo
 
     public string name;
     public string synergy_text;
-    public string synergy_ability;    
+    public string synergy_ability;
 
     public int sprite_code;
 }
@@ -25,10 +25,10 @@ public class SynergySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     [SerializeField] Image m_synergy_image;
 
     [SerializeField] SynergyTooltip m_tooltip;
-   
+
     private void Awake()
     {
-        m_synergy_image = this.GetComponent<Image>();       
+        m_synergy_image = this.GetComponent<Image>();
     }
 
     // info 가 업데이트 됫을 경우
@@ -40,9 +40,9 @@ public class SynergySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
 
     private void OnInfoChanged()
-    { 
+    {
 
-        if(m_info.isActivated)
+        if (m_info.isActivated)
         {
             Sprite sprite = m_sprite_loader.GetSprite(m_info.sprite_code);
             m_synergy_image.sprite = sprite;
@@ -54,19 +54,16 @@ public class SynergySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
     }
 
-    
+
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if(m_info.isActivated)
-        {
-            m_tooltip.SetPoisition(eventData.position);
-            m_tooltip.SetInfo(
-                m_info.name,
-                m_info.synergy_text,
-                m_info.synergy_ability,
-                m_info.sprite_code);
-            m_tooltip.Activate();
-        }      
+        m_tooltip.SetPoisition(eventData.position);
+        m_tooltip.SetInfo(
+            m_info.name,
+            m_info.synergy_text,
+            m_info.synergy_ability,
+            m_info.sprite_code);
+        m_tooltip.Activate();
     }
 
     public void OnPointerExit(PointerEventData eventData)
