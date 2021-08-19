@@ -89,6 +89,11 @@ public class Tower : MonoBehaviour
     // 타겟 업데이트
     protected void UpdateTarget()
     {
+        if (null != m_Target && (DistanceToTarget > m_TowerInfo.Stat_Default.Range || m_Target.IsDie))
+        {
+            m_Target = null;
+        }
+
         // 타겟 변경 기준에 따라
         switch ((E_TargetType)m_TowerInfo.Condition_Default.Target_type)
         {

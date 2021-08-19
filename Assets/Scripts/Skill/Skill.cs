@@ -30,7 +30,7 @@ public class Skill : MonoBehaviour
     // 타겟까지의 거리
     protected float DistanceToTarget => Vector3.Distance(transform.position, TargetPos);
     // 타겟 잃어버림
-    protected bool LostTarget => m_Target == null;
+    protected bool LostTarget => m_Target == null || m_Target.IsDie;
     // 타겟에게 도착 여부
     protected bool ArrivedToTarget => DistanceToTarget <= m_SkillInfo.AttackRange.Range;
     // 생존 시간 소진
