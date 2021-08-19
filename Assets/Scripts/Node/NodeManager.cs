@@ -169,7 +169,7 @@ public class NodeManager : Singleton<NodeManager>
     protected void SelectNode(Node node)
     {
         // 예외 처리 (마왕 노드 선택)
-        if (null != node.m_Devil)
+        if (null != node?.m_Devil)
             return;
 
         // 선택 노드 아웃라인 제거
