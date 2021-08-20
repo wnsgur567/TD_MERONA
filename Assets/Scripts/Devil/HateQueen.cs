@@ -25,8 +25,6 @@ public class HateQueen : Devil
     {
         base.InitializeDevil(no);
 
-        m_DevilInfo.m_HP = 1f;
-
         #region 마왕 스킬 정리
         Skill01Event += Skill01;
         Skill02Event += Skill02;
