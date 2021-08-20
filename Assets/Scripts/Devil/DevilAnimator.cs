@@ -48,12 +48,21 @@ public class DevilAnimator : MonoBehaviour
         // 마왕 스킬2 투사체 발사
         //m_Devil.CallSkill02();
     }
+    public void CallDie()
+    {
+        m_Devil.CallDie();
+    }
+
+    public void SetDevil(Devil devil)
+    {
+        m_Devil = devil;
+    }
     #endregion
 
     #region 유니티 콜백 함수
     void Awake()
     {
-        m_Devil = transform.parent.GetComponent<Devil>();
+        // m_Devil = transform.parent.GetComponent<Devil>();
     }
     #endregion
 }

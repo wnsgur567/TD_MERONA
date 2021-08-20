@@ -89,14 +89,6 @@ public class Tower : MonoBehaviour
     // 타겟 업데이트
     protected void UpdateTarget()
     {
-        if (null != m_Target && (DistanceToTarget > m_TowerInfo.Stat_Default.Range || m_Target.IsDie))
-        {
-            m_AttackRange_Default.RemoveTarget(m_Target);
-            m_AttackRange_Skill01.RemoveTarget(m_Target);
-            m_AttackRange_Skill02.RemoveTarget(m_Target);
-            m_Target = null;
-        }
-
         // 타겟 변경 기준에 따라
         switch ((E_TargetType)m_TowerInfo.Condition_Default.Target_type)
         {
@@ -139,6 +131,14 @@ public class Tower : MonoBehaviour
                     m_TowerInfo.ShouldFindTarget = false;
                 }
                 break;
+        }
+
+        if (null != m_Target && (m_Target.IsDie))
+        {
+            m_AttackRange_Default.RemoveTarget(m_Target);
+            m_AttackRange_Skill01.RemoveTarget(m_Target);
+            m_AttackRange_Skill02.RemoveTarget(m_Target);
+            m_Target = null;
         }
     }
     // 타워 공격

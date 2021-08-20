@@ -2527,10 +2527,10 @@ RectTransform:
   m_Father: {fileID: 953872218}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -233.4021, y: -1099.6}
-  m_SizeDelta: {x: -1388.6035, y: -219.2831}
+  m_SizeDelta: {x: 531.3965, y: 860.7169}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &257098240
 MonoBehaviour:
@@ -20570,7 +20570,7 @@ MonoBehaviour:
     Stage_Num: 0
     StageType: 0
     StageTime: 0
-    StageMonsterTable: 0
+    StageEnemyTable: 0
     Exp: 0
     Gold: 0
     Stage_icon: 0
