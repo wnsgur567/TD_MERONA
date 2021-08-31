@@ -31,7 +31,7 @@ public class GameOverUIController : MonoBehaviour
         }
         else
         {
-            m_win_lose_textpro.text = "승리";
+            m_win_lose_textpro.text = "패배";
             m_textTextpro.text = "마왕군은 결국 용사들을 막아내지 못했습니다.";
             m_line1.SetUI("승리 보너스", 0);
             m_line1.SetUI("웨이브 보너스", 200);
