@@ -10678,7 +10678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc2025866c36d7d40bc8ebb3581320ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
+  flag: 1
   m_tooltip: {fileID: 1081571238}
 --- !u!1 &896326069
 GameObject:
@@ -20853,7 +20853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_towerLoader: {fileID: 11400000, guid: 4edb6d12b4722f04798cca6c74efe479, type: 2}
   m_prefabLoader: {fileID: 11400000, guid: 25d43685a638f894187cd0a61b20a7a7, type: 2}
-  camera_distance: {x: 0, y: 1, z: 5}
+  camera_distance: {x: 0, y: 2.5, z: 5}
   camera_rotation: {x: 0, y: 180, z: 0}
   m_obj_position: {x: -2500, y: 0, z: 0}
   m_showObj_list: []
@@ -20908,7 +20908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_towerLoader: {fileID: 11400000, guid: 4edb6d12b4722f04798cca6c74efe479, type: 2}
   m_prefabLoader: {fileID: 11400000, guid: 25d43685a638f894187cd0a61b20a7a7, type: 2}
-  camera_distance: {x: 0, y: 1, z: 5}
+  camera_distance: {x: 0, y: 100, z: 5}
   camera_rotation: {x: 0, y: 180, z: 0}
   m_obj_position: {x: -3500, y: 0, z: 0}
   m_showObj_list: []
