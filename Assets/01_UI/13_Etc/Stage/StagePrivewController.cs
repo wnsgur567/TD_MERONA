@@ -65,7 +65,7 @@ public class StagePrivewController : MonoBehaviour
             newSlot.SetPosition(x_pos);
             m_slot_positionX.Add(x_pos);
             x_pos += (cell_size.x + m_padding_width);
-
+            newSlot.ChangeImage(m_stage_loader.DataList[i].Stage_icon);
             m_slots.Add(newSlot);
         }
 

@@ -19,7 +19,7 @@ public class Devil : MonoBehaviour
     public delegate void DevilUpdateHPHandler(float max, float current);
     public event DevilUpdateHPHandler UpdateHPEvent;
 
-    public delegate void DevilDeathHandler();
+    public delegate void DevilDeathHandler(GameEndData data);
     public event DevilDeathHandler DeathEvent;
 
     #region 내부 컴포넌트
@@ -53,6 +53,7 @@ public class Devil : MonoBehaviour
     #region 외부 프로퍼티
     public float MaxHP => m_DevilInfo_Excel.HP;
     public float HP => m_DevilInfo.m_HP;
+    public bool IsDie => m_DevilInfo.isDie;
 
     public Tower_TableExcel ExcelData => m_DevilInfo_Excel;
     public Transform HitPivot => m_DevilInfo.HitPivot;
@@ -61,6 +62,9 @@ public class Devil : MonoBehaviour
     #region 유니티 콜백 함수
     protected void Update()
     {
+        if (IsDie)
+            return;
+
         RotateToTarget();
         UpdateTarget();
         AttackTarget();
@@ -110,6 +114,7 @@ public class Devil : MonoBehaviour
         if (null == m_DevilAnimator)
         {
             m_DevilAnimator = GetComponentInChildren<DevilAnimator>(true);
+            m_DevilAnimator.SetDevil(this);
         }
 
         if (null == m_AttackRange_Default)
@@ -299,6 +304,9 @@ public class Devil : MonoBehaviour
     }
     public void GetDamage(float damage)
     {
+        if (IsDie)
+            return;
+
         float Damage = damage - m_DevilInfo.m_Def;
         if (Damage < 1f)
             Damage = 1f;
@@ -309,7 +317,8 @@ public class Devil : MonoBehaviour
 
         if (m_DevilInfo.m_HP <= 0f)
         {
-            DeathEvent?.Invoke();
+            m_DevilInfo.isDie = true;
+            Die();
         }
     }
 
@@ -355,6 +364,13 @@ public class Devil : MonoBehaviour
             DefaultSkill.InitializeSkill(m_Target, conditionData, statData);
         }
     }
+    public void CallDie()
+    {
+        DeathEvent?.Invoke(new GameEndData()
+        {
+            IsWin = false
+        });
+    }
     #endregion
 
     [System.Serializable]
@@ -370,6 +386,8 @@ public class Devil : MonoBehaviour
         public Transform AttackPivot;
         // 피격 피벗
         public Transform HitPivot;
+        // 사망 여부
+        public bool isDie;
 
         // 기본 스킬 데이터
         public SkillCondition_TableExcel Condition_Default;

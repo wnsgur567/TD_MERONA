@@ -195,6 +195,11 @@ public class InventorySlotGUI : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
     public void ClearInven()
     {
+        if (null != m_info.tower)
+        {
+            TowerManager.Instance.DespawnTower(m_info.tower);
+        }
+
         m_info.isOccupied = false;
         m_info.tower = null;
 

@@ -20,22 +20,24 @@ public class GameOverUIController : MonoBehaviour
 
     public void SetUI(GameEndData data)
     {
-        if(data.IsWin)
+        GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero; //Camera.main.ScreenToWorldPoint(new Vector2(Screen.width * 0.5f, Screen.height * 0.5f));
+
+        if (data.IsWin)
         {
-            m_win_lose_textpro.text = "½Â¸®";
-            m_textTextpro.text = "±ä ÀüÅõ ³¡¿¡ ¿ë»çµéÀ» ¸·¾Æ³»°í ¸¶¿Õ±ºÀÌ ½Â¸®Çß½À´Ï´Ù.";
-            m_line1.SetUI("½Â¸® º¸³Ê½º", 300);
-            m_line1.SetUI("¿þÀÌºê º¸³Ê½º", 400);
-            m_line1.SetUI("ÃÑ °æÇèÄ¡", 300 + 400);
+            m_win_lose_textpro.text = "ï¿½Â¸ï¿½";
+            m_textTextpro.text = "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ±ï¿½ï¿½ï¿½ ï¿½Â¸ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.";
+            m_line1.SetUI("ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½Ê½ï¿½", 300);
+            m_line2.SetUI("ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½Ê½ï¿½", 400);
+            m_line3.SetUI("ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡", 300 + 400);
             m_progressBar.SetUI(700, 1000);
         }
         else
         {
-            m_win_lose_textpro.text = "ÆÐ¹è";
-            m_textTextpro.text = "¸¶¿Õ±ºÀº °á±¹ ¿ë»çµéÀ» ¸·¾Æ³»Áö ¸øÇß½À´Ï´Ù.";
-            m_line1.SetUI("½Â¸® º¸³Ê½º", 0);
-            m_line1.SetUI("¿þÀÌºê º¸³Ê½º", 200);
-            m_line1.SetUI("ÃÑ °æÇèÄ¡", 0 + 200);
+            m_win_lose_textpro.text = "ï¿½Ð¹ï¿½";
+            m_textTextpro.text = "ï¿½ï¿½ï¿½Õ±ï¿½ï¿½ï¿½ ï¿½á±¹ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.";
+            m_line1.SetUI("ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½Ê½ï¿½", 0);
+            m_line2.SetUI("ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½Ê½ï¿½", 200);
+            m_line3.SetUI("ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡", 0 + 200);
             m_progressBar.SetUI(200, 1000);
         }
     }
