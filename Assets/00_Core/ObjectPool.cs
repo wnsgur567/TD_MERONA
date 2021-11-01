@@ -11,11 +11,6 @@ public abstract class ObjectPool<Pool, Origin> : Singleton<Pool> where Pool : Mo
     public Dictionary<string, Origin> m_Origins = null;
     protected Dictionary<string, MemoryPool<Origin>> m_Pools = null;
 
-//#if UNITY_EDITOR
-//    [ReadOnly]
-//    public DebugDictionary<string, Origin> m_DebugOrigin = null;
-//#endif
-
     protected ResourcesManager M_Resources => ResourcesManager.Instance;
 
     protected virtual void Awake()
@@ -31,10 +26,6 @@ public abstract class ObjectPool<Pool, Origin> : Singleton<Pool> where Pool : Mo
     {
         m_Origins = new Dictionary<string, Origin>();
         m_Pools = new Dictionary<string, MemoryPool<Origin>>();
-
-//#if UNITY_EDITOR
-//        m_DebugOrigin = new DebugDictionary<string, Origin>();
-//#endif
 
         //for (int i = 0; i < m_Origins.Count; ++i)
         //{
@@ -75,9 +66,6 @@ public abstract class ObjectPool<Pool, Origin> : Singleton<Pool> where Pool : Mo
 
         origin.name += "_Origin";
 
-//#if UNITY_EDITOR
-//        m_DebugOrigin.Add(key, origin);
-//#endif
         return true;
     }
     public virtual MemoryPool<Origin> GetPool(string key)

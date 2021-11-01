@@ -4,84 +4,60 @@ using UnityEngine;
 
 public class HateQueen : Devil
 {
-    #region ³»ºÎ ÄÄÆ÷³ÍÆ®
-    #endregion
+	#region ë‚´ë¶€ í•¨ìˆ˜
+	protected override void DoSkill01(DevilSkillArg arg)
+	{
+		StartCoroutine(SK001(arg));
+	}
+	protected override void DoSkill02(DevilSkillArg arg)
+	{
+		StartCoroutine(SK002(arg));
+	}
 
-    #region ³»ºÎ ÇÁ·ÎÆÛÆ¼
-    #endregion
+	protected IEnumerator SK001(DevilSkillArg arg)
+	{
+		BuffCC_TableExcel buffData = M_Buff.GetData(arg.skillData.m_StatData.Buff_CC);
+		List<Tower> towerList = M_Tower.GetTowerList(arg.dir);
 
-    #region ³»ºÎ ÇÁ·ÎÆÛÆ¼
-    #endregion
+		foreach (var item in towerList)
+		{
+			item.m_TowerInfo.DevilSkillBuffList.Add(buffData);
+		}
 
-    #region À¯´ÏÆ¼ ÄÝ¹é
-    private void Awake()
-    {
-        InitializeDevil(E_Devil.HateQueen);
-    }
-    #endregion
+		yield return new WaitForSeconds(buffData.Duration);
 
-    #region ³»ºÎ ÇÔ¼ö
-    protected override void InitializeDevil(E_Devil no)
-    {
-        base.InitializeDevil(no);
+		foreach (var item in towerList)
+		{
+			item.m_TowerInfo.DevilSkillBuffList.Remove(buffData);
+		}
+	}
+	protected IEnumerator SK002(DevilSkillArg arg)
+	{
+		BuffCC_TableExcel buffData = M_Buff.GetData(arg.skillData.m_StatData.Buff_CC);
 
-        #region ¸¶¿Õ ½ºÅ³ Á¤¸®
-        Skill01Event += Skill01;
-        Skill02Event += Skill02;
-        #endregion
-    }
+		for (E_Direction i = 0; i < E_Direction.Max; ++i)
+		{
+			List<Tower> towerList = M_Tower.GetTowerList(i);
 
-    protected void Skill01(DevilSkillArg arg)
-    {
-        StartCoroutine(SK001(arg));
-    }
-    protected void Skill02(DevilSkillArg arg)
-    {
-        StartCoroutine(SK002(arg));
-    }
+			foreach (var item in towerList)
+			{
+				item.m_TowerInfo.DevilSkillBuffList.Add(buffData);
+			}
 
-    protected IEnumerator SK001(DevilSkillArg arg)
-    {
-        BuffCC_TableExcel buffData = M_Buff.GetData(arg.skillData.m_StatData.Buff_CC);
-        List<Tower> towerList = M_Tower.GetTowerList(arg.dir);
+			yield return new WaitForSeconds(buffData.Duration);
 
-        foreach (var item in towerList)
-        {
-            item.m_TowerInfo.DevilSkillBuffList.Add(buffData);
-        }
+			foreach (var item in towerList)
+			{
+				item.m_TowerInfo.DevilSkillBuffList.Remove(buffData);
+			}
+		}
+	}
+	#endregion
 
-        yield return new WaitForSeconds(buffData.Duration);
-
-        // ¾Æ¸¶ ¹ö±×³¯ µí
-        foreach (var item in towerList)
-        {
-            item.m_TowerInfo.DevilSkillBuffList.Remove(buffData);
-        }
-    }
-    protected IEnumerator SK002(DevilSkillArg arg)
-    {
-        BuffCC_TableExcel buffData = M_Buff.GetData(arg.skillData.m_StatData.Buff_CC);
-
-        for (E_Direction i = 0; i < E_Direction.Max; ++i)
-        {
-            List<Tower> towerList = M_Tower.GetTowerList(i);
-
-            foreach (var item in towerList)
-            {
-                item.m_TowerInfo.DevilSkillBuffList.Add(buffData);
-            }
-
-            yield return new WaitForSeconds(buffData.Duration);
-
-            // ¾Æ¸¶ ¹ö±×³¯ µí
-            foreach (var item in towerList)
-            {
-                item.m_TowerInfo.DevilSkillBuffList.Remove(buffData);
-            }
-        }
-    }
-    #endregion
-
-    #region ¿ÜºÎ ÇÔ¼ö
-    #endregion
+	#region ìœ ë‹ˆí‹° ì½œë°± í•¨ìˆ˜
+	private void Awake()
+	{
+		InitializeDevil(E_Devil.HateQueen);
+	}
+	#endregion
 }

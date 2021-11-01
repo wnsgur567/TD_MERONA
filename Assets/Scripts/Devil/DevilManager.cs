@@ -38,6 +38,19 @@ public class DevilManager : Singleton<DevilManager>
     public void SelectDevil(E_Devil no)
     {
         Tower_TableExcel data = GetData(no);
+
+        Node node = (new GameObject("Devil Node")).AddComponent<Node>();
+        node.transform.SetParent(transform);
+        node.transform.position = Vector3.zero;
+        node.m_NodeType = E_NodeType.None;
+        node.m_Direction = E_Direction.None;
+        node.gameObject.layer = LayerMask.NameToLayer("Node");
+
+        BoxCollider collider = node.gameObject.AddComponent<BoxCollider>();
+        collider.isTrigger = true;
+        collider.size.Set(6f, 6f, 6f);
+        collider.center.Set(0f, 3f, 0f);
+
         GameObject devil = GameObject.Instantiate(m_PrefabData.GetPrefab(data.Prefab));
         devil.transform.position = Vector3.zero;
         devil.transform.eulerAngles = new Vector3(0f, 180f, 0f);
@@ -50,10 +63,10 @@ public class DevilManager : Singleton<DevilManager>
                 m_Devil = devil.AddComponent<HateQueen>();
                 break;
             case E_Devil.HellLord:
-                m_Devil = devil.AddComponent<Devil>();
+                m_Devil = devil.AddComponent<HellLord>();
                 break;
             case E_Devil.FrostLich:
-                m_Devil = devil.AddComponent<Devil>();
+                m_Devil = devil.AddComponent<FrostLich>();
                 break;
         }
     }

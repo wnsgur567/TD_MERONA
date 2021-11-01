@@ -5,558 +5,558 @@ using UnityEngine;
 
 public class NodeManager : Singleton<NodeManager>
 {
-    public delegate void NodeEventHandler();
-    // ³ëµå È¸Àü Á¾·á½Ã È£ÃâµÇ´Â ÀÌº¥Æ®
-    public event NodeEventHandler m_RotateEndEvent;
+	public delegate void NodeEventHandler();
+	// ë…¸ë“œ íšŒì „ ì¢…ë£Œì‹œ í˜¸ì¶œë˜ëŠ” ì´ë²¤íŠ¸
+	public event NodeEventHandler m_RotateEndEvent;
 
-    // È¸ÀüÇÒ °¢µµ
-    [SerializeField]
-    protected float m_RotateAngle;
-    // È¸Àü¿¡ °É¸®´Â ½Ã°£
-    [SerializeField]
-    protected float m_Duration;
-    // È¸ÀüÀÇ Áß½ÉÁ¡
-    [SerializeField, ReadOnly]
-    protected Transform m_Center;
+	// íšŒì „í•  ê°ë„
+	[SerializeField]
+	protected float m_RotateAngle;
+	// íšŒì „ì— ê±¸ë¦¬ëŠ” ì‹œê°„
+	[SerializeField]
+	protected float m_Duration;
+	// íšŒì „ì˜ ì¤‘ì‹¬ì 
+	[SerializeField, ReadOnly]
+	protected Transform m_Center;
 
-    // [Å¸ÀÔ(¾È, ¹Û)][¹æÇâ(ºÏ, µ¿, ³², ¼­)]
-    // È¸Àü½ÃÅ³ ³ëµå ¸®½ºÆ®
-    protected Dictionary<E_NodeType, Dictionary<E_Direction, List<Node>>> m_NodeList;
-    // ³ëµå ºÎ¸ğ (µ¿¼­³²ºÏ)
-    protected Dictionary<E_NodeType, Dictionary<E_Direction, Transform>> m_NodeParentList;
+	// [íƒ€ì…(ì•ˆ, ë°–)][ë°©í–¥(ë¶, ë™, ë‚¨, ì„œ)]
+	// íšŒì „ì‹œí‚¬ ë…¸ë“œ ë¦¬ìŠ¤íŠ¸
+	protected Dictionary<E_NodeType, Dictionary<E_Direction, List<Node>>> m_NodeList;
+	// ë…¸ë“œ ë¶€ëª¨ (ë™ì„œë‚¨ë¶)
+	protected Dictionary<E_NodeType, Dictionary<E_Direction, Transform>> m_NodeParentList;
 
-    // ¼±ÅÃ ³ëµå
-    protected Node m_SelectedNode;
-    // È¸Àü ±âÁØ ³ëµå (È¸ÀüÀ» ½ÃÀÛÇÒ ¶§ ¼±ÅÃÇÑ ³ëµå)
-    protected Node m_RotationStandardNode;
-    // È¸Àü ¿©ºÎ
-    [SerializeField]
-    protected bool m_IsRotating;
-    // Å¸¿ö ¹Ù¶óº¼ ¹æÇâ È¸Àü¿ë ¿ÀºêÁ§Æ®
-    protected GameObject m_LookingDir;
-    // ¸ŞÀÎ Ä«¸Ş¶ó
-    protected Camera m_Camera;
+	// ì„ íƒ ë…¸ë“œ
+	protected Node m_SelectedNode;
+	// íšŒì „ ê¸°ì¤€ ë…¸ë“œ (íšŒì „ì„ ì‹œì‘í•  ë•Œ ì„ íƒí•œ ë…¸ë“œ)
+	protected Node m_RotationStandardNode;
+	// íšŒì „ ì—¬ë¶€
+	[SerializeField]
+	protected bool m_IsRotating;
+	// íƒ€ì›Œ ë°”ë¼ë³¼ ë°©í–¥ íšŒì „ìš© ì˜¤ë¸Œì íŠ¸
+	protected GameObject m_LookingDir;
+	// ë©”ì¸ ì¹´ë©”ë¼
+	protected Camera m_Camera;
 
-    #region ³»ºÎ ÇÁ·ÎÆÛÆ¼
-    // ¼±ÅÃ ³ëµåÀÇ Å¸ÀÔ
-    protected E_NodeType SelectedNodeType => m_SelectedNode.m_NodeType;
-    protected E_Direction SelectedNodeDir => m_SelectedNode.m_Direction;
-    protected E_NodeType StandardNodeType => m_RotationStandardNode.m_NodeType;
-    // ÇöÀç Ä«¸Ş¶ó
-    protected Camera MainCamera
-    {
-        get
-        {
-            if (null == m_Camera)
-            {
-                m_Camera = Camera.main;
-            }
+	#region ë‚´ë¶€ í”„ë¡œí¼í‹°
+	// ì„ íƒ ë…¸ë“œì˜ íƒ€ì…
+	protected E_NodeType SelectedNodeType => m_SelectedNode.m_NodeType;
+	protected E_Direction SelectedNodeDir => m_SelectedNode.m_Direction;
+	protected E_NodeType StandardNodeType => m_RotationStandardNode.m_NodeType;
+	// í˜„ì¬ ì¹´ë©”ë¼
+	protected Camera MainCamera
+	{
+		get
+		{
+			if (null == m_Camera)
+			{
+				m_Camera = Camera.main;
+			}
 
-            return m_Camera;
-        }
-    }
-    #endregion
+			return m_Camera;
+		}
+	}
+	#endregion
 
-    private void Awake()
-    {
-        Initialize();
-    }
+	private void Awake()
+	{
+		Initialize();
+	}
 
-    protected void Initialize()
-    {
-        // È¸Àü Áß½ÉÁ¡ ¼³Á¤
-        m_Center = transform.Find("Center");
-        if (null == m_Center)
-        {
-            GameObject center = new GameObject("Center");
-            center.transform.SetParent(transform);
-            m_Center = center.transform;
-        }
+	protected void Initialize()
+	{
+		// íšŒì „ ì¤‘ì‹¬ì  ì„¤ì •
+		m_Center = transform.Find("Center");
+		if (null == m_Center)
+		{
+			GameObject center = new GameObject("Center");
+			center.transform.SetParent(transform);
+			m_Center = center.transform;
+		}
 
-        // ÃÊ±âÈ­
-        m_NodeList = new Dictionary<E_NodeType, Dictionary<E_Direction, List<Node>>>();//new List<Node>[(int)E_NodeType.Max][];
-        m_NodeParentList = new Dictionary<E_NodeType, Dictionary<E_Direction, Transform>>();//new Transform[(int)E_NodeType.Max][];
+		// ì´ˆê¸°í™”
+		m_NodeList = new Dictionary<E_NodeType, Dictionary<E_Direction, List<Node>>>();//new List<Node>[(int)E_NodeType.Max][];
+		m_NodeParentList = new Dictionary<E_NodeType, Dictionary<E_Direction, Transform>>();//new Transform[(int)E_NodeType.Max][];
 
-        // Å¸ÀÔº° (¾È, ¹Û)
-        for (E_NodeType i = 0; i < E_NodeType.Max; ++i)
-        {
-            m_NodeList[i] = new Dictionary<E_Direction, List<Node>>();
-            m_NodeParentList[i] = new Dictionary<E_Direction, Transform>();
+		// íƒ€ì…ë³„ (ì•ˆ, ë°–)
+		for (E_NodeType i = 0; i < E_NodeType.Max; ++i)
+		{
+			m_NodeList[i] = new Dictionary<E_Direction, List<Node>>();
+			m_NodeParentList[i] = new Dictionary<E_Direction, Transform>();
 
-            // ¹æÇâº°
-            for (E_Direction j = 0; j < E_Direction.Max; ++j)
-            {
-                m_NodeList[i][j] = new List<Node>();
-                m_NodeParentList[i][j] = transform.Find(i.ToString()).Find(j.ToString());
+			// ë°©í–¥ë³„
+			for (E_Direction j = 0; j < E_Direction.Max; ++j)
+			{
+				m_NodeList[i][j] = new List<Node>();
+				m_NodeParentList[i][j] = transform.Find(i.ToString()).Find(j.ToString());
 
-                m_NodeParentList[i][j].GetComponentsInChildren<Node>(m_NodeList[i][j]);
+				m_NodeParentList[i][j].GetComponentsInChildren<Node>(m_NodeList[i][j]);
 
-                foreach (var item in m_NodeList[i][j])
-                {
-                    item.m_NodeType = i;
-                    item.m_Direction = j;
-                    item.Initialize();
-                }
-            }
-        }
+				foreach (var item in m_NodeList[i][j])
+				{
+					item.m_NodeType = i;
+					item.m_Direction = j;
+					item.Initialize();
+				}
+			}
+		}
 
-        m_LookingDir = new GameObject();
-        m_LookingDir.transform.SetParent(transform);
-        m_LookingDir.SetActive(false);
-    }
+		m_LookingDir = new GameObject();
+		m_LookingDir.transform.SetParent(transform);
+		m_LookingDir.SetActive(false);
+	}
 
-    private void Update()
-    {
-        // ¼±ÅÃ ³ëµå °Ë»ö
-        MouseProcess();
+	private void Update()
+	{
+		// ì„ íƒ ë…¸ë“œ ê²€ìƒ‰
+		MouseProcess();
 
-        // È¸Àü
-        RotateProcess();
-    }
+		// íšŒì „
+		RotateProcess();
+	}
 
-    // ¼±ÅÃ ³ëµå °Ë»ö
-    protected void MouseProcess()
-    {
-        // ¸¶¿ì½º Æ÷ÀÎÅÍ°¡ UIÀ§¿¡ ¾øÀ» ¶§
-        if (false == UnityEngine.EventSystems.EventSystem.current?.IsPointerOverGameObject())
-        {
-            // ÁÂÅ¬¸¯ ½Ã
-            if (Input.GetMouseButtonDown(0))
-            {
-                // Å¬¸¯ÇÑ °÷À¸·Î ·¹ÀÌÄ³½ºÆ®
-                Ray ray = MainCamera.ScreenPointToRay(Input.mousePosition);
-                float maxDistance = MainCamera.farClipPlane;
-                int layerMask = LayerMask.GetMask("Node");
+	// ì„ íƒ ë…¸ë“œ ê²€ìƒ‰
+	protected void MouseProcess()
+	{
+		// ë§ˆìš°ìŠ¤ í¬ì¸í„°ê°€ UIìœ„ì— ì—†ì„ ë•Œ
+		if (false == UnityEngine.EventSystems.EventSystem.current?.IsPointerOverGameObject())
+		{
+			// ì¢Œí´ë¦­ ì‹œ
+			if (Input.GetMouseButtonDown(0))
+			{
+				// í´ë¦­í•œ ê³³ìœ¼ë¡œ ë ˆì´ìºìŠ¤íŠ¸
+				Ray ray = MainCamera.ScreenPointToRay(Input.mousePosition);
+				float maxDistance = MainCamera.farClipPlane;
+				int layerMask = LayerMask.GetMask("Node");
 
-                RaycastHit hit;
+				RaycastHit hit;
 
-                // ·¹ÀÌÄ³½ºÆ® ¼º°ø ½Ã
-                if (Physics.Raycast(ray, out hit, maxDistance, layerMask))
-                {
-                    // ¼±ÅÃ ³ëµå ¼³Á¤
-                    SelectNode(hit.transform.GetComponent<Node>());
-                }
-                // ·¹ÀÌÄ³½ºÆ® ½ÇÆĞ ½Ã
-                else
-                {
-                    // ¼±ÅÃ ³ëµå Á¦°Å
-                    SelectNode(null);
-                }
-            }
-        }
-    }
-    #region MouseProcess
-    // ¾Æ¿ô¶óÀÎ ¾÷µ¥ÀÌÆ®
-    protected void UpdateOutline(bool active)
-    {
-        // ¿¹¿Ü Ã³¸® (¼±ÅÃÇÑ ³ëµå°¡ ¾øÀ» ¶§)
-        if (null == m_SelectedNode)
-            return;
+				// ë ˆì´ìºìŠ¤íŠ¸ ì„±ê³µ ì‹œ
+				if (Physics.Raycast(ray, out hit, maxDistance, layerMask))
+				{
+					// ì„ íƒ ë…¸ë“œ ì„¤ì •
+					SelectNode(hit.transform.GetComponent<Node>());
+				}
+				// ë ˆì´ìºìŠ¤íŠ¸ ì‹¤íŒ¨ ì‹œ
+				else
+				{
+					// ì„ íƒ ë…¸ë“œ ì œê±°
+					SelectNode(null);
+				}
+			}
+		}
+	}
+	#region MouseProcess
+	// ì•„ì›ƒë¼ì¸ ì—…ë°ì´íŠ¸
+	protected void UpdateOutline(bool active)
+	{
+		// ì˜ˆì™¸ ì²˜ë¦¬ (ì„ íƒí•œ ë…¸ë“œê°€ ì—†ì„ ë•Œ)
+		if (null == m_SelectedNode)
+			return;
 
-        // ¾Æ¿ô¶óÀÎ ¼³Á¤ÇÒ ³ëµå ¸®½ºÆ®
-        Dictionary<E_Direction, List<Node>> nodes = m_NodeList[SelectedNodeType];
+		// ì•„ì›ƒë¼ì¸ ì„¤ì •í•  ë…¸ë“œ ë¦¬ìŠ¤íŠ¸
+		Dictionary<E_Direction, List<Node>> nodes = m_NodeList[SelectedNodeType];
 
-        // ¾Æ¿ô¶óÀÎ on, off ¼³Á¤
-        for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
-        {
-            for (int j = 0; j < nodes[i].Count; ++j)
-            {
-                nodes[i][j].Outline.SetActive(active);
-            }
-        }
-    }
-    // ³ëµå ¼±ÅÃ
-    protected void SelectNode(Node node)
-    {
-        // ¿¹¿Ü Ã³¸® (¸¶¿Õ ³ëµå ¼±ÅÃ)
-        if (null != node?.m_Devil)
-            return;
+		// ì•„ì›ƒë¼ì¸ on, off ì„¤ì •
+		for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
+		{
+			for (int j = 0; j < nodes[i].Count; ++j)
+			{
+				nodes[i][j].Outline.SetActive(active);
+			}
+		}
+	}
+	// ë…¸ë“œ ì„ íƒ
+	protected void SelectNode(Node node)
+	{
+		// ì˜ˆì™¸ ì²˜ë¦¬ (ë§ˆì™• ë…¸ë“œ ì„ íƒ)
+		if (null != node?.m_Devil)
+			return;
 
-        // ¼±ÅÃ ³ëµå ¾Æ¿ô¶óÀÎ Á¦°Å
-        UpdateOutline(false);
+		// ì„ íƒ ë…¸ë“œ ì•„ì›ƒë¼ì¸ ì œê±°
+		UpdateOutline(false);
 
-        // ¼±ÅÃ ³ëµå º¯°æ
-        m_SelectedNode = node;
+		// ì„ íƒ ë…¸ë“œ ë³€ê²½
+		m_SelectedNode = node;
 
-        // ¼±ÅÃ ³ëµå ¾Æ¿ô¶óÀÎ »ı¼º
-        UpdateOutline(true);
-    }
-    #endregion
+		// ì„ íƒ ë…¸ë“œ ì•„ì›ƒë¼ì¸ ìƒì„±
+		UpdateOutline(true);
+	}
+	#endregion
 
-    // È¸Àü
-    protected void RotateProcess()
-    {
-        // ¸¶¿ì½º È¸Àü °Ë»ç
-        Rotate_Mouse();
-        // Å°º¸µå È¸Àü °Ë»ç
-        Rotate_Keyboard();
-    }
-    #region RotateProcess
-    // ¸¶¿ì½º È¸Àü
-    protected void Rotate_Mouse()
-    {
-        // ¿¹¿Ü Ã³¸® (ÀÌ¹Ì È¸Àü ÁßÀÎ °æ¿ì)
-        if (m_IsRotating)
-            return;
+	// íšŒì „
+	protected void RotateProcess()
+	{
+		// ë§ˆìš°ìŠ¤ íšŒì „ ê²€ì‚¬
+		Rotate_Mouse();
+		// í‚¤ë³´ë“œ íšŒì „ ê²€ì‚¬
+		Rotate_Keyboard();
+	}
+	#region RotateProcess
+	// ë§ˆìš°ìŠ¤ íšŒì „
+	protected void Rotate_Mouse()
+	{
+		// ì˜ˆì™¸ ì²˜ë¦¬ (ì´ë¯¸ íšŒì „ ì¤‘ì¸ ê²½ìš°)
+		if (m_IsRotating)
+			return;
 
-        // ¿¹¿Ü Ã³¸® (¼±ÅÃÇÑ ³ëµå°¡ ¾øÀ» ¶§)
-        if (null == m_SelectedNode)
-            return;
+		// ì˜ˆì™¸ ì²˜ë¦¬ (ì„ íƒí•œ ë…¸ë“œê°€ ì—†ì„ ë•Œ)
+		if (null == m_SelectedNode)
+			return;
 
-        // ¸¶¿ì½º Æ÷ÀÎÅÍ°¡ UIÀ§¿¡ ¾øÀ» ¶§
-        if (false == UnityEngine.EventSystems.EventSystem.current?.IsPointerOverGameObject())
-        {
-            // ÁÂÅ¬¸¯½Ã
-            if (Input.GetMouseButtonUp(0))
-            {
-                // Å¬¸¯ÇÑ °÷À¸·Î ·¹ÀÌÄ³½ºÆ®
-                Ray ray = MainCamera.ScreenPointToRay(Input.mousePosition);
-                float maxDistance = MainCamera.farClipPlane;
-                int layerMask = LayerMask.GetMask("Node", "NodeRotate");
+		// ë§ˆìš°ìŠ¤ í¬ì¸í„°ê°€ UIìœ„ì— ì—†ì„ ë•Œ
+		if (false == UnityEngine.EventSystems.EventSystem.current?.IsPointerOverGameObject())
+		{
+			// ì¢Œí´ë¦­ì‹œ
+			if (Input.GetMouseButtonUp(0))
+			{
+				// í´ë¦­í•œ ê³³ìœ¼ë¡œ ë ˆì´ìºìŠ¤íŠ¸
+				Ray ray = MainCamera.ScreenPointToRay(Input.mousePosition);
+				float maxDistance = MainCamera.farClipPlane;
+				int layerMask = LayerMask.GetMask("Node", "NodeRotate");
 
-                RaycastHit hit;
+				RaycastHit hit;
 
-                // ·¹ÀÌÄ³½ºÆ® ¼º°ø ½Ã
-                if (Physics.Raycast(ray, out hit, maxDistance, layerMask))
-                {
-                    // ¹æÇâ °è»ê
-                    E_Direction from = SelectedNodeDir;
-                    E_Direction to = (E_Direction)Enum.Parse(typeof(E_Direction), hit.transform.parent.name);
+				// ë ˆì´ìºìŠ¤íŠ¸ ì„±ê³µ ì‹œ
+				if (Physics.Raycast(ray, out hit, maxDistance, layerMask))
+				{
+					// ë°©í–¥ ê³„ì‚°
+					E_Direction from = SelectedNodeDir;
+					E_Direction to = (E_Direction)Enum.Parse(typeof(E_Direction), hit.transform.parent.name);
 
-                    // ½Ã°è ¹æÇâ È¸Àü
-                    if ((int)to == (int)(from + 1) % (int)E_Direction.Max)
-                    {
-                        CWRotate();
-                    }
-                    // ¹İ½Ã°è ¹æÇâ È¸Àü
-                    else if ((int)to == (int)(from + (int)E_Direction.Max - 1) % (int)E_Direction.Max)
-                    {
-                        CCWRotate();
-                    }
-                }
-                // ·¹ÀÌÄ³½ºÆ® ½ÇÆĞ ½Ã
-                else
-                {
-                    // ¼±ÅÃ ³ëµå Á¦°Å
-                    SelectNode(null);
-                }
-            }
-        }
-    }
-    // Å°º¸µå È¸Àü
-    protected void Rotate_Keyboard()
-    {
-        // ¿¹¿Ü Ã³¸® (ÀÌ¹Ì È¸Àü ÁßÀÎ °æ¿ì)
-        if (m_IsRotating)
-            return;
+					// ì‹œê³„ ë°©í–¥ íšŒì „
+					if ((int)to == (int)(from + 1) % (int)E_Direction.Max)
+					{
+						CWRotate();
+					}
+					// ë°˜ì‹œê³„ ë°©í–¥ íšŒì „
+					else if ((int)to == (int)(from + (int)E_Direction.Max - 1) % (int)E_Direction.Max)
+					{
+						CCWRotate();
+					}
+				}
+				// ë ˆì´ìºìŠ¤íŠ¸ ì‹¤íŒ¨ ì‹œ
+				else
+				{
+					// ì„ íƒ ë…¸ë“œ ì œê±°
+					SelectNode(null);
+				}
+			}
+		}
+	}
+	// í‚¤ë³´ë“œ íšŒì „
+	protected void Rotate_Keyboard()
+	{
+		// ì˜ˆì™¸ ì²˜ë¦¬ (ì´ë¯¸ íšŒì „ ì¤‘ì¸ ê²½ìš°)
+		if (m_IsRotating)
+			return;
 
-        // ¿¹¿Ü Ã³¸® (¼±ÅÃÇÑ ³ëµå°¡ ¾øÀ» ¶§)
-        if (null == m_SelectedNode)
-            return;
+		// ì˜ˆì™¸ ì²˜ë¦¬ (ì„ íƒí•œ ë…¸ë“œê°€ ì—†ì„ ë•Œ)
+		if (null == m_SelectedNode)
+			return;
 
-        // QÅ°¸¦ ´©¸¥ °æ¿ì
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            // ¹İ½Ã°è ¹æÇâ È¸Àü
-            CCWRotate();
-            return;
-        }
+		// Qí‚¤ë¥¼ ëˆ„ë¥¸ ê²½ìš°
+		if (Input.GetKeyDown(KeyCode.Q))
+		{
+			// ë°˜ì‹œê³„ ë°©í–¥ íšŒì „
+			CCWRotate();
+			return;
+		}
 
-        // EÅ°¸¦ ´©¸¥ °æ¿ì
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            // ½Ã°è ¹æÇâ È¸Àü
-            CWRotate();
-        }
-    }
-    // ¸Å ÇÁ·¹ÀÓ È¸Àü
-    // ÂüÁ¶: http://devkorea.co.kr/bbs/board.php?bo_table=m03_qna&wr_id=95809
-    protected IEnumerator RotateNode(bool clockwise = true)
-    {
-        // È¸Àü ¿©ºÎ ¼³Á¤
-        m_IsRotating = true;
-        // È¸Àü ±âÁØ ³ëµå ¼³Á¤
-        m_RotationStandardNode = m_SelectedNode;
+		// Eí‚¤ë¥¼ ëˆ„ë¥¸ ê²½ìš°
+		if (Input.GetKeyDown(KeyCode.E))
+		{
+			// ì‹œê³„ ë°©í–¥ íšŒì „
+			CWRotate();
+		}
+	}
+	// ë§¤ í”„ë ˆì„ íšŒì „
+	// ì°¸ê³  ì¶œì²˜: http://devkorea.co.kr/bbs/board.php?bo_table=m03_qna&wr_id=95809
+	protected IEnumerator RotateNode(bool clockwise = true)
+	{
+		// íšŒì „ ì—¬ë¶€ ì„¤ì •
+		m_IsRotating = true;
+		// íšŒì „ ê¸°ì¤€ ë…¸ë“œ ì„¤ì •
+		m_RotationStandardNode = m_SelectedNode;
 
-        // ¹æÇâº° ³ëµå ºÎ¸ğ
-        Dictionary<E_Direction, Transform> node_parent_by_dir = m_NodeParentList[StandardNodeType];
+		// ë°©í–¥ë³„ ë…¸ë“œ ë¶€ëª¨
+		Dictionary<E_Direction, Transform> node_parent_by_dir = m_NodeParentList[StandardNodeType];
 
-        // ÃÑ °æ°úÇÑ ½Ã°£
-        float time = 0f;
-        // È¸ÀüÇÒ ¹æÇâ
-        int Dir = clockwise ? 1 : -1;
-        // È¸ÀüÇÒ °¢µµ
-        float angle;
+		// ì´ ê²½ê³¼í•œ ì‹œê°„
+		float time = 0f;
+		// íšŒì „í•  ë°©í–¥
+		int Dir = clockwise ? 1 : -1;
+		// íšŒì „í•  ê°ë„
+		float angle;
 
-        // Å¸¿ö Å¸°Ù ¾÷µ¥ÀÌÆ®
-        UpdateTowerTarget();
+		// íƒ€ì›Œ íƒ€ê²Ÿ ì—…ë°ì´íŠ¸
+		UpdateTowerTarget();
 
-        // ¿¹¿Ü Ã³¸® (È¸Àü¿¡ °É¸®´Â ½Ã°£ÀÌ 0ÀÌÇÏÀÎ °æ¿ì)
-        if (m_Duration <= 0f)
-        {
-            // È¸ÀüÇÒ °¢µµ °è»ê
-            angle = Dir * m_RotateAngle;
-            // È¸ÀüÇÒ °¢µµ¸¸Å­ Áï½Ã È¸Àü
-            for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
-            {
-                for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
-                {
-                    node_parent_by_dir[i].GetChild(j).RotateAround(m_Center.transform.position, Vector3.up, angle);
-                }
-            }
-            // Å¸¿ö°¡ ¹Ù¶óº¼ ¹æÇâµµ È¸Àü
-            UpdateTowerLookingDir(angle);
+		// ì˜ˆì™¸ ì²˜ë¦¬ (íšŒì „ì— ê±¸ë¦¬ëŠ” ì‹œê°„ì´ 0ì´í•˜ì¸ ê²½ìš°)
+		if (m_Duration <= 0f)
+		{
+			// íšŒì „í•  ê°ë„ ê³„ì‚°
+			angle = Dir * m_RotateAngle;
+			// íšŒì „í•  ê°ë„ë§Œí¼ ì¦‰ì‹œ íšŒì „
+			for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
+			{
+				for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
+				{
+					node_parent_by_dir[i].GetChild(j).RotateAround(m_Center.transform.position, Vector3.up, angle);
+				}
+			}
+			// íƒ€ì›Œê°€ ë°”ë¼ë³¼ ë°©í–¥ë„ íšŒì „
+			UpdateTowerLookingDir(angle);
 
-            // ³ëµå ¾÷µ¥ÀÌÆ®
-            UpdateNode(clockwise);
+			// ë…¸ë“œ ì—…ë°ì´íŠ¸
+			UpdateNode(clockwise);
 
-            // Å¸¿ö °ø°İ ¿©ºÎ ¼³Á¤
-            UpdateTowerAttack(true);
+			// íƒ€ì›Œ ê³µê²© ì—¬ë¶€ ì„¤ì •
+			UpdateTowerAttack(true);
 
-            // È¸Àü ¿©ºÎ ¼³Á¤
-            m_IsRotating = false;
+			// íšŒì „ ì—¬ë¶€ ì„¤ì •
+			m_IsRotating = false;
 
-            // È¸Àü Á¾·á ÀÌº¥Æ® È£Ãâ
-            m_RotateEndEvent?.Invoke();
+			// íšŒì „ ì¢…ë£Œ ì´ë²¤íŠ¸ í˜¸ì¶œ
+			m_RotateEndEvent?.Invoke();
 
-            // È¸Àü Á¾·á
-            yield break;
-        }
+			// íšŒì „ ì¢…ë£Œ
+			yield break;
+		}
 
-        // Å¸¿ö °ø°İ ¿©ºÎ ¼³Á¤
-        UpdateTowerAttack(false);
+		// íƒ€ì›Œ ê³µê²© ì—¬ë¶€ ì„¤ì •
+		UpdateTowerAttack(false);
 
-        // À§·Î ÀÌµ¿
-        for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
-        {
-            for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
-            {
-                node_parent_by_dir[i].GetChild(j).Translate(Vector3.up * 3f);
-            }
-        }
+		// ìœ„ë¡œ ì´ë™
+		for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
+		{
+			for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
+			{
+				node_parent_by_dir[i].GetChild(j).Translate(Vector3.up * 3f);
+			}
+		}
 
-        // Á¤ÇØÁø ½Ã°£µ¿¾È È¸Àü
-        while (time < m_Duration)
-        {
-            // È¸ÀüÇÒ °¢µµ °è»ê
-            angle = Dir * m_RotateAngle * Time.deltaTime / m_Duration;
-            // È¸Àü
-            for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
-            {
-                for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
-                {
-                    node_parent_by_dir[i].GetChild(j).RotateAround(m_Center.transform.position, Vector3.up, angle);
-                }
-            }
-            // Å¸¿ö°¡ ¹Ù¶óº¼ ¹æÇâµµ È¸Àü
-            UpdateTowerLookingDir(angle);
+		// ì •í•´ì§„ ì‹œê°„ë™ì•ˆ íšŒì „
+		while (time < m_Duration)
+		{
+			// íšŒì „í•  ê°ë„ ê³„ì‚°
+			angle = Dir * m_RotateAngle * Time.deltaTime / m_Duration;
+			// íšŒì „
+			for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
+			{
+				for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
+				{
+					node_parent_by_dir[i].GetChild(j).RotateAround(m_Center.transform.position, Vector3.up, angle);
+				}
+			}
+			// íƒ€ì›Œê°€ ë°”ë¼ë³¼ ë°©í–¥ë„ íšŒì „
+			UpdateTowerLookingDir(angle);
 
-            // ÃÑ °æ°ú ½Ã°£ Áõ°¡
-            time += Time.deltaTime;
+			// ì´ ê²½ê³¼ ì‹œê°„ ì¦ê°€
+			time += Time.deltaTime;
 
-            // ´ÙÀ½ ÇÁ·¹ÀÓ±îÁö ´ë±â
-            yield return null;
-        }
+			// ë‹¤ìŒ í”„ë ˆì„ê¹Œì§€ ëŒ€ê¸°
+			yield return null;
+		}
 
-        // È¸ÀüÇÒ °¢µµ °è»ê
-        angle = Dir * m_RotateAngle * (m_Duration - time) / m_Duration;
-        // ¿ÀÂ÷ ¹üÀ§ ¼öÁ¤ (¿øÇÏ´Â ½Ã°£ º¸´Ù +µÈ ¸¸Å­ ¹İ´ë¹æÇâÀ¸·Î È¸Àü)
-        for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
-        {
-            for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
-            {
-                node_parent_by_dir[i].GetChild(j).RotateAround(m_Center.transform.position, Vector3.up, angle);
-            }
-        }
-        // Å¸¿ö°¡ ¹Ù¶óº¼ ¹æÇâµµ ¿ÀÂ÷ ¹üÀ§ ¼öÁ¤
-        UpdateTowerLookingDir(angle);
+		// íšŒì „í•  ê°ë„ ê³„ì‚°
+		angle = Dir * m_RotateAngle * (m_Duration - time) / m_Duration;
+		// ì˜¤ì°¨ ë²”ìœ„ ìˆ˜ì • (ì›í•˜ëŠ” ì‹œê°„ ë³´ë‹¤ +ëœ ë§Œí¼ ë°˜ëŒ€ë°©í–¥ìœ¼ë¡œ íšŒì „)
+		for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
+		{
+			for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
+			{
+				node_parent_by_dir[i].GetChild(j).RotateAround(m_Center.transform.position, Vector3.up, angle);
+			}
+		}
+		// íƒ€ì›Œê°€ ë°”ë¼ë³¼ ë°©í–¥ë„ ì˜¤ì°¨ ë²”ìœ„ ìˆ˜ì •
+		UpdateTowerLookingDir(angle);
 
-        // ¾Æ·¡·Î ÀÌµ¿
-        for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
-        {
-            for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
-            {
-                node_parent_by_dir[i].GetChild(j).Translate(Vector3.down * 3f);
-            }
-        }
+		// ì•„ë˜ë¡œ ì´ë™
+		for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
+		{
+			for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
+			{
+				node_parent_by_dir[i].GetChild(j).Translate(Vector3.down * 3f);
+			}
+		}
 
-        #region ÀÎ½ºÆåÅÍ Á¤¸®¿ë
+		#region ì¸ìŠ¤í™í„° ì •ë¦¬ìš©
 #if UNITY_EDITOR
-        for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
-        {
-            for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
-            {
-                Vector3 pos = node_parent_by_dir[i].GetChild(j).position;
+		for (E_Direction i = E_Direction.None + 1; i < E_Direction.Max; ++i)
+		{
+			for (int j = 0; j < node_parent_by_dir[i].childCount; ++j)
+			{
+				Vector3 pos = node_parent_by_dir[i].GetChild(j).position;
 
-                pos.x = Mathf.Round(pos.x * 10000f) * 0.0001f;
-                pos.y = Mathf.Round(pos.y * 10000f) * 0.0001f;
-                pos.z = Mathf.Round(pos.z * 10000f) * 0.0001f;
+				pos.x = Mathf.Round(pos.x * 10000f) * 0.0001f;
+				pos.y = Mathf.Round(pos.y * 10000f) * 0.0001f;
+				pos.z = Mathf.Round(pos.z * 10000f) * 0.0001f;
 
-                node_parent_by_dir[i].GetChild(j).position = pos;
-            }
-        }
+				node_parent_by_dir[i].GetChild(j).position = pos;
+			}
+		}
 #endif
-        #endregion
+		#endregion
 
-        // ³ëµå ¾÷µ¥ÀÌÆ®
-        UpdateNode(clockwise);
+		// ë…¸ë“œ ì—…ë°ì´íŠ¸
+		UpdateNode(clockwise);
 
-        // Å¸¿ö °ø°İ ¿©ºÎ ¼³Á¤
-        UpdateTowerAttack(true);
+		// íƒ€ì›Œ ê³µê²© ì—¬ë¶€ ì„¤ì •
+		UpdateTowerAttack(true);
 
-        // È¸Àü ¿©ºÎ ¼³Á¤
-        m_IsRotating = false;
+		// íšŒì „ ì—¬ë¶€ ì„¤ì •
+		m_IsRotating = false;
 
-        // È¸Àü Á¾·á ÀÌº¥Æ® È£Ãâ
-        m_RotateEndEvent?.Invoke();
-    }
-    // ³ëµå ¾÷µ¥ÀÌÆ®
-    protected void UpdateNode(bool clockwise = true)
-    {
-        // ½Ã°è ¹æÇâ
-        if (clockwise)
-        {
-            SwapList(E_Direction.North, E_Direction.East);
-            SwapList(E_Direction.South, E_Direction.West);
-            SwapList(E_Direction.North, E_Direction.South);
-        }
-        // ¹İ½Ã°è ¹æÇâ
-        else
-        {
-            SwapList(E_Direction.North, E_Direction.West);
-            SwapList(E_Direction.South, E_Direction.East);
-            SwapList(E_Direction.North, E_Direction.South);
-        }
-    }
-    // ¸®½ºÆ® ±³È¯
-    protected void SwapList(E_Direction first, E_Direction second)
-    {
-        List<Node> FirstList = m_NodeList[StandardNodeType][first];
-        List<Node> SecondList = m_NodeList[StandardNodeType][second];
-        List<Node> TempList = new List<Node>(FirstList);
+		// íšŒì „ ì¢…ë£Œ ì´ë²¤íŠ¸ í˜¸ì¶œ
+		m_RotateEndEvent?.Invoke();
+	}
+	// ë…¸ë“œ ì—…ë°ì´íŠ¸
+	protected void UpdateNode(bool clockwise = true)
+	{
+		// ì‹œê³„ ë°©í–¥
+		if (clockwise)
+		{
+			SwapList(E_Direction.North, E_Direction.East);
+			SwapList(E_Direction.South, E_Direction.West);
+			SwapList(E_Direction.North, E_Direction.South);
+		}
+		// ë°˜ì‹œê³„ ë°©í–¥
+		else
+		{
+			SwapList(E_Direction.North, E_Direction.West);
+			SwapList(E_Direction.South, E_Direction.East);
+			SwapList(E_Direction.North, E_Direction.South);
+		}
+	}
+	// ë¦¬ìŠ¤íŠ¸ êµí™˜
+	protected void SwapList(E_Direction first, E_Direction second)
+	{
+		List<Node> FirstList = m_NodeList[StandardNodeType][first];
+		List<Node> SecondList = m_NodeList[StandardNodeType][second];
+		List<Node> TempList = new List<Node>(FirstList);
 
-        Transform First_T = m_NodeParentList[StandardNodeType][first];
-        Transform Second_T = m_NodeParentList[StandardNodeType][second];
-        List<Transform> Temp_T = new List<Transform>();
+		Transform First_T = m_NodeParentList[StandardNodeType][first];
+		Transform Second_T = m_NodeParentList[StandardNodeType][second];
+		List<Transform> Temp_T = new List<Transform>();
 
-        int FirstCount = First_T.childCount;
-        int SecondCount = Second_T.childCount;
+		int FirstCount = First_T.childCount;
+		int SecondCount = Second_T.childCount;
 
-        // 1 -> Temp
-        for (int i = 0; i < FirstCount; ++i)
-        {
-            Temp_T.Add(First_T.GetChild(i));
-        }
-        // 2 -> 1
-        FirstList.Clear();
-        FirstList.AddRange(SecondList);
-        for (int i = 0; i < SecondCount; ++i)
-        {
-            Second_T.GetChild(0).SetParent(First_T);
-        }
-        // Temp -> 2
-        SecondList.Clear();
-        SecondList.AddRange(TempList);
-        for (int i = 0; i < FirstCount; ++i)
-        {
-            Temp_T[i].SetParent(Second_T);
-        }
+		// 1 -> Temp
+		for (int i = 0; i < FirstCount; ++i)
+		{
+			Temp_T.Add(First_T.GetChild(i));
+		}
+		// 2 -> 1
+		FirstList.Clear();
+		FirstList.AddRange(SecondList);
+		for (int i = 0; i < SecondCount; ++i)
+		{
+			Second_T.GetChild(0).SetParent(First_T);
+		}
+		// Temp -> 2
+		SecondList.Clear();
+		SecondList.AddRange(TempList);
+		for (int i = 0; i < FirstCount; ++i)
+		{
+			Temp_T[i].SetParent(Second_T);
+		}
 
-        // Á¤º¸ ¾÷µ¥ÀÌÆ®
-        foreach (var item in FirstList)
-        {
-            // ³ëµå ¹æÇâ ¾÷µ¥ÀÌÆ®
-            item.m_Direction = first;
+		// ì •ë³´ ì—…ë°ì´íŠ¸
+		foreach (var item in FirstList)
+		{
+			// ë…¸ë“œ ë°©í–¥ ì—…ë°ì´íŠ¸
+			item.m_Direction = first;
 
-            // Å¸¿ö ¹æÇâ ¾÷µ¥ÀÌÆ®
-            if (null != item.m_Tower)
-                item.m_Tower.Direction = first;
-        }
-        foreach (var item in SecondList)
-        {
-            // ³ëµå ¹æÇâ ¾÷µ¥ÀÌÆ®
-            item.m_Direction = second;
+			// íƒ€ì›Œ ë°©í–¥ ì—…ë°ì´íŠ¸
+			if (null != item.m_Tower)
+				item.m_Tower.Direction = first;
+		}
+		foreach (var item in SecondList)
+		{
+			// ë…¸ë“œ ë°©í–¥ ì—…ë°ì´íŠ¸
+			item.m_Direction = second;
 
-            // Å¸¿ö ¹æÇâ ¾÷µ¥ÀÌÆ®
-            if (null != item.m_Tower)
-                item.m_Tower.Direction = second;
-        }
-    }
-    // Å¸¿ö ¹Ù¶óº¼ ¹æÇâ ¾÷µ¥ÀÌÆ®
-    protected void UpdateTowerLookingDir(float angle)
-    {
-        // Å¸¿ö ¹Ù¶óº¼ ¹æÇâ ¾÷µ¥ÀÌÆ®
-        for (E_Direction i = 0; i < E_Direction.Max; ++i)
-        {
-            foreach (var item in m_NodeList[StandardNodeType][i])
-            {
-                if (null != item.m_Tower)
-                {
-                    m_LookingDir.transform.position = item.m_Tower.m_TowerInfo.LookingDir;
-                    m_LookingDir.transform.RotateAround(m_Center.transform.position, Vector3.up, angle);
-                    item.m_Tower.m_TowerInfo.LookingDir = m_LookingDir.transform.position;
-                }
-            }
-        }
-    }
-    // Å¸¿ö Å¸°Ù ¾÷µ¥ÀÌÆ®
-    protected void UpdateTowerTarget()
-    {
-        for (E_Direction i = 0; i <E_Direction.Max;++ i)
-        {
-            foreach (var item in m_NodeList[StandardNodeType][i])
-            {
-                if (null != item.m_Tower)
-                {
-                    item.m_Tower.m_Target = null;
-                    item.m_Tower.m_TowerInfo.ShouldFindTarget = true;
-                }
-            }
-        }
-    }
-    // Å¸¿ö °ø°İ ¿©ºÎ ¾÷µ¥ÀÌÆ®
-    protected void UpdateTowerAttack(bool flag)
-    {
-        // Å¸¿ö °ø°İ ¿©ºÎ ¾÷µ¥ÀÌÆ®
-        for (E_Direction i = 0; i < E_Direction.Max; ++i)
-        {
-            foreach (var item in m_NodeList[StandardNodeType][i])
-            {
-                if (null != item.m_Tower)
-                {
-                    item.m_Tower.CanAttack = flag;
-                }
-            }
-        }
-    }
-    #endregion
+			// íƒ€ì›Œ ë°©í–¥ ì—…ë°ì´íŠ¸
+			if (null != item.m_Tower)
+				item.m_Tower.Direction = second;
+		}
+	}
+	// íƒ€ì›Œ ë°”ë¼ë³¼ ë°©í–¥ ì—…ë°ì´íŠ¸
+	protected void UpdateTowerLookingDir(float angle)
+	{
+		// íƒ€ì›Œ ë°”ë¼ë³¼ ë°©í–¥ ì—…ë°ì´íŠ¸
+		for (E_Direction i = 0; i < E_Direction.Max; ++i)
+		{
+			foreach (var item in m_NodeList[StandardNodeType][i])
+			{
+				if (null != item.m_Tower)
+				{
+					m_LookingDir.transform.position = item.m_Tower.m_TowerInfo.LookingDir;
+					m_LookingDir.transform.RotateAround(m_Center.transform.position, Vector3.up, angle);
+					item.m_Tower.m_TowerInfo.LookingDir = m_LookingDir.transform.position;
+				}
+			}
+		}
+	}
+	// íƒ€ì›Œ íƒ€ê²Ÿ ì—…ë°ì´íŠ¸
+	protected void UpdateTowerTarget()
+	{
+		for (E_Direction i = 0; i < E_Direction.Max; ++i)
+		{
+			foreach (var item in m_NodeList[StandardNodeType][i])
+			{
+				if (null != item.m_Tower)
+				{
+					item.m_Tower.m_Target = null;
+					item.m_Tower.m_TowerInfo.ShouldFindTarget = true;
+				}
+			}
+		}
+	}
+	// íƒ€ì›Œ ê³µê²© ì—¬ë¶€ ì—…ë°ì´íŠ¸
+	protected void UpdateTowerAttack(bool flag)
+	{
+		// íƒ€ì›Œ ê³µê²© ì—¬ë¶€ ì—…ë°ì´íŠ¸
+		for (E_Direction i = 0; i < E_Direction.Max; ++i)
+		{
+			foreach (var item in m_NodeList[StandardNodeType][i])
+			{
+				if (null != item.m_Tower)
+				{
+					item.m_Tower.CanAttack = flag;
+				}
+			}
+		}
+	}
+	#endregion
 
-    public List<Node> GetNodeList(E_Direction dir)
-    {
-        List<Node> result = new List<Node>();
-        result.AddRange(m_NodeList[E_NodeType.Inner][dir]);
-        result.AddRange(m_NodeList[E_NodeType.Outer][dir]);
-        return result;
-    }
+	public List<Node> GetNodeList(E_Direction dir)
+	{
+		List<Node> result = new List<Node>();
+		result.AddRange(m_NodeList[E_NodeType.Inner][dir]);
+		result.AddRange(m_NodeList[E_NodeType.Outer][dir]);
+		return result;
+	}
 
-    // ½Ã°è ¹æÇâ È¸Àü
-    protected void CWRotate()
-    {
-        StartCoroutine(RotateNode());
-    }
-    // ¹İ½Ã°è ¹æÇâ È¸Àü
-    protected void CCWRotate()
-    {
-        StartCoroutine(RotateNode(false));
-    }
+	// ì‹œê³„ ë°©í–¥ íšŒì „
+	protected void CWRotate()
+	{
+		StartCoroutine(RotateNode());
+	}
+	// ë°˜ì‹œê³„ ë°©í–¥ íšŒì „
+	protected void CCWRotate()
+	{
+		StartCoroutine(RotateNode(false));
+	}
 }
 
 public enum E_NodeType
 {
-    None = -1,
+	None = -1,
 
-    Inner,
-    Outer,
+	Inner,
+	Outer,
 
-    Max
+	Max
 }
