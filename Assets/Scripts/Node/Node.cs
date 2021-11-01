@@ -35,8 +35,7 @@ public class Node : MonoBehaviour
         {
             m_Tower.transform.SetParent(transform);
             m_Tower.gameObject.SetActive(true);
-            //m_Tower.transform.localPosition = new Vector3(0f, 0.501f, 0f);
-            m_Tower.transform.position = new Vector3(0f, 10f, 0f);
+            m_Tower.transform.localPosition = new Vector3(0f, 0.501f, 0f);
             m_Tower.transform.localEulerAngles = Vector3.zero;
             m_Tower.m_TowerInfo.Direction = m_Direction;
             m_Tower.m_TowerInfo.LookingDir = m_Tower.transform.forward;
